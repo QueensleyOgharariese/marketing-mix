@@ -1,0 +1,13 @@
+{
+  "nomeSito": "Marketing Mix",
+  "descrizioneSito": "Impara il marketing facendo: prova i ruoli veri dentro un'azienda finta, con dati realistici.",
+  "home": {
+    "titolo": "Scopri quale lavoro del marketing fa per te",
+    "sottotitolo": "SEO, brand, social, CRM e altri ruoli: capisci cosa fanno e prova a farli, gratis."
+  },
+  "menu": [
+    { "etichetta": "Ruoli", "link": "/ruoli/" },
+    { "etichetta": "Blog", "link": "/blog/" }
+  ],
+  "footer": "Progetto personale di Queen. Questo sito non usa cookie."
+}

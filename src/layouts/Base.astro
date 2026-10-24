@@ -1,0 +1,74 @@
+---
+// LAYOUT DI BASE
+// Un "layout" è la cornice comune a tutte le pagine: <head>, menu e footer.
+// Si scrive una volta sola qui; ogni pagina ci mette dentro il suo contenuto.
+import "../styles/global.css";
+import impostazioni from "../data/impostazioni.json";
+
+// "Props" = le informazioni che ogni pagina passa al layout
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = impostazioni.descrizioneSito } = Astro.props;
+
+// Titolo nella scheda del browser: "Titolo pagina · Nome sito"
+const titoloCompleto =
+  title === impostazioni.nomeSito ? title : `${title} · ${impostazioni.nomeSito}`;
+// Link canonico: dice a Google qual è l'indirizzo ufficiale della pagina
+const canonico = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titoloCompleto}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonico} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <header class="contenitore intestazione">
+      <a class="logo" href="/">{impostazioni.nomeSito}</a>
+      <nav aria-label="Menu principale">
+        <ul>
+          {impostazioni.menu.map((voce) => (
+            <li><a href={voce.link}>{voce.etichetta}</a></li>
+          ))}
+        </ul>
+      </nav>
+    </header>
+
+    <main class="contenitore">
+      <slot />
+    </main>
+
+    <footer class="contenitore piede">
+      <p>{impostazioni.footer}</p>
+    </footer>
+  </body>
+</html>
+
+<style>
+  /* Gli stili scritti qui valgono solo per questo file (Astro li isola) */
+  .intestazione {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-2);
+    padding-block: var(--space-3);
+  }
+  .logo { font-weight: 800; color: var(--ink); text-decoration: none; }
+  nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: var(--space-3); }
+  nav a { color: var(--ink); text-decoration: none; font-weight: 600; }
+  nav a:hover { color: var(--accent); }
+  main { padding-block: var(--space-3) var(--space-4); }
+  .piede {
+    border-top: 1px solid var(--line);
+    padding-block: var(--space-3);
+    color: var(--muted);
+    font-size: 0.875rem;
+  }
+</style>

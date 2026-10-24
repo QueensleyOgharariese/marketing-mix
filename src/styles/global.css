@@ -1,0 +1,65 @@
+/* =========================================================
+   TOKEN DI STILE (provvisori)
+   Tutti i colori, i font e le spaziature del sito stanno qui.
+   Lo stile definitivo lo scegliamo dopo la moodboard:
+   basterà cambiare questi valori, non tutto il sito.
+   Font: solo di sistema, nessun font caricato da Google (GDPR).
+   ========================================================= */
+:root {
+  --bg: #f3f5f8;
+  --surface: #ffffff;
+  --ink: #17202e;
+  --muted: #566173;
+  --line: #d8dde6;
+  --accent: #2f47c4;
+
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --max-width: 68rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #11151c;
+    --surface: #1a2029;
+    --ink: #e8ecf2;
+    --muted: #9aa5b6;
+    --line: #2c3442;
+    --accent: #8d9cf5;
+    color-scheme: dark;
+  }
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+a { color: var(--accent); }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+h1, h2, h3 { line-height: 1.15; text-wrap: balance; }
+img { max-width: 100%; height: auto; }
+
+/* Contenitore centrale con margini laterali */
+.contenitore {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-inline: max(1rem, env(safe-area-inset-left, 0px));
+}
+
+/* Testo lungo (articoli): righe di circa 65 caratteri, più facili da leggere */
+.testo { max-width: 65ch; }
+
+/* Rispetta chi ha chiesto meno movimento nel sistema operativo */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

@@ -1,0 +1,21 @@
+---
+// HOME PAGE
+// Ogni file dentro src/pages diventa una pagina: index.astro = indirizzo "/".
+// I testi arrivano da src/data/impostazioni.json, così si cambiano senza toccare il codice.
+import Base from "../layouts/Base.astro";
+import impostazioni from "../data/impostazioni.json";
+---
+<Base title={impostazioni.nomeSito}>
+  <section class="apertura testo">
+    <h1>{impostazioni.home.titolo}</h1>
+    <p>{impostazioni.home.sottotitolo}</p>
+    <p><a href="/ruoli/">Guarda i ruoli del marketing</a></p>
+  </section>
+</Base>
+
+<style>
+  .apertura { display: grid; gap: var(--space-2); padding-block: var(--space-4); }
+  h1 { font-size: clamp(2rem, 6vw, 3.25rem); margin: 0; }
+  p { margin: 0; color: var(--muted); font-size: 1.2rem; }
+  a { font-weight: 700; }
+</style>

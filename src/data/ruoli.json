@@ -1,0 +1,254 @@
+[
+  {
+    "nome": "Brand manager",
+    "hub": 1,
+    "fase": "Farsi conoscere",
+    "cosa": "Decide come l'azienda si presenta: nome, valori, tono di voce, colori.",
+    "giornata": [
+      "Controlla che post e pubblicità rispettino lo stile del marchio",
+      "Scrive le linee guida del brand",
+      "Confronta il brand con i concorrenti"
+    ],
+    "strumenti": [
+      "Canva",
+      "Google Docs",
+      "Coolors"
+    ],
+    "ruoliFigli": [
+      "Brand strategy"
+    ],
+    "tiPiaceSe": "Ti piace se hai occhio per i dettagli e ti chiedi spesso perché un marchio ti sta simpatico."
+  },
+  {
+    "nome": "SEO specialist",
+    "hub": 1,
+    "fase": "Farsi trovare",
+    "cosa": "Fa in modo che il sito compaia tra i primi risultati di Google senza pagare.",
+    "giornata": [
+      "Cerca le parole che le persone scrivono su Google",
+      "Migliora titoli e testi delle pagine",
+      "Controlla errori tecnici del sito"
+    ],
+    "strumenti": [
+      "Google Search Console",
+      "Google Trends",
+      "Google Keyword Planner"
+    ],
+    "ruoliFigli": [
+      "Content strategy",
+      "Copywriting"
+    ],
+    "tiPiaceSe": "Ti piace se ami scrivere, analizzare e risolvere piccoli enigmi."
+  },
+  {
+    "nome": "SEA / PPC specialist",
+    "hub": 1,
+    "fase": "Farsi trovare",
+    "cosa": "Gestisce gli annunci a pagamento sui motori di ricerca: paghi solo quando qualcuno clicca.",
+    "giornata": [
+      "Sceglie le parole su cui far comparire gli annunci",
+      "Scrive annunci brevi e li mette a confronto",
+      "Controlla quanto costa ogni cliente"
+    ],
+    "strumenti": [
+      "Google Keyword Planner",
+      "Google Ads Transparency Center",
+      "Google Sheets"
+    ],
+    "ruoliFigli": [
+      "Performance marketing",
+      "Paid social"
+    ],
+    "tiPiaceSe": "Ti piace se ti diverti con i numeri e vuoi vedere risultati in fretta."
+  },
+  {
+    "nome": "Social media manager",
+    "hub": 1,
+    "fase": "Farsi conoscere",
+    "cosa": "Gestisce i profili social dell'azienda: cosa pubblicare, quando e come rispondere.",
+    "giornata": [
+      "Prepara il calendario dei post",
+      "Risponde ai commenti",
+      "Guarda quali post funzionano meglio"
+    ],
+    "strumenti": [
+      "Meta Business Suite",
+      "Canva",
+      "CapCut"
+    ],
+    "ruoliFigli": [
+      "Community management",
+      "Video"
+    ],
+    "tiPiaceSe": "Ti piace se usi molto i social e hai idee per contenuti."
+  },
+  {
+    "nome": "Influencer marketing",
+    "hub": 1,
+    "fase": "Farsi conoscere",
+    "cosa": "Sceglie i creator giusti e organizza collaborazioni con loro.",
+    "giornata": [
+      "Cerca creator adatti al marchio",
+      "Scrive il brief della collaborazione",
+      "Controlla che i post sponsorizzati siano dichiarati (es. #adv)"
+    ],
+    "strumenti": [
+      "Instagram e TikTok",
+      "Google Sheets",
+      "Linee guida AGCOM"
+    ],
+    "ruoliFigli": [
+      "Contenuti sponsorizzati",
+      "Regole di trasparenza"
+    ],
+    "tiPiaceSe": "Ti piace se segui molti creator e sai capire chi è credibile."
+  },
+  {
+    "nome": "CRM manager",
+    "hub": 1,
+    "fase": "Far tornare e misurare",
+    "cosa": "Cura il rapporto con chi ha già comprato, per farlo tornare.",
+    "giornata": [
+      "Divide i clienti in gruppi",
+      "Prepara email automatiche (benvenuto, carrello abbandonato)",
+      "Misura quanti clienti tornano"
+    ],
+    "strumenti": [
+      "HubSpot CRM (gratuito)",
+      "Brevo (piano gratuito)",
+      "Google Sheets"
+    ],
+    "ruoliFigli": [
+      "Email marketing",
+      "Lifecycle",
+      "Loyalty"
+    ],
+    "tiPiaceSe": "Ti piace se sei organizzata e pensi alle persone come relazioni lunghe."
+  },
+  {
+    "nome": "Product marketing",
+    "hub": 2,
+    "fase": "Convincere e vendere",
+    "cosa": "Spiega perché un prodotto è utile e prepara il suo lancio.",
+    "giornata": [
+      "Parla con il team prodotto",
+      "Scrive il messaggio chiave del prodotto",
+      "Prepara materiali per il lancio"
+    ],
+    "strumenti": [
+      "Google Docs",
+      "Google Slides",
+      "Notion (piano gratuito)"
+    ],
+    "ruoliFigli": [
+      "Go-to-market",
+      "Sales enablement"
+    ],
+    "tiPiaceSe": "Ti piace se sai spiegare cose complicate in modo semplice."
+  },
+  {
+    "nome": "Trade marketing",
+    "hub": 2,
+    "fase": "Convincere e vendere",
+    "cosa": "Fa vendere i prodotti nei negozi e con i distributori.",
+    "giornata": [
+      "Decide come esporre i prodotti sugli scaffali",
+      "Organizza promozioni nei punti vendita",
+      "Analizza le vendite per negozio"
+    ],
+    "strumenti": [
+      "Google Sheets",
+      "Canva",
+      "Google Slides"
+    ],
+    "ruoliFigli": [
+      "Shopper marketing",
+      "Category management"
+    ],
+    "tiPiaceSe": "Ti piace se ti incuriosisce cosa succede dentro un supermercato."
+  },
+  {
+    "nome": "PR e comunicazione",
+    "hub": 2,
+    "fase": "Farsi conoscere",
+    "cosa": "Cura la reputazione dell'azienda con giornalisti e pubblico.",
+    "giornata": [
+      "Scrive comunicati stampa",
+      "Tiene i contatti con i giornalisti",
+      "Prepara le risposte in caso di crisi"
+    ],
+    "strumenti": [
+      "Google Docs",
+      "Google Alerts",
+      "Google Sheets"
+    ],
+    "ruoliFigli": [
+      "Ufficio stampa",
+      "Comunicazione interna"
+    ],
+    "tiPiaceSe": "Ti piace se scrivi bene e resti calma sotto pressione."
+  },
+  {
+    "nome": "Partnerships",
+    "hub": 2,
+    "fase": "Convincere e vendere",
+    "cosa": "Crea collaborazioni con altre aziende per crescere insieme.",
+    "giornata": [
+      "Cerca aziende con lo stesso pubblico",
+      "Propone accordi vantaggiosi per entrambi",
+      "Misura i risultati delle collaborazioni"
+    ],
+    "strumenti": [
+      "HubSpot CRM (gratuito)",
+      "LinkedIn",
+      "Google Sheets"
+    ],
+    "ruoliFigli": [
+      "Affiliate marketing",
+      "Co-marketing"
+    ],
+    "tiPiaceSe": "Ti piace se ami conoscere persone e negoziare."
+  },
+  {
+    "nome": "Ricerca di mercato",
+    "hub": 2,
+    "fase": "Far tornare e misurare",
+    "cosa": "Scopre chi sono i clienti, cosa vogliono e cosa pensano del marchio.",
+    "giornata": [
+      "Prepara questionari",
+      "Fa interviste ai clienti",
+      "Riassume i risultati in poche idee chiare"
+    ],
+    "strumenti": [
+      "Google Forms",
+      "Google Trends",
+      "Google Sheets"
+    ],
+    "ruoliFigli": [
+      "Consumer insights",
+      "User research"
+    ],
+    "tiPiaceSe": "Ti piace se fai sempre domande e ti interessa la psicologia."
+  },
+  {
+    "nome": "Marketing analytics / martech",
+    "hub": 2,
+    "fase": "Far tornare e misurare",
+    "cosa": "Raccoglie i dati e sceglie gli strumenti che fanno lavorare il marketing.",
+    "giornata": [
+      "Controlla che i dati del sito siano corretti",
+      "Costruisce report",
+      "Collega gli strumenti tra loro"
+    ],
+    "strumenti": [
+      "Google Analytics 4",
+      "Looker Studio",
+      "Google Tag Manager"
+    ],
+    "ruoliFigli": [
+      "Marketing automation",
+      "CRO (ottimizzazione conversioni)"
+    ],
+    "tiPiaceSe": "Ti piace se ti piacciono dati, tecnologia e mettere ordine."
+  }
+]

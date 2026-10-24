@@ -1,0 +1,60 @@
+# Configurazione di Pages CMS (il pannello per modificare i testi senza codice).
+# Ogni voce sotto "content" diventa una sezione del pannello.
+
+media:
+  input: public/immagini
+  output: /immagini
+
+content:
+  # Articoli del blog: un file Markdown per articolo
+  - name: blog
+    label: Blog
+    type: collection
+    path: src/content/blog
+    fields:
+      - name: title
+        label: Titolo
+        type: string
+        required: true
+      - name: description
+        label: Descrizione per Google (massimo 160 caratteri)
+        type: text
+        required: true
+      - name: date
+        label: Data
+        type: date
+      - name: ruolo
+        label: Ruolo collegato
+        type: string
+      - name: bozza
+        label: Bozza (non pubblicare)
+        type: boolean
+      - name: body
+        label: Testo
+        type: rich-text
+
+  # Testi generali del sito: nome, home, footer
+  - name: impostazioni
+    label: Impostazioni del sito
+    type: file
+    path: src/data/impostazioni.json
+    fields:
+      - name: nomeSito
+        label: Nome del sito
+        type: string
+      - name: descrizioneSito
+        label: Descrizione del sito
+        type: text
+      - name: home
+        label: Home
+        type: object
+        fields:
+          - name: titolo
+            label: Titolo grande
+            type: string
+          - name: sottotitolo
+            label: Sottotitolo
+            type: text
+      - name: footer
+        label: Testo del footer
+        type: string

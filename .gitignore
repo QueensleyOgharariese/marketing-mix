@@ -1,0 +1,5 @@
+# Cartelle generate in automatico: non vanno su GitHub
+node_modules/
+dist/
+.astro/
+.DS_Store
