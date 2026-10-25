@@ -37,11 +37,13 @@ npm run build    # crea il sito finale nella cartella dist/
 
 ## Pubblicazione
 
-Il sito è pubblicato su Cloudflare Pages. Ogni modifica su GitHub (anche da Pages CMS) fa ricostruire il sito in automatico.
+Il sito è pubblicato su Cloudflare Workers (file statici) all'indirizzo https://marketing-mix.queensleyk10.workers.dev/.
+Ogni modifica su GitHub (anche da Pages CMS) fa ricostruire il sito in automatico.
 
-Impostazioni per Cloudflare Pages:
+Impostazioni del Worker (Impostazioni → Build):
 - comando di build: `npm run build`
-- cartella di output: `dist`
+- comando di deploy: `npx wrangler deploy`
+- la configurazione è in `wrangler.jsonc`: dice a Cloudflare di pubblicare la cartella `dist`.
 
 ## Regole del progetto
 

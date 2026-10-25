@@ -1,0 +1,10 @@
+// Configurazione di Cloudflare Workers.
+// Il sito è statico: Astro crea i file nella cartella "dist" e Cloudflare li pubblica così come sono.
+// "name" deve essere uguale al nome del Worker creato nella dashboard di Cloudflare.
+{
+  "name": "marketing-mix",
+  "compatibility_date": "2026-10-25",
+  "assets": {
+    "directory": "./dist"
+  }
+}
