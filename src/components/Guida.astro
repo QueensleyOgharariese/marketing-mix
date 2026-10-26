@@ -1,0 +1,92 @@
+---
+// GUIDA INIZIALE (tutorial) di un esercizio
+// Si apre da sola la prima volta; poi si riapre con il bottone che ha l'attributo data-apri-guida.
+// Usa l'elemento <dialog> del browser: tiene il focus dentro la finestra e si chiude con Esc.
+// "zona" evidenzia una parte dello schema: "sinistra", "centro", "destra" oppure "tutto".
+import Pesca from "./Pesca.astro";
+
+interface Passo { titolo: string; testo: string; zona: "sinistra" | "centro" | "destra" | "tutto"; }
+interface Props { chiave: string; passi: Passo[]; }
+const { chiave, passi } = Astro.props;
+---
+<dialog class="guida" data-guida={chiave} aria-labelledby="guida-titolo">
+  <div class="guida-corpo">
+    <div class="guida-testa">
+      <Pesca dimensione={56} occhiali />
+      <span class="guida-conta" data-guida-conta aria-live="polite">1 di {passi.length}</span>
+    </div>
+    {passi.map((p, i) => (
+      <section class="passo" data-passo={i} hidden={i !== 0}>
+        <div class="schema" aria-hidden="true">
+          <span class:list={["col", { accesa: p.zona === "sinistra" || p.zona === "tutto" }]}><i></i><i></i></span>
+          <span class:list={["col col--centro", { accesa: p.zona === "centro" || p.zona === "tutto" }]}><i></i><i></i><i></i></span>
+          <span class:list={["col", { accesa: p.zona === "destra" || p.zona === "tutto" }]}><i></i><i></i></span>
+        </div>
+        <h2 id={i === 0 ? "guida-titolo" : undefined} class="app-titolo">{p.titolo}</h2>
+        <p set:html={p.testo} />
+      </section>
+    ))}
+    <div class="guida-piede">
+      <button type="button" class="salta" data-guida-salta>Salta la guida</button>
+      <div class="frecce">
+        <button type="button" class="bottone-app bottone-app--chiaro" data-guida-indietro disabled>Indietro</button>
+        <button type="button" class="bottone-app" data-guida-avanti>Avanti</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  document.querySelectorAll<HTMLDialogElement>("dialog[data-guida]").forEach((d) => {
+    const chiave = `marketing-mix-guida-${d.dataset.guida}`;
+    const passi = [...d.querySelectorAll<HTMLElement>("[data-passo]")];
+    const avanti = d.querySelector<HTMLButtonElement>("[data-guida-avanti]")!;
+    const indietro = d.querySelector<HTMLButtonElement>("[data-guida-indietro]")!;
+    const conta = d.querySelector("[data-guida-conta]")!;
+    let ora = 0;
+
+    function mostra(n: number) {
+      ora = n;
+      passi.forEach((p, i) => (p.hidden = i !== n));
+      conta.textContent = `${n + 1} di ${passi.length}`;
+      indietro.disabled = n === 0;
+      avanti.textContent = n === passi.length - 1 ? "Inizia l'esercizio" : "Avanti";
+    }
+    function chiudi() {
+      try { localStorage.setItem(chiave, "vista"); } catch (e) { /* non disponibile */ }
+      d.close();
+    }
+    avanti.addEventListener("click", () => (ora < passi.length - 1 ? mostra(ora + 1) : chiudi()));
+    indietro.addEventListener("click", () => ora > 0 && mostra(ora - 1));
+    d.querySelector("[data-guida-salta]")!.addEventListener("click", chiudi);
+    d.addEventListener("cancel", () => { try { localStorage.setItem(chiave, "vista"); } catch (e) { /* */ } });
+
+    document.querySelectorAll("[data-apri-guida]").forEach((b) => b.addEventListener("click", () => { mostra(0); d.showModal(); }));
+
+    let vista = false;
+    try { vista = localStorage.getItem(chiave) === "vista"; } catch (e) { /* */ }
+    if (!vista) { mostra(0); d.showModal(); }
+  });
+</script>
+
+<style>
+  .guida { border: 0; padding: 0; border-radius: 22px; width: min(560px, calc(100vw - 32px)); box-shadow: 0 30px 80px -20px rgba(42, 29, 24, .45); color: var(--inchiostro); }
+  .guida::backdrop { background: rgba(42, 29, 24, .45); }
+  .guida-corpo { padding: 24px 26px; display: flex; flex-direction: column; gap: 16px; }
+  .guida-testa { display: flex; align-items: center; justify-content: space-between; }
+  .guida-conta { font-size: .8rem; font-weight: 700; color: #8a7b72; }
+  .passo { display: flex; flex-direction: column; gap: 10px; }
+  .passo h2 { font-size: 1.45rem; line-height: 1.15; }
+  .passo p { line-height: 1.6; color: #3a2b24; }
+  /* Schema dell'esercizio: tre colonne, quella di cui si parla è arancione */
+  .schema { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 8px; height: 96px; padding: 10px; background: #f7f4f1; border-radius: 14px; }
+  .col { border-radius: 8px; background: #fff; border: 2px solid #eadfd6; padding: 8px; display: flex; flex-direction: column; gap: 6px; transition: border-color .2s, background .2s; }
+  .col i { display: block; height: 8px; border-radius: 4px; background: #eadfd6; }
+  .col i:nth-child(2) { width: 70%; }
+  .col.accesa { border-color: var(--arancio); background: #fff1e6; }
+  .col.accesa i { background: #ffb27a; }
+  .guida-piede { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; }
+  .salta { font: inherit; font-size: .85rem; font-weight: 700; background: none; border: 0; color: #6b5d55; text-decoration: underline; cursor: pointer; padding: 6px 0; }
+  .frecce { display: flex; gap: 8px; }
+  .frecce button:disabled { opacity: .5; cursor: default; }
+</style>

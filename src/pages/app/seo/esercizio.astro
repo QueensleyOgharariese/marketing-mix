@@ -6,10 +6,20 @@
 import AppLayout from "../../../layouts/AppLayout.astro";
 import Pesca from "../../../components/Pesca.astro";
 import Passi from "../../../components/PassiEsercizio.astro";
+import Guida from "../../../components/Guida.astro";
 import es from "../../../data/app/seo-sencha.json";
 import { PARTI, LIMITI } from "../../../scripts/controlli-seo";
 
 const s = es.scheda;
+
+// Passi della guida iniziale (si apre da sola la prima volta)
+const guida = [
+  { zona: "tutto", titolo: "Il tuo primo esercizio da SEO", testo: "Marta ti ha chiesto di sistemare la pagina del tè Sencha, così le persone la trovano su Google. Lo farai in <strong>4 parti</strong>, in circa 25 minuti. Ti spiego come funziona la pagina." },
+  { zona: "sinistra", titolo: "A sinistra: la richiesta e la scheda", testo: "Qui trovi la richiesta di Marta e la <strong>scheda prodotto</strong> con prezzo, preparazione e spedizione. Usa solo questi dati: niente informazioni inventate." },
+  { zona: "centro", titolo: "Al centro: il tuo lavoro", testo: "Le 4 parti, una sotto l'altra: capire chi cerca cosa, scrivere titolo e descrizione, scegliere i dati per Google, rispondere a una domanda. Le anteprime ti mostrano come appare su Google. Per i nomi usa i bottoni <strong>+ keyword</strong> e <strong>+ | Cinque Foglie</strong>: così eviti errori di battitura." },
+  { zona: "destra", titolo: "A destra: Pesca e i controlli", testo: "I controlli diventano <strong>verdi</strong> quando una cosa è fatta bene, e io ti dico cosa sistemare. Se ti blocchi, apri un aiuto: ognuno toglie 5 punti." },
+  { zona: "tutto", titolo: "Si salva da solo", testo: "Il lavoro resta salvato in questo browser, anche se chiudi la pagina. Quando hai finito clicca <strong>Consegna e confronta</strong>: vedrai i punti e la soluzione di un professionista." },
+] as const;
 const voci = [
   ["Prodotto", s.nome], ["Marca", s.marca], ["Origine", s.origine], ["Formato", s.formato],
   ["Prezzo", `${s.prezzo} €`], ["Disponibilità", s.disponibilita], ["Preparazione", s.preparazione],
@@ -38,7 +48,7 @@ const voci = [
     <form id="lavoro" class="centro" novalidate>
       <header class="intro">
         <h1 class="app-titolo">Sistema la pagina del Sencha per Google</h1>
-        <p class="nota">4 parti, circa {es.minuti} minuti. Il lavoro si salva da solo in questo browser.</p>
+        <p class="nota">4 parti, circa {es.minuti} minuti. Il lavoro si salva da solo in questo browser. <button type="button" class="link-guida" data-apri-guida>Rivedi la guida</button></p>
         <div class="serp-attuale"><span class="piccolo">Oggi su Google</span><span class="a-url">{es.attuale.url}</span><span class="a-titolo">{es.attuale.titolo}</span><span class="a-desc">{es.attuale.descrizione}</span></div>
       </header>
 
@@ -75,6 +85,11 @@ const voci = [
         <div class="campo">
           <div class="riga"><label for="titolo">Titolo della pagina (title)</label><span class="conta"><span data-conta="titolo">0 caratteri</span> · <span data-pixel>0 / {LIMITI.titoloPx} px</span></span></div>
           <input id="titolo" type="text" autocomplete="off" maxlength="120" placeholder={es.attuale.titolo} />
+          <div class="inserisci">
+            <span class="nota">Per evitare errori di battitura:</span>
+            <button type="button" class="chip-btn" data-inserisci="keyword" disabled>+ la keyword scelta</button>
+            <button type="button" class="chip-btn" data-inserisci="brand">+ | Cinque Foglie</button>
+          </div>
           <span class="barra" aria-hidden="true"><span data-barra="titolo"></span></span>
         </div>
         <div class="campo">
@@ -95,11 +110,17 @@ const voci = [
       <!-- 3. DATI STRUTTURATI -->
       <section class="pannello parte" id="parte-dati" aria-labelledby="t-3">
         <div class="parte-testa"><span class="numero">3</span><h2 id="t-3" class="parte-titolo">Prepara i dati per Google</h2></div>
-        <p>Compila i dati strutturati del prodotto: sono codice che le persone non vedono, ma Google sì.</p>
+        <p>Scegli i dati strutturati del prodotto guardando la scheda: sono codice che le persone non vedono, ma Google sì.</p>
         <div class="griglia-campi">
-          <label class="campo">Nome del prodotto<input id="s-nome" type="text" autocomplete="off" /></label>
-          <label class="campo">Marca<input id="s-marca" type="text" autocomplete="off" /></label>
-          <label class="campo">Prezzo<input id="s-prezzo" type="text" inputmode="decimal" autocomplete="off" placeholder="es. 9,90" /></label>
+          <label class="campo">Nome del prodotto
+            <select id="s-nome"><option value="">Scegli…</option><option>Sencha biologico</option><option>Tè verde</option><option>Matcha biologico</option></select>
+          </label>
+          <label class="campo">Marca
+            <select id="s-marca"><option value="">Scegli…</option><option>Cinque Foglie</option><option>Giappone</option><option>Tè verde Sencha</option></select>
+          </label>
+          <label class="campo">Prezzo
+            <select id="s-prezzo"><option value="">Scegli…</option><option>9,90</option><option>12,90</option><option>14,90</option></select>
+          </label>
           <label class="campo">Valuta
             <select id="s-valuta"><option value="EUR">EUR (euro)</option><option value="USD">USD (dollaro)</option></select>
           </label>
@@ -167,18 +188,19 @@ const voci = [
       </details>
     </aside>
   </div>
+  <Guida chiave="seo-1" passi={[...guida]} />
 </AppLayout>
 
 <script>
   import es from "../../../data/app/seo-sencha.json";
-  import { controlla, jsonLd, pixel, contaParole, LIMITI, PARTI, type Lavoro } from "../../../scripts/controlli-seo";
+  import { controlla, jsonLd, pixel, contaParole, avvisiBattitura, LIMITI, PARTI, type Lavoro } from "../../../scripts/controlli-seo";
   import { leggi, aggiornaRuolo } from "../../../scripts/progressi";
 
   const $ = <T extends HTMLElement>(sel: string) => document.querySelector<T>(sel)!;
   const titolo = $<HTMLInputElement>("#titolo");
   const descrizione = $<HTMLTextAreaElement>("#descrizione");
   const risposta = $<HTMLTextAreaElement>("#risposta");
-  const campi = { nome: $<HTMLInputElement>("#s-nome"), marca: $<HTMLInputElement>("#s-marca"), prezzo: $<HTMLInputElement>("#s-prezzo"), valuta: $<HTMLSelectElement>("#s-valuta"), disponibilita: $<HTMLSelectElement>("#s-disp") };
+  const campi = { nome: $<HTMLSelectElement>("#s-nome"), marca: $<HTMLSelectElement>("#s-marca"), prezzo: $<HTMLSelectElement>("#s-prezzo"), valuta: $<HTMLSelectElement>("#s-valuta"), disponibilita: $<HTMLSelectElement>("#s-disp") };
   const stelle = $<HTMLInputElement>("#s-stelle");
   const pesca = $("[data-pesca]");
   const salvato = $("[data-salvato]");
@@ -280,7 +302,13 @@ const voci = [
     });
     PARTI.forEach((_, n) => { $(`[data-conteggio="${n}"]`).textContent = `${esiti.slice(n * 4, n * 4 + 4).filter(Boolean).length}/4`; });
     const primo = esiti.findIndex((ok) => !ok);
-    pesca.textContent = primo === -1 ? "Tutti i controlli sono verdi! Rileggi tutto come farebbe una cliente, poi consegna." : SUGGERIMENTI[primo];
+    const avvisi = avvisiBattitura(l);
+    pesca.textContent = avvisi.length ? avvisi[0]
+      : primo === -1 ? "Tutti i controlli sono verdi! Rileggi tutto come farebbe una cliente, poi consegna." : SUGGERIMENTI[primo];
+    // Il bottone "+ la keyword scelta" si attiva quando c'è una keyword
+    const bk = $<HTMLButtonElement>('[data-inserisci="keyword"]');
+    bk.disabled = !l.keyword;
+    bk.textContent = l.keyword ? `+ ${l.keyword}` : "+ la keyword scelta";
     return { l, esiti };
   }
 
@@ -290,6 +318,29 @@ const voci = [
     aggiornaRuolo("seo", { stato: seo?.stato === "completato" ? "completato" : "in-corso", bozza: l });
     salvato.textContent = "Salvato in questo browser";
   }
+
+  // Inserisce nel titolo un testo scritto giusto (keyword o brand), dove si trova il cursore
+  function inserisci(testo: string) {
+    const inizio = titolo.selectionStart ?? titolo.value.length;
+    const fine = titolo.selectionEnd ?? titolo.value.length;
+    const prima = titolo.value.slice(0, inizio);
+    const dopo = titolo.value.slice(fine);
+    const spazio = prima && !prima.endsWith(" ") ? " " : "";
+    titolo.value = prima + spazio + testo + dopo;
+    titolo.focus();
+    const pos = (prima + spazio + testo).length;
+    titolo.setSelectionRange(pos, pos);
+    salva();
+  }
+  document.querySelector('[data-inserisci="brand"]')!.addEventListener("click", () => {
+    if (!/cinque foglie\s*$/i.test(titolo.value)) { titolo.setSelectionRange(titolo.value.length, titolo.value.length); inserisci("| Cinque Foglie"); }
+  });
+  document.querySelector('[data-inserisci="keyword"]')!.addEventListener("click", () => {
+    const kw = lavoro().keyword;
+    if (!kw) return;
+    const bello = kw.replace(/sencha/g, "Sencha"); // i nomi propri con la maiuscola
+    inserisci(titolo.value.trim() === "" ? bello.charAt(0).toUpperCase() + bello.slice(1) : bello);
+  });
 
   const form = $<HTMLFormElement>("#lavoro");
   form.addEventListener("input", salva);
@@ -360,6 +411,11 @@ const voci = [
   input[type=text]:focus, textarea:focus, select:focus { outline: none; border-color: var(--arancio); }
   .barra { height: 6px; background: #f1e6dd; border-radius: 99px; overflow: hidden; }
   .barra span { display: block; height: 100%; width: 0; background: var(--arancio); transition: width .2s, background .2s; }
+  .link-guida { font: inherit; font-weight: 700; color: var(--inchiostro); background: none; border: 0; padding: 0; text-decoration: underline; cursor: pointer; }
+  .inserisci { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-weight: 400; }
+  .chip-btn { font: inherit; font-size: .8rem; font-weight: 700; padding: 6px 11px; border-radius: 999px; border: 1px solid #d8c9bd; background: #fff8f2; color: var(--inchiostro); cursor: pointer; }
+  .chip-btn:hover:not(:disabled) { border-color: var(--arancio); }
+  .chip-btn:disabled { opacity: .5; cursor: default; }
   .griglia-campi { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px 14px; align-items: end; }
   .spunta { grid-column: 1 / -1; display: flex; gap: 10px; align-items: center; padding: 12px 14px; border: 1px dashed #d8c9bd; border-radius: 12px; cursor: pointer; }
   .spunta input { width: 18px; height: 18px; accent-color: var(--arancio); }

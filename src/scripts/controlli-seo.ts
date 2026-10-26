@@ -14,6 +14,34 @@ export function senzaSalute(...testi: string[]) {
   return t.length > 0 && !SALUTE.some((r) => r.test(t));
 }
 
+// Quante lettere bisogna aggiungere, togliere o cambiare per passare da a a b (distanza di Levenshtein)
+export function distanza(a: string, b: string) {
+  const d = Array.from({ length: a.length + 1 }, (_, i) => [i, ...Array(b.length).fill(0)]);
+  for (let j = 1; j <= b.length; j++) d[0][j] = j;
+  for (let i = 1; i <= a.length; i++)
+    for (let j = 1; j <= b.length; j++)
+      d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+  return d[a.length][b.length];
+}
+
+// Cerca una frase nel testo accettando piccoli errori di battitura.
+// Risponde "esatto", "quasi" (1-2 lettere sbagliate) oppure null.
+export function cerca(testo: string, frase: string, soloAllaFine = false): "esatto" | "quasi" | null {
+  const t = normalizza(testo).replace(/[|·\-–—:,.]/g, " ").replace(/\s+/g, " ").trim();
+  const f = normalizza(frase);
+  if (!f || !t) return null;
+  if (soloAllaFine ? t.endsWith(f) : t.includes(f)) return "esatto";
+  const parole = t.split(" ");
+  const n = f.split(" ").length;
+  const tolleranza = f.length >= 12 ? 2 : 1;
+  const inizi = soloAllaFine ? [parole.length - n] : parole.map((_, i) => i);
+  for (const i of inizi) {
+    if (i < 0 || i + n > parole.length) continue;
+    if (distanza(parole.slice(i, i + n).join(" "), f) <= tolleranza) return "quasi";
+  }
+  return null;
+}
+
 export const LIMITI = { titoloPx: 580, titoloMin: 30, descrizione: [70, 160], parole: [30, 70] };
 
 // Larghezza del titolo in pixel, come lo misura Google (stima: Arial 20 px, simile ai risultati da computer)
@@ -47,7 +75,6 @@ export function controlla(l: Lavoro, ricerche: Ricerca[], keywordGiuste: string[
     const scelte = ricerche.filter(filtro);
     return scelte.length > 0 && scelte.every(giusto);
   };
-  const t = normalizza(l.titolo);
   const kw = normalizza(l.keyword);
   const r = normalizza(l.risposta);
   const prezzo = l.schema.prezzo.replace(",", ".").replace(/[^\d.]/g, "");
@@ -59,13 +86,13 @@ export function controlla(l: Lavoro, ricerche: Ricerca[], keywordGiuste: string[
     gruppo((x) => x.giusti.length === 1 && x.giusti[0] === "acquisto"),
     keywordGiuste.map(normalizza).includes(kw),
     // B. Titolo e descrizione
-    kw.length > 0 && t.includes(kw),
+    kw.length > 0 && cerca(l.titolo, l.keyword) !== null,
     l.titolo.trim().length >= LIMITI.titoloMin && pixel(l.titolo.trim()) <= LIMITI.titoloPx,
-    t.endsWith("cinque foglie"),
+    cerca(l.titolo, "cinque foglie", true) !== null,
     l.descrizione.trim().length >= LIMITI.descrizione[0] && l.descrizione.trim().length <= LIMITI.descrizione[1] && senzaSalute(l.titolo, l.descrizione),
     // C. Dati strutturati
-    normalizza(l.schema.nome).includes("sencha") && normalizza(l.schema.marca) === "cinque foglie",
-    prezzo === "12.90" || prezzo === "12.9",
+    l.schema.nome === "Sencha biologico" && l.schema.marca === "Cinque Foglie",
+    prezzo === "12.90",
     l.schema.valuta === "EUR" && l.schema.disponibilita === "InStock",
     !l.schema.stelle && l.schema.nome.trim().length > 0, // vale solo dopo aver iniziato a compilare i dati
     // D. Risposta breve
@@ -74,6 +101,14 @@ export function controlla(l: Lavoro, ricerche: Ricerca[], keywordGiuste: string[
     /\b(2|due)\s*minut/.test(r),
     senzaSalute(l.risposta),
   ];
+}
+
+// Errori di battitura trovati (per avvisare la persona, senza togliere punti)
+export function avvisiBattitura(l: Lavoro) {
+  const avvisi: string[] = [];
+  if (l.keyword && cerca(l.titolo, l.keyword) === "quasi") avvisi.push(`Nel titolo la keyword "${l.keyword}" sembra scritta con un errore: controllala.`);
+  if (cerca(l.titolo, "cinque foglie", true) === "quasi") avvisi.push("Controlla come hai scritto \"Cinque Foglie\" alla fine del titolo.");
+  return avvisi;
 }
 
 export const PARTI = [
