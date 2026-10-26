@@ -1,0 +1,106 @@
+{
+  "_nota": "Esercizio Ricerca di mercato 1. Questionario e risultati sono inventati.",
+  "id": "ricerca",
+  "ruolo": "Ricerca di mercato",
+  "titolo": "Esercizio 1 · Il tè freddo in bottiglia piacerebbe?",
+  "minuti": 20,
+  "richiesta": { "da": "MR", "nome": "Marta", "ruolo": "Fondatrice", "quando": "domenica alle 19:30", "oggetto": "Facciamo il tè freddo in bottiglia?",
+    "testo": "Ciao! Penso di lanciare un tè freddo Sencha in bottiglia per l'estate, ma non voglio decidere a sensazione. Mi aiuti a fare un questionario fatto bene, a scegliere a chi chiederlo, a leggere i risultati e a capire cosa fare dopo?" },
+  "scheda": { "titolo": "I risultati del questionario", "voci": [
+    ["Idea", "Tè freddo Sencha bio in bottiglia di vetro da 500 ml"],
+    ["Risposte", "400 persone che bevono tè, tra 25 e 45 anni"],
+    ["Bevono tè freddo ogni settimana d'estate", "260 su 400"],
+    ["Lo comprerebbero (sicuramente o probabilmente)", "120 su 400"],
+    ["Prezzo massimo indicato", "1,50 €: 25% · 2,00 €: 50% · 2,50 €: 20% · 3,00 €: 5%"],
+    ["Motivo più citato da chi dice no", "\"I tè freddi sono troppo zuccherati\""],
+    ["Email", "Lasciate per ricevere un buono di ringraziamento"] ] },
+  "consiglio": "Una ricerca vale quanto le sue domande e le persone a cui le fai: domande neutre, persone giuste, e conclusioni prudenti.",
+  "parole": ["questionario", "campione", "bias", "intenzione d'acquisto", "test"],
+  "parti": [
+    { "id": "domande", "tipo": "classifica", "titolo": "Le domande sono fatte bene?",
+      "testo": "Ecco la bozza del questionario. Quali domande vanno bene e quali vanno rifatte?",
+      "colonne": [ { "id": "si", "nome": "Va bene" }, { "id": "no", "nome": "Da rifare" } ],
+      "righe": [
+        { "id": "q1", "testo": "Quante volte a settimana bevi tè freddo d'estate?", "giusti": ["si"] },
+        { "id": "q2", "testo": "Quanto pagheresti al massimo una bottiglia da 500 ml? (scegli una fascia)", "giusti": ["si"] },
+        { "id": "q3", "testo": "Non pensi anche tu che il nostro tè freddo sarebbe fantastico?", "giusti": ["no"] },
+        { "id": "q4", "testo": "Ti piacciono il gusto e il prezzo dei tè freddi in commercio?", "giusti": ["no"] },
+        { "id": "q5", "testo": "Qual è il tuo stipendio esatto e il tuo indirizzo di casa?", "giusti": ["no"] }
+      ],
+      "controlli": [
+        { "nome": "Domande neutre e chiare riconosciute", "regola": { "tipo": "righe", "righe": ["q1", "q2"] }, "suggerimento": "Chiedono un fatto o una scelta precisa, senza suggerire la risposta." },
+        { "nome": "Scartata la domanda che suggerisce la risposta", "regola": { "tipo": "righe", "righe": ["q3"] }, "suggerimento": "\"Non pensi anche tu...\" spinge le persone a dire sì." },
+        { "nome": "Scartata la domanda doppia", "regola": { "tipo": "righe", "righe": ["q4"] }, "suggerimento": "Gusto e prezzo sono due domande: se rispondo no, a cosa sto dicendo no?" },
+        { "nome": "Scartati i dati che non servono", "regola": { "tipo": "righe", "righe": ["q5"] }, "suggerimento": "Si chiedono solo i dati necessari (GDPR, minimizzazione dei dati)." }
+      ],
+      "perche": "Le domande cambiano le risposte. Una buona domanda è neutra, chiede una cosa sola e raccoglie solo i dati che servono davvero: per il GDPR i dati personali vanno ridotti al minimo.",
+      "soluzione": "Vanno bene: quante volte a settimana, prezzo massimo per fasce. Da rifare: \"non pensi anche tu\" (suggerisce), gusto e prezzo insieme (doppia), stipendio e indirizzo (non servono)." },
+    { "id": "campione", "tipo": "scelta", "titolo": "A chi lo chiediamo?",
+      "testo": "Scegli il campione, cioè le persone a cui fare il questionario.",
+      "opzioni": [
+        { "id": "o1", "testo": "400 persone tra 25 e 45 anni che bevono tè: metà iscritte alla newsletter, metà che non ci conoscono, che hanno accettato di partecipare", "ok": { "pubblico": true, "numero": true, "equilibrio": true } },
+        { "id": "o2", "testo": "I 10 colleghi e amici di Marta", "ok": { "pubblico": false, "numero": false, "equilibrio": false } },
+        { "id": "o3", "testo": "5.000 persone qualsiasi, anche chi non beve mai tè", "ok": { "pubblico": false, "numero": true, "equilibrio": true } },
+        { "id": "o4", "testo": "400 fan che hanno messo \"mi piace\" al nostro post sul tè freddo", "ok": { "pubblico": true, "numero": true, "equilibrio": false } }
+      ],
+      "controlli": [
+        { "nome": "Le persone giuste", "regola": { "tipo": "opzione", "chiave": "pubblico" }, "suggerimento": "Serve il parere di chi potrebbe comprarlo: persone che bevono tè." },
+        { "nome": "Abbastanza persone", "regola": { "tipo": "opzione", "chiave": "numero" }, "suggerimento": "Con 10 persone il risultato cambia moltissimo per caso." },
+        { "nome": "Non solo chi ci ama già", "regola": { "tipo": "opzione", "chiave": "equilibrio" }, "suggerimento": "Amici e fan sono troppo gentili con noi: il risultato sarebbe troppo positivo (bias)." }
+      ],
+      "perche": "Il campione deve somigliare ai possibili clienti, essere abbastanza grande e non fatto solo di persone già affezionate. Altrimenti i risultati sembrano buoni ma non dicono la verità (bias).",
+      "soluzione": "La prima: 400 persone del pubblico giusto, metà che ci conoscono e metà no, tutte d'accordo a partecipare." },
+    { "id": "risultati", "tipo": "menu", "titolo": "Leggi i risultati",
+      "testo": "Con i risultati nella scheda, rispondi a Marta.",
+      "campi": [
+        { "id": "bevono", "etichetta": "Quanti bevono tè freddo ogni settimana? (260 su 400)", "opzioni": ["26%", "40%", "65%"] },
+        { "id": "comprano", "etichetta": "Quanti dicono che lo comprerebbero? (120 su 400)", "opzioni": ["12%", "30%", "48%"] },
+        { "id": "prezzo", "etichetta": "Il prezzo più alto che va bene per almeno 3 persone su 4", "opzioni": ["1,50 €", "2,00 €", "3,00 €"] },
+        { "id": "significa", "etichetta": "Cosa vuol dire quel 30%?", "opzioni": ["È un'intenzione: di solito compra meno gente di quella che dice sì", "Che 120 persone su 400 lo compreranno di sicuro", "Niente: i questionari non servono"] }
+      ],
+      "controlli": [
+        { "nome": "Bevitori settimanali: 65%", "regola": { "tipo": "menu", "campo": "bevono", "valore": "65%" }, "suggerimento": "260 ÷ 400 × 100." },
+        { "nome": "Intenzione d'acquisto: 30%", "regola": { "tipo": "menu", "campo": "comprano", "valore": "30%" }, "suggerimento": "120 ÷ 400 × 100." },
+        { "nome": "Prezzo giusto: 2,00 €", "regola": { "tipo": "menu", "campo": "prezzo", "valore": "2,00 €" }, "suggerimento": "Chi accetta 2,00 € è chi ha scelto 2,00, 2,50 o 3,00 €: 50 + 20 + 5 = 75%. A 2,50 € resta solo il 25%." },
+        { "nome": "Letta con prudenza", "regola": { "tipo": "menu", "campo": "significa", "valore": "È un'intenzione: di solito compra meno gente di quella che dice sì" }, "suggerimento": "Dire \"lo comprerei\" non costa niente: comprare sì." }
+      ],
+      "perche": "I numeri di un questionario si leggono con prudenza: sono intenzioni, non vendite. Servono a capire se vale la pena provare, e a che prezzo, non a promettere un risultato.",
+      "soluzione": "65% beve tè freddo ogni settimana, 30% dice che lo comprerebbe, 2,00 € va bene per 3 persone su 4. Il 30% è un'intenzione: le vendite vere saranno più basse." },
+    { "id": "dopo", "tipo": "spunte", "titolo": "E adesso?",
+      "testo": "Cosa consigli a Marta? Scegli tutte le cose giuste, e solo quelle.",
+      "opzioni": [
+        { "id": "c1", "testo": "Fare prima un piccolo test: 500 bottiglie in 5 negozi per un mese" },
+        { "id": "c2", "testo": "Fare una versione con poco zucchero, perché è il motivo più citato da chi dice no" },
+        { "id": "c3", "testo": "Nel questionario dire chi raccoglie i dati e perché, e tenerli solo per il tempo necessario" },
+        { "id": "c4", "testo": "Scrivere sulla bottiglia \"Il 95% degli italiani lo adora\"" },
+        { "id": "c5", "testo": "Usare le email dei partecipanti per mandare pubblicità, anche se le avevano lasciate solo per il buono" },
+        { "id": "c6", "testo": "Tenere solo le risposte positive e togliere le altre, così il risultato è migliore" }
+      ],
+      "controlli": [
+        { "nome": "Test piccolo e prodotto migliorato", "regola": { "tipo": "spunte-tutte", "ids": ["c1", "c2"] }, "suggerimento": "Prima si prova in piccolo, e si ascolta chi dice no." },
+        { "nome": "Trasparenza sui dati", "regola": { "tipo": "spunte-tutte", "ids": ["c3"] }, "suggerimento": "Chi risponde deve sapere chi usa i suoi dati e perché (informativa GDPR)." },
+        { "nome": "Niente numeri inventati o ritoccati", "regola": { "tipo": "spunte-nessuna", "ids": ["c4", "c6"] }, "suggerimento": "Il 95% non esiste nei dati, e togliere le risposte negative falsa la ricerca." },
+        { "nome": "Email usate solo per lo scopo dichiarato", "regola": { "tipo": "spunte-nessuna", "ids": ["c5"] }, "suggerimento": "Le email erano per il buono: usarle per pubblicità serve un consenso apposito." }
+      ],
+      "perche": "La ricerca serve a decidere meglio, non a confermare quello che volevamo sentire. I dati raccolti si usano solo per lo scopo dichiarato (GDPR, limitazione della finalità), e i risultati non diventano slogan esagerati.",
+      "soluzione": "Un test piccolo in 5 negozi, una versione con poco zucchero, un'informativa chiara sui dati. Niente \"95% degli italiani\", niente email usate per pubblicità, niente risposte tolte." }
+  ],
+  "aiuti": [
+    { "titolo": "Come riconosco una domanda fatta male?", "testo": "Tre segnali: suggerisce la risposta (\"non pensi anche tu...\"), chiede due cose insieme, oppure chiede dati che non servono." },
+    { "titolo": "Come trovo il prezzo per 3 persone su 4?", "testo": "Chi accetta un prezzo accetta anche quelli più bassi. Somma le percentuali dal prezzo che stai provando in su, e cerca il prezzo più alto che arriva almeno al 75%." }
+  ],
+  "glossario": "Questionario: le domande della ricerca. Campione: le persone a cui le fai. Bias: un errore che sposta i risultati sempre dalla stessa parte. Intenzione d'acquisto: quanti dicono che comprerebbero.",
+  "note": [
+    "Domande neutre, una cosa per volta, solo i dati necessari.",
+    "Il campione giusto somiglia ai possibili clienti, non solo ai fan.",
+    "Le intenzioni non sono vendite: prima un test piccolo."
+  ],
+  "autovalutazione": [
+    "Saprei riscrivere una domanda che suggerisce la risposta.",
+    "Saprei spiegare perché amici e fan non sono un buon campione.",
+    "Ho capito come si trova il prezzo che va bene per 3 persone su 4.",
+    "Ho capito perché non si usano le email dei partecipanti per pubblicità."
+  ],
+  "rispostaCollega": "Grazie, mi hai salvato da un grande ordine di bottiglie! Facciamo il test in 5 negozi con la versione poco zuccherata, a 2,00 €.",
+  "imparato": ["scrivere un questionario", "scegliere il campione", "leggere i risultati", "usare i dati in modo corretto"]
+}

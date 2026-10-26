@@ -121,6 +121,13 @@
       "breve": "Collaborazioni",
       "icona": "partner",
       "pronto": true
+    },
+    {
+      "id": "ricerca",
+      "nome": "Ricerca di mercato",
+      "breve": "Capire i clienti",
+      "icona": "ricerca",
+      "pronto": true
     }
   ],
   "richieste": [
@@ -203,6 +210,14 @@
       "quando": "sabato",
       "oggetto": "Facciamo qualcosa con un'altra azienda?",
       "link": "/app/partner/esercizio/"
+    },
+    {
+      "ruolo": "ricerca",
+      "da": "MR",
+      "nome": "Marta",
+      "quando": "domenica",
+      "oggetto": "Facciamo il tè freddo in bottiglia?",
+      "link": "/app/ricerca/esercizio/"
     }
   ]
 }
