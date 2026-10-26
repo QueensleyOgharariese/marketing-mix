@@ -1,0 +1,80 @@
+---
+// PERCORSO DI APPROFONDIMENTO · SEO (pagina di partenza)
+// Spiega la situazione, presenta il negozio e gli strumenti simulati, elenca le 5 missioni.
+// Le missioni sono ancora da costruire: per ora compaiono come "in arrivo".
+import Console from "../../../../components/seopro/Console.astro";
+import Icona from "../../../../components/Icona.astro";
+import sc from "../../../../data/app/seo-pro/search-console.json";
+import { num } from "../../../../scripts/tabella";
+
+const B = "/app/percorsi/seo/strumenti";
+const STRUMENTI = [
+  { nome: "Console di ricerca", link: `${B}/console/`, icona: "cerca", cosa: "Clic, impressioni, CTR e posizione da Google, per query e per pagina, negli ultimi 16 mesi." },
+  { nome: "Pagine e indicizzazione", link: `${B}/indicizzazione/`, icona: "check", cosa: "Quali pagine sono su Google, quali no e perché. Velocità delle pagine (Core Web Vitals)." },
+  { nome: "Ricerca keyword", link: `${B}/keyword/`, icona: "anteprima", cosa: "Cosa cercano le persone: volumi, difficoltà, stagionalità, intento." },
+  { nome: "Crawler", link: `${B}/crawler/`, icona: "link", cosa: "Tutte le pagine del sito viste come le vede Google: errori, redirect, title, H1." },
+  { nome: "Statistiche", link: `${B}/statistiche/`, icona: "analytics", cosa: "Cosa succede dopo il clic: visite, ordini e ricavi per pagina." },
+];
+const MISSIONI = [
+  { n: 1, nome: "Audit tecnico", cosa: "Trova cosa impedisce a Google di leggere bene il sito e decidi cosa sistemare." },
+  { n: 2, nome: "Keyword research e cannibalizzazione", cosa: "Scegli le keyword giuste per ogni pagina e risolvi due pagine che si fanno concorrenza." },
+  { n: 3, nome: "Copywriting della categoria Tè verdi", cosa: "Riscrivi title, description e testo di una categoria che si vede ma non viene cliccata." },
+  { n: 4, nome: "Piano dei contenuti del blog", cosa: "Decidi quali articoli scrivere nei prossimi mesi, e quando, guardando i dati." },
+  { n: 5, nome: "Caso finale: il traffico è calato", cosa: "Il capo chiede perché ottobre va male. Diagnostica il calo e decidi le priorità." },
+];
+const ott = sc.mesi.find((m) => m.mese === "2026-10");
+---
+<Console attivo="percorso" titolo="Percorso SEO" >
+  <section class="sp-pannello intro">
+    <p class="occhiello">Approfondisci · circa 2 ore e mezza</p>
+    <p class="grande">Lavori come SEO specialist per <strong>cinquefoglie.example</strong>, il negozio online di Cinque Foglie. Il sito ha 29 prodotti, 6 categorie e un blog. Ottobre non sta andando bene: {ott ? `${num(ott.clic)} clic da Google` : "meno clic del solito"}, meno del mese prima, e di solito in autunno il tè cresce.</p>
+    <p>Hai a disposizione il negozio vero e proprio, che puoi navigare e ispezionare come farebbe Google, e cinque strumenti professionali simulati. I dati sono inventati ma coerenti: un problema che vedi nel crawler lo ritrovi nella console e nelle statistiche.</p>
+    <a class="bottone" href="/app/negozio/">Apri il negozio →</a>
+  </section>
+
+  <section>
+    <h2 class="titoletto">Gli strumenti</h2>
+    <div class="griglia">
+      {STRUMENTI.map((s) => (
+        <a class="sp-pannello scheda" href={s.link}>
+          <span class="icona"><Icona nome={s.icona} dimensione={16} /></span>
+          <strong>{s.nome}</strong>
+          <span>{s.cosa}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <h2 class="titoletto">Le missioni</h2>
+    <ol class="missioni">
+      {MISSIONI.map((m) => (
+        <li class="sp-pannello missione">
+          <span class="numero">{m.n}</span>
+          <div><strong>{m.nome}</strong><span>{m.cosa}</span></div>
+          <span class="sp-badge">In arrivo</span>
+        </li>
+      ))}
+    </ol>
+    <p class="sp-nota">Per ora puoi esplorare il negozio e gli strumenti. Prova a cercare da solo qualcosa che non va: le missioni ti guideranno a trovare tutto.</p>
+  </section>
+</Console>
+
+<style>
+  .intro { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+  .intro p { margin: 0; line-height: 1.6; }
+  .occhiello { font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #c4520b; }
+  .grande { font-size: 1.05rem; }
+  .bottone { margin-top: 4px; background: var(--inchiostro); color: #fff; padding: 10px 16px; border-radius: 999px; text-decoration: none; font-weight: 700; }
+  .titoletto { font-size: 1.15rem; margin: 6px 0 10px; }
+  .griglia { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+  .scheda { display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: inherit; font-size: .88rem; line-height: 1.5; }
+  .scheda:hover { border-color: var(--arancio); }
+  .scheda strong { font-size: .95rem; }
+  .icona { width: 30px; height: 30px; border-radius: 50%; background: #fff1e6; display: grid; place-items: center; }
+  .missioni { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .missione { display: flex; gap: 14px; align-items: center; }
+  .missione div { display: flex; flex-direction: column; gap: 2px; flex: 1; font-size: .88rem; line-height: 1.5; }
+  .missione strong { font-size: .95rem; }
+  .numero { flex: none; width: 32px; height: 32px; border-radius: 50%; background: #f3eeea; display: grid; place-items: center; font-weight: 800; }
+</style>

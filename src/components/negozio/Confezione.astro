@@ -1,0 +1,24 @@
+---
+// "FOTO" DI UN PRODOTTO: un disegno semplice di una confezione, del colore della categoria.
+// Niente foto vere: tutto originale (regola del progetto sulle licenze).
+interface Props { categoria: string; nome: string; grande?: boolean; }
+const { categoria, nome, grande = false } = Astro.props;
+const COLORI: Record<string, [string, string]> = {
+  "te-verdi": ["#3a9d5d", "#dff1e4"], "te-neri": ["#5b3a29", "#f1e3d8"], tisane: ["#b5651d", "#f8e8d6"],
+  matcha: ["#7cb342", "#ecf5df"], "te-freddi": ["#3f8fb5", "#e0f0f7"], accessori: ["#8a6d55", "#f2ebe4"],
+};
+const [scuro, chiaro] = COLORI[categoria] ?? ["#6b5d55", "#f3eeea"];
+const iniziale = nome.replace(/^(Tè|Kit|Tazza|Teiera|Frusta|Barattolo|Infusore|Infuso|Cold brew di)\s+/i, "").slice(0, 1).toUpperCase();
+---
+<svg class:list={["confezione", { grande }]} viewBox="0 0 200 160" role="img" aria-label={`Confezione di ${nome}`}>
+  <rect width="200" height="160" fill={chiaro} />
+  <rect x="66" y="34" width="68" height="100" rx="10" fill={scuro} />
+  <rect x="62" y="26" width="76" height="16" rx="6" fill="#2b2a26" opacity=".85" />
+  <rect x="74" y="58" width="52" height="52" rx="26" fill="#fff" opacity=".92" />
+  <text x="100" y="93" text-anchor="middle" font-family="Georgia, serif" font-size="30" font-weight="700" fill={scuro}>{iniziale}</text>
+  <path d="M120 120 C120 108 128 102 138 102 C138 112 130 120 120 120 Z" fill="#fff" opacity=".7" />
+</svg>
+
+<style>
+  .confezione { display: block; width: 100%; height: auto; border-radius: 10px; }
+</style>

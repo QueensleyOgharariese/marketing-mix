@@ -1,0 +1,198 @@
+{
+ "_nota": "Report Pagine e Core Web Vitals di Search Console, simulati.",
+ "aggiornato": "2026-10-25",
+ "indicizzate": 46,
+ "motivi": [
+  {
+   "motivo": "Esclusa in base al tag \"noindex\"",
+   "fonte": "Sito web",
+   "pagine": [
+    "/tisane/",
+    "/tisane/tisane-della-sera/",
+    "/tisane/camomilla-bio/",
+    "/tisane/menta-piperita/",
+    "/tisane/rooibos-vaniglia/",
+    "/tisane/zenzero-limone/",
+    "/tisane/frutti-rossi/",
+    "/carrello/",
+    "/account/"
+   ]
+  },
+  {
+   "motivo": "Pagina duplicata senza URL canonico selezionato dall'utente",
+   "fonte": "Sito web",
+   "pagine": [
+    "/te-verdi/?ordina=prezzo",
+    "/te-verdi/?ordina=nome",
+    "/te-verdi/?colore=verde-chiaro",
+    "/te-neri/?ordina=prezzo",
+    "/matcha/?ordina=prezzo",
+    "/accessori/?ordina=prezzo",
+    "/accessori/?materiale=ceramica"
+   ]
+  },
+  {
+   "motivo": "Scansionata, ma attualmente non indicizzata",
+   "fonte": "Google",
+   "pagine": [
+    "/te-verdi/?page=2",
+    "/blog/tag/te-verde/",
+    "/blog/tag/ricette/",
+    "/blog/tag/estate/"
+   ]
+  },
+  {
+   "motivo": "Non trovata (404)",
+   "fonte": "Sito web",
+   "pagine": [
+    "/te-neri/earl-grey-classico/"
+   ]
+  },
+  {
+   "motivo": "Pagina con reindirizzamento",
+   "fonte": "Sito web",
+   "pagine": [
+    "/prodotto.php?id=12",
+    "/te-verdi/sencha/",
+    "/negozio/tisane/"
+   ]
+  }
+ ],
+ "storico": [
+  {
+   "settimana": "2026-08-03",
+   "indicizzate": 53,
+   "non_indicizzate": 17
+  },
+  {
+   "settimana": "2026-08-10",
+   "indicizzate": 53,
+   "non_indicizzate": 17
+  },
+  {
+   "settimana": "2026-08-17",
+   "indicizzate": 53,
+   "non_indicizzate": 17
+  },
+  {
+   "settimana": "2026-08-24",
+   "indicizzate": 53,
+   "non_indicizzate": 17
+  },
+  {
+   "settimana": "2026-08-31",
+   "indicizzate": 53,
+   "non_indicizzate": 17
+  },
+  {
+   "settimana": "2026-09-07",
+   "indicizzate": 53,
+   "non_indicizzate": 17
+  },
+  {
+   "settimana": "2026-09-14",
+   "indicizzate": 53,
+   "non_indicizzate": 17
+  },
+  {
+   "settimana": "2026-09-21",
+   "indicizzate": 51,
+   "non_indicizzate": 19
+  },
+  {
+   "settimana": "2026-09-28",
+   "indicizzate": 49,
+   "non_indicizzate": 21
+  },
+  {
+   "settimana": "2026-10-05",
+   "indicizzate": 47,
+   "non_indicizzate": 23
+  },
+  {
+   "settimana": "2026-10-12",
+   "indicizzate": 46,
+   "non_indicizzate": 24
+  },
+  {
+   "settimana": "2026-10-19",
+   "indicizzate": 46,
+   "non_indicizzate": 24
+  }
+ ],
+ "cwv": {
+  "telefono": [
+   {
+    "gruppo": "Schede prodotto",
+    "esempio": "/te-verdi/sencha-bio/",
+    "pagine": 29,
+    "lcp": 4.1,
+    "inp": 180,
+    "cls": 0.04,
+    "stato": "Scarso"
+   },
+   {
+    "gruppo": "Categorie",
+    "esempio": "/te-verdi/",
+    "pagine": 6,
+    "lcp": 2.4,
+    "inp": 150,
+    "cls": 0.06,
+    "stato": "Buono"
+   },
+   {
+    "gruppo": "Blog",
+    "esempio": "/blog/tisane-per-la-sera/",
+    "pagine": 7,
+    "lcp": 2.2,
+    "inp": 90,
+    "cls": 0.02,
+    "stato": "Buono"
+   }
+  ],
+  "computer": [
+   {
+    "gruppo": "Schede prodotto",
+    "esempio": "/te-verdi/sencha-bio/",
+    "pagine": 29,
+    "lcp": 2.3,
+    "inp": 60,
+    "cls": 0.03,
+    "stato": "Buono"
+   },
+   {
+    "gruppo": "Categorie",
+    "esempio": "/te-verdi/",
+    "pagine": 6,
+    "lcp": 1.8,
+    "inp": 50,
+    "cls": 0.05,
+    "stato": "Buono"
+   },
+   {
+    "gruppo": "Blog",
+    "esempio": "/blog/tisane-per-la-sera/",
+    "pagine": 7,
+    "lcp": 1.6,
+    "inp": 40,
+    "cls": 0.02,
+    "stato": "Buono"
+   }
+  ],
+  "soglie": {
+   "lcp": [
+    2.5,
+    4.0
+   ],
+   "inp": [
+    200,
+    500
+   ],
+   "cls": [
+    0.1,
+    0.25
+   ]
+  },
+  "causa": "Foto principale del prodotto in JPG da circa 2,4 MB, caricata senza dimensioni e senza versione per telefono."
+ }
+}

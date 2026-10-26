@@ -1,0 +1,86 @@
+---
+// STRUMENTO · STATISTICHE: ispirato a Google Analytics 4 (rapporto "Pagine di destinazione", solo traffico organico)
+// Mostra cosa succede DOPO il clic: sessioni, tasso di conversione, ordini e ricavi per pagina di arrivo,
+// più l'andamento mensile. Serve a capire quanto vale in euro un calo di traffico.
+// Dati: src/data/app/seo-pro/analytics.json (generati da strumenti-dati/genera_negozio.py).
+import Console from "../../../../../components/seopro/Console.astro";
+import ga from "../../../../../data/app/seo-pro/analytics.json";
+import { num } from "../../../../../scripts/tabella";
+
+const MESI = ["gen", "feb", "mar", "apr", "mag", "giu", "lug", "ago", "set", "ott", "nov", "dic"];
+const nomeMese = (m: string) => `${MESI[Number(m.slice(5)) - 1]} ${m.slice(2, 4)}`;
+// Totali del periodo (agosto-ottobre 2026) presi dai mesi: comprendono tutte le pagine, non solo le 25 della tabella
+const tot = ga.mesi.filter((m) => m.mese >= "2026-08").reduce((s, m) => ({ sessioni: s.sessioni + m.sessioni, ordini: s.ordini + m.ordini, ricavi: s.ricavi + m.ricavi }), { sessioni: 0, ordini: 0, ricavi: 0 });
+const tipo = (u: string) => (u === "/" ? "Home" : u.startsWith("/blog/") ? "Articolo" : u.split("/").filter(Boolean).length === 1 ? "Categoria" : "Prodotto");
+// Grafico a barre dei ricavi mensili
+const W = 900, H = 220, sx = 50;
+const maxR = Math.max(...ga.mesi.map((m) => m.ricavi));
+const bw = (W - sx - 10) / ga.mesi.length;
+---
+<Console attivo="statistiche" titolo="Statistiche del sito" ispirato="Google Analytics 4 (pagine di destinazione, traffico organico)">
+  <p class="sp-nota avviso">{ga._nota} Per questo i numeri sono un po' più bassi dei clic che vedi nella Console di ricerca.</p>
+
+  <div class="sp-cifre">
+    <div class="sp-cifra"><span>Sessioni organiche</span><strong>{num(tot.sessioni)}</strong><small>{ga.periodo}</small></div>
+    <div class="sp-cifra"><span>Ordini</span><strong>{num(tot.ordini)}</strong><small>conversione {num((tot.ordini / tot.sessioni) * 100, 1)}%</small></div>
+    <div class="sp-cifra"><span>Ricavi</span><strong>{num(tot.ricavi)} €</strong><small>valore medio {num(tot.ricavi / tot.ordini, 2)} €</small></div>
+  </div>
+
+  <div class="sp-pannello">
+    <strong class="sottotitolo">Ricavi da ricerca organica, mese per mese</strong>
+    <svg class="sp-grafico" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`Ricavi mensili: ${ga.mesi.map((m) => `${nomeMese(m.mese)} ${m.ricavi} euro`).join(", ")}`}>
+      {[0, 0.5, 1].map((f) => <g><line x1={sx} x2={W} y1={H - 24 - f * (H - 44)} y2={H - 24 - f * (H - 44)} stroke="#eee4dc" /><text x={sx - 6} y={H - 20 - f * (H - 44)} font-size="11" text-anchor="end" fill="#8a7b72">{num(maxR * f)}</text></g>)}
+      {ga.mesi.map((m, i) => {
+        const h = (m.ricavi / maxR) * (H - 44), x = sx + i * bw + 4;
+        return (<g>
+          <rect x={x} y={H - 24 - h} width={bw - 8} height={h} rx="3" fill={m.mese >= "2026-09" ? "#c4520b" : "#e3b48f"}><title>{`${nomeMese(m.mese)}: ${num(m.sessioni)} sessioni, ${m.ordini} ordini, ${num(m.ricavi)} €`}</title></rect>
+          <text x={x + (bw - 8) / 2} y={H - 8} font-size="10" text-anchor="middle" fill="#8a7b72">{nomeMese(m.mese)}</text>
+        </g>);
+      })}
+    </svg>
+    <p class="sp-nota">Passa sulle barre per vedere sessioni e ordini. In arancione scuro gli ultimi due mesi.</p>
+  </div>
+
+  <div class="sp-pannello">
+    <div class="riga-titolo">
+      <strong class="sottotitolo">Le {ga.pagine.length} pagine di destinazione principali · {ga.periodo}</strong>
+      <input class="sp-cerca" type="search" placeholder="Filtra le pagine…" data-filtra="t-ga" />
+    </div>
+    <div class="sp-scorri">
+      <table data-tabella id="t-ga">
+        <thead><tr>
+          <th data-ordina="testo">Pagina di destinazione</th><th data-ordina="testo">Tipo</th><th data-ordina="numero" class="n">Sessioni</th>
+          <th data-ordina="numero" class="n">Conversione</th><th data-ordina="numero" class="n">Ordini</th><th data-ordina="numero" class="n">Ricavi</th>
+        </tr></thead>
+        <tbody>
+          {ga.pagine.map((p) => (
+            <tr>
+              <td class="url"><a href={`/app/negozio${p.pagina}`}>{p.pagina}</a></td><td>{tipo(p.pagina)}</td>
+              <td class="n" data-valore={p.sessioni}>{num(p.sessioni)}</td><td class="n" data-valore={p.conversione}>{num(p.conversione, 1)}%</td>
+              <td class="n" data-valore={p.ordini}>{p.ordini}</td><td class="n" data-valore={p.ricavi}>{num(p.ricavi)} €</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <details class="sp-pannello aiuto">
+    <summary>Come si leggono queste cifre</summary>
+    <p><strong>Sessione</strong>: una visita, che può comprendere più pagine. <strong>Pagina di destinazione</strong>: la prima pagina vista, cioè quella su cui si arriva da Google. <strong>Conversione</strong>: su 100 visite, quante finiscono con un ordine. Gli articoli del blog portano tante visite ma convertono poco: chi legge "come si prepara il matcha" spesso non è ancora pronto a comprare. Per stimare quanto vale un calo, moltiplica le sessioni perse per la conversione e per il valore medio dell'ordine.</p>
+  </details>
+</Console>
+
+<script>
+  import { attivaTabelle } from "../../../../../scripts/tabella";
+  attivaTabelle();
+</script>
+
+<style>
+  .avviso { background: #fff3d6; border-radius: 10px; padding: 10px 14px; color: #5c4400; }
+  .sottotitolo { display: block; font-size: .95rem; margin-bottom: 8px; }
+  .riga-titolo { display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .riga-titolo .sottotitolo { margin: 0; }
+  .aiuto summary { cursor: pointer; font-weight: 700; }
+  .aiuto p { margin: 10px 0 0; line-height: 1.6; font-size: .9rem; }
+</style>

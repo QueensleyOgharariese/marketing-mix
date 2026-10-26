@@ -1,0 +1,95 @@
+---
+// IL NEGOZIO FINTO DI CINQUE FOGLIE (percorso SEO "Approfondisci")
+// Mostra una pagina del negozio dentro una finestra del browser, con l'indirizzo cinquefoglie.example/...
+// Il pulsante "Ispeziona" mostra quello che Google legge nel codice della pagina:
+// title, meta description, meta robots, canonical, H1, stato. I dati arrivano da crawl.json.
+// Gli indirizzi veri del negozio (es. /te-verdi/sencha-bio/) qui stanno sotto /app/negozio/.
+import AppLayout from "../../layouts/AppLayout.astro";
+import catalogo from "../../data/app/seo-pro/catalogo.json";
+import crawl from "../../data/app/seo-pro/crawl.json";
+
+interface Props { url: string; titoloScheda: string; }
+const { url, titoloScheda } = Astro.props;
+const pagina = crawl.pagine.find((p) => p.url === url);
+const testa = pagina ?? { title: "", description: "", robots: "", canonical: "", h1: "", stato: 404 };
+const NEG = "/app/negozio";
+---
+<AppLayout title={`Negozio · ${titoloScheda}`} percorso={[{ etichetta: "Percorso SEO", link: "/app/percorsi/seo/" }, { etichetta: "Il negozio" }, { etichetta: titoloScheda }]} indietro={{ etichetta: "Percorso SEO", link: "/app/percorsi/seo/" }}>
+  <div class="area">
+    <div class="finestra">
+      <div class="barra-browser">
+        <span class="pallini" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="indirizzo"><svg class="lucchetto" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5 V7.5 A4 4 0 0 1 16 7.5 V10.5"/></svg>https://{catalogo.dominio}{url}</span>
+        <details class="ispeziona">
+          <summary>Ispeziona</summary>
+          <div class="codice" role="region" aria-label="Cosa legge Google in questa pagina">
+            <span class="codice-titolo">Cosa legge Google</span>
+            <dl>
+              <div><dt>Stato</dt><dd>{testa.stato === 200 ? "200 OK" : testa.stato === 404 ? "404 Non trovata" : `${testa.stato} Reindirizzamento`}</dd></div>
+              <div><dt>&lt;title&gt;</dt><dd>{testa.title || <em>vuoto</em>}</dd></div>
+              <div><dt>meta description</dt><dd>{testa.description || <em>manca</em>}</dd></div>
+              <div><dt>meta robots</dt><dd class:list={{ allarme: (testa.robots || "").includes("noindex") }}>{testa.robots || <em>—</em>}</dd></div>
+              <div><dt>canonical</dt><dd>{testa.canonical ? `https://${catalogo.dominio}${testa.canonical}` : <em>manca</em>}</dd></div>
+              <div><dt>&lt;h1&gt;</dt><dd>{testa.h1 || <em>manca</em>}</dd></div>
+            </dl>
+          </div>
+        </details>
+      </div>
+
+      <div class="sito">
+        <header class="sito-testa">
+          <a class="sito-logo" href={NEG + "/"}>
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2f6b45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20 C4 10 10 4 20 4 C20 14 14 20 4 20 Z" /><path d="M4 20 L13 11" /></svg>
+            Cinque Foglie
+          </a>
+          <nav aria-label="Categorie del negozio">
+            {catalogo.categorie.map((c) => <a href={`${NEG}/${c.id}/`}>{c.nome}</a>)}
+            <a href={`${NEG}/blog/`}>Blog</a>
+          </nav>
+          <span class="carrello" aria-hidden="true">Carrello (0)</span>
+        </header>
+        <div class="sito-corpo"><slot /></div>
+        <footer class="sito-piede">
+          <span>Cinque Foglie · tè e tisane biologiche · spedizione in 24 ore</span>
+          <span><a href={`${NEG}/chi-siamo/`}>Chi siamo</a> · <a href={`${NEG}/spedizioni-e-resi/`}>Spedizioni e resi</a> · <a href={`${NEG}/contatti/`}>Contatti</a></span>
+          <span class="finto">Negozio finto per esercizi: non si può comprare nulla.</span>
+        </footer>
+      </div>
+    </div>
+  </div>
+</AppLayout>
+
+<style>
+  .area { padding: 20px; max-width: 1240px; margin: 0 auto; }
+  .finestra { background: #fff; border: 1px solid #d9cfc7; border-radius: 14px; overflow: hidden; box-shadow: 0 20px 50px -30px rgba(42, 29, 24, .35); }
+  .barra-browser { position: relative; display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: #efe9e4; border-bottom: 1px solid #ddd2c9; }
+  .pallini { display: flex; gap: 6px; } .pallini i { width: 11px; height: 11px; border-radius: 50%; background: #e0d4ca; } .pallini i:first-child { background: #f07a5a; } .pallini i:nth-child(2) { background: #f2c14e; } .pallini i:nth-child(3) { background: #7cc27c; }
+  .indirizzo { flex: 1; min-width: 0; background: #fff; border-radius: 999px; padding: 6px 14px; font-size: .85rem; color: #3a2b24; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .lucchetto { margin-right: 6px; vertical-align: -1px; color: #2f7a4f; }
+  .ispeziona summary { cursor: pointer; font-weight: 700; font-size: .85rem; padding: 6px 12px; border-radius: 8px; background: #2a1d18; color: #fff; list-style: none; }
+  .ispeziona summary::-webkit-details-marker { display: none; }
+  .codice { position: absolute; right: 12px; top: calc(100% + 6px); z-index: 20; width: min(560px, calc(100vw - 64px)); background: #2a1d18; color: #f3e6dd; border-radius: 12px; padding: 16px 18px; box-shadow: 0 16px 40px -12px rgba(0, 0, 0, .5); font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .8rem; }
+  .codice-titolo { display: block; font-family: var(--font-testo); font-weight: 800; font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: #ffb27a; margin-bottom: 8px; }
+  .codice dl { margin: 0; display: flex; flex-direction: column; gap: 6px; }
+  .codice dl div { display: grid; grid-template-columns: 130px 1fr; gap: 10px; }
+  .codice dt { color: #ffb27a; } .codice dd { margin: 0; overflow-wrap: anywhere; } .codice em { color: #a8958a; }
+  .codice .allarme { color: #ff9b8a; font-weight: 700; }
+
+  .sito { font-family: Georgia, "Times New Roman", serif; color: #2b2a26; background: #fbfaf6; }
+  .sito-testa { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; padding: 16px 28px; border-bottom: 1px solid #e7e2d6; background: #fff; }
+  .sito-logo { display: flex; align-items: center; gap: 8px; font-size: 1.35rem; font-weight: 700; color: #2f6b45; text-decoration: none; }
+  .sito-testa nav { display: flex; flex-wrap: wrap; gap: 4px 16px; font-family: var(--font-testo); font-size: .9rem; }
+  .sito-testa nav a { color: #2b2a26; text-decoration: none; }
+  .sito-testa nav a:hover { color: #2f6b45; text-decoration: underline; }
+  .carrello { margin-left: auto; font-family: var(--font-testo); font-size: .85rem; color: #6b6a63; }
+  .sito-corpo { padding: 28px; min-height: 420px; }
+  .sito-piede { display: flex; flex-direction: column; gap: 4px; padding: 18px 28px; border-top: 1px solid #e7e2d6; font-family: var(--font-testo); font-size: .8rem; color: #6b6a63; background: #fff; }
+  .sito-piede a { color: #2f6b45; }
+  .finto { color: #a12d1d; font-weight: 600; }
+  @media (max-width: 700px) {
+    .area { padding: 10px; }
+    .sito-testa, .sito-corpo, .sito-piede { padding-inline: 16px; }
+    .carrello { display: none; }
+    .codice dl div { grid-template-columns: 1fr; gap: 2px; }
+  }
+</style>

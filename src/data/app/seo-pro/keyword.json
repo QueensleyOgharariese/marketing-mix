@@ -1,0 +1,864 @@
+{
+ "_nota": "Ricerca keyword simulata (Italia, ricerche mensili medie). Dati inventati. trend = 12 mesi da luglio a giugno (1 = media). posizione = posizione di oggi del sito (vuota se il sito non compare tra i primi 100: è il caso delle tisane, uscite da Google con il noindex).",
+ "mesiTrend": [
+  "lug",
+  "ago",
+  "set",
+  "ott",
+  "nov",
+  "dic",
+  "gen",
+  "feb",
+  "mar",
+  "apr",
+  "mag",
+  "giu"
+ ],
+ "keyword": [
+  {
+   "keyword": "tè verde",
+   "volume": 33100,
+   "difficolta": 61,
+   "cpc": 0.45,
+   "intento": "informativa",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Le persone chiedono anche",
+    "Immagini",
+    "Shopping"
+   ],
+   "posizione": 8.4
+  },
+  {
+   "keyword": "tè verdi",
+   "volume": 4400,
+   "difficolta": 38,
+   "cpc": 0.6,
+   "intento": "commerciale",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Shopping",
+    "Le persone chiedono anche"
+   ],
+   "posizione": 7.1
+  },
+  {
+   "keyword": "tè verde biologico",
+   "volume": 2900,
+   "difficolta": 34,
+   "cpc": 0.7,
+   "intento": "commerciale",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Shopping"
+   ],
+   "posizione": 7.6
+  },
+  {
+   "keyword": "tè verde sencha",
+   "volume": 1600,
+   "difficolta": 27,
+   "cpc": 0.55,
+   "intento": "commerciale",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Shopping",
+    "Le persone chiedono anche"
+   ],
+   "posizione": 9.2
+  },
+  {
+   "keyword": "sencha",
+   "volume": 2400,
+   "difficolta": 31,
+   "cpc": 0.4,
+   "intento": "informativa",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Snippet in evidenza",
+    "Le persone chiedono anche"
+   ],
+   "posizione": 8.8
+  },
+  {
+   "keyword": "come preparare il sencha",
+   "volume": 590,
+   "difficolta": 12,
+   "cpc": 0.1,
+   "intento": "informativa",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Snippet in evidenza"
+   ],
+   "posizione": 3.2
+  },
+  {
+   "keyword": "tè verde giapponese",
+   "volume": 1300,
+   "difficolta": 29,
+   "cpc": 0.5,
+   "intento": "commerciale",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Shopping"
+   ],
+   "posizione": null
+  },
+  {
+   "keyword": "tè verde benefici",
+   "volume": 14800,
+   "difficolta": 42,
+   "cpc": 0.2,
+   "intento": "informativa",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Le persone chiedono anche",
+    "Snippet in evidenza"
+   ],
+   "posizione": null
+  },
+  {
+   "keyword": "matcha",
+   "volume": 40500,
+   "difficolta": 66,
+   "cpc": 0.65,
+   "intento": "commerciale",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Shopping",
+    "Video",
+    "Le persone chiedono anche"
+   ],
+   "posizione": 6.8
+  },
+  {
+   "keyword": "matcha biologico",
+   "volume": 3600,
+   "difficolta": 37,
+   "cpc": 0.8,
+   "intento": "transazionale",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Shopping"
+   ],
+   "posizione": 3.9
+  },
+  {
+   "keyword": "come preparare il matcha",
+   "volume": 6600,
+   "difficolta": 22,
+   "cpc": 0.15,
+   "intento": "informativa",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Video",
+    "Snippet in evidenza"
+   ],
+   "posizione": 2.4
+  },
+  {
+   "keyword": "matcha latte ricetta",
+   "volume": 2900,
+   "difficolta": 18,
+   "cpc": 0.1,
+   "intento": "informativa",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Video",
+    "Immagini"
+   ],
+   "posizione": null
+  },
+  {
+   "keyword": "frusta matcha",
+   "volume": 1900,
+   "difficolta": 19,
+   "cpc": 0.45,
+   "intento": "transazionale",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Shopping"
+   ],
+   "posizione": 7.9
+  },
+  {
+   "keyword": "tè nero",
+   "volume": 8100,
+   "difficolta": 48,
+   "cpc": 0.4,
+   "intento": "informativa",
+   "trend": [
+    0.75,
+    0.75,
+    0.95,
+    1.15,
+    1.3,
+    1.35,
+    1.3,
+    1.15,
+    1.0,
+    0.9,
+    0.8,
+    0.75
+   ],
+   "serp": [
+    "Le persone chiedono anche"
+   ],
+   "posizione": 9.1
+  },
+  {
+   "keyword": "earl grey",
+   "volume": 9900,
+   "difficolta": 45,
+   "cpc": 0.35,
+   "intento": "commerciale",
+   "trend": [
+    0.75,
+    0.75,
+    0.95,
+    1.15,
+    1.3,
+    1.35,
+    1.3,
+    1.15,
+    1.0,
+    0.9,
+    0.8,
+    0.75
+   ],
+   "serp": [
+    "Shopping",
+    "Le persone chiedono anche"
+   ],
+   "posizione": 14.2
+  },
+  {
+   "keyword": "chai tè",
+   "volume": 5400,
+   "difficolta": 33,
+   "cpc": 0.4,
+   "intento": "commerciale",
+   "trend": [
+    0.75,
+    0.75,
+    0.95,
+    1.15,
+    1.3,
+    1.35,
+    1.3,
+    1.15,
+    1.0,
+    0.9,
+    0.8,
+    0.75
+   ],
+   "serp": [
+    "Video",
+    "Shopping"
+   ],
+   "posizione": 15.8
+  },
+  {
+   "keyword": "tè senza teina",
+   "volume": 2400,
+   "difficolta": 26,
+   "cpc": 0.5,
+   "intento": "commerciale",
+   "trend": [
+    0.55,
+    0.55,
+    0.9,
+    1.35,
+    1.6,
+    1.7,
+    1.6,
+    1.3,
+    1.0,
+    0.8,
+    0.6,
+    0.55
+   ],
+   "serp": [
+    "Le persone chiedono anche",
+    "Shopping"
+   ],
+   "posizione": null
+  },
+  {
+   "keyword": "tisane",
+   "volume": 18100,
+   "difficolta": 52,
+   "cpc": 0.55,
+   "intento": "commerciale",
+   "trend": [
+    0.55,
+    0.55,
+    0.9,
+    1.35,
+    1.6,
+    1.7,
+    1.6,
+    1.3,
+    1.0,
+    0.8,
+    0.6,
+    0.55
+   ],
+   "serp": [
+    "Shopping",
+    "Le persone chiedono anche"
+   ],
+   "posizione": null
+  },
+  {
+   "keyword": "tisane biologiche",
+   "volume": 3600,
+   "difficolta": 35,
+   "cpc": 0.75,
+   "intento": "transazionale",
+   "trend": [
+    0.55,
+    0.55,
+    0.9,
+    1.35,
+    1.6,
+    1.7,
+    1.6,
+    1.3,
+    1.0,
+    0.8,
+    0.6,
+    0.55
+   ],
+   "serp": [
+    "Shopping"
+   ],
+   "posizione": null
+  },
+  {
+   "keyword": "tisane per dormire",
+   "volume": 6600,
+   "difficolta": 39,
+   "cpc": 0.6,
+   "intento": "commerciale",
+   "trend": [
+    0.55,
+    0.55,
+    0.9,
+    1.35,
+    1.6,
+    1.7,
+    1.6,
+    1.3,
+    1.0,
+    0.8,
+    0.6,
+    0.55
+   ],
+   "serp": [
+    "Le persone chiedono anche"
+   ],
+   "posizione": null
+  },
+  {
+   "keyword": "tisane per la sera",
+   "volume": 2900,
+   "difficolta": 24,
+   "cpc": 0.4,
+   "intento": "informativa",
+   "trend": [
+    0.55,
+    0.55,
+    0.9,
+    1.35,
+    1.6,
+    1.7,
+    1.6,
+    1.3,
+    1.0,
+    0.8,
+    0.6,
+    0.55
+   ],
+   "serp": [
+    "Snippet in evidenza"
+   ],
+   "posizione": 3.6
+  },
+  {
+   "keyword": "rooibos",
+   "volume": 6600,
+   "difficolta": 36,
+   "cpc": 0.4,
+   "intento": "commerciale",
+   "trend": [
+    0.55,
+    0.55,
+    0.9,
+    1.35,
+    1.6,
+    1.7,
+    1.6,
+    1.3,
+    1.0,
+    0.8,
+    0.6,
+    0.55
+   ],
+   "serp": [
+    "Le persone chiedono anche",
+    "Shopping"
+   ],
+   "posizione": null
+  },
+  {
+   "keyword": "camomilla biologica",
+   "volume": 1600,
+   "difficolta": 28,
+   "cpc": 0.55,
+   "intento": "transazionale",
+   "trend": [
+    0.55,
+    0.55,
+    0.9,
+    1.35,
+    1.6,
+    1.7,
+    1.6,
+    1.3,
+    1.0,
+    0.8,
+    0.6,
+    0.55
+   ],
+   "serp": [
+    "Shopping"
+   ],
+   "posizione": null
+  },
+  {
+   "keyword": "tisana zenzero e limone",
+   "volume": 1900,
+   "difficolta": 21,
+   "cpc": 0.35,
+   "intento": "commerciale",
+   "trend": [
+    0.55,
+    0.55,
+    0.9,
+    1.35,
+    1.6,
+    1.7,
+    1.6,
+    1.3,
+    1.0,
+    0.8,
+    0.6,
+    0.55
+   ],
+   "serp": [
+    "Video",
+    "Shopping"
+   ],
+   "posizione": null
+  },
+  {
+   "keyword": "tè freddo fatto in casa",
+   "volume": 9900,
+   "difficolta": 21,
+   "cpc": 0.1,
+   "intento": "informativa",
+   "trend": [
+    3.2,
+    2.6,
+    1.0,
+    0.35,
+    0.2,
+    0.15,
+    0.15,
+    0.2,
+    0.4,
+    0.8,
+    1.8,
+    2.8
+   ],
+   "serp": [
+    "Video",
+    "Snippet in evidenza"
+   ],
+   "posizione": 2.7
+  },
+  {
+   "keyword": "cold brew tè",
+   "volume": 1000,
+   "difficolta": 16,
+   "cpc": 0.3,
+   "intento": "commerciale",
+   "trend": [
+    3.2,
+    2.6,
+    1.0,
+    0.35,
+    0.2,
+    0.15,
+    0.15,
+    0.2,
+    0.4,
+    0.8,
+    1.8,
+    2.8
+   ],
+   "serp": [
+    "Video"
+   ],
+   "posizione": 6.1
+  },
+  {
+   "keyword": "tè freddo alla pesca",
+   "volume": 4400,
+   "difficolta": 30,
+   "cpc": 0.3,
+   "intento": "commerciale",
+   "trend": [
+    3.2,
+    2.6,
+    1.0,
+    0.35,
+    0.2,
+    0.15,
+    0.15,
+    0.2,
+    0.4,
+    0.8,
+    1.8,
+    2.8
+   ],
+   "serp": [
+    "Shopping",
+    "Video"
+   ],
+   "posizione": null
+  },
+  {
+   "keyword": "teiera in ghisa",
+   "volume": 5400,
+   "difficolta": 41,
+   "cpc": 0.9,
+   "intento": "commerciale",
+   "trend": [
+    0.8,
+    0.8,
+    0.9,
+    1.0,
+    1.4,
+    2.2,
+    0.9,
+    0.85,
+    0.85,
+    0.85,
+    0.85,
+    0.8
+   ],
+   "serp": [
+    "Shopping",
+    "Immagini"
+   ],
+   "posizione": 11.8
+  },
+  {
+   "keyword": "idee regalo tè",
+   "volume": 2400,
+   "difficolta": 33,
+   "cpc": 0.8,
+   "intento": "commerciale",
+   "trend": [
+    0.8,
+    0.8,
+    0.9,
+    1.0,
+    1.4,
+    2.2,
+    0.9,
+    0.85,
+    0.85,
+    0.85,
+    0.85,
+    0.8
+   ],
+   "serp": [
+    "Shopping",
+    "Le persone chiedono anche"
+   ],
+   "posizione": null
+  },
+  {
+   "keyword": "calendario dell'avvento tè",
+   "volume": 3600,
+   "difficolta": 29,
+   "cpc": 0.7,
+   "intento": "transazionale",
+   "trend": [
+    0.0,
+    0.0,
+    0.1,
+    0.6,
+    2.6,
+    3.2,
+    0.1,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "serp": [
+    "Shopping"
+   ],
+   "posizione": null
+  },
+  {
+   "keyword": "come conservare il tè",
+   "volume": 880,
+   "difficolta": 9,
+   "cpc": 0.05,
+   "intento": "informativa",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Snippet in evidenza"
+   ],
+   "posizione": 3.4
+  },
+  {
+   "keyword": "differenza tè verde e tè nero",
+   "volume": 1900,
+   "difficolta": 11,
+   "cpc": 0.05,
+   "intento": "informativa",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Snippet in evidenza"
+   ],
+   "posizione": 2.9
+  },
+  {
+   "keyword": "temperatura acqua per il tè",
+   "volume": 1300,
+   "difficolta": 10,
+   "cpc": 0.05,
+   "intento": "informativa",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Snippet in evidenza"
+   ],
+   "posizione": null
+  }
+ ]
+}

@@ -1,0 +1,158 @@
+---
+// PAGINE DEL NEGOZIO FINTO (home, categorie, prodotti, blog, pagine di servizio, 404)
+// Un solo file crea tutte le pagine partendo da crawl.json e catalogo.json.
+// Esempio: la pagina /te-verdi/sencha-bio/ del negozio qui è /app/negozio/te-verdi/sencha-bio/.
+// I problemi SEO del sito (noindex sulle tisane, H1 mancante su /matcha/, link al prodotto tolto...)
+// sono davvero nelle pagine: li vedi con "Ispeziona" e li ritrovi negli strumenti.
+import Negozio from "../../../components/negozio/Negozio.astro";
+import Confezione from "../../../components/negozio/Confezione.astro";
+import catalogo from "../../../data/app/seo-pro/catalogo.json";
+import crawl from "../../../data/app/seo-pro/crawl.json";
+
+export function getStaticPaths() {
+  // Pagine vere (200) e la pagina tolta (404). Filtri e vecchi indirizzi non hanno una pagina propria.
+  return crawl.pagine
+    .filter((p) => (p.stato === 200 || p.stato === 404) && !p.url.includes("?"))
+    .map((p) => ({ params: { percorso: p.url === "/" ? undefined : p.url.replace(/^\/|\/$/g, "") }, props: { url: p.url } }));
+}
+const { url } = Astro.props as { url: string };
+const pagina = crawl.pagine.find((p) => p.url === url)!;
+const N = (u: string) => `/app/negozio${u}`;
+const cat = catalogo.categorie.find((c) => url === `/${c.id}/`);
+const prodotto = catalogo.prodotti.find((p) => p.url === url);
+const categoriaDi = (id: string) => catalogo.categorie.find((c) => c.id === id)!;
+const prezzo = (x: number) => x.toLocaleString("it-IT", { style: "currency", currency: "EUR" });
+const linkaIl404 = (crawl.link404 as Record<string, string[]>)["/te-neri/earl-grey-classico/"].includes(url);
+const blog = crawl.pagine.filter((p) => p.tipo === "Articolo");
+
+// Testi delle schede prodotto, per categoria (inventati)
+const GUSTO: Record<string, string> = {
+  "te-verdi": "Gusto fresco ed erbaceo. Acqua a 75-80 °C, infusione di 2-3 minuti.",
+  "te-neri": "Gusto pieno e rotondo, ottimo anche con un goccio di latte. Acqua a 95 °C, infusione di 3-4 minuti.",
+  tisane: "Senza teina, da bere a ogni ora. Acqua a 100 °C, infusione di 5-7 minuti.",
+  matcha: "Polvere fine di foglie macinate a pietra. Acqua a 80 °C, sbattere con la frusta per 20 secondi.",
+  "te-freddi": "Da preparare a freddo: 8 ore in frigo, senza zucchero aggiunto.",
+  accessori: "Pensato per durare: lavare a mano con acqua calda, senza detersivi profumati.",
+};
+const titolo = prodotto?.nome ?? cat?.nome ?? pagina.h1 ?? "Cinque Foglie";
+---
+<Negozio url={url} titoloScheda={pagina.stato === 404 ? "Pagina non trovata" : titolo}>
+  {pagina.stato === 404 ? (
+    <section class="vuota">
+      <p class="grande-num">404</p>
+      <h1>Pagina non trovata</h1>
+      <p>Il prodotto che cerchi non è più disponibile.</p>
+      <a class="sito-bottone" href={N("/")}>Torna al negozio</a>
+    </section>
+  ) : url === "/" ? (
+    <>
+      <section class="eroe">
+        <div>
+          <h1>{pagina.h1}</h1>
+          <p>Tè verdi, neri, matcha e tisane senza teina, biologici e in foglie intere. Spedizione in 24 ore in tutta Italia.</p>
+          <a class="sito-bottone" href={N("/te-verdi/")}>Scopri i tè verdi</a>
+        </div>
+        <Confezione categoria="te-verdi" nome="Sencha biologico" grande />
+      </section>
+      <h2>Le categorie</h2>
+      <ul class="griglia-cat">
+        {catalogo.categorie.map((c) => (<li><a href={N(`/${c.id}/`)}><Confezione categoria={c.id} nome={c.nome} /><span>{c.nome}</span></a></li>))}
+      </ul>
+      <h2>I più venduti</h2>
+      <ul class="griglia">
+        {["sencha-bio", "matcha-quotidiano", "tisane-della-sera", "earl-grey-bio", "teiera-ghisa", "cold-brew-sencha"].map((id) => {
+          const p = catalogo.prodotti.find((x) => x.id === id)!;
+          return <li><a class="scheda" href={N(p.url)}><Confezione categoria={p.categoria} nome={p.nome} /><strong>{p.nome}</strong><span>{prezzo(p.prezzo)}</span></a></li>;
+        })}
+      </ul>
+      <p class="nota-link">Torna l'<a href={N("/te-neri/earl-grey-classico/")}>Earl Grey classico</a>, il preferito dei nostri clienti.</p>
+      <h2>Dal blog</h2>
+      <ul class="elenco-blog">{blog.slice(0, 4).map((b) => <li><a href={N(b.url)}>{b.h1}</a></li>)}</ul>
+    </>
+  ) : cat ? (
+    <>
+      <nav class="briciole" aria-label="Percorso"><a href={N("/")}>Home</a> › {cat.nome}</nav>
+      {cat.h1 && <h1>{cat.h1}</h1>}
+      <p class="intro">{cat.intro}</p>
+      <p class="ordina">Ordina per: <a href={N(`/${cat.id}/?ordina=prezzo`)}>prezzo</a> · <a href={N(`/${cat.id}/?ordina=nome`)}>nome</a></p>
+      <ul class="griglia">
+        {catalogo.prodotti.filter((p) => p.categoria === cat.id).map((p) => (
+          <li><a class="scheda" href={N(p.url)}><Confezione categoria={p.categoria} nome={p.nome} /><strong>{p.nome}</strong><span>{prezzo(p.prezzo)} · {p.formato}</span>{!p.disponibile && <em>Esaurito</em>}</a></li>
+        ))}
+      </ul>
+      {linkaIl404 && <p class="nota-link">Cerchi un classico? Prova il nostro <a href={N("/te-neri/earl-grey-classico/")}>Earl Grey classico</a>.</p>}
+    </>
+  ) : prodotto ? (
+    <>
+      <nav class="briciole" aria-label="Percorso"><a href={N("/")}>Home</a> › <a href={N(`/${prodotto.categoria}/`)}>{categoriaDi(prodotto.categoria).nome}</a> › {prodotto.nome}</nav>
+      <section class="prodotto">
+        <Confezione categoria={prodotto.categoria} nome={prodotto.nome} grande />
+        <div class="prodotto-testi">
+          <h1>{prodotto.h1}</h1>
+          <p class="prezzo">{prezzo(prodotto.prezzo)} <span>· {prodotto.formato}</span></p>
+          {prodotto.disponibile
+            ? <p class="disp ok">Disponibile · spedizione in 24 ore</p>
+            : <p class="disp no">Esaurito · {prodotto.nota}</p>}
+          <button type="button" class="sito-bottone" disabled>{prodotto.disponibile ? "Aggiungi al carrello" : "Avvisami quando torna"}</button>
+          <p>{GUSTO[prodotto.categoria]}</p>
+          <p class="recensioni">{prodotto.recensioni ? `${prodotto.recensioni} recensioni verificate` : "Ancora nessuna recensione"}</p>
+          {linkaIl404 && <p class="nota-link">Ti piace? Prova anche l'<a href={N("/te-neri/earl-grey-classico/")}>Earl Grey classico</a>.</p>}
+        </div>
+      </section>
+      <h2>Della stessa categoria</h2>
+      <ul class="griglia">
+        {catalogo.prodotti.filter((p) => p.categoria === prodotto.categoria && p.id !== prodotto.id).slice(0, 4).map((p) => (
+          <li><a class="scheda" href={N(p.url)}><Confezione categoria={p.categoria} nome={p.nome} /><strong>{p.nome}</strong><span>{prezzo(p.prezzo)}</span></a></li>
+        ))}
+      </ul>
+    </>
+  ) : url === "/blog/" ? (
+    <>
+      <h1>{pagina.h1}</h1>
+      <ul class="elenco-blog">{blog.map((b) => <li><a href={N(b.url)}>{b.h1}</a></li>)}</ul>
+    </>
+  ) : pagina.tipo === "Articolo" ? (
+    <article class="articolo">
+      <nav class="briciole" aria-label="Percorso"><a href={N("/")}>Home</a> › <a href={N("/blog/")}>Blog</a> › {pagina.h1}</nav>
+      <h1>{pagina.h1}</h1>
+      <p class="intro">{pagina.description}</p>
+      <p>Articolo di circa {pagina.parole} parole. In questo negozio finto mostriamo solo l'inizio: il testo completo non serve per gli esercizi.</p>
+      {url === "/blog/sencha-guida-completa/" && <p>Il tè verde Sencha è il tè più bevuto in Giappone. In questa guida trovi cos'è, come si prepara e dove comprare il <strong>tè verde Sencha</strong> migliore: il nostro <a href={N("/te-verdi/sencha-bio/")}>Sencha biologico</a>.</p>}
+      {linkaIl404 && <p class="nota-link">Il nostro consiglio: l'<a href={N("/te-neri/earl-grey-classico/")}>Earl Grey classico</a>.</p>}
+    </article>
+  ) : (
+    <>
+      <h1>{pagina.h1}</h1>
+      <p class="intro">Pagina di servizio del negozio.</p>
+    </>
+  )}
+</Negozio>
+
+<style>
+  h1 { font-family: Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.1; color: #22301f; margin: 0 0 10px; }
+  h2 { font-family: Georgia, serif; font-size: 1.4rem; margin: 32px 0 14px; color: #22301f; }
+  p { font-family: var(--font-testo); line-height: 1.6; }
+  .briciole { font-family: var(--font-testo); font-size: .85rem; color: #6b6a63; margin-bottom: 16px; }
+  .briciole a { color: #2f6b45; }
+  .intro { font-size: 1.05rem; color: #4a4943; max-width: 60ch; }
+  .ordina { font-size: .85rem; color: #6b6a63; }
+  .ordina a, .nota-link a, .elenco-blog a { color: #2f6b45; }
+  .sito-bottone { display: inline-block; font-family: var(--font-testo); font-weight: 700; background: #2f6b45; color: #fff; border: 0; border-radius: 8px; padding: 12px 20px; text-decoration: none; cursor: pointer; }
+  .sito-bottone:disabled { opacity: .7; cursor: not-allowed; }
+  .eroe { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 28px; align-items: center; background: #eef4ea; border-radius: 14px; padding: 28px; }
+  .griglia-cat, .griglia { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 170px), 1fr)); gap: 16px; }
+  .griglia-cat a { display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: #2b2a26; font-family: var(--font-testo); font-weight: 700; }
+  .scheda { display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: #2b2a26; font-family: var(--font-testo); background: #fff; border: 1px solid #e7e2d6; border-radius: 12px; padding: 10px; height: 100%; }
+  .scheda:hover { border-color: #2f6b45; }
+  .scheda strong { font-size: .95rem; } .scheda span { font-size: .85rem; color: #6b6a63; } .scheda em { font-size: .8rem; font-style: normal; color: #a12d1d; font-weight: 700; }
+  .prodotto { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 32px; align-items: start; }
+  .prodotto-testi { display: flex; flex-direction: column; gap: 10px; }
+  .prezzo { font-size: 1.5rem; font-weight: 700; margin: 0; } .prezzo span { font-size: 1rem; font-weight: 400; color: #6b6a63; }
+  .disp { margin: 0; font-weight: 700; } .disp.ok { color: #2f6b45; } .disp.no { color: #a12d1d; }
+  .recensioni { color: #6b6a63; font-size: .9rem; }
+  .elenco-blog { font-family: var(--font-testo); line-height: 1.9; }
+  .articolo { max-width: 70ch; }
+  .vuota { text-align: center; padding: 40px 0; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .grande-num { font-family: Georgia, serif; font-size: 4rem; color: #c9c2b5; margin: 0; }
+  @media (max-width: 700px) { .eroe, .prodotto { grid-template-columns: 1fr; } }
+</style>

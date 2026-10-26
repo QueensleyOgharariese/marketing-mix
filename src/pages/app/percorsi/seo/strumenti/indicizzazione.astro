@@ -1,0 +1,145 @@
+---
+// STRUMENTO · PAGINE E INDICIZZAZIONE: ispirato ai rapporti "Pagine" e "Core Web Vitals" di Google Search Console
+// Quante pagine sono su Google, perché le altre non ci sono (con i motivi come li scrive Google),
+// andamento settimanale; Core Web Vitals da telefono e da computer con le soglie ufficiali.
+// Dati: src/data/app/seo-pro/indicizzazione.json e crawl.json.
+import Console from "../../../../../components/seopro/Console.astro";
+import ind from "../../../../../data/app/seo-pro/indicizzazione.json";
+import crawl from "../../../../../data/app/seo-pro/crawl.json";
+import { num } from "../../../../../scripts/tabella";
+
+const nonInd = ind.motivi.reduce((s, m) => s + m.pagine.length, 0);
+const soglie = ind.cwv.soglie;
+const giudizio = (v: number, [buono, scarso]: number[]) => (v <= buono ? ["ok", "Buono"] : v <= scarso ? ["medio", "Da migliorare"] : ["no", "Scarso"]);
+const info = (url: string) => crawl.pagine.find((p) => p.url === url);
+// Andamento: barre impilate (indicizzate in verde, non indicizzate in grigio)
+const W = 900, H = 220, sx = 30;
+const maxTot = Math.max(...ind.storico.map((s) => s.indicizzate + s.non_indicizzate));
+const bw = (W - sx - 20) / ind.storico.length;
+---
+<Console attivo="indicizzazione" titolo="Pagine e indicizzazione" ispirato="Google Search Console (rapporti Pagine e Core Web Vitals)">
+  <div class="sp-schede" role="tablist">
+    <button type="button" role="tab" aria-selected="true" data-scheda="pagine">Indicizzazione delle pagine</button>
+    <button type="button" role="tab" aria-selected="false" data-scheda="cwv">Core Web Vitals</button>
+  </div>
+
+  <section data-pannello="pagine" class="sezione">
+    <div class="sp-cifre">
+      <div class="sp-cifra"><span>Pagine indicizzate</span><strong class="su">{num(ind.indicizzate)}</strong><small>sono nei risultati di Google</small></div>
+      <div class="sp-cifra"><span>Pagine non indicizzate</span><strong>{num(nonInd)}</strong><small>{ind.motivi.length} motivi</small></div>
+      <div class="sp-cifra"><span>Ultimo aggiornamento</span><strong>{ind.aggiornato.split("-").reverse().join("/")}</strong><small>dati simulati</small></div>
+    </div>
+
+    <div class="sp-pannello">
+      <strong class="sottotitolo">Andamento nelle ultime 12 settimane</strong>
+      <svg class="sp-grafico" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Pagine indicizzate e non indicizzate per settimana">
+        {ind.storico.map((s, i) => {
+          const hI = (s.indicizzate / maxTot) * (H - 40), hN = (s.non_indicizzate / maxTot) * (H - 40);
+          const x = sx + i * bw + 6;
+          return (<g>
+            <rect x={x} y={H - 24 - hI} width={bw - 12} height={hI} fill="#2f7a4f"><title>{`${s.settimana}: ${s.indicizzate} indicizzate`}</title></rect>
+            <rect x={x} y={H - 24 - hI - hN} width={bw - 12} height={hN} fill="#cbbdb2"><title>{`${s.settimana}: ${s.non_indicizzate} non indicizzate`}</title></rect>
+            <text x={x + (bw - 12) / 2} y={H - 8} font-size="11" text-anchor="middle" fill="#8a7b72">{s.settimana.slice(8)}/{s.settimana.slice(5, 7)}</text>
+          </g>);
+        })}
+      </svg>
+      <p class="sp-nota"><span class="leg verde"></span> Indicizzate <span class="leg grigio"></span> Non indicizzate · settimane che iniziano il giorno indicato</p>
+    </div>
+
+    <div class="sp-pannello">
+      <strong class="sottotitolo">Perché alcune pagine non sono indicizzate</strong>
+      <p class="sp-nota">Clicca un motivo per vedere le pagine. Non tutti i motivi sono un problema: alcune pagine è giusto che non siano su Google.</p>
+      <div class="sp-scorri">
+        <table data-tabella>
+          <thead><tr><th data-ordina="testo">Motivo</th><th data-ordina="testo">Fonte</th><th>Convalida</th><th data-ordina="numero" class="n">Pagine</th></tr></thead>
+          <tbody>
+            {ind.motivi.map((m, i) => (
+              <tr data-motivo={i} tabindex="0"><td>{m.motivo}</td><td>{m.fonte}</td><td><span class="sp-badge">Non iniziata</span></td><td class="n" data-valore={m.pagine.length}>{m.pagine.length}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {ind.motivi.map((m, i) => (
+        <div class="elenco" data-elenco={i} hidden>
+          <strong>{m.motivo}</strong>
+          <div class="sp-scorri">
+            <table class="mini">
+              <thead><tr><th>URL</th><th>Ultima scansione</th><th>Dettagli</th></tr></thead>
+              <tbody>
+                {m.pagine.map((u) => { const p = info(u); return (
+                  <tr><td class="url">{p && p.stato === 200 ? <a href={`/app/negozio${u.split("?")[0]}`}>{u}</a> : u}</td><td>{crawl.data.split("-").reverse().join("/")}</td>
+                    <td>{p?.stato === 301 ? `Reindirizza a ${p.redirect}` : p?.stato === 404 ? `Linkata da ${(crawl.link404 as Record<string, string[]>)[u]?.length ?? 0} pagine` : p?.robots?.includes("noindex") ? `meta robots: ${p.robots}` : p?.tipo === "Filtro" ? "Google ha scelto come canonica la categoria" : `${p?.parole ?? 0} parole`}</td></tr>
+                ); })}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section data-pannello="cwv" class="sezione" hidden>
+    <div class="sp-pannello">
+      <p class="sp-nota">I Core Web Vitals misurano l'esperienza di chi visita: <strong>LCP</strong> (quanto ci mette a comparire il contenuto principale; buono entro {soglie.lcp[0]} s), <strong>INP</strong> (quanto risponde la pagina quando tocchi qualcosa; buono entro {soglie.inp[0]} ms) e <strong>CLS</strong> (quanto si spostano gli elementi mentre carica; buono entro {soglie.cls[0]}). Sono dati raccolti dai visitatori veri negli ultimi 28 giorni.</p>
+    </div>
+    {(["telefono", "computer"] as const).map((dispositivo) => (
+      <div class="sp-pannello">
+        <strong class="sottotitolo">{dispositivo === "telefono" ? "Da telefono" : "Da computer"}</strong>
+        <div class="sp-scorri">
+          <table data-tabella>
+            <thead><tr><th>Gruppo di pagine</th><th class="n">Pagine</th><th class="n">LCP</th><th class="n">INP</th><th class="n">CLS</th><th>Stato</th></tr></thead>
+            <tbody>
+              {ind.cwv[dispositivo].map((g) => {
+                const l = giudizio(g.lcp, soglie.lcp), n = giudizio(g.inp, soglie.inp), c = giudizio(g.cls, soglie.cls);
+                const peggio = [l, n, c].some((x) => x[0] === "no") ? ["no", "Scarso"] : [l, n, c].some((x) => x[0] === "medio") ? ["medio", "Da migliorare"] : ["ok", "Buono"];
+                return (<tr>
+                  <td>{g.gruppo}<br /><span class="url esempio">es. {g.esempio}</span></td><td class="n">{g.pagine}</td>
+                  <td class="n"><span class:list={["sp-badge", l[0]]}>{num(g.lcp, 1)} s</span></td>
+                  <td class="n"><span class:list={["sp-badge", n[0]]}>{g.inp} ms</span></td>
+                  <td class="n"><span class:list={["sp-badge", c[0]]}>{num(g.cls, 2)}</span></td>
+                  <td><span class:list={["sp-badge", peggio[0]]}>{peggio[1]}</span></td>
+                </tr>);
+              })}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    ))}
+    <details class="sp-pannello">
+      <summary class="sottotitolo">Analisi della pagina di esempio (schede prodotto, da telefono)</summary>
+      <p class="sp-nota">Elemento più grande (LCP): la foto principale del prodotto. {ind.cwv.causa}</p>
+    </details>
+  </section>
+</Console>
+
+<script>
+  import { attivaTabelle } from "../../../../../scripts/tabella";
+  attivaTabelle();
+  document.querySelectorAll<HTMLButtonElement>("[data-scheda]").forEach((b) => b.addEventListener("click", () => {
+    document.querySelectorAll("[data-scheda]").forEach((x) => x.setAttribute("aria-selected", String(x === b)));
+    document.querySelectorAll<HTMLElement>("[data-pannello]").forEach((p) => (p.hidden = p.dataset.pannello !== b.dataset.scheda));
+  }));
+  function apri(r: HTMLTableRowElement) {
+    document.querySelectorAll("tr.selezionata").forEach((x) => x.classList.remove("selezionata"));
+    r.classList.add("selezionata");
+    document.querySelectorAll<HTMLElement>("[data-elenco]").forEach((e) => (e.hidden = e.dataset.elenco !== r.dataset.motivo));
+  }
+  document.querySelectorAll<HTMLTableRowElement>("tr[data-motivo]").forEach((r) => {
+    r.addEventListener("click", () => apri(r));
+    r.addEventListener("keydown", (e) => { if (e.key === "Enter") apri(r); });
+  });
+</script>
+
+<style>
+  .sezione { display: flex; flex-direction: column; gap: 16px; }
+  .sottotitolo { display: block; font-size: .95rem; margin-bottom: 8px; cursor: default; }
+  details .sottotitolo { cursor: pointer; margin: 0; }
+  tr[data-motivo] { cursor: pointer; }
+  .elenco { margin-top: 14px; border: 2px solid var(--arancio); border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 8px; background: #fffaf6; }
+  .mini { width: 100%; border-collapse: collapse; font-size: .82rem; }
+  .mini th { text-align: left; font-size: .72rem; color: #6b5d55; padding: 6px 8px; border-bottom: 1px solid #eadfd6; }
+  .mini td { padding: 6px 8px; border-bottom: 1px solid #f3eeea; vertical-align: top; }
+  .leg { display: inline-block; width: 10px; height: 10px; border-radius: 2px; vertical-align: -1px; margin: 0 4px 0 10px; }
+  .leg.verde { background: #2f7a4f; margin-left: 0; } .leg.grigio { background: #cbbdb2; }
+  .esempio { color: #8a7b72; }
+</style>

@@ -1,0 +1,98 @@
+---
+// STRUMENTO · RICERCA KEYWORD: ispirato a Google Keyword Planner e ai tool come Semrush
+// Volume medio mensile, difficoltà, CPC, intento, andamento nell'anno (stagionalità), elementi della SERP,
+// posizione attuale di cinquefoglie.example. Filtri per testo, intento e volume; ordinamento per colonna.
+// Dati: src/data/app/seo-pro/keyword.json (generati da strumenti-dati/genera_negozio.py).
+import Console from "../../../../../components/seopro/Console.astro";
+import kw from "../../../../../data/app/seo-pro/keyword.json";
+import { num } from "../../../../../scripts/tabella";
+
+const INTENTI = ["informativa", "commerciale", "transazionale", "navigazionale"];
+const kd = (d: number) => (d < 25 ? ["ok", "Facile"] : d < 45 ? ["medio", "Media"] : ["no", "Difficile"]);
+// Andamento nei 12 mesi (da luglio a giugno): 12 barrette, la più alta è il mese con più ricerche.
+// Barrette tutte uguali = keyword stabile tutto l'anno (non stagionale).
+const barre = (t: number[]) => {
+  const max = Math.max(...t, 0.01);
+  return t.map((v, i) => ({ x: i * 7, h: Math.max(1, (v / max) * 20) }));
+};
+---
+<Console attivo="keyword" titolo="Ricerca keyword" ispirato="Google Keyword Planner e tool come Semrush">
+  <div class="sp-pannello comandi">
+    <input class="sp-cerca" type="search" placeholder="Cerca una keyword…" data-testo />
+    <label>Intento
+      <select class="sp-scegli" data-intento>
+        <option value="">Tutti</option>
+        {INTENTI.map((i) => <option value={i}>{i}</option>)}
+      </select>
+    </label>
+    <label>Volume almeno
+      <select class="sp-scegli" data-volume>
+        <option value="0">qualsiasi</option><option value="1000">1.000</option><option value="5000">5.000</option><option value="10000">10.000</option>
+      </select>
+    </label>
+    <label class="spunta"><input type="checkbox" data-assente /> Solo dove il sito non compare</label>
+    <span class="sp-nota" data-conteggio></span>
+  </div>
+
+  <div class="sp-scorri">
+    <table data-tabella id="t-kw">
+      <thead><tr>
+        <th data-ordina="testo">Keyword</th><th data-ordina="testo">Intento</th><th data-ordina="numero" class="n">Volume</th>
+        <th data-ordina="numero" class="n">Difficoltà</th><th data-ordina="numero" class="n">CPC</th><th>Andamento (lug → giu)</th>
+        <th>Elementi della SERP</th><th data-ordina="numero" class="n">Posizione del sito</th>
+      </tr></thead>
+      <tbody>
+        {kw.keyword.map((k) => (
+          <tr data-intento={k.intento} data-vol={k.volume} data-assente={k.posizione == null ? "si" : "no"}>
+            <td><strong>{k.keyword}</strong></td>
+            <td><span class:list={["sp-badge", `int-${k.intento}`]}>{k.intento}</span></td>
+            <td class="n" data-valore={k.volume}>{num(k.volume)}</td>
+            <td class="n" data-valore={k.difficolta}><span class:list={["sp-badge", kd(k.difficolta)[0]]} title={kd(k.difficolta)[1]}>{k.difficolta}</span></td>
+            <td class="n" data-valore={k.cpc}>{num(k.cpc, 2)} €</td>
+            <td><svg width="84" height="24" viewBox="0 0 84 24" role="img" aria-label={`Andamento: ${k.trend.map((v, i) => `${kw.mesiTrend[i]} ${num(v * 100)}%`).join(", ")}`}>{barre(k.trend).map((b) => <rect x={b.x} y={22 - b.h} width="5" height={b.h} rx="1" fill="#c4520b" />)}</svg></td>
+            <td><div class="serp">{k.serp.map((s) => <span class="sp-badge">{s}</span>)}</div></td>
+            <td class="n" data-valore={k.posizione ?? 999}>{k.posizione != null ? num(k.posizione, 1) : <span class="assente">non compare</span>}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <details class="sp-pannello aiuto">
+    <summary>Come si leggono queste colonne</summary>
+    <p><strong>Volume</strong>: ricerche medie al mese in Italia. <strong>Difficoltà</strong> (0-100): quanto è difficile arrivare in prima pagina; sotto 25 è facile, sopra 45 difficile. <strong>CPC</strong>: quanto costa in media un clic negli annunci, un indizio di quanto vale la ricerca per chi vende. <strong>Andamento</strong>: la curva mostra in quali mesi si cerca di più (stagionalità). <strong>Elementi della SERP</strong>: cosa mostra Google oltre ai risultati normali (Shopping, video, "Le persone chiedono anche"…). <strong>Posizione del sito</strong>: dove compare oggi cinquefoglie.example; "non compare" vuol dire oltre la 100ª posizione o fuori dall'indice.</p>
+  </details>
+</Console>
+
+<script>
+  import { attivaTabelle } from "../../../../../scripts/tabella";
+  attivaTabelle();
+  const $ = <T extends HTMLElement>(s: string) => document.querySelector<T>(s)!;
+  function filtra() {
+    const t = $<HTMLInputElement>("[data-testo]").value.trim().toLowerCase();
+    const i = $<HTMLSelectElement>("[data-intento]").value;
+    const v = Number($<HTMLSelectElement>("[data-volume]").value);
+    const a = $<HTMLInputElement>("[data-assente]").checked;
+    let n = 0;
+    document.querySelectorAll<HTMLTableRowElement>("#t-kw tbody tr").forEach((r) => {
+      const ok = (!t || r.cells[0].textContent!.toLowerCase().includes(t)) && (!i || r.dataset.intento === i) && Number(r.dataset.vol) >= v && (!a || r.dataset.assente === "si");
+      r.hidden = !ok; if (ok) n++;
+    });
+    $("[data-conteggio]").textContent = `${n} keyword`;
+  }
+  ["[data-testo]", "[data-intento]", "[data-volume]", "[data-assente]"].forEach((s) => { $(s).addEventListener("input", filtra); $(s).addEventListener("change", filtra); });
+  filtra();
+</script>
+
+<style>
+  .comandi { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; font-size: .85rem; font-weight: 600; color: #5c4a42; }
+  .comandi label { display: flex; align-items: center; gap: 8px; }
+  .spunta input { accent-color: var(--arancio); width: 16px; height: 16px; }
+  .sp-scorri { max-height: 640px; overflow: auto; }
+  .serp { display: flex; flex-wrap: wrap; gap: 4px; min-width: 200px; }
+  .int-informativa { background: #e6eefc; color: #1f45b8; } .int-commerciale { background: #fff3d6; color: #7a5200; }
+  .int-transazionale { background: #e3f3e8; color: #1f5c38; } .int-navigazionale { background: #f1e6f7; color: #6a2c8a; }
+  .assente { color: #a89a90; font-size: .8rem; }
+  .aiuto summary { cursor: pointer; font-weight: 700; }
+  .aiuto p { margin: 10px 0 0; line-height: 1.6; font-size: .9rem; }
+</style>

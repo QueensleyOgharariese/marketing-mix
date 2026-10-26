@@ -1,0 +1,99 @@
+---
+// CORNICE DEGLI STRUMENTI SEO SIMULATI (percorso SEO "Approfondisci")
+// Menu a sinistra con tutti gli strumenti, il negozio e le missioni; a destra lo strumento.
+// Gli strumenti sono ispirati a quelli professionali (Google Search Console, Keyword Planner,
+// Screaming Frog, Google Analytics) ma hanno nomi generici: non imitano marchi reali.
+// Qui ci sono anche gli stili comuni (tabelle, schede, numeri), validi per tutti gli strumenti.
+import AppLayout from "../../layouts/AppLayout.astro";
+import Icona from "../Icona.astro";
+
+interface Props { attivo: string; titolo: string; ispirato?: string; }
+const { attivo, titolo, ispirato } = Astro.props;
+const B = "/app/percorsi/seo";
+const VOCI = [
+  { id: "percorso", nome: "Il percorso", link: `${B}/`, icona: "seo" },
+  { id: "negozio", nome: "Il negozio", link: "/app/negozio/", icona: "trade" },
+  { id: "console", nome: "Console di ricerca", link: `${B}/strumenti/console/`, icona: "cerca" },
+  { id: "indicizzazione", nome: "Pagine e indicizzazione", link: `${B}/strumenti/indicizzazione/`, icona: "check" },
+  { id: "keyword", nome: "Ricerca keyword", link: `${B}/strumenti/keyword/`, icona: "anteprima" },
+  { id: "crawler", nome: "Crawler", link: `${B}/strumenti/crawler/`, icona: "link" },
+  { id: "statistiche", nome: "Statistiche", link: `${B}/strumenti/statistiche/`, icona: "analytics" },
+];
+---
+<AppLayout title={`${titolo} · Percorso SEO`} percorso={[{ etichetta: "Percorso SEO", link: `${B}/` }, { etichetta: titolo }]} indietro={{ etichetta: "Scrivania", link: "/app/scrivania/" }}>
+  <div class="console">
+    <nav class="menu" aria-label="Strumenti del percorso SEO">
+      <span class="menu-titolo">cinquefoglie.example</span>
+      {VOCI.map((v) => (
+        <a class:list={["voce", { attiva: v.id === attivo }]} href={v.link} aria-current={v.id === attivo ? "page" : undefined}>
+          <span class="voce-icona"><Icona nome={v.icona} dimensione={14} /></span>{v.nome}
+        </a>
+      ))}
+      <p class="menu-nota">Dati inventati, coerenti tra loro: un problema che trovi in uno strumento lo ritrovi anche negli altri.</p>
+    </nav>
+    <main class="contenuto">
+      <header class="testa">
+        <h1 class="app-titolo">{titolo}</h1>
+        {ispirato && <p class="ispirato">Simulazione ispirata a {ispirato}</p>}
+      </header>
+      <slot />
+    </main>
+  </div>
+</AppLayout>
+
+<style>
+  .console { display: grid; grid-template-columns: 230px minmax(0, 1fr); min-height: calc(100vh - 61px); }
+  .menu { background: #fff; border-right: 1px solid #eadfd6; padding: 20px 12px; display: flex; flex-direction: column; gap: 2px; }
+  .menu-titolo { font-size: .7rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #8a7b72; padding: 0 10px 10px; overflow-wrap: anywhere; }
+  .voce { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 10px; color: #5c4a42; text-decoration: none; font-size: .9rem; }
+  .voce:hover { background: #faf7f4; color: var(--inchiostro); }
+  .voce.attiva { background: #fff1e6; color: var(--inchiostro); font-weight: 700; }
+  .voce-icona { flex: none; width: 26px; height: 26px; border-radius: 50%; background: #f3eeea; display: grid; place-items: center; }
+  .attiva .voce-icona { background: #ff8a3d; }
+  .menu-nota { margin-top: auto; font-size: .75rem; color: #8a7b72; line-height: 1.5; padding: 10px; }
+  .contenuto { min-width: 0; padding: 24px 28px 48px; display: flex; flex-direction: column; gap: 18px; }
+  .testa h1 { font-size: 1.7rem; }
+  .ispirato { margin: 4px 0 0; font-size: .8rem; color: #8a7b72; }
+  @media (max-width: 860px) {
+    .console { grid-template-columns: 1fr; }
+    .menu { flex-direction: row; flex-wrap: nowrap; overflow-x: auto; border-right: 0; border-bottom: 1px solid #eadfd6; padding: 10px; }
+    .menu-titolo, .menu-nota { display: none; }
+    .voce { white-space: nowrap; flex: none; }
+    .contenuto { padding: 18px 14px 40px; }
+  }
+</style>
+
+<style is:global>
+  /* ---- Stili comuni degli strumenti SEO ---- */
+  .sp-pannello { background: #fff; border: 1px solid #eadfd6; border-radius: 14px; padding: 18px 20px; min-width: 0; }
+  .sp-riga { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; }
+  .sp-cifre { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+  .sp-cifra { background: #fff; border: 1px solid #eadfd6; border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 2px; }
+  .sp-cifra span { font-size: .78rem; color: #6b5d55; font-weight: 600; }
+  .sp-cifra strong { font-family: var(--font-titoli); font-size: 1.7rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .sp-cifra small { font-size: .78rem; font-weight: 700; }
+  .su { color: #2f7a4f; } .giu { color: #c0392b; }
+  .sp-schede { display: flex; flex-wrap: wrap; gap: 4px; border-bottom: 1px solid #eadfd6; }
+  .sp-schede button { font: inherit; font-weight: 700; font-size: .9rem; background: none; border: 0; border-bottom: 3px solid transparent; padding: 10px 14px; color: #6b5d55; cursor: pointer; }
+  .sp-schede button[aria-selected="true"] { color: var(--inchiostro); border-bottom-color: var(--arancio); }
+  .sp-cerca { font: inherit; font-size: .9rem; padding: 9px 12px; border: 1px solid #d8c9bd; border-radius: 10px; min-width: 220px; background: #fff; }
+  .sp-cerca:focus, .sp-scegli:focus { outline: 2px solid var(--arancio); outline-offset: 1px; }
+  .sp-scegli { font: inherit; font-size: .9rem; padding: 8px 10px; border: 1px solid #d8c9bd; border-radius: 10px; background: #fff; }
+  .sp-scorri { overflow-x: auto; border: 1px solid #eadfd6; border-radius: 12px; background: #fff; }
+  table[data-tabella] { width: 100%; border-collapse: collapse; font-size: .85rem; font-variant-numeric: tabular-nums; }
+  table[data-tabella] th { text-align: left; font-size: .75rem; color: #6b5d55; font-weight: 700; padding: 0; border-bottom: 1px solid #eadfd6; white-space: nowrap; background: #faf7f4; position: sticky; top: 0; }
+  table[data-tabella] th:not(:has(button)) { padding: 9px 10px; }
+  table[data-tabella] th .ordina { font: inherit; font-weight: 700; color: inherit; background: none; border: 0; padding: 9px 10px; cursor: pointer; display: flex; align-items: center; gap: 4px; width: 100%; text-align: left; }
+  table[data-tabella] th[aria-sort="descending"] .freccia::after { content: "↓"; color: var(--arancio-scuro); }
+  table[data-tabella] th[aria-sort="ascending"] .freccia::after { content: "↑"; color: var(--arancio-scuro); }
+  table[data-tabella] td { padding: 8px 10px; border-bottom: 1px solid #f3eeea; vertical-align: top; }
+  table[data-tabella] td.n, table[data-tabella] th.n { text-align: right; white-space: nowrap; }
+  table[data-tabella] th.n .ordina { justify-content: flex-end; }
+  table[data-tabella] tbody tr:hover { background: #fffaf6; }
+  table[data-tabella] tr.selezionata { background: #fff1e6; }
+  .url { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .8rem; overflow-wrap: anywhere; }
+  .sp-badge { display: inline-block; font-size: .72rem; font-weight: 700; padding: 2px 8px; border-radius: 999px; background: #f3eeea; color: #5c4a42; white-space: nowrap; }
+  .sp-badge.ok { background: #e3f3e8; color: #1f5c38; } .sp-badge.no { background: #fde8e4; color: #a12d1d; } .sp-badge.medio { background: #fff3d6; color: #7a5200; }
+  .sp-nota { font-size: .8rem; color: #6b5d55; line-height: 1.5; margin: 0; }
+  .sp-grafico { width: 100%; height: auto; display: block; }
+</style>
