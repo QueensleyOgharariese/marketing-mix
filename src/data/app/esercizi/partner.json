@@ -1,0 +1,107 @@
+{
+  "_nota": "Esercizio Partnerships 1. Aziende partner e numeri sono inventati; i partner non hanno nome per non richiamare aziende reali.",
+  "id": "partner",
+  "ruolo": "Partnerships",
+  "titolo": "Esercizio 1 · Una box fatta in due",
+  "minuti": 20,
+  "richiesta": { "da": "LB", "nome": "Luca", "ruolo": "E-commerce", "quando": "sabato alle 10:00", "oggetto": "Facciamo qualcosa con un'altra azienda?",
+    "testo": "Ciao! Per Natale vorrei collaborare con un'altra piccola azienda e vendere qualcosa insieme. Mi aiuti a scegliere il partner, l'idea giusta, a fare i conti e a capire cosa scrivere nell'accordo?" },
+  "scheda": { "titolo": "L'idea e i numeri", "voci": [
+    ["Idea", "Una box \"Colazione lenta\" per Natale"],
+    ["Prezzo della box", "19,90 €"],
+    ["Il nostro tè (costo)", "2,60 €"],
+    ["I biscotti del partner (costo)", "3,40 €"],
+    ["Scatola e spedizione", "4,00 €"],
+    ["Divisione", "Il margine si divide a metà"],
+    ["Obiettivo", "200 box vendute"],
+    ["Nota", "Prezzi senza IVA, per semplicità"] ] },
+  "consiglio": "Una buona partnership funziona quando entrambe le aziende ci guadagnano e i clienti trovano qualcosa che da sole non avrebbero potuto offrire.",
+  "parole": ["partner", "co-marketing", "margine", "accordo", "esclusiva"],
+  "parti": [
+    { "id": "partner", "tipo": "classifica", "titolo": "Con chi collaboriamo?",
+      "testo": "Abbiamo ricevuto o pensato a cinque possibili partner. Quali sono adatti?",
+      "colonne": [ { "id": "si", "nome": "Adatto" }, { "id": "no", "nome": "Non adatto" } ],
+      "righe": [
+        { "id": "p1", "testo": "Forno artigianale di biscotti bio, con clienti simili ai nostri e 12.000 iscritti alla newsletter", "giusti": ["si"] },
+        { "id": "p2", "testo": "Negozio online di tazze e teiere in ceramica fatte a mano", "giusti": ["si"] },
+        { "id": "p3", "testo": "Un altro negozio online di tè, con gli stessi prodotti che vendiamo noi", "giusti": ["no"] },
+        { "id": "p4", "testo": "Una catena di fast food con milioni di clienti", "giusti": ["no"] },
+        { "id": "p5", "testo": "Un'azienda di integratori \"brucia grassi\"", "giusti": ["no"] }
+      ],
+      "controlli": [
+        { "nome": "Partner complementari scelti", "regola": { "tipo": "righe", "righe": ["p1", "p2"] }, "suggerimento": "Vendono cose che vanno bene con il tè, a persone simili ai nostri clienti." },
+        { "nome": "Escluso il concorrente", "regola": { "tipo": "righe", "righe": ["p3"] }, "suggerimento": "Vende le stesse cose: ci porteremmo via i clienti a vicenda." },
+        { "nome": "Esclusi i partner lontani dai nostri valori", "regola": { "tipo": "righe", "righe": ["p4", "p5"] }, "suggerimento": "Pubblico diverso o promesse sulla salute rischiose: la loro immagine diventa anche la nostra." }
+      ],
+      "perche": "Il partner giusto è complementare (vende altro, a un pubblico simile), condivide i nostri valori e porta qualcosa che noi non abbiamo, come nuovi clienti o competenze.",
+      "soluzione": "Adatti: il forno di biscotti bio e il negozio di tazze in ceramica. Non adatti: il concorrente, il fast food, gli integratori \"brucia grassi\"." },
+    { "id": "idea", "tipo": "scelta", "titolo": "Scegli la proposta",
+      "testo": "Scegliamo il forno di biscotti. Quale proposta gli mandi?",
+      "opzioni": [
+        { "id": "o1", "testo": "Una box \"Colazione lenta\" con il nostro Sencha e i loro biscotti, venduta su entrambi i siti, con un codice diverso per ognuno così sappiamo chi ha venduto cosa", "ok": { "entrambi": true, "misurabile": true, "regole": true } },
+        { "id": "o2", "testo": "Chiediamo che mettano il nostro logo sul loro sito, gratis e senza nulla in cambio", "ok": { "entrambi": false, "misurabile": false, "regole": true } },
+        { "id": "o3", "testo": "Ci scambiamo le liste dei clienti: diamo loro i nostri 8.400 iscritti e loro ci danno i loro 12.000", "ok": { "entrambi": true, "misurabile": true, "regole": false } },
+        { "id": "o4", "testo": "Una box insieme, senza codici e senza tenere i conti: a fine anno vediamo com'è andata", "ok": { "entrambi": true, "misurabile": false, "regole": true } }
+      ],
+      "controlli": [
+        { "nome": "Vantaggio per entrambi", "regola": { "tipo": "opzione", "chiave": "entrambi" }, "suggerimento": "Un logo gratis senza nulla in cambio conviene solo a noi." },
+        { "nome": "Risultati misurabili", "regola": { "tipo": "opzione", "chiave": "misurabile" }, "suggerimento": "Senza codici o dati non sapremo mai se ha funzionato." },
+        { "nome": "Rispetta i dati dei clienti", "regola": { "tipo": "opzione", "chiave": "regole" }, "suggerimento": "I nostri iscritti hanno detto sì a noi, non al forno: non si possono passare a un'altra azienda." }
+      ],
+      "perche": "Il co-marketing funziona quando il valore è per tutti e due e si può misurare. E ognuno parla ai propri clienti: le liste di contatti non si scambiano senza il consenso delle persone (GDPR).",
+      "soluzione": "La prima: un prodotto nuovo che da soli non avremmo, venduto da entrambi, con un codice a testa per misurare. Ognuno lo comunica ai propri iscritti." },
+    { "id": "conti", "tipo": "menu", "titolo": "Fai i conti della box",
+      "testo": "Con i numeri della scheda, quanto ci guadagniamo?",
+      "campi": [
+        { "id": "costo", "etichetta": "Costo di una box (tè + biscotti + scatola e spedizione)", "opzioni": ["6,00 €", "10,00 €", "19,90 €"] },
+        { "id": "margine", "etichetta": "Margine di una box (prezzo − costo)", "opzioni": ["9,90 €", "10,00 €", "13,90 €"] },
+        { "id": "quota", "etichetta": "Quota di Cinque Foglie per box (metà del margine)", "opzioni": ["2,48 €", "4,95 €", "9,90 €"] },
+        { "id": "totale", "etichetta": "Il nostro guadagno con 200 box", "opzioni": ["495 €", "990 €", "1.980 €"] }
+      ],
+      "controlli": [
+        { "nome": "Costo giusto: 10,00 €", "regola": { "tipo": "menu", "campo": "costo", "valore": "10,00 €" }, "suggerimento": "2,60 € + 3,40 € + 4,00 €." },
+        { "nome": "Margine giusto: 9,90 €", "regola": { "tipo": "menu", "campo": "margine", "valore": "9,90 €" }, "suggerimento": "19,90 € − 10,00 €." },
+        { "nome": "Quota giusta: 4,95 €", "regola": { "tipo": "menu", "campo": "quota", "valore": "4,95 €" }, "suggerimento": "Metà di 9,90 €." },
+        { "nome": "Guadagno giusto: 990 €", "regola": { "tipo": "menu", "campo": "totale", "valore": "990 €" }, "suggerimento": "4,95 € × 200 box." }
+      ],
+      "perche": "Prima di firmare si fanno i conti insieme, con gli stessi numeri: costi, margine e come si divide. Così nessuno ha sorprese a fine progetto.",
+      "soluzione": "Costo 10,00 €, margine 9,90 €, 4,95 € a testa per box: con 200 box sono 990 € per noi (prima di altri costi come il tempo e la pubblicità)." },
+    { "id": "accordo", "tipo": "spunte", "titolo": "Cosa scriviamo nell'accordo?",
+      "testo": "Prima di partire si mette tutto per iscritto. Scegli cosa scrivere, e solo quello.",
+      "opzioni": [
+        { "id": "c1", "testo": "Chi fa cosa: chi prepara le box, chi spedisce, chi risponde ai clienti" },
+        { "id": "c2", "testo": "Come si dividono costi e guadagni, e quando si paga" },
+        { "id": "c3", "testo": "Quanto dura la collaborazione e come si chiude" },
+        { "id": "c4", "testo": "Come si usano i loghi e chi approva i testi e le foto" },
+        { "id": "c5", "testo": "Ognuno può usare i dati dei clienti dell'altro come vuole" },
+        { "id": "c6", "testo": "Niente carte: tra persone che si fidano basta una stretta di mano" },
+        { "id": "c7", "testo": "Nessuno dei due potrà mai più collaborare con altre aziende, per sempre" }
+      ],
+      "controlli": [
+        { "nome": "Compiti e soldi chiari", "regola": { "tipo": "spunte-tutte", "ids": ["c1", "c2"] }, "suggerimento": "Le liti nascono quasi sempre da compiti e pagamenti non chiari." },
+        { "nome": "Durata e uso del marchio", "regola": { "tipo": "spunte-tutte", "ids": ["c3", "c4"] }, "suggerimento": "Quando finisce, e chi può usare il logo dell'altro e come." },
+        { "nome": "Dati dei clienti protetti", "regola": { "tipo": "spunte-nessuna", "ids": ["c5"] }, "suggerimento": "Se uno spedisce per l'altro, i dati si usano solo per quello e serve un accordo apposito (art. 28 GDPR)." },
+        { "nome": "Niente accordi a voce né esclusive senza fine", "regola": { "tipo": "spunte-nessuna", "ids": ["c6", "c7"] }, "suggerimento": "Un accordo scritto protegge anche l'amicizia; un'esclusiva per sempre blocca entrambi." }
+      ],
+      "perche": "Un accordo scritto chiaro (compiti, soldi, durata, marchi, dati) evita malintesi. Per un accordo vero si chiede sempre a un legale: qui impari solo cosa non deve mancare.",
+      "soluzione": "Chi fa cosa, costi e pagamenti, durata e chiusura, uso dei loghi. Niente dati dei clienti usati liberamente, niente accordi solo a voce, niente esclusive per sempre." }
+  ],
+  "aiuti": [
+    { "titolo": "Come scelgo un partner?", "testo": "Tre domande: vende qualcosa che completa il nostro prodotto (e non lo stesso)? Parla a persone simili ai nostri clienti? Ha valori vicini ai nostri?" },
+    { "titolo": "Perché non ci scambiamo le liste clienti?", "testo": "Le persone hanno dato il consenso a ricevere email da noi, non da un'altra azienda. Ognuno parla ai propri iscritti della box." }
+  ],
+  "glossario": "Partner: azienda con cui collaboriamo. Co-marketing: promuovere insieme un prodotto o un'iniziativa. Complementare: un prodotto che va bene insieme al nostro. Esclusiva: l'impegno a non lavorare con altri.",
+  "note": [
+    "Il partner giusto è complementare e ha valori vicini ai nostri.",
+    "Una proposta funziona se conviene a entrambi e si può misurare.",
+    "Tutto per iscritto: compiti, soldi, durata, marchi e dati."
+  ],
+  "autovalutazione": [
+    "Saprei spiegare perché un concorrente non è un buon partner.",
+    "Ho capito perché non ci si scambia le liste dei clienti.",
+    "Ho fatto i conti della box senza aiuti.",
+    "Saprei dire cosa non deve mancare in un accordo."
+  ],
+  "rispostaCollega": "Perfetto, mando la proposta al forno oggi stesso. E prima di firmare facciamo leggere l'accordo al nostro consulente.",
+  "imparato": ["scegliere un partner", "co-marketing", "dividere il margine", "cosa scrivere in un accordo"]
+}

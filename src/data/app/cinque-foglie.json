@@ -114,6 +114,13 @@
       "breve": "Reputazione e stampa",
       "icona": "pr",
       "pronto": true
+    },
+    {
+      "id": "partner",
+      "nome": "Partnerships",
+      "breve": "Collaborazioni",
+      "icona": "partner",
+      "pronto": true
     }
   ],
   "richieste": [
@@ -188,6 +195,14 @@
       "quando": "venerdì",
       "oggetto": "Una bella notizia e un brutto venerdì",
       "link": "/app/pr/esercizio/"
+    },
+    {
+      "ruolo": "partner",
+      "da": "LB",
+      "nome": "Luca",
+      "quando": "sabato",
+      "oggetto": "Facciamo qualcosa con un'altra azienda?",
+      "link": "/app/partner/esercizio/"
     }
   ]
 }
