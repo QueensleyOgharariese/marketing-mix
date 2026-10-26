@@ -1,7 +1,8 @@
 [
   {
+    "id": "seo",
+    "numero": 1,
     "nome": "SEO specialist",
-    "hub": 1,
     "fase": "Farsi trovare",
     "cosa": "Fa in modo che il sito compaia tra i primi risultati di Google senza pagare.",
     "giornata": [
@@ -19,13 +20,15 @@
       "Copywriting"
     ],
     "tiPiaceSe": "Ti piace se ami scrivere, analizzare e risolvere piccoli enigmi.",
-    "numero": 1,
     "icona": "seo",
-    "breve": "Primi su Google"
+    "breve": "Primi su Google",
+    "quiz": "Scrivere e risolvere enigmi",
+    "titoloPagina": "Cosa fa un SEO specialist"
   },
   {
+    "id": "sea",
+    "numero": 2,
     "nome": "SEA / PPC specialist",
-    "hub": 1,
     "fase": "Farsi trovare",
     "cosa": "Gestisce gli annunci a pagamento sui motori di ricerca: paghi solo quando qualcuno clicca.",
     "giornata": [
@@ -43,13 +46,15 @@
       "Paid social"
     ],
     "tiPiaceSe": "Ti piace se ti diverti con i numeri e vuoi vedere risultati in fretta.",
-    "numero": 2,
     "icona": "sea",
-    "breve": "Annunci a ogni clic"
+    "breve": "Annunci a ogni clic",
+    "quiz": "Numeri e risultati veloci",
+    "titoloPagina": "Cosa fa un SEA / PPC specialist"
   },
   {
+    "id": "brand",
+    "numero": 3,
     "nome": "Brand manager",
-    "hub": 1,
     "fase": "Farsi conoscere",
     "cosa": "Decide come l'azienda si presenta: nome, valori, tono di voce, colori.",
     "giornata": [
@@ -66,13 +71,15 @@
       "Brand strategy"
     ],
     "tiPiaceSe": "Ti piace se hai occhio per i dettagli e ti chiedi spesso perché un marchio ti sta simpatico.",
-    "numero": 3,
     "icona": "brand",
-    "breve": "Valori e tono"
+    "breve": "Valori e tono",
+    "quiz": "Dettagli, colori e stile",
+    "titoloPagina": "Cosa fa un brand manager"
   },
   {
+    "id": "social",
+    "numero": 4,
     "nome": "Social media manager",
-    "hub": 1,
     "fase": "Farsi conoscere",
     "cosa": "Gestisce i profili social dell'azienda: cosa pubblicare, quando e come rispondere.",
     "giornata": [
@@ -90,13 +97,15 @@
       "Video"
     ],
     "tiPiaceSe": "Ti piace se usi molto i social e hai idee per contenuti.",
-    "numero": 4,
     "icona": "social",
-    "breve": "Post e community"
+    "breve": "Post e community",
+    "quiz": "Social e nuovi trend",
+    "titoloPagina": "Cosa fa un social media manager"
   },
   {
+    "id": "influencer",
+    "numero": 5,
     "nome": "Influencer marketing",
-    "hub": 1,
     "fase": "Farsi conoscere",
     "cosa": "Sceglie i creator giusti e organizza collaborazioni con loro.",
     "giornata": [
@@ -114,13 +123,15 @@
       "Regole di trasparenza"
     ],
     "tiPiaceSe": "Ti piace se segui molti creator e sai capire chi è credibile.",
-    "numero": 5,
     "icona": "influencer",
-    "breve": "Creator giusti"
+    "breve": "Creator giusti",
+    "quiz": "Seguire i creator",
+    "titoloPagina": "Cos'è l'influencer marketing"
   },
   {
+    "id": "crm",
+    "numero": 6,
     "nome": "CRM manager",
-    "hub": 1,
     "fase": "Far tornare e misurare",
     "cosa": "Cura il rapporto con chi ha già comprato, per farlo tornare.",
     "giornata": [
@@ -139,13 +150,15 @@
       "Loyalty"
     ],
     "tiPiaceSe": "Ti piace se ami l'ordine e pensi ai clienti come relazioni lunghe.",
-    "numero": 6,
     "icona": "crm",
-    "breve": "Clienti fedeli"
+    "breve": "Clienti fedeli",
+    "quiz": "Persone e relazioni lunghe",
+    "titoloPagina": "Cosa fa un CRM manager"
   },
   {
+    "id": "product",
+    "numero": 7,
     "nome": "Product marketing",
-    "hub": 2,
     "fase": "Convincere e vendere",
     "cosa": "Spiega perché un prodotto è utile e prepara il suo lancio.",
     "giornata": [
@@ -163,13 +176,15 @@
       "Sales enablement"
     ],
     "tiPiaceSe": "Ti piace se sai spiegare cose complicate in modo semplice.",
-    "numero": 7,
     "icona": "product",
-    "breve": "Lanciare prodotti"
+    "breve": "Lanciare prodotti",
+    "quiz": "Spiegare cose nuove",
+    "titoloPagina": "Cos'è il product marketing"
   },
   {
+    "id": "trade",
+    "numero": 8,
     "nome": "Trade marketing",
-    "hub": 2,
     "fase": "Convincere e vendere",
     "cosa": "Fa vendere i prodotti nei negozi e con i distributori.",
     "giornata": [
@@ -187,13 +202,15 @@
       "Category management"
     ],
     "tiPiaceSe": "Ti piace se ti incuriosisce cosa succede dentro un supermercato.",
-    "numero": 8,
     "icona": "trade",
-    "breve": "Vendere nei negozi"
+    "breve": "Vendere nei negozi",
+    "quiz": "Negozi e supermercati",
+    "titoloPagina": "Cos'è il trade marketing"
   },
   {
+    "id": "pr",
+    "numero": 9,
     "nome": "PR e comunicazione",
-    "hub": 2,
     "fase": "Farsi conoscere",
     "cosa": "Cura la reputazione dell'azienda con giornalisti e pubblico.",
     "giornata": [
@@ -211,13 +228,15 @@
       "Comunicazione interna"
     ],
     "tiPiaceSe": "Ti piace se scrivi bene e mantieni la calma sotto pressione.",
-    "numero": 9,
     "icona": "pr",
-    "breve": "Reputazione e stampa"
+    "breve": "Reputazione e stampa",
+    "quiz": "Notizie e giornali",
+    "titoloPagina": "Cosa fa chi lavora in PR e comunicazione"
   },
   {
+    "id": "partner",
+    "numero": 10,
     "nome": "Partnerships",
-    "hub": 2,
     "fase": "Convincere e vendere",
     "cosa": "Crea collaborazioni con altre aziende per crescere insieme.",
     "giornata": [
@@ -235,13 +254,15 @@
       "Co-marketing"
     ],
     "tiPiaceSe": "Ti piace se ami conoscere persone e negoziare.",
-    "numero": 10,
     "icona": "partner",
-    "breve": "Collaborazioni"
+    "breve": "Collaborazioni",
+    "quiz": "Conoscere persone e trattare",
+    "titoloPagina": "Cosa fa chi si occupa di partnerships"
   },
   {
+    "id": "ricerca",
+    "numero": 11,
     "nome": "Ricerca di mercato",
-    "hub": 2,
     "fase": "Far tornare e misurare",
     "cosa": "Scopre chi sono i clienti, cosa vogliono e cosa pensano del marchio.",
     "giornata": [
@@ -259,13 +280,15 @@
       "User research"
     ],
     "tiPiaceSe": "Ti piace se fai sempre domande e ti interessa la psicologia.",
-    "numero": 11,
     "icona": "ricerca",
-    "breve": "Capire i clienti"
+    "breve": "Capire i clienti",
+    "quiz": "Fare domande alle persone",
+    "titoloPagina": "Cos'è la ricerca di mercato"
   },
   {
+    "id": "analytics",
+    "numero": 12,
     "nome": "Marketing analytics / martech",
-    "hub": 2,
     "fase": "Far tornare e misurare",
     "cosa": "Raccoglie i dati e sceglie gli strumenti che fanno lavorare il marketing.",
     "giornata": [
@@ -283,8 +306,9 @@
       "CRO (ottimizzazione conversioni)"
     ],
     "tiPiaceSe": "Ti piace se ti piacciono dati, tecnologia e mettere ordine.",
-    "numero": 12,
     "icona": "analytics",
-    "breve": "Dati e strumenti"
+    "breve": "Dati e strumenti",
+    "quiz": "Dati e tecnologia",
+    "titoloPagina": "Cosa fa chi lavora in marketing analytics"
   }
 ]

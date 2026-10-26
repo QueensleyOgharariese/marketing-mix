@@ -113,3 +113,6 @@ img, svg { max-width: 100%; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* Link in evidenza ("Apri la mappa dei ruoli →"), usato in più pagine */
+.link-forte { font-weight: 700; font-size: 1.05rem; align-self: flex-start; }

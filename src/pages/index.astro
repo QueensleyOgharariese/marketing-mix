@@ -161,7 +161,7 @@ const demoDescrizione = "Sencha giapponese dal gusto fresco ed erbaceo. Foglie i
       <ul class="pass-griglia">
         {ruoli.map((r, i) => (
           <li>
-            <a href="/ruoli/" class="pass" style={`--r: ${[-1.5, 1.2, 1, -1.2][i % 4]}deg`}>
+            <a href={`/ruoli/${r.id}/`} class="pass" style={`--r: ${[-1.5, 1.2, 1, -1.2][i % 4]}deg`}>
               <span class="pass-fascia"><span class="pass-foro" aria-hidden="true"></span><span>N. {String(r.numero).padStart(3, "0")}</span></span>
               <span class="pass-corpo">
                 <span class="pass-icona"><Icona nome={r.icona} /></span>
@@ -190,7 +190,7 @@ const demoDescrizione = "Sencha giapponese dal gusto fresco ed erbaceo. Foglie i
       <div class="esercizio-anteprima">
         <Pesca dimensione={140} occhiali class="studiosa" etichetta="La pesca con gli occhiali che guarda l'esercizio" />
         <div class="esercizio">
-          <div class="esercizio-testa"><span class="etichetta">Esercizio 1 · SEO</span><span class="nota">circa 15 minuti</span></div>
+          <div class="esercizio-testa"><span class="etichetta">Esercizio 1 · SEO</span><span class="nota">circa 25 minuti</span></div>
           <div class="richiesta"><strong>Da Marta, la fondatrice:</strong> la pagina del tè Sencha non compare su Google. Riscrivi il titolo per la ricerca "tè verde Sencha".</div>
           <span class="nota forte">Il tuo titolo</span>
           <div class="campo"><span class="digita">{demoTitolo}</span><span class="cursore" aria-hidden="true">|</span></div>
@@ -308,7 +308,6 @@ const demoDescrizione = "Sencha giapponese dal gusto fresco ed erbaceo. Foglie i
   .testa-sezione { display: flex; flex-wrap: wrap; gap: 16px 20px; align-items: flex-end; justify-content: space-between; }
   .grande { font-size: 1.2rem; line-height: 1.55; color: var(--testo-2); max-width: 40ch; }
   .stretto { max-width: 36ch; color: var(--testo-2); font-size: 1.1rem; line-height: 1.55; }
-  .link-forte { font-weight: 700; font-size: 1.05rem; align-self: flex-start; }
   .occhiello { font-weight: 700; color: #ffb27a; }
   .occhiello--arancio { color: var(--arancio-scuro); }
   .occhiello--piccolo { font-size: .75rem; font-weight: 800; color: var(--etichetta); text-transform: uppercase; letter-spacing: .06em; }
