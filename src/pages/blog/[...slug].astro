@@ -1,32 +1,222 @@
 ---
-// PAGINA DI UN ARTICOLO
+// PAGINA DI UN ARTICOLO (disegno approvato sulla tela "Articolo")
 // Le parentesi quadre nel nome del file vogliono dire "pagina dinamica":
 // Astro crea una pagina per ogni articolo, usando il nome del file come indirizzo.
 // Esempio: cosa-fa-un-seo-specialist.md → /blog/cosa-fa-un-seo-specialist/
+// Il testo è in Markdown; le parti fisse (In 30 secondi, domanda, FAQ) arrivano dai dati in cima al file.
 import Base from "../../layouts/Base.astro";
+import Copertina from "../../components/Copertina.astro";
+import Pesca from "../../components/Pesca.astro";
+import Icona from "../../components/Icona.astro";
 import { getCollection, render } from "astro:content";
+import { marked } from "../../scripts/testo";
+import strumenti from "../../data/strumenti.json";
+import ruoli from "../../data/ruoli.json";
 
 export async function getStaticPaths() {
   const articoli = await getCollection("blog", ({ data }) => import.meta.env.DEV || !data.bozza);
-  return articoli.map((articolo) => ({ params: { slug: articolo.id }, props: { articolo } }));
+  return articoli.map((articolo) => ({ params: { slug: articolo.id }, props: { articolo, tutti: articoli } }));
 }
 
-const { articolo } = Astro.props;
-const { Content } = await render(articolo);
-const data = articolo.data.date.toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric" });
+const { articolo, tutti } = Astro.props;
+const a = articolo.data;
+const { Content, headings } = await render(articolo);
+const data = a.date.toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric" });
+const strumento = strumenti.find((s) => s.id === a.strumentoId);
+const ruolo = ruoli.find((r) => r.id === a.ruoloId);
+
+// Indice: "In 30 secondi" (segnato con un punto, come nel disegno), i titoli H2 numerati come nel testo, poi le parti fisse
+const indice = [
+  ...(a.inBreve.length ? [{ id: "in-breve", testo: "In 30 secondi" }] : []),
+  ...headings.filter((h) => h.depth === 2).map((h) => ({ id: h.slug, testo: h.text })),
+  ...(a.domanda ? [{ id: "prova", testo: "Mettiti alla prova" }] : []),
+  ...(a.faq.length ? [{ id: "faq", testo: "Domande frequenti" }] : []),
+];
+
+// Articoli collegati: prima quelli dello stesso ruolo o categoria, poi gli altri
+const collegati = tutti
+  .filter((x) => x.id !== articolo.id)
+  .sort((x, y) => Number(y.data.ruoloId === a.ruoloId && !!a.ruoloId) - Number(x.data.ruoloId === a.ruoloId && !!a.ruoloId) || Number(y.data.categoria === a.categoria) - Number(x.data.categoria === a.categoria))
+  .slice(0, 3);
+const percorso = { ruoli: "Guide ai ruoli", basi: "Basi", carriera: "Carriera", regole: "Regole" }[a.categoria];
 ---
-<Base title={articolo.data.title} description={articolo.data.description}>
-  <div class="contenitore pagina">
-  <article class="testo">
-    <p class="meta">{articolo.data.ruolo} · {data}</p>
-    <h1>{articolo.data.title}</h1>
-    <Content />
-    <p><a href="/blog/">← Tutti gli articoli</a></p>
+<Base title={a.title} description={a.description}>
+  <span class="lettura" aria-hidden="true"></span>
+  <article>
+    <header class="contenitore testa">
+      <nav class="briciole" aria-label="Percorso"><a href="/blog/">Blog</a> <span aria-hidden="true">›</span> <span>{percorso}</span> <span aria-hidden="true">›</span> <span aria-current="page">{a.title}</span></nav>
+      <span class="etichetta">{a.etichetta}</span>
+      <h1>{a.title}</h1>
+      <p class="grande">{a.description}</p>
+      <div class="autore">
+        <span class="avatar" aria-hidden="true">Q</span><span><strong>Queen</strong> · SEO e copywriting</span>
+        <span aria-hidden="true">·</span><time datetime={a.date.toISOString().slice(0, 10)}>{data}</time>
+        <span aria-hidden="true">·</span><span>Lettura {a.minuti} min</span>
+      </div>
+    </header>
+    <div class="contenitore"><div class="copertina"><Copertina tema={a.tema} altezza={320} /></div></div>
+
+    <div class="contenitore corpo">
+      <div class="colonna">
+        {a.inBreve.length > 0 && (
+          <section id="in-breve" class="in-breve" aria-labelledby="t-breve">
+            <h2 id="t-breve">In 30 secondi</h2>
+            <ul>{a.inBreve.map((x) => <li set:html={marked(x)} />)}</ul>
+          </section>
+        )}
+        <div class="testo-articolo"><Content /></div>
+
+        {a.consiglio && (
+          <aside class="consiglio">
+            <Pesca dimensione={64} occhiali animata={false} />
+            <span><strong>Consiglio di Pesca</strong><span>{a.consiglio}</span></span>
+          </aside>
+        )}
+
+        {a.domanda && (
+          <section id="prova" class="domanda" aria-labelledby="t-prova">
+            <span class="d-occhiello">METTITI ALLA PROVA</span>
+            <h2 id="t-prova">{a.domanda.testo}</h2>
+            <fieldset>
+              <legend class="sr">Scegli una risposta</legend>
+              {a.domanda.opzioni.map((o, i) => (<><input class="sr" type="radio" name="domanda" id={`d-${i}`} data-giusta={o.giusta ? "si" : "no"} /><label class="risposta" for={`d-${i}`}>{o.testo}</label></>))}
+            </fieldset>
+            <p class="spiega spiega-si" role="status"><strong>Giusto!</strong> {a.domanda.spiegaSi}</p>
+            <p class="spiega spiega-no" role="status"><strong>Quasi.</strong> {a.domanda.spiegaNo}</p>
+          </section>
+        )}
+
+        {a.faq.length > 0 && (
+          <section id="faq" class="faq" aria-labelledby="t-faq">
+            <h2 id="t-faq">Domande frequenti</h2>
+            {a.faq.map((f) => (<details><summary>{f.d}</summary><p>{f.r}</p></details>))}
+          </section>
+        )}
+
+        {a.argomenti.length > 0 && (
+          <p class="argomenti"><span>Argomenti:</span>{a.argomenti.map((t) => <span class="chip-arg">{t}</span>)}</p>
+        )}
+      </div>
+
+      <aside class="lato">
+        <nav class="indice" aria-label="Indice dell'articolo">
+          <strong>IN QUESTO ARTICOLO</strong>
+          <ol>{indice.map((v, i) => <li><a href={`#${v.id}`}><span>{v.id === "in-breve" ? "·" : a.inBreve.length ? i : i + 1}</span>{v.testo}</a></li>)}</ol>
+        </nav>
+        {(strumento?.pronto || ruolo) && (
+          <div class="prova-subito">
+            <strong>Prova subito</strong>
+            {strumento?.pronto && <a class="voce" href={`/strumenti/${strumento.id}/`}><span class="tondo"><Icona nome={strumento.icona} dimensione={18} /></span><span><strong>{strumento.nome}</strong><small>Strumento gratuito</small></span></a>}
+            {ruolo && <a class="voce" href={`/app/${ruolo.id}/esercizio/`}><span class="tondo"><Icona nome={ruolo.id} dimensione={18} /></span><span><strong>{ruolo.nome} in azienda</strong><small>Esercizio guidato</small></span></a>}
+            {!ruolo && <a class="voce" href="/ruoli/"><span class="tondo"><Icona nome="persone" dimensione={18} /></span><span><strong>La mappa dei ruoli</strong><small>12 ruoli da provare</small></span></a>}
+          </div>
+        )}
+      </aside>
+    </div>
   </article>
-  </div>
+
+  {collegati.length > 0 && (
+    <section class="contenitore collegati" aria-labelledby="t-collegati">
+      <h2 id="t-collegati">Continua a leggere</h2>
+      <ul>
+        {collegati.map((x) => (
+          <li><a href={`/blog/${x.id}/`} class="breve">
+            <span class="breve-testa"><span class="etichetta">{x.data.etichetta}</span><span class="minuti">{x.data.minuti} min</span></span>
+            <strong>{x.data.title}</strong>
+            <span class="leggi">Leggi →</span>
+          </a></li>
+        ))}
+      </ul>
+    </section>
+  )}
 </Base>
 
 <style>
-  .meta { font-family: var(--font-testo); font-size: 0.8rem; color: var(--testo-2); text-transform: uppercase; letter-spacing: 0.05em; }
-  h1 { font-size: clamp(2rem, 5vw, 2.75rem); margin-top: 0; }
+  /* Barra di lettura in alto: si riempie mentre scorri (solo CSS; dove non è supportata resta nascosta) */
+  .lettura { position: fixed; left: 0; top: 0; height: 5px; width: 100%; background: var(--arancio); transform-origin: 0 50%; transform: scaleX(0); z-index: 60; }
+  @supports (animation-timeline: scroll()) { .lettura { animation: leggi linear both; animation-timeline: scroll(root); } }
+  @keyframes leggi { to { transform: scaleX(1); } }
+
+  .testa { padding-block: 48px 32px; display: flex; flex-direction: column; gap: 18px; }
+  .briciole { font-size: .875rem; font-weight: 600; color: var(--testo-3); }
+  .briciole a { color: var(--testo-3); }
+  .briciole [aria-current] { color: var(--inchiostro); }
+  h1 { font-size: clamp(2.3rem, 6vw, 3.75rem); line-height: 1; max-width: 18ch; }
+  .grande { margin: 0; font-size: 1.3rem; line-height: 1.5; color: var(--testo-2); max-width: 52ch; }
+  .autore { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; font-size: .95rem; color: var(--testo-2); }
+  .autore strong { color: var(--inchiostro); }
+  .avatar { width: 36px; height: 36px; border-radius: 50%; background: #ffc06b; border: 2px solid var(--inchiostro); display: grid; place-items: center; font-weight: 800; color: var(--inchiostro); }
+  .copertina { border: 2px solid var(--inchiostro); border-radius: 28px; overflow: hidden; box-shadow: 8px 8px 0 var(--pesca-chiaro); margin-bottom: 48px; }
+
+  .corpo { display: flex; flex-wrap: wrap; gap: 56px; align-items: flex-start; padding-bottom: 72px; }
+  .colonna { flex: 999 1 560px; min-width: 0; max-width: 720px; display: flex; flex-direction: column; gap: 22px; }
+  .in-breve { background: var(--crema); border-radius: 22px; padding: 24px 26px; display: flex; flex-direction: column; gap: 10px; scroll-margin-top: 100px; }
+  .in-breve h2 { font-size: 1.4rem; }
+  .in-breve ul { margin: 0; padding-left: 20px; font-size: 1.05rem; line-height: 1.65; }
+
+  /* Il testo in Markdown: Astro lo genera, quindi servono stili :global dentro .testo-articolo */
+  .testo-articolo { counter-reset: sezione; display: flex; flex-direction: column; gap: 18px; font-size: 1.125rem; line-height: 1.7; color: #3a2b24; }
+  .testo-articolo :global(p), .testo-articolo :global(ul), .testo-articolo :global(ol) { margin: 0; }
+  .testo-articolo :global(h2) { counter-increment: sezione; margin-top: 18px; font-size: clamp(1.6rem, 4vw, 1.9rem); line-height: 1.15; scroll-margin-top: 100px; }
+  .testo-articolo :global(h2)::before { content: counter(sezione); display: inline-grid; place-items: center; width: 34px; height: 34px; margin-right: 10px; border-radius: 10px; background: var(--crema-2); color: var(--etichetta); font-size: 1rem; vertical-align: 4px; }
+  .testo-articolo :global(ul), .testo-articolo :global(ol) { padding-left: 1.3rem; display: flex; flex-direction: column; gap: 8px; }
+  .testo-articolo :global(li::marker) { color: var(--arancio-scuro); font-weight: 800; }
+  .testo-articolo :global(code) { background: var(--crema); padding: 2px 6px; border-radius: 6px; font-size: .88em; overflow-wrap: anywhere; }
+  .testo-articolo :global(table) { width: 100%; border-collapse: collapse; font-size: 1rem; line-height: 1.5; border: 2px solid var(--inchiostro); border-radius: 18px; border-collapse: separate; border-spacing: 0; overflow: hidden; }
+  /* Sul telefono la tabella scorre di lato invece di uscire dallo schermo */
+  @media (max-width: 640px) { .testo-articolo :global(table) { display: block; overflow-x: auto; } }
+  .testo-articolo :global(thead) { background: var(--inchiostro); color: #fff; }
+  .testo-articolo :global(th), .testo-articolo :global(td) { text-align: left; padding: 12px 16px; vertical-align: top; }
+  .testo-articolo :global(tbody td), .testo-articolo :global(tbody th) { border-top: 1px solid #f1e6dd; }
+  .testo-articolo :global(tbody tr:nth-child(even)) { background: #fffaf6; }
+
+  .consiglio { display: flex; gap: 16px; align-items: flex-start; border: 2px solid var(--inchiostro); border-radius: 20px; padding: 20px; box-shadow: 5px 5px 0 var(--pesca-chiaro); }
+  .consiglio > span { display: flex; flex-direction: column; gap: 6px; line-height: 1.55; }
+  .consiglio strong { font-family: var(--font-titoli); font-size: 1.2rem; }
+
+  .domanda { background: var(--inchiostro); color: #fff; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 100px; }
+  .d-occhiello { font-size: .8rem; font-weight: 800; color: #ffb27a; letter-spacing: .06em; }
+  .domanda h2 { font-size: 1.5rem; line-height: 1.2; color: #fff; }
+  .domanda fieldset { border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; color: var(--inchiostro); }
+  .risposta { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 14px; border: 2px solid var(--inchiostro); background: #fff; font-weight: 600; cursor: pointer; transition: transform .15s; }
+  .risposta:hover { transform: translateY(-2px); }
+  .sr:focus-visible + .risposta { outline: 3px solid var(--arancio); outline-offset: 2px; }
+  .sr[data-giusta="si"]:checked + .risposta { background: #e3f3e8; border-color: var(--verde-ok); }
+  .sr[data-giusta="no"]:checked + .risposta { background: #fde8e4; }
+  .spiega { display: none; margin: 0; line-height: 1.55; }
+  .domanda:has(.sr[data-giusta="si"]:checked) .spiega-si, .domanda:has(.sr[data-giusta="no"]:checked) .spiega-no { display: block; }
+  .spiega-si strong { color: #9be0b1; } .spiega-no strong { color: #ffb27a; }
+
+  .faq { display: flex; flex-direction: column; gap: 10px; scroll-margin-top: 100px; }
+  .faq h2 { font-size: clamp(1.6rem, 4vw, 1.9rem); margin-bottom: 6px; }
+  .faq details { border: 2px solid var(--inchiostro); border-radius: 16px; padding: 16px 18px; }
+  .faq summary { font-weight: 700; font-size: 1.05rem; cursor: pointer; }
+  .faq details p { margin: 10px 0 0; line-height: 1.6; color: #4a3a32; }
+  .argomenti { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding-top: 12px; border-top: 1px solid #f1e6dd; font-size: .9rem; color: var(--testo-3); }
+  .chip-arg { font-weight: 700; padding: 6px 12px; border-radius: 999px; background: #f7f1ec; color: var(--inchiostro); }
+
+  .lato { flex: 1 1 280px; min-width: 0; position: sticky; top: 96px; display: flex; flex-direction: column; gap: 16px; }
+  .indice { border: 2px solid var(--inchiostro); border-radius: 20px; padding: 16px; }
+  .indice > strong { display: block; font-size: .8rem; font-weight: 800; letter-spacing: .06em; color: var(--testo-3); padding: 0 10px 8px; }
+  .indice ol { margin: 0; padding: 0; list-style: none; }
+  .indice a { display: flex; gap: 10px; padding: 7px 10px; border-radius: 10px; font-size: .9rem; font-weight: 600; text-decoration: none; }
+  .indice a:hover { background: var(--crema-2); }
+  .indice a span { color: var(--arancio-scuro); font-weight: 800; min-width: 18px; }
+  .prova-subito { background: var(--crema); border-radius: 20px; padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .prova-subito > strong { font-family: var(--font-titoli); font-size: 1.25rem; }
+  .voce { display: flex; align-items: center; gap: 12px; background: #fff; border: 2px solid var(--inchiostro); border-radius: 14px; padding: 12px; text-decoration: none; }
+  .voce > span:last-child { display: flex; flex-direction: column; }
+  .voce small { font-size: .8rem; color: var(--testo-3); }
+  .tondo { flex: none; width: 38px; height: 38px; border-radius: 50%; background: var(--crema); border: 2px solid var(--inchiostro); display: grid; place-items: center; }
+
+  .collegati { padding-bottom: 72px; display: flex; flex-direction: column; gap: 20px; }
+  .collegati h2 { font-size: 2rem; }
+  .collegati ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 16px; }
+  .breve { height: 100%; text-decoration: none; background: #fff; border: 2px solid var(--inchiostro); border-radius: 18px; box-shadow: 4px 4px 0 var(--pesca-chiaro); padding: 18px; display: flex; flex-direction: column; gap: 12px; }
+  .breve-testa { display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+  .minuti { font-size: .8rem; font-weight: 700; color: var(--testo-3); }
+  .breve strong { font-family: var(--font-titoli); font-size: 1.2rem; line-height: 1.2; }
+  .leggi { margin-top: auto; font-size: .9rem; font-weight: 700; color: var(--etichetta); }
+  @media (max-width: 900px) { .lato { position: static; } }
+  @media (prefers-reduced-motion: reduce) { .lettura { animation: none; display: none; } .risposta { transition: none; } }
 </style>

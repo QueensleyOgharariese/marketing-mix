@@ -8,6 +8,7 @@ import Base from "../layouts/Base.astro";
 import Pesca from "../components/Pesca.astro";
 import Icona from "../components/Icona.astro";
 import Copertina from "../components/Copertina.astro";
+import { getCollection } from "astro:content";
 import impostazioni from "../data/impostazioni.json";
 import ruoli from "../data/ruoli.json";
 import strumenti from "../data/strumenti.json";
@@ -46,15 +47,15 @@ const tappe = [
 
 const strumentiHome = strumenti.filter((s) => s.inHome);
 
-const articoli = [
-  { tema: "seo", categoria: "Guida al ruolo", titolo: "Cosa fa un SEO specialist", testo: "Come si fa trovare un sito su Google, e cosa fa questa figura ogni giorno." },
-  { tema: "sea", categoria: "SEA / PPC", titolo: "CPC, CTR e ROAS: le metriche base", testo: "Tre sigle che sentirai ovunque, spiegate con un esempio facile." },
-  { tema: "influencer", categoria: "Regole", titolo: "Post sponsorizzati: le regole in Italia", testo: "Quando un contenuto va dichiarato e come farlo nel modo giusto." },
-];
+// Ultimi 3 articoli pubblicati (escluso quello "Inizia da qui", che ha già il suo posto nel blog)
+const articoli = (await getCollection("blog", ({ data }) => !data.bozza))
+  .sort((x, y) => y.data.date.getTime() - x.data.date.getTime() || Number(x.data.inEvidenza) - Number(y.data.inEvidenza))
+  .slice(0, 3)
+  .map((x) => ({ id: x.id, tema: x.data.tema, categoria: x.data.etichetta, titolo: x.data.title, testo: x.data.description }));
 
 // Esempio dello strumento in azione: l'azienda finta Cinque Foglie (niente frasi sulla salute)
 const demoTitolo = "Tè verde Sencha biologico | Cinque Foglie";
-const demoDescrizione = "Sencha giapponese dal gusto fresco ed erbaceo. Foglie intere, bustine compostabili, spedizione in 48 ore.";
+const demoDescrizione = "Sencha giapponese dal gusto fresco ed erbaceo. Foglie intere, bustine compostabili, spedizione in 24 ore.";
 ---
 <Base title={impostazioni.nomeSito}>
 
@@ -276,7 +277,7 @@ const demoDescrizione = "Sencha giapponese dal gusto fresco ed erbaceo. Foglie i
     <ul class="articoli">
       {articoli.map((a) => (
         <li>
-          <a href="/blog/" class="articolo">
+          <a href={`/blog/${a.id}/`} class="articolo">
             <span class="articolo-copertina"><Copertina tema={a.tema} /></span>
             <span class="articolo-testi"><span class="occhiello occhiello--piccolo">{a.categoria}</span><strong>{a.titolo}</strong><span>{a.testo}</span></span>
           </a>

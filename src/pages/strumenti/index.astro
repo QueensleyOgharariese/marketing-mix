@@ -3,7 +3,7 @@
 // 1. Apertura  2. Tutti gli strumenti con filtri (Tutti / Pronti / In arrivo)  3. Come si usano + privacy
 // 4. In fondo: lo strumento in azione (scelta di Queen: la demo va prima del footer).
 // Schede solo testo, senza immagini (commento di Queen). I filtri funzionano senza JavaScript.
-// Gli articoli di teoria non esistono ancora: sono scritti come "in arrivo", senza link.
+// Se l'articolo di teoria esiste (campo "articoloId") c'è il link; altrimenti è scritto "in arrivo", senza link.
 import Base from "../../layouts/Base.astro";
 import Pesca from "../../components/Pesca.astro";
 import Icona from "../../components/Icona.astro";
@@ -56,7 +56,9 @@ const D = "Sencha bio giapponese a foglie intere, dal gusto fresco ed erbaceo. O
           </div>
           <h3>{s.nome}</h3>
           <p>{s.cosa}</p>
-          <span class="teoria">Teoria: {s.articolo} <span class="nota">(articolo in arrivo)</span></span>
+          {s.articoloId
+            ? <a class="teoria" href={`/blog/${s.articoloId}/`}>Impara la teoria: {s.articolo}</a>
+            : <span class="teoria">Teoria: {s.articolo} <span class="nota">(articolo in arrivo)</span></span>}
           <div class="s-piede">
             {s.pronto
               ? <a class="bottone" href={`/strumenti/${s.id}/`}>Apri lo strumento →</a>

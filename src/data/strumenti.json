@@ -9,7 +9,8 @@
     "inHome": true,
     "ruoloId": "analytics",
     "articolo": "Link UTM: cosa sono e come usarli",
-    "pronto": true
+    "pronto": true,
+    "articoloId": "link-utm"
   },
   {
     "id": "anteprima-google",
@@ -21,7 +22,8 @@
     "inHome": true,
     "ruoloId": "seo",
     "articolo": "Title e meta description: come scriverli",
-    "pronto": true
+    "pronto": true,
+    "articoloId": "title-e-meta-description"
   },
   {
     "id": "engagement-rate",
@@ -33,7 +35,8 @@
     "inHome": true,
     "ruoloId": "social",
     "articolo": "Engagement rate: cos'è e come si calcola",
-    "pronto": true
+    "pronto": true,
+    "articoloId": "engagement-rate"
   },
   {
     "id": "cpc-cpa-roas",

@@ -41,6 +41,11 @@ const altri = strumenti.filter((x) => x.pronto && x.id !== id);
           <ul>{altri.map((a) => <li><a href={`/strumenti/${a.id}/`}>{a.nome}</a></li>)}</ul>
           <a href="/strumenti/">Tutti gli strumenti →</a>
         </div>
+        {s.articoloId && <div class="riquadro">
+          <span class="etichetta">Dal blog</span>
+          <strong>{s.articolo}</strong>
+          <a class="link-forte" href={`/blog/${s.articoloId}/`}>Leggi la teoria →</a>
+        </div>}
       </aside>
     </div>
   </div>
