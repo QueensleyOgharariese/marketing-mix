@@ -38,6 +38,8 @@
 }
 
 /* ---------- Base ---------- */
+/* Un elemento con l'attributo hidden resta sempre nascosto, anche se ha display: flex */
+[hidden] { display: none !important; }
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {

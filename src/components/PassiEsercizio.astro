@@ -1,0 +1,24 @@
+---
+// I 3 passi di un esercizio nella barra in alto: Leggi → Lavora → Confronta
+interface Props { attivo: 1 | 2 | 3; }
+const { attivo } = Astro.props;
+const passi = ["Leggi", "Lavora", "Confronta"];
+---
+<ol class="passi" aria-label="Passi dell'esercizio">
+  {passi.map((p, i) => (
+    <li aria-current={i + 1 === attivo ? "step" : undefined} class:list={{ fatto: i + 1 < attivo, attivo: i + 1 === attivo }}>
+      <span class="n">{i + 1 < attivo ? "✓" : i + 1}</span>{p}
+    </li>
+  ))}
+</ol>
+
+<style>
+  .passi { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 6px; font-size: .8rem; font-weight: 600; color: #8a7b72; }
+  li { display: flex; align-items: center; gap: 6px; }
+  li + li::before { content: ""; width: 18px; height: 2px; background: #eadfd6; margin-right: 2px; }
+  .n { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: #f3eeea; font-size: .7rem; font-weight: 800; }
+  .fatto { color: #2f7a4f; }
+  .fatto .n { background: #2f7a4f; color: #fff; }
+  .attivo { color: var(--inchiostro); }
+  .attivo .n { background: var(--arancio); color: var(--inchiostro); }
+</style>

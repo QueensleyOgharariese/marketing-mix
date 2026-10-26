@@ -1,0 +1,147 @@
+---
+// APP · 5. I TUOI RISULTATI
+// Punti e gradimento per ogni ruolo, letti dal browser. Si possono scaricare (file di testo per il CV)
+// o cancellare. Per ora è pronto solo il ruolo SEO: gli altri sono "in arrivo".
+import AppLayout from "../../layouts/AppLayout.astro";
+import Progresso from "../../components/Progresso.astro";
+import Pesca from "../../components/Pesca.astro";
+import azienda from "../../data/app/cinque-foglie.json";
+---
+<AppLayout title="I tuoi risultati" percorso={[{ etichetta: azienda.nome, link: "/app/" }, { etichetta: "Risultati" }]}>
+  <Progresso slot="barra" />
+  <main class="contenuto">
+    <section class="testa">
+      <Pesca dimensione={80} />
+      <div>
+        <span class="tag">Il tuo profilo</span>
+        <h1 class="app-titolo" data-titolo>I tuoi risultati</h1>
+        <p data-intro>Qui trovi punti e gradimento per ogni ruolo che provi. Ti aiutano a scegliere da dove approfondire.</p>
+      </div>
+    </section>
+
+    <div class="colonne">
+      <section class="pannello tabella" aria-labelledby="t-tabella">
+        <h2 id="t-tabella" class="sottotitolo">Ruolo per ruolo</h2>
+        <div class="scorri">
+          <table>
+            <thead><tr><th scope="col">Ruolo</th><th scope="col">Punti</th><th scope="col">Gradimento</th></tr></thead>
+            <tbody>
+              {azienda.ruoli.map((r) => (
+                <tr data-riga={r.id}>
+                  <th scope="row">{r.nome}</th>
+                  <td><span class="punti-cella"><span class="barra"><span data-barra></span></span><strong data-punti>{r.pronto ? "da fare" : "in arrivo"}</strong></span></td>
+                  <td data-gradimento>{r.pronto ? "–" : ""}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="nota">I risultati sono salvati solo in questo browser: niente account, nessun dato inviato.</p>
+      </section>
+
+      <aside class="lato">
+        <div class="pannello consiglio">
+          <span class="tag">Consiglio di Pesca</span>
+          <strong class="app-titolo" data-consiglio-titolo>Inizia dalla SEO</strong>
+          <p data-consiglio-testo>È il primo ruolo pronto. Ci vogliono circa 15 minuti.</p>
+          <a class="bottone-app" href="/app/seo/esercizio/" data-consiglio-link>Vai all'esercizio SEO →</a>
+        </div>
+        <div class="pannello altre">
+          <strong>Altre azioni</strong>
+          <button type="button" class="azione" data-scarica>Scarica il riepilogo per il CV</button>
+          <button type="button" class="azione azione--rischio" data-cancella>Cancella i miei progressi</button>
+          <p class="nota" data-messaggio aria-live="polite"></p>
+        </div>
+      </aside>
+    </div>
+  </main>
+</AppLayout>
+
+<script>
+  import { leggi, punteggio, cancellaTutto } from "../../scripts/progressi";
+
+  const p = leggi();
+  const seo = p.ruoli.seo;
+  if (seo?.stato === "completato") {
+    const punti = punteggio(seo);
+    const riga = document.querySelector('[data-riga="seo"]')!;
+    riga.querySelector("[data-punti]")!.textContent = String(punti.totale);
+    riga.querySelector<HTMLElement>("[data-barra]")!.style.width = `${punti.totale}%`;
+    riga.querySelector("[data-gradimento]")!.textContent = seo.gradimento ? `${seo.gradimento}/5` : "–";
+    document.querySelector("[data-titolo]")!.textContent = "Hai completato il primo ruolo!";
+    document.querySelector("[data-intro]")!.textContent = "Ecco come è andata. Gli altri ruoli arrivano presto: li troverai qui sulla tua scrivania.";
+    document.querySelector("[data-consiglio-titolo]")!.textContent = "SEO specialist";
+    document.querySelector("[data-consiglio-testo]")!.textContent =
+      (seo.gradimento ?? 0) >= 4 ? "Ti è piaciuto molto: quando arriverà il percorso SEO, parti da lì." : "Hai provato il primo ruolo. Quando arriveranno gli altri, confronta i risultati per scegliere.";
+    const link = document.querySelector<HTMLAnchorElement>("[data-consiglio-link]")!;
+    link.textContent = "Rivedi la correzione →";
+    link.href = "/app/seo/correzione/";
+  } else if (seo?.stato === "in-corso") {
+    document.querySelector('[data-riga="seo"] [data-punti]')!.textContent = "in corso";
+    document.querySelector("[data-consiglio-titolo]")!.textContent = "Finisci la SEO";
+    document.querySelector("[data-consiglio-testo]")!.textContent = "Hai una bozza salvata: riprendila da dove eri rimasta o rimasto.";
+  }
+
+  const messaggio = document.querySelector("[data-messaggio]")!;
+
+  // Scarica un file di testo con i risultati (per il CV o il portfolio)
+  document.querySelector("[data-scarica]")!.addEventListener("click", () => {
+    const righe = ["Marketing Mix · I miei risultati", `Data: ${new Date().toLocaleDateString("it-IT")}`, "Azienda simulata: Cinque Foglie (dati inventati)", ""];
+    if (seo?.stato === "completato") {
+      const punti = punteggio(seo);
+      righe.push(`SEO specialist: ${punti.totale}/100 (controlli ${punti.auto}/40, autovalutazione ${punti.voto}/60${punti.aiuti ? `, aiuti -${punti.aiuti}` : ""})`);
+      if (seo.consegna) righe.push(`  Titolo scritto: ${seo.consegna.titolo}`, `  Descrizione scritta: ${seo.consegna.descrizione}`);
+    } else {
+      righe.push("Nessun ruolo completato per ora.");
+    }
+    const file = new Blob([righe.join("\n")], { type: "text/plain;charset=utf-8" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(file);
+    a.download = "marketing-mix-risultati.txt";
+    a.click();
+    URL.revokeObjectURL(a.href);
+  });
+
+  // Cancella: serve un secondo clic di conferma (niente finestre di dialogo)
+  const cancella = document.querySelector<HTMLButtonElement>("[data-cancella]")!;
+  let conferma = false;
+  cancella.addEventListener("click", () => {
+    if (!conferma) {
+      conferma = true;
+      cancella.textContent = "Sicura o sicuro? Clicca di nuovo per cancellare";
+      return;
+    }
+    cancellaTutto();
+    messaggio.textContent = "Progressi cancellati da questo browser.";
+    setTimeout(() => window.location.reload(), 800);
+  });
+</script>
+
+<style>
+  .contenuto { max-width: 1160px; margin: 0 auto; padding: 28px 24px 56px; display: flex; flex-direction: column; gap: 20px; }
+  .testa { background: #fff1e6; border-radius: 18px; padding: 24px 28px; display: flex; flex-wrap: wrap; gap: 22px; align-items: center; }
+  .testa div { flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+  h1 { font-size: clamp(1.8rem, 4vw, 2.2rem); }
+  .testa p { color: #5c4a42; line-height: 1.55; max-width: 60ch; }
+  .colonne { display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-start; }
+  .tabella { flex: 999 1 520px; min-width: 0; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; }
+  .sottotitolo { font-family: var(--font-testo); font-size: 1rem; font-weight: 700; }
+  .scorri { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: .9rem; font-variant-numeric: tabular-nums; }
+  thead th { text-align: left; font-size: .75rem; color: #8a7b72; font-weight: 600; padding: 8px 8px 8px 0; border-bottom: 1px solid #eadfd6; }
+  tbody th { text-align: left; font-weight: 600; padding: 12px 8px 12px 0; border-bottom: 1px solid #f3eeea; }
+  td { padding: 12px 8px 12px 0; border-bottom: 1px solid #f3eeea; color: #5c4a42; }
+  td:last-child, thead th:last-child { text-align: right; }
+  .punti-cella { display: flex; align-items: center; gap: 10px; }
+  .barra { flex: 1; min-width: 60px; height: 8px; border-radius: 99px; background: #f1e6dd; overflow: hidden; }
+  .barra span { display: block; height: 100%; width: 0; background: var(--arancio); }
+  .nota { font-size: .8rem; color: #6b5d55; line-height: 1.5; }
+  .lato { flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+  .consiglio { border-color: var(--arancio); padding: 20px; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+  .consiglio strong { font-size: 1.5rem; }
+  .consiglio p { line-height: 1.55; color: #5c4a42; }
+  .altre { padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; }
+  .azione { font: inherit; font-weight: 600; text-align: left; padding: 11px 12px; border-radius: 10px; border: 1px dashed #d8c9bd; background: #fff; cursor: pointer; }
+  .azione:hover { background: #faf7f4; }
+  .azione--rischio { color: #a12d1d; border-color: #e7b8ae; }
+</style>

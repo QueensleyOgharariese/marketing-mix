@@ -1,0 +1,223 @@
+---
+// APP · 3. ESERCIZIO SEO: riscrivere title e meta description della pagina del Sencha
+// A sinistra la richiesta e i dati, al centro l'editor con i controlli automatici, a destra gli aiuti di Pesca.
+// Lo script in fondo aggiorna contatori, controlli e anteprima mentre scrivi, e salva la bozza nel browser.
+import AppLayout from "../../../layouts/AppLayout.astro";
+import Pesca from "../../../components/Pesca.astro";
+import Passi from "../../../components/PassiEsercizio.astro";
+import es from "../../../data/app/seo-sencha.json";
+import { NOMI_CONTROLLI, LIMITI } from "../../../scripts/controlli-seo";
+---
+<AppLayout title={es.titolo} indietro={{ etichetta: "Scrivania", link: "/app/scrivania/" }} percorso={[{ etichetta: "SEO" }, { etichetta: es.titolo }]}>
+  <Passi slot="barra" attivo={2} />
+  <div class="layout">
+    <aside class="sinistra">
+      <section class="pannello blocco">
+        <span class="mittente"><span class="avatar">{es.richiesta.da}</span><strong>La richiesta di {es.richiesta.nome}</strong></span>
+        <p>{es.richiesta.testo}</p>
+        <div class="attuale"><span>Titolo attuale:</span> {es.attuale.titolo}</div>
+      </section>
+      <section class="pannello blocco" aria-labelledby="t-ricerche">
+        <div class="riga"><h2 id="t-ricerche" class="sottotitolo">Come cercano le persone</h2><span class="simulati">dati simulati</span></div>
+        <table>
+          <caption class="sr">Ricerche su Google al mese (numeri inventati)</caption>
+          <thead><tr><th scope="col">Ricerca</th><th scope="col">Al mese</th></tr></thead>
+          <tbody>
+            {es.ricerche.map((r) => (
+              <tr><td>{r.ricerca} {r.attenzione && <span class="attenzione">attenzione</span>}</td><td>{r.mese}</td></tr>
+            ))}
+          </tbody>
+        </table>
+        <p class="nota">{es.notaRicerche}</p>
+      </section>
+    </aside>
+
+    <main class="centro">
+      <h1 class="app-titolo">Scrivi il nuovo titolo e la descrizione</h1>
+      <form id="lavoro" class="pannello editor" novalidate>
+        <div class="campo">
+          <div class="riga"><label for="titolo">Titolo della pagina (title)</label><span class="conta" data-conta="titolo">0 / {LIMITI.titolo[1]}</span></div>
+          <input id="titolo" name="titolo" type="text" autocomplete="off" maxlength="120" placeholder={es.attuale.titolo} />
+          <span class="barra" aria-hidden="true"><span data-barra="titolo"></span></span>
+        </div>
+        <div class="campo">
+          <div class="riga"><label for="descrizione">Descrizione (meta description)</label><span class="conta" data-conta="descrizione">0 / {LIMITI.descrizione[1]}</span></div>
+          <textarea id="descrizione" name="descrizione" rows="3" maxlength="300" placeholder={es.attuale.descrizione}></textarea>
+          <span class="barra" aria-hidden="true"><span data-barra="descrizione"></span></span>
+        </div>
+
+        <div class="controlli">
+          <strong>Controlli automatici</strong>
+          <ul aria-live="polite">
+            {NOMI_CONTROLLI.map((nome, i) => (
+              <li data-controllo={i}><span class="segno" aria-hidden="true"></span><span>{nome}</span><span class="sr" data-esito>non ancora</span></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="anteprima">
+          <span class="piccolo">Anteprima nei risultati</span>
+          <span class="a-url">{es.attuale.url}</span>
+          <span class="a-titolo" data-anteprima="titolo">{es.attuale.titolo}</span>
+          <span class="a-desc" data-anteprima="descrizione">{es.attuale.descrizione}</span>
+        </div>
+
+        <div class="azioni">
+          <span class="salvato" data-salvato aria-live="polite"></span>
+          <button type="button" class="bottone-app bottone-app--chiaro" data-salva>Salva bozza</button>
+          <button type="submit" class="bottone-app">Consegna e confronta →</button>
+        </div>
+      </form>
+    </main>
+
+    <aside class="destra">
+      <div class="pannello blocco">
+        <div class="mittente"><Pesca dimensione={46} occhiali animata={false} /><span><strong>Aiuti di Pesca</strong><span class="nota">Ogni aiuto aperto toglie 5 punti</span></span></div>
+        <p class="pesca-dice" data-pesca aria-live="polite">Inizia dal titolo: guarda la tabella e scegli la ricerca più vicina al prodotto.</p>
+      </div>
+      {es.aiuti.map((a, i) => (
+        <details class="pannello aiuto" data-aiuto={i}>
+          <summary>Aiuto {i + 1} · {a.titolo}</summary>
+          <p>{a.testo}</p>
+        </details>
+      ))}
+      <details class="pannello aiuto">
+        <summary>Glossario · title e description</summary>
+        <p>{es.glossario}</p>
+      </details>
+    </aside>
+  </div>
+</AppLayout>
+
+<script>
+  import { controlla, LIMITI } from "../../../scripts/controlli-seo";
+  import { leggi, aggiornaRuolo } from "../../../scripts/progressi";
+
+  const form = document.getElementById("lavoro") as HTMLFormElement;
+  const titolo = document.getElementById("titolo") as HTMLInputElement;
+  const descrizione = document.getElementById("descrizione") as HTMLTextAreaElement;
+  const salvato = document.querySelector("[data-salvato]") as HTMLElement;
+  const pesca = document.querySelector("[data-pesca]") as HTMLElement;
+
+  // Riprende la bozza salvata (se c'è)
+  const seo = leggi().ruoli.seo;
+  const ripresa = seo?.consegna ?? seo?.bozza;
+  if (ripresa) { titolo.value = ripresa.titolo; descrizione.value = ripresa.descrizione; }
+
+  // Ricorda quali aiuti sono stati aperti
+  const aiutiAperti = new Set<number>(seo?.aiuti ?? []);
+  document.querySelectorAll<HTMLDetailsElement>("details[data-aiuto]").forEach((d) => {
+    const n = Number(d.dataset.aiuto);
+    if (aiutiAperti.has(n)) d.open = true;
+    d.addEventListener("toggle", () => {
+      if (d.open && !aiutiAperti.has(n)) { aiutiAperti.add(n); aggiornaRuolo("seo", { aiuti: [...aiutiAperti] }); }
+    });
+  });
+
+  // Colore della barra: verde se la lunghezza è giusta, arancione se troppo corta, rosso se troppo lunga
+  function barra(nome: "titolo" | "descrizione", valore: string) {
+    const [min, max] = LIMITI[nome];
+    const n = valore.trim().length;
+    document.querySelector(`[data-conta="${nome}"]`)!.textContent = `${n} / ${max}`;
+    const b = document.querySelector<HTMLElement>(`[data-barra="${nome}"]`)!;
+    b.style.width = `${Math.min(100, (n / max) * 100)}%`;
+    b.style.background = n > max ? "#c0392b" : n >= min ? "#2f7a4f" : "#ff7a1a";
+  }
+
+  // Cosa dice Pesca: il primo controllo che non è ancora superato
+  const SUGGERIMENTI = [
+    "Controlla le lunghezze: titolo tra 30 e 60 caratteri, descrizione tra 70 e 160.",
+    "Metti la ricerca \"tè verde Sencha\" nel titolo, meglio se all'inizio.",
+    "Chiudi il titolo con il nome del negozio: \"| Cinque Foglie\".",
+    "Togli le promesse sulla salute: parla di gusto, qualità e consegna.",
+  ];
+
+  function aggiorna() {
+    barra("titolo", titolo.value);
+    barra("descrizione", descrizione.value);
+    const esiti = controlla(titolo.value, descrizione.value);
+    esiti.forEach((ok, i) => {
+      const li = document.querySelector(`[data-controllo="${i}"]`)!;
+      li.classList.toggle("ok", ok);
+      li.querySelector("[data-esito]")!.textContent = ok ? "superato" : "non ancora";
+    });
+    document.querySelector('[data-anteprima="titolo"]')!.textContent = titolo.value.trim() || titolo.placeholder;
+    document.querySelector('[data-anteprima="descrizione"]')!.textContent = descrizione.value.trim() || descrizione.placeholder;
+    const primo = esiti.findIndex((ok) => !ok);
+    pesca.textContent = titolo.value.trim() === "" ? "Inizia dal titolo: guarda la tabella e scegli la ricerca più vicina al prodotto."
+      : primo === -1 ? "Tutti i controlli sono verdi! Rileggi come una cliente e poi consegna." : SUGGERIMENTI[primo];
+    salvato.textContent = "";
+  }
+
+  titolo.addEventListener("input", aggiorna);
+  descrizione.addEventListener("input", aggiorna);
+  aggiorna();
+
+  document.querySelector("[data-salva]")!.addEventListener("click", () => {
+    aggiornaRuolo("seo", { stato: seo?.stato === "completato" ? "completato" : "in-corso", bozza: { titolo: titolo.value, descrizione: descrizione.value } });
+    salvato.textContent = "Bozza salvata in questo browser.";
+  });
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (titolo.value.trim() === "" || descrizione.value.trim() === "") {
+      pesca.textContent = "Prima di consegnare scrivi sia il titolo sia la descrizione.";
+      (titolo.value.trim() === "" ? titolo : descrizione).focus();
+      return;
+    }
+    aggiornaRuolo("seo", {
+      stato: seo?.stato === "completato" ? "completato" : "in-corso",
+      bozza: { titolo: titolo.value, descrizione: descrizione.value },
+      consegna: { titolo: titolo.value.trim(), descrizione: descrizione.value.trim(), controlli: controlla(titolo.value, descrizione.value), data: new Date().toISOString() },
+    });
+    window.location.href = "/app/seo/correzione/";
+  });
+</script>
+
+<style>
+  .layout { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 18px; max-width: 1320px; margin: 0 auto; padding: 24px; }
+  .sinistra { flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+  .centro { flex: 999 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+  .destra { flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+  .blocco { padding: 18px; display: flex; flex-direction: column; gap: 12px; line-height: 1.55; }
+  .mittente { display: flex; align-items: center; gap: 10px; }
+  .mittente > span:last-child { display: flex; flex-direction: column; }
+  .attuale { font-size: .85rem; background: #faf7f4; border-radius: 10px; padding: 10px 12px; }
+  .attuale span { color: #6b5d55; }
+  .riga { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+  .sottotitolo { font-family: var(--font-testo); font-size: 1rem; font-weight: 700; }
+  .simulati { font-size: .7rem; font-weight: 700; background: #f3eeea; color: #6b5d55; padding: 3px 8px; border-radius: 999px; }
+  table { width: 100%; border-collapse: collapse; font-size: .9rem; font-variant-numeric: tabular-nums; }
+  th { text-align: left; font-size: .75rem; color: #8a7b72; font-weight: 600; padding: 6px 0; border-bottom: 1px solid #eadfd6; }
+  th:last-child, td:last-child { text-align: right; }
+  td { padding: 8px 0; border-bottom: 1px solid #f3eeea; }
+  .attenzione { font-size: .65rem; font-weight: 700; background: #fde8e4; color: #a12d1d; padding: 2px 6px; border-radius: 999px; margin-left: 4px; }
+  .nota { font-size: .8rem; color: #6b5d55; line-height: 1.5; }
+  h1 { font-size: 1.6rem; }
+  .editor { padding: 22px; display: flex; flex-direction: column; gap: 18px; }
+  .campo { display: flex; flex-direction: column; gap: 6px; }
+  label { font-weight: 700; font-size: .9rem; }
+  .conta { font-size: .8rem; color: #6b5d55; font-variant-numeric: tabular-nums; }
+  input, textarea { font: inherit; font-size: 1rem; padding: 12px 14px; border: 2px solid #e2d6cc; border-radius: 10px; background: #fff; color: var(--inchiostro); resize: vertical; }
+  input:focus, textarea:focus { outline: none; border-color: var(--arancio); }
+  .barra { height: 6px; background: #f1e6dd; border-radius: 99px; overflow: hidden; }
+  .barra span { display: block; height: 100%; width: 0; background: var(--arancio); transition: width .2s, background .2s; }
+  .controlli { background: #faf7f4; border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; }
+  .controlli ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px 14px; font-size: .85rem; }
+  .controlli li { display: flex; align-items: center; gap: 8px; color: #6b5d55; }
+  .segno { flex: none; width: 20px; height: 20px; border-radius: 50%; border: 2px solid #cbbdb2; display: grid; place-items: center; font-size: .7rem; font-weight: 800; }
+  .controlli li.ok { color: var(--inchiostro); }
+  .controlli li.ok .segno { background: #2f7a4f; border-color: #2f7a4f; }
+  .controlli li.ok .segno::after { content: ""; width: 8px; height: 4px; border-left: 2px solid #fff; border-bottom: 2px solid #fff; transform: rotate(-45deg) translate(1px, -1px); }
+  .anteprima { border: 1px solid #eadfd6; border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 3px; }
+  .piccolo { font-size: .7rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #8a7b72; margin-bottom: 4px; }
+  .a-url { font-size: .8rem; color: #3d6b4a; }
+  .a-titolo { font-size: 1.15rem; color: #1f45b8; line-height: 1.3; overflow-wrap: anywhere; }
+  .a-desc { font-size: .9rem; color: #4a4a4a; line-height: 1.45; overflow-wrap: anywhere; }
+  .azioni { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 10px; }
+  .salvato { margin-right: auto; font-size: .85rem; color: #2f7a4f; font-weight: 600; }
+  .pesca-dice { background: #fff1e6; border-radius: 12px; padding: 12px; font-size: .9rem; }
+  .aiuto { padding: 14px 16px; }
+  .aiuto summary { font-weight: 700; font-size: .9rem; }
+  .aiuto p { margin-top: 10px; font-size: .9rem; line-height: 1.55; color: #4a3a32; }
+</style>

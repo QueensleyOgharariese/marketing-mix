@@ -6,42 +6,89 @@
     "sottotitolo": "Entra in un'azienda finta, prova i ruoli del marketing con esercizi veri e scopri quale fa per te. Gratis."
   },
   "menu": [
-    { "etichetta": "Home", "link": "/" },
-    { "etichetta": "Ruoli", "link": "/ruoli/" },
-    { "etichetta": "Strumenti", "link": "/strumenti/" },
-    { "etichetta": "Blog", "link": "/blog/" },
-    { "etichetta": "Il progetto", "link": "/progetto/" }
+    {
+      "etichetta": "Home",
+      "link": "/"
+    },
+    {
+      "etichetta": "Ruoli",
+      "link": "/ruoli/"
+    },
+    {
+      "etichetta": "Strumenti",
+      "link": "/strumenti/"
+    },
+    {
+      "etichetta": "Blog",
+      "link": "/blog/"
+    },
+    {
+      "etichetta": "Il progetto",
+      "link": "/progetto/"
+    }
   ],
-  "bottoneMenu": { "etichetta": "Prova un ruolo", "link": "/ruoli/" },
+  "bottoneMenu": {
+    "etichetta": "Prova un ruolo",
+    "link": "/app/"
+  },
   "footer": {
     "invito": "Pronta o pronto per il primo giorno?",
     "sottoInvito": "Il primo ruolo si prova in circa 15 minuti.",
-    "bottone": { "etichetta": "Scopri i ruoli", "link": "/ruoli/" },
+    "bottone": {
+      "etichetta": "Entra in azienda",
+      "link": "/app/"
+    },
     "colonne": [
       {
         "titolo": "Impara",
         "voci": [
-          { "etichetta": "Ruoli", "link": "/ruoli/" },
-          { "etichetta": "Blog", "link": "/blog/" },
-          { "etichetta": "Strumenti gratuiti", "link": "/strumenti/" }
+          {
+            "etichetta": "Ruoli",
+            "link": "/ruoli/"
+          },
+          {
+            "etichetta": "Blog",
+            "link": "/blog/"
+          },
+          {
+            "etichetta": "Strumenti gratuiti",
+            "link": "/strumenti/"
+          }
         ]
       },
       {
         "titolo": "Il progetto",
         "voci": [
-          { "etichetta": "Chi c'è dietro", "link": "/progetto/" },
-          { "etichetta": "Codice su GitHub", "link": "https://github.com/QueensleyOgharariese/marketing-mix" }
+          {
+            "etichetta": "Chi c'è dietro",
+            "link": "/progetto/"
+          },
+          {
+            "etichetta": "Codice su GitHub",
+            "link": "https://github.com/QueensleyOgharariese/marketing-mix"
+          }
         ]
       },
       {
         "titolo": "Trasparenza",
         "voci": [
-          { "etichetta": "Privacy", "link": "/privacy/" },
-          { "etichetta": "Licenze e crediti", "link": "/licenze/" }
+          {
+            "etichetta": "Privacy",
+            "link": "/privacy/"
+          },
+          {
+            "etichetta": "Licenze e crediti",
+            "link": "/licenze/"
+          }
         ],
         "nota": "Statistiche solo con il tuo consenso"
       }
     ],
-    "etichette": ["Fatto con Astro", "Font ospitati sul sito", "Contenuti originali", "Progetto personale di Queen"]
+    "etichette": [
+      "Fatto con Astro",
+      "Font ospitati sul sito",
+      "Contenuti originali",
+      "Progetto personale di Queen"
+    ]
   }
 }

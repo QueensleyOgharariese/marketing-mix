@@ -1,0 +1,161 @@
+---
+// APP · 2. LA SCRIVANIA
+// Menu dei ruoli e dei dati a sinistra, casella delle richieste al centro, consiglio di Pesca a destra.
+// Lo stato dei ruoli (in corso / completato) viene letto dal browser con lo script in fondo.
+import AppLayout from "../../layouts/AppLayout.astro";
+import Progresso from "../../components/Progresso.astro";
+import Pesca from "../../components/Pesca.astro";
+import Icona from "../../components/Icona.astro";
+import azienda from "../../data/app/cinque-foglie.json";
+import esercizio from "../../data/app/seo-sencha.json";
+
+const richiesta = esercizio.richiesta;
+---
+<AppLayout title="La tua scrivania" percorso={[{ etichetta: azienda.nome, link: "/app/" }, { etichetta: "Scrivania" }]}>
+  <Progresso slot="barra" />
+  <div class="layout">
+    <nav class="menu" aria-label="Ruoli e dati">
+      <div class="gruppo">
+        <span class="gruppo-titolo">I tuoi pass</span>
+        {azienda.ruoli.map((r) => (
+          r.pronto ? (
+            <a class="voce voce--attiva" href="/app/seo/esercizio/" data-ruolo={r.id}>
+              <span class="voce-icona voce-icona--attiva"><Icona nome={r.icona} dimensione={14} /></span>
+              <span class="voce-nome">{r.nome.replace(" specialist", "").replace(" manager", "")}</span>
+              <span class="voce-stato" data-stato>da fare</span>
+            </a>
+          ) : (
+            <span class="voce voce--presto">
+              <span class="voce-icona"><Icona nome={r.icona} dimensione={14} /></span>
+              <span class="voce-nome">{r.nome.replace(" specialist", "").replace(" manager", "")}</span>
+              <span class="voce-stato">presto</span>
+            </span>
+          )
+        ))}
+      </div>
+      <div class="gruppo">
+        <span class="gruppo-titolo">Dati dell'azienda</span>
+        <a class="voce" href="/app/dati/ricerche/">Ricerche su Google</a>
+        <span class="voce voce--presto">Catalogo prodotti <span class="voce-stato">presto</span></span>
+        <span class="voce voce--presto">Visite al sito <span class="voce-stato">presto</span></span>
+        <span class="voce voce--presto">Clienti e ordini <span class="voce-stato">presto</span></span>
+      </div>
+      <a class="voce riepilogo" href="/app/riepilogo/">I tuoi risultati →</a>
+    </nav>
+
+    <main class="centro">
+      <div>
+        <h1 class="app-titolo">Buongiorno! Hai {azienda.richieste.length} richieste</h1>
+        <p class="nota">Inizia da quella del tuo pass attivo: SEO specialist.</p>
+      </div>
+
+      <div class="posta">
+        <ul class="lista" aria-label="Richieste">
+          {azienda.richieste.map((m) => (
+            <li>
+              {m.link ? (
+                <a class="mail mail--aperta" href={m.link}>
+                  <span class="avatar avatar--nuovo">{m.da}</span>
+                  <span class="mail-testi"><span class="mail-testa"><strong>{m.nome}</strong><span>{m.quando}</span></span><span class="mail-oggetto">{m.oggetto}</span><span class="mail-stato" data-stato-mail>SEO · da fare</span></span>
+                </a>
+              ) : (
+                <span class="mail">
+                  <span class="avatar avatar--spento">{m.da}</span>
+                  <span class="mail-testi"><span class="mail-testa"><strong>{m.nome}</strong><span>{m.quando}</span></span><span class="mail-oggetto">{m.oggetto}</span><span class="mail-stato">In arrivo</span></span>
+                </span>
+              )}
+            </li>
+          ))}
+        </ul>
+
+        <article class="dettaglio" aria-labelledby="t-richiesta">
+          <div class="dettaglio-testa">
+            <span class="mittente"><span class="avatar">{richiesta.da}</span><span><strong>{richiesta.nome} · {richiesta.ruolo}</strong><span class="nota">{richiesta.quando}</span></span></span>
+            <span class="tag">SEO · Esercizio 1</span>
+          </div>
+          <h2 id="t-richiesta" class="app-titolo">{richiesta.oggetto}</h2>
+          <p>{richiesta.testo}</p>
+          <ul class="info">
+            <li>Circa {esercizio.minuti} minuti</li>
+            <li>Dati: ricerche su Google</li>
+            <li>Dati: pagina prodotto</li>
+          </ul>
+          <a class="bottone-app" href="/app/seo/esercizio/" data-apri>Apri l'esercizio →</a>
+        </article>
+      </div>
+    </main>
+
+    <aside class="destra">
+      <div class="consiglio">
+        <Pesca dimensione={58} occhiali />
+        <p>{esercizio.consiglio}</p>
+      </div>
+      <div class="pannello parole">
+        <span class="gruppo-titolo">Parole da sapere oggi</span>
+        <ul>{esercizio.parole.map((p) => <li>{p}</li>)}</ul>
+      </div>
+    </aside>
+  </div>
+</AppLayout>
+
+<script>
+  // Mostra lo stato del ruolo SEO salvato nel browser
+  import { leggi } from "../../scripts/progressi";
+  const seo = leggi().ruoli.seo;
+  const stato = seo?.stato === "completato" ? "fatto" : seo?.stato === "in-corso" ? "in corso" : "da fare";
+  document.querySelectorAll('[data-ruolo="seo"] [data-stato]').forEach((el) => (el.textContent = stato));
+  document.querySelectorAll("[data-stato-mail]").forEach((el) => (el.textContent = `SEO · ${stato}`));
+  if (seo?.stato === "completato") {
+    document.querySelectorAll<HTMLAnchorElement>("[data-apri]").forEach((a) => { a.textContent = "Rivedi l'esercizio →"; });
+  }
+</script>
+
+<style>
+  .layout { display: flex; flex-wrap: wrap; align-items: stretch; min-height: calc(100vh - 60px); }
+  .menu { flex: 1 1 220px; max-width: 100%; background: #fff; border-right: 1px solid #eadfd6; padding: 20px 12px; display: flex; flex-direction: column; gap: 22px; }
+  .gruppo { display: flex; flex-direction: column; gap: 2px; }
+  .gruppo-titolo { font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #8a7b72; padding: 0 10px 8px; }
+  .voce { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 10px; color: #5c4a42; text-decoration: none; }
+  a.voce:hover { background: #faf7f4; color: var(--inchiostro); }
+  .voce--attiva { background: #fff1e6; color: var(--inchiostro); font-weight: 600; }
+  .voce--presto { color: #a89a90; }
+  .voce-icona { flex: none; width: 26px; height: 26px; border-radius: 50%; background: #f3eeea; display: grid; place-items: center; }
+  .voce-icona--attiva { background: #ff8a3d; }
+  .voce-nome { flex: 1; }
+  .voce-stato { margin-left: auto; font-size: .7rem; font-weight: 700; color: #a24a0e; }
+  .voce--presto .voce-stato { color: #a89a90; }
+  .riepilogo { margin-top: auto; font-weight: 700; color: var(--inchiostro); }
+  .centro { flex: 999 1 520px; min-width: 0; padding: 28px 24px; display: flex; flex-direction: column; gap: 18px; }
+  h1 { font-size: 1.8rem; }
+  .nota { font-size: .85rem; color: #6b5d55; }
+  .posta { display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-start; }
+  .lista { flex: 1 1 260px; min-width: 0; list-style: none; margin: 0; padding: 6px; background: #fff; border: 1px solid #eadfd6; border-radius: 16px; display: flex; flex-direction: column; gap: 4px; }
+  .mail { display: flex; gap: 12px; align-items: flex-start; padding: 12px; border-radius: 12px; text-decoration: none; color: #8a7b72; }
+  .mail--aperta { background: #fff1e6; color: var(--inchiostro); box-shadow: inset 3px 0 0 var(--arancio); }
+  .avatar--nuovo { background: var(--arancio); color: var(--inchiostro); }
+  .avatar--spento { background: #e8ded6; color: #6b5d55; }
+  .mail-testi { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+  .mail-testa { display: flex; justify-content: space-between; gap: 8px; font-size: .8rem; }
+  .mail-oggetto { font-weight: 600; font-size: .9rem; }
+  .mail-stato { font-size: .75rem; font-weight: 700; color: #a24a0e; }
+  .mail:not(.mail--aperta) .mail-stato { color: #a89a90; }
+  .dettaglio { flex: 2 1 380px; min-width: 0; background: #fff; border: 1px solid #eadfd6; border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 14px; }
+  .dettaglio-testa { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; align-items: center; }
+  .mittente { display: flex; align-items: center; gap: 10px; }
+  .mittente > span:last-child { display: flex; flex-direction: column; }
+  .dettaglio h2 { font-size: 1.4rem; }
+  .dettaglio p { line-height: 1.6; }
+  .info { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+  .info li { font-size: .8rem; background: #f3eeea; padding: 5px 10px; border-radius: 999px; }
+  .dettaglio .bottone-app { align-self: flex-start; }
+  .destra { flex: 1 1 240px; min-width: 0; padding: 28px 24px 28px 0; display: flex; flex-direction: column; gap: 14px; }
+  .consiglio { background: #fff1e6; border-radius: 16px; padding: 16px; display: flex; gap: 12px; align-items: flex-start; line-height: 1.5; }
+  .parole { padding: 16px; }
+  .parole .gruppo-titolo { padding: 0 0 10px; display: block; }
+  .parole ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+  .parole li { font-size: .85rem; background: #f3eeea; padding: 5px 10px; border-radius: 999px; }
+  @media (max-width: 900px) {
+    .menu { border-right: 0; border-bottom: 1px solid #eadfd6; }
+    .destra { padding: 0 24px 28px; }
+  }
+</style>

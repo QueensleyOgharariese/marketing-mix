@@ -1,0 +1,20 @@
+---
+// Barra dei progressi nella barra in alto dell'app: "X di 6 ruoli".
+// Il numero viene letto dal browser (localStorage) con un piccolo script.
+---
+<span class="progresso" data-progresso>
+  <span data-progresso-testo>0 di 6 ruoli</span>
+  <span class="progresso-barra" aria-hidden="true"><span data-progresso-barra></span></span>
+</span>
+
+<script>
+  import { leggi } from "../scripts/progressi";
+  const p = leggi();
+  const fatti = Object.values(p.ruoli).filter((r) => r.stato === "completato").length;
+  document.querySelectorAll("[data-progresso]").forEach((el) => {
+    const testo = el.querySelector("[data-progresso-testo]");
+    const barra = el.querySelector<HTMLElement>("[data-progresso-barra]");
+    if (testo) testo.textContent = `${fatti} di 6 ruoli`;
+    if (barra) barra.style.width = `${Math.max(4, (fatti / 6) * 100)}%`;
+  });
+</script>

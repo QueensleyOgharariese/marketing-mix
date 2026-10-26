@@ -1,0 +1,123 @@
+---
+// APP · 1. BENVENUTO IN AZIENDA
+// Presenta l'azienda finta e fa scegliere il primo ruolo. Dati in src/data/app/cinque-foglie.json.
+import AppLayout from "../../layouts/AppLayout.astro";
+import Progresso from "../../components/Progresso.astro";
+import Pesca from "../../components/Pesca.astro";
+import Icona from "../../components/Icona.astro";
+import azienda from "../../data/app/cinque-foglie.json";
+---
+<AppLayout title="Benvenuto in Cinque Foglie" percorso={[{ etichetta: azienda.nome }, { etichetta: "Benvenuto" }]}>
+  <Progresso slot="barra" />
+  <main class="contenuto">
+    <section class="benvenuto">
+      <Pesca dimensione={84} etichetta="Pesca, la tua tutor" />
+      <div class="benvenuto-testi">
+        <span class="tag">Primo giorno</span>
+        <h1 class="app-titolo">Ti diamo il benvenuto in {azienda.nome}</h1>
+        <p>Sono Pesca, la tua tutor. Qui lavorerai per un'azienda finta: conosci l'azienda, poi scegli il ruolo da cui partire. Io ti darò una mano negli esercizi.</p>
+      </div>
+    </section>
+
+    <div class="colonne">
+      <section class="pannello azienda" aria-labelledby="t-azienda">
+        <div class="azienda-testa">
+          <span class="foglia" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2f7a4f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 C4 10 10 4 20 4 C20 14 14 20 4 20 Z" /><path d="M4 20 L13 11" /></svg></span>
+          <div>
+            <div class="azienda-nome"><strong id="t-azienda">{azienda.nome}</strong><span class="simulata">Azienda simulata</span></div>
+            <p>{azienda.descrizione}</p>
+          </div>
+        </div>
+        <dl class="numeri">
+          {azienda.numeri.map((n) => (
+            <div><dt>{n.etichetta}</dt><dd>{n.valore}</dd></div>
+          ))}
+        </dl>
+        <p class="avviso">Tutti i dati di {azienda.nome} sono inventati per gli esercizi.</p>
+        <div class="dettagli">
+          <div>
+            <h2 class="piccolo">Catalogo</h2>
+            <ul class="chip">{azienda.catalogo.map((c) => <li>{c}</li>)}</ul>
+          </div>
+          <div>
+            <h2 class="piccolo">Chi ti scriverà</h2>
+            <ul class="colleghi">
+              {azienda.colleghi.map((c) => (
+                <li><span class="avatar">{c.sigla}</span><span><strong>{c.nome}</strong> · {c.ruolo}</span></li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <aside class="pannello scelta" aria-labelledby="t-scelta">
+        <div>
+          <h2 id="t-scelta" class="app-titolo scelta-titolo">Scegli il tuo primo pass</h2>
+          <p class="nota">Ogni ruolo ha un esercizio guidato di circa 15 minuti.</p>
+        </div>
+        <ul class="ruoli">
+          {azienda.ruoli.map((r) => (
+            <li>
+              {r.pronto ? (
+                <a class="ruolo" href="/app/scrivania/">
+                  <span class="ruolo-icona ruolo-icona--attiva"><Icona nome={r.icona} dimensione={18} /></span>
+                  <span class="ruolo-testi"><strong>{r.nome}</strong><span>{r.breve}</span></span>
+                  <span class="consigliato">Consigliato</span>
+                </a>
+              ) : (
+                <span class="ruolo ruolo--presto">
+                  <span class="ruolo-icona"><Icona nome={r.icona} dimensione={18} /></span>
+                  <span class="ruolo-testi"><strong>{r.nome}</strong><span>{r.breve}</span></span>
+                  <span class="presto">In arrivo</span>
+                </span>
+              )}
+            </li>
+          ))}
+        </ul>
+        <a class="bottone-app" href="/app/scrivania/">Inizia con SEO specialist →</a>
+      </aside>
+    </div>
+  </main>
+</AppLayout>
+
+<style>
+  .contenuto { max-width: 1160px; margin: 0 auto; padding: 32px 24px 56px; display: flex; flex-direction: column; gap: 22px; }
+  .benvenuto { background: #fff1e6; border-radius: 18px; padding: 24px 28px; display: flex; flex-wrap: wrap; gap: 22px; align-items: center; }
+  .benvenuto-testi { flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+  h1 { font-size: clamp(1.8rem, 4vw, 2.3rem); line-height: 1.1; }
+  .benvenuto p { line-height: 1.55; color: #5c4a42; max-width: 62ch; }
+  .colonne { display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-start; }
+  .azienda { flex: 999 1 520px; min-width: 0; padding: 22px; display: flex; flex-direction: column; gap: 18px; }
+  .azienda-testa { display: flex; gap: 14px; align-items: flex-start; }
+  .foglia { flex: none; width: 52px; height: 52px; border-radius: 14px; background: #e8f4ec; display: grid; place-items: center; }
+  .azienda-nome { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 4px; }
+  .azienda-nome strong { font-family: var(--font-titoli); font-size: 1.4rem; }
+  .simulata { font-size: .7rem; font-weight: 700; background: #f3eeea; color: #6b5d55; padding: 3px 8px; border-radius: 999px; }
+  .azienda-testa p { line-height: 1.55; color: #5c4a42; }
+  .numeri { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
+  .numeri div { background: #faf7f4; border-radius: 12px; padding: 12px 14px; }
+  .numeri dt { font-size: .75rem; color: #6b5d55; }
+  .numeri dd { margin: 2px 0 0; font-family: var(--font-titoli); font-weight: 800; font-size: 1.5rem; }
+  .avviso { font-size: .8rem; color: #6b5d55; }
+  .dettagli { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+  .piccolo { font-family: var(--font-testo); font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #8a7b72; margin-bottom: 8px; }
+  .chip { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip li { font-size: .85rem; background: #fff1e6; padding: 5px 10px; border-radius: 999px; }
+  .colleghi { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .colleghi li { display: flex; align-items: center; gap: 10px; color: #5c4a42; }
+  .colleghi strong { color: var(--inchiostro); }
+  .scelta { flex: 1 1 320px; min-width: 0; padding: 22px; display: flex; flex-direction: column; gap: 14px; }
+  .scelta-titolo { font-size: 1.3rem; }
+  .nota { font-size: .85rem; color: #6b5d55; margin-top: 4px; }
+  .ruoli { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .ruolo { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border: 1px solid #eadfd6; border-radius: 12px; text-decoration: none; transition: border-color .15s, background .15s, transform .15s; }
+  a.ruolo:hover { border-color: var(--arancio); background: #fffaf6; transform: translateX(3px); color: var(--inchiostro); }
+  .ruolo--presto { color: #8a7b72; }
+  .ruolo-icona { flex: none; width: 34px; height: 34px; border-radius: 50%; background: #f3eeea; display: grid; place-items: center; }
+  .ruolo-icona--attiva { background: #ff8a3d; }
+  .ruolo-testi { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+  .ruolo-testi span { font-size: .8rem; color: #6b5d55; }
+  .consigliato { font-size: .7rem; font-weight: 700; background: #fff1e6; color: #8a3a06; padding: 3px 8px; border-radius: 999px; }
+  .presto { font-size: .7rem; font-weight: 700; color: #8a7b72; }
+  .scelta .bottone-app { justify-content: center; }
+</style>

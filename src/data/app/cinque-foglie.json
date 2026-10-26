@@ -1,0 +1,31 @@
+{
+  "_nota": "Azienda e numeri INVENTATI per gli esercizi. Il dominio .example è riservato e non esiste davvero.",
+  "nome": "Cinque Foglie",
+  "descrizione": "Negozio online di tè e tisane. Vende in tutta Italia, ha un blog e una newsletter, e vuole crescere mantenendo un tono gentile.",
+  "dominio": "cinquefoglie.example",
+  "numeri": [
+    { "etichetta": "Prodotti", "valore": "120" },
+    { "etichetta": "Categorie", "valore": "6" },
+    { "etichetta": "Iscritti newsletter", "valore": "8.400" },
+    { "etichetta": "Obiettivo vendite", "valore": "+20%" }
+  ],
+  "catalogo": ["Tè verdi", "Tè neri", "Tisane", "Matcha", "Tè freddi", "Accessori"],
+  "colleghi": [
+    { "sigla": "MR", "nome": "Marta", "ruolo": "Fondatrice" },
+    { "sigla": "LB", "nome": "Luca", "ruolo": "E-commerce" },
+    { "sigla": "SC", "nome": "Sara", "ruolo": "Social e community" }
+  ],
+  "ruoli": [
+    { "id": "seo", "nome": "SEO specialist", "breve": "Visibilità su Google", "icona": "seo", "pronto": true },
+    { "id": "sea", "nome": "SEA specialist", "breve": "Annunci e budget", "icona": "sea", "pronto": false },
+    { "id": "brand", "nome": "Brand manager", "breve": "Tono e identità", "icona": "brand", "pronto": false },
+    { "id": "social", "nome": "Social media manager", "breve": "Contenuti e community", "icona": "social", "pronto": false },
+    { "id": "influencer", "nome": "Influencer marketing", "breve": "Creator e trasparenza", "icona": "influencer", "pronto": false },
+    { "id": "crm", "nome": "CRM manager", "breve": "Email e fidelizzazione", "icona": "crm", "pronto": false }
+  ],
+  "richieste": [
+    { "ruolo": "seo", "da": "MR", "nome": "Marta", "quando": "9:12", "oggetto": "Il Sencha online non si trova", "link": "/app/seo/esercizio/" },
+    { "ruolo": "sea", "da": "LB", "nome": "Luca", "quando": "ieri", "oggetto": "Annunci per i tè freddi" },
+    { "ruolo": "social", "da": "SC", "nome": "Sara", "quando": "ieri", "oggetto": "Una settimana di post sul matcha" }
+  ]
+}

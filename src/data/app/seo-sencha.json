@@ -1,0 +1,48 @@
+{
+  "_nota": "Esercizio SEO 1. Tutti i dati sono simulati. I volumi di ricerca sono inventati, non presi da strumenti reali.",
+  "id": "seo",
+  "titolo": "Esercizio 1 · Pagina del Sencha",
+  "minuti": 15,
+  "richiesta": {
+    "da": "MR", "nome": "Marta", "ruolo": "Fondatrice", "quando": "oggi alle 9:12",
+    "oggetto": "Il Sencha online non si trova",
+    "testo": "Ciao! Il nostro tè verde Sencha bio vende bene in negozio, ma online nessuno lo trova. Puoi riscrivere titolo e descrizione della pagina per Google? Grazie mille!"
+  },
+  "attuale": {
+    "url": "cinquefoglie.example › te-verdi › sencha-bio",
+    "titolo": "Sencha | Cinque Foglie",
+    "descrizione": "Tè verde. Acquista ora."
+  },
+  "ricerche": [
+    { "ricerca": "tè verde", "mese": "9.900" },
+    { "ricerca": "tè verde benefici", "mese": "6.600", "attenzione": true },
+    { "ricerca": "tè verde sencha", "mese": "1.300" },
+    { "ricerca": "sencha biologico", "mese": "480" },
+    { "ricerca": "tè freddo sencha", "mese": "210" }
+  ],
+  "notaRicerche": "\"Benefici\" porta molte visite, ma nell'UE le promesse sulla salute degli alimenti sono regolate (Regolamento CE 1924/2006): meglio parlare di gusto e qualità.",
+  "parole": ["keyword", "title", "meta description", "volume di ricerca"],
+  "consiglio": "Prima di scrivere guarda la tabella delle ricerche: scoprirai come le persone cercano il tè verde.",
+  "aiuti": [
+    { "titolo": "Quale keyword scegliere?", "testo": "Scegli la ricerca più vicina al prodotto, non la più cercata: chi scrive \"tè verde sencha\" sa già cosa vuole." },
+    { "titolo": "Cosa mettere nella descrizione?", "testo": "Cosa rende speciale il prodotto e un motivo concreto per cliccare, come la spedizione veloce." }
+  ],
+  "glossario": "Il title è il titolo blu nei risultati. La description è il testo grigio sotto: non cambia la posizione, ma convince a cliccare.",
+  "soluzione": {
+    "titolo": "Tè verde Sencha biologico in foglie | Cinque Foglie",
+    "descrizione": "Sencha bio giapponese a foglie intere, dal gusto fresco ed erbaceo. Ottimo anche freddo. Spedizione in 24 ore.",
+    "perche": [
+      "La keyword è all'inizio del titolo, dove Google e le persone la notano subito.",
+      "\"Ottimo anche freddo\" intercetta una seconda ricerca senza promesse sulla salute.",
+      "Un solo motivo per cliccare, chiaro: la spedizione veloce."
+    ]
+  },
+  "autovalutazione": [
+    "La keyword principale è nelle prime parole del titolo.",
+    "La descrizione dice cosa rende speciale il prodotto.",
+    "C'è un motivo concreto per cliccare.",
+    "Ho pensato a una seconda ricerca utile (es. \"tè freddo\")."
+  ],
+  "risposta": "Grazie! La pagina adesso parla come parlano le persone. La prossima volta pensa anche a chi cerca il tè freddo: d'estate vendiamo tanto.",
+  "imparato": ["scegliere una keyword", "scrivere un title", "regole sulla salute"]
+}
