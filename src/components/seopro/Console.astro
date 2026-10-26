@@ -20,7 +20,7 @@ const VOCI = [
   { id: "statistiche", nome: "Statistiche", link: `${B}/strumenti/statistiche/`, icona: "analytics" },
 ];
 ---
-<AppLayout title={`${titolo} · Percorso SEO`} percorso={[{ etichetta: "Percorso SEO", link: `${B}/` }, { etichetta: titolo }]} indietro={{ etichetta: "Scrivania", link: "/app/scrivania/" }}>
+<AppLayout title={`${titolo} · Percorso SEO`} percorso={attivo === "percorso" ? [{ etichetta: "Percorso SEO" }] : [{ etichetta: "Percorso SEO", link: `${B}/` }, { etichetta: titolo }]} indietro={{ etichetta: "Scrivania", link: "/app/scrivania/" }}>
   <div class="console">
     <nav class="menu" aria-label="Strumenti del percorso SEO">
       <span class="menu-titolo">cinquefoglie.example</span>
