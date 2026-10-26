@@ -1,25 +1,5 @@
 [
   {
-    "nome": "Brand manager",
-    "hub": 1,
-    "fase": "Farsi conoscere",
-    "cosa": "Decide come l'azienda si presenta: nome, valori, tono di voce, colori.",
-    "giornata": [
-      "Controlla che post e pubblicità rispettino lo stile del marchio",
-      "Scrive le linee guida del brand",
-      "Confronta il brand con i concorrenti"
-    ],
-    "strumenti": [
-      "Canva",
-      "Google Docs",
-      "Coolors"
-    ],
-    "ruoliFigli": [
-      "Brand strategy"
-    ],
-    "tiPiaceSe": "Ti piace se hai occhio per i dettagli e ti chiedi spesso perché un marchio ti sta simpatico."
-  },
-  {
     "nome": "SEO specialist",
     "hub": 1,
     "fase": "Farsi trovare",
@@ -38,7 +18,10 @@
       "Content strategy",
       "Copywriting"
     ],
-    "tiPiaceSe": "Ti piace se ami scrivere, analizzare e risolvere piccoli enigmi."
+    "tiPiaceSe": "Ti piace se ami scrivere, analizzare e risolvere piccoli enigmi.",
+    "numero": 1,
+    "icona": "seo",
+    "breve": "Primi su Google"
   },
   {
     "nome": "SEA / PPC specialist",
@@ -59,7 +42,33 @@
       "Performance marketing",
       "Paid social"
     ],
-    "tiPiaceSe": "Ti piace se ti diverti con i numeri e vuoi vedere risultati in fretta."
+    "tiPiaceSe": "Ti piace se ti diverti con i numeri e vuoi vedere risultati in fretta.",
+    "numero": 2,
+    "icona": "sea",
+    "breve": "Annunci a ogni clic"
+  },
+  {
+    "nome": "Brand manager",
+    "hub": 1,
+    "fase": "Farsi conoscere",
+    "cosa": "Decide come l'azienda si presenta: nome, valori, tono di voce, colori.",
+    "giornata": [
+      "Controlla che post e pubblicità rispettino lo stile del marchio",
+      "Scrive le linee guida del brand",
+      "Confronta il brand con i concorrenti"
+    ],
+    "strumenti": [
+      "Canva",
+      "Google Docs",
+      "Coolors"
+    ],
+    "ruoliFigli": [
+      "Brand strategy"
+    ],
+    "tiPiaceSe": "Ti piace se hai occhio per i dettagli e ti chiedi spesso perché un marchio ti sta simpatico.",
+    "numero": 3,
+    "icona": "brand",
+    "breve": "Valori e tono"
   },
   {
     "nome": "Social media manager",
@@ -80,7 +89,10 @@
       "Community management",
       "Video"
     ],
-    "tiPiaceSe": "Ti piace se usi molto i social e hai idee per contenuti."
+    "tiPiaceSe": "Ti piace se usi molto i social e hai idee per contenuti.",
+    "numero": 4,
+    "icona": "social",
+    "breve": "Post e community"
   },
   {
     "nome": "Influencer marketing",
@@ -101,7 +113,10 @@
       "Contenuti sponsorizzati",
       "Regole di trasparenza"
     ],
-    "tiPiaceSe": "Ti piace se segui molti creator e sai capire chi è credibile."
+    "tiPiaceSe": "Ti piace se segui molti creator e sai capire chi è credibile.",
+    "numero": 5,
+    "icona": "influencer",
+    "breve": "Creator giusti"
   },
   {
     "nome": "CRM manager",
@@ -123,7 +138,10 @@
       "Lifecycle",
       "Loyalty"
     ],
-    "tiPiaceSe": "Ti piace se sei organizzata e pensi alle persone come relazioni lunghe."
+    "tiPiaceSe": "Ti piace se ami l'ordine e pensi ai clienti come relazioni lunghe.",
+    "numero": 6,
+    "icona": "crm",
+    "breve": "Clienti fedeli"
   },
   {
     "nome": "Product marketing",
@@ -144,7 +162,10 @@
       "Go-to-market",
       "Sales enablement"
     ],
-    "tiPiaceSe": "Ti piace se sai spiegare cose complicate in modo semplice."
+    "tiPiaceSe": "Ti piace se sai spiegare cose complicate in modo semplice.",
+    "numero": 7,
+    "icona": "product",
+    "breve": "Lanciare prodotti"
   },
   {
     "nome": "Trade marketing",
@@ -165,7 +186,10 @@
       "Shopper marketing",
       "Category management"
     ],
-    "tiPiaceSe": "Ti piace se ti incuriosisce cosa succede dentro un supermercato."
+    "tiPiaceSe": "Ti piace se ti incuriosisce cosa succede dentro un supermercato.",
+    "numero": 8,
+    "icona": "trade",
+    "breve": "Vendere nei negozi"
   },
   {
     "nome": "PR e comunicazione",
@@ -186,7 +210,10 @@
       "Ufficio stampa",
       "Comunicazione interna"
     ],
-    "tiPiaceSe": "Ti piace se scrivi bene e resti calma sotto pressione."
+    "tiPiaceSe": "Ti piace se scrivi bene e mantieni la calma sotto pressione.",
+    "numero": 9,
+    "icona": "pr",
+    "breve": "Reputazione e stampa"
   },
   {
     "nome": "Partnerships",
@@ -207,7 +234,10 @@
       "Affiliate marketing",
       "Co-marketing"
     ],
-    "tiPiaceSe": "Ti piace se ami conoscere persone e negoziare."
+    "tiPiaceSe": "Ti piace se ami conoscere persone e negoziare.",
+    "numero": 10,
+    "icona": "partner",
+    "breve": "Collaborazioni"
   },
   {
     "nome": "Ricerca di mercato",
@@ -228,7 +258,10 @@
       "Consumer insights",
       "User research"
     ],
-    "tiPiaceSe": "Ti piace se fai sempre domande e ti interessa la psicologia."
+    "tiPiaceSe": "Ti piace se fai sempre domande e ti interessa la psicologia.",
+    "numero": 11,
+    "icona": "ricerca",
+    "breve": "Capire i clienti"
   },
   {
     "nome": "Marketing analytics / martech",
@@ -249,6 +282,9 @@
       "Marketing automation",
       "CRO (ottimizzazione conversioni)"
     ],
-    "tiPiaceSe": "Ti piace se ti piacciono dati, tecnologia e mettere ordine."
+    "tiPiaceSe": "Ti piace se ti piacciono dati, tecnologia e mettere ordine.",
+    "numero": 12,
+    "icona": "analytics",
+    "breve": "Dati e strumenti"
   }
 ]

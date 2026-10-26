@@ -1,0 +1,110 @@
+[
+  {
+    "id": "anteprima-google",
+    "nome": "Anteprima risultato Google",
+    "ruolo": "SEO",
+    "cosa": "Controlla title e description prima di pubblicare.",
+    "ordine": 2,
+    "icona": "anteprima",
+    "inHome": true
+  },
+  {
+    "id": "cpc-cpa-roas",
+    "nome": "Calcolatore CPC, CPA e ROAS",
+    "ruolo": "SEA / PPC",
+    "cosa": "Scopri quanto costa un clic, un cliente e quanto rende la spesa.",
+    "ordine": 4,
+    "icona": "moneta",
+    "inHome": true
+  },
+  {
+    "id": "contrasto-colori",
+    "nome": "Controllo contrasto colori",
+    "ruolo": "Brand",
+    "cosa": "Verifica se due colori del brand si leggono bene insieme.",
+    "ordine": 7,
+    "icona": "contrasto",
+    "inHome": false
+  },
+  {
+    "id": "engagement-rate",
+    "nome": "Calcolatore engagement rate",
+    "ruolo": "Social media",
+    "cosa": "Misura quanto il pubblico interagisce.",
+    "ordine": 3,
+    "icona": "cuore",
+    "inHome": true
+  },
+  {
+    "id": "checklist-sponsorizzato",
+    "nome": "Checklist post sponsorizzato",
+    "ruolo": "Influencer",
+    "cosa": "Controlla che una collaborazione sia dichiarata nel modo giusto.",
+    "ordine": 5,
+    "icona": "check",
+    "inHome": true
+  },
+  {
+    "id": "retention-valore-cliente",
+    "nome": "Calcolatore retention e valore cliente",
+    "ruolo": "CRM",
+    "cosa": "Calcola quanti clienti restano e quanto vale un cliente nel tempo.",
+    "ordine": 6,
+    "icona": "persone",
+    "inHome": true
+  },
+  {
+    "id": "value-proposition",
+    "nome": "Generatore di value proposition",
+    "ruolo": "Product marketing",
+    "cosa": "Scrivi con poche domande la promessa di un prodotto.",
+    "ordine": 11,
+    "icona": "lampadina",
+    "inHome": false
+  },
+  {
+    "id": "margine-promozione",
+    "nome": "Calcolatore margine e promozione",
+    "ruolo": "Trade marketing",
+    "cosa": "Scopri quanto resta all'azienda dopo uno sconto in negozio.",
+    "ordine": 8,
+    "icona": "percento",
+    "inHome": false
+  },
+  {
+    "id": "comunicato-stampa",
+    "nome": "Modello di comunicato stampa",
+    "ruolo": "PR",
+    "cosa": "Compila le parti di un comunicato, una alla volta.",
+    "ordine": 12,
+    "icona": "giornale",
+    "inHome": false
+  },
+  {
+    "id": "commissioni-affiliazione",
+    "nome": "Calcolatore commissioni affiliazione",
+    "ruolo": "Partnerships",
+    "cosa": "Calcola quanto pagare un partner per ogni vendita.",
+    "ordine": 9,
+    "icona": "moneta",
+    "inHome": false
+  },
+  {
+    "id": "dimensione-campione",
+    "nome": "Calcolatore dimensione campione",
+    "ruolo": "Ricerca di mercato",
+    "cosa": "Scopri quante risposte servono perché un sondaggio sia affidabile.",
+    "ordine": 10,
+    "icona": "campione",
+    "inHome": false
+  },
+  {
+    "id": "link-utm",
+    "nome": "Generatore di link UTM",
+    "ruolo": "Analytics",
+    "cosa": "Scopri da dove arrivano le visite.",
+    "ordine": 1,
+    "icona": "link",
+    "inHome": true
+  }
+]
