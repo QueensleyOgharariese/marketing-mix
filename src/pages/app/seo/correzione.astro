@@ -7,7 +7,7 @@ import AppLayout from "../../../layouts/AppLayout.astro";
 import Pesca from "../../../components/Pesca.astro";
 import Passi from "../../../components/PassiEsercizio.astro";
 import es from "../../../data/app/seo-sencha.json";
-import { NOMI_CONTROLLI } from "../../../scripts/controlli-seo";
+import { PARTI } from "../../../scripts/controlli-seo";
 ---
 <AppLayout title="Correzione · SEO" indietro={{ etichetta: "Scrivania", link: "/app/scrivania/" }} percorso={[{ etichetta: "SEO" }, { etichetta: "Esercizio 1 · Correzione" }]}>
   <Passi slot="barra" attivo={3} />
@@ -42,25 +42,42 @@ import { NOMI_CONTROLLI } from "../../../scripts/controlli-seo";
     </section>
 
     <section class="pannello controlli" aria-labelledby="t-controlli">
-      <h2 id="t-controlli" class="sottotitolo">Controlli automatici</h2>
-      <ul>
-        {NOMI_CONTROLLI.map((nome, i) => (
-          <li data-controllo={i}><span class="segno" aria-hidden="true"></span><span>{nome}</span><strong class="esito" data-esito></strong></li>
+      <h2 id="t-controlli" class="sottotitolo">Controlli automatici, parte per parte</h2>
+      <div class="gruppi">
+        {PARTI.map((p, n) => (
+          <div class="gruppo">
+            <strong>{n + 1}. {p.nome} <span class="conteggio" data-conteggio={n}></span></strong>
+            <ul>
+              {p.controlli.map((c, k) => (
+                <li data-controllo={n * 4 + k}><span class="segno" aria-hidden="true"></span><span>{c}</span></li>
+              ))}
+            </ul>
+          </div>
         ))}
-      </ul>
+      </div>
     </section>
 
-    <section class="confronto">
-      <div class="pannello lavoro">
-        <span class="piccolo">Il tuo lavoro</span>
-        <span class="a-titolo" data-tuo="titolo"></span>
-        <span class="a-desc" data-tuo="descrizione"></span>
+    <!-- Confronto parte per parte: il tuo lavoro a sinistra, la soluzione a destra -->
+    <section class="confronto" aria-label="Confronto con la soluzione">
+      <div class="riga-confronto">
+        <div class="pannello lavoro"><span class="piccolo">1 · Il tuo intento e la keyword</span><span>Keyword scelta: <strong data-tuo="keyword"></strong></span><ul class="intenti-tuoi" data-tuo="intenti"></ul></div>
+        <div class="pannello lavoro lavoro--pro"><span class="piccolo">Soluzione</span><span>{es.soluzione.intento}</span></div>
       </div>
-      <div class="pannello lavoro lavoro--pro">
-        <span class="piccolo">Soluzione di un professionista</span>
-        <span class="a-titolo">{es.soluzione.titolo}</span>
-        <span class="a-desc">{es.soluzione.descrizione}</span>
-        <ul class="perche">{es.soluzione.perche.map((p) => <li>{p}</li>)}</ul>
+      <div class="riga-confronto">
+        <div class="pannello lavoro"><span class="piccolo">2 · Il tuo risultato su Google</span><span class="a-titolo" data-tuo="titolo"></span><span class="a-desc" data-tuo="descrizione"></span></div>
+        <div class="pannello lavoro lavoro--pro"><span class="piccolo">Soluzione</span><span class="a-titolo">{es.soluzione.titolo}</span><span class="a-desc">{es.soluzione.descrizione}</span></div>
+      </div>
+      <div class="riga-confronto">
+        <div class="pannello lavoro"><span class="piccolo">3 · I tuoi dati strutturati</span><span data-tuo="dati"></span></div>
+        <div class="pannello lavoro lavoro--pro"><span class="piccolo">Soluzione</span><span>{es.soluzione.dati}</span></div>
+      </div>
+      <div class="riga-confronto">
+        <div class="pannello lavoro"><span class="piccolo">4 · La tua risposta breve</span><span data-tuo="risposta"></span></div>
+        <div class="pannello lavoro lavoro--pro"><span class="piccolo">Soluzione</span><span>{es.soluzione.risposta}</span></div>
+      </div>
+      <div class="pannello note-pro">
+        <strong>Perché la soluzione funziona</strong>
+        <ul class="perche">{es.soluzione.note.map((p) => <li>{p}</li>)}</ul>
       </div>
     </section>
 
@@ -104,6 +121,8 @@ import { NOMI_CONTROLLI } from "../../../scripts/controlli-seo";
 
 <script>
   import { leggi, aggiornaRuolo, punteggio } from "../../../scripts/progressi";
+  import es from "../../../data/app/seo-sencha.json";
+  const INTENTI_JS = Object.fromEntries(es.intenti.map((i) => [i.id, i.nome]));
 
   const seo = leggi().ruoli.seo;
   if (!seo?.consegna) {
@@ -111,12 +130,29 @@ import { NOMI_CONTROLLI } from "../../../scripts/controlli-seo";
   } else {
     document.querySelector<HTMLElement>("[data-pieno]")!.hidden = false;
     const c = seo.consegna;
-    document.querySelector('[data-tuo="titolo"]')!.textContent = c.titolo;
-    document.querySelector('[data-tuo="descrizione"]')!.textContent = c.descrizione;
+    const l = c.lavoro as any;
+    const metti = (chiave: string, testo: string) => { document.querySelector(`[data-tuo="${chiave}"]`)!.textContent = testo; };
+    metti("keyword", l.keyword || "nessuna");
+    metti("titolo", l.titolo);
+    metti("descrizione", l.descrizione);
+    metti("risposta", l.risposta);
+    const nomi = INTENTI_JS as Record<string, string>;
+    document.querySelector('[data-tuo="intenti"]')!.innerHTML = "";
+    Object.entries(l.intenti ?? {}).forEach(([ricerca, id]) => {
+      const li = document.createElement("li");
+      li.textContent = `${ricerca}: ${nomi[id as string] ?? "?"}`;
+      document.querySelector('[data-tuo="intenti"]')!.appendChild(li);
+    });
+    const d = l.schema ?? {};
+    const disp: Record<string, string> = { InStock: "disponibile", OutOfStock: "esaurito", PreOrder: "preordine" };
+    metti("dati", `Nome: ${d.nome || "–"}. Marca: ${d.marca || "–"}. Prezzo: ${d.prezzo || "–"} ${d.valuta}. ${disp[d.disponibilita] ?? "disponibilità non indicata"}. ${d.stelle ? "Con stelle 4,8 (inventate!)" : "Nessuna stella"}.`);
     c.controlli.forEach((ok, i) => {
-      const li = document.querySelector(`[data-controllo="${i}"]`)!;
-      li.classList.toggle("ok", ok);
-      li.querySelector("[data-esito]")!.textContent = ok ? "+10" : "0";
+      const li = document.querySelector(`[data-controllo="${i}"]`);
+      li?.classList.toggle("ok", ok);
+    });
+    document.querySelectorAll<HTMLElement>("[data-conteggio]").forEach((el) => {
+      const n = Number(el.dataset.conteggio);
+      el.textContent = `${c.controlli.slice(n * 4, n * 4 + 4).filter(Boolean).length}/4`;
     });
 
     // Ripristina autovalutazione e gradimento salvati
@@ -184,11 +220,23 @@ import { NOMI_CONTROLLI } from "../../../scripts/controlli-seo";
   .controlli li.ok { color: var(--inchiostro); }
   .controlli li.ok .segno { background: #2f7a4f; border-color: #2f7a4f; display: grid; place-items: center; }
   .controlli li.ok .segno::after { content: ""; width: 8px; height: 4px; border-left: 2px solid #fff; border-bottom: 2px solid #fff; transform: rotate(-45deg) translate(1px, -1px); }
-  .confronto { display: flex; flex-wrap: wrap; gap: 16px; }
-  .lavoro { flex: 1 1 400px; min-width: 0; padding: 20px; display: flex; flex-direction: column; gap: 6px; }
+  .gruppi { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .gruppo { display: flex; flex-direction: column; gap: 8px; }
+  .gruppo strong { font-size: .9rem; display: flex; justify-content: space-between; }
+  .conteggio { color: #8a3a06; font-variant-numeric: tabular-nums; }
+  .gruppo ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: .85rem; }
+  .gruppo li { display: flex; align-items: center; gap: 8px; color: #6b5d55; }
+  .gruppo li.ok { color: var(--inchiostro); }
+  .gruppo li.ok .segno { background: #2f7a4f; border-color: #2f7a4f; display: grid; place-items: center; }
+  .gruppo li.ok .segno::after { content: ""; width: 8px; height: 4px; border-left: 2px solid #fff; border-bottom: 2px solid #fff; transform: rotate(-45deg) translate(1px, -1px); }
+  .confronto { display: flex; flex-direction: column; gap: 12px; }
+  .riga-confronto { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 12px; }
+  .intenti-tuoi { margin: 6px 0 0; padding-left: 18px; font-size: .85rem; line-height: 1.6; color: #4a3a32; }
+  .note-pro { padding: 18px 20px; display: flex; flex-direction: column; gap: 6px; }
+  .lavoro { min-width: 0; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px; line-height: 1.55; }
   .lavoro--pro { border-color: #2f7a4f; box-shadow: inset 4px 0 0 #2f7a4f; }
   .piccolo { font-size: .7rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #8a7b72; margin-bottom: 4px; }
-  .a-titolo { font-size: 1.15rem; color: #1f45b8; line-height: 1.3; overflow-wrap: anywhere; }
+  .a-titolo { font-family: Arial, sans-serif; font-size: 1.15rem; color: #1f45b8; line-height: 1.3; overflow-wrap: anywhere; }
   .a-desc { font-size: .9rem; color: #4a4a4a; line-height: 1.45; overflow-wrap: anywhere; }
   .perche { margin: 10px 0 0; padding-left: 18px; font-size: .9rem; line-height: 1.55; color: #3a2b24; display: flex; flex-direction: column; gap: 4px; }
   .parte-finale { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; }

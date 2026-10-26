@@ -3,12 +3,13 @@
 // È un salvataggio "strettamente necessario" al servizio richiesto (ricordare l'esercizio), quindi non serve banner.
 // Se il browser blocca il salvataggio (es. navigazione privata), l'app funziona lo stesso ma non ricorda nulla.
 
-const CHIAVE = "marketing-mix-progressi-v1";
+// v2: l'esercizio SEO è cambiato (4 parti), quindi i vecchi salvataggi non si usano più
+const CHIAVE = "marketing-mix-progressi-v2";
 
 export type Ruolo = {
   stato?: "in-corso" | "completato";
-  bozza?: { titolo: string; descrizione: string };
-  consegna?: { titolo: string; descrizione: string; controlli: boolean[]; data: string };
+  bozza?: Record<string, any>; // il lavoro non ancora consegnato
+  consegna?: { lavoro: Record<string, any>; controlli: boolean[]; data: string };
   autovalutazione?: boolean[];
   aiuti?: number[]; // quali aiuti di Pesca sono stati aperti (ognuno toglie 5 punti)
   gradimento?: number;
@@ -49,10 +50,11 @@ export function cancellaTutto() {
   }
 }
 
-// Punteggi: 10 punti per ogni controllo automatico (max 40), 15 per ogni punto di autovalutazione (max 60),
+// Punteggi: i controlli automatici valgono in tutto 40 punti (divisi in parti uguali), l'autovalutazione 60 (15 per punto),
 // meno 5 punti per ogni aiuto di Pesca aperto. Il totale non scende sotto zero.
 export function punteggio(r: Ruolo) {
-  const auto = (r.consegna?.controlli ?? []).filter(Boolean).length * 10;
+  const controlli = r.consegna?.controlli ?? [];
+  const auto = controlli.length ? Math.round((controlli.filter(Boolean).length / controlli.length) * 40) : 0;
   const voto = (r.autovalutazione ?? []).filter(Boolean).length * 15;
   const aiuti = (r.aiuti ?? []).length * 5;
   return { auto, voto, aiuti, totale: Math.max(0, auto + voto - aiuti) };

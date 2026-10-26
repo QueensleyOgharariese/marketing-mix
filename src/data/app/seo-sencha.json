@@ -1,48 +1,82 @@
 {
-  "_nota": "Esercizio SEO 1. Tutti i dati sono simulati. I volumi di ricerca sono inventati, non presi da strumenti reali.",
+  "_nota": "Esercizio SEO 1, versione 2 (SEO moderna). Tutti i dati sono simulati: volumi di ricerca, prezzo e scheda prodotto sono inventati.",
   "id": "seo",
-  "titolo": "Esercizio 1 · Pagina del Sencha",
-  "minuti": 15,
+  "titolo": "Esercizio 1 · La pagina del Sencha",
+  "minuti": 25,
   "richiesta": {
     "da": "MR", "nome": "Marta", "ruolo": "Fondatrice", "quando": "oggi alle 9:12",
     "oggetto": "Il Sencha online non si trova",
-    "testo": "Ciao! Il nostro tè verde Sencha bio vende bene in negozio, ma online nessuno lo trova. Puoi riscrivere titolo e descrizione della pagina per Google? Grazie mille!"
+    "testo": "Ciao! Il nostro tè verde Sencha bio vende bene in negozio, ma online nessuno lo trova. Puoi sistemare la pagina per Google? Capisci chi lo cerca, riscrivi titolo e descrizione, prepara i dati per Google e aggiungi una risposta breve su come si prepara. Grazie mille!"
   },
   "attuale": {
     "url": "cinquefoglie.example › te-verdi › sencha-bio",
     "titolo": "Sencha | Cinque Foglie",
     "descrizione": "Tè verde. Acquista ora."
   },
+  "scheda": {
+    "nome": "Sencha biologico",
+    "marca": "Cinque Foglie",
+    "origine": "Giappone",
+    "formato": "Foglie intere sfuse, sacchetto compostabile da 100 g",
+    "prezzo": "12,90",
+    "valuta": "EUR",
+    "disponibilita": "Disponibile",
+    "preparazione": "Acqua a 75 °C, infusione di 2 minuti. Ottimo anche freddo: 8 ore in frigo.",
+    "gusto": "Fresco ed erbaceo, leggermente dolce",
+    "spedizione": "Spedizione in 24 ore",
+    "recensioni": "Nessuna recensione verificata per ora"
+  },
+  "intenti": [
+    { "id": "info", "nome": "Informarsi", "spiega": "Vuole capire o imparare qualcosa" },
+    { "id": "scelta", "nome": "Scegliere", "spiega": "Sa cosa vuole e confronta prodotti" },
+    { "id": "acquisto", "nome": "Comprare", "spiega": "È pronta o pronto a comprare" }
+  ],
   "ricerche": [
-    { "ricerca": "tè verde", "mese": "9.900" },
-    { "ricerca": "tè verde benefici", "mese": "6.600", "attenzione": true },
-    { "ricerca": "tè verde sencha", "mese": "1.300" },
-    { "ricerca": "sencha biologico", "mese": "480" },
-    { "ricerca": "tè freddo sencha", "mese": "210" }
+    { "ricerca": "tè verde", "mese": "9.900", "giusti": ["info"] },
+    { "ricerca": "tè verde benefici", "mese": "6.600", "giusti": ["info"], "attenzione": true },
+    { "ricerca": "tè verde sencha", "mese": "1.300", "giusti": ["scelta", "acquisto"] },
+    { "ricerca": "come preparare il sencha", "mese": "590", "giusti": ["info"] },
+    { "ricerca": "sencha biologico", "mese": "480", "giusti": ["scelta", "acquisto"] },
+    { "ricerca": "tè freddo sencha", "mese": "210", "giusti": ["info"] },
+    { "ricerca": "comprare sencha online", "mese": "170", "giusti": ["acquisto"] }
   ],
-  "notaRicerche": "\"Benefici\" porta molte visite, ma nell'UE le promesse sulla salute degli alimenti sono regolate (Regolamento CE 1924/2006): meglio parlare di gusto e qualità.",
-  "parole": ["keyword", "title", "meta description", "volume di ricerca"],
-  "consiglio": "Prima di scrivere guarda la tabella delle ricerche: scoprirai come le persone cercano il tè verde.",
+  "keywordGiuste": ["tè verde sencha", "sencha biologico"],
+  "notaRicerche": "\"Benefici\" porta molte visite, ma nell'UE le promesse sulla salute degli alimenti sono regolate (Regolamento CE 1924/2006): su una pagina prodotto parla di gusto e qualità.",
+  "domanda": "Come si prepara il tè Sencha?",
+  "perche": {
+    "intento": "Oggi Google prova a capire cosa vuole chi cerca. Per chi vuole informarsi mostra guide; per chi vuole scegliere o comprare mostra pagine prodotto. La pagina del Sencha deve puntare alle ricerche di chi vuole scegliere o comprare.",
+    "titolo": "Google misura il titolo in pixel, non in caratteri: oltre circa 580 pixel lo taglia. Se il titolo non descrive bene la pagina, Google può anche riscriverlo da solo.",
+    "dati": "I dati strutturati Product dicono a Google prezzo e disponibilità, che possono comparire nei risultati e in Google Shopping. Le stelle delle recensioni si possono mostrare solo con recensioni vere: inventarle è vietato (Direttiva UE 2019/2161, \"Omnibus\").",
+    "risposta": "Una risposta breve, chiara e con dati verificabili è più facile da mostrare nei riquadri \"Le persone chiedono anche\" e da citare nelle panoramiche create con l'AI (AI Overviews)."
+  },
+  "parole": ["intento di ricerca", "keyword", "title", "meta description", "dati strutturati", "AI Overviews"],
+  "consiglio": "Prima di scrivere, capisci chi cerca cosa: l'intento di ricerca decide che pagina vuole vedere la persona.",
   "aiuti": [
-    { "titolo": "Quale keyword scegliere?", "testo": "Scegli la ricerca più vicina al prodotto, non la più cercata: chi scrive \"tè verde sencha\" sa già cosa vuole." },
-    { "titolo": "Cosa mettere nella descrizione?", "testo": "Cosa rende speciale il prodotto e un motivo concreto per cliccare, come la spedizione veloce." }
+    { "titolo": "Come capisco l'intento?", "testo": "Guarda le parole: \"come\", \"cos'è\", \"benefici\" = informarsi. Il nome preciso del prodotto = scegliere. \"Comprare\", \"prezzo\", \"online\" = comprare." },
+    { "titolo": "Quale keyword per una pagina prodotto?", "testo": "Non la più cercata, ma la più vicina al prodotto: chi scrive \"tè verde\" vuole informazioni generiche, chi scrive \"tè verde sencha\" sa già cosa vuole." },
+    { "titolo": "Cosa metto nei dati strutturati?", "testo": "Solo informazioni vere e visibili sulla pagina: nome, marca, prezzo, valuta e disponibilità. Se non ci sono recensioni vere, niente stelle." },
+    { "titolo": "Come scrivo la risposta breve?", "testo": "Inizia subito con la risposta, poi i dettagli: temperatura dell'acqua e tempo di infusione, presi dalla scheda prodotto. Tra 30 e 70 parole." }
   ],
-  "glossario": "Il title è il titolo blu nei risultati. La description è il testo grigio sotto: non cambia la posizione, ma convince a cliccare.",
+  "glossario": "Title: il titolo blu nei risultati. Meta description: il testo grigio sotto, non cambia la posizione ma convince a cliccare. Dati strutturati: codice nascosto (JSON-LD) che descrive il prodotto a Google.",
   "soluzione": {
+    "intento": "Informarsi: tè verde, tè verde benefici, come preparare il sencha, tè freddo sencha. Scegliere: tè verde sencha, sencha biologico. Comprare: comprare sencha online. Keyword principale: \"tè verde sencha\".",
     "titolo": "Tè verde Sencha biologico in foglie | Cinque Foglie",
     "descrizione": "Sencha bio giapponese a foglie intere, dal gusto fresco ed erbaceo. Ottimo anche freddo. Spedizione in 24 ore.",
-    "perche": [
+    "dati": "Nome, marca, prezzo 12,90 EUR, disponibile. Nessuna valutazione a stelle, perché non ci sono ancora recensioni verificate.",
+    "risposta": "Per preparare il tè Sencha scalda l'acqua a 75 °C, senza farla bollire, e lascia in infusione le foglie per 2 minuti. Usa circa 3 grammi di foglie per una tazza. D'estate puoi prepararlo freddo: lascialo in frigo per 8 ore.",
+    "note": [
       "La keyword è all'inizio del titolo, dove Google e le persone la notano subito.",
-      "\"Ottimo anche freddo\" intercetta una seconda ricerca senza promesse sulla salute.",
-      "Un solo motivo per cliccare, chiaro: la spedizione veloce."
+      "Il titolo descrive davvero la pagina: così Google ha meno motivi per riscriverlo.",
+      "I dati strutturati contengono solo informazioni vere: niente stelle senza recensioni.",
+      "La risposta breve inizia con la risposta e usa numeri presi dalla scheda prodotto."
     ]
   },
   "autovalutazione": [
-    "La keyword principale è nelle prime parole del titolo.",
-    "La descrizione dice cosa rende speciale il prodotto.",
-    "C'è un motivo concreto per cliccare.",
-    "Ho pensato a una seconda ricerca utile (es. \"tè freddo\")."
+    "Il titolo è scritto per chi vuole scegliere o comprare, non per chi cerca informazioni generiche.",
+    "La descrizione dà un motivo concreto per cliccare (es. la spedizione veloce).",
+    "La risposta breve inizia subito con la risposta, senza giri di parole.",
+    "Ho usato solo informazioni vere della scheda prodotto, senza inventare nulla."
   ],
-  "risposta": "Grazie! La pagina adesso parla come parlano le persone. La prossima volta pensa anche a chi cerca il tè freddo: d'estate vendiamo tanto.",
-  "imparato": ["scegliere una keyword", "scrivere un title", "regole sulla salute"]
+  "risposta": "Grazie! Adesso la pagina parla come parlano le persone e Google sa prezzo e disponibilità. La prossima volta prepariamo anche una guida per chi cerca \"come preparare il sencha\": è un'altra pagina, per un altro intento.",
+  "imparato": ["intento di ricerca", "scegliere una keyword", "title in pixel", "dati strutturati Product", "risposte per le ricerche AI", "regole su salute e recensioni"]
 }
