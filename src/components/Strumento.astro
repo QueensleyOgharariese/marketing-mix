@@ -1,0 +1,69 @@
+---
+// CORNICE COMUNE DI OGNI STRUMENTO GRATUITO
+// In alto: percorso, titolo e promessa. Al centro: lo strumento (slot "default").
+// Sotto: spiegazione (slot "spiega"), privacy, ruolo collegato e altri strumenti pronti.
+// Tutti i calcoli avvengono nel browser: niente viene inviato o salvato.
+import Base from "../layouts/Base.astro";
+import Icona from "./Icona.astro";
+import strumenti from "../data/strumenti.json";
+import ruoli from "../data/ruoli.json";
+
+interface Props { id: string; descrizione: string; }
+const { id, descrizione } = Astro.props;
+const s = strumenti.find((x) => x.id === id)!;
+const ruolo = ruoli.find((r) => r.id === s.ruoloId)!;
+const altri = strumenti.filter((x) => x.pronto && x.id !== id);
+---
+<Base title={s.nome} description={descrizione}>
+  <div class="contenitore pagina">
+    <nav class="briciole" aria-label="Percorso"><a href="/strumenti/">Strumenti</a> <span aria-hidden="true">›</span> <span aria-current="page">{s.nome}</span></nav>
+    <header class="testa">
+      <span class="etichetta">{s.ruolo} · gratis</span>
+      <h1>{s.nome}</h1>
+      <p class="grande">{s.cosa}</p>
+      <p class="privacy"><Icona nome="lucchetto" dimensione={16} /> I calcoli li fa il tuo browser: quello che scrivi non viene inviato né salvato.</p>
+    </header>
+
+    <div class="area"><slot /></div>
+
+    <div class="sotto">
+      <section class="spiega"><slot name="spiega" /></section>
+      <aside class="lato">
+        <div class="riquadro">
+          <span class="etichetta">Usalo nel lavoro vero</span>
+          <strong>{ruolo.nome}</strong>
+          <p>È uno degli attrezzi di questo ruolo. Provalo nell'azienda finta, con un esercizio guidato.</p>
+          <a class="bottone" href={`/app/${ruolo.id}/esercizio/`}>Prova il ruolo →</a>
+          <a class="link-forte" href={`/ruoli/${ruolo.id}/`}>{ruolo.titoloPagina}</a>
+        </div>
+        <div class="riquadro">
+          <strong>Altri strumenti pronti</strong>
+          <ul>{altri.map((a) => <li><a href={`/strumenti/${a.id}/`}>{a.nome}</a></li>)}</ul>
+          <a href="/strumenti/">Tutti gli strumenti →</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .briciole { font-size: .875rem; font-weight: 600; color: var(--testo-3); margin-bottom: var(--space-3); }
+  .briciole a { color: var(--testo-3); }
+  .briciole [aria-current] { color: var(--inchiostro); }
+  .testa { display: flex; flex-direction: column; gap: 14px; margin-bottom: var(--space-4); max-width: 760px; }
+  h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); line-height: 1.02; }
+  .grande { margin: 0; font-size: 1.2rem; line-height: 1.55; color: var(--testo-2); }
+  .privacy { margin: 0; display: flex; align-items: center; gap: 8px; font-size: .9rem; font-weight: 600; color: var(--verde-ok); }
+  .area { margin-bottom: var(--space-5); }
+  .sotto { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+  .spiega { flex: 2 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 14px; line-height: 1.65; }
+  .spiega :global(h2) { font-size: 1.6rem; margin-top: 8px; }
+  .spiega :global(p) { margin: 0; max-width: 68ch; }
+  .spiega :global(code) { background: var(--crema); padding: 1px 6px; border-radius: 6px; font-size: .9em; overflow-wrap: anywhere; }
+  .lato { flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+  .riquadro { border: 2px solid var(--inchiostro); border-radius: var(--raggio); box-shadow: var(--ombra); padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .riquadro strong { font-family: var(--font-titoli); font-size: 1.3rem; }
+  .riquadro p { margin: 0; font-size: .95rem; line-height: 1.5; color: var(--testo-2); }
+  .riquadro .bottone { align-self: flex-start; }
+  .riquadro ul { margin: 0; padding-left: 1.1rem; display: flex; flex-direction: column; gap: 6px; }
+</style>

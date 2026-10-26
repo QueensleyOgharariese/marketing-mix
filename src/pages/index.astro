@@ -228,7 +228,7 @@ const demoDescrizione = "Sencha giapponese dal gusto fresco ed erbaceo. Foglie i
     </div>
     <ul class="strumenti">
       {strumentiHome.map((s) => (
-        <li><a href="/strumenti/" class="strumento"><span class="etichetta">{s.ruolo}</span><strong>{s.nome}</strong><span>{s.cosa}</span></a></li>
+        <li><a href={s.pronto ? `/strumenti/${s.id}/` : "/strumenti/"} class="strumento"><span class="etichetta">{s.ruolo}{s.pronto ? " · pronto" : " · in arrivo"}</span><strong>{s.nome}</strong><span>{s.cosa}</span></a></li>
       ))}
     </ul>
     <a class="link-forte" href="/strumenti/">Tutti i 12 strumenti →</a>

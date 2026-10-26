@@ -116,3 +116,29 @@ img, svg { max-width: 100%; }
 
 /* Link in evidenza ("Apri la mappa dei ruoli →"), usato in più pagine */
 .link-forte { font-weight: 700; font-size: 1.05rem; align-self: flex-start; }
+
+/* ---------- STRUMENTI GRATUITI: parti comuni dei moduli ---------- */
+.attrezzo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+.attrezzo-pannello { background: #fff; border: 2px solid var(--inchiostro); border-radius: var(--raggio); box-shadow: 8px 8px 0 var(--pesca-chiaro); padding: 24px; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.attrezzo-pannello--crema { background: var(--crema); box-shadow: none; border-color: var(--linea); }
+.attrezzo-campo { display: flex; flex-direction: column; gap: 6px; font-weight: 700; font-size: .95rem; }
+.attrezzo-campo small { font-weight: 400; color: var(--testo-3); font-size: .82rem; line-height: 1.4; }
+.attrezzo-riga { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.attrezzo-conta { font-size: .82rem; font-weight: 600; color: var(--testo-3); font-variant-numeric: tabular-nums; }
+.attrezzo input[type="text"], .attrezzo input[type="url"], .attrezzo input[type="number"], .attrezzo textarea, .attrezzo select {
+  font: inherit; font-weight: 400; font-size: 1rem; width: 100%; padding: 11px 13px; border: 2px solid var(--linea); border-radius: 12px; background: #fff; color: var(--inchiostro); }
+.attrezzo textarea { resize: vertical; min-height: 92px; line-height: 1.45; }
+.attrezzo input:focus, .attrezzo textarea:focus, .attrezzo select:focus { outline: none; border-color: var(--arancio); }
+.attrezzo-barra { height: 6px; background: #f6e6da; border-radius: 99px; overflow: hidden; }
+.attrezzo-barra > span { display: block; height: 100%; width: 0; background: var(--arancio); border-radius: 99px; transition: width .2s, background .2s; }
+.attrezzo-esiti { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.attrezzo-esiti li { font-size: .82rem; font-weight: 700; padding: 5px 10px; border-radius: 999px; background: #f7f1ec; color: var(--testo-3); }
+.attrezzo-esiti li.ok { background: #e3f3e8; color: #1f5c38; }
+.attrezzo-esiti li.no { background: #fde8e4; color: #a12d1d; }
+.attrezzo-azioni { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.bottone-piccolo { font: inherit; font-weight: 700; font-size: .9rem; padding: 9px 14px; border-radius: 12px; border: 2px solid var(--inchiostro); background: #fff; color: var(--inchiostro); cursor: pointer; }
+.bottone-piccolo:hover { background: var(--crema-2); }
+.attrezzo-titolo { font-family: var(--font-titoli); font-size: 1.2rem; font-weight: 800; }
+@media (max-width: 860px) { .attrezzo { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 480px) { .attrezzo-pannello { padding: 18px; } }
+.bottone:disabled { opacity: .45; cursor: default; transform: none; }

@@ -1,0 +1,131 @@
+---
+// STRUMENTO 1 · GENERATORE DI LINK UTM
+// Prende l'indirizzo e le 3 etichette principali (source, medium, campaign) e crea il link.
+// Le etichette vengono "pulite": minuscole, senza accenti, trattini al posto degli spazi,
+// così nei report "Newsletter" e "newsletter" non diventano due fonti diverse.
+import Strumento from "../../components/Strumento.astro";
+const MEZZI = [["email", "Email e newsletter"], ["social", "Post gratuiti sui social"], ["cpc", "Annunci a pagamento (costo per clic)"], ["paid-social", "Post sponsorizzati sui social"], ["referral", "Link da altri siti"], ["qr", "Codice QR su carta o confezione"], ["affiliate", "Partner e affiliati"]];
+---
+<Strumento id="link-utm" descrizione="Generatore gratuito di link UTM: scrivi indirizzo, source, medium e campaign e ottieni un link tracciabile, pulito e pronto da copiare. Funziona nel browser.">
+  <form class="attrezzo" data-utm novalidate>
+    <div class="attrezzo-pannello">
+      <label class="attrezzo-campo">Indirizzo della pagina
+        <input type="url" name="url" placeholder="https://www.tuosito.it/pagina" autocomplete="off" />
+        <small>La pagina dove vuoi portare le persone.</small>
+      </label>
+      <label class="attrezzo-campo">Source: chi manda la visita
+        <input type="text" name="source" placeholder="newsletter, instagram, google…" autocomplete="off" />
+      </label>
+      <label class="attrezzo-campo">Medium: il tipo di canale
+        <select name="medium">
+          <option value="">Scegli…</option>
+          {MEZZI.map(([v, t]) => <option value={v}>{v} · {t}</option>)}
+        </select>
+      </label>
+      <label class="attrezzo-campo">Campaign: il nome della campagna
+        <input type="text" name="campaign" placeholder="saldi-estate, lancio-tisane…" autocomplete="off" />
+      </label>
+      <details class="extra">
+        <summary>Etichette facoltative (term e content)</summary>
+        <label class="attrezzo-campo">Term: la parola chiave (annunci)
+          <input type="text" name="term" autocomplete="off" />
+        </label>
+        <label class="attrezzo-campo">Content: per distinguere due link nella stessa campagna
+          <input type="text" name="content" placeholder="bottone-alto, link-fondo…" autocomplete="off" />
+        </label>
+      </details>
+      <div class="attrezzo-azioni">
+        <button type="button" class="bottone-piccolo" data-esempio>Usa l'esempio di Cinque Foglie</button>
+        <button type="reset" class="bottone-piccolo">Svuota</button>
+      </div>
+    </div>
+
+    <div class="attrezzo-pannello attrezzo-pannello--crema" aria-live="polite">
+      <span class="attrezzo-titolo">Il tuo link</span>
+      <output class="link" data-link>Compila indirizzo, source, medium e campaign.</output>
+      <div class="attrezzo-azioni">
+        <button type="button" class="bottone" data-copia disabled>Copia il link</button>
+        <span class="copiato" data-copiato></span>
+      </div>
+      <ul class="attrezzo-esiti" data-esiti></ul>
+      <ul class="avvisi" data-avvisi></ul>
+    </div>
+  </form>
+
+  <Fragment slot="spiega">
+    <h2>Cosa sono i link UTM</h2>
+    <p>Sono etichette che aggiungi alla fine di un link, dopo il punto di domanda. Non cambiano la pagina: dicono agli strumenti di analisi (come Google Analytics) da dove arriva la visita. Senza, le visite dalla newsletter si confondono con tutte le altre.</p>
+    <h2>Le tre etichette che servono sempre</h2>
+    <p><code>utm_source</code> è chi manda la visita (newsletter, instagram). <code>utm_medium</code> è il tipo di canale (email, social, cpc). <code>utm_campaign</code> è il nome della campagna (lancio-tisane). Scrivile sempre allo stesso modo, in minuscolo e con i trattini: lo strumento lo fa per te.</p>
+    <h2>Un esempio</h2>
+    <p>Per la newsletter di ottobre di Cinque Foglie, l'azienda finta di Marketing Mix: <code>cinquefoglie.example/tisane-della-sera?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=tisane-ottobre</code>.</p>
+    <p><strong>Attenzione:</strong> gli UTM non raccolgono dati da soli. Le visite si misurano con lo strumento di analisi del sito, che deve rispettare il consenso ai cookie.</p>
+  </Fragment>
+</Strumento>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>("[data-utm]")!;
+  const campo = (n: string) => form.elements.namedItem(n) as HTMLInputElement;
+  const $ = (s: string) => form.querySelector<HTMLElement>(s)!;
+
+  // Pulisce un'etichetta: minuscole, senza accenti, solo lettere, numeri e trattini
+  function pulisci(t: string) {
+    return t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").trim().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  }
+
+  function aggiorna() {
+    const grezzo = campo("url").value.trim();
+    const parti = { source: campo("source").value, medium: campo("medium").value, campaign: campo("campaign").value, term: campo("term").value, content: campo("content").value };
+    const avvisi: string[] = [];
+    let url: URL | null = null;
+    if (grezzo) {
+      try { url = new URL(/^https?:\/\//i.test(grezzo) ? grezzo : `https://${grezzo}`); }
+      catch { avvisi.push("L'indirizzo non sembra valido: controlla che non ci siano spazi."); }
+      if (url && !/^https:\/\//i.test(grezzo)) avvisi.push("Ho aggiunto https:// all'inizio dell'indirizzo.");
+      if (url && [...url.searchParams.keys()].some((k) => k.startsWith("utm_"))) avvisi.push("L'indirizzo aveva già delle etichette UTM: le ho sostituite con le tue.");
+    }
+    for (const [k, v] of Object.entries(parti)) if (v && pulisci(v) !== v) avvisi.push(`"${v}" diventa "${pulisci(v)}" (${k}).`);
+
+    const pronte = url && pulisci(parti.source) && parti.medium && pulisci(parti.campaign);
+    const esiti = [["Indirizzo", !!url], ["Source", !!pulisci(parti.source)], ["Medium", !!parti.medium], ["Campaign", !!pulisci(parti.campaign)]] as const;
+    $("[data-esiti]").innerHTML = esiti.map(([n, ok]) => `<li class="${ok ? "ok" : ""}">${ok ? "✓ " : ""}${n}</li>`).join("");
+    $("[data-avvisi]").innerHTML = avvisi.map((a) => `<li>${a.replace(/</g, "&lt;")}</li>`).join("");
+
+    const copia = $("[data-copia]") as HTMLButtonElement;
+    if (pronte && url) {
+      for (const k of [...url.searchParams.keys()]) if (k.startsWith("utm_")) url.searchParams.delete(k);
+      for (const [k, v] of Object.entries(parti)) if (pulisci(v)) url.searchParams.set(`utm_${k}`, pulisci(v));
+      $("[data-link]").textContent = url.toString();
+      copia.disabled = false;
+    } else {
+      $("[data-link]").textContent = "Compila indirizzo, source, medium e campaign.";
+      copia.disabled = true;
+    }
+    $("[data-copiato]").textContent = "";
+  }
+
+  form.addEventListener("input", aggiorna);
+  form.addEventListener("change", aggiorna);
+  form.addEventListener("reset", () => setTimeout(aggiorna));
+  $("[data-esempio]").addEventListener("click", () => {
+    campo("url").value = "https://cinquefoglie.example/tisane-della-sera";
+    campo("source").value = "Newsletter";
+    campo("medium").value = "email";
+    campo("campaign").value = "Tisane ottobre";
+    aggiorna();
+  });
+  $("[data-copia]").addEventListener("click", async () => {
+    try { await navigator.clipboard.writeText($("[data-link]").textContent ?? ""); $("[data-copiato]").textContent = "Copiato!"; }
+    catch { $("[data-copiato]").textContent = "Seleziona il link e copialo a mano."; }
+  });
+  aggiorna();
+</script>
+
+<style>
+  .extra summary { cursor: pointer; font-weight: 700; font-size: .9rem; }
+  .extra[open] { display: flex; flex-direction: column; gap: 14px; }
+  .link { display: block; background: #fff; border: 2px dashed var(--arancio); border-radius: 12px; padding: 14px; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .9rem; line-height: 1.5; overflow-wrap: anywhere; min-height: 72px; }
+  .copiato { font-weight: 700; color: var(--verde-ok); font-size: .9rem; }
+  .avvisi { margin: 0; padding-left: 1.1rem; font-size: .88rem; color: var(--etichetta); line-height: 1.5; display: flex; flex-direction: column; gap: 4px; }
+  .avvisi:empty { display: none; }
+</style>

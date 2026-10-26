@@ -1,48 +1,63 @@
 [
   {
+    "id": "link-utm",
+    "nome": "Generatore di link UTM",
+    "ruolo": "Analytics",
+    "cosa": "Crea link tracciabili per sapere da dove arrivano le visite.",
+    "ordine": 1,
+    "icona": "link",
+    "inHome": true,
+    "ruoloId": "analytics",
+    "articolo": "Link UTM: cosa sono e come usarli",
+    "pronto": true
+  },
+  {
     "id": "anteprima-google",
     "nome": "Anteprima risultato Google",
     "ruolo": "SEO",
-    "cosa": "Controlla title e description prima di pubblicare.",
+    "cosa": "Mostra come appaiono titolo e descrizione su Google e se sono troppo lunghi.",
     "ordine": 2,
     "icona": "anteprima",
-    "inHome": true
-  },
-  {
-    "id": "cpc-cpa-roas",
-    "nome": "Calcolatore CPC, CPA e ROAS",
-    "ruolo": "SEA / PPC",
-    "cosa": "Scopri quanto costa un clic, un cliente e quanto rende la spesa.",
-    "ordine": 4,
-    "icona": "moneta",
-    "inHome": true
-  },
-  {
-    "id": "contrasto-colori",
-    "nome": "Controllo contrasto colori",
-    "ruolo": "Brand",
-    "cosa": "Verifica se due colori del brand si leggono bene insieme.",
-    "ordine": 7,
-    "icona": "contrasto",
-    "inHome": false
+    "inHome": true,
+    "ruoloId": "seo",
+    "articolo": "Title e meta description: come scriverli",
+    "pronto": true
   },
   {
     "id": "engagement-rate",
     "nome": "Calcolatore engagement rate",
     "ruolo": "Social media",
-    "cosa": "Misura quanto il pubblico interagisce.",
+    "cosa": "Calcola quanto un pubblico interagisce con i post.",
     "ordine": 3,
     "icona": "cuore",
-    "inHome": true
+    "inHome": true,
+    "ruoloId": "social",
+    "articolo": "Engagement rate: cos'è e come si calcola",
+    "pronto": true
+  },
+  {
+    "id": "cpc-cpa-roas",
+    "nome": "Calcolatore CPC, CPA e ROAS",
+    "ruolo": "SEA / PPC",
+    "cosa": "Dice quanto costa un clic, un cliente e quanto rende la spesa.",
+    "ordine": 4,
+    "icona": "moneta",
+    "inHome": true,
+    "ruoloId": "sea",
+    "articolo": "CPC, CTR e ROAS: le metriche base",
+    "pronto": false
   },
   {
     "id": "checklist-sponsorizzato",
     "nome": "Checklist post sponsorizzato",
     "ruolo": "Influencer",
-    "cosa": "Controlla che una collaborazione sia dichiarata nel modo giusto.",
+    "cosa": "Domande sì/no per controllare che una collaborazione sia dichiarata.",
     "ordine": 5,
     "icona": "check",
-    "inHome": true
+    "inHome": true,
+    "ruoloId": "influencer",
+    "articolo": "Post sponsorizzati: le regole in Italia",
+    "pronto": false
   },
   {
     "id": "retention-valore-cliente",
@@ -51,34 +66,34 @@
     "cosa": "Calcola quanti clienti restano e quanto vale un cliente nel tempo.",
     "ordine": 6,
     "icona": "persone",
-    "inHome": true
+    "inHome": true,
+    "ruoloId": "crm",
+    "articolo": "Retention e churn spiegati semplice",
+    "pronto": false
   },
   {
-    "id": "value-proposition",
-    "nome": "Generatore di value proposition",
-    "ruolo": "Product marketing",
-    "cosa": "Scrivi con poche domande la promessa di un prodotto.",
-    "ordine": 11,
-    "icona": "lampadina",
-    "inHome": false
+    "id": "contrasto-colori",
+    "nome": "Controllo contrasto colori",
+    "ruolo": "Brand",
+    "cosa": "Verifica se due colori del brand si leggono bene insieme (regole WCAG).",
+    "ordine": 7,
+    "icona": "contrasto",
+    "inHome": false,
+    "ruoloId": "brand",
+    "articolo": "Brand identity: logo, colori, valori",
+    "pronto": false
   },
   {
     "id": "margine-promozione",
     "nome": "Calcolatore margine e promozione",
     "ruolo": "Trade marketing",
-    "cosa": "Scopri quanto resta all'azienda dopo uno sconto in negozio.",
+    "cosa": "Mostra quanto resta all'azienda dopo uno sconto in negozio.",
     "ordine": 8,
     "icona": "percento",
-    "inHome": false
-  },
-  {
-    "id": "comunicato-stampa",
-    "nome": "Modello di comunicato stampa",
-    "ruolo": "PR",
-    "cosa": "Compila le parti di un comunicato, una alla volta.",
-    "ordine": 12,
-    "icona": "giornale",
-    "inHome": false
+    "inHome": false,
+    "ruoloId": "trade",
+    "articolo": "Margine e sconto: i calcoli base",
+    "pronto": false
   },
   {
     "id": "commissioni-affiliazione",
@@ -87,24 +102,45 @@
     "cosa": "Calcola quanto pagare un partner per ogni vendita.",
     "ordine": 9,
     "icona": "moneta",
-    "inHome": false
+    "inHome": false,
+    "ruoloId": "partner",
+    "articolo": "Affiliate marketing spiegato semplice",
+    "pronto": false
   },
   {
     "id": "dimensione-campione",
     "nome": "Calcolatore dimensione campione",
     "ruolo": "Ricerca di mercato",
-    "cosa": "Scopri quante risposte servono perché un sondaggio sia affidabile.",
+    "cosa": "Dice quante risposte servono perché un sondaggio sia affidabile.",
     "ordine": 10,
     "icona": "campione",
-    "inHome": false
+    "inHome": false,
+    "ruoloId": "ricerca",
+    "articolo": "Quante risposte servono a un sondaggio",
+    "pronto": false
   },
   {
-    "id": "link-utm",
-    "nome": "Generatore di link UTM",
-    "ruolo": "Analytics",
-    "cosa": "Scopri da dove arrivano le visite.",
-    "ordine": 1,
-    "icona": "link",
-    "inHome": true
+    "id": "value-proposition",
+    "nome": "Generatore di value proposition",
+    "ruolo": "Product marketing",
+    "cosa": "Guida con domande a scrivere la promessa di un prodotto.",
+    "ordine": 11,
+    "icona": "lampadina",
+    "inHome": false,
+    "ruoloId": "product",
+    "articolo": "Value proposition: come scriverla",
+    "pronto": false
+  },
+  {
+    "id": "comunicato-stampa",
+    "nome": "Modello di comunicato stampa",
+    "ruolo": "PR",
+    "cosa": "Struttura da compilare con le parti di un comunicato.",
+    "ordine": 12,
+    "icona": "giornale",
+    "inHome": false,
+    "ruoloId": "pr",
+    "articolo": "Come si scrive un comunicato stampa",
+    "pronto": false
   }
 ]
