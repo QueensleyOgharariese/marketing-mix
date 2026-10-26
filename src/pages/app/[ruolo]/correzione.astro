@@ -197,6 +197,7 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
   .riga-confronto { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 12px; }
   .lavoro { min-width: 0; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px; line-height: 1.55; }
   .lavoro--pro { border-color: #2f7a4f; box-shadow: inset 4px 0 0 #2f7a4f; }
+  .tue li, .lavoro--pro span { overflow-wrap: anywhere; }
   .tue { margin: 0; padding-left: 18px; font-size: .9rem; color: #4a3a32; display: flex; flex-direction: column; gap: 3px; }
   .perche-breve { font-size: .85rem; color: #5c4a42; margin-top: 6px; }
   .piccolo { font-size: .7rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #8a7b72; margin-bottom: 4px; }

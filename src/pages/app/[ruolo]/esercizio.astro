@@ -289,6 +289,7 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
   .opzione:hover { border-color: #d8c9bd; background: #fffaf6; }
   .opzione:has(input:checked) { border-color: var(--arancio); background: #fff1e6; box-shadow: inset 3px 0 0 var(--arancio); }
   .opzione input { width: 18px; height: 18px; margin-top: 3px; accent-color: var(--arancio); }
+  .opzione span { min-width: 0; overflow-wrap: anywhere; } /* i link lunghi (es. UTM) vanno a capo */
 
   .griglia-campi { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px 14px; align-items: end; }
   .campo { display: flex; flex-direction: column; gap: 6px; font-weight: 700; font-size: .9rem; line-height: 1.35; }
