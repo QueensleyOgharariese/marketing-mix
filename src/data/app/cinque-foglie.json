@@ -88,6 +88,13 @@
       "breve": "Email e fidelizzazione",
       "icona": "crm",
       "pronto": true
+    },
+    {
+      "id": "product",
+      "nome": "Product marketing",
+      "breve": "Lanciare prodotti",
+      "icona": "product",
+      "pronto": true
     }
   ],
   "richieste": [
@@ -138,6 +145,14 @@
       "quando": "martedì",
       "oggetto": "Tanti carrelli abbandonati",
       "link": "/app/crm/esercizio/"
+    },
+    {
+      "ruolo": "product",
+      "da": "MR",
+      "nome": "Marta",
+      "quando": "mercoledì",
+      "oggetto": "Lanciamo le Tisane della Sera",
+      "link": "/app/product/esercizio/"
     }
   ]
 }

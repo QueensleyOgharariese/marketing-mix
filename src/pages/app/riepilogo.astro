@@ -125,7 +125,7 @@ import azienda from "../../data/app/cinque-foglie.json";
         righe.push(`  Keyword scelta: ${l.keyword}`, `  Titolo composto: ${l.titolo}`, `  Descrizione scelta: ${l.descrizione}`, `  Risposta breve scelta: ${l.risposta}`);
       } else {
         const es = esercizio(f.id);
-        es?.parti.forEach((parte) => { righe.push(`  ${parte.titolo}:`); riassunto(parte, l[parte.id]).forEach((x) => righe.push(`    - ${x}`)); });
+        es?.parti.forEach((parte) => { righe.push(`  ${parte.titolo}${parte.titolo.endsWith("?") ? "" : ":"}`); riassunto(parte, l[parte.id]).forEach((x) => righe.push(`    - ${x}`)); });
       }
       righe.push("");
     }

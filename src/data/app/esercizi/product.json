@@ -1,0 +1,107 @@
+{
+  "_nota": "Esercizio Product marketing 1. Prodotto, prezzi e concorrenti sono inventati.",
+  "id": "product",
+  "ruolo": "Product marketing",
+  "titolo": "Esercizio 1 · Il lancio delle Tisane della Sera",
+  "minuti": 20,
+  "richiesta": { "da": "MR", "nome": "Marta", "ruolo": "Fondatrice", "quando": "mercoledì alle 11:00", "oggetto": "Lanciamo le Tisane della Sera",
+    "testo": "Ciao! Ad ottobre lanciamo un prodotto nuovo: le Tisane della Sera. Mi aiuti a capire cosa raccontare, a scrivere il posizionamento, a scegliere prezzo e lancio e a controllare che sia tutto in regola prima di partire?" },
+  "scheda": { "titolo": "Il nuovo prodotto", "voci": [
+    ["Prodotto", "Tisane della Sera: 3 miscele bio senza teina, 15 bustine"],
+    ["Ingredienti", "Camomilla, melissa, scorza d'arancia, tiglio"],
+    ["Confezione", "Bustine in carta compostabile, scatola in cartone riciclato"],
+    ["Costo di produzione", "2,60 € a confezione"],
+    ["Concorrente al supermercato", "3,50 € per 20 bustine, non bio"],
+    ["Concorrente bio online", "7,90 € per 15 bustine"],
+    ["Cosa chiedono i clienti", "\"Avete qualcosa senza teina per la sera?\" (42 email in un anno)"],
+    ["Nota", "Prezzi senza IVA, per semplicità"] ] },
+  "consiglio": "Il product marketing traduce un prodotto in un motivo per comprarlo: prima capisci per chi è e cosa cambia nella sua giornata.",
+  "parole": ["caratteristica", "beneficio", "posizionamento", "margine", "lancio"],
+  "parti": [
+    { "id": "benefici", "tipo": "classifica", "titolo": "Caratteristica o beneficio?",
+      "testo": "Una caratteristica dice com'è il prodotto. Un beneficio dice cosa cambia per chi lo usa. Classifica ogni frase.",
+      "colonne": [ { "id": "car", "nome": "Caratteristica" }, { "id": "ben", "nome": "Beneficio" } ],
+      "righe": [
+        { "id": "r1", "testo": "Senza teina", "giusti": ["car"] },
+        { "id": "r2", "testo": "Puoi berla anche alle dieci di sera, senza pensieri", "giusti": ["ben"] },
+        { "id": "r3", "testo": "Bustine in carta compostabile", "giusti": ["car"] },
+        { "id": "r4", "testo": "La butti nell'umido: niente plastica da separare", "giusti": ["ben"] },
+        { "id": "r5", "testo": "Camomilla, melissa e scorza d'arancia", "giusti": ["car"] },
+        { "id": "r6", "testo": "Un piccolo rito per staccare dalla giornata, pronto in 5 minuti", "giusti": ["ben"] }
+      ],
+      "controlli": [
+        { "nome": "Senza teina: caratteristica e beneficio", "regola": { "tipo": "righe", "righe": ["r1", "r2"] }, "suggerimento": "\"Senza teina\" è com'è il prodotto; \"puoi berla la sera\" è cosa ci guadagni." },
+        { "nome": "Confezione: caratteristica e beneficio", "regola": { "tipo": "righe", "righe": ["r3", "r4"] }, "suggerimento": "Il materiale è una caratteristica; non dover separare la plastica è un beneficio." },
+        { "nome": "Ingredienti: caratteristica e beneficio", "regola": { "tipo": "righe", "righe": ["r5", "r6"] }, "suggerimento": "L'elenco degli ingredienti descrive; il rito per staccare racconta cosa vivi." }
+      ],
+      "perche": "Le persone comprano quello che il prodotto fa per loro, non l'elenco delle sue parti. Il product marketing parte dalle caratteristiche (vere) e le traduce in benefici.",
+      "soluzione": "Caratteristiche: senza teina, bustine compostabili, gli ingredienti. Benefici: berla la sera senza pensieri, niente plastica da separare, un rito per staccare." },
+    { "id": "posizionamento", "tipo": "scelta", "titolo": "Scegli il posizionamento",
+      "testo": "Il posizionamento è una frase interna che dice per chi è il prodotto e perché è diverso. Quale scegli?",
+      "opzioni": [
+        { "id": "s1", "testo": "Per chi ama il tè ma la sera evita la teina, Tisane della Sera è il rito serale di Cinque Foglie: tre miscele bio senza teina, in bustine compostabili, pronte in 5 minuti.", "ok": { "pubblico": true, "diverso": true, "vero": true } },
+        { "id": "s2", "testo": "Per tutti: la tisana migliore del mercato, con ingredienti di qualità.", "ok": { "pubblico": false, "diverso": false, "vero": false } },
+        { "id": "s3", "testo": "Per chi non riesce a dormire: la tisana bio che cura l'insonnia in una settimana.", "ok": { "pubblico": true, "diverso": true, "vero": false } },
+        { "id": "s4", "testo": "Per chi ama il tè ma la sera evita la teina: tre tisane buone.", "ok": { "pubblico": true, "diverso": false, "vero": true } }
+      ],
+      "controlli": [
+        { "nome": "Dice per chi è", "regola": { "tipo": "opzione", "chiave": "pubblico" }, "suggerimento": "\"Per tutti\" non è un pubblico: scegli una frase che nomina persone precise." },
+        { "nome": "Dice perché è diverso", "regola": { "tipo": "opzione", "chiave": "diverso" }, "suggerimento": "\"Tre tisane buone\" le hanno tutti: cosa ci rende diversi dai concorrenti in scheda?" },
+        { "nome": "Solo cose vere e permesse", "regola": { "tipo": "opzione", "chiave": "vero" }, "suggerimento": "\"La migliore\" non si può dimostrare, e \"cura l'insonnia\" è una promessa sulla salute vietata." }
+      ],
+      "perche": "Un buon posizionamento è specifico (un pubblico preciso), distintivo (cosa ci rende diversi) e credibile. Da questa frase nascono poi la pagina prodotto, gli annunci e i post.",
+      "soluzione": "La prima: nomina il pubblico (chi evita la teina la sera), la differenza (bio, compostabile, rito di Cinque Foglie) e dice solo cose vere." },
+    { "id": "lancio", "tipo": "menu", "titolo": "Prezzo e lancio",
+      "testo": "Guarda costi e concorrenti nella scheda e prepara il lancio.",
+      "campi": [
+        { "id": "prezzo", "etichetta": "Prezzo di vendita", "opzioni": ["2,50 €", "6,90 €", "14,90 €"] },
+        { "id": "margine", "etichetta": "Margine per confezione (prezzo − costo)", "opzioni": ["1,30 €", "4,30 €", "6,90 €", "9,50 €"] },
+        { "id": "canale", "etichetta": "Dove lanciarlo per primo?", "opzioni": ["Ai clienti della newsletter e sul sito", "Subito in tutti i supermercati d'Italia", "Solo su un volantino in città"] },
+        { "id": "momento", "etichetta": "Quando?", "opzioni": ["Luglio", "Ottobre, quando le serate si fanno fresche", "Il giorno dopo Natale"] }
+      ],
+      "controlli": [
+        { "nome": "Prezzo sostenibile e in linea con il bio: 6,90 €", "regola": { "tipo": "menu", "campo": "prezzo", "valore": "6,90 €" }, "suggerimento": "Sotto il costo si perde a ogni vendita; troppo sopra i concorrenti nessuno compra." },
+        { "nome": "Margine giusto: 4,30 €", "regola": { "tipo": "menu", "campo": "margine", "valore": "4,30 €" }, "suggerimento": "Prezzo che hai scelto meno 2,60 € di costo." },
+        { "nome": "Lancio a chi ci conosce già", "regola": { "tipo": "menu", "campo": "canale", "valore": "Ai clienti della newsletter e sul sito" }, "suggerimento": "Abbiamo 42 email di clienti che lo chiedevano: partiamo da chi ci conosce." },
+        { "nome": "Il momento giusto: ottobre", "regola": { "tipo": "menu", "campo": "momento", "valore": "Ottobre, quando le serate si fanno fresche" }, "suggerimento": "Una tisana per la sera si vende quando fa fresco." }
+      ],
+      "perche": "Il prezzo deve coprire i costi, lasciare un margine e avere senso rispetto ai concorrenti. Lanciare prima a chi ci conosce costa poco e fa capire subito se il prodotto piace.",
+      "soluzione": "6,90 €: sotto il concorrente bio, con 4,30 € di margine. Lancio a newsletter e sito, a ottobre." },
+    { "id": "pronti", "tipo": "spunte", "titolo": "Pronti a partire?",
+      "testo": "Prima del lancio, cosa fai? Scegli tutte le cose giuste, e solo quelle.",
+      "opzioni": [
+        { "id": "c1", "testo": "Controllare l'etichetta: ingredienti, allergeni, quantità e scadenza" },
+        { "id": "c2", "testo": "Preparare la pagina prodotto con foto vere e la scheda completa" },
+        { "id": "c3", "testo": "Avvisare chi ci aveva chiesto una tisana senza teina, se ha dato il consenso a ricevere email" },
+        { "id": "c4", "testo": "Scrivere sulla confezione \"ti aiuta a dormire\"" },
+        { "id": "c5", "testo": "Mostrare un prezzo barrato \"prima 9,90 €\", anche se non è mai stato venduto a quel prezzo" },
+        { "id": "c6", "testo": "Scrivere \"a impatto zero\" perché le bustine sono compostabili" }
+      ],
+      "controlli": [
+        { "nome": "Etichetta a norma", "regola": { "tipo": "spunte-tutte", "ids": ["c1"] }, "suggerimento": "Per gli alimenti l'etichetta è obbligatoria (Regolamento UE 1169/2011)." },
+        { "nome": "Pagina e clienti pronti", "regola": { "tipo": "spunte-tutte", "ids": ["c2", "c3"] }, "suggerimento": "Serve dove comprare e qualcuno da avvisare." },
+        { "nome": "Nessuna promessa sulla salute", "regola": { "tipo": "spunte-nessuna", "ids": ["c4"] }, "suggerimento": "Le promesse sulla salute degli alimenti sono regolate: senza autorizzazione non si usano." },
+        { "nome": "Niente sconti finti né green claim generici", "regola": { "tipo": "spunte-nessuna", "ids": ["c5", "c6"] }, "suggerimento": "Uno sconto deve partire da un prezzo vero, e \"impatto zero\" non si può dimostrare." }
+      ],
+      "perche": "Un lancio si prepara anche sulle regole. Promesse sulla salute non autorizzate sono vietate (Reg. CE 1924/2006; per le erbe molte indicazioni sono ancora in attesa di valutazione UE). Il prezzo \"prima\" di uno sconto deve essere il più basso degli ultimi 30 giorni (Direttiva Omnibus): un prodotto nuovo non ce l'ha. E le affermazioni ambientali generiche non dimostrabili sono vietate (Direttiva UE 2024/825).",
+      "soluzione": "Etichetta controllata, pagina prodotto pronta, email a chi ha dato il consenso. Niente \"ti aiuta a dormire\", niente prezzo barrato inventato, niente \"impatto zero\"." }
+  ],
+  "aiuti": [
+    { "titolo": "Come distinguo caratteristica e beneficio?", "testo": "Chiediti \"e quindi?\". Senza teina... e quindi? La puoi bere la sera. La prima frase è la caratteristica, la risposta al \"e quindi\" è il beneficio." },
+    { "titolo": "Come scelgo il prezzo?", "testo": "Tre domande: copre il costo? Lascia un margine? Ha senso rispetto a concorrenti simili (qui: bio, online)?" }
+  ],
+  "glossario": "Caratteristica: com'è il prodotto. Beneficio: cosa cambia per chi lo usa. Posizionamento: per chi è e perché è diverso. Margine: quanto resta dopo il costo.",
+  "note": [
+    "Si vende il beneficio, ma partendo da caratteristiche vere.",
+    "Il posizionamento è specifico, distintivo e credibile.",
+    "Prima del lancio si controllano anche le regole: salute, sconti, ambiente."
+  ],
+  "autovalutazione": [
+    "Saprei trasformare una caratteristica in un beneficio.",
+    "Saprei spiegare perché il posizionamento scelto è migliore degli altri.",
+    "Ho ragionato su costo, margine e concorrenti prima di scegliere il prezzo.",
+    "Ho capito perché un prezzo barrato inventato è vietato."
+  ],
+  "rispostaCollega": "Perfetto! Teniamo 6,90 € e partiamo con la newsletter a ottobre. E tolgo subito quel \"ti aiuta a dormire\" dalla bozza della scatola.",
+  "imparato": ["caratteristiche e benefici", "posizionamento", "prezzo e margine", "preparare un lancio", "regole su sconti e claim"]
+}
