@@ -5,6 +5,8 @@
   "name": "marketing-mix",
   "compatibility_date": "2026-10-25",
   "assets": {
-    "directory": "./dist"
+    "directory": "./dist",
+    // Se un indirizzo non esiste, mostra la pagina 404.html con lo stato 404
+    "not_found_handling": "404-page"
   }
 }

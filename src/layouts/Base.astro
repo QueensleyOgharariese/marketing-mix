@@ -2,7 +2,17 @@
 // LAYOUT DI BASE
 // Un "layout" è la cornice comune a tutte le pagine: <head>, menu e footer.
 // Si scrive una volta sola qui; ogni pagina ci mette dentro il suo contenuto.
+
+// Font ospitati sul sito (licenza SIL OFL): solo i pesi e i caratteri latini che usiamo
+import "@fontsource/figtree/latin-400.css";
+import "@fontsource/figtree/latin-600.css";
+import "@fontsource/figtree/latin-700.css";
+import "@fontsource/gabarito/latin-700.css";
+import "@fontsource/gabarito/latin-800.css";
 import "../styles/global.css";
+
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 import impostazioni from "../data/impostazioni.json";
 
 // "Props" = le informazioni che ogni pagina passa al layout
@@ -27,48 +37,28 @@ const canonico = new URL(Astro.url.pathname, Astro.site);
     <meta name="description" content={description} />
     <link rel="canonical" href={canonico} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#ff7a1a" />
+    <meta property="og:title" content={titoloCompleto} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonico} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="it_IT" />
   </head>
-  <body>
-    <header class="contenitore intestazione">
-      <a class="logo" href="/">{impostazioni.nomeSito}</a>
-      <nav aria-label="Menu principale">
-        <ul>
-          {impostazioni.menu.map((voce) => (
-            <li><a href={voce.link}>{voce.etichetta}</a></li>
-          ))}
-        </ul>
-      </nav>
-    </header>
-
-    <main class="contenitore">
+  <body id="top">
+    <a class="salta sr" href="#contenuto">Vai al contenuto</a>
+    <Navbar />
+    <main id="contenuto">
       <slot />
     </main>
-
-    <footer class="contenitore piede">
-      <p>{impostazioni.footer}</p>
-    </footer>
+    <Footer />
   </body>
 </html>
 
 <style>
-  /* Gli stili scritti qui valgono solo per questo file (Astro li isola) */
-  .intestazione {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: var(--space-2);
-    padding-block: var(--space-3);
-  }
-  .logo { font-weight: 800; color: var(--ink); text-decoration: none; }
-  nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: var(--space-3); }
-  nav a { color: var(--ink); text-decoration: none; font-weight: 600; }
-  nav a:hover { color: var(--accent); }
-  main { padding-block: var(--space-3) var(--space-4); }
-  .piede {
-    border-top: 1px solid var(--line);
-    padding-block: var(--space-3);
-    color: var(--muted);
-    font-size: 0.875rem;
+  /* Link "Vai al contenuto": invisibile finché non lo raggiungi con il tasto Tab */
+  .salta:focus {
+    position: fixed; left: 16px; top: 16px; z-index: 100;
+    width: auto; height: auto; margin: 0; clip: auto;
+    background: var(--inchiostro); color: #fff; padding: 10px 16px; border-radius: 12px;
   }
 </style>

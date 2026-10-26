@@ -1,0 +1,36 @@
+---
+// LICENZE E CREDITI: tutto quello che il sito usa e con quale licenza.
+// Il registro completo, per chi sviluppa, è nel file LICENZE.md del repository.
+import Base from "../layouts/Base.astro";
+
+const voci = [
+  { nome: "Gabarito (font dei titoli)", licenza: "SIL Open Font License 1.1", nota: "Ospitato sul sito tramite il pacchetto Fontsource." },
+  { nome: "Figtree (font del testo)", licenza: "SIL Open Font License 1.1", nota: "Ospitato sul sito tramite il pacchetto Fontsource." },
+  { nome: "Astro (programma che crea il sito)", licenza: "MIT", nota: "Usato per costruire le pagine; non resta nel sito pubblicato." },
+  { nome: "Pesca, la mascotte", licenza: "Disegno originale", nota: "Creata per Marketing Mix." },
+  { nome: "Testi, esempi e azienda finta Cinque Foglie", licenza: "Contenuti originali", nota: "Tutti i dati dell'azienda sono inventati." },
+];
+---
+<Base title="Licenze e crediti" description="Font, programmi e contenuti usati da Marketing Mix, con le loro licenze.">
+  <div class="contenitore pagina">
+    <h1>Licenze e crediti</h1>
+    <p class="intro">Usiamo solo contenuti originali o con una licenza che ne permette l'uso.</p>
+    <ul class="elenco">
+      {voci.map((v) => (
+        <li class="scheda">
+          <strong>{v.nome}</strong>
+          <span class="etichetta">{v.licenza}</span>
+          <span class="nota">{v.nota}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Base>
+
+<style>
+  .intro { color: var(--testo-2); font-size: 1.15rem; margin-bottom: 24px; }
+  .elenco { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 16px; }
+  .elenco li { padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .elenco strong { font-family: var(--font-titoli); font-size: 1.2rem; }
+  .nota { color: var(--testo-2); font-size: .95rem; }
+</style>

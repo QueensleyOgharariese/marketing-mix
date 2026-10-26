@@ -1,0 +1,80 @@
+---
+// MENU IN ALTO: una "capsula" che resta in alto mentre scorri.
+// Le voci arrivano da src/data/impostazioni.json.
+// La voce della pagina in cui sei ha il pallino arancione (aria-current="page").
+import impostazioni from "../data/impostazioni.json";
+
+const percorso = Astro.url.pathname;
+// Una voce è "attiva" se l'indirizzo corrisponde (la Home solo se sei proprio su "/")
+const attiva = (link: string) => (link === "/" ? percorso === "/" : percorso.startsWith(link));
+---
+<header class="menu contenitore">
+  <div class="capsula">
+    <a href="/" class="logo">
+      <svg width="30" height="32" viewBox="0 0 200 210" aria-hidden="true">
+        <path class="logo-foglia" d="M104 40 C120 10 160 8 172 20 C152 40 126 46 104 40Z" fill="#3a9d5d" />
+        <path d="M100 50 C100 38 102 30 106 22" stroke="#6b3e1f" stroke-width="8" fill="none" stroke-linecap="round" />
+        <path d="M100 52 C60 40 22 72 22 122 C22 170 58 202 100 202 C142 202 178 170 178 122 C178 72 140 40 100 52Z" fill="#ff8a3d" />
+        <path d="M102 56 C132 80 142 140 130 194" stroke="#e8661c" stroke-width="7" fill="none" stroke-linecap="round" />
+      </svg>
+      {impostazioni.nomeSito}
+    </a>
+
+    <nav aria-label="Menu principale">
+      <ul>
+        {impostazioni.menu.map((voce) => (
+          <li>
+            <a href={voce.link} class="voce" aria-current={attiva(voce.link) ? "page" : undefined}>{voce.etichetta}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="azioni">
+      <!-- Lingua: la versione inglese arriverà più avanti -->
+      <div class="lingua" role="group" aria-label="Lingua">
+        <span class="lingua-attiva" lang="it" aria-current="true">IT</span>
+        <span class="lingua-presto" lang="en" title="English version coming soon">EN</span>
+      </div>
+      <a href={impostazioni.bottoneMenu.link} class="bottone bottone-menu">{impostazioni.bottoneMenu.etichetta} <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .menu { position: sticky; top: 12px; z-index: 50; margin-top: 12px; }
+  .capsula {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px;
+    background: rgba(255, 255, 255, .9);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: 2px solid var(--inchiostro); border-radius: 999px;
+    box-shadow: 0 6px 0 var(--pesca-chiaro);
+    padding: 8px 8px 8px 18px;
+  }
+  .logo { display: flex; align-items: center; gap: 8px; font-family: var(--font-titoli); font-weight: 800; font-size: 1.3rem; text-decoration: none; }
+  .logo-foglia { transform-box: fill-box; transform-origin: 0% 100%; transition: transform .4s cubic-bezier(.3, 1.6, .5, 1); }
+  .logo:hover .logo-foglia { transform: rotate(-25deg); }
+  nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px; }
+  .voce { display: flex; align-items: center; gap: 6px; text-decoration: none; font-weight: 600; font-size: .95rem; padding: 10px 14px; border-radius: 999px; transition: background .2s, transform .2s; }
+  .voce:hover { background: var(--crema-2); color: var(--inchiostro); transform: translateY(-1px); }
+  .voce[aria-current="page"] { background: var(--crema-2); }
+  .voce[aria-current="page"]::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--arancio); }
+  .azioni { display: flex; align-items: center; gap: 10px; }
+  .lingua { display: flex; gap: 2px; padding: 3px; border: 2px solid var(--inchiostro); border-radius: 999px; font-size: .8rem; font-weight: 800; }
+  .lingua span { padding: 6px 10px; border-radius: 999px; }
+  .lingua-attiva { background: var(--inchiostro); color: #fff; }
+  .lingua-presto { color: var(--testo-3); }
+  .bottone-menu { padding: 11px 18px; border-radius: 999px; box-shadow: 0 4px 0 var(--arancio-scuro); font-size: .95rem; }
+
+  /* Telefono: la capsula diventa un riquadro e il menu va su una riga sua */
+  @media (max-width: 860px) {
+    .capsula { border-radius: 24px; padding: 10px 12px; }
+    nav { order: 3; width: 100%; }
+    /* Le voci restano su una riga; se non ci stanno si scorrono di lato */
+    nav ul { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; justify-content: space-between; }
+    .voce { padding: 8px 7px; font-size: .82rem; gap: 4px; white-space: nowrap; }
+  }
+  @media (max-width: 480px) {
+    .bottone-menu { display: none; }
+  }
+</style>

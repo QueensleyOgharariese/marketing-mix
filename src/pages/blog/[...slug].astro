@@ -16,15 +16,17 @@ const { Content } = await render(articolo);
 const data = articolo.data.date.toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric" });
 ---
 <Base title={articolo.data.title} description={articolo.data.description}>
+  <div class="contenitore pagina">
   <article class="testo">
     <p class="meta">{articolo.data.ruolo} · {data}</p>
     <h1>{articolo.data.title}</h1>
     <Content />
     <p><a href="/blog/">← Tutti gli articoli</a></p>
   </article>
+  </div>
 </Base>
 
 <style>
-  .meta { font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .meta { font-family: var(--font-testo); font-size: 0.8rem; color: var(--testo-2); text-transform: uppercase; letter-spacing: 0.05em; }
   h1 { font-size: clamp(2rem, 5vw, 2.75rem); margin-top: 0; }
 </style>

@@ -10,6 +10,7 @@ const articoli = (await getCollection("blog", ({ data }) => import.meta.env.DEV 
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 <Base title="Blog" description="Le basi del marketing spiegate semplici, ruolo per ruolo.">
+  <div class="contenitore pagina">
   <h1>Blog</h1>
   {articoli.length === 0 && <p class="vuoto">I primi articoli arrivano presto.</p>}
   <ul class="elenco">
@@ -21,11 +22,12 @@ const articoli = (await getCollection("blog", ({ data }) => import.meta.env.DEV 
       </li>
     ))}
   </ul>
+  </div>
 </Base>
 
 <style>
   .elenco { list-style: none; padding: 0; display: grid; gap: var(--space-3); max-width: 65ch; }
   .elenco a { font-size: 1.25rem; font-weight: 700; }
-  .elenco p, .vuoto { margin: 0.25rem 0 0; color: var(--muted); }
-  .bozza { margin-left: var(--space-1); font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); border: 1px solid var(--line); padding: 0 0.4rem; border-radius: 4px; }
+  .elenco p, .vuoto { margin: 0.25rem 0 0; color: var(--testo-2); }
+  .bozza { margin-left: var(--space-1); font-family: var(--font-testo); font-size: 0.75rem; color: var(--testo-2); border: 1px solid var(--linea); padding: 0 0.4rem; border-radius: 4px; }
 </style>

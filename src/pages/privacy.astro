@@ -1,0 +1,36 @@
+---
+// INFORMATIVA PRIVACY (bozza)
+// Va aggiornata ogni volta che aggiungiamo uno strumento che tratta dati
+// (es. Google Analytics, newsletter) e fatta controllare prima del lancio pubblico.
+import Base from "../layouts/Base.astro";
+---
+<Base title="Privacy" description="Come Marketing Mix tratta i dati di chi visita il sito.">
+  <div class="contenitore pagina testo-lungo">
+    <h1>Privacy</h1>
+    <p class="nota">Ultimo aggiornamento: 26 ottobre 2026 · versione in bozza</p>
+
+    <h2>In breve</h2>
+    <ul>
+      <li>Oggi il sito <strong>non usa cookie</strong> e non ha statistiche, pubblicità o moduli.</li>
+      <li>Gli strumenti gratuiti, quando arriveranno, faranno i calcoli nel tuo browser: quello che scrivi non viene inviato al sito.</li>
+      <li>Se in futuro aggiungeremo statistiche (Google Analytics), partiranno solo dopo il tuo consenso e questa pagina verrà aggiornata prima.</li>
+    </ul>
+
+    <h2>Chi gestisce il sito</h2>
+    <p>Marketing Mix è un progetto personale di Queen. Per domande sulla privacy puoi scrivere ai contatti indicati nella pagina <a href="/progetto/">Il progetto</a>.</p>
+
+    <h2>Dati tecnici</h2>
+    <p>Il sito è ospitato su Cloudflare. Come ogni servizio di hosting, Cloudflare tratta alcuni dati tecnici (per esempio l'indirizzo IP) per far arrivare le pagine e proteggere il sito da attacchi. Il font è ospitato direttamente sul sito, senza richieste a Google.</p>
+
+    <h2>I tuoi diritti</h2>
+    <p>In base al GDPR puoi chiedere di accedere ai tuoi dati, correggerli o cancellarli, e puoi fare reclamo al Garante per la protezione dei dati personali.</p>
+  </div>
+</Base>
+
+<style>
+  .testo-lungo { max-width: 760px; }
+  .testo-lungo h2 { font-size: 1.6rem; margin: 2rem 0 .6rem; }
+  .testo-lungo p, .testo-lungo li { font-size: 1.1rem; line-height: 1.7; color: #3a2b24; }
+  .testo-lungo ul { padding-left: 1.2rem; }
+  .nota { color: var(--testo-3) !important; font-size: .95rem !important; }
+</style>

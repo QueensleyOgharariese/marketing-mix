@@ -1,0 +1,18 @@
+---
+// PAGINA "NON TROVATA": compare quando un indirizzo non esiste.
+import Base from "../layouts/Base.astro";
+import Pesca from "../components/Pesca.astro";
+---
+<Base title="Pagina non trovata" description="Questa pagina non esiste.">
+  <div class="contenitore pagina vuota">
+    <Pesca dimensione={150} occhiali etichetta="La pesca con gli occhiali che cerca la pagina" />
+    <h1>Questa pagina non c'è</h1>
+    <p>Forse l'indirizzo è sbagliato, o la pagina è stata spostata.</p>
+    <a class="bottone" href="/">Torna alla home</a>
+  </div>
+</Base>
+
+<style>
+  .vuota { display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
+  .vuota p { color: var(--testo-2); font-size: 1.15rem; }
+</style>

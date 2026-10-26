@@ -1,65 +1,113 @@
 /* =========================================================
-   TOKEN DI STILE (provvisori)
+   TOKEN DI STILE · Marketing Mix
    Tutti i colori, i font e le spaziature del sito stanno qui.
-   Lo stile definitivo lo scegliamo dopo la moodboard:
-   basterà cambiare questi valori, non tutto il sito.
-   Font: solo di sistema, nessun font caricato da Google (GDPR).
+   Per cambiare lo stile basta cambiare questi valori.
+   Font: Gabarito (titoli) e Figtree (testo), licenza SIL OFL,
+   scaricati e ospitati sul sito (nessuna richiesta a Google: GDPR).
    ========================================================= */
 :root {
-  --bg: #f3f5f8;
-  --surface: #ffffff;
-  --ink: #17202e;
-  --muted: #566173;
-  --line: #d8dde6;
-  --accent: #2f47c4;
+  /* Colori del brand */
+  --arancio: #ff7a1a;        /* bottoni principali */
+  --arancio-scuro: #c4520b;  /* ombra dei bottoni, numeri */
+  --pesca: #ff8a3d;          /* la mascotte */
+  --pesca-chiaro: #ffd2b3;   /* ombre "disegnate" */
+  --crema: #fff4ec;          /* sfondi di sezione */
+  --crema-2: #fff1e6;        /* etichette */
+  --foglia: #3a9d5d;
+  --verde-ok: #2f7a4f;
 
-  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  /* Testo e linee */
+  --inchiostro: #2a1d18;     /* testo principale, bordi */
+  --testo-2: #5c4a42;        /* testo secondario */
+  --testo-3: #6f5f57;        /* note, date */
+  --etichetta: #8a3a06;      /* testo delle etichette (contrasto 4.5:1 su crema) */
+  --linea: #f1d9c9;
+  --sfondo: #ffffff;
+
+  --font-titoli: "Gabarito", system-ui, sans-serif;
+  --font-testo: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --space-1: 0.5rem;
   --space-2: 1rem;
   --space-3: 1.5rem;
   --space-4: 2.5rem;
-  --max-width: 68rem;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #11151c;
-    --surface: #1a2029;
-    --ink: #e8ecf2;
-    --muted: #9aa5b6;
-    --line: #2c3442;
-    --accent: #8d9cf5;
-    color-scheme: dark;
-  }
+  --space-5: 4rem;
+  --max-width: 1180px;
+  --raggio: 22px;
+  --ombra: 5px 5px 0 var(--pesca-chiaro);
 }
 
 /* ---------- Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: var(--font-body);
+  background: var(--sfondo);
+  color: var(--inchiostro);
+  font-family: var(--font-testo);
   font-size: 1.0625rem;
   line-height: 1.6;
+  overflow-x: hidden;
 }
-a { color: var(--accent); }
-a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
-h1, h2, h3 { line-height: 1.15; text-wrap: balance; }
-img { max-width: 100%; height: auto; }
+a { color: var(--inchiostro); }
+a:hover { color: #d9600a; }
+:focus-visible { outline: 3px solid var(--arancio); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--font-titoli); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+img, svg { max-width: 100%; }
+
+/* Cursore a foglia: solo con il mouse; sui link la foglia diventa arancione */
+@media (pointer: fine) {
+  body { cursor: url("/cursori/foglia.svg") 3 3, auto; }
+  a, button, label, summary, [role="button"] { cursor: url("/cursori/foglia-link.svg") 3 3, pointer; }
+  input[type="text"], input[type="email"], input[type="search"], textarea { cursor: text; }
+}
 
 /* Contenitore centrale con margini laterali */
 .contenitore {
   max-width: var(--max-width);
-  margin: 0 auto;
-  padding-inline: max(1rem, env(safe-area-inset-left, 0px));
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+@media (max-width: 480px) { .contenitore { padding-inline: 16px; } }
+
+/* Spazio sopra e sotto il contenuto delle pagine semplici */
+.pagina { padding-block: var(--space-5) var(--space-4); }
+.pagina h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: var(--space-2); }
+
+/* Testo nascosto alla vista ma letto dai lettori di schermo */
+.sr {
+  position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
 }
 
-/* Testo lungo (articoli): righe di circa 65 caratteri, più facili da leggere */
-.testo { max-width: 65ch; }
+/* ---------- Pezzi riutilizzabili ---------- */
+.etichetta {
+  display: inline-block; align-self: flex-start;
+  font-size: 0.8125rem; font-weight: 800;
+  background: var(--crema-2); color: var(--etichetta);
+  padding: 6px 12px; border-radius: 999px;
+}
+.bottone {
+  display: inline-flex; align-items: center; gap: 8px;
+  text-decoration: none; font-weight: 700;
+  background: var(--arancio); color: var(--inchiostro);
+  padding: 14px 22px; border-radius: 16px;
+  box-shadow: 0 6px 0 var(--arancio-scuro);
+  transition: transform .15s, box-shadow .15s;
+}
+.bottone:hover { color: var(--inchiostro); transform: translateY(2px); box-shadow: 0 3px 0 var(--arancio-scuro); }
+.bottone--scuro { background: var(--inchiostro); color: #fff; box-shadow: 0 6px 0 rgba(42, 29, 24, .3); }
+.bottone--scuro:hover { color: #fff; box-shadow: 0 3px 0 rgba(42, 29, 24, .3); }
+.bottone--contorno { background: transparent; box-shadow: none; border: 2px solid var(--inchiostro); }
+.bottone--contorno:hover { transform: none; box-shadow: none; background: var(--crema-2); }
+.scheda {
+  background: #fff; border: 2px solid var(--inchiostro);
+  border-radius: var(--raggio); box-shadow: var(--ombra);
+}
 
 /* Rispetta chi ha chiesto meno movimento nel sistema operativo */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
 }

@@ -49,5 +49,5 @@ Impostazioni del Worker (Impostazioni → Build):
 
 - Codice semplice, commenti in italiano.
 - Solo contenuti originali o con licenza libera, annotati in `LICENZE.md`.
-- Nessun cookie e nessun font esterno (GDPR).
+- Nessun cookie e nessun font caricato da Google: i font sono ospitati sul sito (GDPR).
 - Animazioni che rispettano l'impostazione "riduci movimento".

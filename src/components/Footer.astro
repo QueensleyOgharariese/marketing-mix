@@ -1,0 +1,85 @@
+---
+// FOOTER: la pesca si affaccia dal bordo e ogni tanto salta.
+// Testi e link arrivano da src/data/impostazioni.json.
+import impostazioni from "../data/impostazioni.json";
+const f = impostazioni.footer;
+// I link che iniziano con "http" portano fuori dal sito
+const esterno = (link: string) => link.startsWith("http");
+---
+<footer class="piede">
+  <svg class="affaccia" width="120" height="126" viewBox="-6 0 212 210" aria-hidden="true">
+    <path d="M104 40 C120 10 160 8 172 20 C152 40 126 46 104 40Z" fill="#3a9d5d" />
+    <path d="M100 52 C60 40 22 72 22 122 C22 170 58 202 100 202 C142 202 178 170 178 122 C178 72 140 40 100 52Z" fill="#ff8a3d" />
+    <path d="M102 56 C132 80 142 140 130 194" stroke="#e8661c" stroke-width="5" fill="none" stroke-linecap="round" />
+    <ellipse cx="74" cy="112" rx="6" ry="8" fill="#2a1d18" />
+    <ellipse cx="106" cy="112" rx="6" ry="8" fill="#2a1d18" />
+    <path d="M80 132 Q90 142 100 132" stroke="#2a1d18" stroke-width="5" fill="none" stroke-linecap="round" />
+    <g class="mano mano-sx"><path d="M32 146 C22 150 16 156 14 166" stroke="#2a1d18" stroke-width="13" fill="none" stroke-linecap="round" /><path d="M32 146 C22 150 16 156 14 166" stroke="#ff9d5c" stroke-width="6" fill="none" stroke-linecap="round" /><ellipse cx="14" cy="170" rx="14" ry="11" fill="#ffb07a" stroke="#2a1d18" stroke-width="4" /></g>
+    <g class="mano mano-dx"><path d="M168 146 C178 150 184 156 186 166" stroke="#2a1d18" stroke-width="13" fill="none" stroke-linecap="round" /><path d="M168 146 C178 150 184 156 186 166" stroke="#ff9d5c" stroke-width="6" fill="none" stroke-linecap="round" /><ellipse cx="186" cy="170" rx="14" ry="11" fill="#ffb07a" stroke="#2a1d18" stroke-width="4" /></g>
+  </svg>
+
+  <div class="contenitore interno">
+    <div class="invito">
+      <div>
+        <p class="invito-titolo">{f.invito}</p>
+        <p class="invito-sotto">{f.sottoInvito}</p>
+      </div>
+      <div class="invito-azioni">
+        <a href={f.bottone.link} class="bottone">{f.bottone.etichetta}</a>
+        <a href="#top" class="torna">Torna su <span aria-hidden="true">↑</span></a>
+      </div>
+    </div>
+
+    <div class="colonne">
+      {f.colonne.map((colonna) => (
+        <div class="colonna">
+          <p class="colonna-titolo">{colonna.titolo}</p>
+          <ul>
+            {colonna.voci.map((voce) => (
+              <li>
+                <a href={voce.link} rel={esterno(voce.link) ? "noopener" : undefined}>{voce.etichetta}</a>
+              </li>
+            ))}
+          </ul>
+          {colonna.nota && <p class="nota">{colonna.nota}</p>}
+        </div>
+      ))}
+    </div>
+
+    <ul class="etichette">
+      {f.etichette.map((e) => <li>{e}</li>)}
+    </ul>
+  </div>
+
+  <div class="nome-cornice" aria-hidden="true"><div class="nome-gigante">{impostazioni.nomeSito}</div></div>
+</footer>
+
+<style>
+  .piede { position: relative; margin-top: 120px; background: var(--inchiostro); color: #f3e6dd; border-radius: 40px 40px 0 0; }
+  .affaccia { position: absolute; top: -92px; right: 12%; overflow: visible; animation: affaccia 5s ease-in-out infinite; }
+  .mano { transform-box: view-box; animation: 5s ease-in-out infinite; }
+  .mano-sx { transform-origin: 32px 146px; animation-name: manoSx; }
+  .mano-dx { transform-origin: 168px 146px; animation-name: manoDx; }
+  /* Salta ogni 5 secondi circa, restando rotonda */
+  @keyframes affaccia { 0%, 62%, 100% { transform: translateY(0); } 67% { transform: translateY(5px); } 76% { transform: translateY(-58px); } 85% { transform: translateY(0); } 89% { transform: translateY(-7px); } 93% { transform: translateY(0); } }
+  @keyframes manoSx { 0%, 64%, 100% { transform: rotate(0); } 74% { transform: rotate(-55deg); } 80% { transform: rotate(-30deg); } 86% { transform: rotate(0); } }
+  @keyframes manoDx { 0%, 64%, 100% { transform: rotate(0); } 74% { transform: rotate(55deg); } 80% { transform: rotate(30deg); } 86% { transform: rotate(0); } }
+
+  .interno { padding-top: 64px; display: flex; flex-direction: column; gap: 48px; }
+  .invito { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-end; justify-content: space-between; padding-bottom: 40px; border-bottom: 1px solid #4a3a32; }
+  .invito-titolo { font-family: var(--font-titoli); font-weight: 800; font-size: clamp(1.9rem, 4vw, 2.5rem); line-height: 1.05; color: #fff; max-width: 16ch; }
+  .invito-sotto { margin-top: 10px; color: #d9c6ba; }
+  .invito-azioni { display: flex; flex-wrap: wrap; gap: 12px; }
+  .torna { text-decoration: none; color: #fff; font-weight: 700; padding: 14px 20px; border-radius: 16px; border: 2px solid #4a3a32; }
+  .torna:hover { color: #fff; border-color: #ffb27a; }
+  .colonne { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 32px; }
+  .colonna-titolo { color: #ffb27a; font-size: .8rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
+  .colonna ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .colonna a { color: #f3e6dd; text-decoration: none; }
+  .colonna a:hover { color: #ffb27a; text-decoration: underline; }
+  .nota { margin-top: 10px; color: #a8958a; font-size: .95rem; }
+  .etichette { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .etichette li { font-size: .8rem; padding: 6px 12px; border-radius: 999px; border: 1px solid #4a3a32; color: #d9c6ba; }
+  .nome-cornice { overflow: hidden; padding-top: 24px; }
+  .nome-gigante { font-family: var(--font-titoli); font-weight: 800; font-size: 15.5vw; line-height: .8; letter-spacing: -.05em; color: #3d2c24; white-space: nowrap; text-align: center; transform: translateY(12%); }
+</style>
