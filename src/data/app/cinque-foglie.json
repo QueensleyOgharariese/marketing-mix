@@ -107,6 +107,13 @@
       "breve": "Vendere nei negozi",
       "icona": "trade",
       "pronto": true
+    },
+    {
+      "id": "pr",
+      "nome": "PR e comunicazione",
+      "breve": "Reputazione e stampa",
+      "icona": "pr",
+      "pronto": true
     }
   ],
   "richieste": [
@@ -173,6 +180,14 @@
       "quando": "giovedì",
       "oggetto": "Siamo arrivati al supermercato!",
       "link": "/app/trade/esercizio/"
+    },
+    {
+      "ruolo": "pr",
+      "da": "MR",
+      "nome": "Marta",
+      "quando": "venerdì",
+      "oggetto": "Una bella notizia e un brutto venerdì",
+      "link": "/app/pr/esercizio/"
     }
   ]
 }
