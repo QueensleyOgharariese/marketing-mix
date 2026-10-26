@@ -1,0 +1,11 @@
+---
+// ROLE PAGE IN ENGLISH (/en/roles/seo/ etc.): same component as the Italian page
+import Ruolo from "../../../components/pagine/Ruolo.astro";
+import ruoli from "../../../data/ruoli.json";
+import { slugRuoloEn } from "../../../i18n";
+// L'indirizzo inglese può essere tradotto (ricerca → market-research); "ruolo" è il nome interno
+export function getStaticPaths() {
+  return ruoli.map((r) => ({ params: { id: slugRuoloEn(r.id) }, props: { ruolo: r.id } }));
+}
+---
+<Ruolo lang="en" id={Astro.props.ruolo} />

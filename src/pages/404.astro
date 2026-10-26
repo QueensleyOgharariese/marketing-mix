@@ -1,5 +1,6 @@
 ---
 // PAGINA "NON TROVATA": compare quando un indirizzo non esiste.
+// È una sola per tutto il sito, quindi il testo è in italiano e in inglese.
 import Base from "../layouts/Base.astro";
 import Pesca from "../components/Pesca.astro";
 ---
@@ -8,11 +9,17 @@ import Pesca from "../components/Pesca.astro";
     <Pesca dimensione={150} occhiali etichetta="La pesca con gli occhiali che cerca la pagina" />
     <h1>Questa pagina non c'è</h1>
     <p>Forse l'indirizzo è sbagliato, o la pagina è stata spostata.</p>
-    <a class="bottone" href="/">Torna alla home</a>
+    <p lang="en" class="inglese">This page doesn't exist. The address may be wrong, or the page may have moved.</p>
+    <div class="azioni">
+      <a class="bottone" href="/">Torna alla home</a>
+      <a class="bottone bottone--contorno" href="/en/" lang="en">Go to the English home</a>
+    </div>
   </div>
 </Base>
 
 <style>
   .vuota { display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
   .vuota p { color: var(--testo-2); font-size: 1.15rem; }
+  .inglese { font-size: 1rem !important; }
+  .azioni { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
 </style>

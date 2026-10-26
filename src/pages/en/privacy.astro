@@ -1,0 +1,36 @@
+---
+// PRIVACY NOTICE (draft) - English version of src/pages/privacy.astro.
+// Keep it in step with the Italian page: update both when we add a tool that processes data.
+import Base from "../../layouts/Base.astro";
+---
+<Base title="Privacy" description="How Marketing Mix handles the data of people who visit the website." traduzione="/privacy/">
+  <div class="contenitore pagina testo-lungo">
+    <h1>Privacy</h1>
+    <p class="nota">Last updated: 26 October 2026 · draft version</p>
+
+    <h2>In short</h2>
+    <ul>
+      <li>Today the website <strong>uses no cookies</strong> and has no analytics, ads or forms.</li>
+      <li>The exercises save your progress <strong>only in your browser</strong> (local storage, "localStorage"): it's used to remember where you are. It is not sent to the website and you can delete it whenever you like from the "Your results" page of the app.</li>
+      <li>The free tools do their calculations in your browser: what you type is not sent to the website and is not stored.</li>
+      <li>If we add analytics in the future (Google Analytics), it will only start after your consent, and this page will be updated first.</li>
+    </ul>
+
+    <h2>Who runs the website</h2>
+    <p>Marketing Mix is a personal project by Queen. For privacy questions you can write to the contacts listed on the <a href="/en/about/">About</a> page.</p>
+
+    <h2>Technical data</h2>
+    <p>The website is hosted on Cloudflare. Like any hosting service, Cloudflare processes some technical data (for example the IP address) to deliver the pages and protect the website from attacks. The fonts are hosted directly on the website, with no requests to Google.</p>
+
+    <h2>Your rights</h2>
+    <p>Under the GDPR you can ask to access, correct or delete your data, and you can lodge a complaint with a data protection supervisory authority. For this website, which is run from Italy, that is the Italian authority (Garante per la protezione dei dati personali).</p>
+  </div>
+</Base>
+
+<style>
+  .testo-lungo { max-width: 760px; }
+  .testo-lungo h2 { font-size: 1.6rem; margin: 2rem 0 .6rem; }
+  .testo-lungo p, .testo-lungo li { font-size: 1.1rem; line-height: 1.7; color: #3a2b24; }
+  .testo-lungo ul { padding-left: 1.2rem; }
+  .nota { color: var(--testo-3) !important; font-size: .95rem !important; }
+</style>

@@ -1,0 +1,89 @@
+[
+  {
+    "id": "link-utm",
+    "nome": "UTM link builder",
+    "ruolo": "Analytics",
+    "cosa": "Creates trackable links so you know where your visits come from.",
+    "articolo": "UTM links: what they are and how to use them",
+    "articoloId": "utm-links"
+  },
+  {
+    "id": "anteprima-google",
+    "nome": "Google snippet preview",
+    "ruolo": "SEO",
+    "cosa": "Shows how your title and description look on Google, and whether they are too long.",
+    "articolo": "Title tags and meta descriptions: how to write them",
+    "articoloId": "title-tags-and-meta-descriptions"
+  },
+  {
+    "id": "engagement-rate",
+    "nome": "Engagement rate calculator",
+    "ruolo": "Social media",
+    "cosa": "Calculates how much an audience interacts with your posts.",
+    "articolo": "Engagement rate: what it is and how to calculate it",
+    "articoloId": "engagement-rate"
+  },
+  {
+    "id": "cpc-cpa-roas",
+    "nome": "CPC, CPA and ROAS calculator",
+    "ruolo": "SEA / PPC",
+    "cosa": "Tells you what a click and a customer cost, and how much your spend brings back.",
+    "articolo": "CPC, CTR and ROAS: the basic metrics"
+  },
+  {
+    "id": "checklist-sponsorizzato",
+    "nome": "Sponsored post checklist",
+    "ruolo": "Influencer",
+    "cosa": "Yes/no questions to check that a collaboration is clearly disclosed.",
+    "articolo": "Sponsored posts: the EU rules"
+  },
+  {
+    "id": "retention-valore-cliente",
+    "nome": "Retention and customer value calculator",
+    "ruolo": "CRM",
+    "cosa": "Calculates how many customers stay and what a customer is worth over time.",
+    "articolo": "Retention and churn, explained simply"
+  },
+  {
+    "id": "contrasto-colori",
+    "nome": "Colour contrast checker",
+    "ruolo": "Brand",
+    "cosa": "Checks whether two brand colours are readable together (WCAG rules).",
+    "articolo": "Brand identity: logo, colours, values"
+  },
+  {
+    "id": "margine-promozione",
+    "nome": "Margin and promotion calculator",
+    "ruolo": "Trade marketing",
+    "cosa": "Shows how much the company keeps after an in-store discount.",
+    "articolo": "Margins and discounts: the basic maths"
+  },
+  {
+    "id": "commissioni-affiliazione",
+    "nome": "Affiliate commission calculator",
+    "ruolo": "Partnerships",
+    "cosa": "Calculates how much to pay a partner for each sale.",
+    "articolo": "Affiliate marketing, explained simply"
+  },
+  {
+    "id": "dimensione-campione",
+    "nome": "Sample size calculator",
+    "ruolo": "Market research",
+    "cosa": "Tells you how many answers a survey needs to be reliable.",
+    "articolo": "How many answers does a survey need?"
+  },
+  {
+    "id": "value-proposition",
+    "nome": "Value proposition builder",
+    "ruolo": "Product marketing",
+    "cosa": "Guides you with questions to write a product's promise.",
+    "articolo": "Value proposition: how to write one"
+  },
+  {
+    "id": "comunicato-stampa",
+    "nome": "Press release template",
+    "ruolo": "PR",
+    "cosa": "A structure to fill in with the parts of a press release.",
+    "articolo": "How to write a press release"
+  }
+]

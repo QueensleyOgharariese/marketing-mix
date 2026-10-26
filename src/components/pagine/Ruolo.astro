@@ -1,0 +1,153 @@
+---
+// PAGINA DI UN SINGOLO RUOLO (italiano e inglese): /ruoli/seo/ e /en/roles/seo/ ecc.
+// Cosa fa, una giornata tipo, strumenti gratuiti, ruoli più specifici, "ti piace se",
+// e l'esercizio da provare nell'azienda finta (in italiano; in inglese c'è un riassunto tradotto).
+import Base from "../../layouts/Base.astro";
+import Pass from "../Pass.astro";
+import Pesca from "../Pesca.astro";
+import seo from "../../data/app/seo-sencha.json";
+import esEn from "../../data/en/esercizi.json";
+import { esercizio } from "../../scripts/esercizi";
+import { ruoliDi, link, linkRuolo, linkEsercizio, type Lingua } from "../../i18n";
+
+interface Props { lang: Lingua; id: string; }
+const { lang, id } = Astro.props;
+const ruoli = ruoliDi(lang);
+const r = ruoli.find((x) => x.id === id)!;
+const TESTI = {
+  it: {
+    descrizione: `${r.cosa} Una giornata tipo, gli strumenti gratuiti e un esercizio per provare il ruolo di ${r.nome}.`,
+    percorso: "Percorso", ruoli: "Ruoli", fase: "Fase", prova: "Prova il ruolo →", come: "Com'è l'esercizio",
+    giornata: "Una giornata tipo", strumenti: "Strumenti gratuiti per provare", notaStrumenti: "Strumenti di altre aziende, gratuiti o con un piano gratuito: li citiamo solo come esempio.",
+    specifici: "Ruoli più specifici", notaSpecifici: "Quando conosci il ruolo, puoi specializzarti in:",
+    provalo: "Provalo nell'azienda finta", scrive: (da: string, o: string, m: number) => `${da} di Cinque Foglie ti scrive: <strong>"${o}"</strong>. Circa ${m} minuti, 4 parti, niente da scrivere: solo scelte, con la correzione di un professionista alla fine.`,
+    impari: "Cosa impari", inizia: "Inizia l'esercizio →", altri: (f: string) => `Altri ruoli della fase "${f}"`, altriRuoli: "Altri ruoli", tutti: "Tutti i ruoli",
+  },
+  en: {
+    descrizione: `${r.cosa} A typical day, free tools and an exercise to try the role of ${r.nome}.`,
+    percorso: "Breadcrumb", ruoli: "Roles", fase: "Stage", prova: "Try the role →", come: "About the exercise",
+    giornata: "A typical day", strumenti: "Free tools to try", notaStrumenti: "Tools by other companies, free or with a free plan: we mention them only as examples.",
+    specifici: "More specific roles", notaSpecifici: "Once you know the role, you can specialise in:",
+    provalo: "Try it in the practice company", scrive: (da: string, o: string, m: number) => `${da} from Cinque Foglie writes to you: <strong>"${o}"</strong>. About ${m} minutes, 4 parts, nothing to type: just choices, with a professional's solution at the end. <em>The exercise is in Italian for now.</em>`,
+    impari: "What you learn", inizia: "Start the exercise (in Italian) →", altri: (f: string) => `Other roles in the "${f}" stage`, altriRuoli: "Other roles", tutti: "All roles",
+  },
+};
+const T = TESTI[lang];
+
+// L'esercizio di questo ruolo (la SEO ha un file suo; in inglese si usa il riassunto tradotto)
+const base = id === "seo"
+  ? { titolo: seo.titolo, minuti: seo.minuti, oggetto: seo.richiesta.oggetto, da: seo.richiesta.nome, imparato: seo.imparato }
+  : (() => { const x = esercizio(id)!; return { titolo: x.titolo, minuti: x.minuti, oggetto: x.richiesta.oggetto, da: x.richiesta.nome, imparato: x.imparato }; })();
+const en = (esEn as Record<string, any>)[id];
+const e = lang === "it" ? base : { ...base, titolo: en.titolo, oggetto: en.oggetto, imparato: en.imparato as string[] };
+
+// Altri ruoli della stessa fase, e ruolo precedente / successivo per navigare
+const stessaFase = ruoli.filter((x) => x.fase === r.fase && x.id !== r.id);
+const i = ruoli.indexOf(r);
+const prima = ruoli[(i - 1 + ruoli.length) % ruoli.length];
+const dopo = ruoli[(i + 1) % ruoli.length];
+const altra = lang === "it" ? "en" : "it";
+const esterno = lang === "en" ? "it" : undefined; // i link all'app portano a pagine in italiano
+---
+<Base title={r.titoloPagina} description={T.descrizione} traduzione={linkRuolo(altra, r.id)}>
+  <div class="contenitore pagina">
+    <nav class="briciole" aria-label={T.percorso}><a href={link(lang, "ruoli")}>{T.ruoli}</a> <span aria-hidden="true">›</span> <span aria-current="page">{r.nome}</span></nav>
+
+    <section class="testa">
+      <div class="testa-testi">
+        <span class="etichetta">{T.fase}: {r.fase}</span>
+        <h1>{r.nome}</h1>
+        <p class="grande">{r.cosa}</p>
+        <p class="piace">{r.tiPiaceSe}</p>
+        <div class="azioni">
+          <a class="bottone" href={linkEsercizio(r.id)} hreflang={esterno}>{T.prova}</a>
+          <a class="link-forte" href="#esercizio">{T.come}</a>
+        </div>
+      </div>
+      <div class="testa-pass"><Pass id={r.id} numero={r.numero} nome={r.nome} breve={r.breve} href={linkEsercizio(r.id)} lang={lang} /></div>
+    </section>
+
+    <div class="colonne">
+      <section class="riquadro">
+        <h2>{T.giornata}</h2>
+        <ol class="giornata">{r.giornata.map((g) => <li>{g}</li>)}</ol>
+      </section>
+      <section class="riquadro">
+        <h2>{T.strumenti}</h2>
+        <ul class="etichette">{r.strumenti.map((s) => <li>{s}</li>)}</ul>
+        <p class="nota">{T.notaStrumenti}</p>
+      </section>
+      <section class="riquadro">
+        <h2>{T.specifici}</h2>
+        <p class="nota">{T.notaSpecifici}</p>
+        <ul class="etichette">{r.ruoliFigli.map((s) => <li>{s}</li>)}</ul>
+      </section>
+    </div>
+
+    <section class="esercizio" id="esercizio" aria-labelledby="t-esercizio">
+      <Pesca dimensione={96} occhiali />
+      <div class="esercizio-testi">
+        <span class="etichetta">{T.provalo}</span>
+        <h2 id="t-esercizio">{e.titolo}</h2>
+        <p set:html={T.scrive(e.da, e.oggetto, e.minuti)} />
+        <p class="impari">{T.impari}: {e.imparato.join(" · ")}</p>
+        <a class="bottone bottone--scuro" href={linkEsercizio(r.id)} hreflang={esterno}>{T.inizia}</a>
+      </div>
+    </section>
+
+    {stessaFase.length > 0 && (
+      <section class="stessa-fase" aria-labelledby="t-fase">
+        <h2 id="t-fase">{T.altri(r.fase)}</h2>
+        <ul class="griglia">
+          {stessaFase.map((x) => (<li><Pass id={x.id} numero={x.numero} nome={x.nome} breve={x.breve} lang={lang} /></li>))}
+        </ul>
+      </section>
+    )}
+
+    <nav class="vicini" aria-label={T.altriRuoli}>
+      <a href={linkRuolo(lang, prima.id)}>← {prima.nome}</a>
+      <a href={link(lang, "ruoli")}>{T.tutti}</a>
+      <a href={linkRuolo(lang, dopo.id)}>{dopo.nome} →</a>
+    </nav>
+  </div>
+</Base>
+
+<style>
+  .briciole { font-size: .875rem; font-weight: 600; color: var(--testo-3); margin-bottom: var(--space-3); }
+  .briciole a { color: var(--testo-3); }
+  .briciole [aria-current] { color: var(--inchiostro); }
+  .testa { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; margin-bottom: var(--space-5); }
+  .testa-testi { flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+  h1 { font-size: clamp(2.4rem, 6vw, 3.75rem); line-height: 1; }
+  .grande { margin: 0; font-size: 1.25rem; line-height: 1.55; color: var(--testo-2); max-width: 46ch; }
+  .piace { margin: 0; font-weight: 700; background: var(--crema); border-radius: 14px; padding: 12px 16px; align-self: flex-start; }
+  .azioni { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-top: 6px; }
+  .testa-pass { flex: 0 1 280px; min-width: 220px; margin-inline: auto; }
+
+  .colonne { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-bottom: var(--space-5); }
+  .riquadro { border: 2px solid var(--inchiostro); border-radius: var(--raggio); box-shadow: var(--ombra); padding: 22px; display: flex; flex-direction: column; gap: 12px; }
+  .riquadro h2 { font-size: 1.35rem; }
+  .giornata { margin: 0; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 8px; line-height: 1.5; }
+  .etichette { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .etichette li { font-size: .9rem; font-weight: 600; background: var(--crema); padding: 6px 12px; border-radius: 999px; }
+  .nota { margin: 0; font-size: .85rem; color: var(--testo-3); line-height: 1.5; }
+
+  .esercizio { background: var(--crema-2); border-radius: 28px; padding: 32px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center; margin-bottom: var(--space-5); scroll-margin-top: 90px; }
+  .esercizio-testi { flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
+  .esercizio h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); }
+  .esercizio p { margin: 0; line-height: 1.6; max-width: 62ch; }
+  .impari { font-size: .9rem; color: var(--testo-2); }
+  .esercizio .bottone { align-self: flex-start; }
+
+  .stessa-fase { display: flex; flex-direction: column; gap: 8px; margin-bottom: var(--space-4); }
+  .stessa-fase h2 { font-size: 1.6rem; }
+  .griglia { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 30px 22px; }
+  .griglia li { display: flex; flex-direction: column; }
+  .griglia li > :global(.pass) { flex: 1; }
+  .vicini { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-top: var(--space-3); border-top: 2px dashed var(--linea); font-weight: 700; }
+  @media (max-width: 560px) {
+    .esercizio { padding: 22px 18px; }
+    .griglia { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 12px; }
+    .testa-pass { flex-basis: 100%; max-width: 260px; }
+  }
+</style>

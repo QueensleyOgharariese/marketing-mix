@@ -1,0 +1,36 @@
+---
+// LICENCES AND CREDITS - English version of src/pages/licenze.astro.
+// The full register, for developers, is in the LICENZE.md file of the repository.
+import Base from "../../layouts/Base.astro";
+
+const voci = [
+  { nome: "Gabarito (heading font)", licenza: "SIL Open Font License 1.1", nota: "Hosted on the website through the Fontsource package." },
+  { nome: "Figtree (body font)", licenza: "SIL Open Font License 1.1", nota: "Hosted on the website through the Fontsource package." },
+  { nome: "Astro (the program that builds the website)", licenza: "MIT", nota: "Used to build the pages; it doesn't stay in the published website." },
+  { nome: "Pesca, the mascot", licenza: "Original drawing", nota: "Created for Marketing Mix." },
+  { nome: "Texts, examples and the practice company Cinque Foglie", licenza: "Original content", nota: "All the company's data is made up." },
+];
+---
+<Base title="Licences and credits" description="Fonts, programs and content used by Marketing Mix, with their licences." traduzione="/licenze/">
+  <div class="contenitore pagina">
+    <h1>Licences and credits</h1>
+    <p class="intro">We only use original content or content with a licence that allows its use.</p>
+    <ul class="elenco">
+      {voci.map((v) => (
+        <li class="scheda">
+          <strong>{v.nome}</strong>
+          <span class="etichetta">{v.licenza}</span>
+          <span class="nota">{v.nota}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Base>
+
+<style>
+  .intro { color: var(--testo-2); font-size: 1.15rem; margin-bottom: 24px; }
+  .elenco { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 16px; }
+  .elenco li { padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .elenco strong { font-family: var(--font-titoli); font-size: 1.2rem; }
+  .nota { color: var(--testo-2); font-size: .95rem; }
+</style>

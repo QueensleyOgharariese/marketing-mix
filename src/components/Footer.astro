@@ -1,9 +1,14 @@
 ---
 // FOOTER: la pesca si affaccia dal bordo e ogni tanto salta.
-// Testi e link arrivano da src/data/impostazioni.json.
+// Testi e link arrivano da src/i18n/index.ts, nella lingua della pagina.
 import impostazioni from "../data/impostazioni.json";
-const f = impostazioni.footer;
-// I link che iniziano con "http" portano fuori dal sito
+import { COMUNI, GITHUB, link as indirizzo, type Lingua, type Pagina } from "../i18n";
+
+interface Props { lang: Lingua; }
+const { lang } = Astro.props;
+const f = COMUNI[lang].footer;
+// "github" porta fuori dal sito; tutte le altre voci sono pagine del sito
+const dove = (chiave: string) => (chiave === "github" ? GITHUB : indirizzo(lang, chiave as Pagina));
 const esterno = (link: string) => link.startsWith("http");
 ---
 <footer class="piede">
@@ -25,8 +30,8 @@ const esterno = (link: string) => link.startsWith("http");
         <p class="invito-sotto">{f.sottoInvito}</p>
       </div>
       <div class="invito-azioni">
-        <a href={f.bottone.link} class="bottone">{f.bottone.etichetta}</a>
-        <a href="#top" class="torna">Torna su <span aria-hidden="true">↑</span></a>
+        <a href={indirizzo(lang, "app")} class="bottone">{f.bottone}</a>
+        <a href="#top" class="torna">{f.tornaSu} <span aria-hidden="true">↑</span></a>
       </div>
     </div>
 
@@ -35,13 +40,13 @@ const esterno = (link: string) => link.startsWith("http");
         <div class="colonna">
           <p class="colonna-titolo">{colonna.titolo}</p>
           <ul>
-            {colonna.voci.map((voce) => (
+            {colonna.voci.map(([etichetta, chiave]) => (
               <li>
-                <a href={voce.link} rel={esterno(voce.link) ? "noopener" : undefined}>{voce.etichetta}</a>
+                <a href={dove(chiave)} rel={esterno(dove(chiave)) ? "noopener" : undefined}>{etichetta}</a>
               </li>
             ))}
           </ul>
-          {colonna.nota && <p class="nota">{colonna.nota}</p>}
+          {"nota" in colonna && <p class="nota">{colonna.nota}</p>}
         </div>
       ))}
     </div>

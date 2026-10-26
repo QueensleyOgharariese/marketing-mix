@@ -5,23 +5,31 @@
 // Tutti i calcoli avvengono nel browser: niente viene inviato o salvato.
 import Base from "../layouts/Base.astro";
 import Icona from "./Icona.astro";
-import strumenti from "../data/strumenti.json";
-import ruoli from "../data/ruoli.json";
+import { strumentiDi, ruoliDi, link, linkStrumento, linkRuolo, linkEsercizio, type Lingua } from "../i18n";
 
-interface Props { id: string; descrizione: string; }
-const { id, descrizione } = Astro.props;
+interface Props { id: string; descrizione: string; lang?: Lingua; }
+const { id, descrizione, lang = "it" } = Astro.props;
+const strumenti = strumentiDi(lang);
 const s = strumenti.find((x) => x.id === id)!;
-const ruolo = ruoli.find((r) => r.id === s.ruoloId)!;
+const ruolo = ruoliDi(lang).find((r) => r.id === s.ruoloId)!;
 const altri = strumenti.filter((x) => x.pronto && x.id !== id);
+const T = {
+  it: { percorso: "Percorso", strumenti: "Strumenti", gratis: "gratis", privacy: "I calcoli li fa il tuo browser: quello che scrivi non viene inviato né salvato.",
+        lavoro: "Usalo nel lavoro vero", attrezzo: "È uno degli attrezzi di questo ruolo. Provalo nell'azienda finta, con un esercizio guidato.", prova: "Prova il ruolo →",
+        altri: "Altri strumenti pronti", tutti: "Tutti gli strumenti →", dalBlog: "Dal blog", leggi: "Leggi la teoria →" },
+  en: { percorso: "Breadcrumb", strumenti: "Tools", gratis: "free", privacy: "Your browser does the calculations: what you type is never sent or stored.",
+        lavoro: "Use it at work", attrezzo: "It's one of the tools of this role. Try the role in the practice company, with a guided exercise (in Italian for now).", prova: "Try the role →",
+        altri: "Other ready tools", tutti: "All tools →", dalBlog: "From the blog", leggi: "Read the theory →" },
+}[lang];
 ---
-<Base title={s.nome} description={descrizione}>
+<Base title={s.nome} description={descrizione} traduzione={linkStrumento(lang === "it" ? "en" : "it", id)}>
   <div class="contenitore pagina">
-    <nav class="briciole" aria-label="Percorso"><a href="/strumenti/">Strumenti</a> <span aria-hidden="true">›</span> <span aria-current="page">{s.nome}</span></nav>
+    <nav class="briciole" aria-label={T.percorso}><a href={link(lang, "strumenti")}>{T.strumenti}</a> <span aria-hidden="true">›</span> <span aria-current="page">{s.nome}</span></nav>
     <header class="testa">
-      <span class="etichetta">{s.ruolo} · gratis</span>
+      <span class="etichetta">{s.ruolo} · {T.gratis}</span>
       <h1>{s.nome}</h1>
       <p class="grande">{s.cosa}</p>
-      <p class="privacy"><Icona nome="lucchetto" dimensione={16} /> I calcoli li fa il tuo browser: quello che scrivi non viene inviato né salvato.</p>
+      <p class="privacy"><Icona nome="lucchetto" dimensione={16} /> {T.privacy}</p>
     </header>
 
     <div class="area"><slot /></div>
@@ -30,21 +38,21 @@ const altri = strumenti.filter((x) => x.pronto && x.id !== id);
       <section class="spiega"><slot name="spiega" /></section>
       <aside class="lato">
         <div class="riquadro">
-          <span class="etichetta">Usalo nel lavoro vero</span>
+          <span class="etichetta">{T.lavoro}</span>
           <strong>{ruolo.nome}</strong>
-          <p>È uno degli attrezzi di questo ruolo. Provalo nell'azienda finta, con un esercizio guidato.</p>
-          <a class="bottone" href={`/app/${ruolo.id}/esercizio/`}>Prova il ruolo →</a>
-          <a class="link-forte" href={`/ruoli/${ruolo.id}/`}>{ruolo.titoloPagina}</a>
+          <p>{T.attrezzo}</p>
+          <a class="bottone" href={linkEsercizio(ruolo.id)} hreflang={lang === "en" ? "it" : undefined}>{T.prova}</a>
+          <a class="link-forte" href={linkRuolo(lang, ruolo.id)}>{ruolo.titoloPagina}</a>
         </div>
         <div class="riquadro">
-          <strong>Altri strumenti pronti</strong>
-          <ul>{altri.map((a) => <li><a href={`/strumenti/${a.id}/`}>{a.nome}</a></li>)}</ul>
-          <a href="/strumenti/">Tutti gli strumenti →</a>
+          <strong>{T.altri}</strong>
+          <ul>{altri.map((a) => <li><a href={linkStrumento(lang, a.id)}>{a.nome}</a></li>)}</ul>
+          <a href={link(lang, "strumenti")}>{T.tutti}</a>
         </div>
         {s.articoloId && <div class="riquadro">
-          <span class="etichetta">Dal blog</span>
+          <span class="etichetta">{T.dalBlog}</span>
           <strong>{s.articolo}</strong>
-          <a class="link-forte" href={`/blog/${s.articoloId}/`}>Leggi la teoria →</a>
+          <a class="link-forte" href={`${link(lang, "blog")}${s.articoloId}/`}>{T.leggi}</a>
         </div>}
       </aside>
     </div>

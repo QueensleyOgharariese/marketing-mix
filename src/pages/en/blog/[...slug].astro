@@ -1,0 +1,16 @@
+---
+// ARTICLE PAGE IN ENGLISH (/en/blog/<file-name>/): same component as the Italian page.
+// "traduzione" in the article data is the file name of the Italian version (for hreflang and the language switch).
+import Articolo from "../../../components/pagine/Articolo.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const articoli = await getCollection("blogEn", ({ data }) => import.meta.env.DEV || !data.bozza);
+  return articoli.map((articolo) => ({
+    params: { slug: articolo.id },
+    props: { articolo, tutti: articoli, traduzione: articolo.data.traduzione ? `/blog/${articolo.data.traduzione}/` : undefined },
+  }));
+}
+const { articolo, tutti, traduzione } = Astro.props;
+---
+<Articolo lang="en" articolo={articolo} tutti={tutti} traduzione={traduzione} />

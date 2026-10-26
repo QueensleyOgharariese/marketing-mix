@@ -1,0 +1,180 @@
+---
+// STRUMENTO 1 · GENERATORE DI LINK UTM (italiano e inglese)
+// Prende l'indirizzo e le 3 etichette principali (source, medium, campaign) e crea il link.
+// Le etichette vengono "pulite": minuscole, senza accenti, trattini al posto degli spazi,
+// così nei report "Newsletter" e "newsletter" non diventano due fonti diverse.
+// I messaggi che scrive lo script stanno in T.js e arrivano allo script con l'attributo data-testi.
+import Strumento from "../Strumento.astro";
+import type { Lingua } from "../../i18n";
+
+interface Props { lang: Lingua; }
+const { lang } = Astro.props;
+const TESTI = {
+  it: {
+    descrizione: "Generatore gratuito di link UTM: scrivi indirizzo, source, medium e campaign e ottieni un link tracciabile, pulito e pronto da copiare. Funziona nel browser.",
+    url: "Indirizzo della pagina", urlEs: "https://www.tuosito.it/pagina", urlNota: "La pagina dove vuoi portare le persone.",
+    source: "Source: chi manda la visita", sourceEs: "newsletter, instagram, google…",
+    medium: "Medium: il tipo di canale", scegli: "Scegli…",
+    mezzi: [["email", "Email e newsletter"], ["social", "Post gratuiti sui social"], ["cpc", "Annunci a pagamento (costo per clic)"], ["paid-social", "Post sponsorizzati sui social"], ["referral", "Link da altri siti"], ["qr", "Codice QR su carta o confezione"], ["affiliate", "Partner e affiliati"]],
+    campaign: "Campaign: il nome della campagna", campaignEs: "saldi-estate, lancio-tisane…",
+    extra: "Etichette facoltative (term e content)", term: "Term: la parola chiave (annunci)", content: "Content: per distinguere due link nella stessa campagna", contentEs: "bottone-alto, link-fondo…",
+    esempio: "Usa l'esempio di Cinque Foglie", svuota: "Svuota", tuoLink: "Il tuo link", copia: "Copia il link",
+    js: {
+      vuoto: "Compila indirizzo, source, medium e campaign.", nonValido: "L'indirizzo non sembra valido: controlla che non ci siano spazi.",
+      https: "Ho aggiunto https:// all'inizio dell'indirizzo.", sostituite: "L'indirizzo aveva già delle etichette UTM: le ho sostituite con le tue.",
+      diventa: "diventa", indirizzo: "Indirizzo", copiato: "Copiato!", copiaMano: "Seleziona il link e copialo a mano.",
+      esempio: { url: "https://cinquefoglie.example/tisane-della-sera", source: "Newsletter", medium: "email", campaign: "Tisane ottobre" },
+    },
+  },
+  en: {
+    descrizione: "Free UTM link builder: enter the address, source, medium and campaign and get a clean, trackable link ready to copy. It works in your browser.",
+    url: "Page address", urlEs: "https://www.yoursite.com/page", urlNota: "The page you want to send people to.",
+    source: "Source: who sends the visit", sourceEs: "newsletter, instagram, google…",
+    medium: "Medium: the type of channel", scegli: "Choose…",
+    mezzi: [["email", "Email and newsletters"], ["social", "Free social media posts"], ["cpc", "Paid ads (cost per click)"], ["paid-social", "Sponsored social media posts"], ["referral", "Links from other websites"], ["qr", "QR code on print or packaging"], ["affiliate", "Partners and affiliates"]],
+    campaign: "Campaign: the campaign name", campaignEs: "summer-sale, evening-tea-launch…",
+    extra: "Optional tags (term and content)", term: "Term: the keyword (ads)", content: "Content: to tell apart two links in the same campaign", contentEs: "top-button, bottom-link…",
+    esempio: "Use the Cinque Foglie example", svuota: "Clear", tuoLink: "Your link", copia: "Copy the link",
+    js: {
+      vuoto: "Fill in the address, source, medium and campaign.", nonValido: "The address doesn't look valid: check there are no spaces.",
+      https: "I added https:// at the start of the address.", sostituite: "The address already had UTM tags: I replaced them with yours.",
+      diventa: "becomes", indirizzo: "Address", copiato: "Copied!", copiaMano: "Select the link and copy it by hand.",
+      esempio: { url: "https://cinquefoglie.example/evening-teas", source: "Newsletter", medium: "email", campaign: "Evening teas October" },
+    },
+  },
+};
+const T = TESTI[lang];
+---
+<Strumento id="link-utm" descrizione={T.descrizione} lang={lang}>
+  <form class="attrezzo" data-utm data-testi={JSON.stringify(T.js)} novalidate>
+    <div class="attrezzo-pannello">
+      <label class="attrezzo-campo">{T.url}
+        <input type="url" name="url" placeholder={T.urlEs} autocomplete="off" />
+        <small>{T.urlNota}</small>
+      </label>
+      <label class="attrezzo-campo">{T.source}
+        <input type="text" name="source" placeholder={T.sourceEs} autocomplete="off" />
+      </label>
+      <label class="attrezzo-campo">{T.medium}
+        <select name="medium">
+          <option value="">{T.scegli}</option>
+          {T.mezzi.map(([v, t]) => <option value={v}>{v} · {t}</option>)}
+        </select>
+      </label>
+      <label class="attrezzo-campo">{T.campaign}
+        <input type="text" name="campaign" placeholder={T.campaignEs} autocomplete="off" />
+      </label>
+      <details class="extra">
+        <summary>{T.extra}</summary>
+        <label class="attrezzo-campo">{T.term}
+          <input type="text" name="term" autocomplete="off" />
+        </label>
+        <label class="attrezzo-campo">{T.content}
+          <input type="text" name="content" placeholder={T.contentEs} autocomplete="off" />
+        </label>
+      </details>
+      <div class="attrezzo-azioni">
+        <button type="button" class="bottone-piccolo" data-esempio>{T.esempio}</button>
+        <button type="reset" class="bottone-piccolo">{T.svuota}</button>
+      </div>
+    </div>
+
+    <div class="attrezzo-pannello attrezzo-pannello--crema" aria-live="polite">
+      <span class="attrezzo-titolo">{T.tuoLink}</span>
+      <output class="link" data-link>{T.js.vuoto}</output>
+      <div class="attrezzo-azioni">
+        <button type="button" class="bottone" data-copia disabled>{T.copia}</button>
+        <span class="copiato" data-copiato></span>
+      </div>
+      <ul class="attrezzo-esiti" data-esiti></ul>
+      <ul class="avvisi" data-avvisi></ul>
+    </div>
+  </form>
+
+  {lang === "it" ? (
+    <Fragment slot="spiega">
+      <h2>Cosa sono i link UTM</h2>
+      <p>Sono etichette che aggiungi alla fine di un link, dopo il punto di domanda. Non cambiano la pagina: dicono agli strumenti di analisi (come Google Analytics) da dove arriva la visita. Senza, le visite dalla newsletter si confondono con tutte le altre.</p>
+      <h2>Le tre etichette che servono sempre</h2>
+      <p><code>utm_source</code> è chi manda la visita (newsletter, instagram). <code>utm_medium</code> è il tipo di canale (email, social, cpc). <code>utm_campaign</code> è il nome della campagna (lancio-tisane). Scrivile sempre allo stesso modo, in minuscolo e con i trattini: lo strumento lo fa per te.</p>
+      <h2>Un esempio</h2>
+      <p>Per la newsletter di ottobre di Cinque Foglie, l'azienda finta di Marketing Mix: <code>cinquefoglie.example/tisane-della-sera?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=tisane-ottobre</code>.</p>
+      <p><strong>Attenzione:</strong> gli UTM non raccolgono dati da soli. Le visite si misurano con lo strumento di analisi del sito, che deve rispettare il consenso ai cookie.</p>
+    </Fragment>
+  ) : (
+    <Fragment slot="spiega">
+      <h2>What UTM links are</h2>
+      <p>They are tags you add at the end of a link, after the question mark. They don't change the page: they tell analytics tools (like Google Analytics) where the visit comes from. Without them, visits from your newsletter get mixed up with all the others.</p>
+      <h2>The three tags you always need</h2>
+      <p><code>utm_source</code> is who sends the visit (newsletter, instagram). <code>utm_medium</code> is the type of channel (email, social, cpc). <code>utm_campaign</code> is the campaign name (evening-tea-launch). Always write them the same way, in lower case and with hyphens: the tool does it for you.</p>
+      <h2>An example</h2>
+      <p>For the October newsletter of Cinque Foglie, the Marketing Mix practice company: <code>cinquefoglie.example/evening-teas?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=evening-teas-october</code>.</p>
+      <p><strong>Note:</strong> UTM tags don't collect any data on their own. Visits are measured by the website's analytics tool, which must respect cookie consent.</p>
+    </Fragment>
+  )}
+</Strumento>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>("[data-utm]")!;
+  const M = JSON.parse(form.dataset.testi!);
+  const campo = (n: string) => form.elements.namedItem(n) as HTMLInputElement;
+  const $ = (s: string) => form.querySelector<HTMLElement>(s)!;
+
+  // Pulisce un'etichetta: minuscole, senza accenti, solo lettere, numeri e trattini
+  function pulisci(t: string) {
+    return t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").trim().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  }
+
+  function aggiorna() {
+    const grezzo = campo("url").value.trim();
+    const parti = { source: campo("source").value, medium: campo("medium").value, campaign: campo("campaign").value, term: campo("term").value, content: campo("content").value };
+    const avvisi: string[] = [];
+    let url: URL | null = null;
+    if (grezzo) {
+      try { url = new URL(/^https?:\/\//i.test(grezzo) ? grezzo : `https://${grezzo}`); }
+      catch { avvisi.push(M.nonValido); }
+      if (url && !/^https:\/\//i.test(grezzo)) avvisi.push(M.https);
+      if (url && [...url.searchParams.keys()].some((k) => k.startsWith("utm_"))) avvisi.push(M.sostituite);
+    }
+    for (const [k, v] of Object.entries(parti)) if (v && pulisci(v) !== v) avvisi.push(`"${v}" ${M.diventa} "${pulisci(v)}" (${k}).`);
+
+    const pronte = url && pulisci(parti.source) && parti.medium && pulisci(parti.campaign);
+    const esiti = [[M.indirizzo, !!url], ["Source", !!pulisci(parti.source)], ["Medium", !!parti.medium], ["Campaign", !!pulisci(parti.campaign)]] as const;
+    $("[data-esiti]").innerHTML = esiti.map(([n, ok]) => `<li class="${ok ? "ok" : ""}">${ok ? "✓ " : ""}${n}</li>`).join("");
+    $("[data-avvisi]").innerHTML = avvisi.map((a) => `<li>${a.replace(/</g, "&lt;")}</li>`).join("");
+
+    const copia = $("[data-copia]") as HTMLButtonElement;
+    if (pronte && url) {
+      for (const k of [...url.searchParams.keys()]) if (k.startsWith("utm_")) url.searchParams.delete(k);
+      for (const [k, v] of Object.entries(parti)) if (pulisci(v)) url.searchParams.set(`utm_${k}`, pulisci(v));
+      $("[data-link]").textContent = url.toString();
+      copia.disabled = false;
+    } else {
+      $("[data-link]").textContent = M.vuoto;
+      copia.disabled = true;
+    }
+    $("[data-copiato]").textContent = "";
+  }
+
+  form.addEventListener("input", aggiorna);
+  form.addEventListener("change", aggiorna);
+  form.addEventListener("reset", () => setTimeout(aggiorna));
+  $("[data-esempio]").addEventListener("click", () => {
+    for (const [k, v] of Object.entries(M.esempio as Record<string, string>)) campo(k).value = v;
+    aggiorna();
+  });
+  $("[data-copia]").addEventListener("click", async () => {
+    try { await navigator.clipboard.writeText($("[data-link]").textContent ?? ""); $("[data-copiato]").textContent = M.copiato; }
+    catch { $("[data-copiato]").textContent = M.copiaMano; }
+  });
+  aggiorna();
+</script>
+
+<style>
+  .extra summary { cursor: pointer; font-weight: 700; font-size: .9rem; }
+  .extra[open] { display: flex; flex-direction: column; gap: 14px; }
+  .link { display: block; background: #fff; border: 2px dashed var(--arancio); border-radius: 12px; padding: 14px; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .9rem; line-height: 1.5; overflow-wrap: anywhere; min-height: 72px; }
+  .copiato { font-weight: 700; color: var(--verde-ok); font-size: .9rem; }
+  .avvisi { margin: 0; padding-left: 1.1rem; font-size: .88rem; color: var(--etichetta); line-height: 1.5; display: flex; flex-direction: column; gap: 4px; }
+  .avvisi:empty { display: none; }
+</style>

@@ -5,10 +5,8 @@ import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
-const blog = defineCollection({
-  // Tutti i file .md dentro src/content/blog sono articoli
-  loader: glob({ pattern: "**/*.md", base: "./src/content/blog" }),
-  schema: z.object({
+// Forma di un articolo: è la stessa per le due lingue
+const schema = z.object({
     title: z.string(),                 // titolo dell'articolo (anche nel tag <title>)
     description: z.string().max(160),  // descrizione per Google: massimo 160 caratteri
     date: z.coerce.date(),             // data di pubblicazione
@@ -37,7 +35,14 @@ const blog = defineCollection({
     }).optional(),
     faq: z.array(z.object({ d: z.string(), r: z.string() })).default([]), // domande frequenti
     argomenti: z.array(z.string()).default([]),
-  }),
+    // Solo negli articoli inglesi: il nome del file dell'articolo italiano corrispondente
+    // (serve ai tag hreflang e al selettore di lingua)
+    traduzione: z.string().optional(),
 });
 
-export const collections = { blog };
+// Articoli in italiano: src/content/blog → /blog/<nome-file>/
+const blog = defineCollection({ loader: glob({ pattern: "**/*.md", base: "./src/content/blog" }), schema });
+// Articoli in inglese: src/content/blog-en → /en/blog/<nome-file>/
+const blogEn = defineCollection({ loader: glob({ pattern: "**/*.md", base: "./src/content/blog-en" }), schema });
+
+export const collections = { blog, blogEn };

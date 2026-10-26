@@ -12,11 +12,24 @@ const SCENE: Record<string, { alt: string; svg: string }> = {
   "carriera": { alt: "La pesca con gli occhiali e il suo portfolio", svg: "<rect width=\"320\" height=\"150\" fill=\"#ffc06b\"/><circle cx=\"300\" cy=\"20\" r=\"60\" fill=\"#ffd27a\"/><rect x=\"56\" y=\"18\" width=\"104\" height=\"140\" rx=\"10\" fill=\"#ffffff\" stroke=\"#2a1d18\" stroke-width=\"2.5\"/><circle cx=\"82\" cy=\"46\" r=\"12\" fill=\"#ff8a3d\" stroke=\"#2a1d18\" stroke-width=\"2\"/><rect x=\"100\" y=\"38\" width=\"46\" height=\"7\" rx=\"3.5\" fill=\"#2a1d18\"/><rect x=\"100\" y=\"50\" width=\"32\" height=\"6\" rx=\"3\" fill=\"#e7dcd4\"/><rect x=\"70\" y=\"72\" width=\"76\" height=\"6\" rx=\"3\" fill=\"#e7dcd4\"/><rect x=\"70\" y=\"84\" width=\"64\" height=\"6\" rx=\"3\" fill=\"#e7dcd4\"/><rect x=\"70\" y=\"100\" width=\"44\" height=\"14\" rx=\"7\" fill=\"#ff7a1a\"/><rect x=\"118\" y=\"100\" width=\"30\" height=\"14\" rx=\"7\" fill=\"#ffd2b3\"/><circle cx=\"160\" cy=\"132\" r=\"16\" fill=\"#3a9d5d\" stroke=\"#2a1d18\" stroke-width=\"2.5\"/><path d=\"M160 122 L163 129 L170 129 L164.5 133.5 L166.5 141 L160 136.5 L153.5 141 L155.5 133.5 L150 129 L157 129 Z\" fill=\"#ffffff\"/><g transform=\"translate(196 44) scale(0.46)\"><path d=\"M104 40 C120 10 160 8 172 20 C152 40 126 46 104 40Z\" fill=\"#3a9d5d\"/><path d=\"M100 52 C60 40 22 72 22 122 C22 170 58 202 100 202 C142 202 178 170 178 122 C178 72 140 40 100 52Z\" fill=\"#ff8a3d\" stroke=\"#2a1d18\" stroke-width=\"6\"/><circle cx=\"74\" cy=\"120\" r=\"17\" fill=\"none\" stroke=\"#2a1d18\" stroke-width=\"6\"/><circle cx=\"118\" cy=\"120\" r=\"17\" fill=\"none\" stroke=\"#2a1d18\" stroke-width=\"6\"/><path d=\"M91 120 L101 120\" stroke=\"#2a1d18\" stroke-width=\"6\"/><ellipse cx=\"74\" cy=\"120\" rx=\"5\" ry=\"7\" fill=\"#2a1d18\"/><ellipse cx=\"118\" cy=\"120\" rx=\"5\" ry=\"7\" fill=\"#2a1d18\"/><path d=\"M80 150 Q92 162 104 150\" stroke=\"#2a1d18\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/></g>" },
   "regole": { alt: "La pesca accanto a uno scudo e a un cookie: privacy e consenso", svg: "<rect width=\"320\" height=\"150\" fill=\"#ffd2b3\"/><circle cx=\"30\" cy=\"20\" r=\"56\" fill=\"#ffe0c9\"/><path d=\"M110 18 L160 34 V76 C160 108 138 128 110 140 C82 128 60 108 60 76 V34 Z\" fill=\"#ffffff\" stroke=\"#2a1d18\" stroke-width=\"2.5\"/><rect x=\"94\" y=\"72\" width=\"32\" height=\"26\" rx=\"5\" fill=\"#ff7a1a\" stroke=\"#2a1d18\" stroke-width=\"2.5\"/><path d=\"M100 72 V64 A10 10 0 0 1 120 64 V72\" fill=\"none\" stroke=\"#2a1d18\" stroke-width=\"2.5\"/><circle cx=\"176\" cy=\"116\" r=\"17\" fill=\"#ffc06b\" stroke=\"#2a1d18\" stroke-width=\"2.5\"/><circle cx=\"170\" cy=\"111\" r=\"2.5\" fill=\"#6b3e1f\"/><circle cx=\"181\" cy=\"120\" r=\"2.5\" fill=\"#6b3e1f\"/><circle cx=\"176\" cy=\"108\" r=\"2\" fill=\"#6b3e1f\"/><g transform=\"translate(200 40) scale(0.46)\"><path d=\"M104 40 C120 10 160 8 172 20 C152 40 126 46 104 40Z\" fill=\"#3a9d5d\"/><path d=\"M100 52 C60 40 22 72 22 122 C22 170 58 202 100 202 C142 202 178 170 178 122 C178 72 140 40 100 52Z\" fill=\"#ff8a3d\" stroke=\"#2a1d18\" stroke-width=\"6\"/><ellipse cx=\"74\" cy=\"120\" rx=\"8\" ry=\"10\" fill=\"#2a1d18\"/><ellipse cx=\"106\" cy=\"120\" rx=\"8\" ry=\"10\" fill=\"#2a1d18\"/><path d=\"M80 150 Q92 162 104 150\" stroke=\"#2a1d18\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/></g>" }
 };
-interface Props { tema: string; altezza?: number; }
-const { tema, altezza = 150 } = Astro.props;
+// Descrizioni in inglese delle stesse scene (per i lettori di schermo)
+const ALT_EN: Record<string, string> = {
+  basi: "The peach walks along the 4 stages of the customer journey",
+  seo: "The peach searches on Google with a magnifying glass",
+  sea: "The peach next to a rising chart",
+  social: "The peach publishes a post and hearts arrive",
+  influencer: "The peach with glasses checks a sponsored post",
+  crm: "The peach receives an email with a heart: the customer comes back",
+  brand: "The peach chooses the brand colours",
+  carriera: "The peach with glasses and her portfolio",
+  regole: "The peach next to a shield and a cookie: privacy and consent",
+};
+interface Props { tema: string; altezza?: number; lang?: "it" | "en"; }
+const { tema, altezza = 150, lang = "it" } = Astro.props;
 const scena = SCENE[tema] ?? SCENE.basi;
+const alt = lang === "en" ? (ALT_EN[tema] ?? ALT_EN.basi) : scena.alt;
 ---
-<svg class="copertina" viewBox="0 0 320 150" width="100%" height={altezza} preserveAspectRatio="xMidYMid slice" role="img" aria-label={scena.alt} set:html={scena.svg} />
+<svg class="copertina" viewBox="0 0 320 150" width="100%" height={altezza} preserveAspectRatio="xMidYMid slice" role="img" aria-label={alt} set:html={scena.svg} />
 
 <style>
   .copertina { display: block; }

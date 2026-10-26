@@ -4,8 +4,10 @@
 // Cordino e clip sono solo decorativi (aria-hidden); il link porta alla pagina del ruolo.
 import Icona from "./Icona.astro";
 
-interface Props { id: string; numero: number; nome: string; breve: string; fase?: string; href?: string; }
-const { id, numero, nome, breve, fase, href = `/ruoli/${id}/` } = Astro.props;
+import { linkRuolo, type Lingua } from "../i18n";
+interface Props { id: string; numero: number; nome: string; breve: string; fase?: string; href?: string; lang?: Lingua; }
+const { id, numero, nome, breve, fase, lang = "it" } = Astro.props;
+const href = Astro.props.href ?? linkRuolo(lang, id);
 ---
 <a href={href} class="pass" data-fase={fase}>
   <span class="cordino" aria-hidden="true"></span>
@@ -16,7 +18,7 @@ const { id, numero, nome, breve, fase, href = `/ruoli/${id}/` } = Astro.props;
     <span class="testi"><strong>{nome}</strong><span>{breve}</span></span>
     <span class="piede">
       <span class="codice" aria-hidden="true"></span>
-      <span class="azione">Scopri<span class="freccia" aria-hidden="true">→</span></span>
+      <span class="azione">{lang === "it" ? "Scopri" : "Discover"}<span class="freccia" aria-hidden="true">→</span></span>
     </span>
   </span>
 </a>

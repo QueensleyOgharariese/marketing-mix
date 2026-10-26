@@ -1,0 +1,15 @@
+{
+  "_nota": "Riassunto in inglese degli esercizi dell'app (l'app è solo in italiano). Usato nelle pagine inglesi dei ruoli.",
+  "seo": { "titolo": "Exercise 1 · The Sencha page", "oggetto": "Nobody finds our Sencha online", "imparato": ["search intent", "choosing a keyword", "titles in pixels", "Product structured data", "answers for AI search", "rules on health claims and reviews"] },
+  "sea": { "titolo": "Exercise 1 · Ads for iced teas", "oggetto": "Ads for our iced teas", "imparato": ["negative keywords", "relevant ads", "CPC, CPA and ROAS", "deciding with data"] },
+  "brand": { "titolo": "Exercise 1 · Cinque Foglie's tone of voice", "oggetto": "Our tone of voice", "imparato": ["tone of voice", "values you can prove", "contrast and accessibility", "replying to criticism"] },
+  "social": { "titolo": "Exercise 1 · A week of matcha posts", "oggetto": "A week of posts about matcha", "imparato": ["social media formats", "engagement rate", "captions that work", "managing the community"] },
+  "influencer": { "titolo": "Exercise 1 · A matcha collaboration", "oggetto": "A creator for our matcha", "imparato": ["choosing a creator", "writing a brief", "#ad transparency", "measuring with a discount code"] },
+  "crm": { "titolo": "Exercise 1 · Recovering abandoned carts", "oggetto": "So many abandoned carts", "imparato": ["segmentation", "consent and GDPR", "automated emails", "estimating results"] },
+  "product": { "titolo": "Exercise 1 · Launching the Evening Teas", "oggetto": "Let's launch the Evening Teas", "imparato": ["features and benefits", "positioning", "price and margin", "preparing a launch", "rules on discounts and claims"] },
+  "trade": { "titolo": "Exercise 1 · Cinque Foglie in the supermarket", "oggetto": "We're in the supermarket!", "imparato": ["shelf and position", "sell-in and sell-out", "in-store promotions", "working with the buyer"] },
+  "pr": { "titolo": "Exercise 1 · Good news and a problem", "oggetto": "Good news and a bad Friday", "imparato": ["recognising news", "writing a press release", "working with journalists", "handling a crisis"] },
+  "partner": { "titolo": "Exercise 1 · A box made by two", "oggetto": "Shall we do something with another company?", "imparato": ["choosing a partner", "co-marketing", "splitting the margin", "what to put in an agreement"] },
+  "ricerca": { "titolo": "Exercise 1 · Would people like bottled iced tea?", "oggetto": "Shall we make bottled iced tea?", "imparato": ["writing a survey", "choosing the sample", "reading the results", "using data correctly"] },
+  "analytics": { "titolo": "Exercise 1 · Where do sales come from?", "oggetto": "The data makes no sense", "imparato": ["traffic channels", "UTM parameters", "reading a funnel", "cookie consent"] }
+}

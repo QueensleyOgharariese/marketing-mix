@@ -1,13 +1,13 @@
 ---
 // Riquadro "pagina in costruzione": si usa finché una pagina non è pronta.
 import Pesca from "./Pesca.astro";
-interface Props { testo: string; }
-const { testo } = Astro.props;
+interface Props { testo: string; titolo?: string; }
+const { testo, titolo = "Ci sto lavorando" } = Astro.props;
 ---
 <div class="cantiere">
   <Pesca dimensione={90} occhiali />
   <div>
-    <p class="titolo">Ci sto lavorando</p>
+    <p class="titolo">{titolo}</p>
     <p>{testo}</p>
   </div>
 </div>

@@ -14,13 +14,21 @@ import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import impostazioni from "../data/impostazioni.json";
+import { linguaDa, COMUNI, link } from "../i18n";
 
-// "Props" = le informazioni che ogni pagina passa al layout
+// "Props" = le informazioni che ogni pagina passa al layout.
+// "traduzione" = l'indirizzo della stessa pagina nell'altra lingua (se esiste).
 interface Props {
   title: string;
   description?: string;
+  traduzione?: string;
 }
-const { title, description = impostazioni.descrizioneSito } = Astro.props;
+const lang = linguaDa(Astro.url);
+const t = COMUNI[lang];
+const { title, description = t.descrizioneSito, traduzione } = Astro.props;
+// Indirizzi delle due versioni: servono ai tag hreflang e al selettore di lingua
+const altra = lang === "it" ? "en" : "it";
+const versioni = traduzione ? { [lang]: Astro.url.pathname, [altra]: traduzione } : null;
 
 // Titolo nella scheda del browser: "Titolo pagina · Nome sito"
 const titoloCompleto =
@@ -29,7 +37,7 @@ const titoloCompleto =
 const canonico = new URL(Astro.url.pathname, Astro.site);
 ---
 <!doctype html>
-<html lang="it">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -42,15 +50,18 @@ const canonico = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonico} />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="it_IT" />
+    <meta property="og:locale" content={lang === "it" ? "it_IT" : "en_GB"} />
+    {/* hreflang: dice a Google che questa pagina esiste anche nell'altra lingua */}
+    {versioni && Object.entries(versioni).map(([l, u]) => <link rel="alternate" hreflang={l} href={new URL(u, Astro.site)} />)}
+    {versioni && <link rel="alternate" hreflang="x-default" href={new URL(versioni.it, Astro.site)} />}
   </head>
   <body id="top">
-    <a class="salta sr" href="#contenuto">Vai al contenuto</a>
-    <Navbar />
+    <a class="salta sr" href="#contenuto">{t.vaiAlContenuto}</a>
+    <Navbar lang={lang} traduzione={traduzione ?? link(altra, "home")} />
     <main id="contenuto">
       <slot />
     </main>
-    <Footer />
+    <Footer lang={lang} />
   </body>
 </html>
 

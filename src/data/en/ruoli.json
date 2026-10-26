@@ -1,0 +1,290 @@
+[
+  {
+    "id": "seo",
+    "nome": "SEO specialist",
+    "fase": "Get found",
+    "breve": "Top of Google",
+    "titoloPagina": "What does an SEO specialist do?",
+    "cosa": "Makes sure the website shows up among the top Google results, without paying.",
+    "giornata": [
+      "Finds the words people type into Google",
+      "Improves page titles and copy",
+      "Checks the website for technical errors"
+    ],
+    "strumenti": [
+      "Google Search Console",
+      "Google Trends",
+      "Google Keyword Planner"
+    ],
+    "ruoliFigli": [
+      "Content strategy",
+      "Copywriting"
+    ],
+    "tiPiaceSe": "You'll like it if you love writing, analysing and solving small puzzles.",
+    "quiz": "Writing and solving puzzles"
+  },
+  {
+    "id": "sea",
+    "nome": "SEA / PPC specialist",
+    "fase": "Get found",
+    "breve": "Ads on every click",
+    "titoloPagina": "What does a SEA / PPC specialist do?",
+    "cosa": "Runs paid ads on search engines: you only pay when someone clicks.",
+    "giornata": [
+      "Chooses the words the ads should appear for",
+      "Writes short ads and compares them",
+      "Checks how much each customer costs"
+    ],
+    "strumenti": [
+      "Google Keyword Planner",
+      "Google Ads Transparency Center",
+      "Google Sheets"
+    ],
+    "ruoliFigli": [
+      "Performance marketing",
+      "Paid social"
+    ],
+    "tiPiaceSe": "You'll like it if you enjoy numbers and want to see results quickly.",
+    "quiz": "Numbers and quick results"
+  },
+  {
+    "id": "brand",
+    "nome": "Brand manager",
+    "fase": "Get known",
+    "breve": "Values and tone",
+    "titoloPagina": "What does a brand manager do?",
+    "cosa": "Decides how the company presents itself: name, values, tone of voice, colours.",
+    "giornata": [
+      "Checks that posts and ads follow the brand style",
+      "Writes the brand guidelines",
+      "Compares the brand with competitors"
+    ],
+    "strumenti": [
+      "Canva",
+      "Google Docs",
+      "Coolors"
+    ],
+    "ruoliFigli": [
+      "Brand strategy"
+    ],
+    "tiPiaceSe": "You'll like it if you have an eye for detail and often wonder why you like a brand.",
+    "quiz": "Details, colours and style"
+  },
+  {
+    "id": "social",
+    "nome": "Social media manager",
+    "fase": "Get known",
+    "breve": "Posts and community",
+    "titoloPagina": "What does a social media manager do?",
+    "cosa": "Runs the company's social media profiles: what to post, when, and how to reply.",
+    "giornata": [
+      "Prepares the post calendar",
+      "Replies to comments",
+      "Looks at which posts work best"
+    ],
+    "strumenti": [
+      "Meta Business Suite",
+      "Canva",
+      "CapCut"
+    ],
+    "ruoliFigli": [
+      "Community management",
+      "Video"
+    ],
+    "tiPiaceSe": "You'll like it if you use social media a lot and have ideas for content.",
+    "quiz": "Social media and new trends"
+  },
+  {
+    "id": "influencer",
+    "nome": "Influencer marketing",
+    "fase": "Get known",
+    "breve": "The right creators",
+    "titoloPagina": "What is influencer marketing?",
+    "cosa": "Chooses the right creators and organises collaborations with them.",
+    "giornata": [
+      "Looks for creators who fit the brand",
+      "Writes the brief for the collaboration",
+      "Checks that sponsored posts are disclosed (e.g. #ad)"
+    ],
+    "strumenti": [
+      "Instagram and TikTok",
+      "Google Sheets",
+      "EU Influencer Legal Hub"
+    ],
+    "ruoliFigli": [
+      "Sponsored content",
+      "Transparency rules"
+    ],
+    "tiPiaceSe": "You'll like it if you follow lots of creators and can tell who is credible.",
+    "quiz": "Following creators"
+  },
+  {
+    "id": "crm",
+    "nome": "CRM manager",
+    "fase": "Bring back and measure",
+    "breve": "Loyal customers",
+    "titoloPagina": "What does a CRM manager do?",
+    "cosa": "Looks after people who have already bought, so they come back.",
+    "giornata": [
+      "Splits customers into groups",
+      "Prepares automated emails (welcome, abandoned cart)",
+      "Measures how many customers come back"
+    ],
+    "strumenti": [
+      "HubSpot CRM (free)",
+      "Brevo (free plan)",
+      "Google Sheets"
+    ],
+    "ruoliFigli": [
+      "Email marketing",
+      "Lifecycle",
+      "Loyalty"
+    ],
+    "tiPiaceSe": "You'll like it if you love order and see customers as long-term relationships.",
+    "quiz": "People and long relationships"
+  },
+  {
+    "id": "product",
+    "nome": "Product marketing",
+    "fase": "Convince and sell",
+    "breve": "Launching products",
+    "titoloPagina": "What is product marketing?",
+    "cosa": "Explains why a product is useful and prepares its launch.",
+    "giornata": [
+      "Talks with the product team",
+      "Writes the product's key message",
+      "Prepares materials for the launch"
+    ],
+    "strumenti": [
+      "Google Docs",
+      "Google Slides",
+      "Notion (free plan)"
+    ],
+    "ruoliFigli": [
+      "Go-to-market",
+      "Sales enablement"
+    ],
+    "tiPiaceSe": "You'll like it if you can explain complicated things in a simple way.",
+    "quiz": "Explaining new things"
+  },
+  {
+    "id": "trade",
+    "nome": "Trade marketing",
+    "fase": "Convince and sell",
+    "breve": "Selling in shops",
+    "titoloPagina": "What is trade marketing?",
+    "cosa": "Helps products sell in shops and through distributors.",
+    "giornata": [
+      "Decides how products are displayed on the shelves",
+      "Organises in-store promotions",
+      "Analyses sales shop by shop"
+    ],
+    "strumenti": [
+      "Google Sheets",
+      "Canva",
+      "Google Slides"
+    ],
+    "ruoliFigli": [
+      "Shopper marketing",
+      "Category management"
+    ],
+    "tiPiaceSe": "You'll like it if you're curious about what happens inside a supermarket.",
+    "quiz": "Shops and supermarkets"
+  },
+  {
+    "id": "pr",
+    "nome": "PR and communication",
+    "fase": "Get known",
+    "breve": "Reputation and press",
+    "titoloPagina": "What does a PR and communication specialist do?",
+    "cosa": "Looks after the company's reputation with journalists and the public.",
+    "giornata": [
+      "Writes press releases",
+      "Keeps in touch with journalists",
+      "Prepares answers in case of a crisis"
+    ],
+    "strumenti": [
+      "Google Docs",
+      "Google Alerts",
+      "Google Sheets"
+    ],
+    "ruoliFigli": [
+      "Press office",
+      "Internal communication"
+    ],
+    "tiPiaceSe": "You'll like it if you write well and stay calm under pressure.",
+    "quiz": "News and newspapers"
+  },
+  {
+    "id": "partner",
+    "nome": "Partnerships",
+    "fase": "Convince and sell",
+    "breve": "Collaborations",
+    "titoloPagina": "What does a partnerships manager do?",
+    "cosa": "Builds collaborations with other companies to grow together.",
+    "giornata": [
+      "Looks for companies with the same audience",
+      "Proposes deals that benefit both sides",
+      "Measures the results of collaborations"
+    ],
+    "strumenti": [
+      "HubSpot CRM (free)",
+      "LinkedIn",
+      "Google Sheets"
+    ],
+    "ruoliFigli": [
+      "Affiliate marketing",
+      "Co-marketing"
+    ],
+    "tiPiaceSe": "You'll like it if you love meeting people and negotiating.",
+    "quiz": "Meeting people and negotiating"
+  },
+  {
+    "id": "ricerca",
+    "nome": "Market research",
+    "fase": "Bring back and measure",
+    "breve": "Understanding customers",
+    "titoloPagina": "What is market research?",
+    "cosa": "Finds out who the customers are, what they want and what they think of the brand.",
+    "giornata": [
+      "Prepares surveys",
+      "Interviews customers",
+      "Sums up the results in a few clear ideas"
+    ],
+    "strumenti": [
+      "Google Forms",
+      "Google Trends",
+      "Google Sheets"
+    ],
+    "ruoliFigli": [
+      "Consumer insights",
+      "User research"
+    ],
+    "tiPiaceSe": "You'll like it if you always ask questions and are interested in psychology.",
+    "quiz": "Asking people questions"
+  },
+  {
+    "id": "analytics",
+    "nome": "Marketing analytics / martech",
+    "fase": "Bring back and measure",
+    "breve": "Data and tools",
+    "titoloPagina": "What does a marketing analytics specialist do?",
+    "cosa": "Collects data and chooses the tools that make marketing work.",
+    "giornata": [
+      "Checks that the website data is correct",
+      "Builds reports",
+      "Connects the tools to each other"
+    ],
+    "strumenti": [
+      "Google Analytics 4",
+      "Looker Studio",
+      "Google Tag Manager"
+    ],
+    "ruoliFigli": [
+      "Marketing automation",
+      "CRO (conversion optimisation)"
+    ],
+    "tiPiaceSe": "You'll like it if you enjoy data, technology and putting things in order.",
+    "quiz": "Data and technology"
+  }
+]
