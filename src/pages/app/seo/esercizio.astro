@@ -1,6 +1,6 @@
 ---
-// APP · 3. ESERCIZIO SEO (versione 2, SEO moderna): la pagina prodotto del Sencha in 4 parti
-//   1. Intento di ricerca  2. Titolo e descrizione (misurati in pixel)  3. Dati strutturati Product  4. Risposta breve
+// APP · 3. ESERCIZIO SEO (versione 3): la pagina prodotto del Sencha in 4 parti, tutto a scelte e blocchi (nessun testo da scrivere)
+//   1. Intento di ricerca  2. Titolo a blocchi (misurato in pixel) e descrizione  3. Dati strutturati Product  4. Risposta breve
 // A sinistra richiesta e scheda prodotto, al centro il lavoro, a destra Pesca, gli aiuti e i controlli per parte.
 // Lo script in fondo aggiorna controlli e anteprime mentre lavori e salva tutto nel browser.
 import AppLayout from "../../../layouts/AppLayout.astro";
@@ -16,7 +16,7 @@ const s = es.scheda;
 const guida = [
   { zona: "tutto", titolo: "Il tuo primo esercizio da SEO", testo: "Marta ti ha chiesto di sistemare la pagina del tè Sencha, così le persone la trovano su Google. Lo farai in <strong>4 parti</strong>, in circa 25 minuti. Ti spiego come funziona la pagina." },
   { zona: "sinistra", titolo: "A sinistra: la richiesta e la scheda", testo: "Qui trovi la richiesta di Marta e la <strong>scheda prodotto</strong> con prezzo, preparazione e spedizione. Usa solo questi dati: niente informazioni inventate." },
-  { zona: "centro", titolo: "Al centro: il tuo lavoro", testo: "Le 4 parti, una sotto l'altra: capire chi cerca cosa, scrivere titolo e descrizione, scegliere i dati per Google, rispondere a una domanda. Le anteprime ti mostrano come appare su Google. Per i nomi usa i bottoni <strong>+ keyword</strong> e <strong>+ | Cinque Foglie</strong>: così eviti errori di battitura." },
+  { zona: "centro", titolo: "Al centro: il tuo lavoro", testo: "Le 4 parti, una sotto l'altra: capire chi cerca cosa, comporre il titolo, scegliere la descrizione e i dati per Google, scegliere la risposta breve. <strong>Non devi scrivere nulla</strong>: clicchi blocchi e scegli tra le proposte. Attenta o attento alle trappole! Le anteprime ti mostrano come appare su Google." },
   { zona: "destra", titolo: "A destra: Pesca e i controlli", testo: "I controlli diventano <strong>verdi</strong> quando una cosa è fatta bene, e io ti dico cosa sistemare. Se ti blocchi, apri un aiuto: ognuno toglie 5 punti." },
   { zona: "tutto", titolo: "Si salva da solo", testo: "Il lavoro resta salvato in questo browser, anche se chiudi la pagina. Quando hai finito clicca <strong>Consegna e confronta</strong>: vedrai i punti e la soluzione di un professionista." },
 ] as const;
@@ -81,22 +81,25 @@ const voci = [
 
       <!-- 2. TITOLO E DESCRIZIONE -->
       <section class="pannello parte" id="parte-titolo" aria-labelledby="t-2">
-        <div class="parte-testa"><span class="numero">2</span><h2 id="t-2" class="parte-titolo">Scrivi titolo e descrizione</h2></div>
+        <div class="parte-testa"><span class="numero">2</span><h2 id="t-2" class="parte-titolo">Componi il titolo e scegli la descrizione</h2></div>
+        <p>Clicca i blocchi nell'ordine in cui vuoi che compaiano. Clicca un blocco del titolo per toglierlo. Non tutti i blocchi sono buoni!</p>
         <div class="campo">
-          <div class="riga"><label for="titolo">Titolo della pagina (title)</label><span class="conta"><span data-conta="titolo">0 caratteri</span> · <span data-pixel>0 / {LIMITI.titoloPx} px</span></span></div>
-          <input id="titolo" type="text" autocomplete="off" maxlength="120" placeholder={es.attuale.titolo} />
-          <div class="inserisci">
-            <span class="nota">Per evitare errori di battitura:</span>
-            <button type="button" class="chip-btn" data-inserisci="keyword" disabled>+ la keyword scelta</button>
-            <button type="button" class="chip-btn" data-inserisci="brand">+ | Cinque Foglie</button>
-          </div>
+          <div class="riga"><span class="etichetta-campo" id="l-titolo">Il tuo titolo (title)</span><span class="conta"><span data-conta="titolo">0 caratteri</span> · <span data-pixel>0 / {LIMITI.titoloPx} px</span></span></div>
+          <div class="titolo-composto" aria-labelledby="l-titolo" aria-live="polite" data-composto><span class="vuoto-titolo">Clicca i blocchi qui sotto per comporre il titolo</span></div>
           <span class="barra" aria-hidden="true"><span data-barra="titolo"></span></span>
+          <div class="blocchi" role="group" aria-label="Blocchi di testo">
+            {es.blocchi.map((b) => (
+              <button type="button" class="blocco" data-blocco={b.id} aria-pressed="false">{b.testo}</button>
+            ))}
+          </div>
+          <button type="button" class="svuota" data-svuota>Svuota il titolo</button>
         </div>
-        <div class="campo">
-          <div class="riga"><label for="descrizione">Descrizione (meta description)</label><span class="conta" data-conta="descrizione">0 / {LIMITI.descrizione[1]}</span></div>
-          <textarea id="descrizione" rows="3" maxlength="300" placeholder={es.attuale.descrizione}></textarea>
-          <span class="barra" aria-hidden="true"><span data-barra="descrizione"></span></span>
-        </div>
+        <fieldset class="opzioni">
+          <legend class="etichetta-campo">Scegli la descrizione (meta description)</legend>
+          {es.descrizioni.map((d) => (
+            <label class="opzione"><input type="radio" name="descrizione" value={d.id} /><span class="opzione-testo">{d.testo}</span><span class="opzione-conta">{d.testo.length} caratteri</span></label>
+          ))}
+        </fieldset>
         <div class="serp">
           <span class="piccolo">Anteprima nei risultati</span>
           <span class="a-url">{es.attuale.url}</span>
@@ -138,15 +141,17 @@ const voci = [
 
       <!-- 4. RISPOSTA BREVE -->
       <section class="pannello parte" id="parte-risposta" aria-labelledby="t-4">
-        <div class="parte-testa"><span class="numero">4</span><h2 id="t-4" class="parte-titolo">Rispondi a una domanda</h2></div>
-        <p>Molte persone chiedono a Google: <strong>"{es.domanda}"</strong>. Scrivi la risposta breve che andrà sulla pagina.</p>
-        <div class="campo">
-          <div class="riga"><label for="risposta">La tua risposta</label><span class="conta" data-conta="risposta">0 parole</span></div>
-          <textarea id="risposta" rows="4" maxlength="800"></textarea>
-        </div>
+        <div class="parte-testa"><span class="numero">4</span><h2 id="t-4" class="parte-titolo">Scegli la risposta a una domanda</h2></div>
+        <p>Molte persone chiedono a Google: <strong>"{es.domanda}"</strong>. Quale risposta breve metteresti sulla pagina?</p>
+        <fieldset class="opzioni">
+          <legend class="sr">Scegli la risposta breve</legend>
+          {es.risposte.map((r) => (
+            <label class="opzione"><input type="radio" name="risposta" value={r.id} /><span class="opzione-testo">{r.testo}</span><span class="opzione-conta">{r.testo.split(/\s+/).length} parole</span></label>
+          ))}
+        </fieldset>
         <div class="paa">
           <span class="piccolo">Anteprima · Le persone chiedono anche</span>
-          <div class="paa-riquadro"><strong>{es.domanda}</strong><span data-anteprima="risposta">La tua risposta comparirà qui.</span><span class="a-url">{es.attuale.url}</span></div>
+          <div class="paa-riquadro"><strong>{es.domanda}</strong><span data-anteprima="risposta">La risposta che scegli comparirà qui.</span><span class="a-url">{es.attuale.url}</span></div>
         </div>
         <p class="perche"><strong>Perché conta oggi.</strong> {es.perche.risposta}</p>
       </section>
@@ -193,13 +198,15 @@ const voci = [
 
 <script>
   import es from "../../../data/app/seo-sencha.json";
-  import { controlla, jsonLd, pixel, contaParole, avvisiBattitura, LIMITI, PARTI, type Lavoro } from "../../../scripts/controlli-seo";
+  import { controlla, jsonLd, pixel, LIMITI, PARTI, type Lavoro } from "../../../scripts/controlli-seo";
   import { leggi, aggiornaRuolo } from "../../../scripts/progressi";
 
   const $ = <T extends HTMLElement>(sel: string) => document.querySelector<T>(sel)!;
-  const titolo = $<HTMLInputElement>("#titolo");
-  const descrizione = $<HTMLTextAreaElement>("#descrizione");
-  const risposta = $<HTMLTextAreaElement>("#risposta");
+  // Blocchi del titolo scelti, nell'ordine in cui sono stati cliccati
+  let pezzi: string[] = [];
+  const testoBlocco = (id: string) => es.blocchi.find((b) => b.id === id)?.testo ?? "";
+  const scelto = (nome: string) => document.querySelector<HTMLInputElement>(`input[name="${nome}"]:checked`)?.value ?? "";
+  const testoDi = (lista: { id: string; testo: string }[], id: string) => lista.find((x) => x.id === id)?.testo ?? "";
   const campi = { nome: $<HTMLSelectElement>("#s-nome"), marca: $<HTMLSelectElement>("#s-marca"), prezzo: $<HTMLSelectElement>("#s-prezzo"), valuta: $<HTMLSelectElement>("#s-valuta"), disponibilita: $<HTMLSelectElement>("#s-disp") };
   const stelle = $<HTMLInputElement>("#s-stelle");
   const pesca = $("[data-pesca]");
@@ -212,7 +219,10 @@ const voci = [
     return {
       intenti,
       keyword: document.querySelector<HTMLInputElement>('input[name="keyword"]:checked')?.value ?? "",
-      titolo: titolo.value, descrizione: descrizione.value, risposta: risposta.value,
+      blocchi: [...pezzi],
+      titolo: pezzi.map(testoBlocco).join(" "),
+      descrizione: testoDi(es.descrizioni, scelto("descrizione")),
+      risposta: testoDi(es.risposte, scelto("risposta")),
       schema: { nome: campi.nome.value, marca: campi.marca.value, prezzo: campi.prezzo.value, valuta: campi.valuta.value, disponibilita: campi.disponibilita.value, stelle: stelle.checked },
     };
   }
@@ -223,7 +233,13 @@ const voci = [
       document.querySelectorAll<HTMLInputElement>("input[data-ricerca]").forEach((r) => { if (r.dataset.ricerca === ricerca && r.value === valore) r.checked = true; });
     });
     if (l.keyword) document.querySelectorAll<HTMLInputElement>('input[name="keyword"]').forEach((r) => (r.checked = r.value === l.keyword));
-    titolo.value = l.titolo ?? ""; descrizione.value = l.descrizione ?? ""; risposta.value = l.risposta ?? "";
+    pezzi = (l.blocchi ?? []).filter((id) => es.blocchi.some((b) => b.id === id));
+    const segna = (nome: string, lista: { id: string; testo: string }[], testo?: string) => {
+      const id = lista.find((x) => x.testo === testo)?.id;
+      document.querySelectorAll<HTMLInputElement>(`input[name="${nome}"]`).forEach((r) => (r.checked = r.value === id));
+    };
+    segna("descrizione", es.descrizioni, l.descrizione);
+    segna("risposta", es.risposte, l.risposta);
     if (l.schema) {
       campi.nome.value = l.schema.nome; campi.marca.value = l.schema.marca; campi.prezzo.value = l.schema.prezzo;
       campi.valuta.value = l.schema.valuta; campi.disponibilita.value = l.schema.disponibilita; stelle.checked = l.schema.stelle;
@@ -242,7 +258,6 @@ const voci = [
     d.addEventListener("toggle", () => { if (d.open && !aiutiAperti.has(n)) { aiutiAperti.add(n); aggiornaRuolo("seo", { aiuti: [...aiutiAperti] }); } });
   });
 
-  function colore(n: number, min: number, max: number) { return n > max ? "#c0392b" : n >= min ? "#2f7a4f" : "#ff7a1a"; }
 
   // Suggerimento di Pesca: il primo controllo non ancora superato
   const SUGGERIMENTI = [
@@ -250,18 +265,18 @@ const voci = [
     "Parte 1: chi scrive il nome preciso del prodotto vuole scegliere (o comprare).",
     "Parte 1: \"comprare sencha online\" è chiarissima: la persona vuole comprare.",
     "Parte 1: per una pagina prodotto scegli una keyword vicina al prodotto, non la più cercata.",
-    "Parte 2: metti nel titolo la keyword che hai scelto, meglio all'inizio.",
-    "Parte 2: il titolo deve avere almeno 30 caratteri e stare sotto i 580 pixel.",
-    "Parte 2: chiudi il titolo con \"| Cinque Foglie\".",
-    "Parte 2: descrizione tra 70 e 160 caratteri, e niente promesse sulla salute.",
-    "Parte 3: scrivi nome del prodotto e marca come nella scheda.",
+    "Parte 2: metti nel titolo il blocco con la keyword che hai scelto, meglio all'inizio.",
+    "Parte 2: il titolo deve avere almeno 30 caratteri e stare sotto i 580 pixel: togli i blocchi troppo lunghi.",
+    "Parte 2: chiudi il titolo con il blocco \"| Cinque Foglie\".",
+    "Parte 2: scegli una descrizione tra 70 e 160 caratteri e senza promesse sulla salute.",
+    "Parte 3: scegli nome del prodotto e marca come nella scheda.",
     "Parte 3: il prezzo deve essere uguale a quello della scheda prodotto.",
     "Parte 3: controlla valuta e disponibilità nella scheda prodotto.",
     "Parte 3: niente stelle! La scheda dice che non ci sono recensioni verificate.",
-    "Parte 4: la risposta deve avere tra 30 e 70 parole.",
-    "Parte 4: scrivi la temperatura dell'acqua, la trovi nella scheda prodotto.",
-    "Parte 4: scrivi anche il tempo di infusione.",
-    "Parte 4: niente promesse sulla salute, parla di come si prepara.",
+    "Parte 4: scegli una risposta breve, tra 30 e 70 parole.",
+    "Parte 4: la risposta giusta ha la temperatura dell'acqua della scheda prodotto.",
+    "Parte 4: controlla anche il tempo di infusione nella scheda prodotto.",
+    "Parte 4: attenzione alle promesse sulla salute, sono vietate per gli alimenti.",
   ];
 
   function aggiorna() {
@@ -273,17 +288,29 @@ const voci = [
     const bt = $("[data-barra=titolo]");
     bt.style.width = `${Math.min(100, (px / LIMITI.titoloPx) * 100)}%`;
     bt.style.background = px > LIMITI.titoloPx ? "#c0392b" : l.titolo.trim().length >= LIMITI.titoloMin ? "#2f7a4f" : "#ff7a1a";
-    const nd = l.descrizione.trim().length;
-    $("[data-conta=descrizione]").textContent = `${nd} / ${LIMITI.descrizione[1]}`;
-    const bd = $("[data-barra=descrizione]");
-    bd.style.width = `${Math.min(100, (nd / LIMITI.descrizione[1]) * 100)}%`;
-    bd.style.background = colore(nd, LIMITI.descrizione[0], LIMITI.descrizione[1]);
-    $("[data-conta=risposta]").textContent = `${contaParole(l.risposta)} parole (30-70)`;
+    // Titolo composto: i blocchi scelti, cliccabili per toglierli
+    const composto = $("[data-composto]");
+    composto.innerHTML = "";
+    if (pezzi.length === 0) composto.innerHTML = '<span class="vuoto-titolo">Clicca i blocchi qui sotto per comporre il titolo</span>';
+    pezzi.forEach((id, i) => {
+      const b = document.createElement("button");
+      b.type = "button"; b.className = "pezzo"; b.textContent = testoBlocco(id);
+      b.setAttribute("aria-label", `Togli "${testoBlocco(id)}" dal titolo`);
+      b.addEventListener("click", () => { pezzi.splice(i, 1); salva(); });
+      composto.appendChild(b);
+    });
+    document.querySelectorAll<HTMLButtonElement>("[data-blocco]").forEach((b) => {
+      const usato = pezzi.includes(b.dataset.blocco!);
+      b.setAttribute("aria-pressed", String(usato)); b.disabled = usato;
+    });
 
     // Anteprime
-    $("[data-anteprima=titolo]").textContent = l.titolo.trim() || titolo.placeholder;
-    $("[data-anteprima=descrizione]").textContent = l.descrizione.trim() || descrizione.placeholder;
-    $("[data-anteprima=risposta]").textContent = l.risposta.trim() || "La tua risposta comparirà qui.";
+    // Google taglia i titoli troppo larghi con "..."
+    let mostrato = l.titolo.trim() || es.attuale.titolo;
+    if (pixel(mostrato) > LIMITI.titoloPx) { while (mostrato.length > 1 && pixel(mostrato + " ...") > LIMITI.titoloPx) mostrato = mostrato.slice(0, -1); mostrato = mostrato.trimEnd() + " ..."; }
+    $("[data-anteprima=titolo]").textContent = mostrato;
+    $("[data-anteprima=descrizione]").textContent = l.descrizione.length > 160 ? l.descrizione.slice(0, 155).trimEnd() + " ..." : (l.descrizione || es.attuale.descrizione);
+    $("[data-anteprima=risposta]").textContent = l.risposta || "La risposta che scegli comparirà qui.";
     const ricco = $("[data-ricco]");
     const parti: string[] = [];
     if (l.schema.stelle) parti.push("★★★★★ 4,8 (120)");
@@ -302,13 +329,7 @@ const voci = [
     });
     PARTI.forEach((_, n) => { $(`[data-conteggio="${n}"]`).textContent = `${esiti.slice(n * 4, n * 4 + 4).filter(Boolean).length}/4`; });
     const primo = esiti.findIndex((ok) => !ok);
-    const avvisi = avvisiBattitura(l);
-    pesca.textContent = avvisi.length ? avvisi[0]
-      : primo === -1 ? "Tutti i controlli sono verdi! Rileggi tutto come farebbe una cliente, poi consegna." : SUGGERIMENTI[primo];
-    // Il bottone "+ la keyword scelta" si attiva quando c'è una keyword
-    const bk = $<HTMLButtonElement>('[data-inserisci="keyword"]');
-    bk.disabled = !l.keyword;
-    bk.textContent = l.keyword ? `+ ${l.keyword}` : "+ la keyword scelta";
+    pesca.textContent = primo === -1 ? "Tutti i controlli sono verdi! Rileggi le tue scelte come farebbe una cliente, poi consegna." : SUGGERIMENTI[primo];
     return { l, esiti };
   }
 
@@ -319,28 +340,11 @@ const voci = [
     salvato.textContent = "Salvato in questo browser";
   }
 
-  // Inserisce nel titolo un testo scritto giusto (keyword o brand), dove si trova il cursore
-  function inserisci(testo: string) {
-    const inizio = titolo.selectionStart ?? titolo.value.length;
-    const fine = titolo.selectionEnd ?? titolo.value.length;
-    const prima = titolo.value.slice(0, inizio);
-    const dopo = titolo.value.slice(fine);
-    const spazio = prima && !prima.endsWith(" ") ? " " : "";
-    titolo.value = prima + spazio + testo + dopo;
-    titolo.focus();
-    const pos = (prima + spazio + testo).length;
-    titolo.setSelectionRange(pos, pos);
-    salva();
-  }
-  document.querySelector('[data-inserisci="brand"]')!.addEventListener("click", () => {
-    if (!/cinque foglie\s*$/i.test(titolo.value)) { titolo.setSelectionRange(titolo.value.length, titolo.value.length); inserisci("| Cinque Foglie"); }
-  });
-  document.querySelector('[data-inserisci="keyword"]')!.addEventListener("click", () => {
-    const kw = lavoro().keyword;
-    if (!kw) return;
-    const bello = kw.replace(/sencha/g, "Sencha"); // i nomi propri con la maiuscola
-    inserisci(titolo.value.trim() === "" ? bello.charAt(0).toUpperCase() + bello.slice(1) : bello);
-  });
+  // Click su un blocco: lo aggiunge in fondo al titolo
+  document.querySelectorAll<HTMLButtonElement>("[data-blocco]").forEach((b) => b.addEventListener("click", () => {
+    if (!pezzi.includes(b.dataset.blocco!)) { pezzi.push(b.dataset.blocco!); salva(); }
+  }));
+  document.querySelector("[data-svuota]")!.addEventListener("click", () => { pezzi = []; salva(); });
 
   const form = $<HTMLFormElement>("#lavoro");
   form.addEventListener("input", salva);
@@ -350,9 +354,9 @@ const voci = [
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const { l, esiti } = aggiorna();
-    if (!l.titolo.trim() || !l.descrizione.trim() || !l.risposta.trim()) {
-      pesca.textContent = "Prima di consegnare compila almeno titolo, descrizione e risposta breve.";
-      (!l.titolo.trim() ? titolo : !l.descrizione.trim() ? descrizione : risposta).focus();
+    if (!l.titolo || !l.descrizione || !l.risposta) {
+      pesca.textContent = "Prima di consegnare componi il titolo e scegli descrizione e risposta breve.";
+      document.getElementById(!l.titolo ? "parte-titolo" : !l.descrizione ? "parte-titolo" : "parte-risposta")!.scrollIntoView({ behavior: "smooth" });
       return;
     }
     aggiornaRuolo("seo", { stato: seo?.stato === "completato" ? "completato" : "in-corso", bozza: l, consegna: { lavoro: l, controlli: esiti, data: new Date().toISOString() } });
@@ -412,10 +416,24 @@ const voci = [
   .barra { height: 6px; background: #f1e6dd; border-radius: 99px; overflow: hidden; }
   .barra span { display: block; height: 100%; width: 0; background: var(--arancio); transition: width .2s, background .2s; }
   .link-guida { font: inherit; font-weight: 700; color: var(--inchiostro); background: none; border: 0; padding: 0; text-decoration: underline; cursor: pointer; }
-  .inserisci { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-weight: 400; }
-  .chip-btn { font: inherit; font-size: .8rem; font-weight: 700; padding: 6px 11px; border-radius: 999px; border: 1px solid #d8c9bd; background: #fff8f2; color: var(--inchiostro); cursor: pointer; }
-  .chip-btn:hover:not(:disabled) { border-color: var(--arancio); }
-  .chip-btn:disabled { opacity: .5; cursor: default; }
+  .etichetta-campo { font-weight: 700; font-size: .9rem; }
+  .titolo-composto { min-height: 52px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding: 10px 12px; border: 2px dashed #e2d6cc; border-radius: 12px; background: #fff; }
+  /* Questi elementi li crea lo script: servono stili :global perché Astro li possa raggiungere */
+  .titolo-composto :global(.vuoto-titolo) { font-weight: 400; color: #a89a90; font-size: .9rem; }
+  .titolo-composto :global(.pezzo) { font: inherit; font-weight: 600; font-size: .95rem; padding: 7px 12px; border-radius: 10px; border: 2px solid var(--arancio); background: #fff1e6; color: var(--inchiostro); cursor: pointer; }
+  .titolo-composto :global(.pezzo:hover) { text-decoration: line-through; }
+  .blocchi { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+  .blocco { font: inherit; font-weight: 600; font-size: .9rem; padding: 8px 12px; border-radius: 10px; border: 1px solid #d8c9bd; background: #fff; color: var(--inchiostro); cursor: pointer; transition: transform .12s, border-color .12s; }
+  .blocco:hover:not(:disabled) { border-color: var(--arancio); transform: translateY(-1px); }
+  .blocco:disabled { opacity: .35; cursor: default; }
+  .svuota { align-self: flex-start; font: inherit; font-size: .8rem; font-weight: 700; background: none; border: 0; padding: 4px 0; color: #6b5d55; text-decoration: underline; cursor: pointer; }
+  .opzioni { border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .opzioni legend { margin-bottom: 8px; }
+  .opzione { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: start; padding: 12px 14px; border: 1px solid #eadfd6; border-radius: 12px; background: #fff; cursor: pointer; font-weight: 400; line-height: 1.5; }
+  .opzione:hover { border-color: #d8c9bd; background: #fffaf6; }
+  .opzione:has(input:checked) { border-color: var(--arancio); background: #fff1e6; box-shadow: inset 3px 0 0 var(--arancio); }
+  .opzione input { width: 18px; height: 18px; margin-top: 3px; accent-color: var(--arancio); }
+  .opzione-conta { font-size: .75rem; color: #8a7b72; white-space: nowrap; font-variant-numeric: tabular-nums; }
   .griglia-campi { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px 14px; align-items: end; }
   .spunta { grid-column: 1 / -1; display: flex; gap: 10px; align-items: center; padding: 12px 14px; border: 1px dashed #d8c9bd; border-radius: 12px; cursor: pointer; }
   .spunta input { width: 18px; height: 18px; accent-color: var(--arancio); }

@@ -60,6 +60,7 @@ export function contaParole(testo: string) {
 
 export type Lavoro = {
   intenti: Record<string, string>; // ricerca -> id dell'intento scelto
+  blocchi?: string[]; // id dei blocchi del titolo, in ordine
   keyword: string;
   titolo: string;
   descrizione: string;

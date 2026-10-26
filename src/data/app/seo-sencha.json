@@ -1,12 +1,15 @@
 {
-  "_nota": "Esercizio SEO 1, versione 2 (SEO moderna). Tutti i dati sono simulati: volumi di ricerca, prezzo e scheda prodotto sono inventati.",
+  "_nota": "Esercizio SEO 1, versione 3: tutto a scelte e blocchi, nessun testo libero. Dati simulati: volumi, prezzo e scheda prodotto sono inventati.",
   "id": "seo",
   "titolo": "Esercizio 1 · La pagina del Sencha",
   "minuti": 25,
   "richiesta": {
-    "da": "MR", "nome": "Marta", "ruolo": "Fondatrice", "quando": "oggi alle 9:12",
+    "da": "MR",
+    "nome": "Marta",
+    "ruolo": "Fondatrice",
+    "quando": "oggi alle 9:12",
     "oggetto": "Il Sencha online non si trova",
-    "testo": "Ciao! Il nostro tè verde Sencha bio vende bene in negozio, ma online nessuno lo trova. Puoi sistemare la pagina per Google? Capisci chi lo cerca, riscrivi titolo e descrizione, prepara i dati per Google e aggiungi una risposta breve su come si prepara. Grazie mille!"
+    "testo": "Ciao! Il nostro tè verde Sencha bio vende bene in negozio, ma online nessuno lo trova. Puoi sistemare la pagina per Google? Capisci chi lo cerca, scegli titolo e descrizione, prepara i dati per Google e scegli una risposta breve su come si prepara. Grazie mille!"
   },
   "attuale": {
     "url": "cinquefoglie.example › te-verdi › sencha-bio",
@@ -27,20 +30,80 @@
     "recensioni": "Nessuna recensione verificata per ora"
   },
   "intenti": [
-    { "id": "info", "nome": "Informarsi", "spiega": "Vuole capire o imparare qualcosa" },
-    { "id": "scelta", "nome": "Scegliere", "spiega": "Sa cosa vuole e confronta prodotti" },
-    { "id": "acquisto", "nome": "Comprare", "spiega": "È pronta o pronto a comprare" }
+    {
+      "id": "info",
+      "nome": "Informarsi",
+      "spiega": "Vuole capire o imparare qualcosa"
+    },
+    {
+      "id": "scelta",
+      "nome": "Scegliere",
+      "spiega": "Sa cosa vuole e confronta prodotti"
+    },
+    {
+      "id": "acquisto",
+      "nome": "Comprare",
+      "spiega": "È pronta o pronto a comprare"
+    }
   ],
   "ricerche": [
-    { "ricerca": "tè verde", "mese": "9.900", "giusti": ["info"] },
-    { "ricerca": "tè verde benefici", "mese": "6.600", "giusti": ["info"], "attenzione": true },
-    { "ricerca": "tè verde sencha", "mese": "1.300", "giusti": ["scelta", "acquisto"] },
-    { "ricerca": "come preparare il sencha", "mese": "590", "giusti": ["info"] },
-    { "ricerca": "sencha biologico", "mese": "480", "giusti": ["scelta", "acquisto"] },
-    { "ricerca": "tè freddo sencha", "mese": "210", "giusti": ["info"] },
-    { "ricerca": "comprare sencha online", "mese": "170", "giusti": ["acquisto"] }
+    {
+      "ricerca": "tè verde",
+      "mese": "9.900",
+      "giusti": [
+        "info"
+      ]
+    },
+    {
+      "ricerca": "tè verde benefici",
+      "mese": "6.600",
+      "giusti": [
+        "info"
+      ],
+      "attenzione": true
+    },
+    {
+      "ricerca": "tè verde sencha",
+      "mese": "1.300",
+      "giusti": [
+        "scelta",
+        "acquisto"
+      ]
+    },
+    {
+      "ricerca": "come preparare il sencha",
+      "mese": "590",
+      "giusti": [
+        "info"
+      ]
+    },
+    {
+      "ricerca": "sencha biologico",
+      "mese": "480",
+      "giusti": [
+        "scelta",
+        "acquisto"
+      ]
+    },
+    {
+      "ricerca": "tè freddo sencha",
+      "mese": "210",
+      "giusti": [
+        "info"
+      ]
+    },
+    {
+      "ricerca": "comprare sencha online",
+      "mese": "170",
+      "giusti": [
+        "acquisto"
+      ]
+    }
   ],
-  "keywordGiuste": ["tè verde sencha", "sencha biologico"],
+  "keywordGiuste": [
+    "tè verde sencha",
+    "sencha biologico"
+  ],
   "notaRicerche": "\"Benefici\" porta molte visite, ma nell'UE le promesse sulla salute degli alimenti sono regolate (Regolamento CE 1924/2006): su una pagina prodotto parla di gusto e qualità.",
   "domanda": "Come si prepara il tè Sencha?",
   "perche": {
@@ -49,13 +112,32 @@
     "dati": "I dati strutturati Product dicono a Google prezzo e disponibilità, che possono comparire nei risultati e in Google Shopping. Le stelle delle recensioni si possono mostrare solo con recensioni vere: inventarle è vietato (Direttiva UE 2019/2161, \"Omnibus\").",
     "risposta": "Una risposta breve, chiara e con dati verificabili è più facile da mostrare nei riquadri \"Le persone chiedono anche\" e da citare nelle panoramiche create con l'AI (AI Overviews)."
   },
-  "parole": ["intento di ricerca", "keyword", "title", "meta description", "dati strutturati", "AI Overviews"],
+  "parole": [
+    "intento di ricerca",
+    "keyword",
+    "title",
+    "meta description",
+    "dati strutturati",
+    "AI Overviews"
+  ],
   "consiglio": "Prima di scrivere, capisci chi cerca cosa: l'intento di ricerca decide che pagina vuole vedere la persona.",
   "aiuti": [
-    { "titolo": "Come capisco l'intento?", "testo": "Guarda le parole: \"come\", \"cos'è\", \"benefici\" = informarsi. Il nome preciso del prodotto = scegliere. \"Comprare\", \"prezzo\", \"online\" = comprare." },
-    { "titolo": "Quale keyword per una pagina prodotto?", "testo": "Non la più cercata, ma la più vicina al prodotto: chi scrive \"tè verde\" vuole informazioni generiche, chi scrive \"tè verde sencha\" sa già cosa vuole." },
-    { "titolo": "Cosa metto nei dati strutturati?", "testo": "Solo informazioni vere e visibili sulla pagina: nome, marca, prezzo, valuta e disponibilità. Se non ci sono recensioni vere, niente stelle." },
-    { "titolo": "Come scrivo la risposta breve?", "testo": "Inizia subito con la risposta, poi i dettagli: temperatura dell'acqua e tempo di infusione, presi dalla scheda prodotto. Tra 30 e 70 parole." }
+    {
+      "titolo": "Come capisco l'intento?",
+      "testo": "Guarda le parole: \"come\", \"cos'è\", \"benefici\" = informarsi. Il nome preciso del prodotto = scegliere. \"Comprare\", \"prezzo\", \"online\" = comprare."
+    },
+    {
+      "titolo": "Quale keyword per una pagina prodotto?",
+      "testo": "Non la più cercata, ma la più vicina al prodotto: chi scrive \"tè verde\" vuole informazioni generiche, chi scrive \"tè verde sencha\" sa già cosa vuole."
+    },
+    {
+      "titolo": "Cosa metto nei dati strutturati?",
+      "testo": "Solo informazioni vere e visibili sulla pagina: nome, marca, prezzo, valuta e disponibilità. Se non ci sono recensioni vere, niente stelle."
+    },
+    {
+      "titolo": "Come scelgo la risposta breve?",
+      "testo": "La migliore inizia subito con la risposta, usa i numeri della scheda prodotto (temperatura e tempo) e non fa promesse sulla salute."
+    }
   ],
   "glossario": "Title: il titolo blu nei risultati. Meta description: il testo grigio sotto, non cambia la posizione ma convince a cliccare. Dati strutturati: codice nascosto (JSON-LD) che descrive il prodotto a Google.",
   "soluzione": {
@@ -72,11 +154,100 @@
     ]
   },
   "autovalutazione": [
-    "Il titolo è scritto per chi vuole scegliere o comprare, non per chi cerca informazioni generiche.",
-    "La descrizione dà un motivo concreto per cliccare (es. la spedizione veloce).",
-    "La risposta breve inizia subito con la risposta, senza giri di parole.",
-    "Ho usato solo informazioni vere della scheda prodotto, senza inventare nulla."
+    "Ho capito perché la keyword più cercata non è quella giusta per una pagina prodotto.",
+    "Saprei spiegare perché la descrizione scelta è migliore delle altre.",
+    "Ho capito cosa rende una risposta adatta a \"Le persone chiedono anche\" e alle panoramiche AI.",
+    "Ho controllato la scheda prodotto prima di scegliere i dati, senza tirare a indovinare."
   ],
   "risposta": "Grazie! Adesso la pagina parla come parlano le persone e Google sa prezzo e disponibilità. La prossima volta prepariamo anche una guida per chi cerca \"come preparare il sencha\": è un'altra pagina, per un altro intento.",
-  "imparato": ["intento di ricerca", "scegliere una keyword", "title in pixel", "dati strutturati Product", "risposte per le ricerche AI", "regole su salute e recensioni"]
+  "imparato": [
+    "intento di ricerca",
+    "scegliere una keyword",
+    "title in pixel",
+    "dati strutturati Product",
+    "risposte per le ricerche AI",
+    "regole su salute e recensioni"
+  ],
+  "blocchi": [
+    {
+      "id": "kw1",
+      "testo": "Tè verde Sencha"
+    },
+    {
+      "id": "kw2",
+      "testo": "Sencha biologico"
+    },
+    {
+      "id": "bio",
+      "testo": "biologico"
+    },
+    {
+      "id": "foglie",
+      "testo": "in foglie"
+    },
+    {
+      "id": "giap",
+      "testo": "giapponese"
+    },
+    {
+      "id": "brand",
+      "testo": "| Cinque Foglie"
+    },
+    {
+      "id": "brand2",
+      "testo": "Cinque Foglie |"
+    },
+    {
+      "id": "migliore",
+      "testo": "il migliore d'Italia"
+    },
+    {
+      "id": "grassi",
+      "testo": "che brucia i grassi"
+    },
+    {
+      "id": "offerta",
+      "testo": "Offerta imperdibile!"
+    },
+    {
+      "id": "lungo",
+      "testo": "con spedizione gratuita in 24 ore dal nostro negozio online"
+    }
+  ],
+  "descrizioni": [
+    {
+      "id": "d1",
+      "testo": "Sencha bio giapponese a foglie intere, dal gusto fresco ed erbaceo. Ottimo anche freddo. Spedizione in 24 ore."
+    },
+    {
+      "id": "d2",
+      "testo": "Il tè verde Sencha che brucia i grassi e depura: il segreto per stare bene ogni giorno. Spedizione in 24 ore."
+    },
+    {
+      "id": "d3",
+      "testo": "Tè verde. Acquista ora."
+    },
+    {
+      "id": "d4",
+      "testo": "Scopri il nostro Sencha biologico giapponese a foglie intere, raccolto a mano e selezionato con cura per offrirti un gusto fresco, erbaceo e leggermente dolce, perfetto in ogni momento della giornata. Spedizione in 24 ore."
+    }
+  ],
+  "risposte": [
+    {
+      "id": "r1",
+      "testo": "Per preparare il tè Sencha scalda l'acqua a 75 °C, senza farla bollire, e lascia in infusione le foglie per 2 minuti. Usa circa 3 grammi di foglie per una tazza. D'estate puoi prepararlo freddo: lascialo in frigo per 8 ore."
+    },
+    {
+      "id": "r2",
+      "testo": "Porta l'acqua a ebollizione, a 100 °C, e lascia le foglie in infusione per 5 minuti, così il tè diventa più forte e corposo. Usa circa 3 grammi di foglie per una tazza e servilo subito, ben caldo."
+    },
+    {
+      "id": "r3",
+      "testo": "Il Sencha si prepara con acqua a 75 °C e un'infusione di 2 minuti. È perfetto per dimagrire e depurare l'organismo: bevine tre tazze al giorno per sentirti subito meglio e più leggera."
+    },
+    {
+      "id": "r4",
+      "testo": "Il tè Sencha è uno dei tè verdi più amati del Giappone e ha una storia lunga e affascinante, che risale a molti secoli fa. Ogni famiglia ha il suo modo di prepararlo e di servirlo, e ogni zona del Giappone ha le sue tradizioni. Per questo non esiste un solo modo giusto: dipende dai gusti, dalle abitudini e dal momento della giornata in cui lo bevi."
+    }
+  ]
 }

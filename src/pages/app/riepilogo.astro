@@ -90,7 +90,7 @@ import azienda from "../../data/app/cinque-foglie.json";
     if (seo?.stato === "completato") {
       const punti = punteggio(seo);
       righe.push(`SEO specialist: ${punti.totale}/100 (controlli ${punti.auto}/40, autovalutazione ${punti.voto}/60${punti.aiuti ? `, aiuti -${punti.aiuti}` : ""})`);
-      if (seo.consegna) { const l = seo.consegna.lavoro as any; righe.push(`  Keyword scelta: ${l.keyword}`, `  Titolo scritto: ${l.titolo}`, `  Descrizione scritta: ${l.descrizione}`, `  Risposta breve: ${l.risposta}`); }
+      if (seo.consegna) { const l = seo.consegna.lavoro as any; righe.push(`  Keyword scelta: ${l.keyword}`, `  Titolo composto: ${l.titolo}`, `  Descrizione scelta: ${l.descrizione}`, `  Risposta breve scelta: ${l.risposta}`); }
     } else {
       righe.push("Nessun ruolo completato per ora.");
     }
