@@ -1,7 +1,7 @@
 {
   "_nota": "Azienda e numeri INVENTATI per gli esercizi. Il dominio .example è riservato e non esiste davvero.",
   "nome": "Cinque Foglie",
-  "descrizione": "Negozio online di tè e tisane. Vende in tutta Italia, ha un blog e una newsletter, e vuole crescere mantenendo un tono gentile.",
+  "descrizione": "Negozio online di tè e tisane. Vende in tutta Italia, da quest'anno anche in 40 supermercati del Veneto, ha un blog e una newsletter, e vuole crescere mantenendo un tono gentile.",
   "dominio": "cinquefoglie.example",
   "numeri": [
     {
@@ -44,6 +44,11 @@
       "sigla": "SC",
       "nome": "Sara",
       "ruolo": "Social e community"
+    },
+    {
+      "sigla": "GR",
+      "nome": "Giorgio",
+      "ruolo": "Vendite e negozi"
     }
   ],
   "ruoli": [
@@ -94,6 +99,13 @@
       "nome": "Product marketing",
       "breve": "Lanciare prodotti",
       "icona": "product",
+      "pronto": true
+    },
+    {
+      "id": "trade",
+      "nome": "Trade marketing",
+      "breve": "Vendere nei negozi",
+      "icona": "trade",
       "pronto": true
     }
   ],
@@ -153,6 +165,14 @@
       "quando": "mercoledì",
       "oggetto": "Lanciamo le Tisane della Sera",
       "link": "/app/product/esercizio/"
+    },
+    {
+      "ruolo": "trade",
+      "da": "GR",
+      "nome": "Giorgio",
+      "quando": "giovedì",
+      "oggetto": "Siamo arrivati al supermercato!",
+      "link": "/app/trade/esercizio/"
     }
   ]
 }
