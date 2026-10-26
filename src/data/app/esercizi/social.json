@@ -1,0 +1,98 @@
+{
+  "_nota": "Esercizio Social 1. Numeri dei post inventati.",
+  "id": "social",
+  "ruolo": "Social media manager",
+  "titolo": "Esercizio 1 · Una settimana di post sul matcha",
+  "minuti": 20,
+  "richiesta": { "da": "SC", "nome": "Sara", "ruolo": "Social e community", "quando": "ieri alle 15:20", "oggetto": "Una settimana di post sul matcha",
+    "testo": "Ciao! La prossima settimana parliamo del matcha su Instagram. Mi aiuti a scegliere il formato giusto per ogni idea, a capire quale post è andato meglio, a scegliere la didascalia e a rispondere a un commento delicato?" },
+  "scheda": { "titolo": "Il profilo Instagram", "voci": [
+    ["Follower", "5.000"], ["Post A (ricetta matcha latte)", "180 mi piace, 20 commenti, 25 salvataggi"], ["Post B (foto della confezione)", "80 mi piace, 4 commenti, 6 salvataggi"],
+    ["Pubblico", "Soprattutto 25-40 anni, in Italia"], ["Prodotto", "Matcha biologico, 30 g, 16,90 €"], ["Regola", "Mai promesse sulla salute"] ] },
+  "consiglio": "Sui social conta quanto le persone interagiscono, non solo quante ti vedono.",
+  "parole": ["formato", "engagement rate", "hook", "call to action", "community"],
+  "parti": [
+    { "id": "formati", "tipo": "classifica", "titolo": "Scegli il formato per ogni idea",
+      "testo": "Per ogni idea scegli il formato più adatto.",
+      "colonne": [ { "id": "reel", "nome": "Reel (video breve)" }, { "id": "carosello", "nome": "Carosello" }, { "id": "storie", "nome": "Storie" } ],
+      "righe": [
+        { "id": "i1", "testo": "Come si prepara il matcha in 30 secondi", "giusti": ["reel"] },
+        { "id": "i2", "testo": "5 errori da evitare con il matcha", "giusti": ["carosello"] },
+        { "id": "i3", "testo": "Sondaggio: matcha latte o tradizionale?", "giusti": ["storie"] },
+        { "id": "i4", "testo": "Dietro le quinte: apriamo il nuovo arrivo", "giusti": ["storie", "reel"] }
+      ],
+      "controlli": [
+        { "nome": "Un tutorial in movimento è un Reel", "regola": { "tipo": "righe", "righe": ["i1"] }, "suggerimento": "Una preparazione si capisce meglio in movimento." },
+        { "nome": "Una lista di consigli è un carosello", "regola": { "tipo": "righe", "righe": ["i2"] }, "suggerimento": "Una scheda per ogni errore: si sfoglia e si salva." },
+        { "nome": "Un sondaggio va nelle Storie", "regola": { "tipo": "righe", "righe": ["i3"] }, "suggerimento": "Le Storie hanno lo strumento sondaggio." },
+        { "nome": "Il dietro le quinte è spontaneo", "regola": { "tipo": "righe", "righe": ["i4"] }, "suggerimento": "Il dietro le quinte è veloce e spontaneo: Storie o Reel." }
+      ],
+      "perche": "Ogni formato ha uno scopo: i Reel fanno scoprire il profilo a persone nuove, i caroselli vengono salvati, le Storie fanno parlare la community che ti segue già.",
+      "soluzione": "Preparazione: Reel. 5 errori: carosello. Sondaggio: Storie. Dietro le quinte: Storie (o Reel)." },
+    { "id": "numeri", "tipo": "menu", "titolo": "Quale post è andato meglio?",
+      "testo": "Calcola l'engagement rate del post A con i dati della scheda.",
+      "campi": [
+        { "id": "interazioni", "etichetta": "Interazioni del post A (mi piace + commenti + salvataggi)", "opzioni": ["180", "200", "225", "5.000"] },
+        { "id": "er", "etichetta": "Engagement rate del post A (interazioni ÷ follower)", "opzioni": ["0,45%", "4,5%", "22,5%", "45%"] },
+        { "id": "migliore", "etichetta": "Quale post è andato meglio?", "opzioni": ["Post A (ricetta)", "Post B (confezione)", "Sono uguali"] }
+      ],
+      "controlli": [
+        { "nome": "Interazioni giuste: 225", "regola": { "tipo": "menu", "campo": "interazioni", "valore": "225" }, "suggerimento": "Somma mi piace, commenti e salvataggi." },
+        { "nome": "Engagement rate giusto: 4,5%", "regola": { "tipo": "menu", "campo": "er", "valore": "4,5%" }, "suggerimento": "225 ÷ 5.000, poi per 100." },
+        { "nome": "Post migliore: la ricetta", "regola": { "tipo": "menu", "campo": "migliore", "valore": "Post A (ricetta)" }, "suggerimento": "Il post B ha 90 interazioni: meno della metà." }
+      ],
+      "perche": "L'engagement rate permette di confrontare post diversi. I salvataggi sono preziosi: dicono che un contenuto è utile.",
+      "soluzione": "225 interazioni, engagement rate 4,5%. La ricetta è andata meglio della foto della confezione (1,8%)." },
+    { "id": "didascalia", "tipo": "scelta", "titolo": "Scegli la didascalia del Reel",
+      "testo": "Quale didascalia usi per il Reel \"Come si prepara il matcha in 30 secondi\"?",
+      "opzioni": [
+        { "id": "d1", "testo": "Matcha perfetto in 30 secondi? Si può. Acqua a 80 °C, frusta a zig zag e niente grumi. Salvalo per la prossima colazione! #matcha #tèverde", "ok": { "hook": true, "azione": true, "hashtag": true, "salute": true } },
+        { "id": "d2", "testo": "Il matcha che ti fa dimagrire e ti dà energia tutto il giorno! Provalo subito. #matcha #detox #dieta #fitness", "ok": { "hook": true, "azione": true, "hashtag": false, "salute": false } },
+        { "id": "d3", "testo": "Nuovo video. #matcha #tea #green #japan #food #instagood #love #photooftheday #happy #follow #like #beautiful", "ok": { "hook": false, "azione": false, "hashtag": false, "salute": true } },
+        { "id": "d4", "testo": "Ecco come preparare il nostro matcha biologico da 30 grammi, disponibile sul nostro sito Cinque Foglie a 16,90 euro.", "ok": { "hook": false, "azione": false, "hashtag": true, "salute": true } }
+      ],
+      "controlli": [
+        { "nome": "La prima frase incuriosisce (hook)", "regola": { "tipo": "opzione", "chiave": "hook" }, "suggerimento": "Sui social si decide in un secondo: la prima frase deve incuriosire." },
+        { "nome": "Invito all'azione (salva, commenta)", "regola": { "tipo": "opzione", "chiave": "azione" }, "suggerimento": "Chiedi qualcosa: salvare, commentare, provare." },
+        { "nome": "Pochi hashtag e pertinenti", "regola": { "tipo": "opzione", "chiave": "hashtag" }, "suggerimento": "Meglio pochi hashtag legati al contenuto che tanti a caso." },
+        { "nome": "Nessuna promessa sulla salute", "regola": { "tipo": "opzione", "chiave": "salute" }, "suggerimento": "\"Fa dimagrire\" e \"detox\" sono promesse sulla salute vietate." }
+      ],
+      "perche": "Una buona didascalia aggancia, dà valore e chiede un'azione. Le promesse sulla salute degli alimenti valgono anche sui social (Regolamento CE 1924/2006).",
+      "soluzione": "\"Matcha perfetto in 30 secondi? Si può...\": incuriosisce, dà un consiglio pratico, chiede di salvare, ha due hashtag pertinenti." },
+    { "id": "commento", "tipo": "spunte", "titolo": "Rispondi a un commento delicato",
+      "testo": "Un utente chiede: \"Ma è vero che il matcha fa dimagrire?\". Scegli tutte le cose giuste da fare.",
+      "opzioni": [
+        { "id": "c1", "testo": "Rispondere con gentilezza parlando di gusto e di come si prepara" },
+        { "id": "c2", "testo": "Consigliare di chiedere a un medico per le domande sulla salute" },
+        { "id": "c3", "testo": "Rispondere \"Sì, aiuta a perdere peso!\" per vendere di più" },
+        { "id": "c4", "testo": "Cancellare il commento" },
+        { "id": "c5", "testo": "Non rispondere per niente" }
+      ],
+      "controlli": [
+        { "nome": "Risposta gentile e utile", "regola": { "tipo": "spunte-tutte", "ids": ["c1"] }, "suggerimento": "Si risponde sempre, con gentilezza." },
+        { "nome": "Rimanda a un professionista per la salute", "regola": { "tipo": "spunte-tutte", "ids": ["c2"] }, "suggerimento": "Sulla salute non siamo noi gli esperti." },
+        { "nome": "Nessuna promessa sulla salute", "regola": { "tipo": "spunte-nessuna", "ids": ["c3"] }, "suggerimento": "Dire che fa dimagrire è una promessa vietata." },
+        { "nome": "Né cancellare né ignorare", "regola": { "tipo": "spunte-nessuna", "ids": ["c4", "c5"] }, "suggerimento": "Una domanda onesta merita una risposta: cancellarla fa perdere fiducia." }
+      ],
+      "perche": "Gestire la community vuol dire rispondere anche alle domande scomode, senza promettere quello che non si può promettere.",
+      "soluzione": "Rispondere con gentilezza su gusto e preparazione e consigliare un medico per le domande di salute." }
+  ],
+  "aiuti": [
+    { "titolo": "Come scelgo il formato?", "testo": "Si muove? Reel. È una lista o una guida da salvare? Carosello. Vuoi una risposta veloce dalla community? Storie." },
+    { "titolo": "Come si calcola l'engagement rate?", "testo": "Somma le interazioni (mi piace, commenti, salvataggi), dividi per i follower e moltiplica per 100." }
+  ],
+  "glossario": "Engagement rate: quanto le persone interagiscono con un post. Hook: la prima frase che aggancia. Call to action: l'invito a fare qualcosa. Community: le persone che seguono e parlano con il brand.",
+  "note": [
+    "Il formato si sceglie in base all'idea, non all'abitudine.",
+    "L'engagement rate permette di confrontare post diversi con lo stesso metro.",
+    "Anche nei commenti valgono le regole sulle promesse di salute."
+  ],
+  "autovalutazione": [
+    "Saprei spiegare perché un'idea funziona meglio in un certo formato.",
+    "Ho calcolato l'engagement rate da sola o da solo.",
+    "Ho capito cosa rende buona una didascalia.",
+    "Saprei rispondere a una domanda sulla salute senza fare promesse."
+  ],
+  "rispostaCollega": "Grande! Preparo il Reel e il carosello. E la risposta al commento la uso come esempio per tutto il team.",
+  "imparato": ["formati dei social", "engagement rate", "didascalie che funzionano", "gestire la community"]
+}

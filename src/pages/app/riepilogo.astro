@@ -1,7 +1,7 @@
 ---
 // APP · 5. I TUOI RISULTATI
 // Punti e gradimento per ogni ruolo, letti dal browser. Si possono scaricare (file di testo per il CV)
-// o cancellare. Per ora è pronto solo il ruolo SEO: gli altri sono "in arrivo".
+// o cancellare. Il consiglio di Pesca indica il ruolo che è piaciuto di più (o il prossimo da provare).
 import AppLayout from "../../layouts/AppLayout.astro";
 import Progresso from "../../components/Progresso.astro";
 import Pesca from "../../components/Pesca.astro";
@@ -29,8 +29,8 @@ import azienda from "../../data/app/cinque-foglie.json";
               {azienda.ruoli.map((r) => (
                 <tr data-riga={r.id}>
                   <th scope="row">{r.nome}</th>
-                  <td><span class="punti-cella"><span class="barra"><span data-barra></span></span><strong data-punti>{r.pronto ? "da fare" : "in arrivo"}</strong></span></td>
-                  <td data-gradimento>{r.pronto ? "–" : ""}</td>
+                  <td><span class="punti-cella"><span class="barra"><span data-barra></span></span><strong data-punti>da fare</strong></span></td>
+                  <td data-gradimento>–</td>
                 </tr>
               ))}
             </tbody>
@@ -43,8 +43,8 @@ import azienda from "../../data/app/cinque-foglie.json";
         <div class="pannello consiglio">
           <span class="tag">Consiglio di Pesca</span>
           <strong class="app-titolo" data-consiglio-titolo>Inizia dalla SEO</strong>
-          <p data-consiglio-testo>È il primo ruolo pronto. Ci vogliono circa 15 minuti.</p>
-          <a class="bottone-app" href="/app/seo/esercizio/" data-consiglio-link>Vai all'esercizio SEO →</a>
+          <p data-consiglio-testo>È un buon punto di partenza. Ci vogliono circa 25 minuti.</p>
+          <a class="bottone-app" href="/app/seo/esercizio/" data-consiglio-link>Vai all'esercizio →</a>
         </div>
         <div class="pannello altre">
           <strong>Altre azioni</strong>
@@ -58,42 +58,78 @@ import azienda from "../../data/app/cinque-foglie.json";
 </AppLayout>
 
 <script>
-  import { leggi, punteggio, cancellaTutto } from "../../scripts/progressi";
+  import { leggi, punteggio, cancellaTutto, type Ruolo } from "../../scripts/progressi";
+  import { esercizio, riassunto } from "../../scripts/esercizi";
+  import azienda from "../../data/app/cinque-foglie.json";
 
   const p = leggi();
-  const seo = p.ruoli.seo;
-  if (seo?.stato === "completato") {
-    const punti = punteggio(seo);
-    const riga = document.querySelector('[data-riga="seo"]')!;
-    riga.querySelector("[data-punti]")!.textContent = String(punti.totale);
-    riga.querySelector<HTMLElement>("[data-barra]")!.style.width = `${punti.totale}%`;
-    riga.querySelector("[data-gradimento]")!.textContent = seo.gradimento ? `${seo.gradimento}/5` : "–";
-    document.querySelector("[data-titolo]")!.textContent = "Hai completato il primo ruolo!";
-    document.querySelector("[data-intro]")!.textContent = "Ecco come è andata. Gli altri ruoli arrivano presto: li troverai qui sulla tua scrivania.";
-    document.querySelector("[data-consiglio-titolo]")!.textContent = "SEO specialist";
-    document.querySelector("[data-consiglio-testo]")!.textContent =
-      (seo.gradimento ?? 0) >= 4 ? "Ti è piaciuto molto: quando arriverà il percorso SEO, parti da lì." : "Hai provato il primo ruolo. Quando arriveranno gli altri, confronta i risultati per scegliere.";
-    const link = document.querySelector<HTMLAnchorElement>("[data-consiglio-link]")!;
-    link.textContent = "Rivedi la correzione →";
-    link.href = "/app/seo/correzione/";
-  } else if (seo?.stato === "in-corso") {
-    document.querySelector('[data-riga="seo"] [data-punti]')!.textContent = "in corso";
-    document.querySelector("[data-consiglio-titolo]")!.textContent = "Finisci la SEO";
-    document.querySelector("[data-consiglio-testo]")!.textContent = "Hai una bozza salvata: riprendila da dove eri rimasta o rimasto.";
+  const fatti: { id: string; nome: string; r: Ruolo; totale: number }[] = [];
+
+  // 1. Una riga per ruolo
+  for (const ruolo of azienda.ruoli) {
+    const r = p.ruoli[ruolo.id];
+    const riga = document.querySelector(`[data-riga="${ruolo.id}"]`)!;
+    if (r?.stato === "completato") {
+      const punti = punteggio(r);
+      riga.querySelector("[data-punti]")!.textContent = String(punti.totale);
+      riga.querySelector<HTMLElement>("[data-barra]")!.style.width = `${punti.totale}%`;
+      riga.querySelector("[data-gradimento]")!.textContent = r.gradimento ? `${r.gradimento}/5` : "–";
+      fatti.push({ id: ruolo.id, nome: ruolo.nome, r, totale: punti.totale });
+    } else if (r?.stato === "in-corso") {
+      riga.querySelector("[data-punti]")!.textContent = "in corso";
+    }
+  }
+
+  // 2. Titolo e consiglio di Pesca
+  const titolo = document.querySelector("[data-titolo]")!;
+  const intro = document.querySelector("[data-intro]")!;
+  const cTitolo = document.querySelector("[data-consiglio-titolo]")!;
+  const cTesto = document.querySelector("[data-consiglio-testo]")!;
+  const cLink = document.querySelector<HTMLAnchorElement>("[data-consiglio-link]")!;
+  const prossimo = azienda.ruoli.find((r) => p.ruoli[r.id]?.stato === "in-corso") ?? azienda.ruoli.find((r) => p.ruoli[r.id]?.stato !== "completato");
+
+  if (fatti.length > 0) {
+    titolo.textContent = fatti.length === azienda.ruoli.length ? "Hai provato tutti i ruoli!" : `Hai completato ${fatti.length} ${fatti.length === 1 ? "ruolo" : "ruoli"} su ${azienda.ruoli.length}`;
+    intro.textContent = "Confronta punti e gradimento: il ruolo che ti è piaciuto di più è un buon punto da cui approfondire.";
+    // Il preferito: prima il gradimento, poi i punti
+    const preferito = [...fatti].sort((a, b) => (b.r.gradimento ?? 0) - (a.r.gradimento ?? 0) || b.totale - a.totale)[0];
+    if (prossimo && fatti.length < 3) {
+      cTitolo.textContent = prossimo.nome;
+      cTesto.textContent = "Prova ancora qualche ruolo prima di scegliere: è il confronto che ti fa capire cosa ti piace davvero.";
+      cLink.textContent = "Vai all'esercizio →";
+      cLink.href = `/app/${prossimo.id}/esercizio/`;
+    } else {
+      cTitolo.textContent = preferito.nome;
+      cTesto.textContent = (preferito.r.gradimento ?? 0) >= 4 ? "È il ruolo che ti è piaciuto di più: parti da qui per approfondire." : "È il ruolo dove sei andata o andato meglio. Rileggi la correzione per capire perché.";
+      cLink.textContent = "Rivedi la correzione →";
+      cLink.href = `/app/${preferito.id}/correzione/`;
+    }
+  } else if (prossimo) {
+    cTitolo.textContent = p.ruoli[prossimo.id]?.stato === "in-corso" ? `Finisci: ${prossimo.nome}` : "Inizia dalla SEO";
+    if (p.ruoli[prossimo.id]?.stato === "in-corso") cTesto.textContent = "Hai una bozza salvata: riprendila da dove eri rimasta o rimasto.";
+    cLink.textContent = "Vai all'esercizio →";
+    cLink.href = `/app/${prossimo.id}/esercizio/`;
   }
 
   const messaggio = document.querySelector("[data-messaggio]")!;
 
-  // Scarica un file di testo con i risultati (per il CV o il portfolio)
+  // 3. Scarica un file di testo con i risultati (per il CV o il portfolio)
   document.querySelector("[data-scarica]")!.addEventListener("click", () => {
     const righe = ["Marketing Mix · I miei risultati", `Data: ${new Date().toLocaleDateString("it-IT")}`, "Azienda simulata: Cinque Foglie (dati inventati)", ""];
-    if (seo?.stato === "completato") {
-      const punti = punteggio(seo);
-      righe.push(`SEO specialist: ${punti.totale}/100 (controlli ${punti.auto}/40, autovalutazione ${punti.voto}/60${punti.aiuti ? `, aiuti -${punti.aiuti}` : ""})`);
-      if (seo.consegna) { const l = seo.consegna.lavoro as any; righe.push(`  Keyword scelta: ${l.keyword}`, `  Titolo composto: ${l.titolo}`, `  Descrizione scelta: ${l.descrizione}`, `  Risposta breve scelta: ${l.risposta}`); }
-    } else {
-      righe.push("Nessun ruolo completato per ora.");
+    for (const f of fatti) {
+      const punti = punteggio(f.r);
+      righe.push(`${f.nome}: ${punti.totale}/100 (controlli ${punti.auto}/40, autovalutazione ${punti.voto}/60${punti.aiuti ? `, aiuti -${punti.aiuti}` : ""})`);
+      const l = f.r.consegna?.lavoro as any;
+      if (!l) continue;
+      if (f.id === "seo") {
+        righe.push(`  Keyword scelta: ${l.keyword}`, `  Titolo composto: ${l.titolo}`, `  Descrizione scelta: ${l.descrizione}`, `  Risposta breve scelta: ${l.risposta}`);
+      } else {
+        const es = esercizio(f.id);
+        es?.parti.forEach((parte) => { righe.push(`  ${parte.titolo}:`); riassunto(parte, l[parte.id]).forEach((x) => righe.push(`    - ${x}`)); });
+      }
+      righe.push("");
     }
+    if (fatti.length === 0) righe.push("Nessun ruolo completato per ora.");
     const file = new Blob([righe.join("\n")], { type: "text/plain;charset=utf-8" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(file);
@@ -102,7 +138,7 @@ import azienda from "../../data/app/cinque-foglie.json";
     URL.revokeObjectURL(a.href);
   });
 
-  // Cancella: serve un secondo clic di conferma (niente finestre di dialogo)
+  // 4. Cancella: serve un secondo clic di conferma (niente finestre di dialogo)
   const cancella = document.querySelector<HTMLButtonElement>("[data-cancella]")!;
   let conferma = false;
   cancella.addEventListener("click", () => {

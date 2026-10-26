@@ -1,15 +1,24 @@
 ---
 // APP · 2. LA SCRIVANIA
 // Menu dei ruoli e dei dati a sinistra, casella delle richieste al centro, consiglio di Pesca a destra.
-// Lo stato dei ruoli (in corso / completato) viene letto dal browser con lo script in fondo.
+// Ci sono 6 richieste, una per ruolo: cliccandone una si apre il suo dettaglio (senza cambiare pagina).
+// Lo stato dei ruoli (da fare / in corso / fatto) viene letto dal browser con lo script in fondo.
 import AppLayout from "../../layouts/AppLayout.astro";
 import Progresso from "../../components/Progresso.astro";
 import Pesca from "../../components/Pesca.astro";
 import Icona from "../../components/Icona.astro";
 import azienda from "../../data/app/cinque-foglie.json";
-import esercizio from "../../data/app/seo-sencha.json";
+import seo from "../../data/app/seo-sencha.json";
+import { esercizio } from "../../scripts/esercizi";
 
-const richiesta = esercizio.richiesta;
+const breve = (nome: string) => nome.replace(" specialist", "").replace(" manager", "").replace(" marketing", "");
+// Per ogni richiesta i dati da mostrare nel dettaglio (la SEO ha un file suo, gli altri ruoli il motore degli esercizi)
+const dettagli = azienda.richieste.map((m) => {
+  const ruolo = azienda.ruoli.find((r) => r.id === m.ruolo)!;
+  if (m.ruolo === "seo") return { m, ruolo, richiesta: seo.richiesta, minuti: seo.minuti, parti: 4, consiglio: seo.consiglio, parole: seo.parole, scheda: null };
+  const e = esercizio(m.ruolo)!;
+  return { m, ruolo, richiesta: e.richiesta, minuti: e.minuti, parti: e.parti.length, consiglio: e.consiglio, parole: e.parole, scheda: e.scheda };
+});
 ---
 <AppLayout title="La tua scrivania" percorso={[{ etichetta: azienda.nome, link: "/app/" }, { etichetta: "Scrivania" }]}>
   <Progresso slot="barra" />
@@ -18,19 +27,11 @@ const richiesta = esercizio.richiesta;
       <div class="gruppo">
         <span class="gruppo-titolo">I tuoi pass</span>
         {azienda.ruoli.map((r) => (
-          r.pronto ? (
-            <a class="voce voce--attiva" href="/app/seo/esercizio/" data-ruolo={r.id}>
-              <span class="voce-icona voce-icona--attiva"><Icona nome={r.icona} dimensione={14} /></span>
-              <span class="voce-nome">{r.nome.replace(" specialist", "").replace(" manager", "")}</span>
-              <span class="voce-stato" data-stato>da fare</span>
-            </a>
-          ) : (
-            <span class="voce voce--presto">
-              <span class="voce-icona"><Icona nome={r.icona} dimensione={14} /></span>
-              <span class="voce-nome">{r.nome.replace(" specialist", "").replace(" manager", "")}</span>
-              <span class="voce-stato">presto</span>
-            </span>
-          )
+          <a class="voce" href={`/app/${r.id}/esercizio/`} data-ruolo={r.id}>
+            <span class="voce-icona"><Icona nome={r.icona} dimensione={14} /></span>
+            <span class="voce-nome">{breve(r.nome)}</span>
+            <span class="voce-stato" data-stato>da fare</span>
+          </a>
         ))}
       </div>
       <div class="gruppo">
@@ -46,85 +47,91 @@ const richiesta = esercizio.richiesta;
     <main class="centro">
       <div>
         <h1 class="app-titolo">Buongiorno! Hai {azienda.richieste.length} richieste</h1>
-        <p class="nota">Inizia da quella del tuo pass attivo: SEO specialist.</p>
+        <p class="nota">Ogni richiesta è un esercizio di un ruolo diverso. Puoi farle nell'ordine che vuoi: se non sai da dove partire, inizia dalla SEO.</p>
       </div>
 
       <div class="posta">
         <ul class="lista" aria-label="Richieste">
-          {azienda.richieste.map((m) => (
+          {dettagli.map(({ m, ruolo }, i) => (
             <li>
-              {m.link ? (
-                <a class="mail mail--aperta" href={m.link}>
-                  <span class="avatar avatar--nuovo">{m.da}</span>
-                  <span class="mail-testi"><span class="mail-testa"><strong>{m.nome}</strong><span>{m.quando}</span></span><span class="mail-oggetto">{m.oggetto}</span><span class="mail-stato" data-stato-mail>SEO · da fare</span></span>
-                </a>
-              ) : (
-                <span class="mail">
-                  <span class="avatar avatar--spento">{m.da}</span>
-                  <span class="mail-testi"><span class="mail-testa"><strong>{m.nome}</strong><span>{m.quando}</span></span><span class="mail-oggetto">{m.oggetto}</span><span class="mail-stato">In arrivo</span></span>
-                </span>
-              )}
+              <button type="button" class:list={["mail", { "mail--aperta": i === 0 }]} data-mail={m.ruolo} aria-controls={`dettaglio-${m.ruolo}`} aria-pressed={i === 0 ? "true" : "false"}>
+                <span class="avatar avatar--nuovo">{m.da}</span>
+                <span class="mail-testi"><span class="mail-testa"><strong>{m.nome}</strong><span>{m.quando}</span></span><span class="mail-oggetto">{m.oggetto}</span><span class="mail-stato" data-stato-mail={m.ruolo}>{breve(ruolo.nome)} · da fare</span></span>
+              </button>
             </li>
           ))}
         </ul>
 
-        <article class="dettaglio" aria-labelledby="t-richiesta">
-          <div class="dettaglio-testa">
-            <span class="mittente"><span class="avatar">{richiesta.da}</span><span><strong>{richiesta.nome} · {richiesta.ruolo}</strong><span class="nota">{richiesta.quando}</span></span></span>
-            <span class="tag">SEO · Esercizio 1</span>
-          </div>
-          <h2 id="t-richiesta" class="app-titolo">{richiesta.oggetto}</h2>
-          <p>{richiesta.testo}</p>
-          <ul class="info">
-            <li>Circa {esercizio.minuti} minuti</li>
-            <li>Dati: ricerche su Google</li>
-            <li>Dati: pagina prodotto</li>
-          </ul>
+        {dettagli.map(({ m, ruolo, richiesta, minuti, parti, scheda }, i) => (
+          <article class="dettaglio" id={`dettaglio-${m.ruolo}`} data-dettaglio={m.ruolo} aria-labelledby={`t-${m.ruolo}`} hidden={i !== 0}>
+            <div class="dettaglio-testa">
+              <span class="mittente"><span class="avatar">{richiesta.da}</span><span><strong>{richiesta.nome} · {richiesta.ruolo}</strong><span class="nota">{richiesta.quando}</span></span></span>
+              <span class="tag">{ruolo.nome} · Esercizio 1</span>
+            </div>
+            <h2 id={`t-${m.ruolo}`} class="app-titolo">{richiesta.oggetto}</h2>
+            <p>{richiesta.testo}</p>
+            <ul class="info">
+              <li>Circa {minuti} minuti</li>
+              <li>{parti} parti</li>
+              <li>Niente da scrivere: solo scelte</li>
+            </ul>
 
-          <!-- Allegati della richiesta: cosa c'è oggi su Google e i dati da usare -->
-          <div class="allegati">
-            <section class="allegato">
-              <span class="allegato-titolo">Come appare oggi su Google</span>
-              <span class="a-url">{esercizio.attuale.url}</span>
-              <span class="a-titolo">{esercizio.attuale.titolo}</span>
-              <span class="a-desc">{esercizio.attuale.descrizione}</span>
-              <span class="allegato-nota">Titolo corto e generico: chi cerca "tè verde Sencha" non lo trova.</span>
-            </section>
-            <section class="allegato">
-              <span class="allegato-titolo">Ricerche su Google <span class="simulati">dati simulati</span></span>
-              <table>
-                <caption class="sr">Le ricerche più frequenti, numeri inventati</caption>
-                <tbody>
-                  {esercizio.ricerche.slice(0, 4).map((r) => (
-                    <tr><td>{r.ricerca}</td><td>{r.mese}</td></tr>
-                  ))}
-                </tbody>
-              </table>
-              <a class="allegato-link" href="/app/dati/ricerche/">Vedi tutte le ricerche →</a>
-            </section>
-          </div>
+            {scheda ? (
+              <div class="allegati">
+                <section class="allegato">
+                  <span class="allegato-titolo">{scheda.titolo} <span class="simulati">dati simulati</span></span>
+                  <table>
+                    <caption class="sr">{scheda.titolo}, numeri inventati</caption>
+                    <tbody>{scheda.voci.map(([k, v]) => (<tr><td>{k}</td><td>{v}</td></tr>))}</tbody>
+                  </table>
+                </section>
+              </div>
+            ) : (
+              <div class="allegati">
+                <section class="allegato">
+                  <span class="allegato-titolo">Come appare oggi su Google</span>
+                  <span class="a-url">{seo.attuale.url}</span>
+                  <span class="a-titolo">{seo.attuale.titolo}</span>
+                  <span class="a-desc">{seo.attuale.descrizione}</span>
+                  <span class="allegato-nota">Titolo corto e generico: chi cerca "tè verde Sencha" non lo trova.</span>
+                </section>
+                <section class="allegato">
+                  <span class="allegato-titolo">Ricerche su Google <span class="simulati">dati simulati</span></span>
+                  <table>
+                    <caption class="sr">Le ricerche più frequenti, numeri inventati</caption>
+                    <tbody>{seo.ricerche.slice(0, 4).map((r) => (<tr><td>{r.ricerca}</td><td>{r.mese}</td></tr>))}</tbody>
+                  </table>
+                  <a class="allegato-link" href="/app/dati/ricerche/">Vedi tutte le ricerche →</a>
+                </section>
+              </div>
+            )}
 
-          <div class="dettaglio-piede">
-            <a class="bottone-app" href="/app/seo/esercizio/" data-apri>Apri l'esercizio →</a>
-          </div>
-        </article>
+            <div class="dettaglio-piede">
+              <a class="bottone-app" href={m.link} data-apri={m.ruolo}>Apri l'esercizio →</a>
+            </div>
+          </article>
+        ))}
       </div>
     </main>
 
     <aside class="destra">
-      <div class="consiglio">
-        <Pesca dimensione={58} occhiali />
-        <p>{esercizio.consiglio}</p>
-      </div>
-      <div class="pannello parole">
-        <span class="gruppo-titolo">Parole da sapere oggi</span>
-        <ul>{esercizio.parole.map((p) => <li>{p}</li>)}</ul>
-      </div>
+      {dettagli.map(({ m, consiglio, parole }, i) => (
+        <div class="lato-richiesta" data-lato={m.ruolo} hidden={i !== 0}>
+          <div class="consiglio">
+            <Pesca dimensione={58} occhiali />
+            <p>{consiglio}</p>
+          </div>
+          <div class="pannello parole">
+            <span class="gruppo-titolo">Parole da sapere</span>
+            <ul>{parole.map((p) => <li>{p}</li>)}</ul>
+          </div>
+        </div>
+      ))}
       <div class="pannello avanzamento">
         <span class="gruppo-titolo">I tuoi progressi</span>
         <ul>
           {azienda.ruoli.map((r) => (
-            <li data-avanzamento={r.id}><span class="pallino" aria-hidden="true"></span><span>{r.nome}</span><span class="av-stato">{r.pronto ? "da fare" : "in arrivo"}</span></li>
+            <li data-avanzamento={r.id}><span class="pallino" aria-hidden="true"></span><span>{r.nome}</span><span class="av-stato">da fare</span></li>
           ))}
         </ul>
         <a class="allegato-link" href="/app/riepilogo/">Vedi i risultati →</a>
@@ -134,17 +141,45 @@ const richiesta = esercizio.richiesta;
 </AppLayout>
 
 <script>
-  // Mostra lo stato del ruolo SEO salvato nel browser
   import { leggi } from "../../scripts/progressi";
-  const seo = leggi().ruoli.seo;
-  const stato = seo?.stato === "completato" ? "fatto" : seo?.stato === "in-corso" ? "in corso" : "da fare";
-  document.querySelectorAll('[data-ruolo="seo"] [data-stato]').forEach((el) => (el.textContent = stato));
-  document.querySelectorAll("[data-stato-mail]").forEach((el) => (el.textContent = `SEO · ${stato}`));
-  const av = document.querySelector('[data-avanzamento="seo"]');
-  if (av) { av.querySelector(".av-stato")!.textContent = stato; av.classList.toggle("fatto", seo?.stato === "completato"); av.classList.toggle("in-corso", seo?.stato === "in-corso"); }
-  if (seo?.stato === "completato") {
-    document.querySelectorAll<HTMLAnchorElement>("[data-apri]").forEach((a) => { a.textContent = "Rivedi l'esercizio →"; });
+  import azienda from "../../data/app/cinque-foglie.json";
+
+  // 1. Stato di ogni ruolo, letto dal browser
+  const progressi = leggi().ruoli;
+  for (const r of azienda.ruoli) {
+    const s = progressi[r.id]?.stato;
+    const stato = s === "completato" ? "fatto" : s === "in-corso" ? "in corso" : "da fare";
+    document.querySelectorAll(`[data-ruolo="${r.id}"] [data-stato]`).forEach((el) => (el.textContent = stato));
+    const mail = document.querySelector(`[data-stato-mail="${r.id}"]`);
+    if (mail) mail.textContent = `${mail.textContent!.split(" · ")[0]} · ${stato}`;
+    const av = document.querySelector(`[data-avanzamento="${r.id}"]`);
+    if (av) { av.querySelector(".av-stato")!.textContent = stato; av.classList.toggle("fatto", s === "completato"); av.classList.toggle("in-corso", s === "in-corso"); }
+    if (s === "completato") {
+      document.querySelector(`[data-mail="${r.id}"] .avatar`)?.classList.replace("avatar--nuovo", "avatar--spento");
+      const a = document.querySelector<HTMLAnchorElement>(`[data-apri="${r.id}"]`);
+      if (a) { a.textContent = "Rivedi la correzione →"; a.href = `/app/${r.id}/correzione/`; }
+    }
   }
+
+  // 2. Clic su una richiesta: mostra il suo dettaglio e i consigli di Pesca
+  function apri(id: string) {
+    document.querySelectorAll<HTMLButtonElement>("[data-mail]").forEach((b) => {
+      const attiva = b.dataset.mail === id;
+      b.classList.toggle("mail--aperta", attiva);
+      b.setAttribute("aria-pressed", String(attiva));
+    });
+    document.querySelectorAll<HTMLElement>("[data-dettaglio]").forEach((d) => (d.hidden = d.dataset.dettaglio !== id));
+    document.querySelectorAll<HTMLElement>("[data-lato]").forEach((d) => (d.hidden = d.dataset.lato !== id));
+    document.querySelectorAll("[data-ruolo]").forEach((v) => v.classList.toggle("voce--attiva", (v as HTMLElement).dataset.ruolo === id));
+  }
+  document.querySelectorAll<HTMLButtonElement>("[data-mail]").forEach((b) => b.addEventListener("click", () => {
+    apri(b.dataset.mail!);
+    if (window.matchMedia("(max-width: 760px)").matches) document.getElementById(`dettaglio-${b.dataset.mail}`)?.scrollIntoView({ behavior: "smooth" });
+  }));
+
+  // All'inizio si apre la prima richiesta non ancora completata
+  const prima = azienda.ruoli.find((r) => progressi[r.id]?.stato !== "completato")?.id ?? "seo";
+  apri(prima);
 </script>
 
 <style>
@@ -170,15 +205,15 @@ const richiesta = esercizio.richiesta;
   /* La casella occupa tutto lo spazio rimasto: lista a sinistra, richiesta aperta a destra */
   .posta { flex: 1; display: grid; grid-template-columns: minmax(240px, 320px) minmax(0, 1fr); gap: 16px; align-items: stretch; }
   .lista { list-style: none; margin: 0; padding: 6px; background: #fff; border: 1px solid #eadfd6; border-radius: 16px; display: flex; flex-direction: column; gap: 4px; }
-  .mail { display: flex; gap: 12px; align-items: flex-start; padding: 12px; border-radius: 12px; text-decoration: none; color: #8a7b72; }
-  .mail--aperta { background: #fff1e6; color: var(--inchiostro); box-shadow: inset 3px 0 0 var(--arancio); }
+  .mail { width: 100%; font: inherit; text-align: left; border: 0; background: none; cursor: pointer; display: flex; gap: 12px; align-items: flex-start; padding: 12px; border-radius: 12px; color: #5c4a42; }
+  .mail:hover { background: #faf7f4; }
+  .mail.mail--aperta { background: #fff1e6; color: var(--inchiostro); box-shadow: inset 3px 0 0 var(--arancio); }
   .avatar--nuovo { background: var(--arancio); color: var(--inchiostro); }
   .avatar--spento { background: #e8ded6; color: #6b5d55; }
   .mail-testi { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
   .mail-testa { display: flex; justify-content: space-between; gap: 8px; font-size: .8rem; }
   .mail-oggetto { font-weight: 600; font-size: .9rem; }
   .mail-stato { font-size: .75rem; font-weight: 700; color: #a24a0e; }
-  .mail:not(.mail--aperta) .mail-stato { color: #a89a90; }
   .dettaglio { min-width: 0; background: #fff; border: 1px solid #eadfd6; border-radius: 16px; padding: 24px 28px; display: flex; flex-direction: column; gap: 16px; }
   .dettaglio-testa { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; align-items: center; }
   .mittente { display: flex; align-items: center; gap: 10px; }
@@ -197,7 +232,9 @@ const richiesta = esercizio.richiesta;
   .allegato-nota { margin-top: 8px; font-size: .8rem; color: #a12d1d; font-weight: 600; }
   table { width: 100%; border-collapse: collapse; font-size: .9rem; font-variant-numeric: tabular-nums; }
   td { padding: 6px 0; border-bottom: 1px solid #f3eeea; }
-  td:last-child { text-align: right; color: #5c4a42; }
+  td { vertical-align: top; }
+  td:first-child { color: #8a7b72; padding-right: 12px; }
+  td:last-child { text-align: right; color: #3a2b24; }
   .allegato-link { margin-top: 8px; font-size: .85rem; font-weight: 700; }
   .dettaglio-piede { margin-top: auto; padding-top: 16px; border-top: 1px solid #f3eeea; display: flex; justify-content: flex-end; }
 
@@ -213,7 +250,8 @@ const richiesta = esercizio.richiesta;
   .avanzamento li span:nth-child(2) { flex: 1; }
   .pallino { width: 10px; height: 10px; border-radius: 50%; border: 2px solid #d8c9bd; }
   .av-stato { font-size: .75rem; font-weight: 700; }
-  .avanzamento li[data-avanzamento="seo"] { color: var(--inchiostro); }
+  .avanzamento li { color: var(--inchiostro); }
+  .lato-richiesta { display: flex; flex-direction: column; gap: 14px; }
   .avanzamento li.in-corso .pallino { border-color: var(--arancio); background: #fff1e6; }
   .avanzamento li.fatto .pallino { border-color: #2f7a4f; background: #2f7a4f; }
   .avanzamento .allegato-link { margin-top: auto; padding-top: 12px; }

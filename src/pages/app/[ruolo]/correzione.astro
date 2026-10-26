@@ -1,0 +1,225 @@
+---
+// APP · CORREZIONE GENERICA (SEA, Brand, Social, Influencer, CRM)
+// Come per la SEO: controlli automatici (40 punti) + autovalutazione guardando la soluzione (60 punti),
+// meno 5 punti per ogni aiuto aperto. Le risposte vengono lette dal browser.
+import AppLayout from "../../../layouts/AppLayout.astro";
+import Pesca from "../../../components/Pesca.astro";
+import Passi from "../../../components/PassiEsercizio.astro";
+import { ESERCIZI, type Esercizio } from "../../../scripts/esercizi";
+
+export function getStaticPaths() {
+  return ESERCIZI.map((es) => ({ params: { ruolo: es.id }, props: { es } }));
+}
+const { es } = Astro.props as { es: Esercizio };
+const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + p.controlli.length, 0));
+---
+<AppLayout title={`Correzione · ${es.ruolo}`} indietro={{ etichetta: "Scrivania", link: "/app/scrivania/" }} percorso={[{ etichetta: es.ruolo }, { etichetta: "Correzione" }]}>
+  <Passi slot="barra" attivo={3} />
+
+  <main class="contenuto" data-vuoto hidden>
+    <section class="pannello vuoto">
+      <Pesca dimensione={80} occhiali />
+      <div>
+        <h1 class="app-titolo">Non hai ancora consegnato</h1>
+        <p>Completa le parti dell'esercizio, poi torna qui per il confronto.</p>
+        <a class="bottone-app" href={`/app/${es.id}/esercizio/`}>Vai all'esercizio →</a>
+      </div>
+    </section>
+  </main>
+
+  <main class="contenuto" data-pieno data-esercizio={es.id} hidden>
+    <section class="pannello risultato">
+      <div class="risultato-testa">
+        <Pesca dimensione={72} class="festa" etichetta="Pesca che festeggia" />
+        <div>
+          <h1 class="app-titolo">Consegnato! Ora confronta il tuo lavoro</h1>
+          <p>Prima i controlli automatici, poi le tue scelte accanto alla soluzione, parte per parte.</p>
+        </div>
+      </div>
+      <dl class="punti" aria-live="polite">
+        <div><dt>Controlli automatici</dt><dd><span data-p-auto>0</span> / 40</dd><span class="barra"><span data-b-auto></span></span></div>
+        <div><dt>Autovalutazione</dt><dd><span data-p-voto>0</span> / 60</dd><span class="barra"><span data-b-voto></span></span></div>
+        <div data-riga-aiuti><dt>Aiuti di Pesca</dt><dd>− <span data-p-aiuti>0</span></dd></div>
+        <div class="totale"><dt>Totale</dt><dd data-p-totale>0</dd></div>
+      </dl>
+    </section>
+
+    <section class="pannello controlli" aria-labelledby="t-controlli">
+      <h2 id="t-controlli" class="sottotitolo">Controlli automatici, parte per parte</h2>
+      <div class="gruppi">
+        {es.parti.map((p, i) => (
+          <div class="gruppo">
+            <strong>{i + 1}. {p.titolo} <span class="conteggio" data-conteggio={i}></span></strong>
+            <ul>
+              {p.controlli.map((c, k) => (<li data-controllo={inizio[i] + k}><span class="segno" aria-hidden="true"></span><span>{c.nome}</span></li>))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="confronto" aria-label="Confronto con la soluzione">
+      {es.parti.map((p, i) => (
+        <div class="riga-confronto">
+          <div class="pannello lavoro"><span class="piccolo">{i + 1} · Le tue scelte</span><ul class="tue" data-tuo={p.id}></ul></div>
+          <div class="pannello lavoro lavoro--pro"><span class="piccolo">Soluzione</span><span>{p.soluzione}</span><span class="perche-breve">{p.perche}</span></div>
+        </div>
+      ))}
+      <div class="pannello note-pro">
+        <strong>Da ricordare</strong>
+        <ul class="perche">{es.note.map((x) => <li>{x}</li>)}</ul>
+      </div>
+    </section>
+
+    <section class="parte-finale">
+      <form class="pannello autovalutazione" data-autovalutazione>
+        <div>
+          <h2 class="sottotitolo">Autovalutazione</h2>
+          <p class="nota">Guarda la soluzione e segna onestamente cosa hai fatto anche tu. Ogni punto vale 15.</p>
+        </div>
+        {es.autovalutazione.map((frase, i) => (
+          <label class="scelta"><input type="checkbox" data-voto={i} /><span>{frase}</span></label>
+        ))}
+        <fieldset class="gradimento">
+          <legend>Quanto ti è piaciuto questo ruolo?</legend>
+          <div class="stelle">
+            {[1, 2, 3, 4, 5].map((n) => (<label><input type="radio" name="gradimento" value={n} /><span>{n}</span></label>))}
+          </div>
+          <p class="nota">1 = per niente, 5 = moltissimo. Serve a consigliarti il percorso giusto.</p>
+        </fieldset>
+      </form>
+
+      <aside class="lato">
+        <div class="pannello risposta">
+          <span class="mittente"><span class="avatar">{es.richiesta.da}</span><strong>Risposta di {es.richiesta.nome}</strong></span>
+          <p>{es.rispostaCollega}</p>
+        </div>
+        <div class="pannello imparato">
+          <strong>Cosa hai imparato</strong>
+          <ul>{es.imparato.map((x) => <li>{x}</li>)}</ul>
+        </div>
+        <div class="azioni">
+          <button type="button" class="bottone-app" data-completa>Segna come completato →</button>
+          <a class="bottone-app bottone-app--chiaro" href={`/app/${es.id}/esercizio/`}>Riprova</a>
+        </div>
+      </aside>
+    </section>
+  </main>
+</AppLayout>
+
+<script>
+  import { leggi, aggiornaRuolo, punteggio } from "../../../scripts/progressi";
+  import { esercizio, riassunto } from "../../../scripts/esercizi";
+
+  const pieno = document.querySelector<HTMLElement>("[data-pieno]")!;
+  const es = esercizio(pieno.dataset.esercizio!)!;
+  const id = es.id;
+  const r = leggi().ruoli[id];
+
+  if (!r?.consegna) {
+    document.querySelector<HTMLElement>("[data-vuoto]")!.hidden = false;
+  } else {
+    pieno.hidden = false;
+    const c = r.consegna;
+    // Le tue scelte, in parole
+    es.parti.forEach((p) => {
+      const ul = document.querySelector(`[data-tuo="${p.id}"]`)!;
+      riassunto(p, c.lavoro[p.id]).forEach((frase) => { const li = document.createElement("li"); li.textContent = frase; ul.appendChild(li); });
+    });
+    // Controlli
+    c.controlli.forEach((ok, i) => document.querySelector(`[data-controllo="${i}"]`)?.classList.toggle("ok", ok));
+    let k = 0;
+    es.parti.forEach((p, i) => {
+      document.querySelector(`[data-conteggio="${i}"]`)!.textContent = `${c.controlli.slice(k, k + p.controlli.length).filter(Boolean).length}/${p.controlli.length}`;
+      k += p.controlli.length;
+    });
+
+    // Autovalutazione e gradimento salvati
+    const voti = [...document.querySelectorAll<HTMLInputElement>("[data-voto]")];
+    (r.autovalutazione ?? []).forEach((v, i) => { if (voti[i]) voti[i].checked = v; });
+    if (r.gradimento) { const g = document.querySelector<HTMLInputElement>(`input[name="gradimento"][value="${r.gradimento}"]`); if (g) g.checked = true; }
+
+    function mostraPunti() {
+      const p = punteggio(leggi().ruoli[id] ?? {});
+      document.querySelector("[data-p-auto]")!.textContent = String(p.auto);
+      document.querySelector("[data-p-voto]")!.textContent = String(p.voto);
+      document.querySelector("[data-p-aiuti]")!.textContent = String(p.aiuti);
+      document.querySelector<HTMLElement>("[data-riga-aiuti]")!.hidden = p.aiuti === 0;
+      document.querySelector("[data-p-totale]")!.textContent = String(p.totale);
+      document.querySelector<HTMLElement>("[data-b-auto]")!.style.width = `${(p.auto / 40) * 100}%`;
+      document.querySelector<HTMLElement>("[data-b-voto]")!.style.width = `${(p.voto / 60) * 100}%`;
+    }
+    document.querySelector("[data-autovalutazione]")!.addEventListener("change", () => {
+      const g = document.querySelector<HTMLInputElement>('input[name="gradimento"]:checked');
+      aggiornaRuolo(id, { autovalutazione: voti.map((v) => v.checked), gradimento: g ? Number(g.value) : undefined });
+      mostraPunti();
+    });
+    mostraPunti();
+
+    document.querySelector("[data-completa]")!.addEventListener("click", () => {
+      aggiornaRuolo(id, { stato: "completato", autovalutazione: voti.map((v) => v.checked) });
+      window.location.href = "/app/riepilogo/";
+    });
+  }
+</script>
+
+<style>
+  .contenuto { max-width: 1160px; margin: 0 auto; padding: 28px 24px 56px; display: flex; flex-direction: column; gap: 16px; }
+  .vuoto { padding: 28px; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; }
+  .vuoto div { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+  .risultato { padding: 22px; display: flex; flex-wrap: wrap; gap: 22px; align-items: center; justify-content: space-between; }
+  .risultato-testa { flex: 1 1 420px; min-width: 0; display: flex; gap: 16px; align-items: center; }
+  .risultato-testa :global(.festa) { animation: festa 1.8s ease-in-out 3; }
+  @keyframes festa { 0%, 100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-6px) rotate(3deg); } }
+  h1 { font-size: 1.6rem; line-height: 1.15; margin-bottom: 4px; }
+  .risultato p { color: #5c4a42; line-height: 1.5; }
+  .punti { flex: 1 1 300px; min-width: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+  .punti div { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; align-items: baseline; }
+  .punti dt { font-size: .85rem; color: #5c4a42; }
+  .punti dd { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .punti .barra { grid-column: 1 / -1; height: 6px; background: #f1e6dd; border-radius: 99px; overflow: hidden; }
+  .punti .barra span { display: block; height: 100%; width: 0; background: var(--arancio); transition: width .3s; }
+  .totale { border-top: 1px solid #eadfd6; padding-top: 8px; }
+  .totale dd { font-family: var(--font-titoli); font-size: 2rem; font-weight: 800; color: #c4520b; }
+  .controlli { padding: 18px 22px; display: flex; flex-direction: column; gap: 10px; }
+  .sottotitolo { font-family: var(--font-testo); font-size: 1rem; font-weight: 700; }
+  .gruppi { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .gruppo { display: flex; flex-direction: column; gap: 8px; }
+  .gruppo strong { font-size: .9rem; display: flex; justify-content: space-between; gap: 8px; }
+  .conteggio { flex: none; color: #8a3a06; font-variant-numeric: tabular-nums; }
+  .gruppo ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: .85rem; }
+  .gruppo li { display: flex; align-items: center; gap: 8px; color: #6b5d55; }
+  .segno { flex: none; width: 20px; height: 20px; border-radius: 50%; border: 2px solid #c0392b; background: #fde8e4; }
+  .gruppo li.ok { color: var(--inchiostro); }
+  .gruppo li.ok .segno { background: #2f7a4f; border-color: #2f7a4f; display: grid; place-items: center; }
+  .gruppo li.ok .segno::after { content: ""; width: 8px; height: 4px; border-left: 2px solid #fff; border-bottom: 2px solid #fff; transform: rotate(-45deg) translate(1px, -1px); }
+  .confronto { display: flex; flex-direction: column; gap: 12px; }
+  .riga-confronto { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 12px; }
+  .lavoro { min-width: 0; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px; line-height: 1.55; }
+  .lavoro--pro { border-color: #2f7a4f; box-shadow: inset 4px 0 0 #2f7a4f; }
+  .tue { margin: 0; padding-left: 18px; font-size: .9rem; color: #4a3a32; display: flex; flex-direction: column; gap: 3px; }
+  .perche-breve { font-size: .85rem; color: #5c4a42; margin-top: 6px; }
+  .piccolo { font-size: .7rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #8a7b72; margin-bottom: 4px; }
+  .note-pro { padding: 18px 20px; display: flex; flex-direction: column; gap: 6px; }
+  .perche { margin: 10px 0 0; padding-left: 18px; font-size: .9rem; line-height: 1.55; color: #3a2b24; display: flex; flex-direction: column; gap: 4px; }
+  .parte-finale { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; }
+  .autovalutazione { flex: 2 1 460px; min-width: 0; padding: 22px; display: flex; flex-direction: column; gap: 12px; }
+  .nota { font-size: .85rem; color: #6b5d55; line-height: 1.5; margin-top: 4px; }
+  .scelta { display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border: 1px solid #eadfd6; border-radius: 12px; line-height: 1.45; cursor: pointer; }
+  .scelta:has(input:checked) { border-color: #2f7a4f; background: #f3faf5; }
+  .scelta input { width: 18px; height: 18px; margin-top: 2px; accent-color: #2f7a4f; }
+  .gradimento { border: 0; margin: 6px 0 0; padding: 0; }
+  legend { font-weight: 700; margin-bottom: 8px; }
+  .stelle { display: flex; gap: 8px; }
+  .stelle label { position: relative; }
+  .stelle input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  .stelle span { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 12px; border: 2px solid #e2d6cc; font-weight: 800; cursor: pointer; }
+  .stelle input:checked + span { background: var(--arancio); border-color: var(--inchiostro); }
+  .stelle input:focus-visible + span { outline: 3px solid var(--arancio); outline-offset: 2px; }
+  .lato { flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
+  .risposta, .imparato { padding: 18px; display: flex; flex-direction: column; gap: 10px; line-height: 1.55; }
+  .mittente { display: flex; align-items: center; gap: 10px; }
+  .imparato ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+  .imparato li { font-size: .85rem; background: #e3f3e8; color: #1f5c38; padding: 5px 10px; border-radius: 999px; }
+  .azioni { display: flex; flex-wrap: wrap; gap: 10px; }
+</style>

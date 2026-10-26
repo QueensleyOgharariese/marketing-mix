@@ -1,0 +1,97 @@
+{
+  "_nota": "Esercizio Brand 1. La guida del brand e i commenti sono inventati.",
+  "id": "brand",
+  "ruolo": "Brand manager",
+  "titolo": "Esercizio 1 · Il tono di voce di Cinque Foglie",
+  "minuti": 20,
+  "richiesta": { "da": "MR", "nome": "Marta", "ruolo": "Fondatrice", "quando": "ieri alle 11:05", "oggetto": "Il nostro tono di voce",
+    "testo": "Ciao! Ognuno di noi scrive in modo diverso su sito, social e newsletter. Mi aiuti a capire quali frasi sono \"da Cinque Foglie\", a scegliere i nostri valori e a sistemare un paio di regole di stile?" },
+  "scheda": { "titolo": "Chi è Cinque Foglie", "voci": [
+    ["Missione", "Far scoprire il tè di qualità, con calma e gentilezza"], ["Clienti", "Persone di 25-45 anni che amano i piccoli rituali"],
+    ["Fatti", "Foglie intere, confezioni compostabili, spedizione in 24 ore"], ["Personalità", "Gentile, chiara, competente, mai invadente"],
+    ["Colore principale", "Arancione #ff7a1a"], ["Testo", "Marrone scuro #2a1d18"] ] },
+  "consiglio": "Un tono di voce si riconosce anche senza logo: chiediti se ogni frase \"suona\" come Cinque Foglie.",
+  "parole": ["tono di voce", "valori del brand", "coerenza", "contrasto"],
+  "parti": [
+    { "id": "frasi", "tipo": "classifica", "titolo": "È una frase da Cinque Foglie?",
+      "testo": "Per ogni frase scegli se è in linea con la personalità del brand.",
+      "colonne": [ { "id": "si", "nome": "In linea" }, { "id": "no", "nome": "Fuori tono" } ],
+      "righe": [
+        { "id": "f1", "testo": "Prenditi una pausa: il tuo Sencha ti aspetta.", "giusti": ["si"] },
+        { "id": "f2", "testo": "Ti spieghiamo come prepararlo, passo per passo.", "giusti": ["si"] },
+        { "id": "f3", "testo": "ULTIME ORE!!! Compra subito o te ne pentirai", "giusti": ["no"] },
+        { "id": "f4", "testo": "Il tè che ti cambia la vita", "giusti": ["no"] },
+        { "id": "f5", "testo": "Siamo i numeri uno, gli altri ci copiano", "giusti": ["no"] }
+      ],
+      "controlli": [
+        { "nome": "Frasi gentili e chiare riconosciute", "regola": { "tipo": "righe", "righe": ["f1", "f2"] }, "suggerimento": "Le frasi calme e utili sono proprio da Cinque Foglie." },
+        { "nome": "Pressione e urgenza riconosciute", "regola": { "tipo": "righe", "righe": ["f3"] }, "suggerimento": "Maiuscole, punti esclamativi e minacce non sono \"mai invadenti\"." },
+        { "nome": "Promesse esagerate riconosciute", "regola": { "tipo": "righe", "righe": ["f4"] }, "suggerimento": "Un tè non cambia la vita: è un'esagerazione." },
+        { "nome": "Attacchi ai concorrenti riconosciuti", "regola": { "tipo": "righe", "righe": ["f5"] }, "suggerimento": "Vantarsi a spese degli altri non è gentile." }
+      ],
+      "perche": "Un tono di voce coerente rende il brand riconoscibile ovunque. Le scritte urgenti false o le esagerazioni fanno perdere fiducia, e alcune pratiche aggressive sono vietate dal Codice del consumo.",
+      "soluzione": "In linea: \"Prenditi una pausa...\", \"Ti spieghiamo come prepararlo...\". Fuori tono: le altre tre." },
+    { "id": "valori", "tipo": "scelta", "titolo": "Scegli i tre valori del brand",
+      "testo": "Quale gruppo di valori descrive meglio Cinque Foglie, guardando la scheda?",
+      "opzioni": [
+        { "id": "v1", "testo": "Calma, qualità, rispetto per l'ambiente", "ok": { "missione": true, "fatti": true, "distintivo": true } },
+        { "id": "v2", "testo": "Velocità, convenienza, offerte continue", "ok": { "missione": false, "fatti": false, "distintivo": false } },
+        { "id": "v3", "testo": "Innovazione, tecnologia, futuro", "ok": { "missione": false, "fatti": false, "distintivo": true } },
+        { "id": "v4", "testo": "Qualità, passione, eccellenza", "ok": { "missione": true, "fatti": false, "distintivo": false } }
+      ],
+      "controlli": [
+        { "nome": "Coerenti con la missione", "regola": { "tipo": "opzione", "chiave": "missione" }, "suggerimento": "Rileggi la missione: calma e gentilezza." },
+        { "nome": "Dimostrati da fatti veri", "regola": { "tipo": "opzione", "chiave": "fatti" }, "suggerimento": "Un valore è credibile se un fatto lo dimostra (es. le confezioni compostabili)." },
+        { "nome": "Distintivi, non generici", "regola": { "tipo": "opzione", "chiave": "distintivo" }, "suggerimento": "\"Qualità e passione\" li dicono tutti: cosa ci rende diversi?" }
+      ],
+      "perche": "I valori di un brand devono essere veri e dimostrabili. Dire di essere \"green\" senza prove è greenwashing, e la Direttiva UE 2024/825 vieta le dichiarazioni ambientali generiche senza prove.",
+      "soluzione": "Calma, qualità, rispetto per l'ambiente: nascono dalla missione e sono dimostrati da foglie intere e confezioni compostabili." },
+    { "id": "stile", "tipo": "menu", "titolo": "Sistema le regole di stile",
+      "testo": "Scegli le regole giuste per la guida del brand.",
+      "campi": [
+        { "id": "testo-bottone", "etichetta": "Colore del testo sul bottone arancione", "opzioni": ["Bianco", "Marrone scuro #2a1d18", "Arancione chiaro"] },
+        { "id": "misura", "etichetta": "Misura minima del testo sul sito", "opzioni": ["10 px", "12 px", "16 px"] },
+        { "id": "logo", "etichetta": "Logo sopra una foto piena di dettagli", "opzioni": ["Direttamente sulla foto", "Su un riquadro chiaro", "Allungato per riempire lo spazio"] }
+      ],
+      "controlli": [
+        { "nome": "Testo leggibile sul bottone (contrasto 4,5:1)", "regola": { "tipo": "menu", "campo": "testo-bottone", "valore": "Marrone scuro #2a1d18" }, "suggerimento": "Il bianco sull'arancione ha contrasto 2,6:1: troppo poco. Il marrone scuro arriva a circa 6:1." },
+        { "nome": "Testo abbastanza grande", "regola": { "tipo": "menu", "campo": "misura", "valore": "16 px" }, "suggerimento": "Sotto i 16 px il testo dei paragrafi si legge male, soprattutto su telefono." },
+        { "nome": "Logo sempre leggibile e non deformato", "regola": { "tipo": "menu", "campo": "logo", "valore": "Su un riquadro chiaro" }, "suggerimento": "Il logo non si deforma mai e ha bisogno di uno sfondo calmo." }
+      ],
+      "perche": "Un brand coerente è anche accessibile: le linee guida WCAG chiedono un contrasto di almeno 4,5:1 per il testo normale. Dal 2025, con l'European Accessibility Act, molti negozi online nell'UE devono essere accessibili.",
+      "soluzione": "Testo marrone scuro sul bottone arancione, testo di almeno 16 px, logo su un riquadro chiaro e mai deformato." },
+    { "id": "commento", "tipo": "scelta", "titolo": "Rispondi a una cliente arrabbiata",
+      "testo": "Sotto un post una cliente scrive: \"Il pacco è arrivato con 3 giorni di ritardo, non ordino più!\". Quale risposta pubblichi?",
+      "opzioni": [
+        { "id": "c1", "testo": "Ciao Giulia, hai ragione e ci dispiace davvero. Ti scriviamo in privato per capire cos'è successo e rimediare.", "ok": { "gentile": true, "concreta": true, "tono": true } },
+        { "id": "c2", "testo": "Il ritardo non dipende da noi ma dal corriere. Spediamo sempre in 24 ore.", "ok": { "gentile": false, "concreta": false, "tono": false } },
+        { "id": "c3", "testo": "Ops! Il tè era così buono che il corriere se l'è bevuto per strada, ahah!", "ok": { "gentile": false, "concreta": false, "tono": false } },
+        { "id": "c4", "testo": "Gentile cliente, la sua segnalazione è stata presa in carico. Cordiali saluti.", "ok": { "gentile": true, "concreta": false, "tono": false } }
+      ],
+      "controlli": [
+        { "nome": "Gentile e senza scuse di comodo", "regola": { "tipo": "opzione", "chiave": "gentile" }, "suggerimento": "Prima si riconosce il problema, senza dare la colpa ad altri." },
+        { "nome": "Propone una soluzione concreta", "regola": { "tipo": "opzione", "chiave": "concreta" }, "suggerimento": "Cosa farete per rimediare?" },
+        { "nome": "Nel tono di Cinque Foglie", "regola": { "tipo": "opzione", "chiave": "tono" }, "suggerimento": "Né battute né frasi da modulo: calda e chiara." }
+      ],
+      "perche": "Le risposte ai commenti sono pubbliche: le leggono tutti. Una risposta gentile e concreta può trasformare una critica in fiducia.",
+      "soluzione": "La prima: riconosce il problema, si scusa e propone di rimediare in privato." }
+  ],
+  "aiuti": [
+    { "titolo": "Come riconosco una frase fuori tono?", "testo": "Confrontala con la personalità nella scheda: gentile, chiara, competente, mai invadente. Se mette fretta, esagera o attacca qualcuno, è fuori tono." },
+    { "titolo": "Cos'è il contrasto?", "testo": "La differenza di luminosità tra testo e sfondo. Più è alta, più si legge bene. Per il testo normale serve almeno 4,5:1." }
+  ],
+  "glossario": "Tono di voce: il modo in cui un brand parla. Valori: le cose in cui crede, dimostrate dai fatti. Contrasto: quanto il testo si distingue dallo sfondo.",
+  "note": [
+    "Il tono di voce nasce dalla personalità del brand, non dai gusti di chi scrive.",
+    "I valori devono essere veri, dimostrabili e distintivi.",
+    "Le regole di stile servono anche a rendere il brand accessibile a tutte le persone."
+  ],
+  "autovalutazione": [
+    "Saprei spiegare perché una frase è fuori tono.",
+    "Ho capito perché i valori devono essere dimostrati dai fatti.",
+    "Ho capito a cosa serve il contrasto tra testo e sfondo.",
+    "Saprei rispondere a una critica restando nel tono del brand."
+  ],
+  "rispostaCollega": "Perfetto, ora abbiamo una base comune. Metto le regole nella guida del brand e la mando a tutto il team.",
+  "imparato": ["tono di voce", "valori dimostrabili", "contrasto e accessibilità", "risposte alle critiche"]
+}

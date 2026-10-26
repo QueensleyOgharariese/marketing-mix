@@ -53,28 +53,20 @@ import azienda from "../../data/app/cinque-foglie.json";
       <aside class="pannello scelta" aria-labelledby="t-scelta">
         <div>
           <h2 id="t-scelta" class="app-titolo scelta-titolo">Scegli il tuo primo pass</h2>
-          <p class="nota">Ogni ruolo ha un esercizio guidato di circa 15 minuti.</p>
+          <p class="nota">Ogni ruolo ha un esercizio guidato di circa 20 minuti. Puoi provarli tutti, nell'ordine che vuoi.</p>
         </div>
         <ul class="ruoli">
           {azienda.ruoli.map((r) => (
             <li>
-              {r.pronto ? (
-                <a class="ruolo" href="/app/scrivania/">
-                  <span class="ruolo-icona ruolo-icona--attiva"><Icona nome={r.icona} dimensione={18} /></span>
-                  <span class="ruolo-testi"><strong>{r.nome}</strong><span>{r.breve}</span></span>
-                  <span class="consigliato">Consigliato</span>
-                </a>
-              ) : (
-                <span class="ruolo ruolo--presto">
-                  <span class="ruolo-icona"><Icona nome={r.icona} dimensione={18} /></span>
-                  <span class="ruolo-testi"><strong>{r.nome}</strong><span>{r.breve}</span></span>
-                  <span class="presto">In arrivo</span>
-                </span>
-              )}
+              <a class="ruolo" href={`/app/${r.id}/esercizio/`}>
+                <span class="ruolo-icona ruolo-icona--attiva"><Icona nome={r.icona} dimensione={18} /></span>
+                <span class="ruolo-testi"><strong>{r.nome}</strong><span>{r.breve}</span></span>
+                {r.id === "seo" && <span class="consigliato">Consigliato</span>}
+              </a>
             </li>
           ))}
         </ul>
-        <a class="bottone-app" href="/app/scrivania/">Inizia con SEO specialist →</a>
+        <a class="bottone-app" href="/app/scrivania/">Vai alla tua scrivania →</a>
       </aside>
     </div>
   </main>

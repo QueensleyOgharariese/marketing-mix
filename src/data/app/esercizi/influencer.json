@@ -1,0 +1,100 @@
+{
+  "_nota": "Esercizio Influencer 1. Creator, numeri e codici sono inventati.",
+  "id": "influencer",
+  "ruolo": "Influencer marketing",
+  "titolo": "Esercizio 1 · Una collaborazione per il matcha",
+  "minuti": 20,
+  "richiesta": { "da": "SC", "nome": "Sara", "ruolo": "Social e community", "quando": "lunedì alle 10:15", "oggetto": "Una creator per il matcha",
+    "testo": "Ciao! Per il lancio del matcha vorremmo collaborare con una creator. Mi aiuti a scegliere i profili giusti, a preparare le istruzioni, a controllare il post e a capire se è andata bene?" },
+  "scheda": { "titolo": "La collaborazione", "voci": [
+    ["Prodotto", "Matcha biologico, 30 g, 16,90 €"], ["Clienti", "25-40 anni, in Italia, amano i rituali e la cucina"],
+    ["Compenso offerto", "400 € per un Reel e 3 Storie"], ["Codice sconto", "TAZZA10 (10% di sconto)"],
+    ["Ordini con il codice", "60 in un mese"], ["Valore medio di un ordine (già scontato)", "20 €"] ] },
+  "consiglio": "Una creator giusta non è quella con più follower, ma quella che parla davvero alle nostre persone.",
+  "parole": ["creator", "engagement", "brief", "#adv", "codice sconto"],
+  "parti": [
+    { "id": "profili", "tipo": "classifica", "titolo": "Quali creator sono adatte?",
+      "testo": "Guarda i profili e scegli se sono adatti alla collaborazione.",
+      "colonne": [ { "id": "si", "nome": "Adatta" }, { "id": "no", "nome": "Non adatta" } ],
+      "righe": [
+        { "id": "p1", "testo": "@tazzaditè · 18 mila follower · engagement 6% · 85% in Italia · tè e ricette", "giusti": ["si"] },
+        { "id": "p2", "testo": "@slowmornings · 42 mila · engagement 4% · 78% in Italia · rituali del mattino", "giusti": ["si"] },
+        { "id": "p3", "testo": "@fitqueen · 900 mila · engagement 0,4% · 30% in Italia · diete e integratori", "giusti": ["no"] },
+        { "id": "p4", "testo": "@giroilmondo · 120 mila · engagement 1,2% · 20% in Italia · viaggi", "giusti": ["no"] },
+        { "id": "p5", "testo": "@lollo_gaming · 300 mila · engagement 8% · 90% in Italia · videogiochi", "giusti": ["no"] }
+      ],
+      "controlli": [
+        { "nome": "Creator in linea con i clienti scelte", "regola": { "tipo": "righe", "righe": ["p1", "p2"] }, "suggerimento": "Temi vicini al tè, pubblico italiano, buon engagement." },
+        { "nome": "Esclusa chi parla di diete", "regola": { "tipo": "righe", "righe": ["p3"] }, "suggerimento": "Tanti follower ma pochissimo engagement, e temi di salute: rischioso." },
+        { "nome": "Escluso il pubblico fuori dall'Italia", "regola": { "tipo": "righe", "righe": ["p4"] }, "suggerimento": "Spediamo in Italia: l'80% del suo pubblico non può comprare." },
+        { "nome": "Escluso il tema lontano dal prodotto", "regola": { "tipo": "righe", "righe": ["p5"] }, "suggerimento": "Engagement altissimo, ma il pubblico cerca videogiochi, non tè." }
+      ],
+      "perche": "Contano pertinenza, pubblico e fiducia più del numero di follower. Spesso le creator piccole (micro-influencer) hanno una community più attenta.",
+      "soluzione": "Adatte: @tazzaditè e @slowmornings. Non adatte: @fitqueen (diete, poco engagement), @giroilmondo (pubblico estero), @lollo_gaming (tema lontano)." },
+    { "id": "brief", "tipo": "spunte", "titolo": "Prepara le istruzioni (brief)",
+      "testo": "Cosa scrivi nelle istruzioni per la creator? Scegli tutte le cose giuste, e solo quelle.",
+      "opzioni": [
+        { "id": "b1", "testo": "L'obiettivo: far conoscere il matcha a chi ama i rituali del mattino" },
+        { "id": "b2", "testo": "Dichiarare sempre la collaborazione, in modo chiaro e subito visibile (#adv)" },
+        { "id": "b3", "testo": "Non fare promesse sulla salute (niente \"fa dimagrire\" o \"detox\")" },
+        { "id": "b4", "testo": "Scrivere che è un regalo, così non sembra pubblicità" },
+        { "id": "b5", "testo": "Dire che è \"il miglior matcha del mondo\"" },
+        { "id": "b6", "testo": "Cancellare i commenti negativi sotto il post" }
+      ],
+      "controlli": [
+        { "nome": "Obiettivo chiaro", "regola": { "tipo": "spunte-tutte", "ids": ["b1"] }, "suggerimento": "La creator deve sapere cosa vogliamo ottenere." },
+        { "nome": "Obbligo di dichiarare la pubblicità", "regola": { "tipo": "spunte-tutte", "ids": ["b2"] }, "suggerimento": "La pubblicità deve essere sempre riconoscibile." },
+        { "nome": "Divieto di promesse sulla salute", "regola": { "tipo": "spunte-tutte", "ids": ["b3"] }, "suggerimento": "Le regole sugli alimenti valgono anche per le creator." },
+        { "nome": "Nessuna richiesta scorretta", "regola": { "tipo": "spunte-nessuna", "ids": ["b4", "b5", "b6"] }, "suggerimento": "Nascondere la pubblicità, affermazioni non dimostrabili e cancellare critiche non sono corretti." }
+      ],
+      "perche": "In Italia la pubblicità deve essere sempre riconoscibile: lo chiede il Codice di autodisciplina IAP (Digital Chart), e le linee guida AGCOM aggiungono regole per le creator più grandi. Il brand è responsabile anche di cosa chiede di dire.",
+      "soluzione": "Obiettivo, obbligo di dichiarare la collaborazione, divieto di promesse sulla salute. Niente \"è un regalo\", niente superlativi falsi, niente commenti cancellati." },
+    { "id": "post", "tipo": "scelta", "titolo": "Controlla il post prima che esca",
+      "testo": "La creator ti manda quattro versioni della didascalia. Quale approvi?",
+      "opzioni": [
+        { "id": "s1", "testo": "#adv Pubblicità · In collaborazione con @cinquefoglie: il mio nuovo rituale del mattino è il matcha. Con TAZZA10 hai il 10% di sconto.", "ok": { "chiara": true, "visibile": true, "italiano": true } },
+        { "id": "s2", "testo": "Il mio nuovo rituale del mattino è il matcha di @cinquefoglie! Con TAZZA10 hai il 10% di sconto. #matcha #colazione #tè #mattino #relax #adv", "ok": { "chiara": true, "visibile": false, "italiano": true } },
+        { "id": "s3", "testo": "Grazie a @cinquefoglie per questo regalo! Il mio nuovo rituale del mattino è il matcha.", "ok": { "chiara": false, "visibile": false, "italiano": true } },
+        { "id": "s4", "testo": "#sp #collab Il mio nuovo rituale del mattino è il matcha di @cinquefoglie. Codice TAZZA10.", "ok": { "chiara": false, "visibile": true, "italiano": false } }
+      ],
+      "controlli": [
+        { "nome": "Dice chiaramente che è pubblicità", "regola": { "tipo": "opzione", "chiave": "chiara" }, "suggerimento": "\"Grazie per il regalo\" non basta: deve essere chiaro che è una collaborazione pagata." },
+        { "nome": "Si vede subito, all'inizio", "regola": { "tipo": "opzione", "chiave": "visibile" }, "suggerimento": "Un #adv nascosto in fondo tra gli hashtag non si nota." },
+        { "nome": "Comprensibile a tutti", "regola": { "tipo": "opzione", "chiave": "italiano" }, "suggerimento": "Sigle come #sp o #collab non tutti le capiscono: meglio #adv o #pubblicità." }
+      ],
+      "perche": "La dichiarazione di pubblicità deve essere chiara, comprensibile e visibile subito, prima di \"altro\". Se è nascosta, è pubblicità occulta.",
+      "soluzione": "La prima: \"#adv Pubblicità · In collaborazione con @cinquefoglie\" è all'inizio, chiara e comprensibile." },
+    { "id": "risultati", "tipo": "menu", "titolo": "È andata bene?",
+      "testo": "Con i dati della scheda, calcola i risultati del mese.",
+      "campi": [
+        { "id": "incasso", "etichetta": "Incasso con il codice (ordini × valore medio)", "opzioni": ["400 €", "600 €", "1.200 €", "6.000 €"] },
+        { "id": "costo", "etichetta": "Costo per ordine (compenso ÷ ordini)", "opzioni": ["0,15 €", "6,67 €", "20 €", "40 €"] },
+        { "id": "roas", "etichetta": "ROAS (incasso ÷ compenso)", "opzioni": ["0,3", "1", "3", "30"] }
+      ],
+      "controlli": [
+        { "nome": "Incasso giusto: 1.200 €", "regola": { "tipo": "menu", "campo": "incasso", "valore": "1.200 €" }, "suggerimento": "60 ordini × 20 €." },
+        { "nome": "Costo per ordine giusto: 6,67 €", "regola": { "tipo": "menu", "campo": "costo", "valore": "6,67 €" }, "suggerimento": "400 € ÷ 60 ordini." },
+        { "nome": "ROAS giusto: 3", "regola": { "tipo": "menu", "campo": "roas", "valore": "3" }, "suggerimento": "1.200 € ÷ 400 €." }
+      ],
+      "perche": "Il codice sconto personale permette di misurare quante vendite arrivano dalla creator. Ma non conta tutto: molte persone la scoprono e comprano dopo, senza codice.",
+      "soluzione": "Incasso 1.200 €, 6,67 € per ordine, ROAS 3: per ogni euro dato alla creator ne sono tornati tre." }
+  ],
+  "aiuti": [
+    { "titolo": "Come scelgo una creator?", "testo": "Tre domande: parla di temi vicini al nostro prodotto? Il suo pubblico può comprare da noi? Le persone interagiscono davvero (engagement)?" },
+    { "titolo": "Come si dichiara una collaborazione?", "testo": "All'inizio, con parole chiare come \"#adv\", \"Pubblicità\" o \"In collaborazione con\". Non in fondo tra tanti hashtag." }
+  ],
+  "glossario": "Creator: chi crea contenuti sui social. Engagement: quanto il pubblico interagisce. Brief: le istruzioni per la collaborazione. #adv: la sigla che dichiara la pubblicità.",
+  "note": [
+    "Pertinenza e fiducia contano più del numero di follower.",
+    "Il brief protegge brand e creator: dice cosa fare e cosa non dire.",
+    "La pubblicità va dichiarata subito e con parole chiare."
+  ],
+  "autovalutazione": [
+    "Saprei spiegare perché una creator con meno follower può essere migliore.",
+    "Ho capito cosa non si può chiedere a una creator.",
+    "Saprei riconoscere un post con la pubblicità nascosta.",
+    "Ho calcolato i risultati da sola o da solo."
+  ],
+  "rispostaCollega": "Perfetto! Scrivo a @tazzaditè con il tuo brief. E da ora controlliamo sempre la didascalia prima che esca.",
+  "imparato": ["scegliere una creator", "scrivere un brief", "trasparenza #adv", "misurare con un codice sconto"]
+}
