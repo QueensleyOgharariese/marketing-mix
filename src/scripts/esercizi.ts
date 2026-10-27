@@ -15,7 +15,11 @@ export type Regola =
 
 export type Controllo = { nome: string; regola: Regola; suggerimento: string };
 
-type Base = { id: string; titolo: string; testo: string; perche: string; soluzione: string; controlli: Controllo[] };
+// "spiega": la spiegazione mostrata PRIMA della domanda (teoria + un esempio diverso dall'esercizio)
+export type Spiega = { testo: string; esempio?: string };
+type Base = { id: string; titolo: string; testo: string; perche: string; soluzione: string; controlli: Controllo[]; spiega?: Spiega };
+// "lezione": la mini lezione all'inizio dell'esercizio (cosa fa il ruolo, i concetti, cosa farai)
+export type Lezione = { intro: string; concetti: { nome: string; spiegazione: string; esempio?: string }[]; cosaFarai: string[] };
 export type Parte =
   | (Base & { tipo: "classifica"; colonne: { id: string; nome: string }[]; righe: { id: string; testo: string; giusti: string[] }[] })
   | (Base & { tipo: "scelta"; opzioni: { id: string; testo: string; ok: Record<string, boolean> }[] })
@@ -29,6 +33,7 @@ export type Esercizio = {
   consiglio: string; parole: string[]; parti: Parte[];
   aiuti: { titolo: string; testo: string }[]; glossario: string; note: string[];
   autovalutazione: string[]; rispostaCollega: string; imparato: string[];
+  lezione?: Lezione;
 };
 
 // Le risposte di una persona: per ogni parte (id) il suo valore

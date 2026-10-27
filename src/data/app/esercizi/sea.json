@@ -4,87 +4,433 @@
   "ruolo": "SEA specialist",
   "titolo": "Esercizio 1 · Annunci per i tè freddi",
   "minuti": 20,
-  "richiesta": { "da": "LB", "nome": "Luca", "ruolo": "E-commerce", "quando": "ieri alle 17:40", "oggetto": "Annunci per i tè freddi",
-    "testo": "Ciao! Per l'estate vorrei fare annunci su Google per il kit tè freddo. Abbiamo 300 € al mese. Mi aiuti a scegliere le ricerche giuste, l'annuncio migliore e a capire se ci conviene?" },
-  "scheda": { "titolo": "Dati della campagna", "voci": [
-    ["Prodotto", "Kit tè freddo Sencha (bustine + bottiglia)"], ["Prezzo", "14,90 €"], ["Budget", "300 € al mese"],
-    ["Costo per clic stimato", "0,40 €"], ["Conversione del sito", "2 visite su 100 comprano"], ["Pagina dell'annuncio", "cinquefoglie.example/te-freddi"],
-    ["Non vendiamo", "Macchine per tè, tè in lattina"] ] },
+  "richiesta": {
+    "da": "LB",
+    "nome": "Luca",
+    "ruolo": "E-commerce",
+    "quando": "ieri alle 17:40",
+    "oggetto": "Annunci per i tè freddi",
+    "testo": "Ciao! Per l'estate vorrei fare annunci su Google per il kit tè freddo. Abbiamo 300 € al mese. Mi aiuti a scegliere le ricerche giuste, l'annuncio migliore e a capire se ci conviene?"
+  },
+  "scheda": {
+    "titolo": "Dati della campagna",
+    "voci": [
+      [
+        "Prodotto",
+        "Kit tè freddo Sencha (bustine + bottiglia)"
+      ],
+      [
+        "Prezzo",
+        "14,90 €"
+      ],
+      [
+        "Budget",
+        "300 € al mese"
+      ],
+      [
+        "Costo per clic stimato",
+        "0,40 €"
+      ],
+      [
+        "Conversione del sito",
+        "2 visite su 100 comprano"
+      ],
+      [
+        "Pagina dell'annuncio",
+        "cinquefoglie.example/te-freddi"
+      ],
+      [
+        "Non vendiamo",
+        "Macchine per tè, tè in lattina"
+      ]
+    ]
+  },
   "consiglio": "Ogni clic costa: prima di tutto scegli le ricerche di chi vuole davvero comprare quello che vendiamo.",
-  "parole": ["CPC", "keyword negativa", "conversione", "CPA", "ROAS"],
+  "parole": [
+    "CPC",
+    "keyword negativa",
+    "conversione",
+    "CPA",
+    "ROAS"
+  ],
   "parti": [
-    { "id": "ricerche", "tipo": "classifica", "titolo": "Scegli su quali ricerche comparire",
+    {
+      "id": "ricerche",
+      "tipo": "classifica",
+      "titolo": "Scegli su quali ricerche comparire",
       "testo": "Per ogni ricerca decidi se aggiungerla come keyword o escluderla (keyword negativa).",
-      "colonne": [ { "id": "si", "nome": "Aggiungi" }, { "id": "no", "nome": "Escludi" } ],
+      "colonne": [
+        {
+          "id": "si",
+          "nome": "Aggiungi"
+        },
+        {
+          "id": "no",
+          "nome": "Escludi"
+        }
+      ],
       "righe": [
-        { "id": "r1", "testo": "kit tè freddo", "giusti": ["si"] },
-        { "id": "r2", "testo": "tè freddo sencha", "giusti": ["si"] },
-        { "id": "r3", "testo": "comprare tè freddo online", "giusti": ["si"] },
-        { "id": "r4", "testo": "tè freddo fatto in casa ricetta", "giusti": ["no"] },
-        { "id": "r5", "testo": "tè freddo gratis", "giusti": ["no"] },
-        { "id": "r6", "testo": "macchina per tè freddo", "giusti": ["no"] }
+        {
+          "id": "r1",
+          "testo": "kit tè freddo",
+          "giusti": [
+            "si"
+          ]
+        },
+        {
+          "id": "r2",
+          "testo": "tè freddo sencha",
+          "giusti": [
+            "si"
+          ]
+        },
+        {
+          "id": "r3",
+          "testo": "comprare tè freddo online",
+          "giusti": [
+            "si"
+          ]
+        },
+        {
+          "id": "r4",
+          "testo": "tè freddo fatto in casa ricetta",
+          "giusti": [
+            "no"
+          ]
+        },
+        {
+          "id": "r5",
+          "testo": "tè freddo gratis",
+          "giusti": [
+            "no"
+          ]
+        },
+        {
+          "id": "r6",
+          "testo": "macchina per tè freddo",
+          "giusti": [
+            "no"
+          ]
+        }
       ],
       "controlli": [
-        { "nome": "Ricerche di chi vuole comprare aggiunte", "regola": { "tipo": "righe", "righe": ["r1", "r2", "r3"] }, "suggerimento": "Aggiungi le ricerche di chi vuole comprare un kit come il nostro." },
-        { "nome": "Ricerca di ricette esclusa", "regola": { "tipo": "righe", "righe": ["r4"] }, "suggerimento": "Chi cerca una ricetta vuole farlo da sé: escludilo." },
-        { "nome": "Ricerca \"gratis\" esclusa", "regola": { "tipo": "righe", "righe": ["r5"] }, "suggerimento": "Chi cerca \"gratis\" non vuole pagare: escludi." },
-        { "nome": "Prodotti che non vendiamo esclusi", "regola": { "tipo": "righe", "righe": ["r6"] }, "suggerimento": "Guarda la scheda: le macchine per tè non le vendiamo." }
+        {
+          "nome": "Ricerche di chi vuole comprare aggiunte",
+          "regola": {
+            "tipo": "righe",
+            "righe": [
+              "r1",
+              "r2",
+              "r3"
+            ]
+          },
+          "suggerimento": "Aggiungi le ricerche di chi vuole comprare un kit come il nostro."
+        },
+        {
+          "nome": "Ricerca di ricette esclusa",
+          "regola": {
+            "tipo": "righe",
+            "righe": [
+              "r4"
+            ]
+          },
+          "suggerimento": "Chi cerca una ricetta vuole farlo da sé: escludilo."
+        },
+        {
+          "nome": "Ricerca \"gratis\" esclusa",
+          "regola": {
+            "tipo": "righe",
+            "righe": [
+              "r5"
+            ]
+          },
+          "suggerimento": "Chi cerca \"gratis\" non vuole pagare: escludi."
+        },
+        {
+          "nome": "Prodotti che non vendiamo esclusi",
+          "regola": {
+            "tipo": "righe",
+            "righe": [
+              "r6"
+            ]
+          },
+          "suggerimento": "Guarda la scheda: le macchine per tè non le vendiamo."
+        }
       ],
       "perche": "Negli annunci a pagamento paghi ogni clic. Le keyword negative evitano di pagare per persone che non compreranno mai.",
-      "soluzione": "Aggiungi: kit tè freddo, tè freddo sencha, comprare tè freddo online. Escludi: ricetta, gratis, macchina." },
-    { "id": "annuncio", "tipo": "scelta", "titolo": "Scegli l'annuncio",
+      "soluzione": "Aggiungi: kit tè freddo, tè freddo sencha, comprare tè freddo online. Escludi: ricetta, gratis, macchina.",
+      "spiega": {
+        "testo": "Per ogni ricerca chiediti: chi la scrive potrebbe comprare oggi proprio il nostro prodotto? Se la risposta è sì, è una keyword. Se cerca informazioni gratuite, cose che non vendiamo o vuole farlo da sé, va esclusa.",
+        "esempio": "Per le teiere: \"comprare teiera ghisa\" sì; \"teiera ghisa fai da te\" no; \"bollitore elettrico\" no, perché non lo vendiamo."
+      }
+    },
+    {
+      "id": "annuncio",
+      "tipo": "scelta",
+      "titolo": "Scegli l'annuncio",
       "testo": "Quale annuncio pubblicheresti?",
       "opzioni": [
-        { "id": "a1", "testo": "Kit Tè Freddo Sencha Bio | Pronto in 8 ore in frigo | Spedizione in 24 ore. Ordina ora.", "ok": { "pertinente": true, "azione": true, "salute": true, "vero": true } },
-        { "id": "a2", "testo": "Tè Freddo Dimagrante | Brucia i grassi in estate | Ordina ora su Cinque Foglie.", "ok": { "pertinente": true, "azione": true, "salute": false, "vero": false } },
-        { "id": "a3", "testo": "Il miglior tè del mondo | Prezzi più bassi d'Italia | Cinque Foglie.", "ok": { "pertinente": false, "azione": false, "salute": true, "vero": false } },
-        { "id": "a4", "testo": "Cinque Foglie | Tè e tisane | Scopri tutto il nostro catalogo.", "ok": { "pertinente": false, "azione": true, "salute": true, "vero": true } }
+        {
+          "id": "a1",
+          "testo": "Kit Tè Freddo Sencha Bio | Pronto in 8 ore in frigo | Spedizione in 24 ore. Ordina ora.",
+          "ok": {
+            "pertinente": true,
+            "azione": true,
+            "salute": true,
+            "vero": true
+          }
+        },
+        {
+          "id": "a2",
+          "testo": "Tè Freddo Dimagrante | Brucia i grassi in estate | Ordina ora su Cinque Foglie.",
+          "ok": {
+            "pertinente": true,
+            "azione": true,
+            "salute": false,
+            "vero": false
+          }
+        },
+        {
+          "id": "a3",
+          "testo": "Il miglior tè del mondo | Prezzi più bassi d'Italia | Cinque Foglie.",
+          "ok": {
+            "pertinente": false,
+            "azione": false,
+            "salute": true,
+            "vero": false
+          }
+        },
+        {
+          "id": "a4",
+          "testo": "Cinque Foglie | Tè e tisane | Scopri tutto il nostro catalogo.",
+          "ok": {
+            "pertinente": false,
+            "azione": true,
+            "salute": true,
+            "vero": true
+          }
+        }
       ],
       "controlli": [
-        { "nome": "Parla proprio del tè freddo", "regola": { "tipo": "opzione", "chiave": "pertinente" }, "suggerimento": "L'annuncio deve parlare di quello che la persona ha cercato." },
-        { "nome": "Invito chiaro all'azione", "regola": { "tipo": "opzione", "chiave": "azione" }, "suggerimento": "Serve un invito chiaro: ordina, scopri, prova." },
-        { "nome": "Nessuna promessa sulla salute", "regola": { "tipo": "opzione", "chiave": "salute" }, "suggerimento": "Le promesse sulla salute degli alimenti sono vietate." },
-        { "nome": "Solo affermazioni dimostrabili", "regola": { "tipo": "opzione", "chiave": "vero" }, "suggerimento": "\"Il migliore del mondo\" o \"i prezzi più bassi\" vanno dimostrati." }
+        {
+          "nome": "Parla proprio del tè freddo",
+          "regola": {
+            "tipo": "opzione",
+            "chiave": "pertinente"
+          },
+          "suggerimento": "L'annuncio deve parlare di quello che la persona ha cercato."
+        },
+        {
+          "nome": "Invito chiaro all'azione",
+          "regola": {
+            "tipo": "opzione",
+            "chiave": "azione"
+          },
+          "suggerimento": "Serve un invito chiaro: ordina, scopri, prova."
+        },
+        {
+          "nome": "Nessuna promessa sulla salute",
+          "regola": {
+            "tipo": "opzione",
+            "chiave": "salute"
+          },
+          "suggerimento": "Le promesse sulla salute degli alimenti sono vietate."
+        },
+        {
+          "nome": "Solo affermazioni dimostrabili",
+          "regola": {
+            "tipo": "opzione",
+            "chiave": "vero"
+          },
+          "suggerimento": "\"Il migliore del mondo\" o \"i prezzi più bassi\" vanno dimostrati."
+        }
       ],
       "perche": "Un annuncio pertinente riceve più clic e Google lo premia con un costo per clic più basso. Promesse sulla salute e affermazioni che non si possono dimostrare possono essere pubblicità ingannevole.",
-      "soluzione": "Kit Tè Freddo Sencha Bio | Pronto in 8 ore in frigo | Spedizione in 24 ore. Ordina ora." },
-    { "id": "conti", "tipo": "menu", "titolo": "Fai i conti",
+      "soluzione": "Kit Tè Freddo Sencha Bio | Pronto in 8 ore in frigo | Spedizione in 24 ore. Ordina ora.",
+      "spiega": {
+        "testo": "Leggi ogni annuncio e controlla quattro cose: parla del prodotto cercato? Ha un invito all'azione? Evita promesse sulla salute? Dice solo cose che si possono dimostrare? Basta un no per scartarlo.",
+        "esempio": "\"Teiera magica che fa dimagrire\" ha una promessa sulla salute: vietata. \"Le teiere più belle d'Italia\" non si può dimostrare."
+      }
+    },
+    {
+      "id": "conti",
+      "tipo": "menu",
+      "titolo": "Fai i conti",
       "testo": "Con i dati della scheda, quanto rende un mese di annunci?",
       "campi": [
-        { "id": "clic", "etichetta": "Clic al mese (budget ÷ costo per clic)", "opzioni": ["120", "300", "750", "1.200"] },
-        { "id": "ordini", "etichetta": "Ordini al mese (2 su 100 clic)", "opzioni": ["2", "15", "75", "150"] },
-        { "id": "cpa", "etichetta": "Costo per ordine, CPA (budget ÷ ordini)", "opzioni": ["2 €", "14,90 €", "20 €", "40 €"] },
-        { "id": "roas", "etichetta": "ROAS (incasso ÷ spesa)", "opzioni": ["0,75", "1,5", "3", "7,5"] }
+        {
+          "id": "clic",
+          "etichetta": "Clic al mese (budget ÷ costo per clic)",
+          "opzioni": [
+            "120",
+            "300",
+            "750",
+            "1.200"
+          ]
+        },
+        {
+          "id": "ordini",
+          "etichetta": "Ordini al mese (2 su 100 clic)",
+          "opzioni": [
+            "2",
+            "15",
+            "75",
+            "150"
+          ]
+        },
+        {
+          "id": "cpa",
+          "etichetta": "Costo per ordine, CPA (budget ÷ ordini)",
+          "opzioni": [
+            "2 €",
+            "14,90 €",
+            "20 €",
+            "40 €"
+          ]
+        },
+        {
+          "id": "roas",
+          "etichetta": "ROAS (incasso ÷ spesa)",
+          "opzioni": [
+            "0,75",
+            "1,5",
+            "3",
+            "7,5"
+          ]
+        }
       ],
       "controlli": [
-        { "nome": "Clic giusti: 750", "regola": { "tipo": "menu", "campo": "clic", "valore": "750" }, "suggerimento": "300 € ÷ 0,40 € a clic." },
-        { "nome": "Ordini giusti: 15", "regola": { "tipo": "menu", "campo": "ordini", "valore": "15" }, "suggerimento": "2 ordini ogni 100 clic: quanti su 750?" },
-        { "nome": "CPA giusto: 20 €", "regola": { "tipo": "menu", "campo": "cpa", "valore": "20 €" }, "suggerimento": "Il CPA è quanto spendi per ogni ordine: 300 € ÷ ordini." },
-        { "nome": "ROAS giusto: 0,75", "regola": { "tipo": "menu", "campo": "roas", "valore": "0,75" }, "suggerimento": "Incasso = ordini × 14,90 €. Poi dividi per 300 €." }
+        {
+          "nome": "Clic giusti: 750",
+          "regola": {
+            "tipo": "menu",
+            "campo": "clic",
+            "valore": "750"
+          },
+          "suggerimento": "300 € ÷ 0,40 € a clic."
+        },
+        {
+          "nome": "Ordini giusti: 15",
+          "regola": {
+            "tipo": "menu",
+            "campo": "ordini",
+            "valore": "15"
+          },
+          "suggerimento": "2 ordini ogni 100 clic: quanti su 750?"
+        },
+        {
+          "nome": "CPA giusto: 20 €",
+          "regola": {
+            "tipo": "menu",
+            "campo": "cpa",
+            "valore": "20 €"
+          },
+          "suggerimento": "Il CPA è quanto spendi per ogni ordine: 300 € ÷ ordini."
+        },
+        {
+          "nome": "ROAS giusto: 0,75",
+          "regola": {
+            "tipo": "menu",
+            "campo": "roas",
+            "valore": "0,75"
+          },
+          "suggerimento": "Incasso = ordini × 14,90 €. Poi dividi per 300 €."
+        }
       ],
       "perche": "Il ROAS dice quanti euro incassi per ogni euro speso. Sotto 1 vuol dire che spendi più di quanto incassi: la campagna così com'è non conviene.",
-      "soluzione": "750 clic, 15 ordini, CPA 20 €, ROAS 0,75 (incasso 223,50 € su 300 € spesi)." },
-    { "id": "proposte", "tipo": "spunte", "titolo": "Cosa proponi a Luca?",
+      "soluzione": "750 clic, 15 ordini, CPA 20 €, ROAS 0,75 (incasso 223,50 € su 300 € spesi).",
+      "spiega": {
+        "testo": "Si procede in ordine, perché ogni numero serve per il successivo. 1) Clic = budget ÷ costo per clic. 2) Ordini = clic × conversione (2 su 100 vuol dire clic ÷ 100 × 2). 3) CPA = budget ÷ ordini. 4) ROAS = (ordini × prezzo) ÷ budget.",
+        "esempio": "Budget 100 €, clic a 0,50 €: 200 clic. Conversione 3 su 100: 6 ordini. CPA = 100 ÷ 6 ≈ 16,67 €. Se il prodotto costa 20 €: incasso 120 €, ROAS 1,2."
+      }
+    },
+    {
+      "id": "proposte",
+      "tipo": "spunte",
+      "titolo": "Cosa proponi a Luca?",
       "testo": "Il ROAS è sotto 1. Scegli tutte le azioni utili (e solo quelle).",
       "opzioni": [
-        { "id": "p1", "testo": "Migliorare la pagina del tè freddo, così più visite diventano ordini" },
-        { "id": "p2", "testo": "Tenere solo le ricerche di chi vuole comprare ed escludere le altre" },
-        { "id": "p3", "testo": "Misurare bene le conversioni (con il consenso ai cookie) prima di decidere" },
-        { "id": "p4", "testo": "Raddoppiare subito il budget per avere più ordini" },
-        { "id": "p5", "testo": "Aggiungere la keyword \"tè\" per avere molti più clic" }
+        {
+          "id": "p1",
+          "testo": "Migliorare la pagina del tè freddo, così più visite diventano ordini"
+        },
+        {
+          "id": "p2",
+          "testo": "Tenere solo le ricerche di chi vuole comprare ed escludere le altre"
+        },
+        {
+          "id": "p3",
+          "testo": "Misurare bene le conversioni (con il consenso ai cookie) prima di decidere"
+        },
+        {
+          "id": "p4",
+          "testo": "Raddoppiare subito il budget per avere più ordini"
+        },
+        {
+          "id": "p5",
+          "testo": "Aggiungere la keyword \"tè\" per avere molti più clic"
+        }
       ],
       "controlli": [
-        { "nome": "Migliorare la pagina di destinazione", "regola": { "tipo": "spunte-tutte", "ids": ["p1"] }, "suggerimento": "Se la pagina converte di più, ogni clic rende di più." },
-        { "nome": "Restare sulle ricerche d'acquisto", "regola": { "tipo": "spunte-tutte", "ids": ["p2"] }, "suggerimento": "Le ricerche giuste costano uguale ma comprano di più." },
-        { "nome": "Misurare prima di decidere", "regola": { "tipo": "spunte-tutte", "ids": ["p3"] }, "suggerimento": "Senza misure affidabili non sai cosa funziona." },
-        { "nome": "Nessuna azione che peggiora i conti", "regola": { "tipo": "spunte-nessuna", "ids": ["p4", "p5"] }, "suggerimento": "Più budget o keyword generiche, con un ROAS sotto 1, fanno solo perdere di più." }
+        {
+          "nome": "Migliorare la pagina di destinazione",
+          "regola": {
+            "tipo": "spunte-tutte",
+            "ids": [
+              "p1"
+            ]
+          },
+          "suggerimento": "Se la pagina converte di più, ogni clic rende di più."
+        },
+        {
+          "nome": "Restare sulle ricerche d'acquisto",
+          "regola": {
+            "tipo": "spunte-tutte",
+            "ids": [
+              "p2"
+            ]
+          },
+          "suggerimento": "Le ricerche giuste costano uguale ma comprano di più."
+        },
+        {
+          "nome": "Misurare prima di decidere",
+          "regola": {
+            "tipo": "spunte-tutte",
+            "ids": [
+              "p3"
+            ]
+          },
+          "suggerimento": "Senza misure affidabili non sai cosa funziona."
+        },
+        {
+          "nome": "Nessuna azione che peggiora i conti",
+          "regola": {
+            "tipo": "spunte-nessuna",
+            "ids": [
+              "p4",
+              "p5"
+            ]
+          },
+          "suggerimento": "Più budget o keyword generiche, con un ROAS sotto 1, fanno solo perdere di più."
+        }
       ],
       "perche": "Prima si sistema ciò che fa diventare un clic un ordine, poi si aumenta il budget. Nell'UE il tracciamento delle conversioni con i cookie richiede il consenso.",
-      "soluzione": "Migliorare la pagina, tenere solo le ricerche d'acquisto, misurare bene le conversioni. Non aumentare budget né aggiungere keyword generiche." }
+      "soluzione": "Migliorare la pagina, tenere solo le ricerche d'acquisto, misurare bene le conversioni. Non aumentare budget né aggiungere keyword generiche.",
+      "spiega": {
+        "testo": "Se una campagna perde soldi (ROAS sotto 1), aumentare il budget fa solo perdere di più. Prima si sistema quello che trasforma un clic in un ordine: la pagina del prodotto, le ricerche scelte e la misura dei risultati. Ricorda che nell'UE il tracciamento delle conversioni con i cookie richiede il consenso.",
+        "esempio": "Se la pagina delle teiere non mostra le spese di spedizione, molti escono senza comprare: sistemarla alza la conversione senza spendere un euro in più di annunci."
+      }
+    }
   ],
   "aiuti": [
-    { "titolo": "Come capisco se una ricerca conviene?", "testo": "Chiediti: questa persona potrebbe comprare il nostro kit oggi? Se cerca ricette, cose gratis o prodotti che non vendiamo, no." },
-    { "titolo": "Come si calcola il ROAS?", "testo": "Incasso diviso spesa. Se incassi 600 € spendendo 300 €, il ROAS è 2." }
+    {
+      "titolo": "Come capisco se una ricerca conviene?",
+      "testo": "Chiediti: questa persona potrebbe comprare il nostro kit oggi? Se cerca ricette, cose gratis o prodotti che non vendiamo, no."
+    },
+    {
+      "titolo": "Come si calcola il ROAS?",
+      "testo": "Incasso diviso spesa. Se incassi 600 € spendendo 300 €, il ROAS è 2."
+    }
   ],
   "glossario": "CPC: costo per clic. Keyword negativa: una ricerca per cui l'annuncio non deve comparire. CPA: costo per ogni ordine. ROAS: incasso diviso spesa pubblicitaria.",
   "note": [
@@ -99,5 +445,41 @@
     "Saprei spiegare a Luca perché non conviene aumentare il budget."
   ],
   "rispostaCollega": "Grazie! Non avrei mai pensato di escludere le ricette. Sistemo la pagina del tè freddo e tra un mese guardiamo di nuovo i numeri insieme.",
-  "imparato": ["keyword negative", "annunci pertinenti", "CPC, CPA e ROAS", "decidere con i dati"]
+  "imparato": [
+    "keyword negative",
+    "annunci pertinenti",
+    "CPC, CPA e ROAS",
+    "decidere con i dati"
+  ],
+  "lezione": {
+    "intro": "La SEA (Search Engine Advertising) sono gli annunci a pagamento che compaiono su Google sopra o sotto i risultati normali, con la scritta \"Sponsorizzato\". Chi fa questo lavoro decide per quali ricerche far comparire gli annunci, cosa scriverci e quanto spendere, e poi controlla con i numeri se la spesa rende più di quanto costa.",
+    "concetti": [
+      {
+        "nome": "Si paga a clic",
+        "spiegazione": "L'annuncio può comparire mille volte gratis: paghi solo quando qualcuno ci clicca. Il prezzo di un clic si chiama CPC (costo per clic) e lo decide un'asta tra chi vuole comparire per la stessa ricerca.",
+        "esempio": "Se un clic costa 0,50 € e in un mese ricevi 200 clic, spendi 100 €."
+      },
+      {
+        "nome": "Keyword e keyword negative",
+        "spiegazione": "Le keyword sono le ricerche per cui vuoi comparire. Le keyword negative sono quelle per cui NON vuoi comparire, perché chi le cerca non comprerà. Servono a non buttare soldi.",
+        "esempio": "Un negozio di teiere vuole comparire per \"teiera in ghisa\", ma esclude \"teiera in ghisa usata\" e \"come pulire una teiera\": chi le cerca non vuole comprarne una nuova."
+      },
+      {
+        "nome": "L'annuncio",
+        "spiegazione": "Un buon annuncio ripete quello che la persona ha cercato, dice un vantaggio concreto e ha un invito all'azione (ordina, scopri, prova). In Europa non si può promettere un effetto sulla salute per un alimento, né dire \"il migliore\" senza poterlo dimostrare.",
+        "esempio": "\"Teiera in ghisa 0,8 l | Mantiene il calore a lungo | Spedizione in 24 ore. Scopri.\""
+      },
+      {
+        "nome": "I numeri: CPA e ROAS",
+        "spiegazione": "Il CPA è quanto spendi per ottenere un ordine (spesa ÷ ordini). Il ROAS è quanto incassi per ogni euro speso (incasso ÷ spesa). Con un ROAS sotto 1 spendi più di quanto incassi.",
+        "esempio": "Spendi 100 € e ottieni 4 ordini da 40 €: CPA = 100 ÷ 4 = 25 €; incasso = 160 €; ROAS = 160 ÷ 100 = 1,6."
+      }
+    ],
+    "cosaFarai": [
+      "Scegli per quali ricerche far comparire gli annunci e quali escludere",
+      "Scegli l'annuncio migliore tra quattro",
+      "Calcoli clic, ordini, CPA e ROAS del mese",
+      "Decidi cosa consigliare a Luca guardando i numeri"
+    ]
+  }
 }

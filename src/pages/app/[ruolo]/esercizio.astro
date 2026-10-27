@@ -52,10 +52,40 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
         <p class="nota">{n} parti, circa {es.minuti} minuti. Il lavoro si salva da solo in questo browser. <button type="button" class="link-guida" data-apri-guida>Rivedi la guida</button></p>
       </header>
 
+      {es.lezione && (
+        <section class="pannello lezione" id="lezione" aria-labelledby="t-lezione">
+          <span class="occhiello">Prima di iniziare · la lezione</span>
+          <h2 id="t-lezione" class="parte-titolo">Cosa devi sapere</h2>
+          <p class="lezione-intro">{es.lezione.intro}</p>
+          <div class="concetti">
+            {es.lezione.concetti.map((c, i) => (
+              <article class="concetto">
+                <span class="concetto-n">{i + 1}</span>
+                <h3>{c.nome}</h3>
+                <p>{c.spiegazione}</p>
+                {c.esempio && <p class="esempio"><strong>Esempio</strong> {c.esempio}</p>}
+              </article>
+            ))}
+          </div>
+          <div class="cosa-farai">
+            <strong>Cosa farai in questo esercizio</strong>
+            <ol>{es.lezione.cosaFarai.map((f) => <li>{f}</li>)}</ol>
+          </div>
+          <a class="bottone-app inizia" href={`#parte-${es.parti[0].id}`}>Ho letto, inizia dalla parte 1 →</a>
+        </section>
+      )}
+
       {es.parti.map((p, i) => (
         <section class="pannello parte" id={`parte-${p.id}`} aria-labelledby={`t-${p.id}`}>
           <div class="parte-testa"><span class="numero">{i + 1}</span><h2 id={`t-${p.id}`} class="parte-titolo">{p.titolo}</h2></div>
-          <p>{p.testo}</p>
+          {p.spiega && (
+            <div class="spiega">
+              <strong>Prima di rispondere</strong>
+              <p>{p.spiega.testo}</p>
+              {p.spiega.esempio && <p class="esempio"><strong>Esempio</strong> {p.spiega.esempio}</p>}
+            </div>
+          )}
+          <p class="domanda">{p.testo}</p>
 
           {p.tipo === "classifica" && (
             <div class="scorri">
@@ -272,6 +302,22 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
   .parte-testa { display: flex; align-items: center; gap: 12px; }
   .numero { flex: none; width: 34px; height: 34px; border-radius: 10px; background: #fff1e6; color: #8a3a06; display: grid; place-items: center; font-weight: 800; }
   .parte-titolo { font-family: var(--font-titoli); font-size: 1.35rem; font-weight: 800; }
+  .lezione { padding: 24px; display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 84px; }
+  .occhiello { font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #8a3a06; }
+  .lezione-intro { font-size: 1.02rem; line-height: 1.65; }
+  .concetti { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+  .concetto { border: 1px solid #e5e4e0; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 8px; background: #fff; }
+  .concetto-n { width: 26px; height: 26px; border-radius: 50%; background: var(--arancio); color: var(--inchiostro); display: grid; place-items: center; font-weight: 800; font-size: .8rem; }
+  .concetto h3 { font-size: 1rem; font-family: var(--font-testo); font-weight: 800; }
+  .concetto p { font-size: .9rem; line-height: 1.6; margin: 0; }
+  .esempio { font-size: .88rem; line-height: 1.55; background: #f4f4f2; border-radius: 10px; padding: 10px 12px; margin: 0; }
+  .esempio strong { display: block; font-size: .72rem; letter-spacing: .05em; text-transform: uppercase; color: #625e58; margin-bottom: 2px; }
+  .cosa-farai { background: #f4f4f2; border-radius: 14px; padding: 14px 16px; font-size: .92rem; line-height: 1.6; }
+  .cosa-farai ol { margin: 6px 0 0; padding-left: 20px; }
+  .inizia { align-self: flex-start; }
+  .spiega { border: 1px solid #e5e4e0; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; font-size: .92rem; line-height: 1.6; }
+  .spiega > p { margin: 0; }
+  .domanda { font-weight: 700; }
   .perche { font-size: .85rem; line-height: 1.55; background: #f7f4f1; border-radius: 12px; padding: 12px 14px; color: #3a2b24; }
 
   .scorri { overflow-x: auto; position: relative; }
