@@ -4,7 +4,8 @@
 import dati from "../data/app/seo-pro/missioni.json";
 
 export type Opzione = { id: string; testo: string; giusta: boolean; nota: string };
-export type Passo = { strumento: string; pagina?: string; domanda: string; spiega: string; esempio: string; compito: string; tipo: "radio" | "checkbox"; opzioni: Opzione[]; perche: string; aiuto: string; dove: string };
+// tipo: "radio" o "checkbox" = si sceglie una risposta; "azione" = si lavora sul sito e la guida controlla com'è adesso
+export type Passo = { strumento: string; pagina?: string; domanda: string; spiega: string; esempio: string; compito: string; tipo: "radio" | "checkbox" | "azione"; opzioni: Opzione[]; perche: string; aiuto: string; dove: string; verifica?: string; vai?: { link: string; testo: string } };
 export type Missione = { id: string; n: number; nome: string; tempo: string; strumenti: string; cosa: string; obiettivo: string; passi: Passo[]; imparato: string[]; elena: string };
 export type StatoMissione = { stato: "in-corso" | "completata"; passo: number; errori: number; aiuti: number[]; primoColpo: boolean[] };
 export type Stato = { attiva: string | null; missioni: Record<string, StatoMissione> };
@@ -19,6 +20,7 @@ export const STRUMENTI: Record<string, { nome: string; link: string }> = {
   crawler: { nome: "Crawler", link: "/app/percorsi/seo/strumenti/crawler/" },
   statistiche: { nome: "Statistiche", link: "/app/percorsi/seo/strumenti/statistiche/" },
   negozio: { nome: "Il negozio", link: "/app/negozio/" },
+  pannello: { nome: "Pannello del negozio", link: "/app/percorsi/seo/pannello/" },
 };
 
 export function leggiStato(): Stato {
@@ -39,7 +41,7 @@ export function sbloccata(s: Stato, m: Missione) {
 }
 
 // Indirizzo dove si fa un passo
-export const linkPasso = (p: Passo) => p.pagina ?? STRUMENTI[p.strumento].link;
+export const linkPasso = (p: Passo) => p.vai?.link ?? p.pagina ?? STRUMENTI[p.strumento].link;
 
 // Avvia (o riprende) una missione e restituisce dove andare
 export function avvia(id: string) {

@@ -25,26 +25,27 @@ const attiva = (id: string) => url.startsWith(`/${id}/`);
 <AppLayout title={`Negozio · ${titoloScheda}`} percorso={[{ etichetta: "Percorso SEO", link: "/app/percorsi/seo/" }, { etichetta: "Il negozio" }, { etichetta: titoloScheda }]} indietro={{ etichetta: "Percorso SEO", link: "/app/percorsi/seo/" }}>
   <SchermoIntero slot="barra" />
   <div class="area">
-    <div class="finestra">
+    <div class="finestra" data-url-negozio={url}>
       <div class="barra-browser">
         <span class="pallini" aria-hidden="true"><i></i><i></i><i></i></span>
-        <span class="indirizzo"><svg class="lucchetto" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5 V7.5 A4 4 0 0 1 16 7.5 V10.5"/></svg>https://{catalogo.dominio}{url}</span>
+        <span class="indirizzo" data-indirizzo><svg class="lucchetto" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5 V7.5 A4 4 0 0 1 16 7.5 V10.5"/></svg>https://{catalogo.dominio}{url}</span>
         <details class="ispeziona">
           <summary>Ispeziona</summary>
           <div class="codice" role="region" aria-label="Cosa legge Google in questa pagina">
             <span class="codice-titolo">Cosa legge Google</span>
             <dl>
-              <div><dt>Stato</dt><dd>{testa.stato === 200 ? "200 OK" : testa.stato === 404 ? "404 Non trovata" : `${testa.stato} Reindirizzamento`}</dd></div>
-              <div><dt>&lt;title&gt;</dt><dd>{testa.title || <em>vuoto</em>}</dd></div>
-              <div><dt>meta description</dt><dd>{testa.description || <em>manca</em>}</dd></div>
-              <div><dt>meta robots</dt><dd class:list={{ allarme: (testa.robots || "").includes("noindex") }}>{testa.robots || <em>—</em>}</dd></div>
-              <div><dt>canonical</dt><dd>{testa.canonical ? `https://${catalogo.dominio}${testa.canonical}` : <em>manca</em>}</dd></div>
-              <div><dt>&lt;h1&gt;</dt><dd>{testa.h1 || <em>manca</em>}</dd></div>
+              <div><dt>Stato</dt><dd data-isp="stato">{testa.stato === 200 ? "200 OK" : testa.stato === 404 ? "404 Non trovata" : `${testa.stato} Reindirizzamento`}</dd></div>
+              <div><dt>&lt;title&gt;</dt><dd data-isp="title">{testa.title || <em>vuoto</em>}</dd></div>
+              <div><dt>meta description</dt><dd data-isp="description">{testa.description || <em>manca</em>}</dd></div>
+              <div><dt>meta robots</dt><dd data-isp="robots" class:list={{ allarme: (testa.robots || "").includes("noindex") }}>{testa.robots || <em>—</em>}</dd></div>
+              <div><dt>canonical</dt><dd data-isp="canonical">{testa.canonical ? `https://${catalogo.dominio}${testa.canonical}` : <em>manca</em>}</dd></div>
+              <div><dt>&lt;h1&gt;</dt><dd data-isp="h1">{testa.h1 || <em>manca</em>}</dd></div>
             </dl>
           </div>
         </details>
       </div>
 
+      <p class="avviso-301" data-avviso-301 hidden></p>
       <div class="sito">
         <p class="striscia">Spedizione gratuita da 39 €. Consegna in 24-48 ore in tutta Italia.</p>
         <header class="sito-testa">
@@ -82,19 +83,72 @@ const attiva = (id: string) => url.startsWith(`/${id}/`);
         </footer>
       </div>
     </div>
-    <aside class="guida-negozio" aria-label="Guida della missione" data-pannello="guida-negozio" data-etichetta="guida"><GuidaMissione pagina="negozio" /></aside>
+    <aside class="guida-negozio" aria-label="Guida della missione" data-barra="guida-negozio" data-lato="destra" data-etichetta="guida"><GuidaMissione pagina="negozio" /></aside>
   </div>
 </AppLayout>
+
+
+<script>
+  // Applica al negozio le modifiche fatte nel Pannello del negozio (src/scripts/cms.ts)
+  import { leggiModifiche, paginaEffettiva, introCategoria } from "../../scripts/cms";
+  const finestra = document.querySelector<HTMLElement>("[data-url-negozio]");
+  if (finestra) {
+    const url = finestra.dataset.urlNegozio!;
+    const m = leggiModifiche();
+    const qui = new URL(location.href);
+    // 1. Reindirizzamento 301: si va subito alla pagina nuova (come farebbe il server)
+    const verso = m.redirect[url];
+    if (verso && !qui.searchParams.get("da")) {
+      location.replace(`/app/negozio${verso}?da=${encodeURIComponent(url)}`);
+    } else {
+      const da = qui.searchParams.get("da");
+      if (da) {
+        const avviso = document.querySelector<HTMLElement>("[data-avviso-301]")!;
+        avviso.hidden = false;
+        avviso.textContent = `Reindirizzamento 301: hai aperto ${da} e il sito ti ha portato qui.`;
+      }
+      // 2. Ispeziona: quello che legge Google oggi
+      const p = paginaEffettiva(url, m);
+      if (p) {
+        const vuoto = (t: string, s = "manca") => t ? t : `<em>${s}</em>`;
+        const esc = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+        const set = (k: string, html: string) => { const el = document.querySelector(`[data-isp="${k}"]`); if (el) el.innerHTML = html; };
+        set("stato", p.stato === 200 ? "200 OK" : p.stato === 404 ? "404 Non trovata" : `${p.stato} Reindirizzamento`);
+        set("title", vuoto(esc(p.title ?? ""), "vuoto"));
+        set("description", vuoto(esc(p.description ?? "")));
+        set("robots", vuoto(esc(p.robots ?? ""), "—"));
+        document.querySelector("[data-isp=robots]")?.classList.toggle("allarme", (p.robots ?? "").includes("noindex"));
+        set("canonical", p.canonical ? `https://cinquefoglie.example${esc(p.canonical)}` : "<em>manca</em>");
+        set("h1", vuoto(esc(p.h1 ?? "")));
+        // 3. Testi visibili: H1 e testo introduttivo delle categorie
+        const h = document.querySelector<HTMLElement>("[data-cms-h1]");
+        if (h && m.pagine[url]?.h1 !== undefined) {
+          // copia anche gli attributi (servono per gli stili della pagina)
+          const nuovo = document.createElement(m.pagine[url].h1 ? "h1" : "p");
+          for (const at of [...h.attributes]) nuovo.setAttribute(at.name, at.value);
+          nuovo.textContent = m.pagine[url].h1 || h.textContent;
+          nuovo.classList.toggle("titolo-finto", !m.pagine[url].h1);
+          h.replaceWith(nuovo);
+        }
+        const intro = document.querySelector<HTMLElement>("[data-cms-intro]");
+        if (intro && m.pagine[url]?.intro !== undefined) {
+          intro.replaceChildren(...introCategoria(intro.dataset.cmsIntro!, m).split(/\n+/).filter((x) => x.trim()).map((t) => { const e = document.createElement("p"); e.textContent = t.trim(); return e; }));
+        }
+      }
+    }
+  }
+</script>
 
 <style>
   .area { padding: 24px; max-width: 1760px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 24px; align-items: start; }
   .area:has(> .guida-negozio[data-chiuso]) { grid-template-columns: minmax(0, 1fr) 52px; }
   .guida-negozio { display: flex; flex-direction: column; gap: 4px; background: #fff; border: 1px solid #e3e1dc; border-radius: 16px; padding: 20px 24px 28px; position: sticky; top: 80px; max-height: calc(100vh - 100px); overflow-y: auto; }
-  @media (max-width: 1180px) { .area, .area:has(> .guida-negozio[data-chiuso]) { grid-template-columns: 1fr; } .guida-negozio { position: static; max-height: none; } .guida-negozio[data-chiuso] > :global(.apri-pannello) { writing-mode: horizontal-tb; min-height: 0; } }
+  @media (max-width: 1180px) { .area, .area:has(> .guida-negozio[data-chiuso]) { grid-template-columns: 1fr; } .guida-negozio { position: static; max-height: none; } .guida-negozio[data-chiuso] > :global(.apri-pannello) { margin: 0; } }
   .finestra { background: #fff; border: 1px solid #d1cec8; border-radius: 14px; overflow: hidden; box-shadow: 0 20px 50px -30px rgba(42, 29, 24, .35); }
   .barra-browser { position: relative; display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: #ebeae6; border-bottom: 1px solid #dcdad5; }
   .pallini { display: flex; gap: 6px; } .pallini i { width: 11px; height: 11px; border-radius: 50%; background: #d1cec8; } .pallini i:first-child { background: #f07a5a; } .pallini i:nth-child(2) { background: #f2c14e; } .pallini i:nth-child(3) { background: #7cc27c; }
   .indirizzo { flex: 1; min-width: 0; background: #fff; border-radius: 999px; padding: 6px 14px; font-size: .85rem; color: #2a1d18; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .avviso-301 { margin: 0; padding: 8px 16px; background: #fff3d6; color: #5c4400; font-size: .85rem; border-bottom: 1px solid #f0dca8; }
   .lucchetto { margin-right: 6px; vertical-align: -1px; color: #2f7a4f; }
   .ispeziona summary { cursor: pointer; font-weight: 700; font-size: .85rem; padding: 7px 14px; border-radius: 8px; background: #2a1d18; color: #fff; list-style: none; }
   .ispeziona summary::-webkit-details-marker { display: none; }

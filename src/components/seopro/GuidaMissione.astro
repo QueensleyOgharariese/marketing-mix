@@ -14,6 +14,7 @@ const { pagina } = Astro.props;
 
 <script>
   import { MISSIONI, STRUMENTI, leggiStato, salvaStato, linkPasso, controlla, punti, avvia, type Missione } from "../../scripts/missioni";
+  import { verifica } from "../../scripts/verifiche";
 
   const radice = document.querySelector<HTMLElement>("[data-guida-missione]");
   const esc = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -55,6 +56,41 @@ const { pagina } = Astro.props;
     const p = m.passi[sm.passo];
     const testa = `<p class="gm-missione">Missione ${m.n}: ${esc(m.nome)}</p>${barre(m, sm.passo)}<p class="gm-passo">Passo ${sm.passo + 1} di ${m.passi.length}</p>`;
 
+    // Passo "azione": si lavora sul sito (pannello o strumenti) e la guida controlla com'è il sito adesso.
+    // Si vede da qualunque pagina, così si può lavorare e controllare senza perdere la guida.
+    if (p.tipo === "azione") {
+      const obiettivoA = sm.passo === 0 ? `<p class="gm-obiettivo">${esc(m.obiettivo)}</p>` : "";
+      radice.innerHTML = `${testa}${obiettivoA}
+        <h2 class="gm-titolo">${esc(p.domanda)}</h2>
+        <section class="gm-spiega"><h3>Prima di iniziare</h3><p>${esc(p.spiega)}</p><p class="gm-esempio"><strong>Per esempio</strong>${esc(p.esempio)}</p></section>
+        <p class="gm-compito">${p.compito}</p>
+        ${p.vai ? `<a class="gm-secondario gm-vai" href="${p.vai.link}">${esc(p.vai.testo)}</a>` : ""}
+        <div class="gm-esito" data-esito hidden></div>
+        <div class="gm-bottoni"><button type="button" class="bottone-app" data-verifica>Controlla il lavoro</button></div>
+        <details class="gm-aiuto" data-aiuto ${sm.aiuti.includes(sm.passo) ? "open" : ""}><summary>Aiuto <span>(−5 punti)</span></summary><p>${esc(p.aiuto)}</p></details>`;
+      const esitoA = radice.querySelector<HTMLElement>("[data-esito]")!;
+      radice.querySelector("[data-verifica]")!.addEventListener("click", () => {
+        const r = verifica(p.verifica!);
+        const st = leggiStato(); const cur = st.missioni[m.id];
+        if (cur.primoColpo[cur.passo] === undefined) cur.primoColpo[cur.passo] = r.ok;
+        salvaStato(st); // nei passi azione si può riprovare quante volte serve: gli errori non tolgono punti
+        esitoA.hidden = false;
+        requestAnimationFrame(() => esitoA.scrollIntoView({ behavior: "smooth", block: "nearest" }));
+        const lista = `<ul class="gm-controlli">${r.controlli.map((c) => `<li class="${c.ok ? "ok" : "no"}"><span class="gm-segno" aria-hidden="true"></span><span><strong>${esc(c.nome)}</strong>${c.ok ? "" : `<br>${esc(c.suggerimento)}`}</span><span class="sr">${c.ok ? "superato" : "da sistemare"}</span></li>`).join("")}</ul>`;
+        if (r.ok) {
+          const ultimo = cur.passo === m.passi.length - 1;
+          esitoA.className = "gm-esito ok";
+          esitoA.innerHTML = `<strong>Fatto.</strong>${lista}<p>${esc(p.perche)}</p><button type="button" class="bottone-app" data-avanti>${ultimo ? "Concludi la missione" : "Passo successivo"}</button>`;
+          esitoA.querySelector("[data-avanti]")!.addEventListener("click", () => avanti(m, ultimo, pagina));
+        } else {
+          esitoA.className = "gm-esito no";
+          esitoA.innerHTML = `<strong>Non ancora.</strong>${lista}<p>Sistema i punti rossi, salva e premi di nuovo "Controlla il lavoro".</p>`;
+        }
+      });
+      collegaAiuto(m);
+      return;
+    }
+
     // Il passo si fa in un altro strumento: la guida porta lì
     if (p.strumento !== pagina) {
       radice.innerHTML = `${testa}<h2 class="gm-titolo">${esc(p.domanda)}</h2><p class="gm-testo">Questo passo si fa in <strong>${esc(STRUMENTI[p.strumento].nome)}</strong>.</p><a class="bottone-app" href="${linkPasso(p)}">Vai a ${esc(STRUMENTI[p.strumento].nome)}</a>`;
@@ -89,13 +125,7 @@ const { pagina } = Astro.props;
         esito.innerHTML = `<strong>Giusto.</strong><p>${esc(p.perche)}</p><button type="button" class="bottone-app" data-avanti>${ultimo ? "Concludi la missione" : "Passo successivo"}</button>`;
         radice.querySelectorAll<HTMLInputElement>("input[name=gm-r]").forEach((x) => (x.disabled = true));
         radice.querySelector<HTMLButtonElement>("[data-controlla]")!.disabled = true;
-        esito.querySelector("[data-avanti]")!.addEventListener("click", () => {
-          const s2 = leggiStato(); const c2 = s2.missioni[m.id];
-          if (ultimo) { c2.stato = "completata"; salvaStato(s2); disegna(); document.dispatchEvent(new CustomEvent("missioni-aggiornate")); radice.scrollIntoView({ behavior: "smooth", block: "start" }); return; }
-          c2.passo += 1; salvaStato(s2);
-          const prossimo = m.passi[c2.passo];
-          if (prossimo.strumento !== pagina) location.href = linkPasso(prossimo); else { disegna(); radice.scrollIntoView({ behavior: "smooth", block: "start" }); }
-        });
+        esito.querySelector("[data-avanti]")!.addEventListener("click", () => avanti(m, ultimo, pagina));
       } else {
         esito.className = "gm-esito no";
         const note = r.sbagliate.map((o) => `<li><strong>${esc(o.testo)}</strong>: ${esc(o.nota)}</li>`).join("");
@@ -112,7 +142,22 @@ const { pagina } = Astro.props;
       setTimeout(() => el.classList.remove("gm-evidenzia"), 2400);
     });
 
-    radice.querySelector<HTMLDetailsElement>("[data-aiuto]")!.addEventListener("toggle", (e) => {
+    collegaAiuto(m);
+  }
+
+  // Passa al passo successivo (o conclude la missione). Nei passi a scelta porta nello strumento giusto.
+  function avanti(m: Missione, ultimo: boolean, pagina: string) {
+    const s2 = leggiStato(); const c2 = s2.missioni[m.id];
+    if (ultimo) { c2.stato = "completata"; salvaStato(s2); disegna(); document.dispatchEvent(new CustomEvent("missioni-aggiornate")); radice!.scrollIntoView({ behavior: "smooth", block: "start" }); return; }
+    c2.passo += 1; salvaStato(s2);
+    const prossimo = m.passi[c2.passo];
+    if (prossimo.tipo !== "azione" && prossimo.strumento !== pagina) location.href = linkPasso(prossimo);
+    else { disegna(); radice!.scrollIntoView({ behavior: "smooth", block: "start" }); }
+  }
+
+  // L'aiuto aperto toglie 5 punti (una volta per passo)
+  function collegaAiuto(m: Missione) {
+    radice!.querySelector<HTMLDetailsElement>("[data-aiuto]")?.addEventListener("toggle", (e) => {
       if (!(e.currentTarget as HTMLDetailsElement).open) return;
       const st = leggiStato(); const cur = st.missioni[m.id];
       if (!cur.aiuti.includes(cur.passo)) { cur.aiuti.push(cur.passo); salvaStato(st); }
@@ -156,6 +201,13 @@ const { pagina } = Astro.props;
   .gm :global(.gm-aiuto summary) { cursor: pointer; font-weight: 700; }
   .gm :global(.gm-aiuto summary span) { font-weight: 600; color: #625e58; }
   .gm :global(.gm-aiuto p) { margin: 8px 0 0; line-height: 1.55; color: #423e39; }
+  .gm :global(.gm-vai) { align-self: flex-start; }
+  .gm :global(.gm-controlli) { list-style: none; margin: 4px 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+  .gm :global(.gm-controlli li) { display: flex; gap: 8px; align-items: flex-start; font-size: .85rem; line-height: 1.45; }
+  .gm :global(.gm-controlli strong) { font-weight: 600; }
+  .gm :global(.gm-segno) { flex: none; width: 16px; height: 16px; border-radius: 50%; margin-top: 2px; border: 2px solid #b3261e; }
+  .gm :global(.gm-controlli li.ok .gm-segno) { background: #2f7a4f; border-color: #2f7a4f; }
+  .gm :global(.sr) { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .gm :global(.gm-punti) { margin: 0; } .gm :global(.gm-punti strong) { font-family: var(--font-titoli); font-size: 2rem; }
   .gm :global(.gm-blocco h3) { margin: 0 0 4px; font-size: .9rem; }
   .gm :global(.gm-blocco ul) { margin: 0; padding-left: 18px; line-height: 1.6; }

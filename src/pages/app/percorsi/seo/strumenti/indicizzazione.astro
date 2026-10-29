@@ -69,21 +69,24 @@ const SPIEGA: Record<string, string> = {
           <thead><tr><th data-ordina="testo">Motivo</th><th data-ordina="testo">Fonte</th><th>Convalida</th><th data-ordina="numero" class="n">Pagine</th></tr></thead>
           <tbody>
             {ind.motivi.map((m, i) => (
-              <tr data-motivo={i} tabindex="0"><td><strong class="motivo">{m.motivo}</strong><span class="spiega-motivo">{SPIEGA[m.motivo] ?? ""}</span></td><td>{m.fonte}</td><td><span class="sp-badge">Non iniziata</span></td><td class="n" data-valore={m.pagine.length}>{m.pagine.length}</td></tr>
+              <tr data-motivo={i} tabindex="0"><td><strong class="motivo">{m.motivo}</strong><span class="spiega-motivo">{SPIEGA[m.motivo] ?? ""}</span></td><td>{m.fonte}</td><td data-convalida={i}><span class="sp-badge">Non iniziata</span></td><td class="n" data-valore={m.pagine.length}>{m.pagine.length}</td></tr>
             ))}
           </tbody>
         </table>
       </div>
       {ind.motivi.map((m, i) => (
         <div class="elenco" data-elenco={i} hidden>
-          <strong>{m.motivo}</strong>
+          <div class="elenco-testa"><strong>{m.motivo}</strong>
+            <div class="convalida"><button type="button" class="bottone-app bottone-app--chiaro" data-convalida-btn={i}>Convalida correzione</button></div>
+          </div>
+          <p class="convalida-msg" data-convalida-msg={i} aria-live="polite" hidden></p>
           <div class="sp-scorri">
             <table class="mini">
-              <thead><tr><th>URL</th><th>Ultima scansione</th><th>Dettagli</th></tr></thead>
+              <thead><tr><th>URL</th><th>Ultima scansione</th><th>Dettagli</th><th>Sul sito oggi</th></tr></thead>
               <tbody>
                 {m.pagine.map((u) => { const p = info(u); return (
                   <tr><td class="url">{p && p.stato === 200 ? <a href={`/app/negozio${u.split("?")[0]}`}>{u}</a> : u}</td><td>{crawl.data.split("-").reverse().join("/")}</td>
-                    <td>{p?.stato === 301 ? `Reindirizza a ${p.redirect}` : p?.stato === 404 ? `Linkata da ${(crawl.link404 as Record<string, string[]>)[u]?.length ?? 0} pagine` : p?.robots?.includes("noindex") ? `meta robots: ${p.robots}` : p?.tipo === "Filtro" ? "Google ha scelto come canonica la categoria" : `${p?.parole ?? 0} parole`}</td></tr>
+                    <td>{p?.stato === 301 ? `Reindirizza a ${p.redirect}` : p?.stato === 404 ? `Linkata da ${(crawl.link404 as Record<string, string[]>)[u]?.length ?? 0} pagine` : p?.robots?.includes("noindex") ? `meta robots: ${p.robots}` : p?.tipo === "Filtro" ? "Google ha scelto come canonica la categoria" : `${p?.parole ?? 0} parole`}</td><td data-oggi={u} data-motivo-id={i}>–</td></tr>
                 ); })}
               </tbody>
             </table>
@@ -129,6 +132,8 @@ const SPIEGA: Record<string, string> = {
 
 <script>
   import { attivaTabelle } from "../../../../../scripts/tabella";
+  import ind from "../../../../../data/app/seo-pro/indicizzazione.json";
+  import { leggiModifiche, salvaModifiche, paginaEffettiva, OGGI } from "../../../../../scripts/cms";
   attivaTabelle();
   document.querySelectorAll<HTMLButtonElement>("[data-scheda]").forEach((b) => b.addEventListener("click", () => {
     document.querySelectorAll("[data-scheda]").forEach((x) => x.setAttribute("aria-selected", String(x === b)));
@@ -143,6 +148,47 @@ const SPIEGA: Record<string, string> = {
     r.addEventListener("click", () => apri(r));
     r.addEventListener("keydown", (e) => { if (e.key === "Enter") apri(r); });
   });
+
+  // ---- Il sito di oggi (con le modifiche del Pannello del negozio) e la convalida delle correzioni
+  // Per ogni motivo: la pagina ha ancora il problema? Le pagine di servizio (carrello, account) è giusto che restino fuori.
+  const ancoraProblema = (motivo: string, u: string) => {
+    const p = paginaEffettiva(u);
+    if (!p) return false;
+    if (motivo.includes("noindex")) return (p.robots ?? "").includes("noindex") && p.tipo !== "Servizio";
+    if (motivo.includes("404")) return p.stato === 404;
+    if (motivo.includes("duplicata")) return p.canonical === u;
+    return false; // reindirizzamenti e scelte di Google: non sono errori da correggere
+  };
+  const giusta = (motivo: string, u: string) => motivo.includes("noindex") && paginaEffettiva(u)?.tipo === "Servizio";
+  function aggiornaOggi() {
+    const m = leggiModifiche();
+    document.querySelectorAll<HTMLElement>("[data-oggi]").forEach((td) => {
+      const motivo = ind.motivi[Number(td.dataset.motivoId)].motivo;
+      const u = td.dataset.oggi!;
+      td.innerHTML = giusta(motivo, u) ? '<span class="sp-badge">Va bene così</span>' : ancoraProblema(motivo, u) ? '<span class="sp-badge no">Da sistemare</span>' : motivo.includes("reindirizzamento") || motivo.includes("Scansionata") ? '<span class="sp-badge">–</span>' : '<span class="sp-badge ok">Corretta</span>';
+    });
+    ind.motivi.forEach((mo, i) => {
+      const cella = document.querySelector<HTMLElement>(`[data-convalida="${i}"]`)!;
+      cella.innerHTML = m.convalide[mo.motivo] ? `<span class="sp-badge medio">Iniziata il ${m.convalide[mo.motivo]}</span>` : '<span class="sp-badge">Non iniziata</span>';
+    });
+  }
+  document.querySelectorAll<HTMLButtonElement>("[data-convalida-btn]").forEach((b) => b.addEventListener("click", () => {
+    const i = Number(b.dataset.convalidaBtn);
+    const mo = ind.motivi[i];
+    const msg = document.querySelector<HTMLElement>(`[data-convalida-msg="${i}"]`)!;
+    const rimaste = mo.pagine.filter((u) => ancoraProblema(mo.motivo, u));
+    msg.hidden = false;
+    if (rimaste.length) {
+      msg.className = "convalida-msg no";
+      msg.textContent = `Convalida non riuscita: Google ha ricontrollato e il problema c'è ancora su ${rimaste.length} ${rimaste.length === 1 ? "pagina" : "pagine"} (${rimaste.slice(0, 3).join(", ")}${rimaste.length > 3 ? "…" : ""}). Correggi prima il sito.`;
+      return;
+    }
+    const m = leggiModifiche(); m.convalide[mo.motivo] = OGGI; salvaModifiche(m);
+    msg.className = "convalida-msg ok";
+    msg.textContent = `Convalida iniziata il ${OGGI}. Google rileggerà le pagine nei prossimi giorni: i numeri del grafico cambieranno solo dopo.`;
+    aggiornaOggi();
+  }));
+  aggiornaOggi();
 </script>
 
 <style>
@@ -151,6 +197,9 @@ const SPIEGA: Record<string, string> = {
   details .sottotitolo { cursor: pointer; margin: 0; }
   tr[data-motivo] { cursor: pointer; }
   .elenco { margin-top: 14px; border: 2px solid var(--arancio); border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 8px; background: #f8f8f6; }
+  .elenco-testa { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; }
+  .convalida-msg { margin: 0; font-size: .86rem; line-height: 1.5; border-radius: 10px; padding: 10px 12px; }
+  .convalida-msg.ok { background: #e3f3e8; color: #173f27; } .convalida-msg.no { background: #fde8e4; color: #6e1c11; }
   .mini { width: 100%; border-collapse: collapse; font-size: .82rem; }
   .mini th { text-align: left; font-size: .72rem; color: #5f5a55; padding: 6px 8px; border-bottom: 1px solid #e3e1dc; }
   .mini td { padding: 6px 8px; border-bottom: 1px solid #efeeeb; vertical-align: top; }

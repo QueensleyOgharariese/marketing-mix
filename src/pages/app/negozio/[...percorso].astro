@@ -121,8 +121,8 @@ const piuVenduti = ["sencha-bio", "matcha-quotidiano", "tisane-della-sera", "tei
       <nav class="briciole" aria-label="Sei qui"><a href={N("/")}>Home</a><span aria-hidden="true">›</span>{cat.nome}</nav>
       <div class="cat-testa">
         <div>
-          {cat.h1 ? <h1>{cat.h1}</h1> : <p class="titolo-finto">{cat.nome}</p>}
-          <p class="intro">{cat.intro}</p>
+          {cat.h1 ? <h1 data-cms-h1>{cat.h1}</h1> : <p class="titolo-finto" data-cms-h1>{cat.nome}</p>}
+          <div class="intro" data-cms-intro={cat.id}><p>{cat.intro}</p></div>
         </div>
         <span class="conta">{catalogo.prodotti.filter((p) => p.categoria === cat.id).length} prodotti</span>
       </div>
@@ -148,7 +148,7 @@ const piuVenduti = ["sencha-bio", "matcha-quotidiano", "tisane-della-sera", "tei
         </div>
         <div class="prodotto-testi">
           <p class="occhiello">{categoriaDi(prodotto.categoria).nome}</p>
-          <h1>{prodotto.h1}</h1>
+          <h1 data-cms-h1>{prodotto.h1}</h1>
           <a class="voto-link" href="#recensioni">{prodotto.recensioni ? <><span class="stelle" aria-hidden="true">★★★★★</span> {voto(prodotto.id)} su 5, {prodotto.recensioni} recensioni</> : "Ancora nessuna recensione"}</a>
           <div class="prezzo-blocco">
             <strong class="prezzo">{prezzo(prodotto.prezzo)}</strong>
@@ -216,7 +216,7 @@ const piuVenduti = ["sencha-bio", "matcha-quotidiano", "tisane-della-sera", "tei
     <article class="articolo">
       <nav class="briciole" aria-label="Sei qui"><a href={N("/")}>Home</a><span aria-hidden="true">›</span><a href={N("/blog/")}>Il Diario del tè</a><span aria-hidden="true">›</span>{TEMA[url]}</nav>
       <p class="occhiello">{TEMA[url]}, {minuti(pagina.parole)}</p>
-      <h1>{pagina.h1}</h1>
+      <h1 data-cms-h1>{pagina.h1}</h1>
       <p class="intro">{pagina.description}</p>
       <div class="blog-foto grande" style={`background:${SFONDI[blog.findIndex((b) => b.url === url) % SFONDI.length]}`}></div>
       <p>Articolo di circa {pagina.parole} parole. In questo negozio finto mostriamo solo l'inizio: il testo completo non serve per gli esercizi.</p>
@@ -246,7 +246,8 @@ const piuVenduti = ["sencha-bio", "matcha-quotidiano", "tisane-della-sera", "tei
   .occhiello { font-size: .85rem; font-weight: 700; color: #3d6b4f; margin: 0 0 10px; }
   .occhiello--chiaro { color: #e7b77a; }
   .briciole { display: flex; flex-wrap: wrap; gap: 8px; font-size: .85rem; color: #4a5a50; margin-bottom: 18px; }
-  .intro { font-size: 1.05rem; color: #3f4f45; max-width: 62ch; margin: 0; }
+  .intro { font-size: 1.05rem; color: #3f4f45; max-width: 66ch; margin: 0; display: flex; flex-direction: column; gap: 10px; line-height: 1.65; }
+  .intro :global(p) { margin: 0; }
   .nbottone { display: inline-flex; align-items: center; justify-content: center; font: inherit; font-weight: 700; background: #1f4d36; color: #fff !important; border: 1.5px solid #1f4d36; border-radius: 999px; padding: 13px 22px; text-decoration: none; cursor: pointer; }
   .nbottone:disabled { opacity: .75; cursor: not-allowed; }
   .nbottone--contorno { background: transparent; color: #1f4d36 !important; }

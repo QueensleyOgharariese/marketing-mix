@@ -34,7 +34,7 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
   <Passi slot="barra" attivo={2} />
   <div class="layout" data-esercizio={es.id}>
     <!-- ====== SINISTRA: richiesta e scheda ====== -->
-    <aside class="sinistra" data-pannello="esercizio-dati" data-etichetta="richiesta e dati">
+    <aside class="sinistra" data-barra="esercizio-dati" data-etichetta="richiesta e dati">
       <section class="pannello blocco">
         <span class="mittente"><span class="avatar">{es.richiesta.da}</span><strong>La richiesta di {es.richiesta.nome}</strong></span>
         <p>{es.richiesta.testo}</p>
@@ -122,7 +122,7 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
     </form>
 
     <!-- ====== DESTRA: Pesca, controlli, aiuti ====== -->
-    <aside class="destra" data-pannello="esercizio-controlli" data-etichetta="Pesca e controlli">
+    <aside class="destra" data-barra="esercizio-controlli" data-lato="destra" data-etichetta="Pesca e controlli">
       <div class="pannello blocco">
         <div class="mittente"><Pesca dimensione={46} occhiali animata={false} /><span><strong>Pesca</strong><span class="nota">Ti do un suggerimento alla volta</span></span></div>
         <p class="pesca-dice" data-pesca aria-live="polite">{es.consiglio}</p>
@@ -339,7 +339,7 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
   @media (max-width: 1200px) {
     .layout:has(> .sinistra[data-chiuso]) { grid-template-columns: minmax(0, 1fr) minmax(250px, 300px); }
     .layout:has(> .destra[data-chiuso]), .layout:has(> .sinistra[data-chiuso]):has(> .destra[data-chiuso]) { grid-template-columns: minmax(0, 1fr) 52px; }
-    .sinistra[data-chiuso] > :global(.apri-pannello) { writing-mode: horizontal-tb; min-height: 0; }
+    .sinistra[data-chiuso] > :global(.apri-pannello) { margin: 0; }
     .layout { grid-template-columns: minmax(0, 1fr) minmax(250px, 300px); }
     .sinistra { grid-column: 1 / -1; position: static; max-height: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
   }

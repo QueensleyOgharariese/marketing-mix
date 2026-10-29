@@ -18,7 +18,7 @@ const GRUPPI: [string, string, [string, string][]][] = [
 ---
 <Console attivo="crawler" titolo="Crawler" sottotitolo="Il sito letto pagina per pagina, seguendo i link, come fa Google" ispirato="Screaming Frog SEO Spider">
   <div class="sp-pannello comandi">
-    <span><strong>Scansione completata</strong> il {crawl.data.split("-").reverse().join("/")}: {crawl.pagine.length} indirizzi di <span class="url">https://cinquefoglie.example/</span></span>
+    <span data-intestazione-scansione><strong>Scansione completata</strong> il {crawl.data.split("-").reverse().join("/")}: {crawl.pagine.length} indirizzi di <span class="url">https://cinquefoglie.example/</span></span>
     <input class="sp-cerca" type="search" placeholder="Filtra gli indirizzi…" data-testo />
   </div>
   <div class="corpo">
@@ -72,13 +72,34 @@ const GRUPPI: [string, string, [string, string][]][] = [
   import { attivaTabelle, num } from "../../../../../scripts/tabella";
   import { pixel } from "../../../../../scripts/controlli-seo";
 
+  import { leggiModifiche, paginaEffettiva, OGGI, catena as catenaCms } from "../../../../../scripts/cms";
+
   const $ = <T extends HTMLElement>(s: string) => document.querySelector<T>(s)!;
   const righe = [...document.querySelectorAll<HTMLTableRowElement>("#t-crawl tbody tr")];
+  // Il crawler legge il sito com'è adesso: con le modifiche fatte nel Pannello del negozio
+  const MOD = leggiModifiche();
+  const PAG = crawl.pagine.map((p) => paginaEffettiva(p.url, MOD) ?? p);
+  const esc0 = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+  if (PAG.some((p) => p.modificata)) {
+    $("[data-intestazione-scansione]").innerHTML = `<strong>Nuova scansione</strong> il ${OGGI}: ${PAG.length} indirizzi, con le modifiche del pannello`;
+    righe.forEach((r) => {
+      const p = PAG[Number(r.dataset.i)];
+      if (!p.modificata) return;
+      const c = r.cells;
+      c[2].dataset.valore = String(p.stato);
+      c[2].innerHTML = `<span class="sp-badge ${p.stato === 200 ? "ok" : p.stato === 404 ? "no" : "medio"}">${p.stato}</span>`;
+      c[3].innerHTML = p.indicizzabile ? '<span class="sp-badge ok">Sì</span>' : `<span class="sp-badge no">No, ${esc0((p.motivo || "").toLowerCase())}</span>`;
+      c[4].dataset.title = p.title ?? ""; c[4].innerHTML = p.title ? esc0(p.title) : "<em>—</em>";
+      c[6].dataset.valore = String((p.description ?? "").length); c[6].innerHTML = p.stato === 200 ? (p.description ? String(p.description.length) : '<span class="sp-badge no">manca</span>') : "";
+      c[7].innerHTML = p.stato === 200 ? (p.h1 ? esc0(p.h1) : '<span class="sp-badge no">manca</span>') : "";
+      r.classList.add("cambiata");
+    });
+  }
   // Larghezza dei title in pixel (come nell'esercizio SEO) e title ripetuti su più pagine
   const contaTitle: Record<string, number> = {};
-  crawl.pagine.forEach((p) => { if (p.stato === 200 && p.title) contaTitle[p.title] = (contaTitle[p.title] ?? 0) + 1; });
+  PAG.forEach((p) => { if (p.stato === 200 && p.title) contaTitle[p.title] = (contaTitle[p.title] ?? 0) + 1; });
   righe.forEach((r) => {
-    const p = crawl.pagine[Number(r.dataset.i)];
+    const p = PAG[Number(r.dataset.i)];
     const cella = r.querySelector<HTMLElement>("[data-px]")!;
     if (p.stato === 200 && p.title) {
       const px = pixel(p.title);
@@ -90,7 +111,7 @@ const GRUPPI: [string, string, [string, string][]][] = [
   });
   attivaTabelle();
 
-  const prova: Record<string, (p: (typeof crawl.pagine)[number], r: HTMLTableRowElement) => boolean> = {
+  const prova: Record<string, (p: (typeof PAG)[number], r: HTMLTableRowElement) => boolean> = {
     tutti: () => true,
     "4xx": (p) => p.stato >= 400,
     "3xx": (p) => p.stato >= 300 && p.stato < 400,
@@ -105,11 +126,11 @@ const GRUPPI: [string, string, [string, string][]][] = [
   let filtro = "tutti";
   function applica() {
     const t = $<HTMLInputElement>("[data-testo]").value.trim().toLowerCase();
-    righe.forEach((r) => { const p = crawl.pagine[Number(r.dataset.i)]; r.hidden = !prova[filtro](p, r) || (!!t && !p.url.toLowerCase().includes(t)); });
+    righe.forEach((r) => { const p = PAG[Number(r.dataset.i)]; r.hidden = !prova[filtro](p, r) || (!!t && !p.url.toLowerCase().includes(t)); });
   }
   document.querySelectorAll<HTMLButtonElement>("[data-filtro]").forEach((b) => {
     const id = b.dataset.filtro!;
-    b.querySelector("[data-conta]")!.textContent = String(righe.filter((r) => prova[id](crawl.pagine[Number(r.dataset.i)], r)).length);
+    b.querySelector("[data-conta]")!.textContent = String(righe.filter((r) => prova[id](PAG[Number(r.dataset.i)], r)).length);
     b.addEventListener("click", () => {
       filtro = id;
       document.querySelectorAll("[data-filtro]").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
@@ -120,17 +141,12 @@ const GRUPPI: [string, string, [string, string][]][] = [
 
   // Dettaglio di un indirizzo
   const esc = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;");
-  function catena(url: string) {
-    const passi = [url];
-    let p = crawl.pagine.find((x) => x.url === url);
-    while (p && p.redirect && passi.length < 6) { passi.push(p.redirect); p = crawl.pagine.find((x) => x.url === p!.redirect); }
-    return passi;
-  }
+  const catena = (url: string) => catenaCms(url, MOD);
   const dett = $("[data-dettaglio]");
   function apri(r: HTMLTableRowElement) {
     righe.forEach((x) => x.classList.remove("selezionata"));
     r.classList.add("selezionata");
-    const p = crawl.pagine[Number(r.dataset.i)];
+    const p = PAG[Number(r.dataset.i)];
     const voci: [string, string][] = [
       ["Indirizzo", `<span class="url">${esc(p.url)}</span>`], ["Tipo", p.tipo], ["Stato", String(p.stato)],
       ["Indicizzabile", p.indicizzabile ? "Sì" : `No, ${p.motivo.toLowerCase()}`],
@@ -164,6 +180,7 @@ const GRUPPI: [string, string, [string, string][]][] = [
   .conta { font-variant-numeric: tabular-nums; opacity: .75; }
   .sp-scorri { max-height: 560px; overflow: auto; }
   tr[data-i] { cursor: pointer; }
+  :global(tr.cambiata) td:first-child { box-shadow: inset 3px 0 0 var(--arancio); }
   .title { min-width: 220px; }
   #t-crawl td.url { white-space: nowrap; }
   .dettaglio { border: 2px solid var(--arancio); background: #f8f8f6; display: flex; flex-direction: column; gap: 10px; }

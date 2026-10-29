@@ -42,6 +42,17 @@ const segmenti = Object.entries(sc.segmenti);
     <p class="sp-nota" data-legenda></p>
   </div>
 
+  <section class="sp-pannello controllo-url" aria-labelledby="t-controllo">
+    <h2 id="t-controllo" class="titoletto">Controllo URL</h2>
+    <p class="sp-nota">Scrivi un indirizzo per vedere com'è su Google e com'è sul sito adesso. Dopo una modifica puoi chiedere a Google di rileggere la pagina.</p>
+    <form class="url-riga" data-controllo-url>
+      <label for="url-da-controllare" class="sr">Indirizzo da controllare</label>
+      <input id="url-da-controllare" class="sp-cerca" name="url" placeholder="/te-verdi/" autocomplete="off" />
+      <button type="submit" class="bottone-app">Controlla</button>
+    </form>
+    <div class="url-esito" data-url-esito hidden></div>
+  </section>
+
   <div class="sp-pannello tabelle">
     <div class="sp-riga">
       <div class="sp-schede" role="tablist">
@@ -205,6 +216,39 @@ const segmenti = Object.entries(sc.segmenti);
     document.querySelectorAll<HTMLElement>("[data-pannello]").forEach((p) => (p.hidden = p.dataset.pannello !== b.dataset.scheda));
   }));
 
+  // ---- Controllo URL: Google (ultima scansione, 25/10) e sito di oggi (con le modifiche del pannello)
+  import crawlDati from "../../../../../data/app/seo-pro/crawl.json";
+  import { leggiModifiche, salvaModifiche, paginaEffettiva, pulisciUrl, OGGI } from "../../../../../scripts/cms";
+  const escU = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+  function controllaUrl(u: string) {
+    const box = $("[data-url-esito]");
+    const url = pulisciUrl(u);
+    const google = crawlDati.pagine.find((p) => p.url === url);
+    const oggi = paginaEffettiva(url);
+    box.hidden = false;
+    if (!google && !oggi) { box.innerHTML = `<p>Google non conosce <span class="url">${escU(url)}</span>: controlla di averlo scritto bene.</p>`; return; }
+    const m = leggiModifiche();
+    const richiesta = m.richieste[url];
+    const riga = (k: string, v: string) => `<div><dt>${k}</dt><dd>${v || "<em>—</em>"}</dd></div>`;
+    const scheda = (titolo: string, p: any, nota: string) => `<div class="url-scheda"><strong>${titolo}</strong><span class="sp-nota">${nota}</span><dl>` +
+      riga("Stato", p ? String(p.stato) : "–") + riga("Su Google", p ? (p.indicizzabile ? '<span class="sp-badge ok">Può comparire</span>' : `<span class="sp-badge no">No, ${escU((p.motivo || "").toLowerCase())}</span>`) : "") +
+      riga("Title", p ? escU(p.title ?? "") : "") + riga("Description", p ? escU(p.description ?? "") : "") + riga("Meta robots", p ? escU(p.robots ?? "") : "") + `</dl></div>`;
+    box.innerHTML = `<div class="url-schede">${scheda("Come l'ha vista Google", google, "Ultima scansione: 25/10/2026")}${scheda("Il sito adesso", oggi, oggi?.modificata ? "Contiene le tue modifiche" : "Uguale all'ultima scansione")}</div>
+      <div class="url-azioni">${richiesta ? `<span class="sp-badge medio">Indicizzazione richiesta il ${richiesta}</span>` : `<button type="button" class="bottone-app" data-richiedi>Richiedi indicizzazione</button>`}<span class="url-msg" data-url-msg aria-live="polite"></span></div>`;
+    box.querySelector("[data-richiedi]")?.addEventListener("click", () => {
+      const msg = box.querySelector<HTMLElement>("[data-url-msg]")!;
+      if (!oggi || oggi.stato !== 200) { msg.textContent = "Questa pagina non risponde 200: Google non la può indicizzare."; return; }
+      if ((oggi.robots ?? "").includes("noindex")) { msg.textContent = "La pagina ha ancora il noindex: Google non la può indicizzare. Toglilo prima nel pannello."; return; }
+      const m2 = leggiModifiche(); m2.richieste[url] = OGGI; salvaModifiche(m2);
+      controllaUrl(url);
+      box.querySelector<HTMLElement>("[data-url-msg]")!.textContent = "Richiesta inviata: Google rileggerà la pagina nei prossimi giorni.";
+    });
+  }
+  $<HTMLFormElement>("[data-controllo-url]").addEventListener("submit", (e) => {
+    e.preventDefault();
+    controllaUrl(((e.currentTarget as HTMLFormElement).elements.namedItem("url") as HTMLInputElement).value);
+  });
+
   // Dettaglio di una query: le pagine che compaiono per quella ricerca
   const dett = $("[data-dettaglio]");
   function apri(riga: HTMLTableRowElement) {
@@ -240,6 +284,18 @@ const segmenti = Object.entries(sc.segmenti);
   .evento { display: flex; gap: 10px; align-items: center; margin: 8px 0 0; font-size: .85rem; background: #f4f4f2; border-radius: 10px; padding: 9px 12px; }
   .evento-n { flex: none; width: 20px; height: 20px; border-radius: 50%; background: #ff7a1a; display: grid; place-items: center; font-size: .72rem; font-weight: 800; }
   .tabelle { display: flex; flex-direction: column; gap: 12px; }
+  .titoletto { font-family: var(--font-titoli); font-size: 1.15rem; font-weight: 800; margin: 0 0 4px; }
+  .controllo-url { display: flex; flex-direction: column; gap: 12px; }
+  .url-riga { display: flex; flex-wrap: wrap; gap: 10px; }
+  .url-riga input { flex: 1 1 260px; }
+  .url-esito :global(.url-schede) { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+  .url-esito :global(.url-scheda) { border: 1px solid #e3e1dc; border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; }
+  .url-esito :global(dl) { margin: 4px 0 0; display: flex; flex-direction: column; gap: 6px; font-size: .85rem; }
+  .url-esito :global(dl div) { display: grid; grid-template-columns: 100px 1fr; gap: 8px; }
+  .url-esito :global(dt) { color: #5f5a55; font-weight: 700; } .url-esito :global(dd) { margin: 0; overflow-wrap: anywhere; }
+  .url-esito :global(.url-azioni) { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 12px; }
+  .url-esito :global(.url-msg) { font-size: .86rem; font-weight: 600; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .barra-tab { justify-content: flex-start; }
   .sp-scorri { max-height: 460px; overflow-y: auto; }
   tr[data-query] { cursor: pointer; }

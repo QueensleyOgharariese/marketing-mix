@@ -5,10 +5,10 @@
       "id": "m1",
       "n": 1,
       "nome": "Audit tecnico",
-      "tempo": "35 minuti",
-      "strumenti": "Indicizzazione, Crawler",
+      "tempo": "40 minuti",
+      "strumenti": "Indicizzazione, Crawler, Pannello",
       "cosa": "Trova cosa impedisce a Google di leggere bene il sito.",
-      "obiettivo": "Un audit tecnico controlla che Google possa trovare, leggere e mostrare le pagine del sito. Si parte da cosa Google ha nel suo archivio, poi si cercano gli errori pagina per pagina.",
+      "obiettivo": "Un audit tecnico controlla che Google possa trovare, leggere e mostrare le pagine. Questa volta non basta capire il problema: lo correggi tu nel Pannello del negozio e controlli che il sito sia cambiato.",
       "passi": [
         {
           "strumento": "indicizzazione",
@@ -48,124 +48,82 @@
           "dove": ".sp-grafico"
         },
         {
+          "tipo": "azione",
+          "strumento": "pannello",
+          "domanda": "Rimetti le tisane su Google",
+          "spiega": "Il nuovo tema del 18 settembre ha un'impostazione che nasconde la categoria Tisane ai motori di ricerca: mette il noindex sulla categoria e su tutti i suoi prodotti. Si corregge dove è nato il problema, nelle impostazioni del tema, non pagina per pagina.",
+          "esempio": "In un negozio di candele l'aggiornamento del tema nasconde la categoria \"Candele profumate\": basta rimettere la spunta \"Visibile sui motori di ricerca\", e tutte le schede tornano visibili.",
+          "compito": "Apri il <strong>Pannello del negozio</strong> → <strong>Tema e impostazioni</strong>. Poi apri /tisane/ nel negozio e controlla con Ispeziona che il meta robots sia cambiato.",
+          "verifica": "tisaneVisibili",
+          "vai": {
+            "link": "/app/percorsi/seo/pannello/#tema",
+            "testo": "Apri il Pannello del negozio"
+          },
+          "perche": "Ora Ispeziona su /tisane/ mostra \"index, follow\" e il crawler la segna come indicizzabile. Carrello e account restano fuori, ed è giusto così.",
+          "aiuto": "Cerca la categoria senza spunta nella sezione \"Categorie visibili sui motori di ricerca\".",
+          "opzioni": [],
+          "dove": ""
+        },
+        {
+          "tipo": "azione",
+          "strumento": "pannello",
+          "domanda": "Sistema il prodotto che non esiste più",
+          "spiega": "Una pagina 404 linkata da altre pagine è un vicolo cieco per le persone e per Google. Se esiste un prodotto che la sostituisce, si crea un reindirizzamento 301 dal vecchio indirizzo al nuovo.",
+          "esempio": "Una libreria toglie la vecchia edizione di un libro: crea un 301 da /libri/vecchia-edizione/ a /libri/nuova-edizione/.",
+          "compito": "Nel <strong>Crawler</strong> apri il filtro <strong>Pagine 404</strong> e leggi la nota. Poi nel <strong>Pannello</strong> → <strong>Reindirizzamenti</strong> scrivi da dove a dove.",
+          "verifica": "redirect404",
+          "vai": {
+            "link": "/app/percorsi/seo/pannello/#redirect",
+            "testo": "Apri i reindirizzamenti"
+          },
+          "perche": "Chi clicca uno dei 6 link al vecchio Earl Grey arriva sul nuovo: prova a cliccare il link \"Earl Grey classico\" nella home del negozio. Il crawler ora lo segna come 301.",
+          "aiuto": "Il sostituto è scritto nella nota del 404: è l'Earl Grey biologico, all'indirizzo /te-neri/earl-grey-bio/.",
+          "opzioni": [],
+          "dove": ""
+        },
+        {
+          "tipo": "azione",
+          "strumento": "pannello",
+          "domanda": "Accorcia la catena di redirect",
+          "spiega": "Una catena di redirect è quando A rimanda a B che rimanda a C. Ogni salto rallenta e Google può smettere di seguirli. Si corregge facendo puntare A direttamente alla pagina finale.",
+          "esempio": "Una libreria ha /libro.php?id=3 → /libri/vecchio/ → /libri/nuovo/: modifica il primo perché vada subito su /libri/nuovo/.",
+          "compito": "Nel <strong>Pannello</strong> → <strong>Reindirizzamenti</strong> trova la riga con l'etichetta \"catena\" e modificala.",
+          "verifica": "catena",
+          "vai": {
+            "link": "/app/percorsi/seo/pannello/#redirect",
+            "testo": "Apri i reindirizzamenti"
+          },
+          "perche": "Ora il vecchio indirizzo del vecchio sito arriva al Sencha biologico in un solo salto, senza passare da /te-verdi/sencha/.",
+          "aiuto": "/prodotto.php?id=12 deve portare direttamente a /te-verdi/sencha-bio/.",
+          "opzioni": [],
+          "dove": ""
+        },
+        {
+          "tipo": "azione",
           "strumento": "indicizzazione",
-          "domanda": "Quali pagine fuori da Google sono un problema?",
-          "spiega": "Il noindex chiede a Google di non mostrare una pagina. È giusto per le pagine che nessuno cerca (carrello, account, pagine dei tag). È un errore sulle pagine che vendono o rispondono a una ricerca.",
-          "esempio": "Un negozio di candele tiene fuori da Google la pagina \"Grazie per l'ordine\": giusto. Se finisce fuori la categoria \"Candele profumate\", perde le visite di chi le cerca.",
-          "compito": "Apri il motivo <strong>Esclusa in base al tag \"noindex\"</strong> nella tabella e guarda gli indirizzi.",
-          "tipo": "checkbox",
-          "opzioni": [
-            {
-              "id": "o1",
-              "testo": "/tisane/ e i suoi 6 prodotti",
-              "giusta": true,
-              "nota": ""
-            },
-            {
-              "id": "o2",
-              "testo": "/carrello/",
-              "giusta": false,
-              "nota": "Nessuno cerca il carrello su Google: è giusto che sia escluso."
-            },
-            {
-              "id": "o3",
-              "testo": "/account/",
-              "giusta": false,
-              "nota": "La pagina dell'account è personale: è giusto che sia esclusa."
-            },
-            {
-              "id": "o4",
-              "testo": "Le pagine dei tag del blog",
-              "giusta": false,
-              "nota": "Le pagine dei tag ripetono gli articoli: Google le ha lette e scartate, non è un problema grave."
-            }
-          ],
-          "perche": "La categoria Tisane e i suoi prodotti hanno il noindex: un'intera parte del negozio è sparita da Google. Carrello e account invece è giusto che restino fuori.",
-          "aiuto": "Per ogni pagina chiediti: qualcuno la cercherebbe su Google per comprare o per informarsi?",
-          "dove": "tr[data-motivo]"
-        },
-        {
-          "strumento": "crawler",
-          "domanda": "Un prodotto non esiste più. Cosa fai?",
-          "spiega": "Una pagina 404 non esiste più. Se altre pagine la linkano, chi clicca trova un vicolo cieco. Quando c'è una pagina che la sostituisce si usa un redirect 301 verso quella, e si correggono i link interni.",
-          "esempio": "Una libreria toglie la vecchia edizione di un libro e mette la nuova: chi arriva al vecchio indirizzo va mandato alla nuova edizione, non alla home.",
-          "compito": "Nel crawler scegli <strong>Pagine 404</strong>, clicca la riga e leggi i dettagli sotto la tabella.",
-          "tipo": "radio",
-          "opzioni": [
-            {
-              "id": "o1",
-              "testo": "Lasciare il 404: prima o poi Google la dimentica",
-              "giusta": false,
-              "nota": "Le 6 pagine del sito continuano a linkarla: le persone trovano una pagina vuota."
-            },
-            {
-              "id": "o2",
-              "testo": "Redirect 301 alla home",
-              "giusta": false,
-              "nota": "Chi cercava un tè nero finisce sulla home: Google tratta questi redirect quasi come un 404."
-            },
-            {
-              "id": "o3",
-              "testo": "Redirect 301 all'Earl Grey biologico e correggere i 6 link",
-              "giusta": true,
-              "nota": ""
-            },
-            {
-              "id": "o4",
-              "testo": "Mettere la pagina in noindex",
-              "giusta": false,
-              "nota": "Una pagina che non esiste non si può mettere in noindex: il problema resta."
-            }
-          ],
-          "perche": "Il redirect porta persone e Google al prodotto che sostituisce quello vecchio. Correggere i link interni evita un passaggio inutile.",
-          "aiuto": "Leggi la nota del 404: c'è un prodotto simile che lo sostituisce?",
-          "dove": "[data-filtro='4xx']"
-        },
-        {
-          "strumento": "crawler",
-          "domanda": "Quale problema sistemi per primo?",
-          "spiega": "In un audit si trovano molti problemi, ma non hanno lo stesso peso. Si parte da quello che fa perdere più visite e vendite, di solito un problema che tocca tante pagine importanti o le toglie da Google.",
-          "esempio": "Un negozio di candele ha 10 immagini senza testo alternativo e la categoria principale bloccata da un errore: si sblocca prima la categoria.",
-          "compito": "Ripensa a quello che hai trovato nei passi precedenti e guarda i gruppi di problemi del crawler.",
-          "tipo": "radio",
-          "opzioni": [
-            {
-              "id": "o1",
-              "testo": "Le 20 pagine con il title duplicato",
-              "giusta": false,
-              "nota": "Va sistemato, ma quelle pagine sono ancora su Google."
-            },
-            {
-              "id": "o2",
-              "testo": "Il noindex sulla categoria Tisane e sui suoi prodotti",
-              "giusta": true,
-              "nota": ""
-            },
-            {
-              "id": "o3",
-              "testo": "L'H1 che manca su /matcha/",
-              "giusta": false,
-              "nota": "Un H1 mancante pesa poco: la pagina è comunque su Google."
-            },
-            {
-              "id": "o4",
-              "testo": "Le pagine con meno di 200 parole",
-              "giusta": false,
-              "nota": "Molte sono pagine di servizio: non è la prima cosa da fare."
-            }
-          ],
-          "perche": "Il noindex toglie da Google un'intera categoria che vende, proprio ora che inizia la stagione delle tisane. Gli altri problemi vanno sistemati dopo, uno alla volta.",
-          "aiuto": "Quale problema toglie più pagine da Google, e in quale stagione siamo?",
-          "dove": ".filtri"
+          "domanda": "Chiedi a Google di verificare la correzione",
+          "spiega": "Correggere il sito non basta: Google se ne accorge solo quando rilegge le pagine. Negli strumenti per i webmaster si chiede di \"convalidare la correzione\": Google ricontrolla le pagine di quel problema e, se è risolto, le rimette nei risultati.",
+          "esempio": "Il negozio di candele, dopo aver sistemato la categoria, apre il rapporto delle pagine escluse e preme \"Convalida correzione\" sul motivo noindex.",
+          "compito": "In <strong>Pagine e indicizzazione</strong> apri il motivo <strong>noindex</strong>: guarda la colonna \"Sul sito oggi\" e poi premi <strong>Convalida correzione</strong>.",
+          "verifica": "convalidaNoindex",
+          "vai": {
+            "link": "/app/percorsi/seo/strumenti/indicizzazione/",
+            "testo": "Apri Pagine e indicizzazione"
+          },
+          "perche": "La convalida è iniziata. I numeri del grafico non cambiano subito: Google rilegge le pagine nei prossimi giorni.",
+          "aiuto": "Se la convalida non riesce, il problema c'è ancora sul sito: ricontrolla il passo 2.",
+          "opzioni": [],
+          "dove": ""
         }
       ],
       "imparato": [
         "leggere il rapporto di indicizzazione",
-        "distinguere le esclusioni giuste da quelle sbagliate",
-        "risolvere un 404 con un redirect 301",
-        "dare una priorità ai problemi"
+        "togliere un noindex dal tema",
+        "creare un reindirizzamento 301",
+        "accorciare una catena di redirect",
+        "chiedere a Google di convalidare una correzione"
       ],
-      "elena": "Grazie! Ho girato il noindex delle tisane al team web: lo tolgono oggi stesso. Domani guardiamo le keyword."
+      "elena": "Ho visto: le tisane sono di nuovo visibili e il vecchio Earl Grey porta al nuovo. Bel lavoro, domani guardiamo le keyword."
     },
     {
       "id": "m2",
@@ -337,10 +295,10 @@
       "id": "m3",
       "n": 3,
       "nome": "Riscrivi la categoria Tè verdi",
-      "tempo": "25 minuti",
-      "strumenti": "Console, Negozio",
+      "tempo": "35 minuti",
+      "strumenti": "Console, Pannello, Negozio",
       "cosa": "Title, description e testo di una pagina poco cliccata.",
-      "obiettivo": "La pagina dei tè verdi compare spesso su Google ma pochi ci cliccano. In questa missione capisci perché e scegli title, description e testo nuovi.",
+      "obiettivo": "La pagina dei tè verdi compare spesso su Google ma pochi ci cliccano. In questa missione la riscrivi tu, nel Pannello del negozio, e chiedi a Google di rileggerla.",
       "passi": [
         {
           "strumento": "console",
@@ -380,137 +338,62 @@
           "dove": "[data-scheda='pagine']"
         },
         {
-          "strumento": "negozio",
-          "domanda": "Quale title scegli per /te-verdi/?",
-          "spiega": "Il title è il titolo blu nei risultati. Deve iniziare con la keyword della pagina, dire cosa c'è di specifico, restare entro circa 580 pixel e finire con il nome del brand. Niente elenchi di parole ripetute e niente promesse che non si possono mantenere.",
-          "esempio": "Candele: \"Candele profumate in cera di soia, 20 fragranze | Luce di Casa\" invece di \"Candele | Luce di Casa\".",
-          "compito": "Apri <a href=\"/app/negozio/te-verdi/\">/te-verdi/ nel negozio</a> e premi <strong>Ispeziona</strong> per vedere il title di oggi.",
-          "tipo": "radio",
-          "opzioni": [
-            {
-              "id": "o1",
-              "testo": "Cinque Foglie | Tè verdi",
-              "giusta": false,
-              "nota": "Il brand all'inizio sposta la keyword in fondo: si legge meno."
-            },
-            {
-              "id": "o2",
-              "testo": "Tè verdi biologici: Sencha, Gyokuro e Genmaicha | Cinque Foglie",
-              "giusta": true,
-              "nota": ""
-            },
-            {
-              "id": "o3",
-              "testo": "Tè verdi tè verde tè verdi bio tè verde online economico",
-              "giusta": false,
-              "nota": "Ripetere la keyword (keyword stuffing) sembra spam a persone e a Google."
-            },
-            {
-              "id": "o4",
-              "testo": "I migliori tè verdi del mondo, che fanno dimagrire | Cinque Foglie",
-              "giusta": false,
-              "nota": "\"I migliori del mondo\" non si può dimostrare e \"fanno dimagrire\" è una promessa sulla salute vietata."
-            }
-          ],
-          "perche": "Inizia con \"tè verdi\", aggiunge \"biologici\" (keyword secondaria) e i nomi dei tè più cercati, e chiude con il brand.",
-          "aiuto": "Cerca il title che inizia con la keyword e non promette niente sulla salute.",
-          "dove": ".ispeziona summary",
-          "pagina": "/app/negozio/te-verdi/"
+          "tipo": "azione",
+          "strumento": "pannello",
+          "domanda": "Scrivi title e description di /te-verdi/",
+          "spiega": "Il title è il titolo blu nei risultati: deve iniziare con la keyword della pagina, dire cosa c'è di specifico, restare entro circa 580 pixel e finire con il brand. La description è il testo grigio sotto: in 100-160 caratteri dice cosa trova chi clicca e un vantaggio concreto. Niente keyword ripetute e niente promesse sulla salute.",
+          "esempio": "Candele: title \"Candele profumate in cera di soia: 20 fragranze | Luce di Casa\"; description \"Oltre 20 fragranze in cera di soia, fatte a mano in Toscana. Scegli per stanza e ricevile in 24 ore.\"",
+          "compito": "Apri il <strong>Pannello</strong> → <strong>Pagine</strong> → <strong>/te-verdi/</strong>. Mentre scrivi guarda l'anteprima e il contatore dei pixel; poi salva e controlla con Ispeziona nel negozio.",
+          "verifica": "titoloTeVerdi",
+          "vai": {
+            "link": "/app/percorsi/seo/pannello/?pagina=/te-verdi/",
+            "testo": "Apri /te-verdi/ nel pannello"
+          },
+          "perche": "Esempio di un collega senior: title \"Tè verdi biologici: Sencha e Gyokuro | Cinque Foglie\"; description \"Sencha, Gyokuro, Genmaicha e altri tè verdi biologici in foglie intere. Guida alla scelta e spedizione in 24 ore.\" Il tuo può essere diverso: conta che rispetti le stesse regole.",
+          "aiuto": "Parti da: \"Tè verdi biologici: [due o tre nomi di tè] | Cinque Foglie\".",
+          "opzioni": [],
+          "dove": ""
         },
         {
-          "strumento": "negozio",
-          "domanda": "Quale meta description scegli?",
-          "spiega": "La meta description è il testo grigio sotto il title. Non fa salire la posizione, ma convince a cliccare: deve dire cosa si trova nella pagina e un vantaggio concreto, in circa 120-160 caratteri.",
-          "esempio": "Candele: \"Oltre 20 fragranze in cera di soia, fatte a mano in Toscana. Spedizione gratuita da 39 €.\"",
-          "compito": "Nella pagina /te-verdi/ la description di oggi è <strong>\"Tè verdi.\"</strong>: guardala con Ispeziona.",
-          "tipo": "radio",
-          "opzioni": [
-            {
-              "id": "o1",
-              "testo": "Tè verdi.",
-              "giusta": false,
-              "nota": "È quella di oggi: non dice nulla e non invoglia."
-            },
-            {
-              "id": "o2",
-              "testo": "Sencha, Gyokuro, Genmaicha e altri tè verdi biologici in foglie intere. Guida alla scelta e spedizione in 24 ore.",
-              "giusta": true,
-              "nota": ""
-            },
-            {
-              "id": "o3",
-              "testo": "Il tè verde brucia i grassi e rafforza le difese: provalo subito, scopri tutti i benefici!",
-              "giusta": false,
-              "nota": "Sono promesse sulla salute non autorizzate per un alimento."
-            },
-            {
-              "id": "o4",
-              "testo": "Nel nostro negozio online trovi una vasta selezione di prodotti di alta qualità per tutti i gusti e tutte le occasioni, scelti con cura dal nostro team di esperti appassionati.",
-              "giusta": false,
-              "nota": "È lunga e generica: non dice nemmeno che si parla di tè verdi."
-            }
-          ],
-          "perche": "Dice cosa c'è (quali tè), un dettaglio di qualità (biologici, foglie intere) e due vantaggi (guida alla scelta, spedizione in 24 ore).",
-          "aiuto": "Cerca la descrizione che nomina i prodotti e un vantaggio concreto.",
-          "dove": ".ispeziona summary",
-          "pagina": "/app/negozio/te-verdi/"
+          "tipo": "azione",
+          "strumento": "pannello",
+          "domanda": "Scrivi il testo della categoria",
+          "spiega": "Il testo di una categoria aiuta chi deve scegliere e aiuta Google a capire la pagina. Bastano 80-150 parole utili: come scegliere, come preparare, quali tè ci sono. Si scrive per le persone; la keyword compare in modo naturale, una o due volte.",
+          "esempio": "Candele: \"Le candele in cera di soia bruciano più a lungo e fanno meno fumo. Per il salotto scegli fragranze legnose, per la camera lavanda o vaniglia. Accendile per almeno due ore la prima volta…\"",
+          "compito": "Nel <strong>Pannello</strong>, nella stessa pagina /te-verdi/, scrivi il <strong>Testo introduttivo della categoria</strong> e salva. Poi apri la categoria nel negozio: il testo nuovo è lì.",
+          "verifica": "testoTeVerdi",
+          "vai": {
+            "link": "/app/percorsi/seo/pannello/?pagina=/te-verdi/",
+            "testo": "Apri /te-verdi/ nel pannello"
+          },
+          "perche": "Esempio di un collega senior: \"I tè verdi si dividono in due grandi famiglie. Quelli giapponesi, come Sencha e Gyokuro, sono cotti al vapore e hanno un gusto fresco ed erbaceo; quelli cinesi, come il tè al gelsomino, sono tostati e più morbidi. Per non renderli amari usa acqua a 70-80 °C e lascia in infusione 1-2 minuti. Se inizi ora, prova il Sencha biologico: è il più versatile, buono anche a freddo. Tutti i nostri tè verdi sono biologici e in foglie intere.\"",
+          "aiuto": "Scrivi 3-4 frasi: le due famiglie (giapponesi e cinesi), la temperatura dell'acqua, un consiglio per iniziare.",
+          "opzioni": [],
+          "dove": ""
         },
         {
-          "strumento": "negozio",
-          "domanda": "Cosa aggiungi al testo della categoria?",
-          "spiega": "Il testo di una categoria aiuta chi deve scegliere e aiuta Google a capire la pagina. Bastano poche righe utili, scritte per le persone: come scegliere, come preparare, link ai prodotti e alla guida. Il testo nascosto o pieno di keyword ripetute è vietato dalle regole di Google.",
-          "esempio": "Candele: due paragrafi su come scegliere la fragranza per ogni stanza, con i link alle candele più vendute e alla guida \"Come far durare una candela\".",
-          "compito": "Oggi il testo è solo <strong>\"Scopri i nostri tè verdi.\"</strong> Scegli tutto ciò che è utile, e solo quello.",
-          "tipo": "checkbox",
-          "opzioni": [
-            {
-              "id": "o1",
-              "testo": "Come scegliere tra tè verdi giapponesi e cinesi",
-              "giusta": true,
-              "nota": ""
-            },
-            {
-              "id": "o2",
-              "testo": "Come prepararli: temperatura dell'acqua e tempo",
-              "giusta": true,
-              "nota": ""
-            },
-            {
-              "id": "o3",
-              "testo": "Un link al Sencha biologico e alla guida sul Sencha",
-              "giusta": true,
-              "nota": ""
-            },
-            {
-              "id": "o4",
-              "testo": "La parola \"tè verdi\" ripetuta 20 volte",
-              "giusta": false,
-              "nota": "È keyword stuffing: rende il testo illeggibile e Google lo penalizza."
-            },
-            {
-              "id": "o5",
-              "testo": "Un testo bianco su sfondo bianco pieno di keyword",
-              "giusta": false,
-              "nota": "Il testo nascosto è contro le regole di Google."
-            },
-            {
-              "id": "o6",
-              "testo": "Promesse sulla salute del tè verde",
-              "giusta": false,
-              "nota": "Per gli alimenti sono vietate se non autorizzate."
-            }
-          ],
-          "perche": "Un testo breve che aiuta a scegliere e a preparare, con link interni, rende la pagina più utile per le persone e più chiara per Google.",
-          "aiuto": "Tieni le cose che aiuterebbero te a scegliere un tè verde.",
-          "dove": ".intro",
-          "pagina": "/app/negozio/te-verdi/"
+          "tipo": "azione",
+          "strumento": "console",
+          "domanda": "Chiedi a Google di rileggere la pagina",
+          "spiega": "Dopo aver cambiato una pagina importante si può chiedere a Google di rileggerla subito, con il controllo URL. Non garantisce tempi, ma di solito accelera.",
+          "esempio": "Il negozio di candele, dopo aver riscritto la categoria, la controlla con il controllo URL e preme \"Richiedi indicizzazione\".",
+          "compito": "In <strong>Console di ricerca</strong> usa <strong>Controllo URL</strong>: scrivi /te-verdi/, confronta Google e sito di oggi, poi premi <strong>Richiedi indicizzazione</strong>.",
+          "verifica": "richiestaTeVerdi",
+          "vai": {
+            "link": "/app/percorsi/seo/strumenti/console/",
+            "testo": "Apri la Console di ricerca"
+          },
+          "perche": "Google ha in coda la nuova versione della pagina. Tra qualche settimana si guarda se il CTR sale dallo 0,6%.",
+          "aiuto": "Il controllo URL è in alto nella Console, sotto il grafico.",
+          "opzioni": [],
+          "dove": ""
         }
       ],
       "imparato": [
         "leggere il CTR di una pagina",
-        "scrivere un title con la keyword all'inizio",
-        "scegliere una description che invoglia",
-        "scrivere un testo di categoria utile"
+        "scrivere un title e una description con le regole giuste",
+        "scrivere un testo di categoria utile",
+        "chiedere a Google di rileggere una pagina"
       ],
       "elena": "Bellissimo, il nuovo title è già online. Tra qualche settimana guardiamo se il CTR sale. Prossimo passo: il piano del blog."
     },

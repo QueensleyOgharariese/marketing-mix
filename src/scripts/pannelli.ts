@@ -1,5 +1,5 @@
 // BARRE LATERALI CHIUDIBILI (workspace SEO, negozio, esercizi)
-// Ogni barra che si può chiudere ha l'attributo data-pannello="nome" e data-etichetta="Nome visibile".
+// Ogni barra che si può chiudere ha l'attributo data-barra="nome" e data-etichetta="Nome visibile".
 // Questo script aggiunge due bottoni: "Chiudi" in alto nella barra, e "Apri" che compare quando è chiusa
 // (la barra diventa una striscia sottile al bordo). La scelta resta salvata in questo browser.
 const CHIAVE = "marketing-mix-pannelli";
@@ -15,10 +15,10 @@ const ICONA_CHIUDI = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none
 
 export function attivaPannelli() {
   const stato = leggi();
-  document.querySelectorAll<HTMLElement>("[data-pannello]").forEach((p) => {
-    if (p.dataset.pannelloPronto) return;
-    p.dataset.pannelloPronto = "si";
-    const id = p.dataset.pannello!;
+  document.querySelectorAll<HTMLElement>("[data-barra]").forEach((p) => {
+    if (p.dataset.barraPronta) return;
+    p.dataset.barraPronta = "si";
+    const id = p.dataset.barra!;
     const nome = p.dataset.etichetta ?? "pannello"; // già scritto come va letto dopo "Apri" e "Chiudi"
 
     const chiudi = document.createElement("button");
@@ -31,7 +31,11 @@ export function attivaPannelli() {
     const apri = document.createElement("button");
     apri.type = "button";
     apri.className = "apri-pannello";
-    apri.textContent = `Apri ${nome}`;
+    // Icona del pannello che si riapre (lato sinistro o destro), con il nome per chi usa lo screen reader e nel suggerimento
+    const destra = p.dataset.lato === "destra";
+    apri.setAttribute("aria-label", `Apri ${nome}`);
+    apri.title = `Apri ${nome}`;
+    apri.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="${destra ? "M15 4v16" : "M9 4v16"}"/><path d="${destra ? "M10 10l-2 2 2 2" : "M14 10l2 2-2 2"}"/></svg>`;
 
     p.prepend(chiudi);
     p.append(apri);

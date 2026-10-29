@@ -16,6 +16,7 @@ const GRUPPI = [
   { nome: "Il lavoro", voci: [
     { id: "percorso", nome: "Panoramica", link: `${B}/` },
     { id: "negozio", nome: "Il negozio", link: "/app/negozio/" },
+    { id: "pannello", nome: "Pannello del negozio", link: `${B}/pannello/` },
   ] },
   { nome: "Strumenti", voci: [
     { id: "console", nome: "Console di ricerca", link: `${B}/strumenti/console/` },
@@ -36,7 +37,7 @@ const conGuida = attivo !== "percorso";
     <span class="missioni-barra" aria-hidden="true"><span data-missioni-barra></span></span>
   </div>
   <div class:list={["console", { "con-guida": conGuida }]}>
-    <nav class="menu" aria-label="Workspace SEO" data-pannello="menu-seo" data-etichetta="menu">
+    <nav class="menu" aria-label="Workspace SEO" data-barra="menu-seo" data-etichetta="menu">
       {GRUPPI.map((g) => (
         <div class="gruppo">
           <span class="menu-titolo">{g.nome}</span>
@@ -57,7 +58,7 @@ const conGuida = attivo !== "percorso";
       </header>
       <slot />
     </main>
-    {conGuida && <aside class="guida" aria-label="Guida della missione" data-pannello="guida-seo" data-etichetta="guida"><GuidaMissione pagina={attivo} /></aside>}
+    {conGuida && <aside class="guida" aria-label="Guida della missione" data-barra="guida-seo" data-lato="destra" data-etichetta="guida"><GuidaMissione pagina={attivo} /></aside>}
   </div>
 </AppLayout>
 
@@ -108,7 +109,7 @@ const conGuida = attivo !== "percorso";
   @media (max-width: 1180px) {
     .console.con-guida:has(> .guida[data-chiuso]) { grid-template-columns: 220px minmax(0, 1fr); }
     .console.con-guida:has(> .menu[data-chiuso]):has(> .guida[data-chiuso]) { grid-template-columns: 52px minmax(0, 1fr); }
-    .guida[data-chiuso] > :global(.apri-pannello) { writing-mode: horizontal-tb; min-height: 0; }
+    .guida[data-chiuso] > :global(.apri-pannello) { margin: 0; }
     .console.con-guida { grid-template-columns: 220px minmax(0, 1fr); }
     .guida { grid-column: 1 / -1; border-left: 0; border-top: 1px solid #e3e1dc; position: static; max-height: none; min-height: 0; }
   }
