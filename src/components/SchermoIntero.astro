@@ -1,0 +1,59 @@
+---
+// BOTTONE "SCHERMO INTERO" (workspace SEO e negozio)
+// Nasconde i pannelli ai lati (menu degli strumenti e guida della missione) e, se il browser lo permette,
+// mette la pagina a tutto schermo. Premendo di nuovo, o con Esc, tutto torna com'era.
+// La scelta resta salvata in questo browser (solo una comodità: se il salvataggio non funziona, pazienza).
+---
+<button type="button" class="schermo" data-schermo-intero aria-pressed="false">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path data-icona-apri d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" /><path data-icona-chiudi d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5" style="display:none" /></svg>
+  <span data-etichetta>Schermo intero</span>
+</button>
+
+<script is:inline>
+  // Applica subito la scelta salvata, prima che la pagina si disegni (così non "salta")
+  try { if (localStorage.getItem("marketing-mix-schermo-intero") === "si") document.documentElement.dataset.schermo = "intero"; } catch (e) {}
+</script>
+
+<script>
+  const CHIAVE = "marketing-mix-schermo-intero";
+  const html = document.documentElement;
+  const bottone = document.querySelector<HTMLButtonElement>("[data-schermo-intero]");
+  function mostra(intero: boolean) {
+    if (intero) html.dataset.schermo = "intero"; else delete html.dataset.schermo;
+    if (!bottone) return;
+    bottone.setAttribute("aria-pressed", String(intero));
+    bottone.querySelector("[data-etichetta]")!.textContent = intero ? "Esci dallo schermo intero" : "Schermo intero";
+    (bottone.querySelector("[data-icona-apri]") as SVGElement).style.display = intero ? "none" : "";
+    (bottone.querySelector("[data-icona-chiudi]") as SVGElement).style.display = intero ? "" : "none";
+    try { localStorage.setItem(CHIAVE, intero ? "si" : "no"); } catch {}
+  }
+  mostra(html.dataset.schermo === "intero");
+  bottone?.addEventListener("click", async () => {
+    const intero = html.dataset.schermo !== "intero";
+    mostra(intero);
+    try {
+      if (intero && !document.fullscreenElement) await html.requestFullscreen();
+      if (!intero && document.fullscreenElement) await document.exitFullscreen();
+    } catch {} // alcuni browser o anteprime non permettono lo schermo intero: restano comunque nascosti i pannelli
+  });
+  // Esc esce dallo schermo intero del browser: rimettiamo anche i pannelli
+  document.addEventListener("fullscreenchange", () => { if (!document.fullscreenElement && html.dataset.schermo === "intero") mostra(false); });
+</script>
+
+<style>
+  .schermo { display: inline-flex; align-items: center; gap: 8px; font: inherit; font-size: .82rem; font-weight: 700; padding: 7px 12px; border-radius: 999px; border: 1px solid #d1cec8; background: #fff; color: var(--inchiostro); cursor: pointer; white-space: nowrap; }
+  .schermo:hover { background: #f4f4f2; }
+  .schermo:focus-visible { outline: 3px solid var(--inchiostro); outline-offset: 2px; }
+  .schermo[aria-pressed="true"] { background: var(--inchiostro); color: #fff; border-color: var(--inchiostro); }
+  @media (max-width: 860px) { .schermo span { display: none; } .schermo { padding: 8px; } }
+</style>
+
+<style is:global>
+  /* Pannelli nascosti: menu e guida della workspace, guida del negozio */
+  html[data-schermo="intero"] .console,
+  html[data-schermo="intero"] .console.con-guida { grid-template-columns: minmax(0, 1fr) !important; }
+  html[data-schermo="intero"] .console > .menu,
+  html[data-schermo="intero"] .console > .guida,
+  html[data-schermo="intero"] .guida-negozio { display: none !important; }
+  html[data-schermo="intero"] .area { grid-template-columns: minmax(0, 1fr) !important; max-width: none !important; }
+</style>

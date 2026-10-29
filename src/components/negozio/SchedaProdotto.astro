@@ -16,7 +16,7 @@ const etichetta = etichettaProdotto(p);
     {categoriaNome && <span class="cat">{categoriaNome}</span>}
     <a class="nome" href={`/app/negozio${p.url}`}>{p.nome}</a>
     <span class="formato">{p.formato}</span>
-    <span class="voto">{p.recensioni ? <><span class="stelle" aria-hidden="true">★★★★★</span> {voto(p.id)} · {p.recensioni} recensioni</> : "Ancora nessuna recensione"}</span>
+    <span class="voto">{p.recensioni ? <><span class="stelle" aria-hidden="true">★★★★★</span> {voto(p.id)} <span class="sr">su 5,</span>({p.recensioni}<span class="sr"> recensioni</span>)</> : "Nessuna recensione"}</span>
     <div class="piede">
       <strong>{prezzo(p.prezzo)}</strong>
       <button type="button" disabled={!p.disponibile} title="Negozio finto: non si può comprare">{p.disponibile ? "Aggiungi" : "Esaurito"}</button>
@@ -28,13 +28,15 @@ const etichetta = etichettaProdotto(p);
   .nscheda { background: #fff; border: 1px solid #e6dfd0; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; height: 100%; }
   .foto { position: relative; display: block; }
   .etichetta { position: absolute; top: 12px; left: 12px; background: #fff; color: #1f4d36; font-size: .75rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
-  .testi { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
+  .testi { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
   .cat { font-size: .78rem; font-weight: 600; color: #4a5a50; }
   .nome { font-size: 1.02rem; font-weight: 700; color: #1d2a22 !important; text-decoration: none; }
   .nome:hover { text-decoration: underline; }
   .formato, .voto { font-size: .82rem; color: #4a5a50; }
   .stelle { color: #b06a10; letter-spacing: 1px; }
-  .piede { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 10px; }
+  .voto { white-space: nowrap; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .piede { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 12px; }
   .piede strong { font-size: 1.1rem; }
   .piede button { font: inherit; font-size: .85rem; font-weight: 700; background: #1f4d36; color: #fff; border: 0; border-radius: 999px; padding: 10px 16px; min-height: 42px; cursor: not-allowed; }
   .piede button:disabled { background: #b9c4bc; }

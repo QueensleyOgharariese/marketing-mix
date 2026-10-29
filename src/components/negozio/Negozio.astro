@@ -11,6 +11,7 @@ import "@fontsource/fraunces/latin-500.css";
 import "@fontsource/fraunces/latin-600.css";
 import AppLayout from "../../layouts/AppLayout.astro";
 import GuidaMissione from "../seopro/GuidaMissione.astro";
+import SchermoIntero from "../SchermoIntero.astro";
 import catalogo from "../../data/app/seo-pro/catalogo.json";
 import crawl from "../../data/app/seo-pro/crawl.json";
 
@@ -22,6 +23,7 @@ const NEG = "/app/negozio";
 const attiva = (id: string) => url.startsWith(`/${id}/`);
 ---
 <AppLayout title={`Negozio · ${titoloScheda}`} percorso={[{ etichetta: "Percorso SEO", link: "/app/percorsi/seo/" }, { etichetta: "Il negozio" }, { etichetta: titoloScheda }]} indietro={{ etichetta: "Percorso SEO", link: "/app/percorsi/seo/" }}>
+  <SchermoIntero slot="barra" />
   <div class="area">
     <div class="finestra">
       <div class="barra-browser">
@@ -85,8 +87,8 @@ const attiva = (id: string) => url.startsWith(`/${id}/`);
 </AppLayout>
 
 <style>
-  .area { padding: 20px; max-width: 1720px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 20px; align-items: start; }
-  .guida-negozio { background: #fff; border: 1px solid #e3e1dc; border-radius: 14px; padding: 22px 20px; position: sticky; top: 80px; max-height: calc(100vh - 100px); overflow-y: auto; }
+  .area { padding: 24px; max-width: 1760px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 24px; align-items: start; }
+  .guida-negozio { background: #fff; border: 1px solid #e3e1dc; border-radius: 16px; padding: 28px 24px; position: sticky; top: 80px; max-height: calc(100vh - 100px); overflow-y: auto; }
   @media (max-width: 1180px) { .area { grid-template-columns: 1fr; } .guida-negozio { position: static; max-height: none; } }
   .finestra { background: #fff; border: 1px solid #d1cec8; border-radius: 14px; overflow: hidden; box-shadow: 0 20px 50px -30px rgba(42, 29, 24, .35); }
   .barra-browser { position: relative; display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: #ebeae6; border-bottom: 1px solid #dcdad5; }
@@ -106,9 +108,9 @@ const attiva = (id: string) => url.startsWith(`/${id}/`);
   .sito { --verde: #1f4d36; --verde-scuro: #143323; --crema: #fbf8f2; --linea: #e6dfd0; --testo-n: #1d2a22; --testo-2n: #4a5a50;
     font-family: var(--font-testo); color: var(--testo-n); background: var(--crema); }
   .sito :global(a) { color: var(--verde); }
-  .striscia { margin: 0; background: var(--verde); color: #f3efe4; font-size: .82rem; text-align: center; padding: 8px 16px; }
+  .striscia { margin: 0; background: var(--verde); color: #f3efe4; font-size: .82rem; text-align: center; padding: 9px 16px; }
   .sito-testa { border-bottom: 1px solid var(--linea); }
-  .testa-riga { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; padding: 16px 28px 10px; }
+  .testa-riga { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px; padding: 20px 48px 14px; }
   .sito-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--verde) !important; font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 1.55rem; letter-spacing: -.01em; }
   .cerca { flex: 1 1 280px; display: flex; min-width: 0; }
   .cerca input { flex: 1; min-width: 0; font: inherit; font-size: .92rem; padding: 10px 16px; border: 1px solid #d8cfbd; border-right: 0; border-radius: 999px 0 0 999px; background: #fff; }
@@ -116,23 +118,24 @@ const attiva = (id: string) => url.startsWith(`/${id}/`);
   .conto { display: flex; gap: 4px; align-items: center; }
   .conto a { display: flex; align-items: center; gap: 7px; padding: 9px 12px; font-size: .88rem; font-weight: 600; text-decoration: none; color: var(--testo-n) !important; border-radius: 999px; }
   .conto .carrello { background: var(--verde); color: #fff !important; }
-  .menu { display: flex; flex-wrap: wrap; gap: 2px 24px; padding: 0 28px 10px; font-size: .95rem; font-weight: 600; }
+  .menu { display: flex; flex-wrap: wrap; gap: 4px 28px; padding: 0 48px 12px; font-size: .95rem; font-weight: 600; }
   .menu a { text-decoration: none; color: var(--testo-n) !important; padding: 6px 0; border-bottom: 2px solid transparent; }
   .menu a:hover, .menu a[aria-current="page"] { border-bottom-color: var(--verde); color: var(--verde) !important; }
   .menu-blog { margin-left: auto; }
-  .sito-corpo { padding: 28px; min-height: 420px; }
+  .sito-corpo { padding: 40px 48px 72px; min-height: 420px; max-width: 1360px; margin: 0 auto; }
   .sito-piede { background: var(--verde-scuro); color: #cfdccf; font-size: .88rem; }
-  .piede-colonne { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 24px; padding: 32px 28px 20px; }
+  .piede-colonne { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 32px; padding: 48px 48px 32px; max-width: 1360px; margin: 0 auto; }
   .piede-colonne > div { display: flex; flex-direction: column; gap: 7px; }
   .piede-colonne strong { color: #fff; }
   .piede-colonne p { margin: 0; line-height: 1.6; }
   .piede-colonne a { color: #cfdccf !important; }
   .piede-logo { font-family: "Fraunces", Georgia, serif; font-size: 1.3rem; font-weight: 500; }
-  .finto { margin: 0; padding: 14px 28px 18px; border-top: 1px solid #2b4c3a; font-size: .8rem; color: #e9c9a5; }
+  .finto { margin: 0; padding: 18px 48px 24px; border-top: 1px solid #2b4c3a; font-size: .8rem; color: #e9c9a5; }
   .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   @media (max-width: 760px) {
-    .area { padding: 10px; }
-    .testa-riga, .menu, .sito-corpo, .piede-colonne { padding-inline: 16px; }
+    .area { padding: 12px; gap: 16px; }
+    .testa-riga, .menu, .sito-corpo, .piede-colonne, .finto { padding-inline: 16px; }
+    .sito-corpo { padding-top: 24px; padding-bottom: 48px; }
     .conto a:first-child { display: none; }
     .menu { gap: 2px 16px; }
     .menu-blog { margin-left: 0; }

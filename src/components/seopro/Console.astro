@@ -7,6 +7,7 @@
 // Qui ci sono anche gli stili comuni (tabelle, schede, numeri), validi per tutti gli strumenti.
 import AppLayout from "../../layouts/AppLayout.astro";
 import GuidaMissione from "./GuidaMissione.astro";
+import SchermoIntero from "../SchermoIntero.astro";
 
 interface Props { attivo: string; titolo: string; ispirato?: string; sottotitolo?: string; }
 const { attivo, titolo, ispirato, sottotitolo } = Astro.props;
@@ -29,6 +30,7 @@ const conGuida = attivo !== "percorso";
 ---
 <AppLayout title={`${titolo} · Percorso SEO`} percorso={attivo === "percorso" ? [{ etichetta: "Percorso SEO" }] : [{ etichetta: "Percorso SEO", link: `${B}/` }, { etichetta: titolo }]} indietro={{ etichetta: "Scrivania", link: "/app/scrivania/" }}>
   <div slot="barra" class="stato">
+    <SchermoIntero />
     <span class="livello">Livello junior</span>
     <span class="missioni-testo" data-missioni-testo>Missioni 0 di 5</span>
     <span class="missioni-barra" aria-hidden="true"><span data-missioni-barra></span></span>
@@ -76,26 +78,27 @@ const conGuida = attivo !== "percorso";
 </script>
 
 <style>
-  .stato { display: flex; align-items: center; gap: 10px; font-size: .82rem; color: #55514c; }
+  .stato { display: flex; align-items: center; gap: 12px; font-size: .82rem; color: #55514c; }
   .livello { font-weight: 700; background: var(--arancio); color: var(--inchiostro); padding: 4px 10px; border-radius: 999px; }
   .missioni-barra { width: 90px; height: 6px; border-radius: 99px; background: #e9e8e4; overflow: hidden; }
   .missioni-barra span { display: block; height: 100%; width: 0; background: var(--arancio); }
-  .console { display: grid; grid-template-columns: 240px minmax(0, 1fr); min-height: calc(100vh - 61px); }
-  .console.con-guida { grid-template-columns: 240px minmax(0, 1fr) 340px; }
-  .menu { background: #fff; border-right: 1px solid #e3e1dc; padding: 20px 12px; display: flex; flex-direction: column; gap: 14px; }
+  .console { display: grid; grid-template-columns: 248px minmax(0, 1fr); min-height: calc(100vh - 61px); }
+  .console.con-guida { grid-template-columns: 248px minmax(0, 1fr) 360px; }
+  .menu { background: #fff; border-right: 1px solid #e3e1dc; padding: 24px 16px; display: flex; flex-direction: column; gap: 24px; }
   .gruppo { display: flex; flex-direction: column; gap: 2px; }
-  .menu-titolo { font-size: .78rem; font-weight: 700; color: #55514c; padding: 0 12px 6px; }
+  .menu-titolo { font-size: .78rem; font-weight: 700; color: #55514c; padding: 0 12px 8px; }
   .voce { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; color: #423e39; text-decoration: none; font-size: .9rem; }
   .voce:hover { background: #f4f4f2; color: var(--inchiostro); }
   .voce.attiva { background: #e9e8e4; color: var(--inchiostro); font-weight: 700; }
   .pallino { flex: none; width: 8px; height: 8px; border-radius: 50%; background: #d1cec8; }
   .attiva .pallino { background: var(--arancio); }
   .menu-nota { margin-top: auto; font-size: .78rem; color: #55514c; line-height: 1.5; padding: 10px; }
-  .contenuto { min-width: 0; padding: 26px 30px 56px; display: flex; flex-direction: column; gap: 18px; }
-  .testa h1 { font-size: 1.85rem; }
-  .sottotitolo { margin: 4px 0 0; font-size: .92rem; color: #423e39; }
-  .ispirato { margin: 2px 0 0; font-size: .8rem; color: #625e58; }
-  .guida { background: #fff; border-left: 1px solid #e3e1dc; padding: 24px 22px; display: flex; flex-direction: column; gap: 16px; align-self: start; position: sticky; top: 61px; max-height: calc(100vh - 61px); overflow-y: auto; min-height: calc(100vh - 61px); box-sizing: border-box; }
+  .contenuto { min-width: 0; width: 100%; max-width: 1280px; margin: 0 auto; box-sizing: border-box; padding: 32px 40px 72px; display: flex; flex-direction: column; gap: 24px; }
+  .testa { display: flex; flex-direction: column; gap: 6px; margin-bottom: 4px; }
+  .testa h1 { font-size: 2rem; line-height: 1.15; }
+  .sottotitolo { margin: 0; font-size: .95rem; color: #423e39; }
+  .ispirato { margin: 0; font-size: .8rem; color: #625e58; }
+  .guida { background: #fff; border-left: 1px solid #e3e1dc; padding: 28px 24px 40px; display: flex; flex-direction: column; gap: 18px; align-self: start; position: sticky; top: 61px; max-height: calc(100vh - 61px); overflow-y: auto; min-height: calc(100vh - 61px); box-sizing: border-box; }
   @media (max-width: 1180px) {
     .console.con-guida { grid-template-columns: 220px minmax(0, 1fr); }
     .guida { grid-column: 1 / -1; border-left: 0; border-top: 1px solid #e3e1dc; position: static; max-height: none; min-height: 0; }
@@ -106,17 +109,17 @@ const conGuida = attivo !== "percorso";
     .gruppo { flex-direction: row; gap: 4px; }
     .menu-titolo, .menu-nota { display: none; }
     .voce { white-space: nowrap; flex: none; }
-    .contenuto { padding: 18px 14px 40px; }
+    .contenuto { padding: 20px 16px 48px; gap: 20px; }
     .missioni-testo { display: none; }
   }
 </style>
 
 <style is:global>
   /* ---- Stili comuni degli strumenti SEO ---- */
-  .sp-pannello { background: #fff; border: 1px solid #e3e1dc; border-radius: 14px; padding: 18px 20px; min-width: 0; }
+  .sp-pannello { background: #fff; border: 1px solid #e3e1dc; border-radius: 16px; padding: 20px 24px; min-width: 0; }
   .sp-riga { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; }
-  .sp-cifre { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
-  .sp-cifra { background: #fff; border: 1px solid #e3e1dc; border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 2px; }
+  .sp-cifre { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; }
+  .sp-cifra { background: #fff; border: 1px solid #e3e1dc; border-radius: 16px; padding: 18px 20px; display: flex; flex-direction: column; gap: 4px; }
   .sp-cifra span { font-size: .78rem; color: #5f5a55; font-weight: 600; }
   .sp-cifra strong { font-family: var(--font-titoli); font-size: 1.7rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
   .sp-cifra small { font-size: .78rem; font-weight: 700; }
@@ -130,11 +133,11 @@ const conGuida = attivo !== "percorso";
   .sp-scorri { overflow-x: auto; border: 1px solid #e3e1dc; border-radius: 12px; background: #fff; }
   table[data-tabella] { width: 100%; border-collapse: collapse; font-size: .85rem; font-variant-numeric: tabular-nums; }
   table[data-tabella] th { text-align: left; font-size: .75rem; color: #5f5a55; font-weight: 700; padding: 0; border-bottom: 1px solid #e3e1dc; white-space: nowrap; background: #f8f8f6; position: sticky; top: 0; }
-  table[data-tabella] th:not(:has(button)) { padding: 9px 10px; }
-  table[data-tabella] th .ordina { font: inherit; font-weight: 700; color: inherit; background: none; border: 0; padding: 9px 10px; cursor: pointer; display: flex; align-items: center; gap: 4px; width: 100%; text-align: left; }
+  table[data-tabella] th:not(:has(button)) { padding: 10px 12px; }
+  table[data-tabella] th .ordina { font: inherit; font-weight: 700; color: inherit; background: none; border: 0; padding: 9px 10px; cursor: pointer; display: flex; align-items: center; gap: 4px; width: 100%; text-align: left; padding: 10px 12px !important; }
   table[data-tabella] th[aria-sort="descending"] .freccia::after { content: "↓"; color: var(--arancio-scuro); }
   table[data-tabella] th[aria-sort="ascending"] .freccia::after { content: "↑"; color: var(--arancio-scuro); }
-  table[data-tabella] td { padding: 8px 10px; border-bottom: 1px solid #efeeeb; vertical-align: top; }
+  table[data-tabella] td { padding: 10px 12px; border-bottom: 1px solid #efeeeb; vertical-align: top; }
   table[data-tabella] td.n, table[data-tabella] th.n { text-align: right; white-space: nowrap; }
   table[data-tabella] th.n .ordina { justify-content: flex-end; }
   table[data-tabella] tbody tr:hover { background: #f8f8f6; }

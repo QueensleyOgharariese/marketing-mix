@@ -241,7 +241,7 @@ const piuVenduti = ["sencha-bio", "matcha-quotidiano", "tisane-della-sera", "tei
   h1, h2, .titolo-finto { font-family: "Fraunces", Georgia, serif; font-weight: 500; color: #143323; letter-spacing: -.015em; }
   h1, .titolo-finto { font-size: clamp(2rem, 4.5vw, 3.1rem); line-height: 1.05; margin: 0 0 12px; }
   .titolo-finto { opacity: .9; }
-  h2 { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.15; margin: 40px 0 16px; }
+  h2 { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.15; margin: 64px 0 20px; }
   p { line-height: 1.6; }
   .occhiello { font-size: .85rem; font-weight: 700; color: #3d6b4f; margin: 0 0 10px; }
   .occhiello--chiaro { color: #e7b77a; }
@@ -251,39 +251,42 @@ const piuVenduti = ["sencha-bio", "matcha-quotidiano", "tisane-della-sera", "tei
   .nbottone:disabled { opacity: .75; cursor: not-allowed; }
   .nbottone--contorno { background: transparent; color: #1f4d36 !important; }
   .nbottone--miele { background: #e7b77a; border-color: #e7b77a; color: #2a2219 !important; }
-  .bottoni { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
-  .nota-link { font-size: .92rem; color: #3f4f45; }
+  .bottoni { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; }
+  .nota-link { font-size: .92rem; color: #3f4f45; margin: 16px 0 0; }
 
   /* Home */
-  .eroe { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); background: #e9efe4; border-radius: 26px; overflow: hidden; }
-  .eroe-testo { padding: 48px; display: flex; flex-direction: column; gap: 6px; justify-content: center; }
+  .eroe h1 { font-size: clamp(2rem, 3.2vw, 2.9rem); }
+  .eroe { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); background: #e9efe4; border-radius: 26px; overflow: hidden; }
+  .eroe-testo { padding: 64px 56px; display: flex; flex-direction: column; gap: 10px; justify-content: center; }
   .eroe-sotto { font-size: 1.08rem; color: #3f4f45; margin: 0; max-width: 46ch; }
-  .eroe-foto { background: #c9d9c0; display: flex; align-items: flex-end; justify-content: center; gap: 14px; padding: 40px 28px 0; min-height: 320px; }
-  .barattolo { width: 30%; max-width: 190px; } .barattolo.b0 { width: 38%; max-width: 230px; } .barattolo :global(rect:first-child) { fill: transparent; }
-  .vantaggi { list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; }
-  .vantaggi li { background: #fff; border: 1px solid #e6dfd0; border-radius: 14px; padding: 14px 16px; font-size: .88rem; color: #3f4f45; display: flex; flex-direction: column; }
+  .eroe-foto { background: #c9d9c0; display: flex; align-items: flex-end; justify-content: center; padding: 40px 12px 0; min-height: 320px; overflow: hidden; }
+  .barattolo { width: 46%; max-width: 300px; margin: 0 -9%; } .barattolo.b0 { width: 58%; max-width: 380px; position: relative; z-index: 1; } .barattolo :global(rect:first-child) { fill: transparent; }
+  .vantaggi { list-style: none; margin: 20px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+  .vantaggi li { background: #fff; border: 1px solid #e6dfd0; border-radius: 16px; padding: 18px 20px; gap: 2px; font-size: .88rem; color: #3f4f45; display: flex; flex-direction: column; }
   .vantaggi strong { color: #1d2a22; font-size: .95rem; }
-  .griglia-cat, .griglia, .griglia-blog { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
-  .griglia-cat { grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr)); }
-  .griglia-cat a { display: flex; flex-direction: column; gap: 4px; text-decoration: none; color: #1d2a22 !important; background: #fff; border: 1px solid #e6dfd0; border-radius: 18px; padding: 12px; font-weight: 700; }
+  .griglia-cat, .griglia, .griglia-blog { list-style: none; margin: 0; padding: 0; display: grid; gap: 24px 20px; }
+  .griglia-cat { grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); }
+  .griglia-cat a { display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: #1d2a22 !important; background: #fff; border: 1px solid #e6dfd0; border-radius: 18px; padding: 14px 14px 16px; font-weight: 700; }
   .griglia-cat :global(svg) { border-radius: 12px; }
   .griglia-cat small { font-weight: 400; color: #4a5a50; }
-  .griglia { grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr)); }
-  .titolo-riga { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 10px; }
+  .griglia { grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+  .cat-corpo .griglia, .prodotto ~ .griglia { grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); }
+  .titolo-riga { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px; margin: 64px 0 20px; }
+  .titolo-riga h2 { margin: 0; }
   .titolo-riga a { font-weight: 700; font-size: .92rem; }
-  .banner { margin-top: 40px; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); background: #2a2219; color: #f3eadb; border-radius: 26px; overflow: hidden; }
-  .banner > div:first-child { padding: 40px 48px; }
+  .banner { margin-top: 64px; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); background: #2a2219; color: #f3eadb; border-radius: 26px; overflow: hidden; }
+  .banner > div:first-child { padding: 56px; }
   .banner h2 { color: #f3eadb; margin: 0 0 8px; }
   .banner p { color: #d8cbb6; max-width: 44ch; }
   .banner-foto { background: #3a2f22; display: flex; align-items: flex-end; justify-content: center; padding: 30px 40px 0; }
   .banner-foto :global(svg) { max-width: 200px; } .banner-foto :global(rect:first-child) { fill: transparent; }
-  .griglia-blog { grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); }
-  .griglia-blog a { display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: #1d2a22 !important; }
+  .griglia-blog { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+  .griglia-blog a { display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: #1d2a22 !important; }
   .griglia-blog small { font-size: .82rem; font-weight: 700; color: #3d6b4f; }
   .griglia-blog strong { font-family: "Fraunces", Georgia, serif; font-weight: 500; font-size: 1.25rem; line-height: 1.25; }
   .blog-foto { display: block; height: 160px; border-radius: 18px; }
   .blog-foto.grande { height: 260px; margin: 18px 0; }
-  .newsletter { margin-top: 44px; background: #e9efe4; border-radius: 26px; padding: 32px 40px; display: flex; flex-wrap: wrap; gap: 20px 32px; align-items: center; justify-content: space-between; }
+  .newsletter { margin-top: 64px; background: #e9efe4; border-radius: 26px; padding: 40px 48px; display: flex; flex-wrap: wrap; gap: 20px 32px; align-items: center; justify-content: space-between; }
   .newsletter h2 { margin: 0 0 6px; font-size: 1.6rem; }
   .newsletter p { margin: 0; color: #3f4f45; }
   .newsletter > div { flex: 1 1 320px; }
@@ -293,21 +296,21 @@ const piuVenduti = ["sencha-bio", "matcha-quotidiano", "tisane-della-sera", "tei
   .consenso { display: flex; gap: 10px; align-items: flex-start; font-size: .85rem; color: #3f4f45; }
 
   /* Categoria */
-  .cat-testa { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; justify-content: space-between; margin-bottom: 24px; }
+  .cat-testa { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; justify-content: space-between; margin-bottom: 32px; }
   .conta { font-size: .9rem; color: #4a5a50; }
-  .cat-corpo { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 28px; align-items: start; }
-  .filtri { display: flex; flex-direction: column; gap: 10px; font-size: .9rem; background: #fff; border: 1px solid #e6dfd0; border-radius: 16px; padding: 16px; }
+  .cat-corpo { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 32px; align-items: start; }
+  .filtri { display: flex; flex-direction: column; gap: 12px; font-size: .9rem; background: #fff; border: 1px solid #e6dfd0; border-radius: 16px; padding: 20px; position: sticky; top: 16px; }
   .filtri a { color: #1d2a22 !important; }
   .nessuno { color: #4a5a50; }
   .disp-filtro { display: flex; gap: 8px; align-items: center; border-top: 1px solid #e6dfd0; padding-top: 10px; color: #4a5a50; }
 
   /* Prodotto */
-  .prodotto { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 44px; align-items: start; }
-  .galleria { display: flex; flex-direction: column; gap: 10px; }
+  .prodotto { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: start; }
+  .galleria { display: flex; flex-direction: column; gap: 12px; }
   .foto-grande { border-radius: 22px; overflow: hidden; }
-  .miniature { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+  .miniature { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
   .m { aspect-ratio: 1; border-radius: 12px; background: #ece4d8; border: 1px solid #e6dfd0; } .m.attiva { border: 2px solid #1f4d36; background: #e3ecda; }
-  .prodotto-testi { display: flex; flex-direction: column; gap: 14px; }
+  .prodotto-testi { display: flex; flex-direction: column; gap: 18px; padding-top: 8px; }
   .prodotto-testi h1 { margin: 0; }
   .voto-link { font-size: .92rem; color: #3f4f45 !important; text-decoration: none; }
   .stelle { color: #b06a10; letter-spacing: 1px; }
@@ -324,17 +327,17 @@ const piuVenduti = ["sencha-bio", "matcha-quotidiano", "tisane-della-sera", "tei
   .preparazione { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; text-align: center; }
   .preparazione div { background: #eef3ea; border-radius: 14px; padding: 12px 6px; display: flex; flex-direction: column; }
   .preparazione strong { font-size: 1.2rem; } .preparazione span { font-size: .78rem; color: #3f4f45; }
-  .dettagli { margin-top: 40px; border-top: 1px solid #e6dfd0; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 0 40px; }
-  .dettagli h2 { grid-column: 1 / -1; margin-top: 28px; }
+  .dettagli { margin-top: 64px; border-top: 1px solid #e6dfd0; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 0 40px; }
+  .dettagli h2 { grid-column: 1 / -1; margin: 40px 0 16px; }
   .dettagli p { margin: 0; color: #3f4f45; }
   .dettagli dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; font-size: .9rem; }
   .dettagli dl div { display: contents; } .dettagli dt { font-weight: 700; } .dettagli dd { margin: 0; color: #3f4f45; }
-  .recensioni { margin-top: 20px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 32px; align-items: start; }
+  .recensioni { margin-top: 24px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 40px; align-items: start; }
   .recensioni h2 { margin-top: 20px; }
   .rec-voto strong { font-size: 2.4rem; margin-right: 6px; }
   .rec-nota { font-size: .82rem; color: #4a5a50; }
-  .rec-elenco { display: flex; flex-direction: column; gap: 12px; padding-top: 20px; }
-  .rec-elenco article { background: #fff; border: 1px solid #e6dfd0; border-radius: 16px; padding: 16px 18px; }
+  .rec-elenco { display: flex; flex-direction: column; gap: 14px; padding-top: 64px; }
+  .rec-elenco article { background: #fff; border: 1px solid #e6dfd0; border-radius: 16px; padding: 18px 22px; }
   .rec-testa { display: flex; justify-content: space-between; gap: 10px; } .rec-testa span { font-size: .85rem; color: #4a5a50; }
   .rec-elenco p { margin: 6px 0 0; color: #3f4f45; }
 
@@ -348,8 +351,10 @@ const piuVenduti = ["sencha-bio", "matcha-quotidiano", "tisane-della-sera", "tei
 
   @media (max-width: 860px) {
     .eroe, .banner, .prodotto, .cat-corpo, .dettagli, .recensioni { grid-template-columns: 1fr; }
-    .eroe-testo, .banner > div:first-child { padding: 28px 22px; }
+    .eroe-testo, .banner > div:first-child { padding: 32px 24px; }
+    h2 { margin-top: 48px; } .titolo-riga { margin-top: 48px; } .banner, .newsletter, .dettagli { margin-top: 48px; }
+    .rec-elenco { padding-top: 0; } .filtri { position: static; } .prodotto { gap: 28px; }
     .eroe-foto { min-height: 220px; }
-    .newsletter { padding: 24px 20px; }
+    .newsletter { padding: 28px 22px; }
   }
 </style>

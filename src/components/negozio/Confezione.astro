@@ -10,7 +10,7 @@ const COLORI: Record<string, [string, string]> = {
 const [colore, sfondo] = COLORI[categoria] ?? ["#556270", "#ebeae6"];
 // Sull'etichetta va la parola che distingue il prodotto (es. "Tè verde alla menta" → "Menta")
 const corto = nome.replace(/^(tè (verde|nero|freddo)( al| alla| e)?|tè|kit|cold brew|tazza in|teiera in|infusore in|barattolo in)\s+/i, "");
-const parola = corto.length > 12 ? corto.split(" ")[0] : corto;
+const parola = corto.length > 10 ? corto.split(" ")[0] : corto;
 const etichetta = parola.charAt(0).toUpperCase() + parola.slice(1);
 ---
 <svg class:list={["confezione", { grande }]} viewBox="0 0 200 170" role="img" aria-label={`Confezione di ${nome}`}>
