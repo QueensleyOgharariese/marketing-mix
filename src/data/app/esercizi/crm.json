@@ -4,83 +4,396 @@
   "ruolo": "CRM manager",
   "titolo": "Esercizio 1 · Recuperare i carrelli abbandonati",
   "minuti": 20,
-  "richiesta": { "da": "LB", "nome": "Luca", "ruolo": "E-commerce", "quando": "martedì alle 9:30", "oggetto": "Tanti carrelli abbandonati",
-    "testo": "Ciao! Ogni mese tante persone mettono il tè nel carrello e poi non comprano. Mi aiuti a dividere i clienti in gruppi, a capire a chi possiamo scrivere, a preparare le email e a stimare quanto possiamo recuperare?" },
-  "scheda": { "titolo": "I numeri dei clienti", "voci": [
-    ["Iscritti alla newsletter", "8.400, con il loro consenso"], ["Carrelli abbandonati", "320 al mese"], ["Valore medio di un carrello", "24 €"],
-    ["Carrelli recuperati di solito con le email", "circa 10 su 100"], ["Ultima newsletter", "7.000 inviate, 2.100 aperte"],
-    ["Regola", "Ogni email ha il link per disiscriversi"] ] },
+  "richiesta": {
+    "da": "LB",
+    "nome": "Luca",
+    "ruolo": "E-commerce",
+    "quando": "martedì alle 9:30",
+    "oggetto": "Tanti carrelli abbandonati",
+    "testo": "Ciao! Ogni mese tante persone mettono il tè nel carrello e poi non comprano. Mi aiuti a dividere i clienti in gruppi, a capire a chi possiamo scrivere, a preparare le email e a stimare quanto possiamo recuperare?"
+  },
+  "scheda": {
+    "titolo": "I numeri dei clienti",
+    "voci": [
+      [
+        "Iscritti alla newsletter",
+        "8.400, con il loro consenso"
+      ],
+      [
+        "Carrelli abbandonati",
+        "320 al mese"
+      ],
+      [
+        "Valore medio di un carrello",
+        "24 €"
+      ],
+      [
+        "Carrelli recuperati di solito con le email",
+        "circa 10 su 100"
+      ],
+      [
+        "Ultima newsletter",
+        "7.000 inviate, 2.100 aperte"
+      ],
+      [
+        "Regola",
+        "Ogni email ha il link per disiscriversi"
+      ]
+    ]
+  },
   "consiglio": "Il CRM non è mandare più email: è mandare l'email giusta, alla persona giusta, nel momento giusto. E solo a chi ha detto sì.",
-  "parole": ["segmentazione", "consenso", "email automatica", "tasso di apertura"],
+  "parole": [
+    "segmentazione",
+    "consenso",
+    "email automatica",
+    "tasso di apertura"
+  ],
   "parti": [
-    { "id": "segmenti", "tipo": "classifica", "titolo": "Dividi i clienti in gruppi",
+    {
+      "id": "segmenti",
+      "tipo": "classifica",
+      "titolo": "Dividi i clienti in gruppi",
       "testo": "Per ogni cliente scegli il gruppo giusto.",
-      "colonne": [ { "id": "nuovo", "nome": "Nuovo" }, { "id": "fedele", "nome": "Fedele" }, { "id": "inattivo", "nome": "Inattivo" } ],
+      "colonne": [
+        {
+          "id": "nuovo",
+          "nome": "Nuovo"
+        },
+        {
+          "id": "fedele",
+          "nome": "Fedele"
+        },
+        {
+          "id": "inattivo",
+          "nome": "Inattivo"
+        }
+      ],
       "righe": [
-        { "id": "c1", "testo": "Giulia · 1 ordine, 5 giorni fa", "giusti": ["nuovo"] },
-        { "id": "c2", "testo": "Paolo · 8 ordini in un anno, l'ultimo 2 settimane fa", "giusti": ["fedele"] },
-        { "id": "c3", "testo": "Marco · 6 ordini, l'ultimo 3 settimane fa", "giusti": ["fedele"] },
-        { "id": "c4", "testo": "Anna · 2 ordini, l'ultimo 14 mesi fa", "giusti": ["inattivo"] },
-        { "id": "c5", "testo": "Sofia · 3 ordini, l'ultimo 11 mesi fa", "giusti": ["inattivo"] }
+        {
+          "id": "c1",
+          "testo": "Giulia · 1 ordine, 5 giorni fa",
+          "giusti": [
+            "nuovo"
+          ]
+        },
+        {
+          "id": "c2",
+          "testo": "Paolo · 8 ordini in un anno, l'ultimo 2 settimane fa",
+          "giusti": [
+            "fedele"
+          ]
+        },
+        {
+          "id": "c3",
+          "testo": "Marco · 6 ordini, l'ultimo 3 settimane fa",
+          "giusti": [
+            "fedele"
+          ]
+        },
+        {
+          "id": "c4",
+          "testo": "Anna · 2 ordini, l'ultimo 14 mesi fa",
+          "giusti": [
+            "inattivo"
+          ]
+        },
+        {
+          "id": "c5",
+          "testo": "Sofia · 3 ordini, l'ultimo 11 mesi fa",
+          "giusti": [
+            "inattivo"
+          ]
+        }
       ],
       "controlli": [
-        { "nome": "Nuova cliente riconosciuta", "regola": { "tipo": "righe", "righe": ["c1"] }, "suggerimento": "Un solo ordine, appena fatto: è nuova." },
-        { "nome": "Clienti fedeli riconosciuti", "regola": { "tipo": "righe", "righe": ["c2", "c3"] }, "suggerimento": "Tanti ordini e recenti: sono fedeli." },
-        { "nome": "Clienti inattivi riconosciuti", "regola": { "tipo": "righe", "righe": ["c4", "c5"] }, "suggerimento": "Non ordinano da quasi un anno o più." }
+        {
+          "nome": "Nuova cliente riconosciuta",
+          "regola": {
+            "tipo": "righe",
+            "righe": [
+              "c1"
+            ]
+          },
+          "suggerimento": "Un solo ordine, appena fatto: è nuova."
+        },
+        {
+          "nome": "Clienti fedeli riconosciuti",
+          "regola": {
+            "tipo": "righe",
+            "righe": [
+              "c2",
+              "c3"
+            ]
+          },
+          "suggerimento": "Tanti ordini e recenti: sono fedeli."
+        },
+        {
+          "nome": "Clienti inattivi riconosciuti",
+          "regola": {
+            "tipo": "righe",
+            "righe": [
+              "c4",
+              "c5"
+            ]
+          },
+          "suggerimento": "Non ordinano da quasi un anno o più."
+        }
       ],
       "perche": "Dividere i clienti in gruppi (segmentazione) permette di mandare messaggi diversi: benvenuto ai nuovi, grazie ai fedeli, \"ci manchi\" agli inattivi.",
-      "soluzione": "Nuova: Giulia. Fedeli: Paolo e Marco. Inattivi: Anna e Sofia." },
-    { "id": "consenso", "tipo": "spunte", "titolo": "A chi possiamo scrivere?",
+      "soluzione": "Nuova: Giulia. Fedeli: Paolo e Marco. Inattivi: Anna e Sofia.",
+      "spiega": {
+        "testo": "Per ogni cliente guarda due cose: quanti ordini ha fatto e quando è stato l'ultimo. Un solo ordine recente vuol dire nuovo; tanti ordini e l'ultimo da poco vuol dire fedele; nessun ordine da molti mesi vuol dire inattivo, anche se in passato ha comprato.",
+        "esempio": "Candele: Luca, 5 ordini, l'ultimo 10 giorni fa: fedele. Marta, 4 ordini, l'ultimo 13 mesi fa: inattiva."
+      }
+    },
+    {
+      "id": "consenso",
+      "tipo": "spunte",
+      "titolo": "A chi possiamo scrivere?",
       "testo": "Vogliamo mandare email sul carrello e sulle novità. A chi possiamo scriverle? Scegli tutte le risposte giuste.",
       "opzioni": [
-        { "id": "a1", "testo": "Agli iscritti alla newsletter che hanno dato il consenso" },
-        { "id": "a2", "testo": "A chi ha già comprato da noi, per prodotti simili, se l'abbiamo informato e non si è opposto" },
-        { "id": "a3", "testo": "A una lista di 5.000 email comprata da un'altra azienda" },
-        { "id": "a4", "testo": "Agli indirizzi email trovati nei profili Instagram dei follower" },
-        { "id": "a5", "testo": "A chi si è disiscritto, ma solo una volta \"per sicurezza\"" }
+        {
+          "id": "a1",
+          "testo": "Agli iscritti alla newsletter che hanno dato il consenso"
+        },
+        {
+          "id": "a2",
+          "testo": "A chi ha già comprato da noi, per prodotti simili, se l'abbiamo informato e non si è opposto"
+        },
+        {
+          "id": "a3",
+          "testo": "A una lista di 5.000 email comprata da un'altra azienda"
+        },
+        {
+          "id": "a4",
+          "testo": "Agli indirizzi email trovati nei profili Instagram dei follower"
+        },
+        {
+          "id": "a5",
+          "testo": "A chi si è disiscritto, ma solo una volta \"per sicurezza\""
+        }
       ],
       "controlli": [
-        { "nome": "Iscritti con il consenso", "regola": { "tipo": "spunte-tutte", "ids": ["a1"] }, "suggerimento": "Il consenso esplicito è la base." },
-        { "nome": "Clienti, per prodotti simili, se non si sono opposti", "regola": { "tipo": "spunte-tutte", "ids": ["a2"] }, "suggerimento": "In Italia c'è un'eccezione per chi ha già comprato da noi (art. 130 del Codice privacy)." },
-        { "nome": "Niente liste comprate o indirizzi presi dai social", "regola": { "tipo": "spunte-nessuna", "ids": ["a3", "a4"] }, "suggerimento": "Queste persone non hanno mai detto sì a noi." },
-        { "nome": "Rispetto per chi ha detto no", "regola": { "tipo": "spunte-nessuna", "ids": ["a5"] }, "suggerimento": "Chi si disiscrive non si contatta più, nemmeno una volta." }
+        {
+          "nome": "Iscritti con il consenso",
+          "regola": {
+            "tipo": "spunte-tutte",
+            "ids": [
+              "a1"
+            ]
+          },
+          "suggerimento": "Il consenso esplicito è la base."
+        },
+        {
+          "nome": "Clienti, per prodotti simili, se non si sono opposti",
+          "regola": {
+            "tipo": "spunte-tutte",
+            "ids": [
+              "a2"
+            ]
+          },
+          "suggerimento": "In Italia c'è un'eccezione per chi ha già comprato da noi (art. 130 del Codice privacy)."
+        },
+        {
+          "nome": "Niente liste comprate o indirizzi presi dai social",
+          "regola": {
+            "tipo": "spunte-nessuna",
+            "ids": [
+              "a3",
+              "a4"
+            ]
+          },
+          "suggerimento": "Queste persone non hanno mai detto sì a noi."
+        },
+        {
+          "nome": "Rispetto per chi ha detto no",
+          "regola": {
+            "tipo": "spunte-nessuna",
+            "ids": [
+              "a5"
+            ]
+          },
+          "suggerimento": "Chi si disiscrive non si contatta più, nemmeno una volta."
+        }
       ],
       "perche": "Per il GDPR e il Codice privacy le email promozionali richiedono il consenso. L'eccezione: ai clienti puoi scrivere per prodotti simili a quelli comprati, se li hai informati e possono dire no in ogni momento.",
-      "soluzione": "Sì agli iscritti con consenso e ai clienti per prodotti simili (se informati e senza opposizione). No a liste comprate, indirizzi presi dai social, persone disiscritte." },
-    { "id": "email", "tipo": "menu", "titolo": "Prepara le email del carrello",
+      "soluzione": "Sì agli iscritti con consenso e ai clienti per prodotti simili (se informati e senza opposizione). No a liste comprate, indirizzi presi dai social, persone disiscritte.",
+      "spiega": {
+        "testo": "Le risposte giuste possono essere più di una. Per ognuna chiediti: questa persona ci ha detto di sì, oppure è già nostra cliente ed è stata informata? Se l'indirizzo arriva da altri, da un social o da qualcuno che ha detto di no, non si può scrivere.",
+        "esempio": "Una cliente che ha comprato candele può ricevere un'email su candele simili, se era stata informata e non si è opposta. Chi si è disiscritto non va ricontattato, nemmeno \"un'ultima volta\"."
+      }
+    },
+    {
+      "id": "email",
+      "tipo": "menu",
+      "titolo": "Prepara le email del carrello",
       "testo": "Scegli come funzionano le email automatiche per chi abbandona il carrello.",
       "campi": [
-        { "id": "quando", "etichetta": "Quando parte la prima email?", "opzioni": ["Dopo 10 secondi", "Dopo 1-3 ore", "Dopo 2 settimane"] },
-        { "id": "quante", "etichetta": "Quante email al massimo?", "opzioni": ["1", "2-3", "10"] },
-        { "id": "prima", "etichetta": "Cosa c'è nella prima email?", "opzioni": ["Uno sconto del 50% subito", "Un promemoria con i prodotti nel carrello", "Il catalogo completo"] },
-        { "id": "sempre", "etichetta": "Cosa deve esserci in ogni email?", "opzioni": ["Il link per disiscriversi", "Un conto alla rovescia finto", "Niente di obbligatorio"] }
+        {
+          "id": "quando",
+          "etichetta": "Quando parte la prima email?",
+          "opzioni": [
+            "Dopo 10 secondi",
+            "Dopo 1-3 ore",
+            "Dopo 2 settimane"
+          ]
+        },
+        {
+          "id": "quante",
+          "etichetta": "Quante email al massimo?",
+          "opzioni": [
+            "1",
+            "2-3",
+            "10"
+          ]
+        },
+        {
+          "id": "prima",
+          "etichetta": "Cosa c'è nella prima email?",
+          "opzioni": [
+            "Uno sconto del 50% subito",
+            "Un promemoria con i prodotti nel carrello",
+            "Il catalogo completo"
+          ]
+        },
+        {
+          "id": "sempre",
+          "etichetta": "Cosa deve esserci in ogni email?",
+          "opzioni": [
+            "Il link per disiscriversi",
+            "Un conto alla rovescia finto",
+            "Niente di obbligatorio"
+          ]
+        }
       ],
       "controlli": [
-        { "nome": "Il momento giusto: dopo 1-3 ore", "regola": { "tipo": "menu", "campo": "quando", "valore": "Dopo 1-3 ore" }, "suggerimento": "Subito è invadente, dopo settimane la persona se n'è dimenticata." },
-        { "nome": "Poche email: 2-3", "regola": { "tipo": "menu", "campo": "quante", "valore": "2-3" }, "suggerimento": "Troppe email fanno disiscrivere." },
-        { "nome": "Prima un promemoria, non uno sconto", "regola": { "tipo": "menu", "campo": "prima", "valore": "Un promemoria con i prodotti nel carrello" }, "suggerimento": "Uno sconto subito insegna ai clienti ad abbandonare il carrello apposta." },
-        { "nome": "Sempre il link per disiscriversi", "regola": { "tipo": "menu", "campo": "sempre", "valore": "Il link per disiscriversi" }, "suggerimento": "È obbligatorio, e un finto conto alla rovescia è una pratica scorretta." }
+        {
+          "nome": "Il momento giusto: dopo 1-3 ore",
+          "regola": {
+            "tipo": "menu",
+            "campo": "quando",
+            "valore": "Dopo 1-3 ore"
+          },
+          "suggerimento": "Subito è invadente, dopo settimane la persona se n'è dimenticata."
+        },
+        {
+          "nome": "Poche email: 2-3",
+          "regola": {
+            "tipo": "menu",
+            "campo": "quante",
+            "valore": "2-3"
+          },
+          "suggerimento": "Troppe email fanno disiscrivere."
+        },
+        {
+          "nome": "Prima un promemoria, non uno sconto",
+          "regola": {
+            "tipo": "menu",
+            "campo": "prima",
+            "valore": "Un promemoria con i prodotti nel carrello"
+          },
+          "suggerimento": "Uno sconto subito insegna ai clienti ad abbandonare il carrello apposta."
+        },
+        {
+          "nome": "Sempre il link per disiscriversi",
+          "regola": {
+            "tipo": "menu",
+            "campo": "sempre",
+            "valore": "Il link per disiscriversi"
+          },
+          "suggerimento": "È obbligatorio, e un finto conto alla rovescia è una pratica scorretta."
+        }
       ],
       "perche": "Le email automatiche funzionano quando sono utili e rispettose. Urgenze finte, come i conti alla rovescia che ripartono, sono pratiche commerciali scorrette.",
-      "soluzione": "Prima email dopo 1-3 ore con un promemoria dei prodotti, massimo 2-3 email, sempre il link per disiscriversi." },
-    { "id": "stima", "tipo": "menu", "titolo": "Quanto possiamo recuperare?",
+      "soluzione": "Prima email dopo 1-3 ore con un promemoria dei prodotti, massimo 2-3 email, sempre il link per disiscriversi.",
+      "spiega": {
+        "testo": "Pensa a chi ha lasciato il carrello: una piccola dimenticanza va ricordata presto, prima che la persona si dimentichi del tutto. Troppe email diventano fastidio. Il link per disiscriversi è obbligatorio in ogni email, non solo nell'ultima.",
+        "esempio": "Dopo 2 ore: \"Hai lasciato la candela alla vaniglia nel carrello\". Dopo un giorno, se serve, un secondo promemoria. Basta così."
+      }
+    },
+    {
+      "id": "stima",
+      "tipo": "menu",
+      "titolo": "Quanto possiamo recuperare?",
       "testo": "Con i dati della scheda, fai una stima.",
       "campi": [
-        { "id": "ordini", "etichetta": "Carrelli recuperati al mese (10 su 100)", "opzioni": ["3", "32", "100", "320"] },
-        { "id": "incasso", "etichetta": "Incasso recuperato al mese (ordini × 24 €)", "opzioni": ["72 €", "320 €", "768 €", "7.680 €"] },
-        { "id": "apertura", "etichetta": "Tasso di apertura dell'ultima newsletter", "opzioni": ["3%", "21%", "30%", "70%"] }
+        {
+          "id": "ordini",
+          "etichetta": "Carrelli recuperati al mese (10 su 100)",
+          "opzioni": [
+            "3",
+            "32",
+            "100",
+            "320"
+          ]
+        },
+        {
+          "id": "incasso",
+          "etichetta": "Incasso recuperato al mese (ordini × 24 €)",
+          "opzioni": [
+            "72 €",
+            "320 €",
+            "768 €",
+            "7.680 €"
+          ]
+        },
+        {
+          "id": "apertura",
+          "etichetta": "Tasso di apertura dell'ultima newsletter",
+          "opzioni": [
+            "3%",
+            "21%",
+            "30%",
+            "70%"
+          ]
+        }
       ],
       "controlli": [
-        { "nome": "Carrelli recuperati: 32", "regola": { "tipo": "menu", "campo": "ordini", "valore": "32" }, "suggerimento": "10 su 100: quanti su 320?" },
-        { "nome": "Incasso recuperato: 768 €", "regola": { "tipo": "menu", "campo": "incasso", "valore": "768 €" }, "suggerimento": "32 × 24 €." },
-        { "nome": "Tasso di apertura: 30%", "regola": { "tipo": "menu", "campo": "apertura", "valore": "30%" }, "suggerimento": "2.100 aperte ÷ 7.000 inviate × 100." }
+        {
+          "nome": "Carrelli recuperati: 32",
+          "regola": {
+            "tipo": "menu",
+            "campo": "ordini",
+            "valore": "32"
+          },
+          "suggerimento": "10 su 100: quanti su 320?"
+        },
+        {
+          "nome": "Incasso recuperato: 768 €",
+          "regola": {
+            "tipo": "menu",
+            "campo": "incasso",
+            "valore": "768 €"
+          },
+          "suggerimento": "32 × 24 €."
+        },
+        {
+          "nome": "Tasso di apertura: 30%",
+          "regola": {
+            "tipo": "menu",
+            "campo": "apertura",
+            "valore": "30%"
+          },
+          "suggerimento": "2.100 aperte ÷ 7.000 inviate × 100."
+        }
       ],
       "perche": "Fare una stima prima di iniziare aiuta a decidere se un'attività vale il tempo. Il tasso di apertura è indicativo: alcuni programmi di posta lo gonfiano o lo nascondono.",
-      "soluzione": "32 carrelli recuperati, 768 € al mese. Tasso di apertura 30%." }
+      "soluzione": "32 carrelli recuperati, 768 € al mese. Tasso di apertura 30%.",
+      "spiega": {
+        "testo": "Fai i conti in ordine: carrelli recuperati = carrelli abbandonati ÷ 100 × quanti se ne recuperano ogni 100. Incasso = carrelli recuperati × valore medio. Il tasso di apertura è aperte ÷ inviate × 100.",
+        "esempio": "200 carrelli, 15 ogni 100: 200 ÷ 100 × 15 = 30. Con un valore medio di 30 €: 900 €. 1.000 aperte su 5.000: 20%."
+      }
+    }
   ],
   "aiuti": [
-    { "titolo": "Come divido i clienti?", "testo": "Guarda quante volte hanno comprato e quanto tempo fa. Pochi ordini e recenti: nuovi. Tanti e recenti: fedeli. Fermi da molti mesi: inattivi." },
-    { "titolo": "Quando posso scrivere a qualcuno?", "testo": "Quando ha dato il consenso, oppure è già cliente e scrivi per prodotti simili, l'hai informato e non si è opposto. Mai a liste comprate." }
+    {
+      "titolo": "Come divido i clienti?",
+      "testo": "Guarda quante volte hanno comprato e quanto tempo fa. Pochi ordini e recenti: nuovi. Tanti e recenti: fedeli. Fermi da molti mesi: inattivi."
+    },
+    {
+      "titolo": "Quando posso scrivere a qualcuno?",
+      "testo": "Quando ha dato il consenso, oppure è già cliente e scrivi per prodotti simili, l'hai informato e non si è opposto. Mai a liste comprate."
+    }
   ],
   "glossario": "Segmentazione: dividere i clienti in gruppi. Consenso: il sì esplicito a ricevere email. Email automatica: parte da sola dopo un'azione (es. carrello abbandonato). Tasso di apertura: email aperte su email inviate.",
   "note": [
@@ -95,5 +408,41 @@
     "Ho fatto la stima da sola o da solo."
   ],
   "rispostaCollega": "Ottimo, 768 € al mese non sono pochi! Imposto le due email e cancello quella lista che qualcuno voleva comprare.",
-  "imparato": ["segmentazione", "consenso e GDPR", "email automatiche", "stimare i risultati"]
+  "imparato": [
+    "segmentazione",
+    "consenso e GDPR",
+    "email automatiche",
+    "stimare i risultati"
+  ],
+  "lezione": {
+    "intro": "Il CRM (Customer Relationship Management) è il lavoro di gestire il rapporto con chi è già cliente o iscritto: dividere le persone in gruppi, scrivere al momento giusto con il messaggio giusto e misurare i risultati. Tutto con il consenso delle persone, come chiede il GDPR.",
+    "concetti": [
+      {
+        "nome": "Segmentazione",
+        "spiegazione": "Vuol dire dividere i clienti in gruppi simili, per scrivere a ognuno il messaggio adatto. Un modo semplice guarda quanti ordini ha fatto la persona e quanto tempo è passato dall'ultimo: nuovi, fedeli, inattivi.",
+        "esempio": "Un negozio di candele: Elisa ha comprato una volta ieri (nuova); Tommaso compra ogni mese (fedele); Rita non compra da più di un anno (inattiva)."
+      },
+      {
+        "nome": "Consenso e regole",
+        "spiegazione": "Per mandare email promozionali serve il consenso della persona. C'è un'eccezione: a chi ha già comprato si possono proporre prodotti simili, se è stato informato e non si è opposto. Mai liste comprate, mai indirizzi presi dai social, mai scrivere a chi si è disiscritto.",
+        "esempio": "Il negozio di candele può scrivere a chi si è iscritto alla newsletter; non può usare le email lasciate da un'altra azienda."
+      },
+      {
+        "nome": "Email automatiche",
+        "spiegazione": "Partono da sole dopo un'azione della persona, per esempio un carrello lasciato a metà. Funzionano se arrivano presto, sono poche e ricordano cosa c'era nel carrello. Ogni email deve avere il link per disiscriversi.",
+        "esempio": "Carrello di candele abbandonato: promemoria dopo 2 ore, eventualmente un secondo dopo un giorno, poi basta."
+      },
+      {
+        "nome": "I numeri del CRM",
+        "spiegazione": "Il tasso di apertura è email aperte ÷ email inviate. Per stimare quanto si recupera dai carrelli: carrelli abbandonati × percentuale recuperata, poi × valore medio del carrello.",
+        "esempio": "5.000 email inviate, 1.000 aperte: 20%. 200 carrelli, 15 su 100 recuperati = 30, da 30 € l'uno = 900 €."
+      }
+    ],
+    "cosaFarai": [
+      "Dividi cinque clienti in nuovi, fedeli e inattivi",
+      "Decidi a chi si può scrivere secondo le regole",
+      "Imposti le email per i carrelli abbandonati",
+      "Stimi quanto si può recuperare in un mese"
+    ]
+  }
 }

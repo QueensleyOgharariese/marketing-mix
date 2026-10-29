@@ -3,6 +3,8 @@
 //   1. Intento di ricerca  2. Titolo a blocchi (misurato in pixel) e descrizione  3. Dati strutturati Product  4. Risposta breve
 // A sinistra richiesta e scheda prodotto, al centro il lavoro, a destra Pesca, gli aiuti e i controlli per parte.
 // Lo script in fondo aggiorna controlli e anteprime mentre lavori e salva tutto nel browser.
+import Lezione from "../../../components/esercizio/Lezione.astro";
+import Spiega from "../../../components/esercizio/Spiega.astro";
 import AppLayout from "../../../layouts/AppLayout.astro";
 import Pesca from "../../../components/Pesca.astro";
 import Passi from "../../../components/PassiEsercizio.astro";
@@ -52,9 +54,12 @@ const voci = [
         <div class="serp-attuale"><span class="piccolo">Oggi su Google</span><span class="a-url">{es.attuale.url}</span><span class="a-titolo">{es.attuale.titolo}</span><span class="a-desc">{es.attuale.descrizione}</span></div>
       </header>
 
+      <Lezione lezione={es.lezione} parti={["intento", "titolo", "dati", "risposta"]} />
+
       <!-- 1. INTENTO -->
       <section class="pannello parte" id="parte-intento" aria-labelledby="t-1">
         <div class="parte-testa"><span class="numero">1</span><h2 id="t-1" class="parte-titolo">Capisci chi cerca cosa</h2></div>
+        <Spiega spiega={es.spiega.intento} />
         <p>Per ogni ricerca scegli cosa vuole fare la persona. Poi scegli la keyword principale della pagina prodotto.</p>
         <div class="scorri">
           <table class="intenti">
@@ -82,6 +87,7 @@ const voci = [
       <!-- 2. TITOLO E DESCRIZIONE -->
       <section class="pannello parte" id="parte-titolo" aria-labelledby="t-2">
         <div class="parte-testa"><span class="numero">2</span><h2 id="t-2" class="parte-titolo">Componi il titolo e scegli la descrizione</h2></div>
+        <Spiega spiega={es.spiega.titolo} />
         <p>Clicca i blocchi nell'ordine in cui vuoi che compaiano. Clicca un blocco del titolo per toglierlo. Non tutti i blocchi sono buoni!</p>
         <div class="campo">
           <div class="riga"><span class="etichetta-campo" id="l-titolo">Il tuo titolo (title)</span><span class="conta"><span data-conta="titolo">0 caratteri</span> · <span data-pixel>0 / {LIMITI.titoloPx} px</span></span></div>
@@ -113,6 +119,7 @@ const voci = [
       <!-- 3. DATI STRUTTURATI -->
       <section class="pannello parte" id="parte-dati" aria-labelledby="t-3">
         <div class="parte-testa"><span class="numero">3</span><h2 id="t-3" class="parte-titolo">Prepara i dati per Google</h2></div>
+        <Spiega spiega={es.spiega.dati} />
         <p>Scegli i dati strutturati del prodotto guardando la scheda: sono codice che le persone non vedono, ma Google sì.</p>
         <div class="griglia-campi">
           <label class="campo">Nome del prodotto
@@ -142,6 +149,7 @@ const voci = [
       <!-- 4. RISPOSTA BREVE -->
       <section class="pannello parte" id="parte-risposta" aria-labelledby="t-4">
         <div class="parte-testa"><span class="numero">4</span><h2 id="t-4" class="parte-titolo">Scegli la risposta a una domanda</h2></div>
+        <Spiega spiega={es.spiega.risposta} />
         <p>Molte persone chiedono a Google: <strong>"{es.domanda}"</strong>. Quale risposta breve metteresti sulla pagina?</p>
         <fieldset class="opzioni">
           <legend class="sr">Scegli la risposta breve</legend>
@@ -165,17 +173,18 @@ const voci = [
     <!-- ====== DESTRA: Pesca, controlli per parte, aiuti ====== -->
     <aside class="destra">
       <div class="pannello blocco">
-        <div class="mittente"><Pesca dimensione={46} occhiali animata={false} /><span><strong>Pesca</strong><span class="nota">Ogni aiuto aperto toglie 5 punti</span></span></div>
+        <div class="mittente"><Pesca dimensione={46} occhiali animata={false} /><span><strong>Pesca</strong><span class="nota">Ti do un suggerimento alla volta</span></span></div>
         <p class="pesca-dice" data-pesca aria-live="polite">Inizia dalla parte 1: per ogni ricerca scegli cosa vuole fare la persona.</p>
       </div>
       <div class="pannello blocco">
         <strong>Controlli automatici</strong>
+        <p class="nota">Ogni controllo mostra cosa hai fatto bene solo quando lo superi.</p>
         <ul class="parti">
           {PARTI.map((p, n) => (
             <li>
               <a href={`#parte-${p.id}`} class="parte-link"><span>{n + 1}. {p.nome}</span><span class="conteggio" data-conteggio={n}>0/4</span></a>
               <ul class="controlli">
-                {p.controlli.map((c, k) => (<li data-controllo={n * 4 + k}><span class="segno" aria-hidden="true"></span><span>{c}</span><span class="sr" data-esito>non ancora</span></li>))}
+                {p.controlli.map((c, k) => (<li data-controllo={n * 4 + k}><span class="segno" aria-hidden="true"></span><span class="nome-controllo">{c}</span><span class="attesa">Da superare</span><span class="sr" data-esito>non ancora</span></li>))}
               </ul>
             </li>
           ))}
@@ -183,7 +192,7 @@ const voci = [
       </div>
       {es.aiuti.map((a, i) => (
         <details class="pannello aiuto" data-aiuto={i}>
-          <summary>Aiuto {i + 1} · {a.titolo}</summary>
+          <summary>Aiuto {i + 1}: {a.titolo} <span class="costo">−5 punti</span></summary>
           <p>{a.testo}</p>
         </details>
       ))}
@@ -365,6 +374,10 @@ const voci = [
 </script>
 
 <style>
+  .costo { font-weight: 600; color: #55514c; white-space: nowrap; }
+  .controlli li .nome-controllo { display: none; }
+  .controlli li.ok .nome-controllo { display: inline; }
+  .controlli li.ok .attesa { display: none; }
   .layout { display: grid; grid-template-columns: minmax(260px, 320px) minmax(0, 1fr) minmax(260px, 320px); gap: 18px; padding: 24px; align-items: start; }
   .sinistra, .destra { position: sticky; top: 84px; display: flex; flex-direction: column; gap: 12px; max-height: calc(100vh - 100px); overflow-y: auto; }
   .centro { min-width: 0; display: flex; flex-direction: column; gap: 16px; }

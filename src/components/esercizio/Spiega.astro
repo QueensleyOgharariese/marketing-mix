@@ -1,0 +1,19 @@
+---
+// "PRIMA DI RISPONDERE": la spiegazione che sta sopra ogni domanda (come si ragiona + un esempio diverso dall'esercizio)
+import type { Spiega } from "../../scripts/esercizi";
+interface Props { spiega: Spiega }
+const { spiega } = Astro.props;
+---
+<div class="spiega">
+  <h3>Prima di rispondere</h3>
+  <p>{spiega.testo}</p>
+  {spiega.esempio && <p class="esempio"><strong>Per esempio</strong>{spiega.esempio}</p>}
+</div>
+
+<style>
+  .spiega { background: #f4f4f2; border-radius: 14px; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; font-size: .95rem; line-height: 1.65; }
+  .spiega h3 { font-family: var(--font-testo); font-size: .95rem; font-weight: 800; }
+  .spiega p { margin: 0; }
+  .esempio { font-size: .9rem; background: #fff; border-radius: 12px; padding: 12px 14px; }
+  .esempio strong { display: block; font-size: .8rem; color: #55514c; margin-bottom: 2px; }
+</style>
