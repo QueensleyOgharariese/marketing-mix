@@ -2,7 +2,7 @@
 // PERCORSO DI APPROFONDIMENTO · SEO (pagina di partenza, livello junior)
 // Come nel design "Panoramica del percorso": benvenuto, messaggio della responsabile, le 5 missioni
 // (si sbloccano una alla volta), gli strumenti, le parole che si incontrano.
-// Le missioni sono ancora da costruire: per ora la prima è "in arrivo" e le altre bloccate.
+// Lo stato delle missioni (da iniziare, in corso, completata, bloccata) arriva dal browser: lo scrive la guida della missione.
 import Console from "../../../../components/seopro/Console.astro";
 import sc from "../../../../data/app/seo-pro/search-console.json";
 import { num } from "../../../../scripts/tabella";
@@ -33,8 +33,8 @@ const calo = Math.round((1 - ott.clic / set.clic) * 100);
       <h2>Benvenuta nel team di cinquefoglie.example</h2>
       <p>Hai a disposizione il sito vero del negozio e cinque strumenti. Ogni passo di una missione comincia con una spiegazione e un esempio; poi leggi i dati e scegli tu cosa fare.</p>
       <div class="bottoni">
-        <a class="bottone-app" href="/app/negozio/">Guarda il negozio</a>
-        <a class="bottone-scuro" href={`${B}/indicizzazione/`}>Apri gli strumenti</a>
+        <button type="button" class="bottone-app" data-avvia-prossima>Inizia la missione 1</button>
+        <a class="bottone-scuro" href="/app/negozio/">Prima guardo il negozio</a>
       </div>
     </div>
     <article class="messaggio">
@@ -49,11 +49,12 @@ const calo = Math.round((1 - ott.clic / set.clic) * 100);
     <div class="titolo-riga"><h2 class="titoletto">Le missioni</h2><span class="nota">Circa 2 ore e mezza in tutto. Si sbloccano una alla volta.</span></div>
     <ol class="missioni">
       {MISSIONI.map((m, i) => (
-        <li class:list={["missione", { prima: i === 0 }]}>
-          <div class="missione-testa"><span class="numero">{m.n}</span><span class="stato">{i === 0 ? "In arrivo" : "Bloccata"}</span></div>
+        <li class:list={["missione", { prima: i === 0 }]} data-missione={`m${m.n}`}>
+          <div class="missione-testa"><span class="numero">{m.n}</span><span class="stato" data-stato>{i === 0 ? "Da iniziare" : "Bloccata"}</span></div>
           <strong>{m.nome}</strong>
           <span class="cosa">{m.cosa}</span>
           <span class="meta">{m.tempo}. Strumenti: {m.strumenti}</span>
+          <button type="button" class="azione" data-azione hidden></button>
         </li>
       ))}
     </ol>
@@ -84,6 +85,31 @@ const calo = Math.round((1 - ott.clic / set.clic) * 100);
   </section>
 </Console>
 
+<script>
+  import { MISSIONI, leggiStato, sbloccata, punti, avvia } from "../../../../scripts/missioni";
+  const s = leggiStato();
+  let prossima: string | null = null;
+  for (const m of MISSIONI) {
+    const li = document.querySelector<HTMLElement>(`[data-missione="${m.id}"]`)!;
+    const stato = li.querySelector<HTMLElement>("[data-stato]")!;
+    const azione = li.querySelector<HTMLButtonElement>("[data-azione]")!;
+    const sm = s.missioni[m.id];
+    li.classList.remove("prima", "fatta");
+    if (sm?.stato === "completata") { stato.textContent = `Completata, ${punti(sm)} punti`; azione.textContent = "Rifai"; azione.hidden = false; li.classList.add("fatta"); }
+    else if (sm?.stato === "in-corso") { stato.textContent = `In corso, passo ${sm.passo + 1} di ${m.passi.length}`; azione.textContent = "Continua"; azione.hidden = false; prossima ??= m.id; }
+    else if (sbloccata(s, m)) { stato.textContent = "Da iniziare"; azione.textContent = "Inizia"; azione.hidden = false; prossima ??= m.id; }
+    else { stato.textContent = "Bloccata"; azione.hidden = true; }
+    if (m.id === prossima) li.classList.add("prima");
+    azione.addEventListener("click", () => { location.href = avvia(m.id); });
+  }
+  const hero = document.querySelector<HTMLButtonElement>("[data-avvia-prossima]")!;
+  if (prossima) {
+    const m = MISSIONI.find((x) => x.id === prossima)!;
+    hero.textContent = s.missioni[m.id]?.stato === "in-corso" ? `Continua la missione ${m.n}` : `Inizia la missione ${m.n}`;
+    hero.addEventListener("click", () => { location.href = avvia(m.id); });
+  } else { hero.textContent = "Tutte le missioni completate"; hero.disabled = true; }
+</script>
+
 <style>
   .apertura { display: flex; flex-wrap: wrap; gap: 20px; }
   .benvenuto { flex: 2 1 480px; background: var(--inchiostro); color: #f1efeb; border-radius: 22px; padding: 34px 38px; display: flex; flex-direction: column; gap: 12px; }
@@ -91,6 +117,7 @@ const calo = Math.round((1 - ott.clic / set.clic) * 100);
   .benvenuto p { margin: 0; line-height: 1.6; color: #dedad3; max-width: 60ch; }
   .occhiello { font-size: .85rem; font-weight: 700; color: var(--arancio) !important; }
   .bottoni { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+  .benvenuto .bottone-app:disabled { opacity: .6; cursor: default; }
   .bottone-scuro { display: inline-flex; align-items: center; font-weight: 700; color: #fff; text-decoration: none; padding: 12px 18px; border-radius: 10px; border: 1.5px solid #5e5953; }
   .bottone-scuro:hover { color: #fff; border-color: #fff; }
   .messaggio { flex: 1 1 280px; background: #fff; border: 1px solid #e3e1dc; border-radius: 22px; padding: 22px; display: flex; flex-direction: column; gap: 10px; }
@@ -113,6 +140,10 @@ const calo = Math.round((1 - ott.clic / set.clic) * 100);
   .stato { font-size: .78rem; font-weight: 700; }
   .cosa { font-size: .86rem; line-height: 1.5; }
   .meta { font-size: .78rem; margin-top: auto; }
+  .azione { align-self: flex-start; font: inherit; font-weight: 700; font-size: .85rem; padding: 9px 14px; border-radius: 10px; border: 1px solid #d1cec8; background: #fff; color: var(--inchiostro); cursor: pointer; }
+  .prima .azione { background: var(--arancio); border-color: var(--arancio); }
+  .fatta .numero { background: #2f7a4f; color: #fff; }
+  .fatta .stato { color: #1f5c38; }
   .sotto { display: flex; flex-wrap: wrap; gap: 20px; }
   .strumenti { flex: 2 1 480px; }
   .griglia { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }

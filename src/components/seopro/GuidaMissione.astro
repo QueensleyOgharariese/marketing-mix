@@ -1,0 +1,166 @@
+---
+// GUIDA DELLA MISSIONE (pannello a destra negli strumenti e nel negozio)
+// Mostra il passo della missione in corso, nello stesso ordine degli esercizi:
+// passo, domanda, "Prima di rispondere" (spiegazione + esempio su un'altra attività), dove guardare,
+// risposte, Controlla, aiuto chiuso (−5 punti). Dopo Controlla: perché è giusto, o cosa non va.
+// Se il passo si fa in un altro strumento, la guida porta lì. Il contenuto arriva da missioni.json
+// e viene disegnato nel browser, perché dipende dallo stato salvato (localStorage).
+interface Props { pagina: string } // id dello strumento in cui si trova la guida (console, crawler, negozio...)
+const { pagina } = Astro.props;
+---
+<div class="gm" data-guida-missione={pagina} aria-live="polite">
+  <p class="gm-attesa">Caricamento della missione…</p>
+</div>
+
+<script>
+  import { MISSIONI, STRUMENTI, leggiStato, salvaStato, linkPasso, controlla, punti, avvia, type Missione } from "../../scripts/missioni";
+
+  const radice = document.querySelector<HTMLElement>("[data-guida-missione]");
+  const esc = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
+  function barre(m: Missione, passo: number) {
+    return `<div class="gm-barre" aria-hidden="true">${m.passi.map((_, i) => `<span class="${i < passo ? "fatto" : i === passo ? "ora" : ""}"></span>`).join("")}</div>`;
+  }
+
+  function disegna() {
+    if (!radice) return;
+    const pagina = radice.dataset.guidaMissione!;
+    const s = leggiStato();
+    const m = MISSIONI.find((x) => x.id === s.attiva);
+    const sm = m ? s.missioni[m.id] : undefined;
+
+    // Nessuna missione in corso
+    if (!m || !sm) {
+      radice.innerHTML = `<h2 class="gm-titolo">Nessuna missione in corso</h2><p class="gm-testo">Puoi esplorare gli strumenti liberamente. Quando vuoi, scegli una missione dalla panoramica.</p><a class="bottone-app" href="/app/percorsi/seo/">Vai alle missioni</a>`;
+      return;
+    }
+
+    // Missione completata: riepilogo
+    if (sm.stato === "completata") {
+      const prossima = MISSIONI.find((x) => x.n === m.n + 1);
+      const primo = sm.primoColpo.filter(Boolean).length;
+      radice.innerHTML = `<p class="gm-missione">Missione ${m.n}: ${esc(m.nome)}</p>${barre(m, m.passi.length)}
+        <h2 class="gm-titolo">Missione completata</h2>
+        <p class="gm-punti"><strong>${punti(sm)}</strong> punti su 100</p>
+        <p class="gm-testo">Risposte giuste al primo tentativo: ${primo} su ${m.passi.length}. Aiuti aperti: ${sm.aiuti.length}.</p>
+        <div class="gm-blocco"><h3>Cosa hai imparato</h3><ul>${m.imparato.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
+        <div class="gm-messaggio"><strong>Elena M.</strong><p>${esc(m.elena)}</p></div>
+        <div class="gm-bottoni">${prossima ? `<button type="button" class="bottone-app" data-prossima="${prossima.id}">Inizia la missione ${prossima.n}</button>` : ""}<a class="gm-secondario" href="/app/percorsi/seo/">Torna alla panoramica</a></div>`;
+      radice.querySelector<HTMLButtonElement>("[data-prossima]")?.addEventListener("click", (e) => {
+        location.href = avvia((e.currentTarget as HTMLElement).dataset.prossima!);
+      });
+      return;
+    }
+
+    const p = m.passi[sm.passo];
+    const testa = `<p class="gm-missione">Missione ${m.n}: ${esc(m.nome)}</p>${barre(m, sm.passo)}<p class="gm-passo">Passo ${sm.passo + 1} di ${m.passi.length}</p>`;
+
+    // Il passo si fa in un altro strumento: la guida porta lì
+    if (p.strumento !== pagina) {
+      radice.innerHTML = `${testa}<h2 class="gm-titolo">${esc(p.domanda)}</h2><p class="gm-testo">Questo passo si fa in <strong>${esc(STRUMENTI[p.strumento].nome)}</strong>.</p><a class="bottone-app" href="${linkPasso(p)}">Vai a ${esc(STRUMENTI[p.strumento].nome)}</a>`;
+      return;
+    }
+
+    const obiettivo = sm.passo === 0 ? `<p class="gm-obiettivo">${esc(m.obiettivo)}</p>` : "";
+    radice.innerHTML = `${testa}${obiettivo}
+      <h2 class="gm-titolo">${esc(p.domanda)}</h2>
+      <section class="gm-spiega"><h3>Prima di rispondere</h3><p>${esc(p.spiega)}</p><p class="gm-esempio"><strong>Per esempio</strong>${esc(p.esempio)}</p></section>
+      <p class="gm-compito">${p.compito}</p>
+      <fieldset class="gm-opzioni"><legend>${p.tipo === "checkbox" ? "Scegli tutte le risposte giuste" : "Scegli una risposta"}</legend>
+        ${p.opzioni.map((o) => `<label class="gm-opzione"><input type="${p.tipo}" name="gm-r" value="${o.id}" /><span>${esc(o.testo)}</span></label>`).join("")}
+      </fieldset>
+      <div class="gm-esito" data-esito hidden></div>
+      <div class="gm-bottoni"><button type="button" class="bottone-app" data-controlla>Controlla</button><button type="button" class="gm-secondario" data-dove>Mostrami dove guardare</button></div>
+      <details class="gm-aiuto" data-aiuto ${sm.aiuti.includes(sm.passo) ? "open" : ""}><summary>Aiuto <span>(−5 punti)</span></summary><p>${esc(p.aiuto)}</p></details>`;
+
+    const esito = radice.querySelector<HTMLElement>("[data-esito]")!;
+    radice.querySelector("[data-controlla]")!.addEventListener("click", () => {
+      const scelte = [...radice.querySelectorAll<HTMLInputElement>("input[name=gm-r]:checked")].map((x) => x.value);
+      if (!scelte.length) { esito.hidden = false; esito.className = "gm-esito"; esito.innerHTML = "<p>Scegli almeno una risposta.</p>"; return; }
+      const r = controlla(p, scelte);
+      const st = leggiStato(); const cur = st.missioni[m.id];
+      if (cur.primoColpo[cur.passo] === undefined) cur.primoColpo[cur.passo] = r.ok;
+      if (!r.ok) cur.errori += 1;
+      salvaStato(st);
+      esito.hidden = false;
+      if (r.ok) {
+        esito.className = "gm-esito ok";
+        const ultimo = cur.passo === m.passi.length - 1;
+        esito.innerHTML = `<strong>Giusto.</strong><p>${esc(p.perche)}</p><button type="button" class="bottone-app" data-avanti>${ultimo ? "Concludi la missione" : "Passo successivo"}</button>`;
+        radice.querySelectorAll<HTMLInputElement>("input[name=gm-r]").forEach((x) => (x.disabled = true));
+        radice.querySelector<HTMLButtonElement>("[data-controlla]")!.disabled = true;
+        esito.querySelector("[data-avanti]")!.addEventListener("click", () => {
+          const s2 = leggiStato(); const c2 = s2.missioni[m.id];
+          if (ultimo) { c2.stato = "completata"; salvaStato(s2); disegna(); document.dispatchEvent(new CustomEvent("missioni-aggiornate")); radice.scrollIntoView({ behavior: "smooth", block: "start" }); return; }
+          c2.passo += 1; salvaStato(s2);
+          const prossimo = m.passi[c2.passo];
+          if (prossimo.strumento !== pagina) location.href = linkPasso(prossimo); else { disegna(); radice.scrollIntoView({ behavior: "smooth", block: "start" }); }
+        });
+      } else {
+        esito.className = "gm-esito no";
+        const note = r.sbagliate.map((o) => `<li><strong>${esc(o.testo)}</strong>: ${esc(o.nota)}</li>`).join("");
+        const manca = r.mancanti.length && p.tipo === "checkbox" ? "<p>Manca ancora almeno una risposta giusta.</p>" : "";
+        esito.innerHTML = `<strong>Non ancora.</strong>${note ? `<ul>${note}</ul>` : ""}${manca}<p>Rileggi "Prima di rispondere" e riprova.</p>`;
+      }
+    });
+
+    radice.querySelector("[data-dove]")!.addEventListener("click", () => {
+      const el = document.querySelector<HTMLElement>(p.dove);
+      if (!el) return;
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+      el.classList.add("gm-evidenzia");
+      setTimeout(() => el.classList.remove("gm-evidenzia"), 2400);
+    });
+
+    radice.querySelector<HTMLDetailsElement>("[data-aiuto]")!.addEventListener("toggle", (e) => {
+      if (!(e.currentTarget as HTMLDetailsElement).open) return;
+      const st = leggiStato(); const cur = st.missioni[m.id];
+      if (!cur.aiuti.includes(cur.passo)) { cur.aiuti.push(cur.passo); salvaStato(st); }
+    });
+  }
+
+  disegna();
+</script>
+
+<style>
+  .gm { display: flex; flex-direction: column; gap: 14px; font-size: .9rem; }
+  .gm :global(.gm-missione) { margin: 0; font-weight: 700; color: #423e39; font-size: .85rem; }
+  .gm :global(.gm-barre) { display: flex; gap: 6px; }
+  .gm :global(.gm-barre span) { flex: 1; height: 6px; border-radius: 3px; background: #e9e8e4; }
+  .gm :global(.gm-barre span.fatto) { background: #2f7a4f; } .gm :global(.gm-barre span.ora) { background: var(--arancio); }
+  .gm :global(.gm-passo) { margin: 0; font-size: .8rem; color: #625e58; }
+  .gm :global(.gm-obiettivo) { margin: 0; font-size: .85rem; line-height: 1.55; color: #423e39; background: #f4f4f2; border-radius: 10px; padding: 10px 12px; }
+  .gm :global(.gm-titolo) { margin: 0; font-family: var(--font-titoli); font-size: 1.35rem; line-height: 1.2; }
+  .gm :global(.gm-testo) { margin: 0; line-height: 1.6; color: #423e39; }
+  .gm :global(.gm-spiega) { background: #f4f4f2; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; line-height: 1.6; font-size: .87rem; }
+  .gm :global(.gm-spiega h3) { margin: 0; font-size: .9rem; font-family: var(--font-testo); font-weight: 800; }
+  .gm :global(.gm-spiega p) { margin: 0; }
+  .gm :global(.gm-esempio) { background: #fff; border-radius: 10px; padding: 10px 12px; }
+  .gm :global(.gm-esempio strong) { display: block; font-size: .78rem; color: #625e58; }
+  .gm :global(.gm-compito) { margin: 0; line-height: 1.6; }
+  .gm :global(.gm-opzioni) { border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .gm :global(.gm-opzioni legend) { font-weight: 700; margin-bottom: 8px; }
+  .gm :global(.gm-opzione) { display: flex; gap: 10px; align-items: flex-start; padding: 11px 13px; border: 1.5px solid #e3e1dc; border-radius: 12px; cursor: pointer; line-height: 1.45; background: #fff; }
+  .gm :global(.gm-opzione:has(input:checked)) { border-color: var(--arancio); }
+  .gm :global(.gm-opzione:has(input:focus-visible)) { outline: 3px solid var(--inchiostro); outline-offset: 2px; }
+  .gm :global(.gm-opzione input) { margin-top: 2px; width: 18px; height: 18px; accent-color: var(--arancio); flex: none; }
+  .gm :global(.gm-bottoni) { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .gm :global(.gm-secondario) { font: inherit; font-weight: 700; padding: 11px 14px; border-radius: 10px; border: 1px solid #d1cec8; background: #fff; color: var(--inchiostro); cursor: pointer; text-decoration: none; }
+  .gm :global(.gm-esito) { border-radius: 12px; padding: 12px 14px; line-height: 1.55; display: flex; flex-direction: column; gap: 6px; }
+  .gm :global(.gm-esito p), .gm :global(.gm-esito ul) { margin: 0; }
+  .gm :global(.gm-esito ul) { padding-left: 18px; display: flex; flex-direction: column; gap: 4px; }
+  .gm :global(.gm-esito.ok) { background: #e3f3e8; color: #173f27; }
+  .gm :global(.gm-esito.no) { background: #fde8e4; color: #6e1c11; }
+  .gm :global(.gm-esito .bottone-app) { align-self: flex-start; margin-top: 4px; }
+  .gm :global(.gm-aiuto) { border-top: 1px solid #e3e1dc; padding-top: 12px; }
+  .gm :global(.gm-aiuto summary) { cursor: pointer; font-weight: 700; }
+  .gm :global(.gm-aiuto summary span) { font-weight: 600; color: #625e58; }
+  .gm :global(.gm-aiuto p) { margin: 8px 0 0; line-height: 1.55; color: #423e39; }
+  .gm :global(.gm-punti) { margin: 0; } .gm :global(.gm-punti strong) { font-family: var(--font-titoli); font-size: 2rem; }
+  .gm :global(.gm-blocco h3) { margin: 0 0 4px; font-size: .9rem; }
+  .gm :global(.gm-blocco ul) { margin: 0; padding-left: 18px; line-height: 1.6; }
+  .gm :global(.gm-messaggio) { background: #f4f4f2; border-radius: 12px; padding: 12px 14px; }
+  .gm :global(.gm-messaggio p) { margin: 4px 0 0; line-height: 1.55; }
+  .gm-attesa { margin: 0; color: #625e58; }
+  :global(.gm-evidenzia) { outline: 3px solid var(--arancio) !important; outline-offset: 4px; border-radius: 8px; transition: outline-color .3s; }
+</style>
