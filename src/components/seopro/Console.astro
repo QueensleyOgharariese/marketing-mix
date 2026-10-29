@@ -67,7 +67,7 @@ const conGuida = attivo !== "percorso";
   function aggiornaBarra() {
     try {
       const dati = JSON.parse(localStorage.getItem("marketing-mix-percorso-seo") ?? "{}");
-      const fatte = Object.values(dati.missioni ?? {}).filter((m: any) => m?.stato === "completata").length;
+      const fatte = Object.entries(dati.missioni ?? {}).filter(([id, m]: [string, any]) => id !== "tutorial" && m?.stato === "completata").length; // il tutorial non conta
       const t = document.querySelector("[data-missioni-testo]"); const b = document.querySelector<HTMLElement>("[data-missioni-barra]");
       if (t) t.textContent = `Missioni ${fatte} di 5`;
       if (b) b.style.width = `${(fatte / 5) * 100}%`;

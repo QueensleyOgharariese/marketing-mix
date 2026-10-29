@@ -1,9 +1,10 @@
 ---
 // GUIDA DELLA MISSIONE (pannello a destra negli strumenti e nel negozio)
 // Mostra il passo della missione in corso, nello stesso ordine degli esercizi:
-// passo, domanda, "Prima di rispondere" (spiegazione + esempio su un'altra attività), dove guardare,
-// risposte, Controlla, aiuto chiuso (−5 punti). Dopo Controlla: perché è giusto, o cosa non va.
-// Se il passo si fa in un altro strumento, la guida porta lì. Il contenuto arriva da missioni.json
+// passo, domanda, "Prima di rispondere" (spiegazione + esempio su un'altra attività), "Come si fa" (istruzioni
+// numerate), risposte o "Controlla il lavoro", "Mostrami dove", aiuto chiuso (−5 punti).
+// Dopo Controlla: perché è giusto, o cosa non va. Se il passo si fa in un altro strumento, la guida porta lì.
+// Vale anche per il tutorial (passi "info" che si leggono e basta). Il contenuto arriva da missioni.json
 // e viene disegnato nel browser, perché dipende dallo stato salvato (localStorage).
 interface Props { pagina: string } // id dello strumento in cui si trova la guida (console, crawler, negozio...)
 const { pagina } = Astro.props;
@@ -13,7 +14,7 @@ const { pagina } = Astro.props;
 </div>
 
 <script>
-  import { MISSIONI, STRUMENTI, leggiStato, salvaStato, linkPasso, controlla, punti, avvia, type Missione } from "../../scripts/missioni";
+  import { TUTTE, STRUMENTI, leggiStato, salvaStato, linkPasso, controlla, punti, avvia, etichetta, consigliata, type Missione, type Passo } from "../../scripts/missioni";
   import { verifica } from "../../scripts/verifiche";
 
   const radice = document.querySelector<HTMLElement>("[data-guida-missione]");
@@ -22,31 +23,61 @@ const { pagina } = Astro.props;
   function barre(m: Missione, passo: number) {
     return `<div class="gm-barre" aria-hidden="true">${m.passi.map((_, i) => `<span class="${i < passo ? "fatto" : i === passo ? "ora" : ""}"></span>`).join("")}</div>`;
   }
+  // "Prima di iniziare": la teoria in breve e un esempio su un'altra attività
+  function spiegazione(p: Passo, titolo: string) {
+    if (!p.spiega) return "";
+    return `<section class="gm-spiega"><h3>${titolo}</h3><p>${esc(p.spiega)}</p>${p.esempio ? `<p class="gm-esempio"><strong>Per esempio</strong>${esc(p.esempio)}</p>` : ""}</section>`;
+  }
+  // "Come si fa": istruzioni numerate (scritte in missioni.json, possono contenere link)
+  function comeSiFa(p: Passo) {
+    if (p.come?.length) return `<section class="gm-come"><h3>Come si fa</h3><ol>${p.come.map((c) => `<li>${c}</li>`).join("")}</ol></section>`;
+    return p.compito ? `<p class="gm-compito">${p.compito}</p>` : "";
+  }
+  // "Mostrami dove" compare solo se l'elemento da evidenziare è in questa pagina
+  function bottoneDove(p: Passo) {
+    return p.dove && document.querySelector(p.dove) ? `<button type="button" class="gm-secondario" data-dove>Mostrami dove</button>` : "";
+  }
+  function collegaDove(p: Passo) {
+    radice!.querySelector("[data-dove]")?.addEventListener("click", () => {
+      const el = document.querySelector<HTMLElement>(p.dove);
+      if (!el) return;
+      // se è dentro una barra chiusa, la riapre
+      const barra = el.closest<HTMLElement>("[data-barra][data-chiuso]");
+      barra?.querySelector<HTMLButtonElement>(".apri-pannello")?.click();
+      // un elemento molto alto (es. il menu) si mostra dall'inizio, con il bordo disegnato all'interno
+      const alto = el.getBoundingClientRect().height > innerHeight * 0.8;
+      el.scrollIntoView({ behavior: "smooth", block: alto ? "start" : "center" });
+      el.classList.add("gm-evidenzia");
+      if (alto) el.style.outlineOffset = "-3px";
+      setTimeout(() => { el.classList.remove("gm-evidenzia"); el.style.outlineOffset = ""; }, 2600);
+    });
+  }
 
   function disegna() {
     if (!radice) return;
     const pagina = radice.dataset.guidaMissione!;
     const s = leggiStato();
-    const m = MISSIONI.find((x) => x.id === s.attiva);
+    const m = TUTTE.find((x) => x.id === s.attiva);
     const sm = m ? s.missioni[m.id] : undefined;
 
     // Nessuna missione in corso
     if (!m || !sm) {
-      radice.innerHTML = `<h2 class="gm-titolo">Nessuna missione in corso</h2><p class="gm-testo">Puoi esplorare gli strumenti liberamente. Quando vuoi, scegli una missione dalla panoramica.</p><a class="bottone-app" href="/app/percorsi/seo/">Vai alle missioni</a>`;
+      radice.innerHTML = `<h2 class="gm-titolo">Nessuna missione in corso</h2><p class="gm-testo">Puoi esplorare gli strumenti liberamente. Quando vuoi, scegli una missione dalla panoramica.</p><a class="bottone-app" href="/app/percorsi/seo/#missioni">Scegli una missione</a>`;
       return;
     }
+    const tutorial = m.id === "tutorial";
 
-    // Missione completata: riepilogo
+    // Missione (o tutorial) completata: riepilogo e scelta della prossima
     if (sm.stato === "completata") {
-      const prossima = MISSIONI.find((x) => x.n === m.n + 1);
+      const prossima = consigliata(s);
       const primo = sm.primoColpo.filter(Boolean).length;
-      radice.innerHTML = `<p class="gm-missione">Missione ${m.n}: ${esc(m.nome)}</p>${barre(m, m.passi.length)}
-        <h2 class="gm-titolo">Missione completata</h2>
-        <p class="gm-punti"><strong>${punti(sm)}</strong> punti su 100</p>
-        <p class="gm-testo">Risposte giuste al primo tentativo: ${primo} su ${m.passi.length}. Aiuti aperti: ${sm.aiuti.length}.</p>
+      const domande = m.passi.filter((p) => p.tipo !== "info").length;
+      radice.innerHTML = `<p class="gm-missione">${esc(etichetta(m))}</p>${barre(m, m.passi.length)}
+        <h2 class="gm-titolo">${tutorial ? "Tutorial completato" : "Missione completata"}</h2>
+        ${tutorial ? "" : `<p class="gm-punti"><strong>${punti(sm)}</strong> punti su 100</p><p class="gm-testo">Giuste al primo tentativo: ${primo} su ${domande}. Aiuti aperti: ${sm.aiuti.length}.</p>`}
         <div class="gm-blocco"><h3>Cosa hai imparato</h3><ul>${m.imparato.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
         <div class="gm-messaggio"><strong>Elena M.</strong><p>${esc(m.elena)}</p></div>
-        <div class="gm-bottoni">${prossima ? `<button type="button" class="bottone-app" data-prossima="${prossima.id}">Inizia la missione ${prossima.n}</button>` : ""}<a class="gm-secondario" href="/app/percorsi/seo/">Torna alla panoramica</a></div>`;
+        <div class="gm-bottoni">${prossima ? `<button type="button" class="bottone-app" data-prossima="${prossima.id}">${tutorial ? "Inizia la missione" : "Prossima consigliata: missione"} ${prossima.n}</button>` : ""}<a class="gm-secondario" href="/app/percorsi/seo/#missioni">${tutorial ? "Scegli un'altra missione" : "Scegli tu la prossima"}</a></div>`;
       radice.querySelector<HTMLButtonElement>("[data-prossima]")?.addEventListener("click", (e) => {
         location.href = avvia((e.currentTarget as HTMLElement).dataset.prossima!);
       });
@@ -54,19 +85,29 @@ const { pagina } = Astro.props;
     }
 
     const p = m.passi[sm.passo];
-    const testa = `<p class="gm-missione">Missione ${m.n}: ${esc(m.nome)}</p>${barre(m, sm.passo)}<p class="gm-passo">Passo ${sm.passo + 1} di ${m.passi.length}</p>`;
+    const ultimo = sm.passo === m.passi.length - 1;
+    const testa = `<p class="gm-missione">${esc(etichetta(m))}</p>${barre(m, sm.passo)}<p class="gm-passo">Passo ${sm.passo + 1} di ${m.passi.length}</p>`;
+    const obiettivo = sm.passo === 0 ? `<p class="gm-obiettivo">${esc(m.obiettivo)}</p>` : "";
+
+    // Passo "info" (tutorial): si legge e si va avanti. Si vede in qualunque pagina.
+    if (p.tipo === "info") {
+      radice.innerHTML = `${testa}${obiettivo}
+        <h2 class="gm-titolo">${esc(p.domanda)}</h2>
+        ${spiegazione(p, "In breve")}${comeSiFa(p).replace("Come si fa", "Da sapere")}
+        <div class="gm-bottoni"><button type="button" class="bottone-app" data-avanti>${ultimo ? "Concludi il tutorial" : "Ho capito, avanti"}</button>${bottoneDove(p)}</div>`;
+      radice.querySelector("[data-avanti]")!.addEventListener("click", () => avanti(m, ultimo, pagina));
+      collegaDove(p);
+      return;
+    }
 
     // Passo "azione": si lavora sul sito (pannello o strumenti) e la guida controlla com'è il sito adesso.
     // Si vede da qualunque pagina, così si può lavorare e controllare senza perdere la guida.
     if (p.tipo === "azione") {
-      const obiettivoA = sm.passo === 0 ? `<p class="gm-obiettivo">${esc(m.obiettivo)}</p>` : "";
-      radice.innerHTML = `${testa}${obiettivoA}
+      radice.innerHTML = `${testa}${obiettivo}
         <h2 class="gm-titolo">${esc(p.domanda)}</h2>
-        <section class="gm-spiega"><h3>Prima di iniziare</h3><p>${esc(p.spiega)}</p><p class="gm-esempio"><strong>Per esempio</strong>${esc(p.esempio)}</p></section>
-        <p class="gm-compito">${p.compito}</p>
-        ${p.vai ? `<a class="gm-secondario gm-vai" href="${p.vai.link}">${esc(p.vai.testo)}</a>` : ""}
+        ${comeSiFa(p)}${spiegazione(p, "Da sapere prima di iniziare")}
         <div class="gm-esito" data-esito hidden></div>
-        <div class="gm-bottoni"><button type="button" class="bottone-app" data-verifica>Controlla il lavoro</button></div>
+        <div class="gm-bottoni"><button type="button" class="bottone-app" data-verifica>Controlla il lavoro</button>${bottoneDove(p)}</div>
         <details class="gm-aiuto" data-aiuto ${sm.aiuti.includes(sm.passo) ? "open" : ""}><summary>Aiuto <span>(−5 punti)</span></summary><p>${esc(p.aiuto)}</p></details>`;
       const esitoA = radice.querySelector<HTMLElement>("[data-esito]")!;
       radice.querySelector("[data-verifica]")!.addEventListener("click", () => {
@@ -78,7 +119,6 @@ const { pagina } = Astro.props;
         requestAnimationFrame(() => esitoA.scrollIntoView({ behavior: "smooth", block: "nearest" }));
         const lista = `<ul class="gm-controlli">${r.controlli.map((c) => `<li class="${c.ok ? "ok" : "no"}"><span class="gm-segno" aria-hidden="true"></span><span><strong>${esc(c.nome)}</strong>${c.ok ? "" : `<br>${esc(c.suggerimento)}`}</span><span class="sr">${c.ok ? "superato" : "da sistemare"}</span></li>`).join("")}</ul>`;
         if (r.ok) {
-          const ultimo = cur.passo === m.passi.length - 1;
           esitoA.className = "gm-esito ok";
           esitoA.innerHTML = `<strong>Fatto.</strong>${lista}<p>${esc(p.perche)}</p><button type="button" class="bottone-app" data-avanti>${ultimo ? "Concludi la missione" : "Passo successivo"}</button>`;
           esitoA.querySelector("[data-avanti]")!.addEventListener("click", () => avanti(m, ultimo, pagina));
@@ -87,26 +127,25 @@ const { pagina } = Astro.props;
           esitoA.innerHTML = `<strong>Non ancora.</strong>${lista}<p>Sistema i punti rossi, salva e premi di nuovo "Controlla il lavoro".</p>`;
         }
       });
+      collegaDove(p);
       collegaAiuto(m);
       return;
     }
 
-    // Il passo si fa in un altro strumento: la guida porta lì
+    // Passo a scelta che si fa in un altro strumento: la guida dice cosa fare e porta lì
     if (p.strumento !== pagina) {
       radice.innerHTML = `${testa}<h2 class="gm-titolo">${esc(p.domanda)}</h2><p class="gm-testo">Questo passo si fa in <strong>${esc(STRUMENTI[p.strumento].nome)}</strong>.</p><a class="bottone-app" href="${linkPasso(p)}">Vai a ${esc(STRUMENTI[p.strumento].nome)}</a>`;
       return;
     }
 
-    const obiettivo = sm.passo === 0 ? `<p class="gm-obiettivo">${esc(m.obiettivo)}</p>` : "";
     radice.innerHTML = `${testa}${obiettivo}
       <h2 class="gm-titolo">${esc(p.domanda)}</h2>
-      <section class="gm-spiega"><h3>Prima di rispondere</h3><p>${esc(p.spiega)}</p><p class="gm-esempio"><strong>Per esempio</strong>${esc(p.esempio)}</p></section>
-      <p class="gm-compito">${p.compito}</p>
+      ${comeSiFa(p)}${spiegazione(p, "Da sapere per rispondere")}
       <fieldset class="gm-opzioni"><legend>${p.tipo === "checkbox" ? "Scegli tutte le risposte giuste" : "Scegli una risposta"}</legend>
         ${p.opzioni.map((o) => `<label class="gm-opzione"><input type="${p.tipo}" name="gm-r" value="${o.id}" /><span>${esc(o.testo)}</span></label>`).join("")}
       </fieldset>
       <div class="gm-esito" data-esito hidden></div>
-      <div class="gm-bottoni"><button type="button" class="bottone-app" data-controlla>Controlla</button><button type="button" class="gm-secondario" data-dove>Mostrami dove guardare</button></div>
+      <div class="gm-bottoni"><button type="button" class="bottone-app" data-controlla>Controlla</button>${bottoneDove(p)}</div>
       <details class="gm-aiuto" data-aiuto ${sm.aiuti.includes(sm.passo) ? "open" : ""}><summary>Aiuto <span>(−5 punti)</span></summary><p>${esc(p.aiuto)}</p></details>`;
 
     const esito = radice.querySelector<HTMLElement>("[data-esito]")!;
@@ -116,12 +155,12 @@ const { pagina } = Astro.props;
       const r = controlla(p, scelte);
       const st = leggiStato(); const cur = st.missioni[m.id];
       if (cur.primoColpo[cur.passo] === undefined) cur.primoColpo[cur.passo] = r.ok;
-      if (!r.ok) cur.errori += 1;
+      if (!r.ok && !tutorial) cur.errori += 1; // nel tutorial gli errori non contano
       salvaStato(st);
       esito.hidden = false;
+      requestAnimationFrame(() => esito.scrollIntoView({ behavior: "smooth", block: "nearest" }));
       if (r.ok) {
         esito.className = "gm-esito ok";
-        const ultimo = cur.passo === m.passi.length - 1;
         esito.innerHTML = `<strong>Giusto.</strong><p>${esc(p.perche)}</p><button type="button" class="bottone-app" data-avanti>${ultimo ? "Concludi la missione" : "Passo successivo"}</button>`;
         radice.querySelectorAll<HTMLInputElement>("input[name=gm-r]").forEach((x) => (x.disabled = true));
         radice.querySelector<HTMLButtonElement>("[data-controlla]")!.disabled = true;
@@ -130,28 +169,21 @@ const { pagina } = Astro.props;
         esito.className = "gm-esito no";
         const note = r.sbagliate.map((o) => `<li><strong>${esc(o.testo)}</strong>: ${esc(o.nota)}</li>`).join("");
         const manca = r.mancanti.length && p.tipo === "checkbox" ? "<p>Manca ancora almeno una risposta giusta.</p>" : "";
-        esito.innerHTML = `<strong>Non ancora.</strong>${note ? `<ul>${note}</ul>` : ""}${manca}<p>Rileggi "Prima di rispondere" e riprova.</p>`;
+        esito.innerHTML = `<strong>Non ancora.</strong>${note ? `<ul>${note}</ul>` : ""}${manca}<p>Rileggi "Come si fa" e riprova.</p>`;
       }
     });
-
-    radice.querySelector("[data-dove]")!.addEventListener("click", () => {
-      const el = document.querySelector<HTMLElement>(p.dove);
-      if (!el) return;
-      el.scrollIntoView({ behavior: "smooth", block: "center" });
-      el.classList.add("gm-evidenzia");
-      setTimeout(() => el.classList.remove("gm-evidenzia"), 2400);
-    });
-
+    collegaDove(p);
     collegaAiuto(m);
   }
 
-  // Passa al passo successivo (o conclude la missione). Nei passi a scelta porta nello strumento giusto.
+  // Passa al passo successivo (o conclude). Se il passo dopo si fa in un'altra pagina, porta lì
+  // (i passi "info" si leggono dove si è).
   function avanti(m: Missione, ultimo: boolean, pagina: string) {
     const s2 = leggiStato(); const c2 = s2.missioni[m.id];
     if (ultimo) { c2.stato = "completata"; salvaStato(s2); disegna(); document.dispatchEvent(new CustomEvent("missioni-aggiornate")); radice!.scrollIntoView({ behavior: "smooth", block: "start" }); return; }
     c2.passo += 1; salvaStato(s2);
     const prossimo = m.passi[c2.passo];
-    if (prossimo.tipo !== "azione" && prossimo.strumento !== pagina) location.href = linkPasso(prossimo);
+    if (prossimo.tipo !== "info" && prossimo.strumento !== pagina) location.href = linkPasso(prossimo);
     else { disegna(); radice!.scrollIntoView({ behavior: "smooth", block: "start" }); }
   }
 
@@ -183,6 +215,12 @@ const { pagina } = Astro.props;
   .gm :global(.gm-esempio) { background: #fff; border-radius: 10px; padding: 10px 12px; }
   .gm :global(.gm-esempio strong) { display: block; font-size: .78rem; color: #625e58; }
   .gm :global(.gm-compito) { margin: 0; line-height: 1.6; }
+  .gm :global(.gm-come) { border: 1.5px solid var(--inchiostro); border-radius: 14px; padding: 14px 16px; background: #fff; }
+  .gm :global(.gm-come h3) { margin: 0 0 10px; font-size: .9rem; font-family: var(--font-testo); font-weight: 800; }
+  .gm :global(.gm-come ol) { margin: 0; padding: 0; list-style: none; counter-reset: passo; display: flex; flex-direction: column; gap: 10px; }
+  .gm :global(.gm-come li) { counter-increment: passo; position: relative; padding-left: 34px; min-height: 24px; line-height: 1.5; font-size: .87rem; }
+  .gm :global(.gm-come li::before) { content: counter(passo); position: absolute; left: 0; top: 0; width: 24px; height: 24px; border-radius: 50%; background: var(--arancio); color: var(--inchiostro); font-weight: 800; font-size: .78rem; display: grid; place-items: center; }
+  .gm :global(.gm-come a) { color: var(--inchiostro); font-weight: 700; text-decoration-color: var(--arancio); text-decoration-thickness: 2px; text-underline-offset: 3px; }
   .gm :global(.gm-opzioni) { border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
   .gm :global(.gm-opzioni legend) { font-weight: 700; margin-bottom: 8px; }
   .gm :global(.gm-opzione) { display: flex; gap: 10px; align-items: flex-start; padding: 11px 13px; border: 1.5px solid #e3e1dc; border-radius: 12px; cursor: pointer; line-height: 1.45; background: #fff; }

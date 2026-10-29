@@ -1,733 +1,1018 @@
 {
-  "_nota": "Missioni del percorso SEO, livello junior. Ogni passo: spiegazione ed esempio (su un'altra attività), dove guardare, domanda a scelta, perché, aiuto. Le risposte sono coerenti con i dati di genera_negozio.py.",
-  "missioni": [
+ "_nota": "Missioni del percorso SEO, livello junior. Prima il tutorial, poi le missioni in ordine di difficoltà (livello: facile, media, difficile); si possono fare nell'ordine che si vuole. Ogni passo: spiegazione ed esempio (su un'altra attività), 'come' = istruzioni numerate, poi domanda a scelta o azione sul sito controllata da verifiche.ts. Le risposte sono coerenti con i dati di genera_negozio.py.",
+ "missioni": [
+  {
+   "id": "tutorial",
+   "n": 0,
+   "livello": "tutorial",
+   "nome": "Tutorial: come funziona",
+   "tempo": "10 minuti",
+   "strumenti": "Negozio, Crawler, Pannello",
+   "cosa": "Impari a muoverti nella scrivania facendo una prima modifica vera.",
+   "obiettivo": "In questo tutorial fai una cosa per tipo: guardi una pagina come la legge Google, leggi un dato in uno strumento, correggi il sito nel Pannello. Così nelle missioni sai già dove mettere le mani.",
+   "passi": [
     {
-      "id": "m1",
-      "n": 1,
-      "nome": "Audit tecnico",
-      "tempo": "40 minuti",
-      "strumenti": "Indicizzazione, Crawler, Pannello",
-      "cosa": "Trova cosa impedisce a Google di leggere bene il sito.",
-      "obiettivo": "Un audit tecnico controlla che Google possa trovare, leggere e mostrare le pagine. Questa volta non basta capire il problema: lo correggi tu nel Pannello del negozio e controlli che il sito sia cambiato.",
-      "passi": [
-        {
-          "strumento": "indicizzazione",
-          "domanda": "Google ha perso delle pagine? Da quando?",
-          "spiega": "Il grafico dell'indicizzazione mostra, settimana per settimana, quante pagine sono nell'archivio di Google (verde) e quante no (grigio). Un calo improvviso del verde vuol dire che qualcosa ha tolto delle pagine dai risultati.",
-          "esempio": "Un negozio di candele vede 40 pagine indicizzate per mesi, poi 32 in due settimane: cerca cosa è cambiato sul sito in quei giorni.",
-          "compito": "Guarda il grafico <strong>Andamento nelle ultime 12 settimane</strong> e l'evento segnato.",
-          "tipo": "radio",
-          "opzioni": [
-            {
-              "id": "o1",
-              "testo": "Nessuna: il numero è stabile da agosto",
-              "giusta": false,
-              "nota": "Guarda le ultime settimane: le barre verdi si abbassano."
-            },
-            {
-              "id": "o2",
-              "testo": "7 pagine, da metà settembre in poi",
-              "giusta": true,
-              "nota": ""
-            },
-            {
-              "id": "o3",
-              "testo": "24 pagine, tutte ad agosto",
-              "giusta": false,
-              "nota": "24 sono le pagine fuori da Google oggi, non quelle perse; e ad agosto il numero è fermo."
-            },
-            {
-              "id": "o4",
-              "testo": "46 pagine, questa settimana",
-              "giusta": false,
-              "nota": "46 sono le pagine ancora indicizzate."
-            }
-          ],
-          "perche": "Le pagine indicizzate passano da 53 a 46 subito dopo il 18 settembre, il giorno in cui è uscito il nuovo tema del negozio. Quando un calo coincide con una modifica al sito, la modifica è il primo sospettato.",
-          "aiuto": "Confronta la prima barra (3/8) con l'ultima (19/10) e guarda dove inizia a scendere.",
-          "dove": ".sp-grafico"
-        },
-        {
-          "tipo": "azione",
-          "strumento": "pannello",
-          "domanda": "Rimetti le tisane su Google",
-          "spiega": "Il nuovo tema del 18 settembre ha un'impostazione che nasconde la categoria Tisane ai motori di ricerca: mette il noindex sulla categoria e su tutti i suoi prodotti. Si corregge dove è nato il problema, nelle impostazioni del tema, non pagina per pagina.",
-          "esempio": "In un negozio di candele l'aggiornamento del tema nasconde la categoria \"Candele profumate\": basta rimettere la spunta \"Visibile sui motori di ricerca\", e tutte le schede tornano visibili.",
-          "compito": "Apri il <strong>Pannello del negozio</strong> → <strong>Tema e impostazioni</strong>. Poi apri /tisane/ nel negozio e controlla con Ispeziona che il meta robots sia cambiato.",
-          "verifica": "tisaneVisibili",
-          "vai": {
-            "link": "/app/percorsi/seo/pannello/#tema",
-            "testo": "Apri il Pannello del negozio"
-          },
-          "perche": "Ora Ispeziona su /tisane/ mostra \"index, follow\" e il crawler la segna come indicizzabile. Carrello e account restano fuori, ed è giusto così.",
-          "aiuto": "Cerca la categoria senza spunta nella sezione \"Categorie visibili sui motori di ricerca\".",
-          "opzioni": [],
-          "dove": ""
-        },
-        {
-          "tipo": "azione",
-          "strumento": "pannello",
-          "domanda": "Sistema il prodotto che non esiste più",
-          "spiega": "Una pagina 404 linkata da altre pagine è un vicolo cieco per le persone e per Google. Se esiste un prodotto che la sostituisce, si crea un reindirizzamento 301 dal vecchio indirizzo al nuovo.",
-          "esempio": "Una libreria toglie la vecchia edizione di un libro: crea un 301 da /libri/vecchia-edizione/ a /libri/nuova-edizione/.",
-          "compito": "Nel <strong>Crawler</strong> apri il filtro <strong>Pagine 404</strong> e leggi la nota. Poi nel <strong>Pannello</strong> → <strong>Reindirizzamenti</strong> scrivi da dove a dove.",
-          "verifica": "redirect404",
-          "vai": {
-            "link": "/app/percorsi/seo/pannello/#redirect",
-            "testo": "Apri i reindirizzamenti"
-          },
-          "perche": "Chi clicca uno dei 6 link al vecchio Earl Grey arriva sul nuovo: prova a cliccare il link \"Earl Grey classico\" nella home del negozio. Il crawler ora lo segna come 301.",
-          "aiuto": "Il sostituto è scritto nella nota del 404: è l'Earl Grey biologico, all'indirizzo /te-neri/earl-grey-bio/.",
-          "opzioni": [],
-          "dove": ""
-        },
-        {
-          "tipo": "azione",
-          "strumento": "pannello",
-          "domanda": "Accorcia la catena di redirect",
-          "spiega": "Una catena di redirect è quando A rimanda a B che rimanda a C. Ogni salto rallenta e Google può smettere di seguirli. Si corregge facendo puntare A direttamente alla pagina finale.",
-          "esempio": "Una libreria ha /libro.php?id=3 → /libri/vecchio/ → /libri/nuovo/: modifica il primo perché vada subito su /libri/nuovo/.",
-          "compito": "Nel <strong>Pannello</strong> → <strong>Reindirizzamenti</strong> trova la riga con l'etichetta \"catena\" e modificala.",
-          "verifica": "catena",
-          "vai": {
-            "link": "/app/percorsi/seo/pannello/#redirect",
-            "testo": "Apri i reindirizzamenti"
-          },
-          "perche": "Ora il vecchio indirizzo del vecchio sito arriva al Sencha biologico in un solo salto, senza passare da /te-verdi/sencha/.",
-          "aiuto": "/prodotto.php?id=12 deve portare direttamente a /te-verdi/sencha-bio/.",
-          "opzioni": [],
-          "dove": ""
-        },
-        {
-          "tipo": "azione",
-          "strumento": "indicizzazione",
-          "domanda": "Chiedi a Google di verificare la correzione",
-          "spiega": "Correggere il sito non basta: Google se ne accorge solo quando rilegge le pagine. Negli strumenti per i webmaster si chiede di \"convalidare la correzione\": Google ricontrolla le pagine di quel problema e, se è risolto, le rimette nei risultati.",
-          "esempio": "Il negozio di candele, dopo aver sistemato la categoria, apre il rapporto delle pagine escluse e preme \"Convalida correzione\" sul motivo noindex.",
-          "compito": "In <strong>Pagine e indicizzazione</strong> apri il motivo <strong>noindex</strong>: guarda la colonna \"Sul sito oggi\" e poi premi <strong>Convalida correzione</strong>.",
-          "verifica": "convalidaNoindex",
-          "vai": {
-            "link": "/app/percorsi/seo/strumenti/indicizzazione/",
-            "testo": "Apri Pagine e indicizzazione"
-          },
-          "perche": "La convalida è iniziata. I numeri del grafico non cambiano subito: Google rilegge le pagine nei prossimi giorni.",
-          "aiuto": "Se la convalida non riesce, il problema c'è ancora sul sito: ricontrolla il passo 2.",
-          "opzioni": [],
-          "dove": ""
-        }
-      ],
-      "imparato": [
-        "leggere il rapporto di indicizzazione",
-        "togliere un noindex dal tema",
-        "creare un reindirizzamento 301",
-        "accorciare una catena di redirect",
-        "chiedere a Google di convalidare una correzione"
-      ],
-      "elena": "Ho visto: le tisane sono di nuovo visibili e il vecchio Earl Grey porta al nuovo. Bel lavoro, domani guardiamo le keyword."
+     "strumento": "console",
+     "tipo": "info",
+     "domanda": "Come è fatta la scrivania",
+     "spiega": "Lavori come una SEO specialist junior nel negozio online Cinque Foglie. Lo schermo ha tre zone.",
+     "esempio": "",
+     "compito": "",
+     "come": [
+      "<strong>A sinistra il menu</strong> (sul telefono è in alto): la panoramica, il negozio, il Pannello del negozio e i cinque strumenti (Console, Indicizzazione, Keyword, Crawler, Statistiche).",
+      "<strong>Al centro</strong> lo strumento aperto: qui leggi i dati.",
+      "<strong>A destra questa guida</strong>: ti dice cosa fare, passo per passo, e controlla le risposte. Ti segue in ogni pagina.",
+      "Le barre laterali si chiudono con la X e si riaprono con l'icona sul bordo. <strong>Schermo intero</strong> in alto nasconde tutto tranne lo strumento."
+     ],
+     "opzioni": [],
+     "perche": "",
+     "aiuto": "",
+     "dove": ".console > .menu"
     },
     {
-      "id": "m2",
-      "n": 2,
-      "nome": "Keyword e cannibalizzazione",
-      "tempo": "30 minuti",
-      "strumenti": "Keyword, Console",
-      "cosa": "Scegli la keyword giusta per ogni pagina.",
-      "obiettivo": "Ogni pagina del sito dovrebbe rispondere a una ricerca precisa. In questa missione scegli le keyword delle pagine e risolvi un caso in cui due pagine si contendono la stessa ricerca.",
-      "passi": [
-        {
-          "strumento": "keyword",
-          "domanda": "Quale keyword per la categoria Tè verdi?",
-          "spiega": "Per una pagina che vende cerca l'equilibrio tra tre cose: abbastanza ricerche (volume), un intento di chi vuole scegliere o comprare, e una difficoltà che il sito può affrontare. La keyword con più volume non è sempre la migliore.",
-          "esempio": "Per la categoria delle teiere, \"teiera\" ha tanto volume ma è generica; \"teiere in ghisa\" ha meno ricerche ma le fa chi sa cosa vuole comprare.",
-          "compito": "Scrivi <strong>tè verd</strong> nella ricerca e guarda <strong>Intento</strong>, <strong>Volume</strong> e <strong>Difficoltà</strong>.",
-          "tipo": "radio",
-          "opzioni": [
-            {
-              "id": "o1",
-              "testo": "tè verde",
-              "giusta": false,
-              "nota": "Ha il volume più alto, ma l'intento è informativo e la difficoltà è alta (61)."
-            },
-            {
-              "id": "o2",
-              "testo": "tè verdi",
-              "giusta": true,
-              "nota": ""
-            },
-            {
-              "id": "o3",
-              "testo": "tè verde benefici",
-              "giusta": false,
-              "nota": "Chi la cerca vuole informarsi sulla salute: non è adatta a una pagina che vende, e le promesse sulla salute sono regolate."
-            },
-            {
-              "id": "o4",
-              "testo": "come preparare il sencha",
-              "giusta": false,
-              "nota": "È una domanda: la risposta giusta è una guida, non una categoria."
-            }
-          ],
-          "perche": "\"tè verdi\" ha 4.400 ricerche al mese, intento commerciale e difficoltà media: è la ricerca di chi vuole vedere una scelta di tè verdi. \"tè verde biologico\" è un'ottima keyword secondaria da usare nel testo.",
-          "aiuto": "Scarta prima le keyword con intento informativo. Tra quelle rimaste scegli quella con più volume e difficoltà non oltre \"Media\".",
-          "dove": "[data-testo]"
-        },
-        {
-          "strumento": "console",
-          "domanda": "Per \"tè verde sencha\" quali pagine compaiono?",
-          "spiega": "C'è cannibalizzazione quando due pagine dello stesso sito compaiono per la stessa ricerca. Google non sa quale scegliere, le alterna, e nessuna delle due arriva in alto.",
-          "esempio": "Un negozio di candele ha la scheda \"Candela alla vaniglia\" e un articolo \"Candela alla vaniglia: guida\": per la ricerca \"candela alla vaniglia\" compaiono tutte e due, in posizione 9 e 11.",
-          "compito": "Nella scheda <strong>Query</strong> cerca <strong>tè verde sencha</strong> e clicca la riga.",
-          "tipo": "radio",
-          "opzioni": [
-            {
-              "id": "o1",
-              "testo": "Solo la scheda prodotto del Sencha",
-              "giusta": false,
-              "nota": "Guarda il dettaglio: le pagine sono due."
-            },
-            {
-              "id": "o2",
-              "testo": "La scheda prodotto del Sencha e la guida del blog sul Sencha",
-              "giusta": true,
-              "nota": ""
-            },
-            {
-              "id": "o3",
-              "testo": "La categoria Tè verdi e la home",
-              "giusta": false,
-              "nota": "Guarda il dettaglio della query: compaiono altre pagine."
-            },
-            {
-              "id": "o4",
-              "testo": "Nessuna pagina: il sito non compare",
-              "giusta": false,
-              "nota": "La query ha 370 clic: il sito compare."
-            }
-          ],
-          "perche": "La scheda prodotto (posizione 9,2) e la guida (posizione 10,4) si contendono la stessa ricerca. Insieme fanno solo il 2,1% di CTR: nessuna delle due convince Google ad andare più in alto.",
-          "aiuto": "Quando una query ha più di una pagina, nella colonna Pagine compare un'etichetta gialla.",
-          "dove": "#t-query"
-        },
-        {
-          "strumento": "console",
-          "domanda": "Come risolvi la cannibalizzazione?",
-          "spiega": "Non serve quasi mai cancellare una pagina. Si dà a ognuna un intento diverso: la pagina prodotto punta a chi vuole comprare, la guida a chi vuole informarsi. Poi la guida linka il prodotto, così Google capisce quale pagina è per l'acquisto.",
-          "esempio": "Candele: la scheda resta su \"candela alla vaniglia\"; l'articolo diventa \"Come scegliere una candela profumata per la casa\" e linka la scheda.",
-          "compito": "Ripensa all'intento delle due pagine: una vende, l'altra spiega.",
-          "tipo": "radio",
-          "opzioni": [
-            {
-              "id": "o1",
-              "testo": "Cancellare la guida del blog",
-              "giusta": false,
-              "nota": "La guida porta visite da chi si informa: si perderebbero."
-            },
-            {
-              "id": "o2",
-              "testo": "Mettere \"tè verde sencha\" ancora più volte in tutte e due le pagine",
-              "giusta": false,
-              "nota": "Peggiora la confusione: le due pagine si assomiglierebbero ancora di più."
-            },
-            {
-              "id": "o3",
-              "testo": "Prodotto su \"tè verde sencha\"; guida su \"come preparare il sencha\", con un link al prodotto",
-              "giusta": true,
-              "nota": ""
-            },
-            {
-              "id": "o4",
-              "testo": "Mettere la scheda prodotto in noindex",
-              "giusta": false,
-              "nota": "Così il prodotto sparisce da Google proprio per chi vuole comprarlo."
-            }
-          ],
-          "perche": "Ogni pagina ora ha un compito: la scheda vende, la guida insegna e accompagna al prodotto con un link. È la soluzione più comune e quella che fa perdere meno.",
-          "aiuto": "Una delle due pagine è già ottima per chi si informa: per quale ricerca informativa?",
-          "dove": "#t-query"
-        },
-        {
-          "strumento": "keyword",
-          "domanda": "Quale nuova keyword proveresti con un articolo?",
-          "spiega": "Una buona opportunità per il blog è una ricerca che il sito oggi non intercetta, con intento informativo, difficoltà bassa e legata ai prodotti che vendi. Le keyword sulla salute degli alimenti vanno trattate con molta cautela.",
-          "esempio": "Un negozio di candele trova \"come far durare una candela\": 1.800 ricerche, difficoltà 15, non compare. È perfetta per un articolo che poi linka le candele.",
-          "compito": "Attiva <strong>Solo dove il sito non compare</strong> e guarda intento, volume e difficoltà.",
-          "tipo": "radio",
-          "opzioni": [
-            {
-              "id": "o1",
-              "testo": "tè verde benefici",
-              "giusta": false,
-              "nota": "Molte ricerche, ma parla di salute: per un alimento le promesse sono regolate (Reg. CE 1924/2006) e la difficoltà è alta."
-            },
-            {
-              "id": "o2",
-              "testo": "tisane",
-              "giusta": false,
-              "nota": "Il sito non compare per il noindex: si risolve sistemando il sito (missione 1), non con un articolo."
-            },
-            {
-              "id": "o3",
-              "testo": "matcha latte ricetta",
-              "giusta": true,
-              "nota": ""
-            },
-            {
-              "id": "o4",
-              "testo": "calendario dell'avvento tè",
-              "giusta": false,
-              "nota": "È una ricerca di chi vuole comprare un prodotto: serve una pagina prodotto, non un articolo."
-            }
-          ],
-          "perche": "\"matcha latte ricetta\" ha 2.900 ricerche, difficoltà 18 (facile), intento informativo, e porta dritto ai matcha del negozio.",
-          "aiuto": "Cerca la difficoltà più bassa tra le keyword informative legate a un prodotto che vendiamo.",
-          "dove": "[data-assente]"
-        }
-      ],
-      "imparato": [
-        "scegliere una keyword per volume, intento e difficoltà",
-        "riconoscere una cannibalizzazione",
-        "risolverla dando un intento diverso a ogni pagina",
-        "trovare opportunità per il blog"
-      ],
-      "elena": "Perfetto. Il copywriter sistema la guida sul Sencha e scrive l'articolo sul matcha latte. Domani ci occupiamo della pagina dei tè verdi."
+     "strumento": "negozio",
+     "pagina": "/app/negozio/te-verdi/",
+     "tipo": "radio",
+     "domanda": "Guarda una pagina come la legge Google",
+     "spiega": "Una persona vede la pagina; Google legge anche il codice: il title (il titolo blu nei risultati), la description e l'H1 (il titolo grande nella pagina). Il bottone Ispeziona del negozio ti fa vedere questi dati.",
+     "esempio": "In un negozio di scarpe la pagina può mostrare il titolo grande «Sneakers» mentre il title per Google è «Sneakers uomo e donna | NomeNegozio».",
+     "compito": "",
+     "come": [
+      "Sei nella pagina <strong>Tè verdi</strong> del negozio (guarda la barra dell'indirizzo).",
+      "In alto a destra, accanto all'indirizzo, premi <strong>Ispeziona</strong>.",
+      "Nel riquadro che si apre leggi la riga <strong>Title</strong>.",
+      "Scegli la risposta qui sotto e premi <strong>Controlla</strong>."
+     ],
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Tè verdi",
+       "giusta": false,
+       "nota": "Questo è l'H1, il titolo grande scritto nella pagina. Il title è un'altra riga di Ispeziona."
+      },
+      {
+       "id": "o2",
+       "testo": "Tè verdi | Cinque Foglie",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Scopri i nostri tè verdi.",
+       "giusta": false,
+       "nota": "Questo è il testo sotto il titolo, quello che legge la persona. Cerca la riga Title in Ispeziona."
+      }
+     ],
+     "perche": "Il title è quello che compare in blu su Google: spesso è diverso dall'H1. Nelle missioni lo riscriverai tu.",
+     "aiuto": "Ispeziona è il bottone scuro accanto alla barra dell'indirizzo. Nel riquadro la prima riga è lo stato, la seconda il title.",
+     "dove": ".ispeziona summary"
     },
     {
-      "id": "m3",
-      "n": 3,
-      "nome": "Riscrivi la categoria Tè verdi",
-      "tempo": "35 minuti",
-      "strumenti": "Console, Pannello, Negozio",
-      "cosa": "Title, description e testo di una pagina poco cliccata.",
-      "obiettivo": "La pagina dei tè verdi compare spesso su Google ma pochi ci cliccano. In questa missione la riscrivi tu, nel Pannello del negozio, e chiedi a Google di rileggerla.",
-      "passi": [
-        {
-          "strumento": "console",
-          "domanda": "Cosa non va nella pagina /te-verdi/?",
-          "spiega": "Il CTR è la percentuale di persone che cliccano dopo aver visto il risultato (clic ÷ impressioni). In posizione 7-8 un CTR normale è intorno al 3%. Tante impressioni con un CTR molto più basso vogliono dire che il risultato non invoglia a cliccare.",
-          "esempio": "Un negozio di candele compare 50.000 volte per \"candele profumate\" ma riceve 200 clic (0,4%): il suo title è solo \"Candele | Negozio\".",
-          "compito": "Apri la scheda <strong>Pagine</strong> e confronta impressioni, CTR e posizione di /te-verdi/.",
-          "tipo": "radio",
-          "opzioni": [
-            {
-              "id": "o1",
-              "testo": "Non è indicizzata",
-              "giusta": false,
-              "nota": "Ha più di 140.000 impressioni: compare su Google."
-            },
-            {
-              "id": "o2",
-              "testo": "Compare tantissimo ma quasi nessuno clicca: il risultato non invoglia",
-              "giusta": true,
-              "nota": ""
-            },
-            {
-              "id": "o3",
-              "testo": "È troppo in basso per ricevere clic",
-              "giusta": false,
-              "nota": "In posizione 7,8 una pagina riceve in genere molti più clic."
-            },
-            {
-              "id": "o4",
-              "testo": "È un calo stagionale",
-              "giusta": false,
-              "nota": "Le ricerche sul tè verde sono stabili tutto l'anno."
-            }
-          ],
-          "perche": "/te-verdi/ ha 140.549 impressioni e un CTR dello 0,6%: è vista moltissimo, ma il title e la description non convincono.",
-          "aiuto": "Dividi i clic per le impressioni e confrontalo con il 3% di una posizione simile.",
-          "dove": "[data-scheda='pagine']"
-        },
-        {
-          "tipo": "azione",
-          "strumento": "pannello",
-          "domanda": "Scrivi title e description di /te-verdi/",
-          "spiega": "Il title è il titolo blu nei risultati: deve iniziare con la keyword della pagina, dire cosa c'è di specifico, restare entro circa 580 pixel e finire con il brand. La description è il testo grigio sotto: in 100-160 caratteri dice cosa trova chi clicca e un vantaggio concreto. Niente keyword ripetute e niente promesse sulla salute.",
-          "esempio": "Candele: title \"Candele profumate in cera di soia: 20 fragranze | Luce di Casa\"; description \"Oltre 20 fragranze in cera di soia, fatte a mano in Toscana. Scegli per stanza e ricevile in 24 ore.\"",
-          "compito": "Apri il <strong>Pannello</strong> → <strong>Pagine</strong> → <strong>/te-verdi/</strong>. Mentre scrivi guarda l'anteprima e il contatore dei pixel; poi salva e controlla con Ispeziona nel negozio.",
-          "verifica": "titoloTeVerdi",
-          "vai": {
-            "link": "/app/percorsi/seo/pannello/?pagina=/te-verdi/",
-            "testo": "Apri /te-verdi/ nel pannello"
-          },
-          "perche": "Esempio di un collega senior: title \"Tè verdi biologici: Sencha e Gyokuro | Cinque Foglie\"; description \"Sencha, Gyokuro, Genmaicha e altri tè verdi biologici in foglie intere. Guida alla scelta e spedizione in 24 ore.\" Il tuo può essere diverso: conta che rispetti le stesse regole.",
-          "aiuto": "Parti da: \"Tè verdi biologici: [due o tre nomi di tè] | Cinque Foglie\".",
-          "opzioni": [],
-          "dove": ""
-        },
-        {
-          "tipo": "azione",
-          "strumento": "pannello",
-          "domanda": "Scrivi il testo della categoria",
-          "spiega": "Il testo di una categoria aiuta chi deve scegliere e aiuta Google a capire la pagina. Bastano 80-150 parole utili: come scegliere, come preparare, quali tè ci sono. Si scrive per le persone; la keyword compare in modo naturale, una o due volte.",
-          "esempio": "Candele: \"Le candele in cera di soia bruciano più a lungo e fanno meno fumo. Per il salotto scegli fragranze legnose, per la camera lavanda o vaniglia. Accendile per almeno due ore la prima volta…\"",
-          "compito": "Nel <strong>Pannello</strong>, nella stessa pagina /te-verdi/, scrivi il <strong>Testo introduttivo della categoria</strong> e salva. Poi apri la categoria nel negozio: il testo nuovo è lì.",
-          "verifica": "testoTeVerdi",
-          "vai": {
-            "link": "/app/percorsi/seo/pannello/?pagina=/te-verdi/",
-            "testo": "Apri /te-verdi/ nel pannello"
-          },
-          "perche": "Esempio di un collega senior: \"I tè verdi si dividono in due grandi famiglie. Quelli giapponesi, come Sencha e Gyokuro, sono cotti al vapore e hanno un gusto fresco ed erbaceo; quelli cinesi, come il tè al gelsomino, sono tostati e più morbidi. Per non renderli amari usa acqua a 70-80 °C e lascia in infusione 1-2 minuti. Se inizi ora, prova il Sencha biologico: è il più versatile, buono anche a freddo. Tutti i nostri tè verdi sono biologici e in foglie intere.\"",
-          "aiuto": "Scrivi 3-4 frasi: le due famiglie (giapponesi e cinesi), la temperatura dell'acqua, un consiglio per iniziare.",
-          "opzioni": [],
-          "dove": ""
-        },
-        {
-          "tipo": "azione",
-          "strumento": "console",
-          "domanda": "Chiedi a Google di rileggere la pagina",
-          "spiega": "Dopo aver cambiato una pagina importante si può chiedere a Google di rileggerla subito, con il controllo URL. Non garantisce tempi, ma di solito accelera.",
-          "esempio": "Il negozio di candele, dopo aver riscritto la categoria, la controlla con il controllo URL e preme \"Richiedi indicizzazione\".",
-          "compito": "In <strong>Console di ricerca</strong> usa <strong>Controllo URL</strong>: scrivi /te-verdi/, confronta Google e sito di oggi, poi premi <strong>Richiedi indicizzazione</strong>.",
-          "verifica": "richiestaTeVerdi",
-          "vai": {
-            "link": "/app/percorsi/seo/strumenti/console/",
-            "testo": "Apri la Console di ricerca"
-          },
-          "perche": "Google ha in coda la nuova versione della pagina. Tra qualche settimana si guarda se il CTR sale dallo 0,6%.",
-          "aiuto": "Il controllo URL è in alto nella Console, sotto il grafico.",
-          "opzioni": [],
-          "dove": ""
-        }
-      ],
-      "imparato": [
-        "leggere il CTR di una pagina",
-        "scrivere un title e una description con le regole giuste",
-        "scrivere un testo di categoria utile",
-        "chiedere a Google di rileggere una pagina"
-      ],
-      "elena": "Bellissimo, il nuovo title è già online. Tra qualche settimana guardiamo se il CTR sale. Prossimo passo: il piano del blog."
+     "strumento": "crawler",
+     "tipo": "radio",
+     "domanda": "Leggi un dato in uno strumento",
+     "spiega": "Il crawler visita tutte le pagine del sito seguendo i link, come fa Google, e raccoglie i problemi. A sinistra i filtri raggruppano i problemi per tipo: cliccandone uno vedi solo le pagine con quel problema.",
+     "esempio": "In un sito di ricette il filtro «Description mancante» mostra le 12 ricette che non hanno la descrizione per Google.",
+     "compito": "",
+     "come": [
+      "Sei nel <strong>Crawler</strong>.",
+      "A sinistra, nel gruppo <strong>Da sistemare</strong>, clicca il filtro <strong>H1 mancante</strong>.",
+      "Guarda quali indirizzi restano nella tabella: cerca la pagina di categoria (quella senza ? nell'indirizzo).",
+      "Scegli la risposta e premi <strong>Controlla</strong>."
+     ],
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "/tisane/",
+       "giusta": false,
+       "nota": "Le tisane hanno l'H1: con il filtro H1 mancante non compaiono."
+      },
+      {
+       "id": "o2",
+       "testo": "/matcha/",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "/te-verdi/",
+       "giusta": false,
+       "nota": "/te-verdi/ ha l'H1 «Tè verdi». Clicca il filtro H1 mancante e guarda cosa resta."
+      }
+     ],
+     "perche": "La categoria Matcha ha un titolo grande che sembra un H1 ma nel codice è un paragrafo: Google non lo considera il titolo della pagina. Nel prossimo passo lo correggi tu.",
+     "aiuto": "Il filtro H1 mancante è il terzo del gruppo Da sistemare. La riga con ?ordina=prezzo è una versione filtrata della stessa pagina.",
+     "dove": "[data-filtro=\"h1-manca\"]"
     },
     {
-      "id": "m4",
-      "n": 4,
-      "nome": "Piano dei contenuti",
-      "tempo": "30 minuti",
-      "strumenti": "Keyword, Statistiche",
-      "cosa": "Quali articoli scrivere nei prossimi mesi, e quando.",
-      "obiettivo": "Un piano editoriale decide cosa pubblicare e quando. Si guarda la stagionalità delle ricerche, l'intento e quanto ogni tipo di pagina porta in vendite.",
-      "passi": [
-        {
-          "strumento": "keyword",
-          "domanda": "Quando aggiorni l'articolo sul tè freddo?",
-          "spiega": "Molte ricerche hanno una stagione. Un articolo va pubblicato o aggiornato qualche settimana prima del picco: Google ha bisogno di tempo per leggerlo e posizionarlo.",
-          "esempio": "Un negozio di candele vede le ricerche \"candele natalizie\" salire a novembre: aggiorna l'articolo a inizio ottobre.",
-          "compito": "Cerca <strong>tè freddo fatto in casa</strong> e guarda le barrette dell'andamento (da luglio a giugno).",
-          "tipo": "radio",
-          "opzioni": [
-            {
-              "id": "o1",
-              "testo": "Ad aprile-maggio, prima che le ricerche salgano",
-              "giusta": true,
-              "nota": ""
-            },
-            {
-              "id": "o2",
-              "testo": "Ad agosto, quando le ricerche sono già alte",
-              "giusta": false,
-              "nota": "Il picco è già passato a metà: arriverebbe tardi."
-            },
-            {
-              "id": "o3",
-              "testo": "A ottobre, adesso",
-              "giusta": false,
-              "nota": "In autunno le ricerche sono bassissime: aspetta la primavera."
-            },
-            {
-              "id": "o4",
-              "testo": "Non serve aggiornarlo: è già in posizione 2,7",
-              "giusta": false,
-              "nota": "Un articolo aggiornato prima della stagione difende la posizione."
-            }
-          ],
-          "perche": "Le ricerche crescono da maggio e hanno il picco a luglio. Aggiornarlo ad aprile-maggio lo rende pronto quando serve.",
-          "aiuto": "Trova la barra più alta e conta un paio di mesi indietro.",
-          "dove": "[data-testo]"
-        },
-        {
-          "strumento": "keyword",
-          "domanda": "\"calendario dell'avvento tè\": cosa serve?",
-          "spiega": "Ogni ricerca chiede un tipo di pagina. Se l'intento è comprare, serve una pagina prodotto o categoria; se è informarsi, serve un articolo. E per una ricerca stagionale la pagina deve essere online prima della stagione.",
-          "esempio": "\"Kit candele per Natale\" è una ricerca di chi vuole comprare a novembre: serve la scheda del kit, online a ottobre.",
-          "compito": "Cerca <strong>calendario</strong> e guarda intento, andamento e posizione del sito.",
-          "tipo": "radio",
-          "opzioni": [
-            {
-              "id": "o1",
-              "testo": "Un articolo del blog da pubblicare a dicembre",
-              "giusta": false,
-              "nota": "A dicembre è tardi, e chi cerca vuole comprare, non leggere."
-            },
-            {
-              "id": "o2",
-              "testo": "Una pagina prodotto online a inizio novembre, se lo vendiamo davvero",
-              "giusta": true,
-              "nota": ""
-            },
-            {
-              "id": "o3",
-              "testo": "Niente: da gennaio a settembre nessuno la cerca",
-              "giusta": false,
-              "nota": "Ha 3.600 ricerche al mese di media, quasi tutte tra novembre e dicembre: vale la pena."
-            },
-            {
-              "id": "o4",
-              "testo": "Ripetere \"calendario dell'avvento\" nella home",
-              "giusta": false,
-              "nota": "Una keyword non si conquista ripetendola su un'altra pagina."
-            }
-          ],
-          "perche": "È una ricerca transazionale con il picco a novembre-dicembre. Serve una pagina prodotto vera, pubblicata in anticipo; se il prodotto non esiste, non si crea una pagina finta.",
-          "aiuto": "Guarda la colonna Intento e i mesi in cui le barrette sono alte.",
-          "dove": "[data-testo]"
-        },
-        {
-          "strumento": "statistiche",
-          "domanda": "A cosa servono gli articoli del blog?",
-          "spiega": "Gli articoli intercettano chi si sta informando e non conosce ancora il negozio. Convertono meno delle pagine prodotto, ma portano tante visite nuove: il loro compito è accompagnare le persone verso i prodotti con link interni utili.",
-          "esempio": "Una guida \"Come scegliere una candela\" porta 3.000 visite al mese e pochi ordini diretti, ma molti lettori cliccano sul link alla categoria e comprano lì.",
-          "compito": "Nella tabella confronta sessioni e conversione degli articoli con quelle dei prodotti.",
-          "tipo": "radio",
-          "opzioni": [
-            {
-              "id": "o1",
-              "testo": "Sono inutili: convertono meno dell'1%",
-              "giusta": false,
-              "nota": "Portano molte visite di persone nuove che poi possono comprare."
-            },
-            {
-              "id": "o2",
-              "testo": "Portano persone nuove: vanno collegati ai prodotti con link interni utili",
-              "giusta": true,
-              "nota": ""
-            },
-            {
-              "id": "o3",
-              "testo": "Vanno tolti per far salire la conversione media",
-              "giusta": false,
-              "nota": "La conversione media salirebbe, ma gli ordini totali scenderebbero."
-            },
-            {
-              "id": "o4",
-              "testo": "Vanno riempiti di banner con lo sconto",
-              "giusta": false,
-              "nota": "Chi si informa non è pronto a comprare: troppi banner lo fanno andare via."
-            }
-          ],
-          "perche": "Gli articoli hanno tante sessioni e una conversione bassa (0,5-0,7%); le schede prodotto il contrario (in media intorno al 3-4%). Sono due compiti diversi: il blog porta persone, i prodotti vendono.",
-          "aiuto": "Guarda la colonna Tipo: confronta le righe Articolo con le righe Prodotto.",
-          "dove": "#t-ga"
-        },
-        {
-          "strumento": "keyword",
-          "domanda": "Quale articolo scrivi per primo, a fine ottobre?",
-          "spiega": "Per scegliere cosa scrivere adesso incrocia tre cose: la stagione (cosa si cerca nei prossimi due mesi), l'intento (legato a quello che vendi) e la posizione di oggi (dove il sito non compare c'è spazio per crescere).",
-          "esempio": "A fine ottobre un negozio di candele scrive \"Idee regalo profumate per Natale\": si cerca a novembre-dicembre e porta ai prodotti.",
-          "compito": "Cerca <strong>regalo</strong> e guarda andamento e posizione; confrontalo con le altre idee.",
-          "tipo": "radio",
-          "opzioni": [
-            {
-              "id": "o1",
-              "testo": "Idee regalo per chi ama il tè",
-              "giusta": true,
-              "nota": ""
-            },
-            {
-              "id": "o2",
-              "testo": "Come fare il tè freddo in casa",
-              "giusta": false,
-              "nota": "Si cerca d'estate: a fine ottobre non è il momento."
-            },
-            {
-              "id": "o3",
-              "testo": "Tutti i benefici del tè verde",
-              "giusta": false,
-              "nota": "Parla di salute: per un alimento le promesse sono regolate."
-            },
-            {
-              "id": "o4",
-              "testo": "La storia del tè in Cina",
-              "giusta": false,
-              "nota": "Interessante, ma quasi nessuno lo cerca e non porta ai prodotti."
-            }
-          ],
-          "perche": "\"idee regalo tè\" ha il picco a dicembre, intento commerciale e il sito oggi non compare: scritto adesso, sarà pronto per Natale e porterà alle teiere e alle tazze.",
-          "aiuto": "Quale ricerca ha il picco a novembre-dicembre e oggi non ci vede in classifica?",
-          "dove": "[data-testo]"
-        }
-      ],
-      "imparato": [
-        "usare la stagionalità per decidere quando pubblicare",
-        "abbinare intento e tipo di pagina",
-        "capire il ruolo del blog nelle vendite",
-        "scegliere le priorità del piano editoriale"
-      ],
-      "elena": "Ottimo piano: l'articolo sui regali parte la prossima settimana. Adesso però mi serve la risposta sul calo di ottobre."
+     "strumento": "pannello",
+     "tipo": "azione",
+     "verifica": "tutorialH1",
+     "domanda": "Correggi il sito nel Pannello",
+     "spiega": "Il Pannello del negozio è il gestionale del sito (in un'azienda vera può essere WordPress o Shopify). Quello che salvi qui va subito online: lo vedi nel negozio, nel crawler e negli altri strumenti.",
+     "esempio": "Nel gestionale di un blog di viaggi cambi il titolo di un articolo, premi Salva e il titolo nuovo è già sul sito.",
+     "compito": "",
+     "come": [
+      "Apri <a href=\"/app/percorsi/seo/pannello/?pagina=/matcha/\">/matcha/ nel Pannello del negozio</a>.",
+      "Nel campo <strong>H1 (il titolo grande nella pagina)</strong> scrivi un titolo con la parola matcha, per esempio <strong>Tè matcha</strong>.",
+      "Premi <strong>Salva le modifiche</strong>.",
+      "Premi <strong>Controlla il lavoro</strong> qui nella guida.",
+      "Poi apri <a href=\"/app/negozio/matcha/\">/matcha/ nel negozio</a> e premi Ispeziona: ora l'H1 c'è."
+     ],
+     "vai": {
+      "link": "/app/percorsi/seo/pannello/?pagina=/matcha/",
+      "testo": "Apri /matcha/ nel Pannello"
+     },
+     "opzioni": [],
+     "perche": "Hai corretto il sito: la pagina Matcha ora ha un vero H1 e il crawler non la segna più. Nelle missioni lavorerai così: leggi i dati, correggi nel Pannello, controlli.",
+     "aiuto": "Il campo H1 è il terzo del modulo, sotto Title e Meta description. Ricordati di premere Salva le modifiche prima di Controlla il lavoro.",
+     "dove": "[data-editor] input[name=h1]"
     },
     {
-      "id": "m5",
-      "n": 5,
-      "nome": "Caso finale: il calo di ottobre",
-      "tempo": "30 minuti",
-      "strumenti": "Tutti",
-      "cosa": "Capisci cosa è successo e decidi le priorità.",
-      "obiettivo": "Elena vuole sapere perché ottobre va male. Metti insieme tutto: dove cala il traffico, cosa è normale e cosa no, quanto costa e cosa fare.",
-      "passi": [
-        {
-          "strumento": "console",
-          "domanda": "Il calo è di tutto il sito o di una parte?",
-          "spiega": "Molte ricerche cambiano con le stagioni. Per capire se un calo è un problema confronta lo stesso mese dell'anno prima, non solo il mese precedente, e guarda una parte del sito alla volta.",
-          "esempio": "Una gelateria vende meno a ottobre che ad agosto: è normale. Se però vende meno anche rispetto all'ottobre dell'anno scorso, c'è un problema da cercare.",
-          "compito": "Scegli <strong>Ultimi 3 mesi</strong>, attiva <strong>Confronta con l'anno prima</strong> e cambia <strong>Parte del sito</strong>.",
-          "tipo": "radio",
-          "opzioni": [
-            {
-              "id": "o1",
-              "testo": "Il blog",
-              "giusta": false,
-              "nota": "Il blog cresce rispetto all'anno prima."
-            },
-            {
-              "id": "o2",
-              "testo": "La categoria Tisane",
-              "giusta": true,
-              "nota": ""
-            },
-            {
-              "id": "o3",
-              "testo": "I tè freddi",
-              "giusta": false,
-              "nota": "Calano rispetto a settembre, ma crescono rispetto all'anno prima."
-            },
-            {
-              "id": "o4",
-              "testo": "Tutte allo stesso modo",
-              "giusta": false,
-              "nota": "Prova a cambiare parte del sito: le differenze sono grandi."
-            }
-          ],
-          "perche": "Le tisane perdono circa la metà dei clic rispetto agli stessi mesi del 2025, e a ottobre quasi tutto. Le altre parti sono stabili o in crescita.",
-          "aiuto": "Guarda il numero rosso sotto \"Clic totali\" per ogni parte del sito.",
-          "dove": "[data-segmento]"
-        },
-        {
-          "strumento": "console",
-          "domanda": "E i tè freddi? Sono un problema?",
-          "spiega": "Un calo è normale quando si ripete ogni anno nello stesso periodo. Si confronta la variazione di quest'anno con quella dell'anno prima: se è simile, è stagionalità.",
-          "esempio": "La gelateria perde il 60% dei clienti da settembre a ottobre, ogni anno: non è un problema, è la stagione.",
-          "compito": "Scegli <strong>Tè freddi</strong> e guarda settembre e ottobre del 2025 e del 2026.",
-          "tipo": "radio",
-          "opzioni": [
-            {
-              "id": "o1",
-              "testo": "Sì: calano del 65% da settembre a ottobre",
-              "giusta": false,
-              "nota": "Calavano allo stesso modo anche nel 2025."
-            },
-            {
-              "id": "o2",
-              "testo": "No: calano ogni autunno, anche nel 2025, e sono sopra l'anno prima",
-              "giusta": true,
-              "nota": ""
-            },
-            {
-              "id": "o3",
-              "testo": "Sì: hanno anche loro il noindex",
-              "giusta": false,
-              "nota": "Nel rapporto di indicizzazione il noindex riguarda le tisane, non i tè freddi."
-            },
-            {
-              "id": "o4",
-              "testo": "Non si può dire senza i dati di vendita",
-              "giusta": false,
-              "nota": "I clic dei due anni bastano per vedere la stagionalità."
-            }
-          ],
-          "perche": "Da settembre a ottobre i tè freddi calano di circa due terzi sia nel 2025 sia nel 2026; a ottobre 2026 hanno più clic di ottobre 2025. È la stagione.",
-          "aiuto": "Confronta ottobre 2026 con ottobre 2025, non con settembre.",
-          "dove": "[data-segmento]"
-        },
-        {
-          "strumento": "statistiche",
-          "domanda": "Quanto costa al mese il problema delle tisane?",
-          "spiega": "Per tradurre un calo di visite in euro moltiplica tre numeri: le sessioni perse, il tasso di conversione della pagina (quante visite su 100 diventano un ordine) e il valore medio di un ordine.",
-          "esempio": "Un negozio di candele perde 500 visite al mese su una pagina che converte il 3%, con ordini da 20 €: 500 × 3% × 20 € = 300 € al mese.",
-          "compito": "La categoria Tisane ha perso circa <strong>970 sessioni</strong> al mese rispetto a ottobre 2025. Trova conversione e ricavi di /tisane/ nella tabella.",
-          "tipo": "radio",
-          "opzioni": [
-            {
-              "id": "o1",
-              "testo": "Circa 50 €",
-              "giusta": false,
-              "nota": "Ricontrolla la conversione: è 2%, non 0,2%."
-            },
-            {
-              "id": "o2",
-              "testo": "Circa 470 €",
-              "giusta": true,
-              "nota": ""
-            },
-            {
-              "id": "o3",
-              "testo": "Circa 4.700 €",
-              "giusta": false,
-              "nota": "Ricontrolla: 970 × 2% fa circa 19 ordini, non 190."
-            },
-            {
-              "id": "o4",
-              "testo": "Non si può calcolare",
-              "giusta": false,
-              "nota": "Hai tutti e tre i numeri: sessioni perse, conversione e valore medio."
-            }
-          ],
-          "perche": "970 sessioni × 2% = circa 19 ordini; 19 × 24 € = circa 466 € al mese. E cresce con l'inverno, quando le tisane si cercano di più.",
-          "aiuto": "Valore medio dell'ordine di /tisane/: ricavi ÷ ordini. Poi 970 × 2% × quel valore.",
-          "dove": "#t-ga"
-        },
-        {
-          "strumento": "indicizzazione",
-          "domanda": "Cosa scrivi a Elena?",
-          "spiega": "Un buon riepilogo per un responsabile dice in poche righe cosa è successo, perché, quanto pesa e cosa si fa, in ordine di priorità. Separa i problemi veri da ciò che è normale.",
-          "esempio": "\"Le vendite di candele natalizie calano perché la pagina è sparita da Google dopo l'aggiornamento del 3 novembre. Perdiamo circa 300 € al mese. La ripristiniamo oggi; il calo delle candele estive invece è stagionale.\"",
-          "compito": "Rileggi quello che hai trovato: dove cala, da quando, perché, quanto costa.",
-          "tipo": "radio",
-          "opzioni": [
-            {
-              "id": "o1",
-              "testo": "È colpa di Google che ha cambiato algoritmo: aspettiamo qualche mese",
-              "giusta": false,
-              "nota": "I dati mostrano una causa sul sito, con una data precisa."
-            },
-            {
-              "id": "o2",
-              "testo": "Il calo viene dalle tisane, uscite da Google per il noindex arrivato con il nuovo tema il 18/09: costa circa 470 € al mese. Tolgo il noindex e chiedo a Google di rileggere le pagine; i tè freddi calano per la stagione.",
-              "giusta": true,
-              "nota": ""
-            },
-            {
-              "id": "o3",
-              "testo": "Il problema sono i tè freddi: abbassiamo i prezzi",
-              "giusta": false,
-              "nota": "Il calo dei tè freddi è stagionale, come ogni anno."
-            },
-            {
-              "id": "o4",
-              "testo": "Compriamo annunci su Google per tutte le parole del sito",
-              "giusta": false,
-              "nota": "Gli annunci non risolvono il noindex e costano ogni mese."
-            }
-          ],
-          "perche": "Causa, data, costo, soluzione e cosa è normale: in poche righe Elena ha tutto per decidere.",
-          "aiuto": "Cerca il messaggio che dice causa, data, quanto costa e cosa fare.",
-          "dove": "tr[data-motivo]"
-        }
-      ],
-      "imparato": [
-        "separare la stagionalità dai problemi veri",
-        "collegare un calo a una modifica del sito",
-        "tradurre un calo di traffico in euro",
-        "scrivere un riepilogo per un responsabile"
-      ],
-      "elena": "Chiarissimo, grazie! Il noindex è già stato tolto e le tisane stanno tornando su Google. Hai fatto un ottimo lavoro: benvenuta davvero nel team."
+     "strumento": "console",
+     "tipo": "info",
+     "domanda": "Punti, aiuti e come scegliere le missioni",
+     "spiega": "Ultime regole, poi scegli tu da quale missione partire.",
+     "esempio": "",
+     "compito": "",
+     "come": [
+      "Ogni missione parte da <strong>100 punti</strong>. Una risposta sbagliata toglie 10 punti, aprire l'<strong>Aiuto</strong> ne toglie 5.",
+      "Nei passi in cui scrivi o modifichi il sito puoi riprovare quante volte vuoi: <strong>Controlla il lavoro</strong> non toglie punti.",
+      "Le missioni vanno dalla più facile alla più difficile. Puoi farle nell'ordine che vuoi e rifarle quando vuoi.",
+      "Se vuoi ripartire da zero, nel Pannello del negozio → Tema e impostazioni c'è <strong>Ripristina il negozio</strong>."
+     ],
+     "opzioni": [],
+     "perche": "",
+     "aiuto": "",
+     "dove": ""
     }
-  ]
+   ],
+   "imparato": [
+    "La guida a destra ti segue in ogni pagina e controlla il lavoro.",
+    "Ispeziona mostra title, description e H1 di una pagina.",
+    "I filtri del crawler isolano un tipo di problema.",
+    "Nel Pannello correggi il sito e la modifica va subito online."
+   ],
+   "elena": "Benvenuta! Ora sai dove sono le cose. Scegli tu da quale missione partire: ti consiglio la prima, è la più semplice."
+  },
+  {
+   "id": "m3",
+   "n": 1,
+   "nome": "Riscrivi la categoria Tè verdi",
+   "tempo": "25 minuti",
+   "strumenti": "Console, Pannello, Negozio",
+   "cosa": "Title, description e testo di una pagina poco cliccata.",
+   "obiettivo": "La pagina dei tè verdi compare spesso su Google ma pochi ci cliccano. In questa missione la riscrivi tu, nel Pannello del negozio, e chiedi a Google di rileggerla.",
+   "passi": [
+    {
+     "strumento": "console",
+     "domanda": "Cosa non va nella pagina /te-verdi/?",
+     "spiega": "Il CTR è la percentuale di persone che cliccano dopo aver visto il risultato (clic ÷ impressioni). In posizione 7-8 un CTR normale è intorno al 3%. Tante impressioni con un CTR molto più basso vogliono dire che il risultato non invoglia a cliccare.",
+     "esempio": "Un negozio di candele compare 50.000 volte per \"candele profumate\" ma riceve 200 clic (0,4%): il suo title è solo \"Candele | Negozio\".",
+     "compito": "Apri la scheda <strong>Pagine</strong> e confronta impressioni, CTR e posizione di /te-verdi/.",
+     "tipo": "radio",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Non è indicizzata",
+       "giusta": false,
+       "nota": "Ha più di 140.000 impressioni: compare su Google."
+      },
+      {
+       "id": "o2",
+       "testo": "Compare tantissimo ma quasi nessuno clicca: il risultato non invoglia",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "È troppo in basso per ricevere clic",
+       "giusta": false,
+       "nota": "In posizione 7,8 una pagina riceve in genere molti più clic."
+      },
+      {
+       "id": "o4",
+       "testo": "È un calo stagionale",
+       "giusta": false,
+       "nota": "Le ricerche sul tè verde sono stabili tutto l'anno."
+      }
+     ],
+     "perche": "/te-verdi/ ha 140.549 impressioni e un CTR dello 0,6%: è vista moltissimo, ma il title e la description non convincono.",
+     "aiuto": "Dividi i clic per le impressioni e confrontalo con il 3% di una posizione simile.",
+     "dove": "[data-scheda='pagine']",
+     "come": [
+      "Apri <a href=\"/app/percorsi/seo/strumenti/console/\">Console di ricerca</a> e clicca la scheda <strong>Pagine</strong>.",
+      "Trova la riga <strong>/te-verdi/</strong> (puoi scriverlo in Filtra le pagine).",
+      "Confronta <strong>Impressioni</strong> (quante volte compare su Google), <strong>CTR</strong> (quanti cliccano) e <strong>Posizione</strong> con le altre pagine.",
+      "Scegli la risposta e premi <strong>Controlla</strong>."
+     ]
+    },
+    {
+     "tipo": "azione",
+     "strumento": "pannello",
+     "domanda": "Scrivi title e description di /te-verdi/",
+     "spiega": "Il title è il titolo blu nei risultati: deve iniziare con la keyword della pagina, dire cosa c'è di specifico, restare entro circa 580 pixel e finire con il brand. La description è il testo grigio sotto: in 100-160 caratteri dice cosa trova chi clicca e un vantaggio concreto. Niente keyword ripetute e niente promesse sulla salute.",
+     "esempio": "Candele: title \"Candele profumate in cera di soia: 20 fragranze | Luce di Casa\"; description \"Oltre 20 fragranze in cera di soia, fatte a mano in Toscana. Scegli per stanza e ricevile in 24 ore.\"",
+     "compito": "Apri il <strong>Pannello</strong> → <strong>Pagine</strong> → <strong>/te-verdi/</strong>. Mentre scrivi guarda l'anteprima e il contatore dei pixel; poi salva e controlla con Ispeziona nel negozio.",
+     "verifica": "titoloTeVerdi",
+     "vai": {
+      "link": "/app/percorsi/seo/pannello/?pagina=/te-verdi/",
+      "testo": "Apri /te-verdi/ nel pannello"
+     },
+     "perche": "Esempio di un collega senior: title \"Tè verdi biologici: Sencha e Gyokuro | Cinque Foglie\"; description \"Sencha, Gyokuro, Genmaicha e altri tè verdi biologici in foglie intere. Guida alla scelta e spedizione in 24 ore.\" Il tuo può essere diverso: conta che rispetti le stesse regole.",
+     "aiuto": "Parti da: \"Tè verdi biologici: [due o tre nomi di tè] | Cinque Foglie\".",
+     "opzioni": [],
+     "dove": "[data-editor] input[name=title]",
+     "come": [
+      "Apri <a href=\"/app/percorsi/seo/pannello/?pagina=/te-verdi/\">/te-verdi/ nel Pannello del negozio</a>.",
+      "Nel campo <strong>Title</strong> scrivi un titolo che inizi con «Tè verdi», dica cosa c'è di speciale e finisca con «| Cinque Foglie». La barra sotto il campo deve restare entro 580 px.",
+      "Nel campo <strong>Meta description</strong> scrivi 100-160 caratteri: quali tè si trovano e un vantaggio concreto.",
+      "Guarda l'<strong>Anteprima nei risultati di Google</strong>, poi premi <strong>Salva le modifiche</strong>.",
+      "Premi <strong>Controlla il lavoro</strong>: i punti rossi ti dicono cosa sistemare."
+     ]
+    },
+    {
+     "tipo": "azione",
+     "strumento": "pannello",
+     "domanda": "Scrivi il testo della categoria",
+     "spiega": "Il testo di una categoria aiuta chi deve scegliere e aiuta Google a capire la pagina. Bastano 80-150 parole utili: come scegliere, come preparare, quali tè ci sono. Si scrive per le persone; la keyword compare in modo naturale, una o due volte.",
+     "esempio": "Candele: \"Le candele in cera di soia bruciano più a lungo e fanno meno fumo. Per il salotto scegli fragranze legnose, per la camera lavanda o vaniglia. Accendile per almeno due ore la prima volta…\"",
+     "compito": "Nel <strong>Pannello</strong>, nella stessa pagina /te-verdi/, scrivi il <strong>Testo introduttivo della categoria</strong> e salva. Poi apri la categoria nel negozio: il testo nuovo è lì.",
+     "verifica": "testoTeVerdi",
+     "vai": {
+      "link": "/app/percorsi/seo/pannello/?pagina=/te-verdi/",
+      "testo": "Apri /te-verdi/ nel pannello"
+     },
+     "perche": "Esempio di un collega senior: \"I tè verdi si dividono in due grandi famiglie. Quelli giapponesi, come Sencha e Gyokuro, sono cotti al vapore e hanno un gusto fresco ed erbaceo; quelli cinesi, come il tè al gelsomino, sono tostati e più morbidi. Per non renderli amari usa acqua a 70-80 °C e lascia in infusione 1-2 minuti. Se inizi ora, prova il Sencha biologico: è il più versatile, buono anche a freddo. Tutti i nostri tè verdi sono biologici e in foglie intere.\"",
+     "aiuto": "Scrivi 3-4 frasi: le due famiglie (giapponesi e cinesi), la temperatura dell'acqua, un consiglio per iniziare.",
+     "opzioni": [],
+     "dove": "[data-campo-intro]",
+     "come": [
+      "Sempre in <a href=\"/app/percorsi/seo/pannello/?pagina=/te-verdi/\">/te-verdi/ nel Pannello</a>, vai al campo <strong>Testo introduttivo della categoria</strong>.",
+      "Scrivi tra 60 e 300 parole: nomina almeno due tè (es. Sencha e Gyokuro) e spiega come prepararli (temperatura dell'acqua o minuti).",
+      "Usa «tè verde» o «tè verdi» da 1 a 4 volte e niente promesse sulla salute.",
+      "Premi <strong>Salva le modifiche</strong> e poi <strong>Controlla il lavoro</strong>. Se vuoi, apri <a href=\"/app/negozio/te-verdi/\">/te-verdi/ nel negozio</a>: il testo nuovo è lì."
+     ]
+    },
+    {
+     "tipo": "azione",
+     "strumento": "console",
+     "domanda": "Chiedi a Google di rileggere la pagina",
+     "spiega": "Dopo aver cambiato una pagina importante si può chiedere a Google di rileggerla subito, con il controllo URL. Non garantisce tempi, ma di solito accelera.",
+     "esempio": "Il negozio di candele, dopo aver riscritto la categoria, la controlla con il controllo URL e preme \"Richiedi indicizzazione\".",
+     "compito": "In <strong>Console di ricerca</strong> usa <strong>Controllo URL</strong>: scrivi /te-verdi/, confronta Google e sito di oggi, poi premi <strong>Richiedi indicizzazione</strong>.",
+     "verifica": "richiestaTeVerdi",
+     "vai": {
+      "link": "/app/percorsi/seo/strumenti/console/",
+      "testo": "Apri la Console di ricerca"
+     },
+     "perche": "Google ha in coda la nuova versione della pagina. Tra qualche settimana si guarda se il CTR sale dallo 0,6%.",
+     "aiuto": "Il controllo URL è in alto nella Console, sotto il grafico.",
+     "opzioni": [],
+     "dove": "[data-controllo-url]",
+     "come": [
+      "Apri <a href=\"/app/percorsi/seo/strumenti/console/\">Console di ricerca</a> e scorri fino a <strong>Controllo URL</strong>.",
+      "Scrivi <strong>/te-verdi/</strong> e premi <strong>Controlla</strong>.",
+      "Confronta le due colonne: Google ricorda il title vecchio, sul sito c'è già quello nuovo.",
+      "Premi <strong>Richiedi indicizzazione</strong>, poi <strong>Controlla il lavoro</strong>."
+     ]
+    }
+   ],
+   "imparato": [
+    "leggere il CTR di una pagina",
+    "scrivere un title e una description con le regole giuste",
+    "scrivere un testo di categoria utile",
+    "chiedere a Google di rileggere una pagina"
+   ],
+   "elena": "Bellissimo, il nuovo title è già online. Tra qualche settimana guardiamo se il CTR sale. Prossimo passo: il piano del blog.",
+   "livello": "facile"
+  },
+  {
+   "id": "m4",
+   "n": 2,
+   "nome": "Piano dei contenuti",
+   "tempo": "25 minuti",
+   "strumenti": "Keyword, Statistiche",
+   "cosa": "Quali articoli scrivere nei prossimi mesi, e quando.",
+   "obiettivo": "Un piano editoriale decide cosa pubblicare e quando. Si guarda la stagionalità delle ricerche, l'intento e quanto ogni tipo di pagina porta in vendite.",
+   "passi": [
+    {
+     "strumento": "keyword",
+     "domanda": "Quando aggiorni l'articolo sul tè freddo?",
+     "spiega": "Molte ricerche hanno una stagione. Un articolo va pubblicato o aggiornato qualche settimana prima del picco: Google ha bisogno di tempo per leggerlo e posizionarlo.",
+     "esempio": "Un negozio di candele vede le ricerche \"candele natalizie\" salire a novembre: aggiorna l'articolo a inizio ottobre.",
+     "compito": "Cerca <strong>tè freddo fatto in casa</strong> e guarda le barrette dell'andamento (da luglio a giugno).",
+     "tipo": "radio",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Ad aprile-maggio, prima che le ricerche salgano",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Ad agosto, quando le ricerche sono già alte",
+       "giusta": false,
+       "nota": "Il picco è già passato a metà: arriverebbe tardi."
+      },
+      {
+       "id": "o3",
+       "testo": "A ottobre, adesso",
+       "giusta": false,
+       "nota": "In autunno le ricerche sono bassissime: aspetta la primavera."
+      },
+      {
+       "id": "o4",
+       "testo": "Non serve aggiornarlo: è già in posizione 2,7",
+       "giusta": false,
+       "nota": "Un articolo aggiornato prima della stagione difende la posizione."
+      }
+     ],
+     "perche": "Le ricerche crescono da maggio e hanno il picco a luglio. Aggiornarlo ad aprile-maggio lo rende pronto quando serve.",
+     "aiuto": "Trova la barra più alta e conta un paio di mesi indietro.",
+     "dove": "[data-testo]",
+     "come": [
+      "Apri <a href=\"/app/percorsi/seo/strumenti/keyword/\">Ricerca keyword</a> e cerca <strong>tè freddo fatto in casa</strong>.",
+      "Guarda la colonna <strong>Andamento</strong>: ogni barretta è un mese, da luglio a giugno.",
+      "Trova quando le ricerche cominciano a salire: l'articolo va aggiornato un po' prima di quel momento.",
+      "Scegli e premi <strong>Controlla</strong>."
+     ]
+    },
+    {
+     "strumento": "keyword",
+     "domanda": "\"calendario dell'avvento tè\": cosa serve?",
+     "spiega": "Ogni ricerca chiede un tipo di pagina. Se l'intento è comprare, serve una pagina prodotto o categoria; se è informarsi, serve un articolo. E per una ricerca stagionale la pagina deve essere online prima della stagione.",
+     "esempio": "\"Kit candele per Natale\" è una ricerca di chi vuole comprare a novembre: serve la scheda del kit, online a ottobre.",
+     "compito": "Cerca <strong>calendario</strong> e guarda intento, andamento e posizione del sito.",
+     "tipo": "radio",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Un articolo del blog da pubblicare a dicembre",
+       "giusta": false,
+       "nota": "A dicembre è tardi, e chi cerca vuole comprare, non leggere."
+      },
+      {
+       "id": "o2",
+       "testo": "Una pagina prodotto online a inizio novembre, se lo vendiamo davvero",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Niente: da gennaio a settembre nessuno la cerca",
+       "giusta": false,
+       "nota": "Ha 3.600 ricerche al mese di media, quasi tutte tra novembre e dicembre: vale la pena."
+      },
+      {
+       "id": "o4",
+       "testo": "Ripetere \"calendario dell'avvento\" nella home",
+       "giusta": false,
+       "nota": "Una keyword non si conquista ripetendola su un'altra pagina."
+      }
+     ],
+     "perche": "È una ricerca transazionale con il picco a novembre-dicembre. Serve una pagina prodotto vera, pubblicata in anticipo; se il prodotto non esiste, non si crea una pagina finta.",
+     "aiuto": "Guarda la colonna Intento e i mesi in cui le barrette sono alte.",
+     "dove": "[data-testo]",
+     "come": [
+      "Nella Ricerca keyword cerca <strong>calendario</strong>.",
+      "Guarda <strong>Intento</strong>, <strong>Andamento</strong> e <strong>Posizione del sito</strong>.",
+      "Se chi cerca vuole comprare serve una pagina che vende; se vuole informarsi, un articolo.",
+      "Scegli e premi <strong>Controlla</strong>."
+     ]
+    },
+    {
+     "strumento": "statistiche",
+     "domanda": "A cosa servono gli articoli del blog?",
+     "spiega": "Gli articoli intercettano chi si sta informando e non conosce ancora il negozio. Convertono meno delle pagine prodotto, ma portano tante visite nuove: il loro compito è accompagnare le persone verso i prodotti con link interni utili.",
+     "esempio": "Una guida \"Come scegliere una candela\" porta 3.000 visite al mese e pochi ordini diretti, ma molti lettori cliccano sul link alla categoria e comprano lì.",
+     "compito": "Nella tabella confronta sessioni e conversione degli articoli con quelle dei prodotti.",
+     "tipo": "radio",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Sono inutili: convertono meno dell'1%",
+       "giusta": false,
+       "nota": "Portano molte visite di persone nuove che poi possono comprare."
+      },
+      {
+       "id": "o2",
+       "testo": "Portano persone nuove: vanno collegati ai prodotti con link interni utili",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Vanno tolti per far salire la conversione media",
+       "giusta": false,
+       "nota": "La conversione media salirebbe, ma gli ordini totali scenderebbero."
+      },
+      {
+       "id": "o4",
+       "testo": "Vanno riempiti di banner con lo sconto",
+       "giusta": false,
+       "nota": "Chi si informa non è pronto a comprare: troppi banner lo fanno andare via."
+      }
+     ],
+     "perche": "Gli articoli hanno tante sessioni e una conversione bassa (0,5-0,7%); le schede prodotto il contrario (in media intorno al 3-4%). Sono due compiti diversi: il blog porta persone, i prodotti vendono.",
+     "aiuto": "Guarda la colonna Tipo: confronta le righe Articolo con le righe Prodotto.",
+     "dove": "#t-ga",
+     "come": [
+      "Apri <a href=\"/app/percorsi/seo/strumenti/statistiche/\">Statistiche</a>.",
+      "Nella tabella confronta le righe degli articoli (tipo Articolo) con quelle dei prodotti: guarda <strong>Sessioni</strong> e <strong>Conversione</strong>.",
+      "Chiediti: gli articoli portano soprattutto visite o soprattutto ordini?",
+      "Scegli e premi <strong>Controlla</strong>."
+     ]
+    },
+    {
+     "strumento": "keyword",
+     "domanda": "Quale articolo scrivi per primo, a fine ottobre?",
+     "spiega": "Per scegliere cosa scrivere adesso incrocia tre cose: la stagione (cosa si cerca nei prossimi due mesi), l'intento (legato a quello che vendi) e la posizione di oggi (dove il sito non compare c'è spazio per crescere).",
+     "esempio": "A fine ottobre un negozio di candele scrive \"Idee regalo profumate per Natale\": si cerca a novembre-dicembre e porta ai prodotti.",
+     "compito": "Cerca <strong>regalo</strong> e guarda andamento e posizione; confrontalo con le altre idee.",
+     "tipo": "radio",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Idee regalo per chi ama il tè",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Come fare il tè freddo in casa",
+       "giusta": false,
+       "nota": "Si cerca d'estate: a fine ottobre non è il momento."
+      },
+      {
+       "id": "o3",
+       "testo": "Tutti i benefici del tè verde",
+       "giusta": false,
+       "nota": "Parla di salute: per un alimento le promesse sono regolate."
+      },
+      {
+       "id": "o4",
+       "testo": "La storia del tè in Cina",
+       "giusta": false,
+       "nota": "Interessante, ma quasi nessuno lo cerca e non porta ai prodotti."
+      }
+     ],
+     "perche": "\"idee regalo tè\" ha il picco a dicembre, intento commerciale e il sito oggi non compare: scritto adesso, sarà pronto per Natale e porterà alle teiere e alle tazze.",
+     "aiuto": "Quale ricerca ha il picco a novembre-dicembre e oggi non ci vede in classifica?",
+     "dove": "[data-testo]",
+     "come": [
+      "Torna in <a href=\"/app/percorsi/seo/strumenti/keyword/\">Ricerca keyword</a> e cerca <strong>regalo</strong>.",
+      "Guarda l'<strong>Andamento</strong>: quali ricerche salgono tra novembre e dicembre?",
+      "Confrontale con le idee dei passi prima: siamo a fine ottobre, cosa serve per primo?",
+      "Scegli e premi <strong>Controlla</strong>."
+     ]
+    }
+   ],
+   "imparato": [
+    "usare la stagionalità per decidere quando pubblicare",
+    "abbinare intento e tipo di pagina",
+    "capire il ruolo del blog nelle vendite",
+    "scegliere le priorità del piano editoriale"
+   ],
+   "elena": "Ottimo piano: l'articolo sui regali parte la prossima settimana. Adesso però mi serve la risposta sul calo di ottobre.",
+   "livello": "facile"
+  },
+  {
+   "id": "m2",
+   "n": 3,
+   "nome": "Keyword e cannibalizzazione",
+   "tempo": "30 minuti",
+   "strumenti": "Keyword, Console",
+   "cosa": "Scegli la keyword giusta per ogni pagina.",
+   "obiettivo": "Ogni pagina del sito dovrebbe rispondere a una ricerca precisa. In questa missione scegli le keyword delle pagine e risolvi un caso in cui due pagine si contendono la stessa ricerca.",
+   "passi": [
+    {
+     "strumento": "keyword",
+     "domanda": "Quale keyword per la categoria Tè verdi?",
+     "spiega": "Per una pagina che vende cerca l'equilibrio tra tre cose: abbastanza ricerche (volume), un intento di chi vuole scegliere o comprare, e una difficoltà che il sito può affrontare. La keyword con più volume non è sempre la migliore.",
+     "esempio": "Per la categoria delle teiere, \"teiera\" ha tanto volume ma è generica; \"teiere in ghisa\" ha meno ricerche ma le fa chi sa cosa vuole comprare.",
+     "compito": "Scrivi <strong>tè verd</strong> nella ricerca e guarda <strong>Intento</strong>, <strong>Volume</strong> e <strong>Difficoltà</strong>.",
+     "tipo": "radio",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "tè verde",
+       "giusta": false,
+       "nota": "Ha il volume più alto, ma l'intento è informativo e la difficoltà è alta (61)."
+      },
+      {
+       "id": "o2",
+       "testo": "tè verdi",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "tè verde benefici",
+       "giusta": false,
+       "nota": "Chi la cerca vuole informarsi sulla salute: non è adatta a una pagina che vende, e le promesse sulla salute sono regolate."
+      },
+      {
+       "id": "o4",
+       "testo": "come preparare il sencha",
+       "giusta": false,
+       "nota": "È una domanda: la risposta giusta è una guida, non una categoria."
+      }
+     ],
+     "perche": "\"tè verdi\" ha 4.400 ricerche al mese, intento commerciale e difficoltà media: è la ricerca di chi vuole vedere una scelta di tè verdi. \"tè verde biologico\" è un'ottima keyword secondaria da usare nel testo.",
+     "aiuto": "Scarta prima le keyword con intento informativo. Tra quelle rimaste scegli quella con più volume e difficoltà non oltre \"Media\".",
+     "dove": "[data-testo]",
+     "come": [
+      "Apri <a href=\"/app/percorsi/seo/strumenti/keyword/\">Ricerca keyword</a>.",
+      "Nella casella <strong>Cerca una keyword</strong> scrivi <strong>tè verd</strong>.",
+      "Per ogni riga guarda <strong>Intento</strong> (vuole comprare o informarsi?), <strong>Volume</strong> (ricerche al mese) e <strong>Difficoltà</strong>.",
+      "Scegli la keyword adatta a una pagina che vende e premi <strong>Controlla</strong>."
+     ]
+    },
+    {
+     "strumento": "console",
+     "domanda": "Per \"tè verde sencha\" quali pagine compaiono?",
+     "spiega": "C'è cannibalizzazione quando due pagine dello stesso sito compaiono per la stessa ricerca. Google non sa quale scegliere, le alterna, e nessuna delle due arriva in alto.",
+     "esempio": "Un negozio di candele ha la scheda \"Candela alla vaniglia\" e un articolo \"Candela alla vaniglia: guida\": per la ricerca \"candela alla vaniglia\" compaiono tutte e due, in posizione 9 e 11.",
+     "compito": "Nella scheda <strong>Query</strong> cerca <strong>tè verde sencha</strong> e clicca la riga.",
+     "tipo": "radio",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Solo la scheda prodotto del Sencha",
+       "giusta": false,
+       "nota": "Guarda il dettaglio: le pagine sono due."
+      },
+      {
+       "id": "o2",
+       "testo": "La scheda prodotto del Sencha e la guida del blog sul Sencha",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "La categoria Tè verdi e la home",
+       "giusta": false,
+       "nota": "Guarda il dettaglio della query: compaiono altre pagine."
+      },
+      {
+       "id": "o4",
+       "testo": "Nessuna pagina: il sito non compare",
+       "giusta": false,
+       "nota": "La query ha 370 clic: il sito compare."
+      }
+     ],
+     "perche": "La scheda prodotto (posizione 9,2) e la guida (posizione 10,4) si contendono la stessa ricerca. Insieme fanno solo il 2,1% di CTR: nessuna delle due convince Google ad andare più in alto.",
+     "aiuto": "Quando una query ha più di una pagina, nella colonna Pagine compare un'etichetta gialla.",
+     "dove": "#t-query",
+     "come": [
+      "Apri <a href=\"/app/percorsi/seo/strumenti/console/\">Console di ricerca</a> e clicca la scheda <strong>Query</strong>.",
+      "In <strong>Filtra le query</strong> scrivi <strong>tè verde sencha</strong>.",
+      "Clicca la riga: sotto compaiono le pagine del sito che Google mostra per quella ricerca.",
+      "Scegli la risposta e premi <strong>Controlla</strong>."
+     ]
+    },
+    {
+     "strumento": "console",
+     "domanda": "Come risolvi la cannibalizzazione?",
+     "spiega": "Non serve quasi mai cancellare una pagina. Si dà a ognuna un intento diverso: la pagina prodotto punta a chi vuole comprare, la guida a chi vuole informarsi. Poi la guida linka il prodotto, così Google capisce quale pagina è per l'acquisto.",
+     "esempio": "Candele: la scheda resta su \"candela alla vaniglia\"; l'articolo diventa \"Come scegliere una candela profumata per la casa\" e linka la scheda.",
+     "compito": "Ripensa all'intento delle due pagine: una vende, l'altra spiega.",
+     "tipo": "radio",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Cancellare la guida del blog",
+       "giusta": false,
+       "nota": "La guida porta visite da chi si informa: si perderebbero."
+      },
+      {
+       "id": "o2",
+       "testo": "Mettere \"tè verde sencha\" ancora più volte in tutte e due le pagine",
+       "giusta": false,
+       "nota": "Peggiora la confusione: le due pagine si assomiglierebbero ancora di più."
+      },
+      {
+       "id": "o3",
+       "testo": "Prodotto su \"tè verde sencha\"; guida su \"come preparare il sencha\", con un link al prodotto",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o4",
+       "testo": "Mettere la scheda prodotto in noindex",
+       "giusta": false,
+       "nota": "Così il prodotto sparisce da Google proprio per chi vuole comprarlo."
+      }
+     ],
+     "perche": "Ogni pagina ora ha un compito: la scheda vende, la guida insegna e accompagna al prodotto con un link. È la soluzione più comune e quella che fa perdere meno.",
+     "aiuto": "Una delle due pagine è già ottima per chi si informa: per quale ricerca informativa?",
+     "dove": "#t-query",
+     "come": [
+      "Riguarda le due pagine trovate al passo prima (scheda <strong>Query</strong>, riga tè verde sencha).",
+      "Chiediti: quale delle due vende il prodotto e quale lo spiega?",
+      "Scegli l'azione che dà a ogni pagina un compito diverso e premi <strong>Controlla</strong>."
+     ]
+    },
+    {
+     "strumento": "keyword",
+     "domanda": "Quale nuova keyword proveresti con un articolo?",
+     "spiega": "Una buona opportunità per il blog è una ricerca che il sito oggi non intercetta, con intento informativo, difficoltà bassa e legata ai prodotti che vendi. Le keyword sulla salute degli alimenti vanno trattate con molta cautela.",
+     "esempio": "Un negozio di candele trova \"come far durare una candela\": 1.800 ricerche, difficoltà 15, non compare. È perfetta per un articolo che poi linka le candele.",
+     "compito": "Attiva <strong>Solo dove il sito non compare</strong> e guarda intento, volume e difficoltà.",
+     "tipo": "radio",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "tè verde benefici",
+       "giusta": false,
+       "nota": "Molte ricerche, ma parla di salute: per un alimento le promesse sono regolate (Reg. CE 1924/2006) e la difficoltà è alta."
+      },
+      {
+       "id": "o2",
+       "testo": "tisane",
+       "giusta": false,
+       "nota": "Il sito non compare per il noindex: si risolve sistemando il sito (missione Audit tecnico), non con un articolo."
+      },
+      {
+       "id": "o3",
+       "testo": "matcha latte ricetta",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o4",
+       "testo": "calendario dell'avvento tè",
+       "giusta": false,
+       "nota": "È una ricerca di chi vuole comprare un prodotto: serve una pagina prodotto, non un articolo."
+      }
+     ],
+     "perche": "\"matcha latte ricetta\" ha 2.900 ricerche, difficoltà 18 (facile), intento informativo, e porta dritto ai matcha del negozio.",
+     "aiuto": "Cerca la difficoltà più bassa tra le keyword informative legate a un prodotto che vendiamo.",
+     "dove": "[data-assente]",
+     "come": [
+      "Apri <a href=\"/app/percorsi/seo/strumenti/keyword/\">Ricerca keyword</a> e svuota la casella di ricerca.",
+      "Attiva <strong>Solo dove il sito non compare</strong>.",
+      "Cerca una keyword con intento informativo, un volume discreto e difficoltà bassa.",
+      "Scegli e premi <strong>Controlla</strong>."
+     ]
+    }
+   ],
+   "imparato": [
+    "scegliere una keyword per volume, intento e difficoltà",
+    "riconoscere una cannibalizzazione",
+    "risolverla dando un intento diverso a ogni pagina",
+    "trovare opportunità per il blog"
+   ],
+   "elena": "Perfetto. Il copywriter sistema la guida sul Sencha e scrive l'articolo sul matcha latte. Domani ci occupiamo della pagina dei tè verdi.",
+   "livello": "media"
+  },
+  {
+   "id": "m1",
+   "n": 4,
+   "nome": "Audit tecnico",
+   "tempo": "40 minuti",
+   "strumenti": "Indicizzazione, Crawler, Pannello",
+   "cosa": "Trova cosa impedisce a Google di leggere bene il sito.",
+   "obiettivo": "Un audit tecnico controlla che Google possa trovare, leggere e mostrare le pagine. Questa volta non basta capire il problema: lo correggi tu nel Pannello del negozio e controlli che il sito sia cambiato.",
+   "passi": [
+    {
+     "strumento": "indicizzazione",
+     "domanda": "Google ha perso delle pagine? Da quando?",
+     "spiega": "Il grafico dell'indicizzazione mostra, settimana per settimana, quante pagine sono nell'archivio di Google (verde) e quante no (grigio). Un calo improvviso del verde vuol dire che qualcosa ha tolto delle pagine dai risultati.",
+     "esempio": "Un negozio di candele vede 40 pagine indicizzate per mesi, poi 32 in due settimane: cerca cosa è cambiato sul sito in quei giorni.",
+     "compito": "Guarda il grafico <strong>Andamento nelle ultime 12 settimane</strong> e l'evento segnato.",
+     "tipo": "radio",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Nessuna: il numero è stabile da agosto",
+       "giusta": false,
+       "nota": "Guarda le ultime settimane: le barre verdi si abbassano."
+      },
+      {
+       "id": "o2",
+       "testo": "7 pagine, da metà settembre in poi",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "24 pagine, tutte ad agosto",
+       "giusta": false,
+       "nota": "24 sono le pagine fuori da Google oggi, non quelle perse; e ad agosto il numero è fermo."
+      },
+      {
+       "id": "o4",
+       "testo": "46 pagine, questa settimana",
+       "giusta": false,
+       "nota": "46 sono le pagine ancora indicizzate."
+      }
+     ],
+     "perche": "Le pagine indicizzate passano da 53 a 46 subito dopo il 18 settembre, il giorno in cui è uscito il nuovo tema del negozio. Quando un calo coincide con una modifica al sito, la modifica è il primo sospettato.",
+     "aiuto": "Confronta la prima barra (3/8) con l'ultima (19/10) e guarda dove inizia a scendere.",
+     "dove": ".sp-grafico",
+     "come": [
+      "Apri <a href=\"/app/percorsi/seo/strumenti/indicizzazione/\">Pagine e indicizzazione</a> (menu a sinistra, gruppo Strumenti).",
+      "Resta sulla scheda <strong>Indicizzazione delle pagine</strong> e guarda il grafico <strong>Andamento nelle ultime 12 settimane</strong>: il verde sono le pagine su Google.",
+      "Trova la settimana in cui il verde comincia a scendere e leggi l'evento segnato sotto il grafico.",
+      "Scegli la risposta qui sotto e premi <strong>Controlla</strong>."
+     ]
+    },
+    {
+     "tipo": "azione",
+     "strumento": "pannello",
+     "domanda": "Rimetti le tisane su Google",
+     "spiega": "Il nuovo tema del 18 settembre ha un'impostazione che nasconde la categoria Tisane ai motori di ricerca: mette il noindex sulla categoria e su tutti i suoi prodotti. Si corregge dove è nato il problema, nelle impostazioni del tema, non pagina per pagina.",
+     "esempio": "In un negozio di candele l'aggiornamento del tema nasconde la categoria \"Candele profumate\": basta rimettere la spunta \"Visibile sui motori di ricerca\", e tutte le schede tornano visibili.",
+     "compito": "Apri il <strong>Pannello del negozio</strong> → <strong>Tema e impostazioni</strong>. Poi apri /tisane/ nel negozio e controlla con Ispeziona che il meta robots sia cambiato.",
+     "verifica": "tisaneVisibili",
+     "vai": {
+      "link": "/app/percorsi/seo/pannello/#tema",
+      "testo": "Apri il Pannello del negozio"
+     },
+     "perche": "Ora Ispeziona su /tisane/ mostra \"index, follow\" e il crawler la segna come indicizzabile. Carrello e account restano fuori, ed è giusto così.",
+     "aiuto": "Cerca la categoria senza spunta nella sezione \"Categorie visibili sui motori di ricerca\".",
+     "opzioni": [],
+     "dove": "[data-categorie]",
+     "come": [
+      "Apri il <a href=\"/app/percorsi/seo/pannello/#tema\">Pannello del negozio</a> nella scheda <strong>Tema e impostazioni</strong>.",
+      "In <strong>Categorie visibili sui motori di ricerca</strong> accendi <strong>Tisane</strong>. Si salva da solo.",
+      "Facoltativo: apri <a href=\"/app/negozio/tisane/\">/tisane/ nel negozio</a>, premi <strong>Ispeziona</strong> e guarda che il meta robots ora sia index, follow.",
+      "Premi <strong>Controlla il lavoro</strong> qui nella guida."
+     ]
+    },
+    {
+     "tipo": "azione",
+     "strumento": "pannello",
+     "domanda": "Sistema il prodotto che non esiste più",
+     "spiega": "Una pagina 404 linkata da altre pagine è un vicolo cieco per le persone e per Google. Se esiste un prodotto che la sostituisce, si crea un reindirizzamento 301 dal vecchio indirizzo al nuovo.",
+     "esempio": "Una libreria toglie la vecchia edizione di un libro: crea un 301 da /libri/vecchia-edizione/ a /libri/nuova-edizione/.",
+     "compito": "Nel <strong>Crawler</strong> apri il filtro <strong>Pagine 404</strong> e leggi la nota. Poi nel <strong>Pannello</strong> → <strong>Reindirizzamenti</strong> scrivi da dove a dove.",
+     "verifica": "redirect404",
+     "vai": {
+      "link": "/app/percorsi/seo/pannello/#redirect",
+      "testo": "Apri i reindirizzamenti"
+     },
+     "perche": "Chi clicca uno dei 6 link al vecchio Earl Grey arriva sul nuovo: prova a cliccare il link \"Earl Grey classico\" nella home del negozio. Il crawler ora lo segna come 301.",
+     "aiuto": "Il sostituto è scritto nella nota del 404: è l'Earl Grey biologico, all'indirizzo /te-neri/earl-grey-bio/.",
+     "opzioni": [],
+     "dove": "[data-nuovo-redirect]",
+     "come": [
+      "Apri il <a href=\"/app/percorsi/seo/strumenti/crawler/\">Crawler</a> e clicca il filtro <strong>Pagine 404</strong> (gruppo Errori).",
+      "Clicca la riga che compare e leggi i <strong>Dettagli dell'indirizzo</strong>: la nota dice quale prodotto lo sostituisce.",
+      "Apri il <a href=\"/app/percorsi/seo/pannello/#redirect\">Pannello del negozio → Reindirizzamenti</a>.",
+      "In <strong>Da</strong> scrivi l'indirizzo della pagina 404, in <strong>A</strong> l'indirizzo del prodotto che la sostituisce. Premi <strong>Salva il 301</strong>.",
+      "Premi <strong>Controlla il lavoro</strong>."
+     ]
+    },
+    {
+     "tipo": "azione",
+     "strumento": "pannello",
+     "domanda": "Accorcia la catena di redirect",
+     "spiega": "Una catena di redirect è quando A rimanda a B che rimanda a C. Ogni salto rallenta e Google può smettere di seguirli. Si corregge facendo puntare A direttamente alla pagina finale.",
+     "esempio": "Una libreria ha /libro.php?id=3 → /libri/vecchio/ → /libri/nuovo/: modifica il primo perché vada subito su /libri/nuovo/.",
+     "compito": "Nel <strong>Pannello</strong> → <strong>Reindirizzamenti</strong> trova la riga con l'etichetta \"catena\" e modificala.",
+     "verifica": "catena",
+     "vai": {
+      "link": "/app/percorsi/seo/pannello/#redirect",
+      "testo": "Apri i reindirizzamenti"
+     },
+     "perche": "Ora il vecchio indirizzo del vecchio sito arriva al Sencha biologico in un solo salto, senza passare da /te-verdi/sencha/.",
+     "aiuto": "/prodotto.php?id=12 deve portare direttamente a /te-verdi/sencha-bio/.",
+     "opzioni": [],
+     "dove": "[data-righe-redirect]",
+     "come": [
+      "Apri il <a href=\"/app/percorsi/seo/pannello/#redirect\">Pannello del negozio → Reindirizzamenti</a>.",
+      "Nella tabella trova la riga con l'etichetta <strong>catena</strong>: /prodotto.php?id=12 porta a /te-verdi/sencha/, che porta a sua volta a /te-verdi/sencha-bio/.",
+      "Premi <strong>Modifica</strong> su quella riga e nel campo <strong>A</strong> scrivi la pagina finale della catena. Premi <strong>Salva il 301</strong>.",
+      "Non cancellare la riga di /te-verdi/sencha/: serve ancora. Poi premi <strong>Controlla il lavoro</strong>."
+     ]
+    },
+    {
+     "tipo": "azione",
+     "strumento": "indicizzazione",
+     "domanda": "Chiedi a Google di verificare la correzione",
+     "spiega": "Correggere il sito non basta: Google se ne accorge solo quando rilegge le pagine. Negli strumenti per i webmaster si chiede di \"convalidare la correzione\": Google ricontrolla le pagine di quel problema e, se è risolto, le rimette nei risultati.",
+     "esempio": "Il negozio di candele, dopo aver sistemato la categoria, apre il rapporto delle pagine escluse e preme \"Convalida correzione\" sul motivo noindex.",
+     "compito": "In <strong>Pagine e indicizzazione</strong> apri il motivo <strong>noindex</strong>: guarda la colonna \"Sul sito oggi\" e poi premi <strong>Convalida correzione</strong>.",
+     "verifica": "convalidaNoindex",
+     "vai": {
+      "link": "/app/percorsi/seo/strumenti/indicizzazione/",
+      "testo": "Apri Pagine e indicizzazione"
+     },
+     "perche": "La convalida è iniziata. I numeri del grafico non cambiano subito: Google rilegge le pagine nei prossimi giorni.",
+     "aiuto": "Se la convalida non riesce, il problema c'è ancora sul sito: ricontrolla il passo 2.",
+     "opzioni": [],
+     "dove": "tr[data-motivo=\"0\"]",
+     "come": [
+      "Apri <a href=\"/app/percorsi/seo/strumenti/indicizzazione/\">Pagine e indicizzazione</a>.",
+      "Nella tabella <strong>Perché alcune pagine non sono indicizzate</strong> clicca la riga <strong>Esclusa in base al tag \"noindex\"</strong>.",
+      "Guarda la colonna <strong>Sul sito oggi</strong>: le tisane devono risultare sistemate.",
+      "Premi <strong>Convalida correzione</strong>, poi <strong>Controlla il lavoro</strong>."
+     ]
+    }
+   ],
+   "imparato": [
+    "leggere il rapporto di indicizzazione",
+    "togliere un noindex dal tema",
+    "creare un reindirizzamento 301",
+    "accorciare una catena di redirect",
+    "chiedere a Google di convalidare una correzione"
+   ],
+   "elena": "Ho visto: le tisane sono di nuovo visibili e il vecchio Earl Grey porta al nuovo. Bel lavoro, domani guardiamo le keyword.",
+   "livello": "difficile"
+  },
+  {
+   "id": "m5",
+   "n": 5,
+   "nome": "Caso finale: il calo di ottobre",
+   "tempo": "30 minuti",
+   "strumenti": "Tutti",
+   "cosa": "Capisci cosa è successo e decidi le priorità.",
+   "obiettivo": "Elena vuole sapere perché ottobre va male. Metti insieme tutto: dove cala il traffico, cosa è normale e cosa no, quanto costa e cosa fare.",
+   "passi": [
+    {
+     "strumento": "console",
+     "domanda": "Il calo è di tutto il sito o di una parte?",
+     "spiega": "Molte ricerche cambiano con le stagioni. Per capire se un calo è un problema confronta lo stesso mese dell'anno prima, non solo il mese precedente, e guarda una parte del sito alla volta.",
+     "esempio": "Una gelateria vende meno a ottobre che ad agosto: è normale. Se però vende meno anche rispetto all'ottobre dell'anno scorso, c'è un problema da cercare.",
+     "compito": "Scegli <strong>Ultimi 3 mesi</strong>, attiva <strong>Confronta con l'anno prima</strong> e cambia <strong>Parte del sito</strong>.",
+     "tipo": "radio",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Il blog",
+       "giusta": false,
+       "nota": "Il blog cresce rispetto all'anno prima."
+      },
+      {
+       "id": "o2",
+       "testo": "La categoria Tisane",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "I tè freddi",
+       "giusta": false,
+       "nota": "Calano rispetto a settembre, ma crescono rispetto all'anno prima."
+      },
+      {
+       "id": "o4",
+       "testo": "Tutte allo stesso modo",
+       "giusta": false,
+       "nota": "Prova a cambiare parte del sito: le differenze sono grandi."
+      }
+     ],
+     "perche": "Le tisane perdono circa la metà dei clic rispetto agli stessi mesi del 2025, e a ottobre quasi tutto. Le altre parti sono stabili o in crescita.",
+     "aiuto": "Guarda il numero rosso sotto \"Clic totali\" per ogni parte del sito.",
+     "dove": "[data-segmento]",
+     "come": [
+      "Apri <a href=\"/app/percorsi/seo/strumenti/console/\">Console di ricerca</a>.",
+      "In alto scegli <strong>Ultimi 3 mesi</strong> e attiva <strong>Confronta con l'anno prima</strong>.",
+      "Nel menu <strong>Tutto il sito</strong> prova le parti del sito una per una.",
+      "Trova la parte che scende molto più delle altre, scegli e premi <strong>Controlla</strong>."
+     ]
+    },
+    {
+     "strumento": "console",
+     "domanda": "E i tè freddi? Sono un problema?",
+     "spiega": "Un calo è normale quando si ripete ogni anno nello stesso periodo. Si confronta la variazione di quest'anno con quella dell'anno prima: se è simile, è stagionalità.",
+     "esempio": "La gelateria perde il 60% dei clienti da settembre a ottobre, ogni anno: non è un problema, è la stagione.",
+     "compito": "Scegli <strong>Tè freddi</strong> e guarda settembre e ottobre del 2025 e del 2026.",
+     "tipo": "radio",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Sì: calano del 65% da settembre a ottobre",
+       "giusta": false,
+       "nota": "Calavano allo stesso modo anche nel 2025."
+      },
+      {
+       "id": "o2",
+       "testo": "No: calano ogni autunno, anche nel 2025, e sono sopra l'anno prima",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Sì: hanno anche loro il noindex",
+       "giusta": false,
+       "nota": "Nel rapporto di indicizzazione il noindex riguarda le tisane, non i tè freddi."
+      },
+      {
+       "id": "o4",
+       "testo": "Non si può dire senza i dati di vendita",
+       "giusta": false,
+       "nota": "I clic dei due anni bastano per vedere la stagionalità."
+      }
+     ],
+     "perche": "Da settembre a ottobre i tè freddi calano di circa due terzi sia nel 2025 sia nel 2026; a ottobre 2026 hanno più clic di ottobre 2025. È la stagione.",
+     "aiuto": "Confronta ottobre 2026 con ottobre 2025, non con settembre.",
+     "dove": "[data-segmento]",
+     "come": [
+      "Sempre nella Console, nel menu delle parti del sito scegli <strong>Tè freddi</strong>.",
+      "Confronta settembre e ottobre del 2026 con gli stessi mesi del 2025.",
+      "Se il calo c'era anche l'anno prima, è stagionale: normale.",
+      "Scegli e premi <strong>Controlla</strong>."
+     ]
+    },
+    {
+     "strumento": "statistiche",
+     "domanda": "Quanto costa al mese il problema delle tisane?",
+     "spiega": "Per tradurre un calo di visite in euro moltiplica tre numeri: le sessioni perse, il tasso di conversione della pagina (quante visite su 100 diventano un ordine) e il valore medio di un ordine.",
+     "esempio": "Un negozio di candele perde 500 visite al mese su una pagina che converte il 3%, con ordini da 20 €: 500 × 3% × 20 € = 300 € al mese.",
+     "compito": "La categoria Tisane ha perso circa <strong>970 sessioni</strong> al mese rispetto a ottobre 2025. Trova conversione e ricavi di /tisane/ nella tabella.",
+     "tipo": "radio",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Circa 50 €",
+       "giusta": false,
+       "nota": "Ricontrolla la conversione: è 2%, non 0,2%."
+      },
+      {
+       "id": "o2",
+       "testo": "Circa 470 €",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Circa 4.700 €",
+       "giusta": false,
+       "nota": "Ricontrolla: 970 × 2% fa circa 19 ordini, non 190."
+      },
+      {
+       "id": "o4",
+       "testo": "Non si può calcolare",
+       "giusta": false,
+       "nota": "Hai tutti e tre i numeri: sessioni perse, conversione e valore medio."
+      }
+     ],
+     "perche": "970 sessioni × 2% = circa 19 ordini; 19 × 24 € = circa 466 € al mese. E cresce con l'inverno, quando le tisane si cercano di più.",
+     "aiuto": "Valore medio dell'ordine di /tisane/: ricavi ÷ ordini. Poi 970 × 2% × quel valore.",
+     "dove": "#t-ga",
+     "come": [
+      "Apri <a href=\"/app/percorsi/seo/strumenti/statistiche/\">Statistiche</a> e trova la riga <strong>/tisane/</strong> (puoi scriverlo in Filtra le pagine).",
+      "Leggi la <strong>Conversione</strong> e calcola il valore medio di un ordine: Ricavi diviso Ordini.",
+      "Moltiplica: 970 sessioni perse × conversione × valore medio dell'ordine.",
+      "Scegli il risultato più vicino e premi <strong>Controlla</strong>."
+     ]
+    },
+    {
+     "strumento": "indicizzazione",
+     "domanda": "Cosa scrivi a Elena?",
+     "spiega": "Un buon riepilogo per un responsabile dice in poche righe cosa è successo, perché, quanto pesa e cosa si fa, in ordine di priorità. Separa i problemi veri da ciò che è normale.",
+     "esempio": "\"Le vendite di candele natalizie calano perché la pagina è sparita da Google dopo l'aggiornamento del 3 novembre. Perdiamo circa 300 € al mese. La ripristiniamo oggi; il calo delle candele estive invece è stagionale.\"",
+     "compito": "Rileggi quello che hai trovato: dove cala, da quando, perché, quanto costa.",
+     "tipo": "radio",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "È colpa di Google che ha cambiato algoritmo: aspettiamo qualche mese",
+       "giusta": false,
+       "nota": "I dati mostrano una causa sul sito, con una data precisa."
+      },
+      {
+       "id": "o2",
+       "testo": "Il calo viene dalle tisane, uscite da Google per il noindex arrivato con il nuovo tema il 18/09: costa circa 470 € al mese. Tolgo il noindex e chiedo a Google di rileggere le pagine; i tè freddi calano per la stagione.",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Il problema sono i tè freddi: abbassiamo i prezzi",
+       "giusta": false,
+       "nota": "Il calo dei tè freddi è stagionale, come ogni anno."
+      },
+      {
+       "id": "o4",
+       "testo": "Compriamo annunci su Google per tutte le parole del sito",
+       "giusta": false,
+       "nota": "Gli annunci non risolvono il noindex e costano ogni mese."
+      }
+     ],
+     "perche": "Causa, data, costo, soluzione e cosa è normale: in poche righe Elena ha tutto per decidere.",
+     "aiuto": "Cerca il messaggio che dice causa, data, quanto costa e cosa fare.",
+     "dove": "tr[data-motivo]",
+     "come": [
+      "Rileggi quello che hai trovato: dove cala il traffico, da quando, perché e quanto costa.",
+      "Se ti serve, riguarda in <a href=\"/app/percorsi/seo/strumenti/indicizzazione/\">Pagine e indicizzazione</a> il motivo noindex.",
+      "Scegli il messaggio più completo e corretto e premi <strong>Controlla</strong>."
+     ]
+    }
+   ],
+   "imparato": [
+    "separare la stagionalità dai problemi veri",
+    "collegare un calo a una modifica del sito",
+    "tradurre un calo di traffico in euro",
+    "scrivere un riepilogo per un responsabile"
+   ],
+   "elena": "Chiarissimo, grazie! Il noindex è già stato tolto e le tisane stanno tornando su Google. Hai fatto un ottimo lavoro: benvenuta davvero nel team.",
+   "livello": "difficile"
+  }
+ ]
 }

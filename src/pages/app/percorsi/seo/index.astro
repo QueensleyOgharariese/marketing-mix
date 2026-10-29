@@ -1,11 +1,12 @@
 ---
 // PERCORSO DI APPROFONDIMENTO · SEO (pagina di partenza, livello junior)
-// Come nel design "Panoramica del percorso": benvenuto, messaggio della responsabile, le 5 missioni
-// (si sbloccano una alla volta), gli strumenti, le parole che si incontrano.
+// Benvenuto, messaggio della responsabile, il tutorial (si fa per primo), le 5 missioni in ordine di
+// difficoltà (dopo il tutorial si sceglie liberamente), gli strumenti, le parole che si incontrano.
 // Lo stato delle missioni (da iniziare, in corso, completata, bloccata) arriva dal browser: lo scrive la guida della missione.
 import Console from "../../../../components/seopro/Console.astro";
 import sc from "../../../../data/app/seo-pro/search-console.json";
 import { num } from "../../../../scripts/tabella";
+import dati from "../../../../data/app/seo-pro/missioni.json";
 
 const B = "/app/percorsi/seo/strumenti";
 const STRUMENTI = [
@@ -15,13 +16,11 @@ const STRUMENTI = [
   { nome: "Crawler", link: `${B}/crawler/`, vero: "Screaming Frog", cosa: "Il sito visto da Google: errori, redirect, titoli." },
   { nome: "Statistiche", link: `${B}/statistiche/`, vero: "Google Analytics", cosa: "Cosa succede dopo il clic: visite, ordini, ricavi." },
 ];
-const MISSIONI = [
-  { n: 1, nome: "Audit tecnico", cosa: "Trova cosa impedisce a Google di leggere bene il sito.", tempo: "35 minuti", strumenti: "Indicizzazione, Crawler" },
-  { n: 2, nome: "Keyword e cannibalizzazione", cosa: "Scegli la keyword giusta per ogni pagina.", tempo: "30 minuti", strumenti: "Keyword, Console" },
-  { n: 3, nome: "Riscrivi la categoria Tè verdi", cosa: "Title, description e testo di una pagina poco cliccata.", tempo: "25 minuti", strumenti: "Console, Negozio" },
-  { n: 4, nome: "Piano dei contenuti", cosa: "Quali articoli scrivere nei prossimi mesi, e quando.", tempo: "30 minuti", strumenti: "Keyword, Statistiche" },
-  { n: 5, nome: "Caso finale: il calo di ottobre", cosa: "Capisci cosa è successo e decidi le priorità.", tempo: "30 minuti", strumenti: "Tutti" },
-];
+// Tutorial e missioni arrivano da missioni.json (già in ordine dal più facile al più difficile)
+const TUTORIAL = dati.missioni.find((m) => m.id === "tutorial")!;
+const MISSIONI = dati.missioni.filter((m) => m.id !== "tutorial");
+const LIV: Record<string, [string, number]> = { facile: ["Facile", 1], media: ["Media", 2], difficile: ["Difficile", 3] };
+const minuti = MISSIONI.reduce((t, m) => t + parseInt(m.tempo), 0);
 const ott = sc.mesi.find((m) => m.mese === "2026-10")!;
 const set = sc.mesi.find((m) => m.mese === "2026-09")!;
 const calo = Math.round((1 - ott.clic / set.clic) * 100);
@@ -31,11 +30,12 @@ const calo = Math.round((1 - ott.clic / set.clic) * 100);
     <div class="benvenuto">
       <p class="occhiello">Primo giorno da SEO specialist junior</p>
       <h2>Benvenuta nel team di cinquefoglie.example</h2>
-      <p>Hai a disposizione il sito vero del negozio e cinque strumenti. Ogni passo di una missione comincia con una spiegazione e un esempio; poi leggi i dati e scegli tu cosa fare.</p>
+      <p>Hai a disposizione il sito del negozio, il suo pannello di gestione e cinque strumenti. Si comincia dal tutorial: in {TUTORIAL.tempo} impari dove sono le cose facendo una prima correzione vera. Poi scegli tu le missioni, dalla più facile alla più difficile.</p>
       <div class="bottoni">
-        <button type="button" class="bottone-app" data-avvia-prossima>Inizia la missione 1</button>
+        <button type="button" class="bottone-app" data-avvia-prossima>Inizia il tutorial</button>
         <a class="bottone-scuro" href="/app/negozio/">Prima guardo il negozio</a>
       </div>
+      <button type="button" class="salta" data-salta hidden>Conosco già gli strumenti: salta il tutorial</button>
     </div>
     <article class="messaggio">
       <div class="mittente"><span class="avatar avatar--verde">EM</span><span><strong>Elena M.</strong><span class="nota">Responsabile e-commerce, oggi alle 9:12</span></span></div>
@@ -45,15 +45,30 @@ const calo = Math.round((1 - ott.clic / set.clic) * 100);
     </article>
   </section>
 
-  <section>
-    <div class="titolo-riga"><h2 class="titoletto">Le missioni</h2><span class="nota">Circa 2 ore e mezza in tutto. Si sbloccano una alla volta.</span></div>
+  <section class="tutorial" data-tutorial>
+    <div class="tut-testo">
+      <span class="tut-etichetta">Da fare per primo · {TUTORIAL.tempo}</span>
+      <h2 class="titoletto">{TUTORIAL.nome}</h2>
+      <p>{TUTORIAL.cosa}</p>
+    </div>
+    <ol class="tut-passi">
+      {TUTORIAL.passi.map((p) => <li>{p.domanda}</li>)}
+    </ol>
+    <div class="tut-azione"><span class="stato" data-tut-stato>Da iniziare</span><button type="button" class="bottone-app" data-tut-azione>Inizia il tutorial</button></div>
+  </section>
+
+  <section id="missioni">
+    <div class="titolo-riga"><h2 class="titoletto">Le missioni</h2><span class="nota" data-nota-missioni>Dalla più facile alla più difficile, circa {(Math.round(minuti / 30) / 2).toLocaleString("it-IT")} ore in tutto. Si aprono dopo il tutorial.</span></div>
     <ol class="missioni">
-      {MISSIONI.map((m, i) => (
-        <li class:list={["missione", { prima: i === 0 }]} data-missione={`m${m.n}`}>
-          <div class="missione-testa"><span class="numero">{m.n}</span><span class="stato" data-stato>{i === 0 ? "Da iniziare" : "Bloccata"}</span></div>
+      {MISSIONI.map((m) => (
+        <li class="missione" data-missione={m.id}>
+          <div class="missione-testa"><span class="numero">{m.n}</span>
+            <span class="livello" data-livello={m.livello}><span class="tacche" aria-hidden="true">{[1, 2, 3].map((t) => <i class:list={{ piena: t <= LIV[m.livello][1] }} />)}</span>{LIV[m.livello][0]}</span>
+          </div>
           <strong>{m.nome}</strong>
           <span class="cosa">{m.cosa}</span>
-          <span class="meta">{m.tempo}. Strumenti: {m.strumenti}</span>
+          <span class="meta">{m.tempo} · {m.passi.length} passi<br />Strumenti: {m.strumenti}</span>
+          <span class="stato" data-stato>Dopo il tutorial</span>
           <button type="button" class="azione" data-azione hidden></button>
         </li>
       ))}
@@ -86,28 +101,50 @@ const calo = Math.round((1 - ott.clic / set.clic) * 100);
 </Console>
 
 <script>
-  import { MISSIONI, leggiStato, sbloccata, punti, avvia } from "../../../../scripts/missioni";
+  import { MISSIONI, TUTORIAL, leggiStato, sbloccata, punti, avvia, tutorialFatto, saltaTutorial, consigliata } from "../../../../scripts/missioni";
   const s = leggiStato();
-  let prossima: string | null = null;
+  const fatto = tutorialFatto(s);
+  const st = s.missioni.tutorial;
+
+  // Tutorial
+  const tut = document.querySelector<HTMLElement>("[data-tutorial]")!;
+  const tutStato = tut.querySelector<HTMLElement>("[data-tut-stato]")!;
+  const tutAzione = tut.querySelector<HTMLButtonElement>("[data-tut-azione]")!;
+  if (fatto) { tut.classList.add("fatta"); tutStato.textContent = "Fatto"; tutAzione.textContent = "Rifai il tutorial"; tutAzione.className = "azione"; }
+  else if (st?.stato === "in-corso") { tutStato.textContent = `In corso, passo ${st.passo + 1} di ${TUTORIAL.passi.length}`; tutAzione.textContent = "Continua il tutorial"; }
+  tutAzione.addEventListener("click", () => { location.href = avvia("tutorial"); });
+
+  // Missioni: prima del tutorial sono chiuse; dopo, tutte aperte. La consigliata è la prima non completata.
+  const prossima = fatto ? consigliata(s) : undefined;
+  if (fatto) document.querySelector("[data-nota-missioni]")!.textContent = "Dalla più facile alla più difficile. Scegli tu da quale partire: puoi farle in qualunque ordine.";
   for (const m of MISSIONI) {
     const li = document.querySelector<HTMLElement>(`[data-missione="${m.id}"]`)!;
     const stato = li.querySelector<HTMLElement>("[data-stato]")!;
     const azione = li.querySelector<HTMLButtonElement>("[data-azione]")!;
     const sm = s.missioni[m.id];
-    li.classList.remove("prima", "fatta");
-    if (sm?.stato === "completata") { stato.textContent = `Completata, ${punti(sm)} punti`; azione.textContent = "Rifai"; azione.hidden = false; li.classList.add("fatta"); }
-    else if (sm?.stato === "in-corso") { stato.textContent = `In corso, passo ${sm.passo + 1} di ${m.passi.length}`; azione.textContent = "Continua"; azione.hidden = false; prossima ??= m.id; }
-    else if (sbloccata(s, m)) { stato.textContent = "Da iniziare"; azione.textContent = "Inizia"; azione.hidden = false; prossima ??= m.id; }
-    else { stato.textContent = "Bloccata"; azione.hidden = true; }
-    if (m.id === prossima) li.classList.add("prima");
+    if (!sbloccata(s, m)) { li.classList.add("chiusa"); continue; }
+    azione.hidden = false;
+    if (sm?.stato === "completata") { stato.textContent = `Completata, ${punti(sm)} punti`; azione.textContent = "Rifai"; li.classList.add("fatta"); }
+    else if (sm?.stato === "in-corso") { stato.textContent = `In corso, passo ${sm.passo + 1} di ${m.passi.length}`; azione.textContent = "Continua"; }
+    else { stato.textContent = "Da iniziare"; azione.textContent = "Inizia"; }
+    if (m.id === prossima?.id) { li.classList.add("prima"); stato.textContent = sm?.stato === "in-corso" ? stato.textContent : "Consigliata ora"; }
     azione.addEventListener("click", () => { location.href = avvia(m.id); });
   }
+
+  // Bottone grande in alto: tutorial, poi la missione in corso o la consigliata
   const hero = document.querySelector<HTMLButtonElement>("[data-avvia-prossima]")!;
-  if (prossima) {
-    const m = MISSIONI.find((x) => x.id === prossima)!;
-    hero.textContent = s.missioni[m.id]?.stato === "in-corso" ? `Continua la missione ${m.n}` : `Inizia la missione ${m.n}`;
-    hero.addEventListener("click", () => { location.href = avvia(m.id); });
-  } else { hero.textContent = "Tutte le missioni completate"; hero.disabled = true; }
+  const salta = document.querySelector<HTMLButtonElement>("[data-salta]")!;
+  if (!fatto) {
+    hero.textContent = st?.stato === "in-corso" ? "Continua il tutorial" : "Inizia il tutorial";
+    hero.addEventListener("click", () => { location.href = avvia("tutorial"); });
+    salta.hidden = false;
+    salta.addEventListener("click", () => { saltaTutorial(); location.reload(); });
+  } else {
+    const inCorso = MISSIONI.find((m) => s.missioni[m.id]?.stato === "in-corso" && s.attiva === m.id) ?? MISSIONI.find((m) => s.missioni[m.id]?.stato === "in-corso");
+    const m = inCorso ?? prossima;
+    if (m) { hero.textContent = `${inCorso ? "Continua" : "Inizia"} la missione ${m.n}`; hero.addEventListener("click", () => { location.href = avvia(m.id); }); }
+    else { hero.textContent = "Tutte le missioni completate"; hero.disabled = true; }
+  }
 </script>
 
 <style>
@@ -130,6 +167,27 @@ const calo = Math.round((1 - ott.clic / set.clic) * 100);
   .titolo-riga { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px; margin-bottom: 12px; }
   .titoletto { font-family: var(--font-titoli); font-size: 1.35rem; font-weight: 800; margin: 0 0 12px; }
   .titolo-riga .titoletto { margin: 0; }
+  .salta { align-self: flex-start; font: inherit; font-size: .85rem; color: #cfcac2; background: none; border: 0; padding: 4px 0; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+  .salta:hover { color: #fff; }
+  .tutorial { background: #fff; border: 2px solid var(--arancio); border-radius: 22px; padding: 24px 26px; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr) auto; gap: 24px; align-items: center; }
+  .tutorial.fatta { border: 1px solid #e3e1dc; }
+  .tut-testo { display: flex; flex-direction: column; gap: 6px; }
+  .tut-testo .titoletto { margin: 0; }
+  .tut-testo p { margin: 0; line-height: 1.55; color: #423e39; font-size: .92rem; }
+  .tut-etichetta { font-size: .78rem; font-weight: 700; color: #55514c; }
+  .tut-passi { margin: 0; padding: 0; list-style: none; counter-reset: t; display: flex; flex-direction: column; gap: 8px; font-size: .88rem; }
+  .tut-passi li { counter-increment: t; display: flex; gap: 10px; align-items: center; }
+  .tut-passi li::before { content: counter(t); flex: none; width: 24px; height: 24px; border-radius: 50%; background: #e9e8e4; display: grid; place-items: center; font-weight: 800; font-size: .78rem; }
+  .tut-azione { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+  .tutorial.fatta .stato { color: #1f5c38; }
+  @media (max-width: 900px) { .tutorial { grid-template-columns: 1fr; gap: 16px; padding: 20px; } }
+  .livello { display: inline-flex; align-items: center; gap: 6px; font-size: .78rem; font-weight: 700; color: #423e39; }
+  .tacche { display: inline-flex; gap: 2px; align-items: flex-end; }
+  .tacche i { width: 4px; border-radius: 1px; background: #d9d6d0; }
+  .tacche i:nth-child(1) { height: 6px; } .tacche i:nth-child(2) { height: 9px; } .tacche i:nth-child(3) { height: 12px; }
+  .tacche i.piena { background: var(--inchiostro); }
+  .missione.chiusa { background: #f8f8f6; }
+  .missione.chiusa .stato { color: #625e58; font-weight: 600; }
   .missioni { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
   .missione { background: #fff; border: 1px solid #e3e1dc; border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 8px; color: #55514c; }
   .missione.prima { border: 2px solid var(--arancio); color: var(--inchiostro); }
@@ -139,7 +197,7 @@ const calo = Math.round((1 - ott.clic / set.clic) * 100);
   .prima .numero { background: var(--arancio); }
   .stato { font-size: .78rem; font-weight: 700; }
   .cosa { font-size: .86rem; line-height: 1.5; }
-  .meta { font-size: .78rem; margin-top: auto; }
+  .meta { font-size: .78rem; margin-top: auto; line-height: 1.5; }
   .azione { align-self: flex-start; font: inherit; font-weight: 700; font-size: .85rem; padding: 9px 14px; border-radius: 10px; border: 1px solid #d1cec8; background: #fff; color: var(--inchiostro); cursor: pointer; }
   .prima .azione { background: var(--arancio); border-color: var(--arancio); }
   .fatta .numero { background: #2f7a4f; color: #fff; }

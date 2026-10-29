@@ -4,13 +4,23 @@
 import dati from "../data/app/seo-pro/missioni.json";
 
 export type Opzione = { id: string; testo: string; giusta: boolean; nota: string };
-// tipo: "radio" o "checkbox" = si sceglie una risposta; "azione" = si lavora sul sito e la guida controlla com'è adesso
-export type Passo = { strumento: string; pagina?: string; domanda: string; spiega: string; esempio: string; compito: string; tipo: "radio" | "checkbox" | "azione"; opzioni: Opzione[]; perche: string; aiuto: string; dove: string; verifica?: string; vai?: { link: string; testo: string } };
-export type Missione = { id: string; n: number; nome: string; tempo: string; strumenti: string; cosa: string; obiettivo: string; passi: Passo[]; imparato: string[]; elena: string };
+// tipo: "radio" o "checkbox" = si sceglie una risposta; "azione" = si lavora sul sito e la guida controlla com'è adesso;
+// "info" = solo spiegazione (usato nel tutorial), si va avanti con "Ho capito".
+// come: le istruzioni numerate "Come si fa" (possono contenere link e grassetti).
+export type Passo = { strumento: string; pagina?: string; domanda: string; spiega: string; esempio: string; compito: string; come?: string[]; tipo: "radio" | "checkbox" | "azione" | "info"; opzioni: Opzione[]; perche: string; aiuto: string; dove: string; verifica?: string; vai?: { link: string; testo: string } };
+// livello: "tutorial", "facile", "media" o "difficile". Le missioni nel file sono già in ordine di difficoltà.
+export type Missione = { id: string; n: number; livello: string; nome: string; tempo: string; strumenti: string; cosa: string; obiettivo: string; passi: Passo[]; imparato: string[]; elena: string };
 export type StatoMissione = { stato: "in-corso" | "completata"; passo: number; errori: number; aiuti: number[]; primoColpo: boolean[] };
 export type Stato = { attiva: string | null; missioni: Record<string, StatoMissione> };
 
-export const MISSIONI = dati.missioni as Missione[];
+export const TUTTE = dati.missioni as Missione[]; // tutorial + missioni
+export const TUTORIAL = TUTTE.find((m) => m.id === "tutorial")!;
+export const MISSIONI = TUTTE.filter((m) => m.id !== "tutorial"); // solo le missioni vere (per contatori e panoramica)
+export const LIVELLI: Record<string, { nome: string; tacche: number }> = {
+  tutorial: { nome: "Tutorial", tacche: 0 }, facile: { nome: "Facile", tacche: 1 }, media: { nome: "Media", tacche: 2 }, difficile: { nome: "Difficile", tacche: 3 },
+};
+// Nome da mostrare nella guida: "Tutorial: come funziona" oppure "Missione 2: Piano dei contenuti"
+export const etichetta = (m: Missione) => (m.id === "tutorial" ? m.nome : `Missione ${m.n}: ${m.nome}`);
 const CHIAVE = "marketing-mix-percorso-seo";
 
 export const STRUMENTI: Record<string, { nome: string; link: string }> = {
@@ -33,12 +43,19 @@ export function salvaStato(s: Stato) {
   try { localStorage.setItem(CHIAVE, JSON.stringify(s)); } catch {}
 }
 
-// Una missione si può fare se è la prima o se la precedente è completata
+// Prima si fa il tutorial (o lo si salta); poi tutte le missioni sono aperte e si sceglie liberamente
+export const tutorialFatto = (s: Stato) => s.missioni.tutorial?.stato === "completata";
 export function sbloccata(s: Stato, m: Missione) {
-  if (m.n === 1) return true;
-  const prima = MISSIONI.find((x) => x.n === m.n - 1)!;
-  return s.missioni[prima.id]?.stato === "completata";
+  return m.id === "tutorial" || tutorialFatto(s);
 }
+export function saltaTutorial() {
+  const s = leggiStato();
+  s.missioni.tutorial = { stato: "completata", passo: 0, errori: 0, aiuti: [], primoColpo: [] };
+  if (s.attiva === "tutorial") s.attiva = null;
+  salvaStato(s);
+}
+// La prossima missione consigliata: la prima (in ordine di difficoltà) non ancora completata
+export const consigliata = (s: Stato) => MISSIONI.find((m) => s.missioni[m.id]?.stato !== "completata");
 
 // Indirizzo dove si fa un passo
 export const linkPasso = (p: Passo) => p.vai?.link ?? p.pagina ?? STRUMENTI[p.strumento].link;
@@ -46,7 +63,7 @@ export const linkPasso = (p: Passo) => p.vai?.link ?? p.pagina ?? STRUMENTI[p.st
 // Avvia (o riprende) una missione e restituisce dove andare
 export function avvia(id: string) {
   const s = leggiStato();
-  const m = MISSIONI.find((x) => x.id === id)!;
+  const m = TUTTE.find((x) => x.id === id)!;
   if (!s.missioni[id] || s.missioni[id].stato === "completata") s.missioni[id] = { stato: "in-corso", passo: 0, errori: 0, aiuti: [], primoColpo: [] };
   s.attiva = id;
   salvaStato(s);

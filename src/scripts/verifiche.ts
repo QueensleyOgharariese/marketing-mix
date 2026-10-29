@@ -13,6 +13,16 @@ const quante = (testo: string, frase: string) => normalizza(testo).split(normali
 const TE_VERDI = catalogo.prodotti.filter((p) => p.categoria === "te-verdi").map((p) => normalizza(p.nome.replace(/^Tè verde (al |alla )?/i, "")).split(" ")[0]);
 
 export const VERIFICHE: Record<string, Verifica> = {
+  // Tutorial
+  tutorialH1: (m) => {
+    const h1 = paginaEffettiva("/matcha/", m)?.h1 ?? "";
+    return [
+      C("La pagina /matcha/ ha un H1", !!h1.trim(), "Pannello → Pagine → /matcha/: scrivi nel campo H1 e premi Salva le modifiche."),
+      C("L'H1 contiene la parola «matcha»", normalizza(h1).includes("matcha"), "Il titolo deve dire di cosa parla la pagina: usa la parola matcha."),
+      C("L'H1 è breve (massimo 60 caratteri)", h1.length <= 60, `Ora ha ${h1.length} caratteri: un titolo si legge in un colpo d'occhio.`),
+    ];
+  },
+
   // Missione 1
   tisaneVisibili: (m) => [
     C("La categoria Tisane è di nuovo visibile ai motori di ricerca", !m.tema.nascoste.includes("tisane"), "Pannello del negozio → Tema e impostazioni: spunta Tisane."),
