@@ -154,8 +154,8 @@ const segmenti = Object.entries(sc.segmenti);
     const W = 900, H = 260, sx = 40, dx = 20, su = 20, giu = 36;
     const x = (i: number) => sx + (i * (W - sx - dx)) / Math.max(1, mesi.length - 1);
     let svg = "";
-    for (let g = 0; g <= 4; g++) { const y = su + (g * (H - su - giu)) / 4; svg += `<line x1="${sx}" x2="${W - dx}" y1="${y}" y2="${y}" stroke="#f1e6dd"/>`; }
-    mesi.forEach((m, i) => { if (mesi.length <= 12 || i % 2 === 0) svg += `<text x="${x(i)}" y="${H - 12}" font-size="12" text-anchor="middle" fill="#8a7b72">${etichetta(m.mese)}</text>`; });
+    for (let g = 0; g <= 4; g++) { const y = su + (g * (H - su - giu)) / 4; svg += `<line x1="${sx}" x2="${W - dx}" y1="${y}" y2="${y}" stroke="#e9e8e4"/>`; }
+    mesi.forEach((m, i) => { if (mesi.length <= 12 || i % 2 === 0) svg += `<text x="${x(i)}" y="${H - 12}" font-size="12" text-anchor="middle" fill="#6f6a64">${etichetta(m.mese)}</text>`; });
     for (const k of attive) {
       const serie = mesi.map((m) => valori(m, seg)[k]);
       const serieP = prima.map((m) => valori(m, seg)[k]);
@@ -209,25 +209,25 @@ const segmenti = Object.entries(sc.segmenti);
 </script>
 
 <style>
-  .comandi { display: flex; flex-wrap: wrap; gap: 12px 22px; align-items: center; font-size: .85rem; font-weight: 600; color: #5c4a42; }
+  .comandi { display: flex; flex-wrap: wrap; gap: 12px 22px; align-items: center; font-size: .85rem; font-weight: 600; color: #55514c; }
   .comandi label { display: flex; align-items: center; gap: 8px; }
   .spunta input { accent-color: var(--arancio); width: 16px; height: 16px; }
-  .metrica { font: inherit; text-align: left; cursor: pointer; background: #fff; border: 1px solid #eadfd6; border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 2px; border-top: 4px solid #eadfd6; }
-  .metrica span { font-size: .78rem; color: #6b5d55; font-weight: 600; }
+  .metrica { font: inherit; text-align: left; cursor: pointer; background: #fff; border: 1px solid #e3e1dc; border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 2px; border-top: 4px solid #e3e1dc; }
+  .metrica span { font-size: .78rem; color: #5f5a55; font-weight: 600; }
   .metrica strong { font-family: var(--font-titoli); font-size: 1.7rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
   .metrica small { font-size: .75rem; font-weight: 700; min-height: 1em; }
   .m-clic[aria-pressed="true"] { border-top-color: #2f6fd6; } .m-impressioni[aria-pressed="true"] { border-top-color: #7b4bd1; }
   .m-ctr[aria-pressed="true"] { border-top-color: #1f8a5b; } .m-posizione[aria-pressed="true"] { border-top-color: #d9822b; }
-  .metrica[aria-pressed="false"] strong { color: #8a7b72; }
+  .metrica[aria-pressed="false"] strong { color: #6f6a64; }
   .tabelle { display: flex; flex-direction: column; gap: 12px; }
   .barra-tab { justify-content: flex-start; }
   .sp-scorri { max-height: 460px; overflow-y: auto; }
   tr[data-query] { cursor: pointer; }
-  .dettaglio { border: 2px solid var(--arancio); border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; background: #fffaf6; }
+  .dettaglio { border: 2px solid var(--arancio); border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; background: #f8f8f6; }
   .dettaglio :global(.d-testa) { margin: 0; }
   .dettaglio :global(.mini) { width: 100%; border-collapse: collapse; font-size: .85rem; }
-  .dettaglio :global(.mini th) { text-align: left; font-size: .75rem; color: #6b5d55; padding: 6px 8px; border-bottom: 1px solid #eadfd6; }
-  .dettaglio :global(.mini td) { padding: 6px 8px; border-bottom: 1px solid #f3eeea; }
+  .dettaglio :global(.mini th) { text-align: left; font-size: .75rem; color: #5f5a55; padding: 6px 8px; border-bottom: 1px solid #e3e1dc; }
+  .dettaglio :global(.mini td) { padding: 6px 8px; border-bottom: 1px solid #efeeeb; }
   .aiuto summary { cursor: pointer; font-weight: 700; }
   .aiuto p { margin: 10px 0 0; line-height: 1.6; font-size: .9rem; }
 </style>

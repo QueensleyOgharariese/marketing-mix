@@ -74,19 +74,19 @@ const { chiave, passi } = Astro.props;
   .guida::backdrop { background: rgba(42, 29, 24, .45); }
   .guida-corpo { padding: 24px 26px; display: flex; flex-direction: column; gap: 16px; }
   .guida-testa { display: flex; align-items: center; justify-content: space-between; }
-  .guida-conta { font-size: .8rem; font-weight: 700; color: #8a7b72; }
+  .guida-conta { font-size: .8rem; font-weight: 700; color: #6f6a64; }
   .passo { display: flex; flex-direction: column; gap: 10px; }
   .passo h2 { font-size: 1.45rem; line-height: 1.15; }
   .passo p { line-height: 1.6; color: #3a2b24; }
   /* Schema dell'esercizio: tre colonne, quella di cui si parla è arancione */
-  .schema { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 8px; height: 96px; padding: 10px; background: #f7f4f1; border-radius: 14px; }
-  .col { border-radius: 8px; background: #fff; border: 2px solid #eadfd6; padding: 8px; display: flex; flex-direction: column; gap: 6px; transition: border-color .2s, background .2s; }
-  .col i { display: block; height: 8px; border-radius: 4px; background: #eadfd6; }
+  .schema { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 8px; height: 96px; padding: 10px; background: #f4f4f2; border-radius: 14px; }
+  .col { border-radius: 8px; background: #fff; border: 2px solid #e3e1dc; padding: 8px; display: flex; flex-direction: column; gap: 6px; transition: border-color .2s, background .2s; }
+  .col i { display: block; height: 8px; border-radius: 4px; background: #e3e1dc; }
   .col i:nth-child(2) { width: 70%; }
-  .col.accesa { border-color: var(--arancio); background: #fff1e6; }
+  .col.accesa { border-color: var(--arancio); background: #efeeea; }
   .col.accesa i { background: #ffb27a; }
   .guida-piede { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; }
-  .salta { font: inherit; font-size: .85rem; font-weight: 700; background: none; border: 0; color: #6b5d55; text-decoration: underline; cursor: pointer; padding: 6px 0; }
+  .salta { font: inherit; font-size: .85rem; font-weight: 700; background: none; border: 0; color: #5f5a55; text-decoration: underline; cursor: pointer; padding: 6px 0; }
   .frecce { display: flex; gap: 8px; }
   .frecce button:disabled { opacity: .5; cursor: default; }
 </style>

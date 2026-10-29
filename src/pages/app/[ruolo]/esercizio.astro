@@ -54,24 +54,24 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
 
       {es.lezione && (
         <section class="pannello lezione" id="lezione" aria-labelledby="t-lezione">
-          <span class="occhiello">Prima di iniziare · la lezione</span>
-          <h2 id="t-lezione" class="parte-titolo">Cosa devi sapere</h2>
+          <h2 id="t-lezione" class="lezione-titolo">Prima di iniziare: cosa devi sapere</h2>
           <p class="lezione-intro">{es.lezione.intro}</p>
-          <div class="concetti">
-            {es.lezione.concetti.map((c, i) => (
-              <article class="concetto">
-                <span class="concetto-n">{i + 1}</span>
-                <h3>{c.nome}</h3>
-                <p>{c.spiegazione}</p>
-                {c.esempio && <p class="esempio"><strong>Esempio</strong> {c.esempio}</p>}
-              </article>
+          <ol class="concetti">
+            {es.lezione.concetti.map((c) => (
+              <li class="concetto">
+                <div>
+                  <h3>{c.nome}</h3>
+                  <p>{c.spiegazione}</p>
+                </div>
+                {c.esempio && <p class="esempio"><strong>Per esempio</strong>{c.esempio}</p>}
+              </li>
             ))}
-          </div>
+          </ol>
           <div class="cosa-farai">
-            <strong>Cosa farai in questo esercizio</strong>
-            <ol>{es.lezione.cosaFarai.map((f) => <li>{f}</li>)}</ol>
+            <h3>Cosa farai</h3>
+            <ol>{es.lezione.cosaFarai.map((f, i) => <li>{es.parti[i] ? <a href={`#parte-${es.parti[i].id}`}>{f}</a> : f}</li>)}</ol>
           </div>
-          <a class="bottone-app inizia" href={`#parte-${es.parti[0].id}`}>Ho letto, inizia dalla parte 1 →</a>
+          <a class="bottone-app inizia" href={`#parte-${es.parti[0].id}`}>Ho letto, inizia la parte 1</a>
         </section>
       )}
 
@@ -80,9 +80,9 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
           <div class="parte-testa"><span class="numero">{i + 1}</span><h2 id={`t-${p.id}`} class="parte-titolo">{p.titolo}</h2></div>
           {p.spiega && (
             <div class="spiega">
-              <strong>Prima di rispondere</strong>
+              <h3>Prima di rispondere</h3>
               <p>{p.spiega.testo}</p>
-              {p.spiega.esempio && <p class="esempio"><strong>Esempio</strong> {p.spiega.esempio}</p>}
+              {p.spiega.esempio && <p class="esempio"><strong>Per esempio</strong>{p.spiega.esempio}</p>}
             </div>
           )}
           <p class="domanda">{p.testo}</p>
@@ -149,17 +149,18 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
     <!-- ====== DESTRA: Pesca, controlli, aiuti ====== -->
     <aside class="destra">
       <div class="pannello blocco">
-        <div class="mittente"><Pesca dimensione={46} occhiali animata={false} /><span><strong>Pesca</strong><span class="nota">Ogni aiuto aperto toglie 5 punti</span></span></div>
+        <div class="mittente"><Pesca dimensione={46} occhiali animata={false} /><span><strong>Pesca</strong><span class="nota">Ti do un suggerimento alla volta</span></span></div>
         <p class="pesca-dice" data-pesca aria-live="polite">{es.consiglio}</p>
       </div>
       <div class="pannello blocco">
         <strong>Controlli automatici</strong>
+        <p class="nota">Ogni controllo mostra cosa hai fatto bene solo quando lo superi.</p>
         <ul class="parti">
           {es.parti.map((p, i) => (
             <li>
               <a href={`#parte-${p.id}`} class="parte-link"><span>{i + 1}. {p.titolo}</span><span class="conteggio" data-conteggio={i}>0/{p.controlli.length}</span></a>
               <ul class="controlli">
-                {p.controlli.map((c, k) => (<li data-controllo={inizio[i] + k}><span class="segno" aria-hidden="true"></span><span>{c.nome}</span><span class="sr" data-esito>non ancora</span></li>))}
+                {p.controlli.map((c, k) => (<li data-controllo={inizio[i] + k}><span class="segno" aria-hidden="true"></span><span class="nome-controllo">{c.nome}</span><span class="attesa">Da superare</span><span class="sr" data-esito>non ancora</span></li>))}
               </ul>
             </li>
           ))}
@@ -167,7 +168,7 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
       </div>
       {es.aiuti.map((a, i) => (
         <details class="pannello aiuto" data-aiuto={i}>
-          <summary>Aiuto {i + 1} · {a.titolo}</summary>
+          <summary>Aiuto {i + 1}: {a.titolo} <span class="costo">−5 punti</span></summary>
           <p>{a.testo}</p>
         </details>
       ))}
@@ -279,93 +280,112 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
 </script>
 
 <style>
-  .layout { display: grid; grid-template-columns: minmax(260px, 320px) minmax(0, 1fr) minmax(260px, 320px); gap: 18px; padding: 24px; align-items: start; }
+  /* Colori: sfondo neutro, bianco per le superfici, un solo arancione (--arancio) per azioni e stato attivo */
+  .layout { --linea-l: #e3e1dc; --grigio: #f4f4f2; --testo-2: #55514c; display: grid; grid-template-columns: minmax(250px, 300px) minmax(0, 760px) minmax(250px, 300px); justify-content: center; gap: 24px; padding: 28px 24px 48px; align-items: start; }
   .sinistra, .destra { position: sticky; top: 84px; display: flex; flex-direction: column; gap: 12px; max-height: calc(100vh - 100px); overflow-y: auto; }
-  .centro { min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+  .centro { min-width: 0; display: flex; flex-direction: column; gap: 20px; }
   .blocco { padding: 18px; display: flex; flex-direction: column; gap: 10px; line-height: 1.55; }
   .mittente { display: flex; align-items: center; gap: 10px; }
   .mittente > span:last-child { display: flex; flex-direction: column; }
   .riga { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
   .sottotitolo { font-family: var(--font-testo); font-size: 1rem; font-weight: 700; }
-  .simulati { font-size: .7rem; font-weight: 700; background: #f3eeea; color: #6b5d55; padding: 3px 8px; border-radius: 999px; }
-  .scheda-prodotto { margin: 0; display: flex; flex-direction: column; font-size: .85rem; }
-  .scheda-prodotto div { display: grid; grid-template-columns: 110px 1fr; gap: 8px; padding: 7px 0; border-bottom: 1px solid #f3eeea; }
-  .scheda-prodotto dt { color: #8a7b72; font-weight: 600; }
-  .scheda-prodotto dd { margin: 0; }
-  .nota { font-size: .8rem; color: #6b5d55; line-height: 1.5; }
+  .simulati { font-size: .75rem; font-weight: 600; background: var(--grigio); color: var(--testo-2); padding: 3px 8px; border-radius: 999px; }
+  .scheda-prodotto { margin: 0; display: flex; flex-direction: column; font-size: .88rem; }
+  .scheda-prodotto div { display: grid; grid-template-columns: 105px 1fr; gap: 10px; padding: 8px 0; border-bottom: 1px solid #efeeeb; }
+  .scheda-prodotto div:last-child { border-bottom: 0; }
+  .scheda-prodotto dt { color: var(--testo-2); }
+  .scheda-prodotto dd { margin: 0; font-weight: 600; }
+  .nota { font-size: .82rem; color: var(--testo-2); line-height: 1.5; margin: 0; }
   .intro { display: flex; flex-direction: column; gap: 8px; }
-  h1 { font-size: 1.7rem; }
+  h1 { font-size: 2rem; line-height: 1.15; }
   .link-guida { font: inherit; font-weight: 700; color: var(--inchiostro); background: none; border: 0; padding: 0; text-decoration: underline; cursor: pointer; }
 
-  .parte { padding: 22px 24px; display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 84px; }
-  .parte > p { line-height: 1.55; }
-  .parte-testa { display: flex; align-items: center; gap: 12px; }
-  .numero { flex: none; width: 34px; height: 34px; border-radius: 10px; background: #fff1e6; color: #8a3a06; display: grid; place-items: center; font-weight: 800; }
-  .parte-titolo { font-family: var(--font-titoli); font-size: 1.35rem; font-weight: 800; }
-  .lezione { padding: 24px; display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 84px; }
-  .occhiello { font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #8a3a06; }
-  .lezione-intro { font-size: 1.02rem; line-height: 1.65; }
-  .concetti { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
-  .concetto { border: 1px solid #e5e4e0; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 8px; background: #fff; }
-  .concetto-n { width: 26px; height: 26px; border-radius: 50%; background: var(--arancio); color: var(--inchiostro); display: grid; place-items: center; font-weight: 800; font-size: .8rem; }
-  .concetto h3 { font-size: 1rem; font-family: var(--font-testo); font-weight: 800; }
-  .concetto p { font-size: .9rem; line-height: 1.6; margin: 0; }
-  .esempio { font-size: .88rem; line-height: 1.55; background: #f4f4f2; border-radius: 10px; padding: 10px 12px; margin: 0; }
-  .esempio strong { display: block; font-size: .72rem; letter-spacing: .05em; text-transform: uppercase; color: #625e58; margin-bottom: 2px; }
-  .cosa-farai { background: #f4f4f2; border-radius: 14px; padding: 14px 16px; font-size: .92rem; line-height: 1.6; }
+  /* Lezione: si legge come una pagina, non come una griglia di schede */
+  .lezione { padding: 28px 32px; display: flex; flex-direction: column; gap: 18px; scroll-margin-top: 84px; }
+  .lezione-titolo { font-family: var(--font-titoli); font-size: 1.5rem; font-weight: 800; }
+  .lezione-intro { font-size: 1.05rem; line-height: 1.7; margin: 0; max-width: 64ch; }
+  .concetti { list-style: none; counter-reset: concetto; margin: 0; padding: 0; display: flex; flex-direction: column; }
+  .concetto { counter-increment: concetto; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 20px; padding: 18px 0; border-top: 1px solid var(--linea-l); }
+  .concetto h3 { font-family: var(--font-testo); font-size: 1.02rem; font-weight: 800; display: flex; gap: 10px; align-items: baseline; margin-bottom: 6px; }
+  .concetto h3::before { content: counter(concetto); flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--arancio); color: var(--inchiostro); font-size: .78rem; display: grid; place-items: center; transform: translateY(-2px); }
+  .concetto p { margin: 0; font-size: .95rem; line-height: 1.65; }
+  .esempio { font-size: .9rem !important; line-height: 1.6; background: var(--grigio); border-radius: 12px; padding: 12px 14px; margin: 0; align-self: start; }
+  .esempio strong { display: block; font-size: .8rem; color: var(--testo-2); margin-bottom: 2px; }
+  .cosa-farai { border-top: 1px solid var(--linea-l); padding-top: 16px; font-size: .95rem; line-height: 1.6; }
+  .cosa-farai h3 { font-family: var(--font-testo); font-size: 1rem; font-weight: 800; }
   .cosa-farai ol { margin: 6px 0 0; padding-left: 20px; }
+  .cosa-farai a { color: var(--inchiostro); }
   .inizia { align-self: flex-start; }
-  .spiega { border: 1px solid #e5e4e0; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; font-size: .92rem; line-height: 1.6; }
+
+  /* Parti dell'esercizio */
+  .parte { padding: 24px 28px; display: flex; flex-direction: column; gap: 16px; scroll-margin-top: 84px; }
+  .parte > p { line-height: 1.6; margin: 0; }
+  .parte-testa { display: flex; align-items: center; gap: 12px; }
+  .numero { flex: none; width: 34px; height: 34px; border-radius: 50%; background: var(--arancio); color: var(--inchiostro); display: grid; place-items: center; font-weight: 800; }
+  .parte-titolo { font-family: var(--font-titoli); font-size: 1.35rem; font-weight: 800; }
+  .spiega { background: var(--grigio); border-radius: 14px; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; font-size: .95rem; line-height: 1.65; }
+  .spiega h3 { font-family: var(--font-testo); font-size: .95rem; font-weight: 800; }
   .spiega > p { margin: 0; }
-  .domanda { font-weight: 700; }
-  .perche { font-size: .85rem; line-height: 1.55; background: #f7f4f1; border-radius: 12px; padding: 12px 14px; color: #3a2b24; }
+  .spiega .esempio { background: #fff; }
+  .domanda { font-weight: 700; font-size: 1.05rem; }
+  .perche { font-size: .88rem; line-height: 1.6; border-top: 1px solid var(--linea-l); padding-top: 12px; color: var(--testo-2); }
+  .perche strong { color: var(--inchiostro); }
 
   .scorri { overflow-x: auto; position: relative; }
-  .classifica { width: 100%; border-collapse: collapse; font-size: .9rem; }
-  .classifica thead th { font-size: .75rem; color: #8a7b72; font-weight: 700; padding: 8px 6px; border-bottom: 1px solid #eadfd6; text-align: center; white-space: nowrap; }
+  .classifica { width: 100%; border-collapse: collapse; font-size: .92rem; }
+  .classifica thead th { font-size: .8rem; color: var(--testo-2); font-weight: 700; padding: 8px 6px; border-bottom: 1px solid var(--linea-l); text-align: center; white-space: nowrap; }
   .classifica thead th:first-child { text-align: left; }
-  .classifica tbody th { text-align: left; font-weight: 600; padding: 10px 8px 10px 0; border-bottom: 1px solid #f3eeea; line-height: 1.4; }
-  .classifica td { border-bottom: 1px solid #f3eeea; padding: 6px; }
+  .classifica tbody th { text-align: left; font-weight: 600; padding: 10px 8px 10px 0; border-bottom: 1px solid #efeeeb; line-height: 1.4; }
+  .classifica td { border-bottom: 1px solid #efeeeb; padding: 6px; }
+  .classifica tbody tr:has(input:checked) th { color: var(--inchiostro); }
   .scelta-cella { text-align: center; width: 92px; }
-  .scelta-cella label { position: relative; display: inline-block; }
-  .scelta-cella input { width: 18px; height: 18px; accent-color: var(--arancio); cursor: pointer; }
+  .scelta-cella label { position: relative; display: inline-grid; place-items: center; width: 44px; height: 44px; cursor: pointer; }
+  .scelta-cella input { width: 20px; height: 20px; accent-color: var(--arancio); cursor: pointer; }
 
   .opzioni { border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
-  .opzione { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; padding: 12px 14px; border: 1px solid #eadfd6; border-radius: 12px; background: #fff; cursor: pointer; line-height: 1.5; }
-  .opzione:hover { border-color: #d8c9bd; background: #fffaf6; }
-  .opzione:has(input:checked) { border-color: var(--arancio); background: #fff1e6; box-shadow: inset 3px 0 0 var(--arancio); }
+  .opzione { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; padding: 13px 15px; border: 1.5px solid var(--linea-l); border-radius: 12px; background: #fff; cursor: pointer; line-height: 1.5; }
+  .opzione:hover { border-color: #c9c6c0; }
+  .opzione:has(input:checked) { border-color: var(--arancio); }
+  .opzione:has(input:focus-visible) { outline: 3px solid var(--inchiostro); outline-offset: 2px; }
   .opzione input { width: 18px; height: 18px; margin-top: 3px; accent-color: var(--arancio); }
   .opzione span { min-width: 0; overflow-wrap: anywhere; } /* i link lunghi (es. UTM) vanno a capo */
 
-  .griglia-campi { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px 14px; align-items: end; }
+  .griglia-campi { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; align-items: end; }
   .campo { display: flex; flex-direction: column; gap: 6px; font-weight: 700; font-size: .9rem; line-height: 1.35; }
-  select { font: inherit; font-weight: 400; font-size: 1rem; padding: 11px 13px; border: 2px solid #e2d6cc; border-radius: 10px; background: #fff; color: var(--inchiostro); }
-  select:focus { outline: none; border-color: var(--arancio); }
+  select { font: inherit; font-weight: 400; font-size: 1rem; padding: 11px 13px; min-height: 46px; border: 1.5px solid #d1cec8; border-radius: 10px; background: #fff; color: var(--inchiostro); }
+  select:focus-visible { outline: 3px solid var(--inchiostro); outline-offset: 1px; border-color: var(--arancio); }
 
   .consegna { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 12px; padding-bottom: 24px; }
   .salvato { margin-right: auto; font-size: .85rem; color: #2f7a4f; font-weight: 600; }
 
-  .pesca-dice { background: #fff1e6; border-radius: 12px; padding: 12px; font-size: .9rem; }
-  .parti { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
-  .parte-link { display: flex; justify-content: space-between; gap: 8px; font-weight: 700; font-size: .9rem; text-decoration: none; }
-  .conteggio { flex: none; font-variant-numeric: tabular-nums; color: #8a3a06; }
-  .controlli { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-direction: column; gap: 5px; font-size: .8rem; }
-  .controlli li { display: flex; align-items: center; gap: 8px; color: #6b5d55; }
-  .segno { flex: none; width: 16px; height: 16px; border-radius: 50%; border: 2px solid #cbbdb2; display: grid; place-items: center; }
+  /* Colonna di destra: Pesca e controlli */
+  .pesca-dice { background: var(--grigio); border-radius: 12px; padding: 12px 14px; font-size: .92rem; margin: 0; }
+  .parti { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+  .parte-link { display: flex; justify-content: space-between; gap: 8px; font-weight: 700; font-size: .9rem; text-decoration: none; color: var(--inchiostro); }
+  .conteggio { flex: none; font-variant-numeric: tabular-nums; color: var(--testo-2); }
+  .controlli { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: .82rem; }
+  .controlli li { display: flex; align-items: center; gap: 8px; color: var(--testo-2); }
+  .controlli li .nome-controllo { display: none; }
+  .controlli li.ok .nome-controllo { display: inline; }
+  .controlli li.ok .attesa { display: none; }
+  .segno { flex: none; width: 16px; height: 16px; border-radius: 50%; border: 2px solid #c9c6c0; display: grid; place-items: center; }
   .controlli li.ok { color: var(--inchiostro); }
   .controlli li.ok .segno { background: #2f7a4f; border-color: #2f7a4f; }
   .controlli li.ok .segno::after { content: ""; width: 6px; height: 3px; border-left: 2px solid #fff; border-bottom: 2px solid #fff; transform: rotate(-45deg) translate(1px, -1px); }
   .aiuto { padding: 14px 16px; }
-  .aiuto summary { font-weight: 700; font-size: .9rem; }
-  .aiuto p { margin-top: 10px; font-size: .9rem; line-height: 1.55; color: #4a3a32; }
+  .aiuto summary { font-weight: 700; font-size: .9rem; cursor: pointer; }
+  .costo { font-weight: 600; color: var(--testo-2); white-space: nowrap; }
+  .aiuto p { margin: 10px 0 0; font-size: .9rem; line-height: 1.55; color: #3d3935; }
 
   @media (max-width: 1200px) {
-    .layout { grid-template-columns: minmax(0, 1fr) minmax(260px, 320px); }
+    .layout { grid-template-columns: minmax(0, 1fr) minmax(250px, 300px); }
     .sinistra { grid-column: 1 / -1; position: static; max-height: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
   }
   @media (max-width: 860px) {
-    .layout { grid-template-columns: minmax(0, 1fr); padding: 16px; }
+    .layout { grid-template-columns: minmax(0, 1fr); padding: 16px; gap: 16px; }
     .destra { position: static; max-height: none; }
+    .lezione, .parte { padding: 20px 18px; }
+    .concetto { grid-template-columns: 1fr; gap: 10px; }
     .scelta-cella { width: 64px; }
   }
 </style>

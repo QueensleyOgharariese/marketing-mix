@@ -74,42 +74,42 @@ import azienda from "../../data/app/cinque-foglie.json";
 
 <style>
   .contenuto { max-width: 1160px; margin: 0 auto; padding: 32px 24px 56px; display: flex; flex-direction: column; gap: 22px; }
-  .benvenuto { background: #fff1e6; border-radius: 18px; padding: 24px 28px; display: flex; flex-wrap: wrap; gap: 22px; align-items: center; }
+  .benvenuto { background: #efeeea; border-radius: 18px; padding: 24px 28px; display: flex; flex-wrap: wrap; gap: 22px; align-items: center; }
   .benvenuto-testi { flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
   h1 { font-size: clamp(1.8rem, 4vw, 2.3rem); line-height: 1.1; }
-  .benvenuto p { line-height: 1.55; color: #5c4a42; max-width: 62ch; }
+  .benvenuto p { line-height: 1.55; color: #55514c; max-width: 62ch; }
   .colonne { display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-start; }
   .azienda { flex: 999 1 520px; min-width: 0; padding: 22px; display: flex; flex-direction: column; gap: 18px; }
   .azienda-testa { display: flex; gap: 14px; align-items: flex-start; }
   .foglia { flex: none; width: 52px; height: 52px; border-radius: 14px; background: #e8f4ec; display: grid; place-items: center; }
   .azienda-nome { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 4px; }
   .azienda-nome strong { font-family: var(--font-titoli); font-size: 1.4rem; }
-  .simulata { font-size: .7rem; font-weight: 700; background: #f3eeea; color: #6b5d55; padding: 3px 8px; border-radius: 999px; }
-  .azienda-testa p { line-height: 1.55; color: #5c4a42; }
+  .simulata { font-size: .7rem; font-weight: 700; background: #efeeeb; color: #5f5a55; padding: 3px 8px; border-radius: 999px; }
+  .azienda-testa p { line-height: 1.55; color: #55514c; }
   .numeri { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
-  .numeri div { background: #faf7f4; border-radius: 12px; padding: 12px 14px; }
-  .numeri dt { font-size: .75rem; color: #6b5d55; }
+  .numeri div { background: #f8f8f6; border-radius: 12px; padding: 12px 14px; }
+  .numeri dt { font-size: .75rem; color: #5f5a55; }
   .numeri dd { margin: 2px 0 0; font-family: var(--font-titoli); font-weight: 800; font-size: 1.5rem; }
-  .avviso { font-size: .8rem; color: #6b5d55; }
+  .avviso { font-size: .8rem; color: #5f5a55; }
   .dettagli { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
-  .piccolo { font-family: var(--font-testo); font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #8a7b72; margin-bottom: 8px; }
+  .piccolo { font-family: var(--font-testo); font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #6f6a64; margin-bottom: 8px; }
   .chip { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
-  .chip li { font-size: .85rem; background: #fff1e6; padding: 5px 10px; border-radius: 999px; }
+  .chip li { font-size: .85rem; background: #efeeea; padding: 5px 10px; border-radius: 999px; }
   .colleghi { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
-  .colleghi li { display: flex; align-items: center; gap: 10px; color: #5c4a42; }
+  .colleghi li { display: flex; align-items: center; gap: 10px; color: #55514c; }
   .colleghi strong { color: var(--inchiostro); }
   .scelta { flex: 1 1 320px; min-width: 0; padding: 22px; display: flex; flex-direction: column; gap: 14px; }
   .scelta-titolo { font-size: 1.3rem; }
-  .nota { font-size: .85rem; color: #6b5d55; margin-top: 4px; }
+  .nota { font-size: .85rem; color: #5f5a55; margin-top: 4px; }
   .ruoli { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
-  .ruolo { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border: 1px solid #eadfd6; border-radius: 12px; text-decoration: none; transition: border-color .15s, background .15s, transform .15s; }
-  a.ruolo:hover { border-color: var(--arancio); background: #fffaf6; transform: translateX(3px); color: var(--inchiostro); }
-  .ruolo--presto { color: #8a7b72; }
-  .ruolo-icona { flex: none; width: 34px; height: 34px; border-radius: 50%; background: #f3eeea; display: grid; place-items: center; }
+  .ruolo { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border: 1px solid #e3e1dc; border-radius: 12px; text-decoration: none; transition: border-color .15s, background .15s, transform .15s; }
+  a.ruolo:hover { border-color: var(--arancio); background: #f8f8f6; transform: translateX(3px); color: var(--inchiostro); }
+  .ruolo--presto { color: #6f6a64; }
+  .ruolo-icona { flex: none; width: 34px; height: 34px; border-radius: 50%; background: #efeeeb; display: grid; place-items: center; }
   .ruolo-icona--attiva { background: #ff8a3d; }
   .ruolo-testi { flex: 1; min-width: 0; display: flex; flex-direction: column; }
-  .ruolo-testi span { font-size: .8rem; color: #6b5d55; }
-  .consigliato { font-size: .7rem; font-weight: 700; background: #fff1e6; color: #8a3a06; padding: 3px 8px; border-radius: 999px; }
-  .presto { font-size: .7rem; font-weight: 700; color: #8a7b72; }
+  .ruolo-testi span { font-size: .8rem; color: #5f5a55; }
+  .consigliato { font-size: .7rem; font-weight: 700; background: #efeeea; color: #8a3a06; padding: 3px 8px; border-radius: 999px; }
+  .presto { font-size: .7rem; font-weight: 700; color: #6f6a64; }
   .scelta .bottone-app { justify-content: center; }
 </style>
