@@ -1,65 +1,106 @@
 ---
-// CORNICE DEGLI STRUMENTI SEO SIMULATI (percorso SEO "Approfondisci")
-// Menu a sinistra con tutti gli strumenti, il negozio e le missioni; a destra lo strumento.
+// CORNICE DELLA WORKSPACE SEO (percorso SEO "Approfondisci", livello junior)
+// In alto: livello e missioni completate. A sinistra il menu (Il lavoro, Strumenti), al centro lo strumento,
+// a destra, quando c'è, la guida della missione (slot "guida").
 // Gli strumenti sono ispirati a quelli professionali (Google Search Console, Keyword Planner,
 // Screaming Frog, Google Analytics) ma hanno nomi generici: non imitano marchi reali.
 // Qui ci sono anche gli stili comuni (tabelle, schede, numeri), validi per tutti gli strumenti.
 import AppLayout from "../../layouts/AppLayout.astro";
-import Icona from "../Icona.astro";
 
-interface Props { attivo: string; titolo: string; ispirato?: string; }
-const { attivo, titolo, ispirato } = Astro.props;
+interface Props { attivo: string; titolo: string; ispirato?: string; sottotitolo?: string; }
+const { attivo, titolo, ispirato, sottotitolo } = Astro.props;
 const B = "/app/percorsi/seo";
-const VOCI = [
-  { id: "percorso", nome: "Il percorso", link: `${B}/`, icona: "seo" },
-  { id: "negozio", nome: "Il negozio", link: "/app/negozio/", icona: "trade" },
-  { id: "console", nome: "Console di ricerca", link: `${B}/strumenti/console/`, icona: "cerca" },
-  { id: "indicizzazione", nome: "Pagine e indicizzazione", link: `${B}/strumenti/indicizzazione/`, icona: "check" },
-  { id: "keyword", nome: "Ricerca keyword", link: `${B}/strumenti/keyword/`, icona: "anteprima" },
-  { id: "crawler", nome: "Crawler", link: `${B}/strumenti/crawler/`, icona: "link" },
-  { id: "statistiche", nome: "Statistiche", link: `${B}/strumenti/statistiche/`, icona: "analytics" },
+const GRUPPI = [
+  { nome: "Il lavoro", voci: [
+    { id: "percorso", nome: "Panoramica", link: `${B}/` },
+    { id: "negozio", nome: "Il negozio", link: "/app/negozio/" },
+  ] },
+  { nome: "Strumenti", voci: [
+    { id: "console", nome: "Console di ricerca", link: `${B}/strumenti/console/` },
+    { id: "indicizzazione", nome: "Pagine e indicizzazione", link: `${B}/strumenti/indicizzazione/` },
+    { id: "keyword", nome: "Ricerca keyword", link: `${B}/strumenti/keyword/` },
+    { id: "crawler", nome: "Crawler", link: `${B}/strumenti/crawler/` },
+    { id: "statistiche", nome: "Statistiche", link: `${B}/strumenti/statistiche/` },
+  ] },
 ];
+const conGuida = Astro.slots.has("guida");
 ---
 <AppLayout title={`${titolo} · Percorso SEO`} percorso={attivo === "percorso" ? [{ etichetta: "Percorso SEO" }] : [{ etichetta: "Percorso SEO", link: `${B}/` }, { etichetta: titolo }]} indietro={{ etichetta: "Scrivania", link: "/app/scrivania/" }}>
-  <div class="console">
-    <nav class="menu" aria-label="Strumenti del percorso SEO">
-      <span class="menu-titolo">cinquefoglie.example</span>
-      {VOCI.map((v) => (
-        <a class:list={["voce", { attiva: v.id === attivo }]} href={v.link} aria-current={v.id === attivo ? "page" : undefined}>
-          <span class="voce-icona"><Icona nome={v.icona} dimensione={14} /></span>{v.nome}
-        </a>
+  <div slot="barra" class="stato">
+    <span class="livello">Livello junior</span>
+    <span class="missioni-testo" data-missioni-testo>Missioni 0 di 5</span>
+    <span class="missioni-barra" aria-hidden="true"><span data-missioni-barra></span></span>
+  </div>
+  <div class:list={["console", { "con-guida": conGuida }]}>
+    <nav class="menu" aria-label="Workspace SEO">
+      {GRUPPI.map((g) => (
+        <div class="gruppo">
+          <span class="menu-titolo">{g.nome}</span>
+          {g.voci.map((v) => (
+            <a class:list={["voce", { attiva: v.id === attivo }]} href={v.link} aria-current={v.id === attivo ? "page" : undefined}>
+              <span class="pallino" aria-hidden="true"></span>{v.nome}
+            </a>
+          ))}
+        </div>
       ))}
-      <p class="menu-nota">Dati inventati, coerenti tra loro: un problema che trovi in uno strumento lo ritrovi anche negli altri.</p>
+      <p class="menu-nota">Dati inventati ma coerenti: un problema che trovi in uno strumento lo ritrovi anche negli altri.</p>
     </nav>
     <main class="contenuto">
       <header class="testa">
         <h1 class="app-titolo">{titolo}</h1>
+        {sottotitolo && <p class="sottotitolo">{sottotitolo}</p>}
         {ispirato && <p class="ispirato">Simulazione ispirata a {ispirato}</p>}
       </header>
       <slot />
     </main>
+    {conGuida && <aside class="guida" aria-label="Guida della missione"><slot name="guida" /></aside>}
   </div>
 </AppLayout>
 
+<script>
+  // Missioni completate: lette dai progressi salvati nel browser (chiave del percorso SEO)
+  try {
+    const dati = JSON.parse(localStorage.getItem("marketing-mix-percorso-seo") ?? "{}");
+    const fatte = Object.values(dati.missioni ?? {}).filter((m: any) => m?.stato === "completata").length;
+    const t = document.querySelector("[data-missioni-testo]"); const b = document.querySelector<HTMLElement>("[data-missioni-barra]");
+    if (t) t.textContent = `Missioni ${fatte} di 5`;
+    if (b) b.style.width = `${(fatte / 5) * 100}%`;
+  } catch {}
+</script>
+
 <style>
-  .console { display: grid; grid-template-columns: 230px minmax(0, 1fr); min-height: calc(100vh - 61px); }
-  .menu { background: #fff; border-right: 1px solid #e3e1dc; padding: 20px 12px; display: flex; flex-direction: column; gap: 2px; }
-  .menu-titolo { font-size: .7rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #6f6a64; padding: 0 10px 10px; overflow-wrap: anywhere; }
-  .voce { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 10px; color: #55514c; text-decoration: none; font-size: .9rem; }
-  .voce:hover { background: #f8f8f6; color: var(--inchiostro); }
-  .voce.attiva { background: #efeeea; color: var(--inchiostro); font-weight: 700; }
-  .voce-icona { flex: none; width: 26px; height: 26px; border-radius: 50%; background: #efeeeb; display: grid; place-items: center; }
-  .attiva .voce-icona { background: #ff8a3d; }
-  .menu-nota { margin-top: auto; font-size: .75rem; color: #6f6a64; line-height: 1.5; padding: 10px; }
-  .contenuto { min-width: 0; padding: 24px 28px 48px; display: flex; flex-direction: column; gap: 18px; }
-  .testa h1 { font-size: 1.7rem; }
-  .ispirato { margin: 4px 0 0; font-size: .8rem; color: #6f6a64; }
+  .stato { display: flex; align-items: center; gap: 10px; font-size: .82rem; color: #55514c; }
+  .livello { font-weight: 700; background: var(--arancio); color: var(--inchiostro); padding: 4px 10px; border-radius: 999px; }
+  .missioni-barra { width: 90px; height: 6px; border-radius: 99px; background: #e9e8e4; overflow: hidden; }
+  .missioni-barra span { display: block; height: 100%; width: 0; background: var(--arancio); }
+  .console { display: grid; grid-template-columns: 240px minmax(0, 1fr); min-height: calc(100vh - 61px); }
+  .console.con-guida { grid-template-columns: 240px minmax(0, 1fr) 340px; }
+  .menu { background: #fff; border-right: 1px solid #e3e1dc; padding: 20px 12px; display: flex; flex-direction: column; gap: 14px; }
+  .gruppo { display: flex; flex-direction: column; gap: 2px; }
+  .menu-titolo { font-size: .78rem; font-weight: 700; color: #55514c; padding: 0 12px 6px; }
+  .voce { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; color: #423e39; text-decoration: none; font-size: .9rem; }
+  .voce:hover { background: #f4f4f2; color: var(--inchiostro); }
+  .voce.attiva { background: #e9e8e4; color: var(--inchiostro); font-weight: 700; }
+  .pallino { flex: none; width: 8px; height: 8px; border-radius: 50%; background: #d1cec8; }
+  .attiva .pallino { background: var(--arancio); }
+  .menu-nota { margin-top: auto; font-size: .78rem; color: #55514c; line-height: 1.5; padding: 10px; }
+  .contenuto { min-width: 0; padding: 26px 30px 56px; display: flex; flex-direction: column; gap: 18px; }
+  .testa h1 { font-size: 1.85rem; }
+  .sottotitolo { margin: 4px 0 0; font-size: .92rem; color: #423e39; }
+  .ispirato { margin: 2px 0 0; font-size: .8rem; color: #625e58; }
+  .guida { background: #fff; border-left: 1px solid #e3e1dc; padding: 24px 22px; display: flex; flex-direction: column; gap: 16px; }
+  @media (max-width: 1180px) {
+    .console.con-guida { grid-template-columns: 220px minmax(0, 1fr); }
+    .guida { grid-column: 1 / -1; border-left: 0; border-top: 1px solid #e3e1dc; }
+  }
   @media (max-width: 860px) {
-    .console { grid-template-columns: 1fr; }
-    .menu { flex-direction: row; flex-wrap: nowrap; overflow-x: auto; border-right: 0; border-bottom: 1px solid #e3e1dc; padding: 10px; }
+    .console, .console.con-guida { grid-template-columns: 1fr; }
+    .menu { flex-direction: row; flex-wrap: nowrap; overflow-x: auto; border-right: 0; border-bottom: 1px solid #e3e1dc; padding: 10px; gap: 4px; }
+    .gruppo { flex-direction: row; gap: 4px; }
     .menu-titolo, .menu-nota { display: none; }
     .voce { white-space: nowrap; flex: none; }
     .contenuto { padding: 18px 14px 40px; }
+    .missioni-testo { display: none; }
   }
 </style>
 

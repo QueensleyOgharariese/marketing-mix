@@ -17,7 +17,7 @@ const W = 900, H = 220, sx = 50;
 const maxR = Math.max(...ga.mesi.map((m) => m.ricavi));
 const bw = (W - sx - 10) / ga.mesi.length;
 ---
-<Console attivo="statistiche" titolo="Statistiche del sito" ispirato="Google Analytics 4 (pagine di destinazione, traffico organico)">
+<Console attivo="statistiche" titolo="Statistiche" sottotitolo="Cosa fanno le persone dopo il clic su Google: visite, ordini e ricavi" ispirato="Google Analytics 4 (pagine di destinazione, solo traffico organico)">
   <p class="sp-nota avviso">{ga._nota} Per questo i numeri sono un po' più bassi dei clic che vedi nella Console di ricerca.</p>
 
   <div class="sp-cifre">

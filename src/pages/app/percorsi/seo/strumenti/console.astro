@@ -8,7 +8,7 @@ import sc from "../../../../../data/app/seo-pro/search-console.json";
 import { num } from "../../../../../scripts/tabella";
 const segmenti = Object.entries(sc.segmenti);
 ---
-<Console attivo="console" titolo="Console di ricerca" ispirato="Google Search Console (rapporto Risultati di ricerca)">
+<Console attivo="console" titolo="Console di ricerca" sottotitolo="Come appare cinquefoglie.example nei risultati di Google" ispirato="Google Search Console (rapporto Risultati di ricerca)">
   <div class="sp-pannello comandi">
     <label>Proprietà <strong class="url">{sc.proprieta}</strong></label>
     <label>Parte del sito
@@ -38,6 +38,7 @@ const segmenti = Object.entries(sc.segmenti);
 
   <div class="sp-pannello">
     <svg class="sp-grafico" data-grafico viewBox="0 0 900 260" role="img" aria-label="Andamento mensile"></svg>
+    <p class="evento" data-evento hidden><span class="evento-n" aria-hidden="true">1</span><span><strong>18 settembre 2026:</strong> il team web ha pubblicato il nuovo tema del negozio.</span></p>
     <p class="sp-nota" data-legenda></p>
   </div>
 
@@ -127,6 +128,8 @@ const segmenti = Object.entries(sc.segmenti);
   }
 
   const COLORI: Record<string, string> = { clic: "#2f6fd6", impressioni: "#7b4bd1", ctr: "#1f8a5b", posizione: "#d9822b" };
+  // Eventi annotati sul grafico (come le annotazioni che i team SEO aggiungono negli strumenti veri)
+  const EVENTI = [{ mese: "2026-09", giorno: 18, n: 1 }];
   function disegna() {
     const seg = $<HTMLSelectElement>("[data-segmento]").value;
     const n = Number($<HTMLSelectElement>("[data-periodo]").value);
@@ -171,6 +174,17 @@ const segmenti = Object.entries(sc.segmenti);
       svg += `<path d="${linea(serie)}" fill="none" stroke="${COLORI[k]}" stroke-width="3" stroke-linejoin="round"/>`;
       serie.forEach((v, i) => { svg += `<circle cx="${x(i)}" cy="${y(v)}" r="3.5" fill="${COLORI[k]}"><title>${etichetta(mesi[i].mese)}: ${formato[k](v)}</title></circle>`; });
     }
+    // Eventi: una linea tratteggiata arancione nel punto del mese in cui sono successi
+    let eventiVisibili = 0;
+    for (const ev of EVENTI) {
+      const i = mesi.findIndex((m) => m.mese === ev.mese);
+      if (i < 0) continue;
+      eventiVisibili++;
+      const passo = mesi.length > 1 ? (W - sx - dx) / (mesi.length - 1) : 0;
+      const xe = x(i) + passo * ((ev.giorno - 15) / 30);
+      svg += `<line x1="${xe}" x2="${xe}" y1="${su}" y2="${H - giu}" stroke="#ff7a1a" stroke-width="1.5" stroke-dasharray="4 4"/><circle cx="${xe}" cy="${su}" r="9" fill="#ff7a1a"/><text x="${xe}" y="${su + 4}" font-size="11" font-weight="700" text-anchor="middle" fill="#2a1d18">${ev.n}</text>`;
+    }
+    $("[data-evento]").hidden = eventiVisibili === 0;
     $("[data-grafico]").innerHTML = svg;
     $("[data-legenda]").textContent = (confronta ? "Linea continua: questo periodo. Linea tratteggiata: lo stesso periodo dell'anno prima. " : "") +
       (attive.includes("posizione") ? "Per la posizione, più in alto nel grafico è meglio (1 = primo risultato). " : "") +
@@ -212,13 +226,19 @@ const segmenti = Object.entries(sc.segmenti);
   .comandi { display: flex; flex-wrap: wrap; gap: 12px 22px; align-items: center; font-size: .85rem; font-weight: 600; color: #55514c; }
   .comandi label { display: flex; align-items: center; gap: 8px; }
   .spunta input { accent-color: var(--arancio); width: 16px; height: 16px; }
-  .metrica { font: inherit; text-align: left; cursor: pointer; background: #fff; border: 1px solid #e3e1dc; border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 2px; border-top: 4px solid #e3e1dc; }
+  .metrica { font: inherit; text-align: left; cursor: pointer; background: #fff; border: 1px solid #e3e1dc; border-radius: 14px; padding: 16px 18px; display: flex; flex-direction: column; gap: 2px; color: var(--inchiostro); }
   .metrica span { font-size: .78rem; color: #5f5a55; font-weight: 600; }
   .metrica strong { font-family: var(--font-titoli); font-size: 1.7rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
   .metrica small { font-size: .75rem; font-weight: 700; min-height: 1em; }
-  .m-clic[aria-pressed="true"] { border-top-color: #2f6fd6; } .m-impressioni[aria-pressed="true"] { border-top-color: #7b4bd1; }
-  .m-ctr[aria-pressed="true"] { border-top-color: #1f8a5b; } .m-posizione[aria-pressed="true"] { border-top-color: #d9822b; }
-  .metrica[aria-pressed="false"] strong { color: #6f6a64; }
+  /* Metrica attiva: scheda piena del colore della sua linea nel grafico */
+  .metrica[aria-pressed="true"] { color: #fff; border-color: transparent; }
+  .metrica[aria-pressed="true"] span, .metrica[aria-pressed="true"] small { color: #fff !important; }
+  .m-clic[aria-pressed="true"] { background: #2f5fd0; } .m-impressioni[aria-pressed="true"] { background: #6a3fc4; }
+  .m-ctr[aria-pressed="true"] { background: #1a7a50; } .m-posizione[aria-pressed="true"] { background: #a85d14; }
+  .metrica[aria-pressed="false"] strong { color: #55514c; }
+  .metrica:focus-visible { outline: 3px solid var(--inchiostro); outline-offset: 2px; }
+  .evento { display: flex; gap: 10px; align-items: center; margin: 8px 0 0; font-size: .85rem; background: #f4f4f2; border-radius: 10px; padding: 9px 12px; }
+  .evento-n { flex: none; width: 20px; height: 20px; border-radius: 50%; background: #ff7a1a; display: grid; place-items: center; font-size: .72rem; font-weight: 800; }
   .tabelle { display: flex; flex-direction: column; gap: 12px; }
   .barra-tab { justify-content: flex-start; }
   .sp-scorri { max-height: 460px; overflow-y: auto; }

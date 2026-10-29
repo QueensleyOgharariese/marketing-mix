@@ -4,6 +4,11 @@
 // Il pulsante "Ispeziona" mostra quello che Google legge nel codice della pagina:
 // title, meta description, meta robots, canonical, H1, stato. I dati arrivano da crawl.json.
 // Gli indirizzi veri del negozio (es. /te-verdi/sencha-bio/) qui stanno sotto /app/negozio/.
+// Aspetto (dai design approvati): verde bosco e crema, titoli in Fraunces (font libero, licenza OFL),
+// testo in Figtree. Barra delle spedizioni, ricerca, account, carrello, menu, piè di pagina con note legali.
+// Ricerca, carrello e newsletter sono finti: non fanno nulla.
+import "@fontsource/fraunces/latin-500.css";
+import "@fontsource/fraunces/latin-600.css";
 import AppLayout from "../../layouts/AppLayout.astro";
 import catalogo from "../../data/app/seo-pro/catalogo.json";
 import crawl from "../../data/app/seo-pro/crawl.json";
@@ -13,6 +18,7 @@ const { url, titoloScheda } = Astro.props;
 const pagina = crawl.pagine.find((p) => p.url === url);
 const testa = pagina ?? { title: "", description: "", robots: "", canonical: "", h1: "", stato: 404 };
 const NEG = "/app/negozio";
+const attiva = (id: string) => url.startsWith(`/${id}/`);
 ---
 <AppLayout title={`Negozio · ${titoloScheda}`} percorso={[{ etichetta: "Percorso SEO", link: "/app/percorsi/seo/" }, { etichetta: "Il negozio" }, { etichetta: titoloScheda }]} indietro={{ etichetta: "Percorso SEO", link: "/app/percorsi/seo/" }}>
   <div class="area">
@@ -37,22 +43,39 @@ const NEG = "/app/negozio";
       </div>
 
       <div class="sito">
+        <p class="striscia">Spedizione gratuita da 39 €. Consegna in 24-48 ore in tutta Italia.</p>
         <header class="sito-testa">
-          <a class="sito-logo" href={NEG + "/"}>
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2f6b45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20 C4 10 10 4 20 4 C20 14 14 20 4 20 Z" /><path d="M4 20 L13 11" /></svg>
-            Cinque Foglie
-          </a>
-          <nav aria-label="Categorie del negozio">
-            {catalogo.categorie.map((c) => <a href={`${NEG}/${c.id}/`}>{c.nome}</a>)}
-            <a href={`${NEG}/blog/`}>Blog</a>
+          <div class="testa-riga">
+            <a class="sito-logo" href={NEG + "/"}>
+              <svg width="28" height="28" viewBox="0 0 30 30" aria-hidden="true"><path d="M15 3c7 4 9 13 0 24C6 16 8 7 15 3z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15 8v17" stroke="currentColor" stroke-width="1.6"/></svg>
+              Cinque Foglie
+            </a>
+            <form class="cerca" role="search" onsubmit="return false">
+              <label for="cerca-negozio" class="sr">Cerca nel negozio</label>
+              <input id="cerca-negozio" type="search" placeholder="Cerca tè, tisane, accessori…" />
+              <button type="submit" aria-label="Cerca"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button>
+            </form>
+            <nav class="conto" aria-label="Il tuo account">
+              <a href={`${NEG}/account/`}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>Accedi</a>
+              <a class="carrello" href={`${NEG}/carrello/`}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 7h14l-1.5 11h-11z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>Carrello</a>
+            </nav>
+          </div>
+          <nav class="menu" aria-label="Categorie del negozio">
+            {catalogo.categorie.map((c) => <a href={`${NEG}/${c.id}/`} aria-current={attiva(c.id) ? "page" : undefined}>{c.nome}</a>)}
+            <a class="menu-blog" href={`${NEG}/blog/`} aria-current={attiva("blog") ? "page" : undefined}>Il Diario del tè</a>
           </nav>
-          <span class="carrello" aria-hidden="true">Carrello (0)</span>
         </header>
+
         <div class="sito-corpo"><slot /></div>
+
         <footer class="sito-piede">
-          <span>Cinque Foglie · tè e tisane biologiche · spedizione in 24 ore</span>
-          <span><a href={`${NEG}/chi-siamo/`}>Chi siamo</a> · <a href={`${NEG}/spedizioni-e-resi/`}>Spedizioni e resi</a> · <a href={`${NEG}/contatti/`}>Contatti</a></span>
-          <span class="finto">Negozio finto per esercizi: non si può comprare nulla.</span>
+          <div class="piede-colonne">
+            <div><strong class="piede-logo">Cinque Foglie</strong><p>Tè e tisane biologiche, selezionati e confezionati in Veneto.</p></div>
+            <div><strong>Negozio</strong>{catalogo.categorie.slice(0, 4).map((c) => <a href={`${NEG}/${c.id}/`}>{c.nome}</a>)}</div>
+            <div><strong>Aiuto</strong><a href={`${NEG}/spedizioni-e-resi/`}>Spedizioni e resi</a><a href={`${NEG}/contatti/`}>Contatti</a><a href={`${NEG}/chi-siamo/`}>Chi siamo</a></div>
+            <div><strong>Il Diario del tè</strong><a href={`${NEG}/blog/`}>Tutti gli articoli</a><a href={`${NEG}/blog/sencha-guida-completa/`}>Guida al Sencha</a></div>
+          </div>
+          <p class="finto">Cinque Foglie è un negozio finto, creato per gli esercizi di Marketing Mix: non si può comprare nulla.</p>
         </footer>
       </div>
     </div>
@@ -60,36 +83,55 @@ const NEG = "/app/negozio";
 </AppLayout>
 
 <style>
-  .area { padding: 20px; max-width: 1240px; margin: 0 auto; }
-  .finestra { background: #fff; border: 1px solid #d9cfc7; border-radius: 14px; overflow: hidden; box-shadow: 0 20px 50px -30px rgba(42, 29, 24, .35); }
-  .barra-browser { position: relative; display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: #efe9e4; border-bottom: 1px solid #ddd2c9; }
-  .pallini { display: flex; gap: 6px; } .pallini i { width: 11px; height: 11px; border-radius: 50%; background: #e0d4ca; } .pallini i:first-child { background: #f07a5a; } .pallini i:nth-child(2) { background: #f2c14e; } .pallini i:nth-child(3) { background: #7cc27c; }
-  .indirizzo { flex: 1; min-width: 0; background: #fff; border-radius: 999px; padding: 6px 14px; font-size: .85rem; color: #3a2b24; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .area { padding: 20px; max-width: 1320px; margin: 0 auto; }
+  .finestra { background: #fff; border: 1px solid #d1cec8; border-radius: 14px; overflow: hidden; box-shadow: 0 20px 50px -30px rgba(42, 29, 24, .35); }
+  .barra-browser { position: relative; display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: #ebeae6; border-bottom: 1px solid #dcdad5; }
+  .pallini { display: flex; gap: 6px; } .pallini i { width: 11px; height: 11px; border-radius: 50%; background: #d1cec8; } .pallini i:first-child { background: #f07a5a; } .pallini i:nth-child(2) { background: #f2c14e; } .pallini i:nth-child(3) { background: #7cc27c; }
+  .indirizzo { flex: 1; min-width: 0; background: #fff; border-radius: 999px; padding: 6px 14px; font-size: .85rem; color: #2a1d18; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .lucchetto { margin-right: 6px; vertical-align: -1px; color: #2f7a4f; }
-  .ispeziona summary { cursor: pointer; font-weight: 700; font-size: .85rem; padding: 6px 12px; border-radius: 8px; background: #2a1d18; color: #fff; list-style: none; }
+  .ispeziona summary { cursor: pointer; font-weight: 700; font-size: .85rem; padding: 7px 14px; border-radius: 8px; background: #2a1d18; color: #fff; list-style: none; }
   .ispeziona summary::-webkit-details-marker { display: none; }
-  .codice { position: absolute; right: 12px; top: calc(100% + 6px); z-index: 20; width: min(560px, calc(100vw - 64px)); background: #2a1d18; color: #f3e6dd; border-radius: 12px; padding: 16px 18px; box-shadow: 0 16px 40px -12px rgba(0, 0, 0, .5); font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .8rem; }
-  .codice-titolo { display: block; font-family: var(--font-testo); font-weight: 800; font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: #ffb27a; margin-bottom: 8px; }
+  .codice { position: absolute; right: 12px; top: calc(100% + 6px); z-index: 20; width: min(560px, calc(100vw - 64px)); background: #2a1d18; color: #f1efeb; border-radius: 12px; padding: 16px 18px; box-shadow: 0 16px 40px -12px rgba(0, 0, 0, .5); font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .8rem; }
+  .codice-titolo { display: block; font-family: var(--font-testo); font-weight: 800; font-size: .85rem; color: #ff7a1a; margin-bottom: 8px; }
   .codice dl { margin: 0; display: flex; flex-direction: column; gap: 6px; }
   .codice dl div { display: grid; grid-template-columns: 130px 1fr; gap: 10px; }
-  .codice dt { color: #ffb27a; } .codice dd { margin: 0; overflow-wrap: anywhere; } .codice em { color: #a8958a; }
+  .codice dt { color: #ffa866; } .codice dd { margin: 0; overflow-wrap: anywhere; } .codice em { color: #a8a39c; }
   .codice .allarme { color: #ff9b8a; font-weight: 700; }
 
-  .sito { font-family: Georgia, "Times New Roman", serif; color: #2b2a26; background: #fbfaf6; }
-  .sito-testa { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; padding: 16px 28px; border-bottom: 1px solid #e7e2d6; background: #fff; }
-  .sito-logo { display: flex; align-items: center; gap: 8px; font-size: 1.35rem; font-weight: 700; color: #2f6b45; text-decoration: none; }
-  .sito-testa nav { display: flex; flex-wrap: wrap; gap: 4px 16px; font-family: var(--font-testo); font-size: .9rem; }
-  .sito-testa nav a { color: #2b2a26; text-decoration: none; }
-  .sito-testa nav a:hover { color: #2f6b45; text-decoration: underline; }
-  .carrello { margin-left: auto; font-family: var(--font-testo); font-size: .85rem; color: #6b6a63; }
+  /* ---- Il sito di Cinque Foglie ---- */
+  .sito { --verde: #1f4d36; --verde-scuro: #143323; --crema: #fbf8f2; --linea: #e6dfd0; --testo-n: #1d2a22; --testo-2n: #4a5a50;
+    font-family: var(--font-testo); color: var(--testo-n); background: var(--crema); }
+  .sito :global(a) { color: var(--verde); }
+  .striscia { margin: 0; background: var(--verde); color: #f3efe4; font-size: .82rem; text-align: center; padding: 8px 16px; }
+  .sito-testa { border-bottom: 1px solid var(--linea); }
+  .testa-riga { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; padding: 16px 28px 10px; }
+  .sito-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--verde) !important; font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 1.55rem; letter-spacing: -.01em; }
+  .cerca { flex: 1 1 280px; display: flex; min-width: 0; }
+  .cerca input { flex: 1; min-width: 0; font: inherit; font-size: .92rem; padding: 10px 16px; border: 1px solid #d8cfbd; border-right: 0; border-radius: 999px 0 0 999px; background: #fff; }
+  .cerca button { border: 1px solid var(--verde); background: var(--verde); color: #fff; border-radius: 0 999px 999px 0; padding: 0 16px; min-height: 44px; cursor: pointer; }
+  .conto { display: flex; gap: 4px; align-items: center; }
+  .conto a { display: flex; align-items: center; gap: 7px; padding: 9px 12px; font-size: .88rem; font-weight: 600; text-decoration: none; color: var(--testo-n) !important; border-radius: 999px; }
+  .conto .carrello { background: var(--verde); color: #fff !important; }
+  .menu { display: flex; flex-wrap: wrap; gap: 2px 24px; padding: 0 28px 10px; font-size: .95rem; font-weight: 600; }
+  .menu a { text-decoration: none; color: var(--testo-n) !important; padding: 6px 0; border-bottom: 2px solid transparent; }
+  .menu a:hover, .menu a[aria-current="page"] { border-bottom-color: var(--verde); color: var(--verde) !important; }
+  .menu-blog { margin-left: auto; }
   .sito-corpo { padding: 28px; min-height: 420px; }
-  .sito-piede { display: flex; flex-direction: column; gap: 4px; padding: 18px 28px; border-top: 1px solid #e7e2d6; font-family: var(--font-testo); font-size: .8rem; color: #6b6a63; background: #fff; }
-  .sito-piede a { color: #2f6b45; }
-  .finto { color: #a12d1d; font-weight: 600; }
-  @media (max-width: 700px) {
+  .sito-piede { background: var(--verde-scuro); color: #cfdccf; font-size: .88rem; }
+  .piede-colonne { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 24px; padding: 32px 28px 20px; }
+  .piede-colonne > div { display: flex; flex-direction: column; gap: 7px; }
+  .piede-colonne strong { color: #fff; }
+  .piede-colonne p { margin: 0; line-height: 1.6; }
+  .piede-colonne a { color: #cfdccf !important; }
+  .piede-logo { font-family: "Fraunces", Georgia, serif; font-size: 1.3rem; font-weight: 500; }
+  .finto { margin: 0; padding: 14px 28px 18px; border-top: 1px solid #2b4c3a; font-size: .8rem; color: #e9c9a5; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  @media (max-width: 760px) {
     .area { padding: 10px; }
-    .sito-testa, .sito-corpo, .sito-piede { padding-inline: 16px; }
-    .carrello { display: none; }
+    .testa-riga, .menu, .sito-corpo, .piede-colonne { padding-inline: 16px; }
+    .conto a:first-child { display: none; }
+    .menu { gap: 2px 16px; }
+    .menu-blog { margin-left: 0; }
     .codice dl div { grid-template-columns: 1fr; gap: 2px; }
   }
 </style>

@@ -1,0 +1,41 @@
+---
+// SCHEDA DI UN PRODOTTO NELLE GRIGLIE DEL NEGOZIO (home, categoria, prodotti correlati)
+// Foto disegnata, nome, formato, voto, prezzo e bottone "Aggiungi" (finto, disattivato).
+import Confezione from "./Confezione.astro";
+import { voto, prezzo, etichettaProdotto } from "../../scripts/negozio";
+interface Props { p: { id: string; categoria: string; nome: string; prezzo: number; formato: string; disponibile: boolean; url: string; recensioni: number }; categoriaNome?: string }
+const { p, categoriaNome } = Astro.props;
+const etichetta = etichettaProdotto(p);
+---
+<article class="nscheda">
+  <a class="foto" href={`/app/negozio${p.url}`} tabindex="-1" aria-hidden="true">
+    {etichetta && <span class="etichetta">{etichetta}</span>}
+    <Confezione categoria={p.categoria} nome={p.nome} />
+  </a>
+  <div class="testi">
+    {categoriaNome && <span class="cat">{categoriaNome}</span>}
+    <a class="nome" href={`/app/negozio${p.url}`}>{p.nome}</a>
+    <span class="formato">{p.formato}</span>
+    <span class="voto">{p.recensioni ? <><span class="stelle" aria-hidden="true">★★★★★</span> {voto(p.id)} · {p.recensioni} recensioni</> : "Ancora nessuna recensione"}</span>
+    <div class="piede">
+      <strong>{prezzo(p.prezzo)}</strong>
+      <button type="button" disabled={!p.disponibile} title="Negozio finto: non si può comprare">{p.disponibile ? "Aggiungi" : "Esaurito"}</button>
+    </div>
+  </div>
+</article>
+
+<style>
+  .nscheda { background: #fff; border: 1px solid #e6dfd0; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; height: 100%; }
+  .foto { position: relative; display: block; }
+  .etichetta { position: absolute; top: 12px; left: 12px; background: #fff; color: #1f4d36; font-size: .75rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
+  .testi { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
+  .cat { font-size: .78rem; font-weight: 600; color: #4a5a50; }
+  .nome { font-size: 1.02rem; font-weight: 700; color: #1d2a22 !important; text-decoration: none; }
+  .nome:hover { text-decoration: underline; }
+  .formato, .voto { font-size: .82rem; color: #4a5a50; }
+  .stelle { color: #b06a10; letter-spacing: 1px; }
+  .piede { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 10px; }
+  .piede strong { font-size: 1.1rem; }
+  .piede button { font: inherit; font-size: .85rem; font-weight: 700; background: #1f4d36; color: #fff; border: 0; border-radius: 999px; padding: 10px 16px; min-height: 42px; cursor: not-allowed; }
+  .piede button:disabled { background: #b9c4bc; }
+</style>

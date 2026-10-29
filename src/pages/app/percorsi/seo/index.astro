@@ -1,80 +1,126 @@
 ---
-// PERCORSO DI APPROFONDIMENTO · SEO (pagina di partenza)
-// Spiega la situazione, presenta il negozio e gli strumenti simulati, elenca le 5 missioni.
-// Le missioni sono ancora da costruire: per ora compaiono come "in arrivo".
+// PERCORSO DI APPROFONDIMENTO · SEO (pagina di partenza, livello junior)
+// Come nel design "Panoramica del percorso": benvenuto, messaggio della responsabile, le 5 missioni
+// (si sbloccano una alla volta), gli strumenti, le parole che si incontrano.
+// Le missioni sono ancora da costruire: per ora la prima è "in arrivo" e le altre bloccate.
 import Console from "../../../../components/seopro/Console.astro";
-import Icona from "../../../../components/Icona.astro";
 import sc from "../../../../data/app/seo-pro/search-console.json";
 import { num } from "../../../../scripts/tabella";
 
 const B = "/app/percorsi/seo/strumenti";
 const STRUMENTI = [
-  { nome: "Console di ricerca", link: `${B}/console/`, icona: "cerca", cosa: "Clic, impressioni, CTR e posizione da Google, per query e per pagina, negli ultimi 16 mesi." },
-  { nome: "Pagine e indicizzazione", link: `${B}/indicizzazione/`, icona: "check", cosa: "Quali pagine sono su Google, quali no e perché. Velocità delle pagine (Core Web Vitals)." },
-  { nome: "Ricerca keyword", link: `${B}/keyword/`, icona: "anteprima", cosa: "Cosa cercano le persone: volumi, difficoltà, stagionalità, intento." },
-  { nome: "Crawler", link: `${B}/crawler/`, icona: "link", cosa: "Tutte le pagine del sito viste come le vede Google: errori, redirect, title, H1." },
-  { nome: "Statistiche", link: `${B}/statistiche/`, icona: "analytics", cosa: "Cosa succede dopo il clic: visite, ordini e ricavi per pagina." },
+  { nome: "Console di ricerca", link: `${B}/console/`, vero: "Google Search Console", cosa: "Quante volte il sito compare su Google e quanti clic riceve." },
+  { nome: "Pagine e indicizzazione", link: `${B}/indicizzazione/`, vero: "il rapporto Pagine di Search Console", cosa: "Quali pagine sono su Google, quali no e perché." },
+  { nome: "Ricerca keyword", link: `${B}/keyword/`, vero: "Keyword Planner o Semrush", cosa: "Cosa cercano le persone e in che periodo dell'anno." },
+  { nome: "Crawler", link: `${B}/crawler/`, vero: "Screaming Frog", cosa: "Il sito visto da Google: errori, redirect, titoli." },
+  { nome: "Statistiche", link: `${B}/statistiche/`, vero: "Google Analytics", cosa: "Cosa succede dopo il clic: visite, ordini, ricavi." },
 ];
 const MISSIONI = [
-  { n: 1, nome: "Audit tecnico", cosa: "Trova cosa impedisce a Google di leggere bene il sito e decidi cosa sistemare." },
-  { n: 2, nome: "Keyword research e cannibalizzazione", cosa: "Scegli le keyword giuste per ogni pagina e risolvi due pagine che si fanno concorrenza." },
-  { n: 3, nome: "Copywriting della categoria Tè verdi", cosa: "Riscrivi title, description e testo di una categoria che si vede ma non viene cliccata." },
-  { n: 4, nome: "Piano dei contenuti del blog", cosa: "Decidi quali articoli scrivere nei prossimi mesi, e quando, guardando i dati." },
-  { n: 5, nome: "Caso finale: il traffico è calato", cosa: "Il capo chiede perché ottobre va male. Diagnostica il calo e decidi le priorità." },
+  { n: 1, nome: "Audit tecnico", cosa: "Trova cosa impedisce a Google di leggere bene il sito.", tempo: "35 minuti", strumenti: "Indicizzazione, Crawler" },
+  { n: 2, nome: "Keyword e cannibalizzazione", cosa: "Scegli la keyword giusta per ogni pagina.", tempo: "30 minuti", strumenti: "Keyword, Console" },
+  { n: 3, nome: "Riscrivi la categoria Tè verdi", cosa: "Title, description e testo di una pagina poco cliccata.", tempo: "25 minuti", strumenti: "Console, Negozio" },
+  { n: 4, nome: "Piano dei contenuti", cosa: "Quali articoli scrivere nei prossimi mesi, e quando.", tempo: "30 minuti", strumenti: "Keyword, Statistiche" },
+  { n: 5, nome: "Caso finale: il calo di ottobre", cosa: "Capisci cosa è successo e decidi le priorità.", tempo: "30 minuti", strumenti: "Tutti" },
 ];
-const ott = sc.mesi.find((m) => m.mese === "2026-10");
+const ott = sc.mesi.find((m) => m.mese === "2026-10")!;
+const set = sc.mesi.find((m) => m.mese === "2026-09")!;
+const calo = Math.round((1 - ott.clic / set.clic) * 100);
 ---
-<Console attivo="percorso" titolo="Percorso SEO" >
-  <section class="sp-pannello intro">
-    <p class="occhiello">Approfondisci · circa 2 ore e mezza</p>
-    <p class="grande">Lavori come SEO specialist per <strong>cinquefoglie.example</strong>, il negozio online di Cinque Foglie. Il sito ha 29 prodotti, 6 categorie e un blog. Ottobre non sta andando bene: {ott ? `${num(ott.clic)} clic da Google` : "meno clic del solito"}, meno del mese prima, e di solito in autunno il tè cresce.</p>
-    <p>Hai a disposizione il negozio vero e proprio, che puoi navigare e ispezionare come farebbe Google, e cinque strumenti professionali simulati. I dati sono inventati ma coerenti: un problema che vedi nel crawler lo ritrovi nella console e nelle statistiche.</p>
-    <a class="bottone" href="/app/negozio/">Apri il negozio →</a>
-  </section>
-
-  <section>
-    <h2 class="titoletto">Gli strumenti</h2>
-    <div class="griglia">
-      {STRUMENTI.map((s) => (
-        <a class="sp-pannello scheda" href={s.link}>
-          <span class="icona"><Icona nome={s.icona} dimensione={16} /></span>
-          <strong>{s.nome}</strong>
-          <span>{s.cosa}</span>
-        </a>
-      ))}
+<Console attivo="percorso" titolo="Percorso SEO">
+  <section class="apertura">
+    <div class="benvenuto">
+      <p class="occhiello">Primo giorno da SEO specialist junior</p>
+      <h2>Benvenuta nel team di cinquefoglie.example</h2>
+      <p>Hai a disposizione il sito vero del negozio e cinque strumenti. Ogni passo di una missione comincia con una spiegazione e un esempio; poi leggi i dati e scegli tu cosa fare.</p>
+      <div class="bottoni">
+        <a class="bottone-app" href="/app/negozio/">Guarda il negozio</a>
+        <a class="bottone-scuro" href={`${B}/indicizzazione/`}>Apri gli strumenti</a>
+      </div>
     </div>
+    <article class="messaggio">
+      <div class="mittente"><span class="avatar avatar--verde">EM</span><span><strong>Elena M.</strong><span class="nota">Responsabile e-commerce, oggi alle 9:12</span></span></div>
+      <strong>Ottobre va male, mi aiuti a capire?</strong>
+      <p>Ciao! I clic da Google sono scesi del {calo}% rispetto a settembre ({num(ott.clic)} contro {num(set.clic)}), e di solito in autunno saliamo. Prima sistemiamo le basi del sito, poi a fine settimana mi dici cosa è successo e da dove partiamo.</p>
+      <span class="nota">Persona e azienda inventate</span>
+    </article>
   </section>
 
   <section>
-    <h2 class="titoletto">Le missioni</h2>
+    <div class="titolo-riga"><h2 class="titoletto">Le missioni</h2><span class="nota">Circa 2 ore e mezza in tutto. Si sbloccano una alla volta.</span></div>
     <ol class="missioni">
-      {MISSIONI.map((m) => (
-        <li class="sp-pannello missione">
-          <span class="numero">{m.n}</span>
-          <div><strong>{m.nome}</strong><span>{m.cosa}</span></div>
-          <span class="sp-badge">In arrivo</span>
+      {MISSIONI.map((m, i) => (
+        <li class:list={["missione", { prima: i === 0 }]}>
+          <div class="missione-testa"><span class="numero">{m.n}</span><span class="stato">{i === 0 ? "In arrivo" : "Bloccata"}</span></div>
+          <strong>{m.nome}</strong>
+          <span class="cosa">{m.cosa}</span>
+          <span class="meta">{m.tempo}. Strumenti: {m.strumenti}</span>
         </li>
       ))}
     </ol>
-    <p class="sp-nota">Per ora puoi esplorare il negozio e gli strumenti. Prova a cercare da solo qualcosa che non va: le missioni ti guideranno a trovare tutto.</p>
+  </section>
+
+  <section class="sotto">
+    <div class="strumenti">
+      <h2 class="titoletto">Gli strumenti</h2>
+      <div class="griglia">
+        {STRUMENTI.map((s) => (
+          <a class="strumento" href={s.link}>
+            <strong>{s.nome}</strong>
+            <span>{s.cosa}</span>
+            <span class="vero">Come {s.vero}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+    <aside class="parole">
+      <h2 class="titoletto">Parole che incontrerai</h2>
+      <dl>
+        <div><dt>Impressione</dt><dd>Il sito compare nei risultati di Google, anche se nessuno clicca.</dd></div>
+        <div><dt>CTR</dt><dd>Su 100 persone che vedono il risultato, quante cliccano.</dd></div>
+        <div><dt>Indicizzata</dt><dd>La pagina è nell'archivio di Google e può comparire nei risultati.</dd></div>
+        <div><dt>Noindex</dt><dd>Un'istruzione che chiede a Google di non mostrare la pagina.</dd></div>
+      </dl>
+    </aside>
   </section>
 </Console>
 
 <style>
-  .intro { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
-  .intro p { margin: 0; line-height: 1.6; }
-  .occhiello { font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #c4520b; }
-  .grande { font-size: 1.05rem; }
-  .bottone { margin-top: 4px; background: var(--inchiostro); color: #fff; padding: 10px 16px; border-radius: 999px; text-decoration: none; font-weight: 700; }
-  .titoletto { font-size: 1.15rem; margin: 6px 0 10px; }
-  .griglia { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
-  .scheda { display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: inherit; font-size: .88rem; line-height: 1.5; }
-  .scheda:hover { border-color: var(--arancio); }
-  .scheda strong { font-size: .95rem; }
-  .icona { width: 30px; height: 30px; border-radius: 50%; background: #efeeea; display: grid; place-items: center; }
-  .missioni { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
-  .missione { display: flex; gap: 14px; align-items: center; }
-  .missione div { display: flex; flex-direction: column; gap: 2px; flex: 1; font-size: .88rem; line-height: 1.5; }
-  .missione strong { font-size: .95rem; }
-  .numero { flex: none; width: 32px; height: 32px; border-radius: 50%; background: #efeeeb; display: grid; place-items: center; font-weight: 800; }
+  .apertura { display: flex; flex-wrap: wrap; gap: 20px; }
+  .benvenuto { flex: 2 1 480px; background: var(--inchiostro); color: #f1efeb; border-radius: 22px; padding: 34px 38px; display: flex; flex-direction: column; gap: 12px; }
+  .benvenuto h2 { font-family: var(--font-titoli); font-weight: 800; font-size: clamp(1.7rem, 3vw, 2.3rem); line-height: 1.1; color: #fff; }
+  .benvenuto p { margin: 0; line-height: 1.6; color: #dedad3; max-width: 60ch; }
+  .occhiello { font-size: .85rem; font-weight: 700; color: var(--arancio) !important; }
+  .bottoni { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+  .bottone-scuro { display: inline-flex; align-items: center; font-weight: 700; color: #fff; text-decoration: none; padding: 12px 18px; border-radius: 10px; border: 1.5px solid #5e5953; }
+  .bottone-scuro:hover { color: #fff; border-color: #fff; }
+  .messaggio { flex: 1 1 280px; background: #fff; border: 1px solid #e3e1dc; border-radius: 22px; padding: 22px; display: flex; flex-direction: column; gap: 10px; }
+  .messaggio p { margin: 0; line-height: 1.6; font-size: .92rem; color: #423e39; }
+  .messaggio .nota:last-child { margin-top: auto; }
+  .mittente { display: flex; align-items: center; gap: 12px; }
+  .mittente > span:last-child { display: flex; flex-direction: column; }
+  .avatar--verde { background: #e3efe6; color: #1f5c38; width: 40px; height: 40px; }
+  .nota { font-size: .8rem; color: #625e58; }
+  .titolo-riga { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px; margin-bottom: 12px; }
+  .titoletto { font-family: var(--font-titoli); font-size: 1.35rem; font-weight: 800; margin: 0 0 12px; }
+  .titolo-riga .titoletto { margin: 0; }
+  .missioni { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
+  .missione { background: #fff; border: 1px solid #e3e1dc; border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 8px; color: #55514c; }
+  .missione.prima { border: 2px solid var(--arancio); color: var(--inchiostro); }
+  .missione strong { color: var(--inchiostro); font-size: .98rem; line-height: 1.3; }
+  .missione-testa { display: flex; justify-content: space-between; align-items: center; }
+  .numero { width: 32px; height: 32px; border-radius: 50%; background: #e9e8e4; display: grid; place-items: center; font-weight: 800; color: var(--inchiostro); }
+  .prima .numero { background: var(--arancio); }
+  .stato { font-size: .78rem; font-weight: 700; }
+  .cosa { font-size: .86rem; line-height: 1.5; }
+  .meta { font-size: .78rem; margin-top: auto; }
+  .sotto { display: flex; flex-wrap: wrap; gap: 20px; }
+  .strumenti { flex: 2 1 480px; }
+  .griglia { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+  .strumento { background: #fff; border: 1px solid #e3e1dc; border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: var(--inchiostro); font-size: .88rem; line-height: 1.5; }
+  .strumento:hover { border-color: #c9c6c0; color: var(--inchiostro); }
+  .strumento strong { font-size: .98rem; }
+  .vero { font-size: .78rem; color: #625e58; }
+  .parole { flex: 1 1 260px; background: #fff; border: 1px solid #e3e1dc; border-radius: 18px; padding: 20px; align-self: flex-start; }
+  .parole dl { margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: .86rem; line-height: 1.5; }
+  .parole dt { font-weight: 700; } .parole dd { margin: 0; color: #423e39; }
 </style>

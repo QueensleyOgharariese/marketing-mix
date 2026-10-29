@@ -16,7 +16,7 @@ const barre = (t: number[]) => {
   return t.map((v, i) => ({ x: i * 7, h: Math.max(1, (v / max) * 20) }));
 };
 ---
-<Console attivo="keyword" titolo="Ricerca keyword" ispirato="Google Keyword Planner e tool come Semrush">
+<Console attivo="keyword" titolo="Ricerca keyword" sottotitolo="Cosa cercano le persone in Italia, e in quali mesi" ispirato="Google Keyword Planner e strumenti come Semrush">
   <div class="sp-pannello comandi">
     <input class="sp-cerca" type="search" placeholder="Cerca una keyword…" data-testo />
     <label>Intento
@@ -32,6 +32,12 @@ const barre = (t: number[]) => {
     </label>
     <label class="spunta"><input type="checkbox" data-assente /> Solo dove il sito non compare</label>
     <span class="sp-nota" data-conteggio></span>
+  </div>
+
+  <div class="sp-cifre">
+    <div class="sp-cifra"><span>Keyword trovate</span><strong data-c-n>–</strong></div>
+    <div class="sp-cifra"><span>Ricerche al mese, in tutto</span><strong data-c-vol>–</strong></div>
+    <div class="sp-cifra"><span>Dove il sito non compare</span><strong data-c-assenti>–</strong></div>
   </div>
 
   <div class="sp-scorri">
@@ -65,7 +71,7 @@ const barre = (t: number[]) => {
 </Console>
 
 <script>
-  import { attivaTabelle } from "../../../../../scripts/tabella";
+  import { attivaTabelle, num } from "../../../../../scripts/tabella";
   attivaTabelle();
   const $ = <T extends HTMLElement>(s: string) => document.querySelector<T>(s)!;
   function filtra() {
@@ -73,12 +79,16 @@ const barre = (t: number[]) => {
     const i = $<HTMLSelectElement>("[data-intento]").value;
     const v = Number($<HTMLSelectElement>("[data-volume]").value);
     const a = $<HTMLInputElement>("[data-assente]").checked;
-    let n = 0;
+    let n = 0, vol = 0, assenti = 0;
     document.querySelectorAll<HTMLTableRowElement>("#t-kw tbody tr").forEach((r) => {
       const ok = (!t || r.cells[0].textContent!.toLowerCase().includes(t)) && (!i || r.dataset.intento === i) && Number(r.dataset.vol) >= v && (!a || r.dataset.assente === "si");
-      r.hidden = !ok; if (ok) n++;
+      r.hidden = !ok;
+      if (ok) { n++; vol += Number(r.dataset.vol); if (r.dataset.assente === "si") assenti++; }
     });
     $("[data-conteggio]").textContent = `${n} keyword`;
+    $("[data-c-n]").textContent = String(n);
+    $("[data-c-vol]").textContent = num(vol);
+    $("[data-c-assenti]").textContent = String(assenti);
   }
   ["[data-testo]", "[data-intento]", "[data-volume]", "[data-assente]"].forEach((s) => { $(s).addEventListener("input", filtra); $(s).addEventListener("change", filtra); });
   filtra();

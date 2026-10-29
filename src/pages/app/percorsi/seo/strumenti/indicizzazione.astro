@@ -16,8 +16,20 @@ const info = (url: string) => crawl.pagine.find((p) => p.url === url);
 const W = 900, H = 220, sx = 30;
 const maxTot = Math.max(...ind.storico.map((s) => s.indicizzate + s.non_indicizzate));
 const bw = (W - sx - 20) / ind.storico.length;
+// Evento annotato: il nuovo tema del negozio, pubblicato il 18/09/2026 (settimana che inizia il 14/09)
+const iEvento = ind.storico.findIndex((s) => s.settimana === "2026-09-14");
+const xEvento = sx + iEvento * bw + bw * (4 / 7);
+const perse = ind.storico[0].indicizzate - ind.storico[ind.storico.length - 1].indicizzate;
+// Cosa vuol dire ogni motivo, in parole semplici (livello junior)
+const SPIEGA: Record<string, string> = {
+  'Esclusa in base al tag "noindex"': "La pagina chiede a Google di non mostrarla.",
+  "Pagina duplicata senza URL canonico selezionato dall'utente": "Lo stesso contenuto ha più indirizzi e il sito non dice qual è quello giusto.",
+  "Scansionata, ma attualmente non indicizzata": "Google l'ha letta e ha deciso che non serve nei risultati.",
+  "Non trovata (404)": "La pagina non esiste più, ma qualcuno la linka ancora.",
+  "Pagina con reindirizzamento": "L'indirizzo rimanda a un'altra pagina.",
+};
 ---
-<Console attivo="indicizzazione" titolo="Pagine e indicizzazione" ispirato="Google Search Console (rapporti Pagine e Core Web Vitals)">
+<Console attivo="indicizzazione" titolo="Pagine e indicizzazione" sottotitolo="Quali pagine Google ha messo nel suo archivio e quanto sono veloci" ispirato="Google Search Console (rapporti Pagine e Core Web Vitals)">
   <div class="sp-schede" role="tablist">
     <button type="button" role="tab" aria-selected="true" data-scheda="pagine">Indicizzazione delle pagine</button>
     <button type="button" role="tab" aria-selected="false" data-scheda="cwv">Core Web Vitals</button>
@@ -25,8 +37,8 @@ const bw = (W - sx - 20) / ind.storico.length;
 
   <section data-pannello="pagine" class="sezione">
     <div class="sp-cifre">
-      <div class="sp-cifra"><span>Pagine indicizzate</span><strong class="su">{num(ind.indicizzate)}</strong><small>sono nei risultati di Google</small></div>
-      <div class="sp-cifra"><span>Pagine non indicizzate</span><strong>{num(nonInd)}</strong><small>{ind.motivi.length} motivi</small></div>
+      <div class="sp-cifra"><span><i class="qu verde"></i>Pagine indicizzate</span><strong>{num(ind.indicizzate)}</strong><small class="giu">{perse} in meno da metà settembre</small></div>
+      <div class="sp-cifra"><span><i class="qu grigio"></i>Pagine non indicizzate</span><strong>{num(nonInd)}</strong><small class="neutro">per {ind.motivi.length} motivi diversi</small></div>
       <div class="sp-cifra"><span>Ultimo aggiornamento</span><strong>{ind.aggiornato.split("-").reverse().join("/")}</strong><small>dati simulati</small></div>
     </div>
 
@@ -42,8 +54,11 @@ const bw = (W - sx - 20) / ind.storico.length;
             <text x={x + (bw - 12) / 2} y={H - 8} font-size="11" text-anchor="middle" fill="#6f6a64">{s.settimana.slice(8)}/{s.settimana.slice(5, 7)}</text>
           </g>);
         })}
+        <line x1={xEvento} x2={xEvento} y1="8" y2={H - 24} stroke="#ff7a1a" stroke-width="1.5" stroke-dasharray="4 4" />
+        <circle cx={xEvento} cy="12" r="9" fill="#ff7a1a" /><text x={xEvento} y="16" text-anchor="middle" font-size="11" font-weight="700" fill="#2a1d18">1</text>
       </svg>
-      <p class="sp-nota"><span class="leg verde"></span> Indicizzate <span class="leg grigio"></span> Non indicizzate · settimane che iniziano il giorno indicato</p>
+      <p class="evento"><span class="evento-n" aria-hidden="true">1</span><span><strong>18 settembre 2026:</strong> pubblicato il nuovo tema del negozio.</span></p>
+      <p class="sp-nota"><span class="leg verde"></span> Indicizzate <span class="leg grigio"></span> Non indicizzate. Ogni barra è una settimana, che inizia il giorno indicato.</p>
     </div>
 
     <div class="sp-pannello">
@@ -54,7 +69,7 @@ const bw = (W - sx - 20) / ind.storico.length;
           <thead><tr><th data-ordina="testo">Motivo</th><th data-ordina="testo">Fonte</th><th>Convalida</th><th data-ordina="numero" class="n">Pagine</th></tr></thead>
           <tbody>
             {ind.motivi.map((m, i) => (
-              <tr data-motivo={i} tabindex="0"><td>{m.motivo}</td><td>{m.fonte}</td><td><span class="sp-badge">Non iniziata</span></td><td class="n" data-valore={m.pagine.length}>{m.pagine.length}</td></tr>
+              <tr data-motivo={i} tabindex="0"><td><strong class="motivo">{m.motivo}</strong><span class="spiega-motivo">{SPIEGA[m.motivo] ?? ""}</span></td><td>{m.fonte}</td><td><span class="sp-badge">Non iniziata</span></td><td class="n" data-valore={m.pagine.length}>{m.pagine.length}</td></tr>
             ))}
           </tbody>
         </table>
@@ -142,4 +157,10 @@ const bw = (W - sx - 20) / ind.storico.length;
   .leg { display: inline-block; width: 10px; height: 10px; border-radius: 2px; vertical-align: -1px; margin: 0 4px 0 10px; }
   .leg.verde { background: #2f7a4f; margin-left: 0; } .leg.grigio { background: #c9c6c0; }
   .esempio { color: #6f6a64; }
+  .motivo { display: block; font-weight: 600; }
+  .spiega-motivo { display: block; font-size: .78rem; color: #5f5a55; margin-top: 2px; }
+  .qu { display: inline-block; width: 11px; height: 11px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; } .qu.verde { background: #2f7a4f; } .qu.grigio { background: #b5b1aa; }
+  .neutro { color: #5f5a55; }
+  .evento { display: flex; gap: 10px; align-items: center; margin: 8px 0 0; font-size: .85rem; background: #f4f4f2; border-radius: 10px; padding: 9px 12px; }
+  .evento-n { flex: none; width: 20px; height: 20px; border-radius: 50%; background: #ff7a1a; display: grid; place-items: center; font-size: .72rem; font-weight: 800; }
 </style>
