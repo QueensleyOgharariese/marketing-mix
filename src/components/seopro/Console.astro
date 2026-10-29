@@ -36,7 +36,7 @@ const conGuida = attivo !== "percorso";
     <span class="missioni-barra" aria-hidden="true"><span data-missioni-barra></span></span>
   </div>
   <div class:list={["console", { "con-guida": conGuida }]}>
-    <nav class="menu" aria-label="Workspace SEO">
+    <nav class="menu" aria-label="Workspace SEO" data-pannello="menu-seo" data-etichetta="menu">
       {GRUPPI.map((g) => (
         <div class="gruppo">
           <span class="menu-titolo">{g.nome}</span>
@@ -57,7 +57,7 @@ const conGuida = attivo !== "percorso";
       </header>
       <slot />
     </main>
-    {conGuida && <aside class="guida" aria-label="Guida della missione"><GuidaMissione pagina={attivo} /></aside>}
+    {conGuida && <aside class="guida" aria-label="Guida della missione" data-pannello="guida-seo" data-etichetta="guida"><GuidaMissione pagina={attivo} /></aside>}
   </div>
 </AppLayout>
 
@@ -99,7 +99,16 @@ const conGuida = attivo !== "percorso";
   .sottotitolo { margin: 0; font-size: .95rem; color: #423e39; }
   .ispirato { margin: 0; font-size: .8rem; color: #625e58; }
   .guida { background: #fff; border-left: 1px solid #e3e1dc; padding: 28px 24px 40px; display: flex; flex-direction: column; gap: 18px; align-self: start; position: sticky; top: 61px; max-height: calc(100vh - 61px); overflow-y: auto; min-height: calc(100vh - 61px); box-sizing: border-box; }
+  /* Barre chiuse: diventano strisce sottili da 52 px */
+  .console:has(> .menu[data-chiuso]) { grid-template-columns: 52px minmax(0, 1fr); }
+  .console.con-guida:has(> .menu[data-chiuso]) { grid-template-columns: 52px minmax(0, 1fr) 360px; }
+  .console.con-guida:has(> .guida[data-chiuso]) { grid-template-columns: 248px minmax(0, 1fr) 52px; }
+  .console.con-guida:has(> .menu[data-chiuso]):has(> .guida[data-chiuso]) { grid-template-columns: 52px minmax(0, 1fr) 52px; }
+  .guida[data-chiuso] { min-height: 0; }
   @media (max-width: 1180px) {
+    .console.con-guida:has(> .guida[data-chiuso]) { grid-template-columns: 220px minmax(0, 1fr); }
+    .console.con-guida:has(> .menu[data-chiuso]):has(> .guida[data-chiuso]) { grid-template-columns: 52px minmax(0, 1fr); }
+    .guida[data-chiuso] > :global(.apri-pannello) { writing-mode: horizontal-tb; min-height: 0; }
     .console.con-guida { grid-template-columns: 220px minmax(0, 1fr); }
     .guida { grid-column: 1 / -1; border-left: 0; border-top: 1px solid #e3e1dc; position: static; max-height: none; min-height: 0; }
   }

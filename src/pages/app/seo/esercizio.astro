@@ -32,7 +32,7 @@ const voci = [
   <Passi slot="barra" attivo={2} />
   <div class="layout">
     <!-- ====== SINISTRA: richiesta e scheda prodotto ====== -->
-    <aside class="sinistra">
+    <aside class="sinistra" data-pannello="esercizio-dati" data-etichetta="richiesta e dati">
       <section class="pannello blocco">
         <span class="mittente"><span class="avatar">{es.richiesta.da}</span><strong>La richiesta di {es.richiesta.nome}</strong></span>
         <p>{es.richiesta.testo}</p>
@@ -171,7 +171,7 @@ const voci = [
     </form>
 
     <!-- ====== DESTRA: Pesca, controlli per parte, aiuti ====== -->
-    <aside class="destra">
+    <aside class="destra" data-pannello="esercizio-controlli" data-etichetta="Pesca e controlli">
       <div class="pannello blocco">
         <div class="mittente"><Pesca dimensione={46} occhiali animata={false} /><span><strong>Pesca</strong><span class="nota">Ti do un suggerimento alla volta</span></span></div>
         <p class="pesca-dice" data-pesca aria-live="polite">Inizia dalla parte 1: per ogni ricerca scegli cosa vuole fare la persona.</p>
@@ -470,7 +470,15 @@ const voci = [
   .aiuto summary { font-weight: 700; font-size: .9rem; }
   .aiuto p { margin-top: 10px; font-size: .9rem; line-height: 1.55; color: #4a3a32; }
 
+  /* Barre chiuse: strisce sottili da 52 px; al centro più spazio per il lavoro */
+  .layout:has(> .sinistra[data-chiuso]) { grid-template-columns: 52px minmax(0, 860px) minmax(250px, 300px); }
+  .layout:has(> .destra[data-chiuso]) { grid-template-columns: minmax(250px, 300px) minmax(0, 860px) 52px; }
+  .layout:has(> .sinistra[data-chiuso]):has(> .destra[data-chiuso]) { grid-template-columns: 52px minmax(0, 960px) 52px; }
+  .sinistra > :global(.chiudi-pannello) { grid-column: 1 / -1; justify-self: end; }
   @media (max-width: 1200px) {
+    .layout:has(> .sinistra[data-chiuso]) { grid-template-columns: minmax(0, 1fr) minmax(250px, 300px); }
+    .layout:has(> .destra[data-chiuso]), .layout:has(> .sinistra[data-chiuso]):has(> .destra[data-chiuso]) { grid-template-columns: minmax(0, 1fr) 52px; }
+    .sinistra[data-chiuso] > :global(.apri-pannello) { writing-mode: horizontal-tb; min-height: 0; }
     .layout { grid-template-columns: minmax(0, 1fr) minmax(260px, 320px); }
     .sinistra { grid-column: 1 / -1; position: static; max-height: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
   }

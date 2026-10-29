@@ -52,11 +52,27 @@ const { title, percorso, indietro } = Astro.props;
       </div>
     </header>
     <slot />
+    <script>
+      import { attivaPannelli } from "../scripts/pannelli";
+      attivaPannelli();
+    </script>
   </body>
 </html>
 
 <style is:global>
   /* Stile comune a tutte le schermate dell'app */
+  /* Barre laterali chiudibili (vedi src/scripts/pannelli.ts) */
+  .chiudi-pannello { align-self: flex-end; display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; flex: none; border-radius: 10px; border: 1px solid #e3e1dc; background: #fff; color: #55514c; cursor: pointer; }
+  .chiudi-pannello:hover { background: #f4f4f2; color: var(--inchiostro); }
+  .chiudi-pannello:focus-visible, .apri-pannello:focus-visible { outline: 3px solid var(--inchiostro); outline-offset: 2px; }
+  .apri-pannello { display: none; }
+  [data-pannello][data-chiuso] { padding: 8px !important; min-width: 0; overflow: hidden !important; }
+  [data-pannello][data-chiuso] > :not(.apri-pannello) { display: none !important; }
+  [data-pannello][data-chiuso] > .apri-pannello { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; min-height: 180px; writing-mode: vertical-rl; font: inherit; font-size: .85rem; font-weight: 700; padding: 14px 6px; border-radius: 10px; border: 1px solid #e3e1dc; background: #fff; color: var(--inchiostro); cursor: pointer; }
+  [data-pannello][data-chiuso] > .apri-pannello:hover { background: #f4f4f2; }
+  @media (max-width: 860px) {
+    [data-pannello][data-chiuso] > .apri-pannello { writing-mode: horizontal-tb; min-height: 0; }
+  }
   body.app { background: #f4f4f2; font-size: .95rem; }
   .app-barra { position: sticky; top: 0; z-index: 20; min-height: 60px; background: #fff; border-bottom: 1px solid #e3e1dc; padding: 8px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; }
   .barra-sx, .barra-dx { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }

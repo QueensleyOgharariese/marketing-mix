@@ -82,14 +82,15 @@ const attiva = (id: string) => url.startsWith(`/${id}/`);
         </footer>
       </div>
     </div>
-    <aside class="guida-negozio" aria-label="Guida della missione"><GuidaMissione pagina="negozio" /></aside>
+    <aside class="guida-negozio" aria-label="Guida della missione" data-pannello="guida-negozio" data-etichetta="guida"><GuidaMissione pagina="negozio" /></aside>
   </div>
 </AppLayout>
 
 <style>
   .area { padding: 24px; max-width: 1760px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 24px; align-items: start; }
-  .guida-negozio { background: #fff; border: 1px solid #e3e1dc; border-radius: 16px; padding: 28px 24px; position: sticky; top: 80px; max-height: calc(100vh - 100px); overflow-y: auto; }
-  @media (max-width: 1180px) { .area { grid-template-columns: 1fr; } .guida-negozio { position: static; max-height: none; } }
+  .area:has(> .guida-negozio[data-chiuso]) { grid-template-columns: minmax(0, 1fr) 52px; }
+  .guida-negozio { display: flex; flex-direction: column; gap: 4px; background: #fff; border: 1px solid #e3e1dc; border-radius: 16px; padding: 20px 24px 28px; position: sticky; top: 80px; max-height: calc(100vh - 100px); overflow-y: auto; }
+  @media (max-width: 1180px) { .area, .area:has(> .guida-negozio[data-chiuso]) { grid-template-columns: 1fr; } .guida-negozio { position: static; max-height: none; } .guida-negozio[data-chiuso] > :global(.apri-pannello) { writing-mode: horizontal-tb; min-height: 0; } }
   .finestra { background: #fff; border: 1px solid #d1cec8; border-radius: 14px; overflow: hidden; box-shadow: 0 20px 50px -30px rgba(42, 29, 24, .35); }
   .barra-browser { position: relative; display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: #ebeae6; border-bottom: 1px solid #dcdad5; }
   .pallini { display: flex; gap: 6px; } .pallini i { width: 11px; height: 11px; border-radius: 50%; background: #d1cec8; } .pallini i:first-child { background: #f07a5a; } .pallini i:nth-child(2) { background: #f2c14e; } .pallini i:nth-child(3) { background: #7cc27c; }
