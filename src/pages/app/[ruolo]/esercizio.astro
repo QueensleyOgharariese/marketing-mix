@@ -39,12 +39,12 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
         <span class="mittente"><span class="avatar">{es.richiesta.da}</span><strong>La richiesta di {es.richiesta.nome}</strong></span>
         <p>{es.richiesta.testo}</p>
       </section>
-      <section class="pannello blocco" aria-labelledby="t-scheda">
-        <div class="riga"><h2 id="t-scheda" class="sottotitolo">{es.scheda.titolo}</h2><span class="simulati">dati simulati</span></div>
+      <details class="pannello blocco scheda-det" data-chiudi-telefono open>
+        <summary class="riga"><h2 id="t-scheda" class="sottotitolo">{es.scheda.titolo}</h2><span class="simulati">dati simulati</span><span class="freccia-det"></span></summary>
         <dl class="scheda-prodotto">
           {es.scheda.voci.map(([k, v]) => (<div><dt>{k}</dt><dd>{v}</dd></div>))}
         </dl>
-      </section>
+      </details>
     </aside>
 
     <!-- ====== CENTRO: le parti ====== -->
@@ -254,7 +254,22 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
   });
 </script>
 
+<script>
+  // Sul telefono la scheda dei dati parte chiusa, così la lezione si vede subito
+  if (matchMedia("(max-width: 860px)").matches) document.querySelectorAll<HTMLDetailsElement>("details[data-chiudi-telefono]").forEach((d) => (d.open = false));
+</script>
+
 <style>
+  /* Scheda dei dati richiudibile: aperta sul computer, chiusa sul telefono (si apre toccando il titolo) */
+  .scheda-det > summary { list-style: none; cursor: pointer; }
+  .scheda-det > summary::-webkit-details-marker { display: none; }
+  .scheda-det > summary .freccia-det { display: none; font-size: .8rem; font-weight: 700; color: var(--inchiostro); }
+  @media (max-width: 860px) {
+    .scheda-det > summary .freccia-det { display: inline; }
+    .scheda-det:not([open]) > summary .freccia-det::after { content: "Mostra"; }
+    .scheda-det[open] > summary .freccia-det::after { content: "Nascondi"; }
+  }
+  @media (min-width: 861px) { .scheda-det > summary { pointer-events: none; } }
   /* Colori: sfondo neutro, bianco per le superfici, un solo arancione (--arancio) per azioni e stato attivo */
   .layout { --linea-l: #e3e1dc; --grigio: #f4f4f2; --testo-2: #55514c; display: grid; grid-template-columns: minmax(250px, 300px) minmax(0, 760px) minmax(250px, 300px); justify-content: center; gap: 24px; padding: 28px 24px 48px; align-items: start; }
   .sinistra, .destra { position: sticky; top: 84px; display: flex; flex-direction: column; gap: 12px; max-height: calc(100vh - 100px); overflow-y: auto; }
