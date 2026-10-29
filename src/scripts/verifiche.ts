@@ -14,7 +14,16 @@ const TE_VERDI = catalogo.prodotti.filter((p) => p.categoria === "te-verdi").map
 
 export const VERIFICHE: Record<string, Verifica> = {
   // Tutorial
-  tutorialH1: (m) => {
+  tutorialAccessori: (m) => {
+    const h1 = paginaEffettiva("/accessori/", m)?.h1 ?? "";
+    return [
+      C("Hai cambiato l'H1 di /accessori/", h1 !== "Accessori per il tè", "Pannello → /accessori/: scrivi nel campo H1 e premi Salva le modifiche."),
+      C("L'H1 parla di teiere e tazze", normalizza(h1).includes("teiere") && normalizza(h1).includes("tazze"), "Scrivi: Teiere, tazze e accessori per il tè."),
+    ];
+  },
+
+  // Livello 1 · Basi
+  h1Matcha: (m) => {
     const h1 = paginaEffettiva("/matcha/", m)?.h1 ?? "";
     return [
       C("La pagina /matcha/ ha un H1", !!h1.trim(), "Pannello → Pagine → /matcha/: scrivi nel campo H1 e premi Salva le modifiche."),
@@ -22,8 +31,30 @@ export const VERIFICHE: Record<string, Verifica> = {
       C("L'H1 è breve (massimo 60 caratteri)", h1.length <= 60, `Ora ha ${h1.length} caratteri: un titolo si legge in un colpo d'occhio.`),
     ];
   },
+  titoloAssam: (m) => {
+    const t = paginaEffettiva("/te-neri/assam/", m)?.title ?? "";
+    const px = pixel(t);
+    return [
+      C("Il title non è più quello generico", !!t && t !== "Cinque Foglie | Negozio di tè online", "Pannello → /te-neri/assam/: scrivi un title nuovo e salva."),
+      C("Contiene il nome del prodotto, Assam", normalizza(t).includes("assam"), "Chi cerca questo tè scrive «assam»: mettilo nel title."),
+      C("Dice che è un tè nero", normalizza(t).includes("te nero"), "Aggiungi «tè nero»: è quello che cerca chi non conosce il nome."),
+      C("Il brand è alla fine", cerca(t, "cinque foglie", true) !== null && !normalizza(t).startsWith("cinque foglie"), "Il nome del negozio va in fondo: «… | Cinque Foglie»."),
+      C("È tra 30 caratteri e 580 pixel", t.length >= 30 && px <= 580, px > 580 ? `È lungo ${px} px: Google lo taglierebbe.` : "È troppo corto: aggiungi una caratteristica (biologico, in foglie)."),
+      C("Nessuna promessa sulla salute", !t || senzaSalute(t), "Togli parole come dimagrire, detox, benefici."),
+    ];
+  },
+  descDarjeeling: (m) => {
+    const d = paginaEffettiva("/te-neri/darjeeling/", m)?.description ?? "";
+    return [
+      C("Hai scritto la description", !!d.trim(), "Pannello → /te-neri/darjeeling/: scrivi nel campo Meta description e salva."),
+      C("È tra 100 e 160 caratteri", d.length >= 100 && d.length <= 160, `Ora ha ${d.length} caratteri.`),
+      C("Nomina il Darjeeling", normalizza(d).includes("darjeeling"), "Chi legge deve capire subito che la pagina parla del Darjeeling."),
+      C("Dà un motivo per cliccare", /spedizion|biologic|foglie|regalo|gratuit|24|48|reso|india|himalaya|raccolt/.test(normalizza(d)), "Aggiungi un vantaggio concreto: spedizione, biologico, foglie intere, provenienza."),
+      C("Nessuna promessa sulla salute", !d || senzaSalute(d), "Per un alimento non si possono promettere effetti sulla salute."),
+    ];
+  },
 
-  // Missione 1
+  // Livello 2 · Diagnosi (dalle missioni di prima)
   tisaneVisibili: (m) => [
     C("La categoria Tisane è di nuovo visibile ai motori di ricerca", !m.tema.nascoste.includes("tisane"), "Pannello del negozio → Tema e impostazioni: spunta Tisane."),
     C("Nessun'altra categoria è nascosta", m.tema.nascoste.filter((c) => c !== "tisane").length === 0, "Hai nascosto un'altra categoria: rimettila visibile."),
@@ -50,7 +81,6 @@ export const VERIFICHE: Record<string, Verifica> = {
     C("Hai chiesto a Google di convalidare la correzione", !!m.convalide['Esclusa in base al tag "noindex"'], "Pagine e indicizzazione → motivo noindex → Convalida correzione."),
   ],
 
-  // Missione 3
   titoloTeVerdi: (m) => {
     // Si controlla la pagina com'è adesso sul sito (anche i campi che non hai toccato)
     const p = paginaEffettiva("/te-verdi/", m);

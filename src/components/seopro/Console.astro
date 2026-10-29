@@ -33,7 +33,7 @@ const conGuida = attivo !== "percorso";
   <div slot="barra" class="stato">
     <SchermoIntero />
     <span class="livello">Livello junior</span>
-    <span class="missioni-testo" data-missioni-testo>Missioni 0 di 5</span>
+    <span class="missioni-testo" data-missioni-testo>Esercizi 0 di 11</span>
     <span class="missioni-barra" aria-hidden="true"><span data-missioni-barra></span></span>
   </div>
   <div class:list={["console", { "con-guida": conGuida }]}>
@@ -63,18 +63,17 @@ const conGuida = attivo !== "percorso";
 </AppLayout>
 
 <script>
-  // Missioni completate: lette dai progressi salvati nel browser (chiave del percorso SEO)
+  // Esercizi completati: letti dai progressi salvati nel browser (il tutorial non conta)
+  import { MISSIONI, leggiStato, fatta } from "../../scripts/missioni";
   function aggiornaBarra() {
-    try {
-      const dati = JSON.parse(localStorage.getItem("marketing-mix-percorso-seo") ?? "{}");
-      const fatte = Object.entries(dati.missioni ?? {}).filter(([id, m]: [string, any]) => id !== "tutorial" && m?.stato === "completata").length; // il tutorial non conta
-      const t = document.querySelector("[data-missioni-testo]"); const b = document.querySelector<HTMLElement>("[data-missioni-barra]");
-      if (t) t.textContent = `Missioni ${fatte} di 5`;
-      if (b) b.style.width = `${(fatte / 5) * 100}%`;
-    } catch {}
+    const s = leggiStato();
+    const n = MISSIONI.filter((m) => fatta(s, m)).length;
+    const t = document.querySelector("[data-missioni-testo]"); const b = document.querySelector<HTMLElement>("[data-missioni-barra]");
+    if (t) t.textContent = `Esercizi ${n} di ${MISSIONI.length}`;
+    if (b) b.style.width = `${(n / MISSIONI.length) * 100}%`;
   }
   aggiornaBarra();
-  // la guida avvisa quando una missione finisce
+  // la guida avvisa quando un esercizio finisce
   document.addEventListener("missioni-aggiornate", aggiornaBarra);
 </script>
 

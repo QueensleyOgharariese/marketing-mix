@@ -14,7 +14,7 @@ const { pagina } = Astro.props;
 </div>
 
 <script>
-  import { TUTTE, STRUMENTI, leggiStato, salvaStato, linkPasso, controlla, punti, avvia, etichetta, consigliata, type Missione, type Passo } from "../../scripts/missioni";
+  import { TUTTE, LIVELLI, STRUMENTI, leggiStato, salvaStato, linkPasso, controlla, punti, avvia, etichetta, consigliata, livelloAperto, type Missione, type Passo } from "../../scripts/missioni";
   import { verifica } from "../../scripts/verifiche";
 
   const radice = document.querySelector<HTMLElement>("[data-guida-missione]");
@@ -62,22 +62,25 @@ const { pagina } = Astro.props;
 
     // Nessuna missione in corso
     if (!m || !sm) {
-      radice.innerHTML = `<h2 class="gm-titolo">Nessuna missione in corso</h2><p class="gm-testo">Puoi esplorare gli strumenti liberamente. Quando vuoi, scegli una missione dalla panoramica.</p><a class="bottone-app" href="/app/percorsi/seo/#missioni">Scegli una missione</a>`;
+      radice.innerHTML = `<h2 class="gm-titolo">Nessun esercizio in corso</h2><p class="gm-testo">Puoi esplorare gli strumenti liberamente. Quando vuoi, scegli un esercizio dalla panoramica.</p><a class="bottone-app" href="/app/percorsi/seo/#livelli">Scegli un esercizio</a>`;
       return;
     }
     const tutorial = m.id === "tutorial";
 
-    // Missione (o tutorial) completata: riepilogo e scelta della prossima
+    // Esercizio (o tutorial) completato: riepilogo e scelta del prossimo
     if (sm.stato === "completata") {
       const prossima = consigliata(s);
       const primo = sm.primoColpo.filter(Boolean).length;
       const domande = m.passi.filter((p) => p.tipo !== "info").length;
+      // Se con questo esercizio si è finito un livello, si apre quello dopo
+      const nuovo = m.livello < 3 && livelloAperto(s, m.livello + 1) && prossima?.livello === m.livello + 1 ? LIVELLI[m.livello + 1] : undefined;
       radice.innerHTML = `<p class="gm-missione">${esc(etichetta(m))}</p>${barre(m, m.passi.length)}
-        <h2 class="gm-titolo">${tutorial ? "Tutorial completato" : "Missione completata"}</h2>
+        <h2 class="gm-titolo">${tutorial ? "Tutorial completato" : "Esercizio completato"}</h2>
         ${tutorial ? "" : `<p class="gm-punti"><strong>${punti(sm)}</strong> punti su 100</p><p class="gm-testo">Giuste al primo tentativo: ${primo} su ${domande}. Aiuti aperti: ${sm.aiuti.length}.</p>`}
+        ${nuovo && !tutorial ? `<p class="gm-sblocco"><strong>Livello ${nuovo.n} aperto: ${esc(nuovo.nome)}</strong>${esc(nuovo.cosa)}</p>` : ""}
         <div class="gm-blocco"><h3>Cosa hai imparato</h3><ul>${m.imparato.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
         <div class="gm-messaggio"><strong>Elena M.</strong><p>${esc(m.elena)}</p></div>
-        <div class="gm-bottoni">${prossima ? `<button type="button" class="bottone-app" data-prossima="${prossima.id}">${tutorial ? "Inizia la missione" : "Prossima consigliata: missione"} ${prossima.n}</button>` : ""}<a class="gm-secondario" href="/app/percorsi/seo/#missioni">${tutorial ? "Scegli un'altra missione" : "Scegli tu la prossima"}</a></div>`;
+        <div class="gm-bottoni">${prossima ? `<button type="button" class="bottone-app" data-prossima="${prossima.id}">Prossimo: ${esc(prossima.nome)}</button>` : ""}<a class="gm-secondario" href="/app/percorsi/seo/#livelli">${prossima ? "Scegli tu" : "Torna agli esercizi"}</a></div>`;
       radice.querySelector<HTMLButtonElement>("[data-prossima]")?.addEventListener("click", (e) => {
         location.href = avvia((e.currentTarget as HTMLElement).dataset.prossima!);
       });
@@ -87,7 +90,8 @@ const { pagina } = Astro.props;
     const p = m.passi[sm.passo];
     const ultimo = sm.passo === m.passi.length - 1;
     const testa = `<p class="gm-missione">${esc(etichetta(m))}</p>${barre(m, sm.passo)}<p class="gm-passo">Passo ${sm.passo + 1} di ${m.passi.length}</p>`;
-    const obiettivo = sm.passo === 0 ? `<p class="gm-obiettivo">${esc(m.obiettivo)}</p>` : "";
+    // All'inizio dell'esercizio: il messaggio di Elena (la situazione) e l'obiettivo in una riga
+    const obiettivo = sm.passo === 0 ? `<div class="gm-situazione"><span class="gm-da">Elena M., responsabile e-commerce</span><p>${esc(m.situazione)}</p></div><p class="gm-obiettivo"><strong>Obiettivo:</strong> ${esc(m.obiettivo)}</p>` : "";
 
     // Passo "info" (tutorial): si legge e si va avanti. Si vede in qualunque pagina.
     if (p.tipo === "info") {
@@ -120,7 +124,7 @@ const { pagina } = Astro.props;
         const lista = `<ul class="gm-controlli">${r.controlli.map((c) => `<li class="${c.ok ? "ok" : "no"}"><span class="gm-segno" aria-hidden="true"></span><span><strong>${esc(c.nome)}</strong>${c.ok ? "" : `<br>${esc(c.suggerimento)}`}</span><span class="sr">${c.ok ? "superato" : "da sistemare"}</span></li>`).join("")}</ul>`;
         if (r.ok) {
           esitoA.className = "gm-esito ok";
-          esitoA.innerHTML = `<strong>Fatto.</strong>${lista}<p>${esc(p.perche)}</p><button type="button" class="bottone-app" data-avanti>${ultimo ? "Concludi la missione" : "Passo successivo"}</button>`;
+          esitoA.innerHTML = `<strong>Fatto.</strong>${lista}<p>${esc(p.perche)}</p><button type="button" class="bottone-app" data-avanti>${ultimo ? "Concludi l'esercizio" : "Passo successivo"}</button>`;
           esitoA.querySelector("[data-avanti]")!.addEventListener("click", () => avanti(m, ultimo, pagina));
         } else {
           esitoA.className = "gm-esito no";
@@ -161,7 +165,7 @@ const { pagina } = Astro.props;
       requestAnimationFrame(() => esito.scrollIntoView({ behavior: "smooth", block: "nearest" }));
       if (r.ok) {
         esito.className = "gm-esito ok";
-        esito.innerHTML = `<strong>Giusto.</strong><p>${esc(p.perche)}</p><button type="button" class="bottone-app" data-avanti>${ultimo ? "Concludi la missione" : "Passo successivo"}</button>`;
+        esito.innerHTML = `<strong>Giusto.</strong><p>${esc(p.perche)}</p><button type="button" class="bottone-app" data-avanti>${ultimo ? "Concludi l'esercizio" : "Passo successivo"}</button>`;
         radice.querySelectorAll<HTMLInputElement>("input[name=gm-r]").forEach((x) => (x.disabled = true));
         radice.querySelector<HTMLButtonElement>("[data-controlla]")!.disabled = true;
         esito.querySelector("[data-avanti]")!.addEventListener("click", () => avanti(m, ultimo, pagina));
@@ -207,6 +211,11 @@ const { pagina } = Astro.props;
   .gm :global(.gm-barre span.fatto) { background: #2f7a4f; } .gm :global(.gm-barre span.ora) { background: var(--arancio); }
   .gm :global(.gm-passo) { margin: 0; font-size: .8rem; color: #625e58; }
   .gm :global(.gm-obiettivo) { margin: 0; font-size: .85rem; line-height: 1.55; color: #423e39; background: #f4f4f2; border-radius: 10px; padding: 10px 12px; }
+  .gm :global(.gm-situazione) { border-left: 3px solid var(--arancio); padding: 2px 0 2px 12px; }
+  .gm :global(.gm-situazione p) { margin: 2px 0 0; line-height: 1.55; font-size: .88rem; }
+  .gm :global(.gm-da) { font-size: .76rem; font-weight: 700; color: #625e58; }
+  .gm :global(.gm-sblocco) { margin: 0; background: var(--inchiostro); color: #f1efeb; border-radius: 12px; padding: 12px 14px; line-height: 1.5; font-size: .86rem; display: flex; flex-direction: column; gap: 2px; }
+  .gm :global(.gm-sblocco strong) { color: #fff; font-size: .92rem; }
   .gm :global(.gm-titolo) { margin: 0; font-family: var(--font-titoli); font-size: 1.35rem; line-height: 1.2; }
   .gm :global(.gm-testo) { margin: 0; line-height: 1.6; color: #423e39; }
   .gm :global(.gm-spiega) { background: #f4f4f2; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; line-height: 1.6; font-size: .87rem; }

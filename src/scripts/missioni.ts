@@ -1,6 +1,8 @@
-// MISSIONI DEL PERCORSO SEO: stato salvato nel browser e regole
-// Lo stato resta solo in questo browser (localStorage), come i progressi degli esercizi.
-// Forma: { attiva: "m1" | null, missioni: { m1: { stato, passo, errori, aiuti, primoColpo } } }
+// ESERCIZI DEL PERCORSO SEO (struttura a livelli): stato salvato nel browser e regole
+// Livelli: 0 Tutorial, 1 Basi, 2 Diagnosi, 3 Casi. Un livello si apre quando è finito quello prima;
+// dentro un livello l'ordine è libero. Nel codice gli esercizi si chiamano ancora "missioni".
+// Lo stato resta solo in questo browser (localStorage).
+// Forma: { attiva: "b1" | null, missioni: { b1: { stato, passo, errori, aiuti, primoColpo } } }
 import dati from "../data/app/seo-pro/missioni.json";
 
 export type Opzione = { id: string; testo: string; giusta: boolean; nota: string };
@@ -8,20 +10,18 @@ export type Opzione = { id: string; testo: string; giusta: boolean; nota: string
 // "info" = solo spiegazione (usato nel tutorial), si va avanti con "Ho capito".
 // come: le istruzioni numerate "Come si fa" (possono contenere link e grassetti).
 export type Passo = { strumento: string; pagina?: string; domanda: string; spiega: string; esempio: string; compito: string; come?: string[]; tipo: "radio" | "checkbox" | "azione" | "info"; opzioni: Opzione[]; perche: string; aiuto: string; dove: string; verifica?: string; vai?: { link: string; testo: string } };
-// livello: "tutorial", "facile", "media" o "difficile". Le missioni nel file sono già in ordine di difficoltà.
-export type Missione = { id: string; n: number; livello: string; nome: string; tempo: string; strumenti: string; cosa: string; obiettivo: string; passi: Passo[]; imparato: string[]; elena: string };
+// livello: 0-3; n: posizione dentro il livello; situazione: il messaggio di Elena che apre l'esercizio
+export type Missione = { id: string; n: number; livello: number; situazione: string; nome: string; tempo: string; strumenti: string; cosa: string; obiettivo: string; passi: Passo[]; imparato: string[]; elena: string };
 export type StatoMissione = { stato: "in-corso" | "completata"; passo: number; errori: number; aiuti: number[]; primoColpo: boolean[] };
 export type Stato = { attiva: string | null; missioni: Record<string, StatoMissione> };
 
-export const TUTTE = dati.missioni as Missione[]; // tutorial + missioni
+export const TUTTE = dati.missioni as Missione[]; // tutorial + esercizi, in ordine
 export const TUTORIAL = TUTTE.find((m) => m.id === "tutorial")!;
-export const MISSIONI = TUTTE.filter((m) => m.id !== "tutorial"); // solo le missioni vere (per contatori e panoramica)
-export const LIVELLI: Record<string, { nome: string; tacche: number }> = {
-  tutorial: { nome: "Tutorial", tacche: 0 }, facile: { nome: "Facile", tacche: 1 }, media: { nome: "Media", tacche: 2 }, difficile: { nome: "Difficile", tacche: 3 },
-};
-// Nome da mostrare nella guida: "Tutorial: come funziona" oppure "Missione 2: Piano dei contenuti"
-export const etichetta = (m: Missione) => (m.id === "tutorial" ? m.nome : `Missione ${m.n}: ${m.nome}`);
-const CHIAVE = "marketing-mix-percorso-seo";
+export const MISSIONI = TUTTE.filter((m) => m.id !== "tutorial"); // solo gli esercizi (per contatori e panoramica)
+export const LIVELLI = dati.livelli as { n: number; nome: string; cosa: string }[];
+// Nome da mostrare nella guida: "Tutorial: come funziona" oppure "Basi · Scrivi una meta description"
+export const etichetta = (m: Missione) => (m.livello === 0 ? m.nome : `${LIVELLI[m.livello].nome} · ${m.nome}`);
+export const CHIAVE = "marketing-mix-percorso-seo-v2"; // v2: struttura a livelli (la v1 aveva 5 missioni lunghe)
 
 export const STRUMENTI: Record<string, { nome: string; link: string }> = {
   console: { nome: "Console di ricerca", link: "/app/percorsi/seo/strumenti/console/" },
@@ -43,19 +43,21 @@ export function salvaStato(s: Stato) {
   try { localStorage.setItem(CHIAVE, JSON.stringify(s)); } catch {}
 }
 
-// Prima si fa il tutorial (o lo si salta); poi tutte le missioni sono aperte e si sceglie liberamente
-export const tutorialFatto = (s: Stato) => s.missioni.tutorial?.stato === "completata";
-export function sbloccata(s: Stato, m: Missione) {
-  return m.id === "tutorial" || tutorialFatto(s);
+export const fatta = (s: Stato, m: Missione) => s.missioni[m.id]?.stato === "completata";
+export const tutorialFatto = (s: Stato) => fatta(s, TUTORIAL);
+// Un livello è aperto quando tutti gli esercizi dei livelli sotto sono completati (il tutorial è sempre aperto)
+export function livelloAperto(s: Stato, livello: number) {
+  return TUTTE.filter((m) => m.livello < livello).every((m) => fatta(s, m));
 }
+export const sbloccata = (s: Stato, m: Missione) => livelloAperto(s, m.livello);
 export function saltaTutorial() {
   const s = leggiStato();
   s.missioni.tutorial = { stato: "completata", passo: 0, errori: 0, aiuti: [], primoColpo: [] };
   if (s.attiva === "tutorial") s.attiva = null;
   salvaStato(s);
 }
-// La prossima missione consigliata: la prima (in ordine di difficoltà) non ancora completata
-export const consigliata = (s: Stato) => MISSIONI.find((m) => s.missioni[m.id]?.stato !== "completata");
+// Il prossimo esercizio consigliato: il primo aperto e non ancora completato
+export const consigliata = (s: Stato) => TUTTE.find((m) => sbloccata(s, m) && !fatta(s, m));
 
 // Indirizzo dove si fa un passo
 export const linkPasso = (p: Passo) => p.vai?.link ?? p.pagina ?? STRUMENTI[p.strumento].link;
