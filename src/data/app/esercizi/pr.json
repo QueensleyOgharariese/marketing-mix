@@ -4,88 +4,401 @@
   "ruolo": "PR e comunicazione",
   "titolo": "Esercizio 1 · Una notizia e un problema",
   "minuti": 20,
-  "richiesta": { "da": "MR", "nome": "Marta", "ruolo": "Fondatrice", "quando": "venerdì alle 18:10", "oggetto": "Una bella notizia e un brutto venerdì",
-    "testo": "Ciao! Vorrei che i giornali locali parlassero del nostro arrivo nei supermercati. Mi aiuti a capire cosa è una notizia, a scegliere l'inizio del comunicato stampa e a mandarlo nel modo giusto? E poi c'è un problema: oggi tanti ordini sono in ritardo e un post arrabbiato sta girando molto." },
-  "scheda": { "titolo": "Cosa sta succedendo", "voci": [
-    ["Notizia", "Da ottobre il Sencha è in 40 supermercati del Veneto"],
-    ["Persone", "3 nuove assunzioni per il magazzino e i negozi"],
-    ["Progetto locale", "Con una scuola raccolte 1.000 bustine usate per il compostaggio"],
-    ["Giornalisti", "3 quotidiani locali e 2 siti di economia del Veneto"],
-    ["Il problema", "600 ordini in ritardo di 3 giorni per un guasto del corriere"],
-    ["Sui social", "Un post arrabbiato con 2.000 condivisioni: \"Ordinato da una settimana, nessuno risponde\""] ] },
+  "richiesta": {
+    "da": "MR",
+    "nome": "Marta",
+    "ruolo": "Fondatrice",
+    "quando": "venerdì alle 18:10",
+    "oggetto": "Una bella notizia e un brutto venerdì",
+    "testo": "Ciao! Vorrei che i giornali locali parlassero del nostro arrivo nei supermercati. Mi aiuti a capire cosa è una notizia, a scegliere l'inizio del comunicato stampa e a mandarlo nel modo giusto? E poi c'è un problema: oggi tanti ordini sono in ritardo e un post arrabbiato sta girando molto."
+  },
+  "scheda": {
+    "titolo": "Cosa sta succedendo",
+    "voci": [
+      [
+        "Notizia",
+        "Da ottobre il Sencha è in 40 supermercati del Veneto"
+      ],
+      [
+        "Persone",
+        "3 nuove assunzioni per il magazzino e i negozi"
+      ],
+      [
+        "Progetto locale",
+        "Con una scuola raccolte 1.000 bustine usate per il compostaggio"
+      ],
+      [
+        "Giornalisti",
+        "3 quotidiani locali e 2 siti di economia del Veneto"
+      ],
+      [
+        "Il problema",
+        "600 ordini in ritardo di 3 giorni per un guasto del corriere"
+      ],
+      [
+        "Sui social",
+        "Un post arrabbiato con 2.000 condivisioni: \"Ordinato da una settimana, nessuno risponde\""
+      ]
+    ]
+  },
   "consiglio": "Nelle PR la fiducia è tutto: notizie vere raccontate bene, e problemi affrontati presto e con onestà.",
-  "parole": ["comunicato stampa", "notizia", "giornalista", "crisi", "reputazione"],
+  "parole": [
+    "comunicato stampa",
+    "notizia",
+    "giornalista",
+    "crisi",
+    "reputazione"
+  ],
   "parti": [
-    { "id": "notizie", "tipo": "classifica", "titolo": "È una notizia?",
+    {
+      "id": "notizie",
+      "tipo": "classifica",
+      "titolo": "È una notizia?",
       "testo": "Un giornalista locale riceve decine di comunicati al giorno. Quali di queste cose gli interessano?",
-      "colonne": [ { "id": "si", "nome": "È una notizia" }, { "id": "no", "nome": "Non è una notizia" } ],
+      "colonne": [
+        {
+          "id": "si",
+          "nome": "È una notizia"
+        },
+        {
+          "id": "no",
+          "nome": "Non è una notizia"
+        }
+      ],
       "righe": [
-        { "id": "r1", "testo": "Cinque Foglie arriva in 40 supermercati del Veneto e assume 3 persone", "giusti": ["si"] },
-        { "id": "r2", "testo": "Con una scuola del territorio raccolte 1.000 bustine usate per il compostaggio", "giusti": ["si"] },
-        { "id": "r3", "testo": "Abbiamo cambiato il verde del logo, ora è più chiaro", "giusti": ["no"] },
-        { "id": "r4", "testo": "Il nostro tè è il più buono del Veneto", "giusti": ["no"] },
-        { "id": "r5", "testo": "Nuovo post su Instagram con la ricetta del tè freddo", "giusti": ["no"] }
+        {
+          "id": "r1",
+          "testo": "Cinque Foglie arriva in 40 supermercati del Veneto e assume 3 persone",
+          "giusti": [
+            "si"
+          ]
+        },
+        {
+          "id": "r2",
+          "testo": "Con una scuola del territorio raccolte 1.000 bustine usate per il compostaggio",
+          "giusti": [
+            "si"
+          ]
+        },
+        {
+          "id": "r3",
+          "testo": "Abbiamo cambiato il verde del logo, ora è più chiaro",
+          "giusti": [
+            "no"
+          ]
+        },
+        {
+          "id": "r4",
+          "testo": "Il nostro tè è il più buono del Veneto",
+          "giusti": [
+            "no"
+          ]
+        },
+        {
+          "id": "r5",
+          "testo": "Nuovo post su Instagram con la ricetta del tè freddo",
+          "giusti": [
+            "no"
+          ]
+        }
       ],
       "controlli": [
-        { "nome": "Notizie riconosciute", "regola": { "tipo": "righe", "righe": ["r1", "r2"] }, "suggerimento": "Lavoro, territorio, persone: sono cose che interessano a chi legge un giornale locale." },
-        { "nome": "Scartati i fatti interni", "regola": { "tipo": "righe", "righe": ["r3", "r5"] }, "suggerimento": "Interessano a noi, non ai lettori del giornale." },
-        { "nome": "Scartata l'autocelebrazione", "regola": { "tipo": "righe", "righe": ["r4"] }, "suggerimento": "Un'opinione su noi stessi non è una notizia." }
+        {
+          "nome": "Notizie riconosciute",
+          "regola": {
+            "tipo": "righe",
+            "righe": [
+              "r1",
+              "r2"
+            ]
+          },
+          "suggerimento": "Lavoro, territorio, persone: sono cose che interessano a chi legge un giornale locale."
+        },
+        {
+          "nome": "Scartati i fatti interni",
+          "regola": {
+            "tipo": "righe",
+            "righe": [
+              "r3",
+              "r5"
+            ]
+          },
+          "suggerimento": "Interessano a noi, non ai lettori del giornale."
+        },
+        {
+          "nome": "Scartata l'autocelebrazione",
+          "regola": {
+            "tipo": "righe",
+            "righe": [
+              "r4"
+            ]
+          },
+          "suggerimento": "Un'opinione su noi stessi non è una notizia."
+        }
       ],
       "perche": "Una notizia è qualcosa di nuovo, vero e interessante per chi legge: lavoro, territorio, numeri, persone. Le PR scelgono le notizie con gli occhi del giornalista, non dell'azienda.",
-      "soluzione": "Notizie: l'arrivo nei supermercati con 3 assunzioni, il progetto con la scuola. Non notizie: il colore del logo, \"il più buono\", il post con la ricetta." },
-    { "id": "comunicato", "tipo": "scelta", "titolo": "Scegli l'inizio del comunicato",
+      "soluzione": "Notizie: l'arrivo nei supermercati con 3 assunzioni, il progetto con la scuola. Non notizie: il colore del logo, \"il più buono\", il post con la ricetta.",
+      "spiega": {
+        "testo": "Mettiti al posto di un lettore del giornale locale: questo fatto riguarda la sua zona, il lavoro, la comunità? È nuovo e verificabile? Se è un'opinione, una cosa interna o un normale post, non è una notizia.",
+        "esempio": "Panificio: \"abbiamo cambiato il colore delle buste\" non interessa a nessun giornale; \"doniamo il pane avanzato a una mensa del quartiere\" sì."
+      }
+    },
+    {
+      "id": "comunicato",
+      "tipo": "scelta",
+      "titolo": "Scegli l'inizio del comunicato",
       "testo": "Le prime righe di un comunicato stampa sono le più importanti. Quale inizio scegli?",
       "opzioni": [
-        { "id": "o1", "testo": "Dal 1° ottobre i tè biologici di Cinque Foglie, negozio online nato in Veneto, sono in vendita in 40 supermercati della regione. Con il nuovo canale l'azienda ha assunto 3 persone.", "ok": { "notizia": true, "fatti": true, "tono": true } },
-        { "id": "o2", "testo": "Cinque Foglie, eccellenza assoluta del tè italiano, rivoluziona per sempre il mondo delle tisane!", "ok": { "notizia": false, "fatti": false, "tono": false } },
-        { "id": "o3", "testo": "Siamo felicissimi! Dopo tanto lavoro ce l'abbiamo fatta: grazie a tutti, ci vediamo al supermercato!", "ok": { "notizia": false, "fatti": false, "tono": true } },
-        { "id": "o4", "testo": "La storia del tè inizia in Cina migliaia di anni fa. Da allora questa bevanda ha conquistato il mondo, e anche Marta, che anni dopo ha fondato Cinque Foglie...", "ok": { "notizia": false, "fatti": true, "tono": true } }
+        {
+          "id": "o1",
+          "testo": "Dal 1° ottobre i tè biologici di Cinque Foglie, negozio online nato in Veneto, sono in vendita in 40 supermercati della regione. Con il nuovo canale l'azienda ha assunto 3 persone.",
+          "ok": {
+            "notizia": true,
+            "fatti": true,
+            "tono": true
+          }
+        },
+        {
+          "id": "o2",
+          "testo": "Cinque Foglie, eccellenza assoluta del tè italiano, rivoluziona per sempre il mondo delle tisane!",
+          "ok": {
+            "notizia": false,
+            "fatti": false,
+            "tono": false
+          }
+        },
+        {
+          "id": "o3",
+          "testo": "Siamo felicissimi! Dopo tanto lavoro ce l'abbiamo fatta: grazie a tutti, ci vediamo al supermercato!",
+          "ok": {
+            "notizia": false,
+            "fatti": false,
+            "tono": true
+          }
+        },
+        {
+          "id": "o4",
+          "testo": "La storia del tè inizia in Cina migliaia di anni fa. Da allora questa bevanda ha conquistato il mondo, e anche Marta, che anni dopo ha fondato Cinque Foglie...",
+          "ok": {
+            "notizia": false,
+            "fatti": true,
+            "tono": true
+          }
+        }
       ],
       "controlli": [
-        { "nome": "La notizia è nelle prime righe", "regola": { "tipo": "opzione", "chiave": "notizia" }, "suggerimento": "Chi, cosa, dove, quando: subito, non dopo la storia del tè." },
-        { "nome": "Fatti e numeri verificabili", "regola": { "tipo": "opzione", "chiave": "fatti" }, "suggerimento": "\"Eccellenza assoluta\" non si verifica; 40 supermercati e 3 assunzioni sì." },
-        { "nome": "Tono sobrio, senza superlativi", "regola": { "tipo": "opzione", "chiave": "tono" }, "suggerimento": "Un comunicato informa: niente \"rivoluziona per sempre\"." }
+        {
+          "nome": "La notizia è nelle prime righe",
+          "regola": {
+            "tipo": "opzione",
+            "chiave": "notizia"
+          },
+          "suggerimento": "Chi, cosa, dove, quando: subito, non dopo la storia del tè."
+        },
+        {
+          "nome": "Fatti e numeri verificabili",
+          "regola": {
+            "tipo": "opzione",
+            "chiave": "fatti"
+          },
+          "suggerimento": "\"Eccellenza assoluta\" non si verifica; 40 supermercati e 3 assunzioni sì."
+        },
+        {
+          "nome": "Tono sobrio, senza superlativi",
+          "regola": {
+            "tipo": "opzione",
+            "chiave": "tono"
+          },
+          "suggerimento": "Un comunicato informa: niente \"rivoluziona per sempre\"."
+        }
       ],
       "perche": "Il giornalista decide in pochi secondi. Per questo il comunicato mette la notizia all'inizio (chi, cosa, dove, quando, perché), usa fatti verificabili e un tono da giornale, non da pubblicità.",
-      "soluzione": "Il primo: dice subito chi, cosa, dove e quando, con due numeri verificabili, senza superlativi." },
-    { "id": "invio", "tipo": "menu", "titolo": "Manda il comunicato",
+      "soluzione": "Il primo: dice subito chi, cosa, dove e quando, con due numeri verificabili, senza superlativi.",
+      "spiega": {
+        "testo": "Scegli l'inizio che un giornalista potrebbe usare così com'è: fatti subito, numeri controllabili, nessun superlativo, nessuna emozione al posto delle informazioni, nessuna lunga premessa.",
+        "esempio": "\"Il miglior pane del mondo rivoluziona la città\" non dice cosa è successo; \"Dal 3 marzo apre in via Roma...\" sì."
+      }
+    },
+    {
+      "id": "invio",
+      "tipo": "menu",
+      "titolo": "Manda il comunicato",
       "testo": "Scegli come mandare il comunicato ai giornalisti.",
       "campi": [
-        { "id": "chi", "etichetta": "A chi lo mandi?", "opzioni": ["Ai giornalisti locali che scrivono di economia e consumi", "A 5.000 indirizzi di giornalisti comprati online", "In privato a tutti i follower su Instagram"] },
-        { "id": "quando", "etichetta": "Quando?", "opzioni": ["Un giorno lavorativo, la mattina", "Domenica alle 23", "Dopo che la notizia è già uscita"] },
-        { "id": "allegati", "etichetta": "Cosa alleghi?", "opzioni": ["Foto vere e un contatto per le domande", "Un file da 200 MB con tutte le foto", "Niente"] },
-        { "id": "richiamo", "etichetta": "Se il giornalista non risponde?", "opzioni": ["Un solo richiamo gentile dopo qualche giorno", "Lo chiami ogni giorno finché non pubblica", "Gli offri un regalo in cambio dell'articolo"] }
+        {
+          "id": "chi",
+          "etichetta": "A chi lo mandi?",
+          "opzioni": [
+            "Ai giornalisti locali che scrivono di economia e consumi",
+            "A 5.000 indirizzi di giornalisti comprati online",
+            "In privato a tutti i follower su Instagram"
+          ]
+        },
+        {
+          "id": "quando",
+          "etichetta": "Quando?",
+          "opzioni": [
+            "Un giorno lavorativo, la mattina",
+            "Domenica alle 23",
+            "Dopo che la notizia è già uscita"
+          ]
+        },
+        {
+          "id": "allegati",
+          "etichetta": "Cosa alleghi?",
+          "opzioni": [
+            "Foto vere e un contatto per le domande",
+            "Un file da 200 MB con tutte le foto",
+            "Niente"
+          ]
+        },
+        {
+          "id": "richiamo",
+          "etichetta": "Se il giornalista non risponde?",
+          "opzioni": [
+            "Un solo richiamo gentile dopo qualche giorno",
+            "Lo chiami ogni giorno finché non pubblica",
+            "Gli offri un regalo in cambio dell'articolo"
+          ]
+        }
       ],
       "controlli": [
-        { "nome": "Giornalisti giusti, scelti uno per uno", "regola": { "tipo": "menu", "campo": "chi", "valore": "Ai giornalisti locali che scrivono di economia e consumi" }, "suggerimento": "Una lista comprata non rispetta il GDPR e finisce nello spam." },
-        { "nome": "Il momento giusto", "regola": { "tipo": "menu", "campo": "quando", "valore": "Un giorno lavorativo, la mattina" }, "suggerimento": "Le redazioni decidono gli articoli nei giorni lavorativi, di solito la mattina." },
-        { "nome": "Materiali utili e leggeri", "regola": { "tipo": "menu", "campo": "allegati", "valore": "Foto vere e un contatto per le domande" }, "suggerimento": "Il giornalista deve poter usare una foto e chiamare qualcuno." },
-        { "nome": "Un richiamo, senza pressioni", "regola": { "tipo": "menu", "campo": "richiamo", "valore": "Un solo richiamo gentile dopo qualche giorno" }, "suggerimento": "Insistere o fare regali rovina il rapporto con il giornalista." }
+        {
+          "nome": "Giornalisti giusti, scelti uno per uno",
+          "regola": {
+            "tipo": "menu",
+            "campo": "chi",
+            "valore": "Ai giornalisti locali che scrivono di economia e consumi"
+          },
+          "suggerimento": "Una lista comprata non rispetta il GDPR e finisce nello spam."
+        },
+        {
+          "nome": "Il momento giusto",
+          "regola": {
+            "tipo": "menu",
+            "campo": "quando",
+            "valore": "Un giorno lavorativo, la mattina"
+          },
+          "suggerimento": "Le redazioni decidono gli articoli nei giorni lavorativi, di solito la mattina."
+        },
+        {
+          "nome": "Materiali utili e leggeri",
+          "regola": {
+            "tipo": "menu",
+            "campo": "allegati",
+            "valore": "Foto vere e un contatto per le domande"
+          },
+          "suggerimento": "Il giornalista deve poter usare una foto e chiamare qualcuno."
+        },
+        {
+          "nome": "Un richiamo, senza pressioni",
+          "regola": {
+            "tipo": "menu",
+            "campo": "richiamo",
+            "valore": "Un solo richiamo gentile dopo qualche giorno"
+          },
+          "suggerimento": "Insistere o fare regali rovina il rapporto con il giornalista."
+        }
       ],
       "perche": "Le PR sono relazioni: pochi giornalisti giusti, contattati nel momento giusto, con materiali utili. E un articolo non si compra: se è pagato è pubblicità, e va dichiarato come tale.",
-      "soluzione": "Ai giornalisti locali di economia e consumi, un giorno lavorativo la mattina, con foto vere e un contatto. Se non rispondono, un solo richiamo gentile." },
-    { "id": "crisi", "tipo": "spunte", "titolo": "Gestisci il problema sui social",
+      "soluzione": "Ai giornalisti locali di economia e consumi, un giorno lavorativo la mattina, con foto vere e un contatto. Se non rispondono, un solo richiamo gentile.",
+      "spiega": {
+        "testo": "Per ogni scelta pensa al giornalista: riceve decine di email al giorno. Gli serve una notizia sul suo tema, nel momento in cui lavora, con materiale pronto da usare. Insistere troppo o mandare a tutti fa finire l'email nel cestino.",
+        "esempio": "Il panificio manda il comunicato martedì mattina con 3 foto del negozio e il numero di chi risponde alle domande."
+      }
+    },
+    {
+      "id": "crisi",
+      "tipo": "spunte",
+      "titolo": "Gestisci il problema sui social",
       "testo": "600 ordini sono in ritardo e il post arrabbiato gira. Cosa fai? Scegli tutte le cose giuste, e solo quelle.",
       "opzioni": [
-        { "id": "c1", "testo": "Rispondere entro poche ore, in pubblico, riconoscendo il ritardo" },
-        { "id": "c2", "testo": "Spiegare cosa è successo e quando arriveranno gli ordini" },
-        { "id": "c3", "testo": "Scrivere a chi ha ordinato e offrire qualcosa di concreto, come il rimborso della spedizione" },
-        { "id": "c4", "testo": "Cancellare il post e i commenti negativi" },
-        { "id": "c5", "testo": "Dare tutta la colpa al corriere, senza scusarsi" },
-        { "id": "c6", "testo": "Rispondere pubblicando il nome e l'ordine della cliente, per mostrare che ha torto" }
+        {
+          "id": "c1",
+          "testo": "Rispondere entro poche ore, in pubblico, riconoscendo il ritardo"
+        },
+        {
+          "id": "c2",
+          "testo": "Spiegare cosa è successo e quando arriveranno gli ordini"
+        },
+        {
+          "id": "c3",
+          "testo": "Scrivere a chi ha ordinato e offrire qualcosa di concreto, come il rimborso della spedizione"
+        },
+        {
+          "id": "c4",
+          "testo": "Cancellare il post e i commenti negativi"
+        },
+        {
+          "id": "c5",
+          "testo": "Dare tutta la colpa al corriere, senza scusarsi"
+        },
+        {
+          "id": "c6",
+          "testo": "Rispondere pubblicando il nome e l'ordine della cliente, per mostrare che ha torto"
+        }
       ],
       "controlli": [
-        { "nome": "Risposta veloce e onesta", "regola": { "tipo": "spunte-tutte", "ids": ["c1"] }, "suggerimento": "Il silenzio fa crescere la crisi." },
-        { "nome": "Informazioni e soluzione concreta", "regola": { "tipo": "spunte-tutte", "ids": ["c2", "c3"] }, "suggerimento": "Le persone vogliono sapere cosa succede e cosa fai per loro." },
-        { "nome": "Niente cancellazioni né scaricabarile", "regola": { "tipo": "spunte-nessuna", "ids": ["c4", "c5"] }, "suggerimento": "Cancellare sembra nascondere; scaricare la colpa sembra non importarci." },
-        { "nome": "Rispetto dei dati personali", "regola": { "tipo": "spunte-nessuna", "ids": ["c6"] }, "suggerimento": "Pubblicare i dati di una cliente viola il GDPR e peggiora tutto." }
+        {
+          "nome": "Risposta veloce e onesta",
+          "regola": {
+            "tipo": "spunte-tutte",
+            "ids": [
+              "c1"
+            ]
+          },
+          "suggerimento": "Il silenzio fa crescere la crisi."
+        },
+        {
+          "nome": "Informazioni e soluzione concreta",
+          "regola": {
+            "tipo": "spunte-tutte",
+            "ids": [
+              "c2",
+              "c3"
+            ]
+          },
+          "suggerimento": "Le persone vogliono sapere cosa succede e cosa fai per loro."
+        },
+        {
+          "nome": "Niente cancellazioni né scaricabarile",
+          "regola": {
+            "tipo": "spunte-nessuna",
+            "ids": [
+              "c4",
+              "c5"
+            ]
+          },
+          "suggerimento": "Cancellare sembra nascondere; scaricare la colpa sembra non importarci."
+        },
+        {
+          "nome": "Rispetto dei dati personali",
+          "regola": {
+            "tipo": "spunte-nessuna",
+            "ids": [
+              "c6"
+            ]
+          },
+          "suggerimento": "Pubblicare i dati di una cliente viola il GDPR e peggiora tutto."
+        }
       ],
       "perche": "In una crisi contano tempo, onestà e soluzioni: riconoscere il problema, spiegare, rimediare. I dati dei clienti restano privati anche quando hanno torto.",
-      "soluzione": "Risposta pubblica entro poche ore, spiegazione con i tempi di consegna, messaggio a chi ha ordinato con un rimedio concreto. Niente cancellazioni, niente colpa solo al corriere, mai dati personali in pubblico." }
+      "soluzione": "Risposta pubblica entro poche ore, spiegazione con i tempi di consegna, messaggio a chi ha ordinato con un rimedio concreto. Niente cancellazioni, niente colpa solo al corriere, mai dati personali in pubblico.",
+      "spiega": {
+        "testo": "Le risposte giuste possono essere più di una. Scegli le azioni che riconoscono il problema, informano le persone e rimediano. Scarta quelle che nascondono, scaricano la colpa o mettono in piazza i dati dei clienti.",
+        "esempio": "Rispondere \"Non è colpa nostra\" a un cliente arrabbiato peggiora la situazione; spiegare e offrire un rimedio la calma."
+      }
+    }
   ],
   "aiuti": [
-    { "titolo": "Come capisco se è una notizia?", "testo": "Chiediti: un lettore del giornale locale lo racconterebbe a qualcuno? Lavoro, territorio e persone sì; il colore del logo no." },
-    { "titolo": "Cosa si fa per primo in una crisi?", "testo": "Si risponde presto e si riconosce il problema. Poi si spiega e si propone un rimedio. Non si cancella e non si attacca." }
+    {
+      "titolo": "Come capisco se è una notizia?",
+      "testo": "Chiediti: un lettore del giornale locale lo racconterebbe a qualcuno? Lavoro, territorio e persone sì; il colore del logo no."
+    },
+    {
+      "titolo": "Cosa si fa per primo in una crisi?",
+      "testo": "Si risponde presto e si riconosce il problema. Poi si spiega e si propone un rimedio. Non si cancella e non si attacca."
+    }
   ],
   "glossario": "Comunicato stampa: testo che un'azienda manda ai giornalisti con una notizia. Lead: le prime righe con chi, cosa, dove, quando. Crisi: un problema che mette a rischio la fiducia. Reputazione: cosa pensano le persone dell'azienda.",
   "note": [
@@ -100,5 +413,41 @@
     "Saprei rispondere a un post arrabbiato senza peggiorare le cose."
   ],
   "rispostaCollega": "Grazie! Ho risposto al post e scritto ai 600 clienti con la spedizione rimborsata. Lunedì mattina mandiamo il comunicato ai giornali.",
-  "imparato": ["riconoscere una notizia", "scrivere un comunicato", "rapporto con i giornalisti", "gestire una crisi"]
+  "imparato": [
+    "riconoscere una notizia",
+    "scrivere un comunicato",
+    "rapporto con i giornalisti",
+    "gestire una crisi"
+  ],
+  "lezione": {
+    "intro": "Chi lavora nelle PR (pubbliche relazioni) cura la reputazione dell'azienda: fa conoscere le notizie vere ai giornalisti e al pubblico e, quando qualcosa va storto, risponde in modo rapido e onesto. Non si comprano articoli: si danno ai giornalisti notizie che interessano ai loro lettori.",
+    "concetti": [
+      {
+        "nome": "Che cos'è una notizia",
+        "spiegazione": "Per un giornalista una notizia è un fatto nuovo, vero e interessante per i suoi lettori: tocca il territorio, le persone, i numeri. Opinioni, autocelebrazioni e piccoli cambi interni non lo sono.",
+        "esempio": "Un panificio che apre un secondo negozio e assume 4 persone è una notizia per il giornale della città; \"il nostro pane è il più buono\" no."
+      },
+      {
+        "nome": "Il comunicato stampa",
+        "spiegazione": "È il testo che si manda ai giornalisti. Le prime righe (il lead) dicono subito chi, cosa, dove e quando, con dati verificabili. Il resto aggiunge dettagli, una frase di un responsabile e i contatti.",
+        "esempio": "\"Dal 3 marzo il Panificio Grano Vivo apre in via Roma 12 a Padova il suo secondo negozio e assume 4 persone.\""
+      },
+      {
+        "nome": "Inviarlo bene",
+        "spiegazione": "Si manda a pochi giornalisti che seguono quel tema, in un giorno lavorativo, con foto vere e un contatto. Se non rispondono si fa al massimo un richiamo gentile. Liste di indirizzi comprate e regali in cambio di articoli non si usano.",
+        "esempio": "Il panificio scrive ai giornalisti di cronaca locale ed economia di Padova, non a tutti i giornali d'Italia."
+      },
+      {
+        "nome": "Gestire una crisi",
+        "spiegazione": "Quando qualcosa va storto si risponde presto, in pubblico, riconoscendo il problema; si spiega cosa è successo e cosa si fa per rimediare. Non si cancellano le critiche e non si pubblicano mai dati personali dei clienti.",
+        "esempio": "\"Oggi il forno si è guastato e alcune consegne arriveranno domani: ci scusiamo, chi ha ordinato riceverà un buono.\""
+      }
+    ],
+    "cosaFarai": [
+      "Riconosci cosa è una notizia per un giornale locale",
+      "Scegli l'inizio del comunicato stampa",
+      "Decidi a chi, quando e come mandarlo",
+      "Gestisci un problema che sta girando sui social"
+    ]
+  }
 }

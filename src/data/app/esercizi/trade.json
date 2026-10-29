@@ -4,91 +4,418 @@
   "ruolo": "Trade marketing",
   "titolo": "Esercizio 1 · Cinque Foglie al supermercato",
   "minuti": 20,
-  "richiesta": { "da": "GR", "nome": "Giorgio", "ruolo": "Vendite e negozi", "quando": "giovedì alle 8:45", "oggetto": "Siamo arrivati al supermercato!",
-    "testo": "Ciao! Da un mese il nostro Sencha è in 40 supermercati di una catena del Veneto. Mi aiuti a scegliere dove metterlo sullo scaffale, a leggere i numeri, a preparare una promozione e a capire cosa fare nei negozi dove non vende?" },
-  "scheda": { "titolo": "I numeri dei negozi", "voci": [
-    ["Prodotto", "Sencha biologico, 100 g"],
-    ["Negozi", "40 supermercati di una catena del Veneto"],
-    ["Prezzo a scaffale", "7,90 € a confezione"],
-    ["Prezzo di cessione", "5,50 €: quanto ci paga il supermercato"],
-    ["Prima consegna (sell-in)", "12 confezioni per negozio"],
-    ["Vendute ai clienti nel primo mese (sell-out)", "300 confezioni in tutto"],
-    ["Attenzione", "In 10 negozi le vendite sono quasi zero"],
-    ["Nota", "Prezzi senza IVA, per semplicità"] ] },
+  "richiesta": {
+    "da": "GR",
+    "nome": "Giorgio",
+    "ruolo": "Vendite e negozi",
+    "quando": "giovedì alle 8:45",
+    "oggetto": "Siamo arrivati al supermercato!",
+    "testo": "Ciao! Da un mese il nostro Sencha è in 40 supermercati di una catena del Veneto. Mi aiuti a scegliere dove metterlo sullo scaffale, a leggere i numeri, a preparare una promozione e a capire cosa fare nei negozi dove non vende?"
+  },
+  "scheda": {
+    "titolo": "I numeri dei negozi",
+    "voci": [
+      [
+        "Prodotto",
+        "Sencha biologico, 100 g"
+      ],
+      [
+        "Negozi",
+        "40 supermercati di una catena del Veneto"
+      ],
+      [
+        "Prezzo a scaffale",
+        "7,90 € a confezione"
+      ],
+      [
+        "Prezzo di cessione",
+        "5,50 €: quanto ci paga il supermercato"
+      ],
+      [
+        "Prima consegna (sell-in)",
+        "12 confezioni per negozio"
+      ],
+      [
+        "Vendute ai clienti nel primo mese (sell-out)",
+        "300 confezioni in tutto"
+      ],
+      [
+        "Attenzione",
+        "In 10 negozi le vendite sono quasi zero"
+      ],
+      [
+        "Nota",
+        "Prezzi senza IVA, per semplicità"
+      ]
+    ]
+  },
   "consiglio": "Nel trade marketing non basta essere sullo scaffale: conta quanto il prodotto esce dallo scaffale e finisce nel carrello.",
-  "parole": ["scaffale", "sell-in", "sell-out", "buyer", "espositore"],
+  "parole": [
+    "scaffale",
+    "sell-in",
+    "sell-out",
+    "buyer",
+    "espositore"
+  ],
   "parti": [
-    { "id": "scaffale", "tipo": "classifica", "titolo": "Dove lo mettiamo?",
+    {
+      "id": "scaffale",
+      "tipo": "classifica",
+      "titolo": "Dove lo mettiamo?",
       "testo": "Il buyer (chi compra i prodotti per la catena) ci propone alcuni posti. Quali scegli e quali eviti?",
-      "colonne": [ { "id": "si", "nome": "Da scegliere" }, { "id": "no", "nome": "Da evitare" } ],
+      "colonne": [
+        {
+          "id": "si",
+          "nome": "Da scegliere"
+        },
+        {
+          "id": "no",
+          "nome": "Da evitare"
+        }
+      ],
       "righe": [
-        { "id": "r1", "testo": "Ripiano all'altezza degli occhi, nel reparto tè e tisane", "giusti": ["si"] },
-        { "id": "r2", "testo": "Accanto ai tè bio di altre marche, dove li cerca chi compra bio", "giusti": ["si"] },
-        { "id": "r3", "testo": "Ripiano più basso, vicino al pavimento", "giusti": ["no"] },
-        { "id": "r4", "testo": "In fondo al reparto detersivi, perché c'è spazio libero", "giusti": ["no"] },
-        { "id": "r5", "testo": "Un piccolo espositore vicino alle casse in ottobre, con le Tisane della Sera", "giusti": ["si"] }
+        {
+          "id": "r1",
+          "testo": "Ripiano all'altezza degli occhi, nel reparto tè e tisane",
+          "giusti": [
+            "si"
+          ]
+        },
+        {
+          "id": "r2",
+          "testo": "Accanto ai tè bio di altre marche, dove li cerca chi compra bio",
+          "giusti": [
+            "si"
+          ]
+        },
+        {
+          "id": "r3",
+          "testo": "Ripiano più basso, vicino al pavimento",
+          "giusti": [
+            "no"
+          ]
+        },
+        {
+          "id": "r4",
+          "testo": "In fondo al reparto detersivi, perché c'è spazio libero",
+          "giusti": [
+            "no"
+          ]
+        },
+        {
+          "id": "r5",
+          "testo": "Un piccolo espositore vicino alle casse in ottobre, con le Tisane della Sera",
+          "giusti": [
+            "si"
+          ]
+        }
       ],
       "controlli": [
-        { "nome": "Ad altezza occhi, nel reparto giusto", "regola": { "tipo": "righe", "righe": ["r1", "r2"] }, "suggerimento": "Le persone guardano soprattutto all'altezza degli occhi, e cercano il tè dove ci sono gli altri tè." },
-        { "nome": "Evitato il ripiano più basso", "regola": { "tipo": "righe", "righe": ["r3"] }, "suggerimento": "In basso il prodotto si nota poco." },
-        { "nome": "Evitato il reparto sbagliato", "regola": { "tipo": "righe", "righe": ["r4"] }, "suggerimento": "Nessuno cerca il tè tra i detersivi." },
-        { "nome": "Usato l'espositore stagionale", "regola": { "tipo": "righe", "righe": ["r5"] }, "suggerimento": "Vicino alle casse si compra d'impulso, e a ottobre le tisane sono di stagione." }
+        {
+          "nome": "Ad altezza occhi, nel reparto giusto",
+          "regola": {
+            "tipo": "righe",
+            "righe": [
+              "r1",
+              "r2"
+            ]
+          },
+          "suggerimento": "Le persone guardano soprattutto all'altezza degli occhi, e cercano il tè dove ci sono gli altri tè."
+        },
+        {
+          "nome": "Evitato il ripiano più basso",
+          "regola": {
+            "tipo": "righe",
+            "righe": [
+              "r3"
+            ]
+          },
+          "suggerimento": "In basso il prodotto si nota poco."
+        },
+        {
+          "nome": "Evitato il reparto sbagliato",
+          "regola": {
+            "tipo": "righe",
+            "righe": [
+              "r4"
+            ]
+          },
+          "suggerimento": "Nessuno cerca il tè tra i detersivi."
+        },
+        {
+          "nome": "Usato l'espositore stagionale",
+          "regola": {
+            "tipo": "righe",
+            "righe": [
+              "r5"
+            ]
+          },
+          "suggerimento": "Vicino alle casse si compra d'impulso, e a ottobre le tisane sono di stagione."
+        }
       ],
       "perche": "La posizione sullo scaffale cambia molto le vendite: altezza degli occhi, reparto in cui le persone cercano e spazi extra (espositori) nel momento giusto. Lo spazio si negozia con il buyer.",
-      "soluzione": "Sì all'altezza degli occhi, accanto agli altri tè bio, e all'espositore vicino alle casse in ottobre. No al ripiano basso e al reparto detersivi." },
-    { "id": "numeri", "tipo": "menu", "titolo": "Leggi i numeri",
+      "soluzione": "Sì all'altezza degli occhi, accanto agli altri tè bio, e all'espositore vicino alle casse in ottobre. No al ripiano basso e al reparto detersivi.",
+      "spiega": {
+        "testo": "Per ogni posto immagina una persona che cerca un tè: lo vede subito? È nel reparto dove lo cercherebbe? È il periodo giusto? Un posto libero ma lontano dal reparto o nascosto in basso non aiuta a vendere.",
+        "esempio": "Marmellata vicino ai detersivi: c'è spazio, ma nessuno ci cerca la colazione."
+      }
+    },
+    {
+      "id": "numeri",
+      "tipo": "menu",
+      "titolo": "Leggi i numeri",
       "testo": "Con i dati della scheda, fai i conti del primo mese.",
       "campi": [
-        { "id": "sellin", "etichetta": "Sell-in: confezioni consegnate in tutto (negozi × 12)", "opzioni": ["48", "480", "4.800"] },
-        { "id": "margine", "etichetta": "Margine del supermercato per confezione (scaffale − cessione)", "opzioni": ["2,40 €", "5,50 €", "7,90 €"] },
-        { "id": "rotazione", "etichetta": "Vendute ai clienti per negozio al mese (sell-out ÷ negozi)", "opzioni": ["0,75", "7,5", "12"] },
-        { "id": "conta", "etichetta": "Cosa conta di più per restare sullo scaffale?", "opzioni": ["Il sell-out: quanto comprano davvero i clienti", "Il sell-in: quanto abbiamo consegnato", "Quanto è bella la confezione"] }
+        {
+          "id": "sellin",
+          "etichetta": "Sell-in: confezioni consegnate in tutto (negozi × 12)",
+          "opzioni": [
+            "48",
+            "480",
+            "4.800"
+          ]
+        },
+        {
+          "id": "margine",
+          "etichetta": "Margine del supermercato per confezione (scaffale − cessione)",
+          "opzioni": [
+            "2,40 €",
+            "5,50 €",
+            "7,90 €"
+          ]
+        },
+        {
+          "id": "rotazione",
+          "etichetta": "Vendute ai clienti per negozio al mese (sell-out ÷ negozi)",
+          "opzioni": [
+            "0,75",
+            "7,5",
+            "12"
+          ]
+        },
+        {
+          "id": "conta",
+          "etichetta": "Cosa conta di più per restare sullo scaffale?",
+          "opzioni": [
+            "Il sell-out: quanto comprano davvero i clienti",
+            "Il sell-in: quanto abbiamo consegnato",
+            "Quanto è bella la confezione"
+          ]
+        }
       ],
       "controlli": [
-        { "nome": "Sell-in giusto: 480", "regola": { "tipo": "menu", "campo": "sellin", "valore": "480" }, "suggerimento": "40 negozi × 12 confezioni." },
-        { "nome": "Margine del supermercato: 2,40 €", "regola": { "tipo": "menu", "campo": "margine", "valore": "2,40 €" }, "suggerimento": "7,90 € − 5,50 €." },
-        { "nome": "Vendite per negozio: 7,5", "regola": { "tipo": "menu", "campo": "rotazione", "valore": "7,5" }, "suggerimento": "300 confezioni ÷ 40 negozi." },
-        { "nome": "Conta il sell-out", "regola": { "tipo": "menu", "campo": "conta", "valore": "Il sell-out: quanto comprano davvero i clienti" }, "suggerimento": "Il supermercato tiene i prodotti che i clienti comprano." }
+        {
+          "nome": "Sell-in giusto: 480",
+          "regola": {
+            "tipo": "menu",
+            "campo": "sellin",
+            "valore": "480"
+          },
+          "suggerimento": "40 negozi × 12 confezioni."
+        },
+        {
+          "nome": "Margine del supermercato: 2,40 €",
+          "regola": {
+            "tipo": "menu",
+            "campo": "margine",
+            "valore": "2,40 €"
+          },
+          "suggerimento": "7,90 € − 5,50 €."
+        },
+        {
+          "nome": "Vendite per negozio: 7,5",
+          "regola": {
+            "tipo": "menu",
+            "campo": "rotazione",
+            "valore": "7,5"
+          },
+          "suggerimento": "300 confezioni ÷ 40 negozi."
+        },
+        {
+          "nome": "Conta il sell-out",
+          "regola": {
+            "tipo": "menu",
+            "campo": "conta",
+            "valore": "Il sell-out: quanto comprano davvero i clienti"
+          },
+          "suggerimento": "Il supermercato tiene i prodotti che i clienti comprano."
+        }
       ],
       "perche": "Il sell-in è quanto vendiamo al supermercato, il sell-out è quanto il supermercato vende ai clienti. Se il sell-out è basso, il buyer toglie il prodotto e dà lo spazio a un altro.",
-      "soluzione": "480 confezioni consegnate, 2,40 € di margine per il supermercato, 7,5 vendute per negozio al mese. Conta il sell-out." },
-    { "id": "promo", "tipo": "scelta", "titolo": "Scegli la promozione",
+      "soluzione": "480 confezioni consegnate, 2,40 € di margine per il supermercato, 7,5 vendute per negozio al mese. Conta il sell-out.",
+      "spiega": {
+        "testo": "Segui le formule scritte accanto a ogni campo. Sell-in = negozi × confezioni consegnate. Margine del negozio = prezzo a scaffale − prezzo di cessione. Sell-out per negozio = vendute in tutto ÷ numero di negozi.",
+        "esempio": "20 negozi × 10 vasetti = 200. Scaffale 4,50 €, cessione 3,00 €: 1,50 €. 150 venduti ÷ 20 negozi = 7,5."
+      }
+    },
+    {
+      "id": "promo",
+      "tipo": "scelta",
+      "titolo": "Scegli la promozione",
       "testo": "Il buyer ci chiede una promozione per novembre. Quale proponi?",
       "opzioni": [
-        { "id": "o1", "testo": "Per 2 settimane: 2 confezioni a 12 € invece di 15,80 €, con un cartello chiaro a scaffale", "ok": { "vera": true, "limitata": true, "regole": true } },
-        { "id": "o2", "testo": "Sconto del 70% su ogni confezione per tutto l'anno", "ok": { "vera": true, "limitata": false, "regole": true } },
-        { "id": "o3", "testo": "Un cartello \"Il prezzo più basso d'Italia\", senza averlo verificato e senza sconto", "ok": { "vera": false, "limitata": true, "regole": false } },
-        { "id": "o4", "testo": "Una tazza in regalo a chi compra, lasciando il numero di telefono con il consenso al marketing già spuntato", "ok": { "vera": true, "limitata": true, "regole": false } }
+        {
+          "id": "o1",
+          "testo": "Per 2 settimane: 2 confezioni a 12 € invece di 15,80 €, con un cartello chiaro a scaffale",
+          "ok": {
+            "vera": true,
+            "limitata": true,
+            "regole": true
+          }
+        },
+        {
+          "id": "o2",
+          "testo": "Sconto del 70% su ogni confezione per tutto l'anno",
+          "ok": {
+            "vera": true,
+            "limitata": false,
+            "regole": true
+          }
+        },
+        {
+          "id": "o3",
+          "testo": "Un cartello \"Il prezzo più basso d'Italia\", senza averlo verificato e senza sconto",
+          "ok": {
+            "vera": false,
+            "limitata": true,
+            "regole": false
+          }
+        },
+        {
+          "id": "o4",
+          "testo": "Una tazza in regalo a chi compra, lasciando il numero di telefono con il consenso al marketing già spuntato",
+          "ok": {
+            "vera": true,
+            "limitata": true,
+            "regole": false
+          }
+        }
       ],
       "controlli": [
-        { "nome": "Vantaggio vero e chiaro", "regola": { "tipo": "opzione", "chiave": "vera" }, "suggerimento": "\"Il più basso d'Italia\" senza prove è un'affermazione ingannevole." },
-        { "nome": "Durata limitata", "regola": { "tipo": "opzione", "chiave": "limitata" }, "suggerimento": "Uno sconto enorme per sempre non è una promo: abbassa il valore del prodotto e il margine." },
-        { "nome": "Rispetta le regole", "regola": { "tipo": "opzione", "chiave": "regole" }, "suggerimento": "Il consenso al marketing non può essere già spuntato: deve sceglierlo la persona." }
+        {
+          "nome": "Vantaggio vero e chiaro",
+          "regola": {
+            "tipo": "opzione",
+            "chiave": "vera"
+          },
+          "suggerimento": "\"Il più basso d'Italia\" senza prove è un'affermazione ingannevole."
+        },
+        {
+          "nome": "Durata limitata",
+          "regola": {
+            "tipo": "opzione",
+            "chiave": "limitata"
+          },
+          "suggerimento": "Uno sconto enorme per sempre non è una promo: abbassa il valore del prodotto e il margine."
+        },
+        {
+          "nome": "Rispetta le regole",
+          "regola": {
+            "tipo": "opzione",
+            "chiave": "regole"
+          },
+          "suggerimento": "Il consenso al marketing non può essere già spuntato: deve sceglierlo la persona."
+        }
       ],
       "perche": "Una buona promozione ha un vantaggio vero, una durata limitata e un margine che regge. Le affermazioni non verificate sono pratiche ingannevoli (Codice del consumo), e il consenso già spuntato non è valido per il GDPR.",
-      "soluzione": "La prima: 2 confezioni a 12 € per 2 settimane, con un cartello chiaro. È vera, limitata nel tempo e in regola." },
-    { "id": "negozi", "tipo": "spunte", "titolo": "Cosa fai nei 10 negozi dove non vende?",
+      "soluzione": "La prima: 2 confezioni a 12 € per 2 settimane, con un cartello chiaro. È vera, limitata nel tempo e in regola.",
+      "spiega": {
+        "testo": "Controlla ogni promozione con quattro domande: è vera? Ha una durata limitata? È sostenibile per noi e per il negozio? Rispetta le regole su affermazioni e dati personali? Basta un no per scartarla.",
+        "esempio": "\"Sconto del 60% per sempre\" ci fa perdere soldi; \"Il più economico d'Italia\" senza verifica è ingannevole."
+      }
+    },
+    {
+      "id": "negozi",
+      "tipo": "spunte",
+      "titolo": "Cosa fai nei 10 negozi dove non vende?",
       "testo": "Scegli tutte le azioni utili, e solo quelle.",
       "opzioni": [
-        { "id": "c1", "testo": "Andare a vedere se il prodotto è davvero sullo scaffale, e non fermo in magazzino" },
-        { "id": "c2", "testo": "Guardare con il buyer le vendite negozio per negozio" },
-        { "id": "c3", "testo": "Proporre l'espositore o la promo prima di tutto in quei negozi" },
-        { "id": "c4", "testo": "Mandare subito altre 500 confezioni a tutti i negozi" },
-        { "id": "c5", "testo": "Abbassare il prezzo di cessione a 3 € per sempre" },
-        { "id": "c6", "testo": "Scrivere recensioni positive finte sul sito per convincere il buyer" }
+        {
+          "id": "c1",
+          "testo": "Andare a vedere se il prodotto è davvero sullo scaffale, e non fermo in magazzino"
+        },
+        {
+          "id": "c2",
+          "testo": "Guardare con il buyer le vendite negozio per negozio"
+        },
+        {
+          "id": "c3",
+          "testo": "Proporre l'espositore o la promo prima di tutto in quei negozi"
+        },
+        {
+          "id": "c4",
+          "testo": "Mandare subito altre 500 confezioni a tutti i negozi"
+        },
+        {
+          "id": "c5",
+          "testo": "Abbassare il prezzo di cessione a 3 € per sempre"
+        },
+        {
+          "id": "c6",
+          "testo": "Scrivere recensioni positive finte sul sito per convincere il buyer"
+        }
       ],
       "controlli": [
-        { "nome": "Controllato lo scaffale", "regola": { "tipo": "spunte-tutte", "ids": ["c1"] }, "suggerimento": "Spesso un prodotto non vende perché non è esposto: si controlla di persona." },
-        { "nome": "Dati e azioni negozio per negozio", "regola": { "tipo": "spunte-tutte", "ids": ["c2", "c3"] }, "suggerimento": "Ogni negozio è diverso: prima i dati, poi le azioni mirate." },
-        { "nome": "Niente sell-in forzato né prezzi in perdita", "regola": { "tipo": "spunte-nessuna", "ids": ["c4", "c5"] }, "suggerimento": "Altre confezioni non fanno comprare i clienti, e a 3 € perdiamo soldi." },
-        { "nome": "Niente recensioni finte", "regola": { "tipo": "spunte-nessuna", "ids": ["c6"] }, "suggerimento": "Le recensioni false sono vietate (Direttiva Omnibus)." }
+        {
+          "nome": "Controllato lo scaffale",
+          "regola": {
+            "tipo": "spunte-tutte",
+            "ids": [
+              "c1"
+            ]
+          },
+          "suggerimento": "Spesso un prodotto non vende perché non è esposto: si controlla di persona."
+        },
+        {
+          "nome": "Dati e azioni negozio per negozio",
+          "regola": {
+            "tipo": "spunte-tutte",
+            "ids": [
+              "c2",
+              "c3"
+            ]
+          },
+          "suggerimento": "Ogni negozio è diverso: prima i dati, poi le azioni mirate."
+        },
+        {
+          "nome": "Niente sell-in forzato né prezzi in perdita",
+          "regola": {
+            "tipo": "spunte-nessuna",
+            "ids": [
+              "c4",
+              "c5"
+            ]
+          },
+          "suggerimento": "Altre confezioni non fanno comprare i clienti, e a 3 € perdiamo soldi."
+        },
+        {
+          "nome": "Niente recensioni finte",
+          "regola": {
+            "tipo": "spunte-nessuna",
+            "ids": [
+              "c6"
+            ]
+          },
+          "suggerimento": "Le recensioni false sono vietate (Direttiva Omnibus)."
+        }
       ],
       "perche": "Il trade marketing lavora nei negozi: controlla l'esposizione, legge i dati con il buyer e investe dove serve. Spingere più merce nei negozi senza far comprare i clienti crea solo resi e magazzino.",
-      "soluzione": "Controllare lo scaffale, guardare i dati con il buyer, partire con espositore e promo nei negozi più deboli. Niente consegne forzate, niente prezzi in perdita, niente recensioni finte." }
+      "soluzione": "Controllare lo scaffale, guardare i dati con il buyer, partire con espositore e promo nei negozi più deboli. Niente consegne forzate, niente prezzi in perdita, niente recensioni finte.",
+      "spiega": {
+        "testo": "Le risposte giuste possono essere più di una. Prima si capisce perché non vende (il prodotto è davvero sullo scaffale? dove?), poi si agisce dove serve. Mandare più merce, svendere o inventare recensioni non risolve il problema e può essere scorretto.",
+        "esempio": "Se in 5 negozi la marmellata non vende, si va a vedere: spesso è finita nel retro o sul ripiano sbagliato."
+      }
+    }
   ],
   "aiuti": [
-    { "titolo": "Che differenza c'è tra sell-in e sell-out?", "testo": "Sell-in: quello che noi vendiamo al supermercato. Sell-out: quello che il supermercato vende ai clienti. Il primo riempie lo scaffale, il secondo lo svuota." },
-    { "titolo": "Come riconosco una buona promozione?", "testo": "Tre domande: il vantaggio è vero? Dura poco? Rispetta le regole su pubblicità e dati personali?" }
+    {
+      "titolo": "Che differenza c'è tra sell-in e sell-out?",
+      "testo": "Sell-in: quello che noi vendiamo al supermercato. Sell-out: quello che il supermercato vende ai clienti. Il primo riempie lo scaffale, il secondo lo svuota."
+    },
+    {
+      "titolo": "Come riconosco una buona promozione?",
+      "testo": "Tre domande: il vantaggio è vero? Dura poco? Rispetta le regole su pubblicità e dati personali?"
+    }
   ],
   "glossario": "Buyer: chi sceglie i prodotti per la catena. Sell-in: vendite al negozio. Sell-out: vendite ai clienti. Prezzo di cessione: quanto ci paga il negozio. Espositore: spazio extra fuori dallo scaffale.",
   "note": [
@@ -103,5 +430,41 @@
     "Ho scelto le azioni per i negozi deboli guardando i dati."
   ],
   "rispostaCollega": "Grande! Domani vado nei 10 negozi a controllare gli scaffali e propongo al buyer la promo 2 per 12 €.",
-  "imparato": ["scaffale e posizione", "sell-in e sell-out", "promozioni in negozio", "lavorare con il buyer"]
+  "imparato": [
+    "scaffale e posizione",
+    "sell-in e sell-out",
+    "promozioni in negozio",
+    "lavorare con il buyer"
+  ],
+  "lezione": {
+    "intro": "Il trade marketing si occupa di vendere attraverso i negozi degli altri, come i supermercati. Chi fa questo lavoro tratta con il buyer della catena, sceglie dove e come stare sullo scaffale, prepara promozioni e controlla negozio per negozio se il prodotto vende.",
+    "concetti": [
+      {
+        "nome": "Lo scaffale",
+        "spiegazione": "Nel negozio si decide in pochi secondi. Il posto migliore è all'altezza degli occhi, nel reparto dove le persone cercano quel tipo di prodotto. Gli espositori extra (vicino alle casse, a fine corsia) aiutano nei momenti giusti.",
+        "esempio": "Una marmellata artigianale vende di più all'altezza degli occhi, accanto alle altre marmellate bio, che sul ripiano più basso."
+      },
+      {
+        "nome": "Sell-in e sell-out",
+        "spiegazione": "Il sell-in è quanto vendiamo al supermercato (le confezioni consegnate). Il sell-out è quanto il supermercato vende ai clienti. Per restare sullo scaffale conta il sell-out: se i prodotti restano fermi, il buyer li toglie.",
+        "esempio": "Consegniamo 10 vasetti di marmellata in 20 negozi: sell-in 200. Se in un mese i clienti ne comprano 150, il sell-out medio è 150 ÷ 20 = 7,5 per negozio."
+      },
+      {
+        "nome": "Margine del negozio",
+        "spiegazione": "Il supermercato ci paga un prezzo di cessione e rivende a un prezzo più alto. La differenza è il suo margine: anche il negozio deve guadagnare, altrimenti non ci tiene.",
+        "esempio": "Marmellata ceduta a 3,00 €, venduta a 4,50 €: il supermercato guadagna 1,50 € a vasetto."
+      },
+      {
+        "nome": "Promozioni in regola",
+        "spiegazione": "Una buona promozione è semplice, vera e limitata nel tempo. Non si può dire \"il prezzo più basso\" senza verificarlo, e un omaggio non può essere scambiato con dati personali senza un consenso libero.",
+        "esempio": "\"2 vasetti a 8 € invece di 9 €, dal 1 al 15 marzo\" è chiara e verificabile."
+      }
+    ],
+    "cosaFarai": [
+      "Scegli i posti giusti sullo scaffale",
+      "Calcoli sell-in, margine del negozio e sell-out",
+      "Scegli la promozione da proporre al buyer",
+      "Decidi cosa fare nei negozi dove il prodotto non vende"
+    ]
+  }
 }
