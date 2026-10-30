@@ -1,0 +1,725 @@
+{
+ "_nota": "Teoria del ruolo SEA specialist (Hub 1). Generato da strumenti-dati/crea_teoria_hub1.py. DA RILEGGERE.",
+ "id": "sea",
+ "nome": "SEA specialist",
+ "hub": 1,
+ "scheda": {
+  "cosaFa": "Gestisce gli annunci a pagamento sui motori di ricerca, soprattutto Google. Sceglie le ricerche su cui comparire, scrive gli annunci, decide quanto spendere e controlla ogni giorno che i soldi portino vendite.",
+  "conChi": [
+   "E-commerce e direzione, che decidono budget e obiettivi",
+   "Copywriter e grafici, per testi e immagini degli annunci",
+   "Chi cura il sito e i dati, per le pagine di arrivo e il tracciamento delle vendite"
+  ],
+  "strumenti": [
+   {
+    "nome": "Google Ads",
+    "cosa": "Dove si creano campagne, annunci e budget."
+   },
+   {
+    "nome": "Keyword Planner",
+    "cosa": "Quante persone cercano una parola e quanto costa un clic. Gratis con un account Google Ads."
+   },
+   {
+    "nome": "Google Analytics",
+    "cosa": "Cosa fanno le persone dopo il clic sull'annuncio."
+   },
+   {
+    "nome": "Google Merchant Center",
+    "cosa": "Il catalogo dei prodotti per gli annunci Shopping."
+   }
+  ],
+  "giornata": [
+   [
+    "9:00",
+    "Controlla la spesa di ieri e le campagne che vanno male"
+   ],
+   [
+    "11:00",
+    "Aggiunge keyword negative dalle ricerche che hanno sprecato soldi"
+   ],
+   [
+    "14:00",
+    "Scrive nuovi titoli per un annuncio da mettere a confronto"
+   ],
+   [
+    "16:00",
+    "Prepara il report settimanale: spesa, vendite, ROAS"
+   ]
+  ],
+  "faPerTe": "Fa per te se ti piacciono i numeri, ti diverte fare prove e confronti e non ti spaventa decidere come spendere un budget.",
+  "blog": {
+   "slug": "link-utm",
+   "titolo": "Link UTM: cosa sono e come usarli"
+  }
+ },
+ "lezioni": [
+  {
+   "id": "cos-e-la-sea",
+   "titolo": "Cos'è la SEA e come funziona l'asta",
+   "minuti": 10,
+   "blocchi": [
+    {
+     "titolo": "Annunci sui motori di ricerca",
+     "testo": "La SEA (Search Engine Advertising) è la pubblicità sui motori di ricerca. Quando qualcuno cerca, sopra e sotto i risultati organici compaiono annunci segnati come «Sponsorizzato». Chi fa SEA paga solo quando qualcuno clicca: per questo si chiama pagamento per clic (PPC). A differenza della SEO, gli annunci compaiono subito, ma smettono di comparire appena si smette di pagare.",
+     "esempio": "Cinque Foglie lancia i tè freddi a giugno: con la SEO servirebbero mesi per salire, con un annuncio è nei risultati il giorno stesso.",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "Qual è la differenza principale tra SEA e SEO?",
+       "opzioni": [
+        {
+         "t": "Con la SEA si paga ogni clic e gli annunci smettono quando si smette di pagare",
+         "giusta": true
+        },
+        {
+         "t": "La SEA funziona solo sui social",
+         "giusta": false
+        },
+        {
+         "t": "La SEO è a pagamento, la SEA è gratis",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "SEA = annunci a pagamento, subito visibili; SEO = risultati organici, gratuiti ma più lenti."
+      }
+     ]
+    },
+    {
+     "titolo": "L'asta: chi compare e in che ordine",
+     "testo": "Ogni volta che qualcuno cerca, Google fa un'asta tra gli annunci che vogliono comparire. Non vince solo chi offre di più: conta anche la qualità dell'annuncio, cioè quanto è pertinente alla ricerca e quanto è utile la pagina dove porta. Un annuncio molto pertinente può stare più in alto pagando meno di un concorrente.",
+     "esempio": "Un concorrente offre 1 € a clic per «tè freddo» con un annuncio generico sul negozio. Cinque Foglie offre 0,80 € con un annuncio sui tè freddi che porta alla pagina dei tè freddi: può comparire prima.",
+     "domande": [
+      {
+       "tipo": "vf",
+       "testo": "Nell'asta di Google vince sempre chi offre di più per il clic.",
+       "risposta": false,
+       "spiegazione": "Conta anche la qualità: pertinenza dell'annuncio e della pagina di arrivo."
+      },
+      {
+       "tipo": "singola",
+       "testo": "Cosa aiuta un annuncio a comparire più in alto senza alzare l'offerta?",
+       "opzioni": [
+        {
+         "t": "Renderlo più pertinente alla ricerca e portarlo a una pagina utile",
+         "giusta": true
+        },
+        {
+         "t": "Scrivere tutto in maiuscolo",
+         "giusta": false
+        },
+        {
+         "t": "Usare più punti esclamativi",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "La qualità conta nell'asta: annuncio pertinente e pagina di arrivo coerente."
+      }
+     ]
+    },
+    {
+     "titolo": "Il punteggio di qualità",
+     "testo": "Google dà a ogni keyword un punteggio di qualità da 1 a 10. Si basa su tre cose: la percentuale di clic che Google si aspetta (CTR previsto), quanto l'annuncio è pertinente alla ricerca e com'è l'esperienza sulla pagina di destinazione. Un punteggio alto di solito fa pagare meno ogni clic.",
+     "esempio": "La keyword «matcha biologico» porta alla home: punteggio basso. Se porta alla pagina del matcha biologico, con prezzo e foto, il punteggio sale.",
+     "domande": [
+      {
+       "tipo": "multipla",
+       "testo": "Su cosa si basa il punteggio di qualità?",
+       "opzioni": [
+        {
+         "t": "CTR previsto",
+         "giusta": true
+        },
+        {
+         "t": "Pertinenza dell'annuncio",
+         "giusta": true
+        },
+        {
+         "t": "Esperienza sulla pagina di destinazione",
+         "giusta": true
+        },
+        {
+         "t": "Numero di follower su Instagram",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "Sono i tre elementi indicati da Google. I social non c'entrano."
+      }
+     ]
+    },
+    {
+     "titolo": "Com'è fatto un account",
+     "testo": "Un account Google Ads è organizzato a livelli. Le campagne hanno il budget, il luogo dove mostrare gli annunci e l'obiettivo. Dentro ogni campagna ci sono i gruppi di annunci, ciascuno su un tema preciso. Dentro ogni gruppo ci sono le keyword e gli annunci che le riguardano. Un account ordinato fa capire subito cosa funziona e cosa no.",
+     "esempio": "Campagna «Tè freddi – estate», gruppo «Cold brew», keyword «tè cold brew», annuncio «Tè cold brew biologico, pronto in 8 ore in frigo».",
+     "domande": [
+      {
+       "tipo": "ordina",
+       "testo": "Metti in ordine i livelli, dal più grande al più piccolo.",
+       "voci": [
+        "Account",
+        "Campagna",
+        "Gruppo di annunci",
+        "Keyword e annunci"
+       ],
+       "spiegazione": "L'account contiene le campagne, le campagne i gruppi, i gruppi keyword e annunci."
+      }
+     ]
+    }
+   ],
+   "riepilogo": [
+    "La SEA è la pubblicità sui motori di ricerca: si paga a clic e compare subito.",
+    "Nell'asta conta l'offerta ma anche la qualità di annuncio e pagina.",
+    "Un account è fatto di campagne, gruppi di annunci, keyword e annunci."
+   ],
+   "finali": [
+    {
+     "tipo": "singola",
+     "testo": "Un annuncio compare con la scritta…",
+     "opzioni": [
+      {
+       "t": "«Sponsorizzato»",
+       "giusta": true
+      },
+      {
+       "t": "«Consigliato da Google»",
+       "giusta": false
+      },
+      {
+       "t": "«Primo risultato»",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "In Italia gli annunci sono segnati come «Sponsorizzato»."
+    },
+    {
+     "tipo": "vf",
+     "testo": "Un buon punteggio di qualità di solito fa pagare meno ogni clic.",
+     "risposta": true,
+     "spiegazione": "Google premia gli annunci pertinenti con costi per clic più bassi."
+    },
+    {
+     "tipo": "singola",
+     "testo": "Dove si decide il budget?",
+     "opzioni": [
+      {
+       "t": "Nella campagna",
+       "giusta": true
+      },
+      {
+       "t": "Nel singolo annuncio",
+       "giusta": false
+      },
+      {
+       "t": "Nella keyword",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "Il budget è un'impostazione della campagna."
+    }
+   ],
+   "parole": [
+    [
+     "SEA",
+     "Pubblicità a pagamento sui motori di ricerca."
+    ],
+    [
+     "PPC",
+     "Pagamento per clic: si paga quando qualcuno clicca."
+    ],
+    [
+     "Punteggio di qualità",
+     "Voto da 1 a 10 di Google su keyword, annuncio e pagina."
+    ],
+    [
+     "Gruppo di annunci",
+     "Insieme di keyword e annunci sullo stesso tema."
+    ]
+   ]
+  },
+  {
+   "id": "keyword-e-annunci",
+   "titolo": "Keyword, annunci e pagine di arrivo",
+   "minuti": 12,
+   "blocchi": [
+    {
+     "titolo": "I tipi di corrispondenza",
+     "testo": "Per ogni keyword si sceglie quanto deve somigliare alla ricerca. Corrispondenza esatta: l'annuncio compare per ricerche con lo stesso significato. A frase: compare per ricerche che includono il significato della keyword. Generica: compare anche per ricerche collegate, ed è la più ampia. Più è ampia, più persone raggiunge, ma più rischia ricerche sbagliate.",
+     "esempio": "La keyword «tè freddo» con corrispondenza generica può comparire anche per «ricetta tè freddo della nonna», che non porta vendite.",
+     "domande": [
+      {
+       "tipo": "abbina",
+       "testo": "Abbina la corrispondenza a quanto è ampia.",
+       "coppie": [
+        [
+         "Esatta",
+         "Solo ricerche con lo stesso significato"
+        ],
+        [
+         "A frase",
+         "Ricerche che includono il significato"
+        ],
+        [
+         "Generica",
+         "Anche ricerche solo collegate"
+        ]
+       ],
+       "spiegazione": "Dalla più stretta alla più ampia: esatta, a frase, generica."
+      }
+     ]
+    },
+    {
+     "titolo": "Le keyword negative",
+     "testo": "Le keyword negative dicono a Google per quali ricerche non mostrare l'annuncio. Si trovano nel rapporto dei termini di ricerca, che mostra cosa hanno scritto davvero le persone che hanno cliccato. Togliere le ricerche inutili è uno dei modi più semplici per non sprecare budget.",
+     "esempio": "Nel rapporto compaiono «tè freddo ricetta» e «tè freddo fatto in casa»: chi le cerca vuole cucinare, non comprare. Si aggiungono «ricetta» e «fatto in casa» come negative.",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "Chi cerca «tè verde gratis campione» clicca spesso ma non compra. Cosa fai?",
+       "opzioni": [
+        {
+         "t": "Aggiungo «gratis» come keyword negativa",
+         "giusta": true
+        },
+        {
+         "t": "Alzo l'offerta per quella ricerca",
+         "giusta": false
+        },
+        {
+         "t": "Cancello tutta la campagna",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "Le negative tolgono le ricerche che costano senza portare vendite."
+      }
+     ]
+    },
+    {
+     "titolo": "Scrivere un annuncio",
+     "testo": "Gli annunci della rete di ricerca sono «adattabili»: si scrivono fino a 15 titoli (massimo 30 caratteri ciascuno) e fino a 4 descrizioni (massimo 90 caratteri), e Google combina quelli che funzionano meglio. Un buon annuncio riprende la ricerca, dice un vantaggio concreto e invita a fare qualcosa. Non può promettere cose false né, per un alimento, effetti sulla salute non autorizzati.",
+     "esempio": "Titoli: «Tè freddo biologico», «Spedizione in 24 ore», «Kit cold brew da 19 €». Descrizione: «Tè verdi e tisane da preparare a freddo. Scegli il tuo kit e ricevilo domani.»",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "Quale titolo rispetta le regole e i 30 caratteri?",
+       "opzioni": [
+        {
+         "t": "Tè freddo biologico",
+         "giusta": true
+        },
+        {
+         "t": "Il tè freddo che ti fa dimagrire subito",
+         "giusta": false
+        },
+        {
+         "t": "TÈ FREDDO!!! OFFERTA IMPERDIBILE SOLO OGGI",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "Il primo è chiaro e corto. Il secondo promette un effetto sulla salute (vietato) e supera i 30 caratteri; il terzo è troppo lungo e urlato."
+      }
+     ]
+    },
+    {
+     "titolo": "La pagina di destinazione",
+     "testo": "Il clic è solo metà del lavoro: la pagina dove arriva la persona deve mantenere la promessa dell'annuncio. Se l'annuncio parla di tè freddi, la pagina deve mostrare i tè freddi, con prezzo e bottone per comprare. Una pagina coerente migliora il punteggio di qualità e fa vendere di più.",
+     "esempio": "L'annuncio «Kit cold brew da 19 €» porta alla home: la persona deve cercare il kit da sola e spesso se ne va. Portarla alla scheda del kit risolve.",
+     "domande": [
+      {
+       "tipo": "vf",
+       "testo": "Conviene mandare tutti gli annunci alla home page, così le persone vedono tutto il negozio.",
+       "risposta": false,
+       "spiegazione": "Chi clicca vuole trovare subito quello che ha visto nell'annuncio: la pagina deve essere quella giusta."
+      }
+     ]
+    }
+   ],
+   "riepilogo": [
+    "Il tipo di corrispondenza decide quanto è ampio il pubblico di una keyword.",
+    "Le keyword negative tolgono le ricerche che sprecano budget.",
+    "Annuncio e pagina di arrivo devono dire la stessa cosa."
+   ],
+   "finali": [
+    {
+     "tipo": "singola",
+     "testo": "Dove trovi le ricerche vere che hanno fatto cliccare un annuncio?",
+     "opzioni": [
+      {
+       "t": "Nel rapporto dei termini di ricerca",
+       "giusta": true
+      },
+      {
+       "t": "Nel Keyword Planner",
+       "giusta": false
+      },
+      {
+       "t": "Nelle impostazioni della campagna",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "Il rapporto dei termini di ricerca mostra cosa hanno scritto le persone."
+    },
+    {
+     "tipo": "vf",
+     "testo": "Un titolo di un annuncio adattabile può essere lungo al massimo 30 caratteri.",
+     "risposta": true,
+     "spiegazione": "Titoli fino a 30 caratteri, descrizioni fino a 90."
+    },
+    {
+     "tipo": "singola",
+     "testo": "La corrispondenza più ampia è…",
+     "opzioni": [
+      {
+       "t": "Generica",
+       "giusta": true
+      },
+      {
+       "t": "Esatta",
+       "giusta": false
+      },
+      {
+       "t": "A frase",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "La generica raggiunge anche ricerche solo collegate."
+    }
+   ],
+   "parole": [
+    [
+     "Corrispondenza",
+     "Quanto la ricerca deve somigliare alla keyword."
+    ],
+    [
+     "Keyword negativa",
+     "Ricerca per cui l'annuncio non deve comparire."
+    ],
+    [
+     "Annuncio adattabile",
+     "Annuncio con più titoli e descrizioni che Google combina."
+    ],
+    [
+     "Pagina di destinazione",
+     "La pagina dove arriva chi clicca."
+    ]
+   ]
+  },
+  {
+   "id": "numeri-e-regole",
+   "titolo": "Budget, numeri e regole",
+   "minuti": 12,
+   "blocchi": [
+    {
+     "titolo": "I numeri di una campagna",
+     "testo": "Impressioni: quante volte l'annuncio compare. Clic e CTR: quante persone cliccano su 100 che lo vedono. CPC: costo medio di un clic. Conversioni: le azioni che contano, di solito gli acquisti. Tasso di conversione: quanti clic diventano acquisto. Insieme dicono dove si perde: se pochi cliccano, è l'annuncio; se cliccano ma non comprano, è la pagina o il prodotto.",
+     "esempio": "100 clic, 3 acquisti: tasso di conversione 3%. Se i clic salgono a 200 ma gli acquisti restano 3, qualcosa non va nella pagina o nelle keyword.",
+     "domande": [
+      {
+       "tipo": "abbina",
+       "testo": "Abbina il numero a cosa misura.",
+       "coppie": [
+        [
+         "CTR",
+         "Quanti cliccano su 100 che vedono l'annuncio"
+        ],
+        [
+         "CPC",
+         "Quanto costa in media un clic"
+        ],
+        [
+         "Tasso di conversione",
+         "Quanti clic diventano un acquisto"
+        ]
+       ],
+       "spiegazione": "CTR = clic/impressioni; CPC = spesa/clic; conversione = acquisti/clic."
+      }
+     ]
+    },
+    {
+     "titolo": "CPA e ROAS: la campagna rende?",
+     "testo": "Il CPA (costo per acquisizione) è quanto costa in media una vendita: spesa diviso conversioni. Il ROAS (ritorno sulla spesa pubblicitaria) è quanto incassi per ogni euro speso: ricavi diviso spesa. Un ROAS di 4 vuol dire 4 € di vendite per ogni euro di annunci. Se conviene dipende dal margine: quanto resta al negozio dopo i costi del prodotto e della spedizione.",
+     "esempio": "La campagna dei tè freddi spende 500 € e porta 2.000 € di vendite: ROAS 4. Con 25 ordini, il CPA è 500 / 25 = 20 €.",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "Spendi 300 € e incassi 1.500 €. Qual è il ROAS?",
+       "opzioni": [
+        {
+         "t": "5",
+         "giusta": true
+        },
+        {
+         "t": "0,2",
+         "giusta": false
+        },
+        {
+         "t": "1.200",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "1.500 / 300 = 5: 5 € di vendite per ogni euro speso."
+      },
+      {
+       "tipo": "singola",
+       "testo": "Spendi 400 € e ottieni 20 ordini. Qual è il CPA?",
+       "opzioni": [
+        {
+         "t": "20 €",
+         "giusta": true
+        },
+        {
+         "t": "8.000 €",
+         "giusta": false
+        },
+        {
+         "t": "0,05 €",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "400 / 20 = 20 € per ordine."
+      }
+     ]
+    },
+    {
+     "titolo": "Il budget e le offerte",
+     "testo": "Il budget si imposta al giorno, per campagna: è una media, e in alcuni giorni Google può spendere un po' di più e in altri meno. Le offerte possono essere manuali (decidi tu quanto pagare un clic) o automatiche: Google usa i dati per raggiungere un obiettivo, per esempio un CPA o un ROAS. Le offerte automatiche funzionano bene solo se le conversioni sono misurate correttamente.",
+     "esempio": "Cinque Foglie imposta 30 € al giorno sui tè freddi e un ROAS obiettivo di 4: Google alza o abbassa le offerte cercando di restare su quel ritorno.",
+     "domande": [
+      {
+       "tipo": "vf",
+       "testo": "Le offerte automatiche funzionano bene anche se le vendite non vengono misurate.",
+       "risposta": false,
+       "spiegazione": "Senza conversioni misurate Google non sa cosa ottimizzare."
+      }
+     ]
+    },
+    {
+     "titolo": "Misurare le vendite e le regole UE",
+     "testo": "Per sapere quali annunci vendono si misurano le conversioni con un codice sul sito. Nell'Unione europea, per i cookie che non servono al funzionamento del sito serve il consenso della persona (banner dei cookie, GDPR e direttiva ePrivacy); Google chiede ai siti europei di trasmettergli la scelta fatta nel banner. Per capire da dove arrivano le visite si usano anche i link UTM. E gli annunci seguono le stesse regole della pubblicità: niente promesse false o ingannevoli.",
+     "esempio": "Se il banner dei cookie non funziona, Cinque Foglie raccoglie dati senza consenso (vietato) oppure non li raccoglie affatto: in entrambi i casi i numeri delle campagne non sono affidabili.",
+     "domande": [
+      {
+       "tipo": "multipla",
+       "testo": "Cosa serve per misurare bene una campagna nell'UE?",
+       "opzioni": [
+        {
+         "t": "Il codice di conversione sul sito",
+         "giusta": true
+        },
+        {
+         "t": "Il consenso ai cookie raccolto con un banner",
+         "giusta": true
+        },
+        {
+         "t": "Comprare liste di email",
+         "giusta": false
+        },
+        {
+         "t": "Nascondere la scritta «Sponsorizzato»",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "Misurare le vendite sì, ma con il consenso. Le altre due sono vietate."
+      }
+     ],
+     "blog": {
+      "slug": "link-utm",
+      "titolo": "Link UTM: cosa sono e come usarli"
+     }
+    }
+   ],
+   "riepilogo": [
+    "CTR, CPC e tasso di conversione dicono dove si perde.",
+    "CPA e ROAS dicono se la campagna rende; conta anche il margine.",
+    "Senza conversioni misurate (con il consenso) non si ottimizza."
+   ],
+   "finali": [
+    {
+     "tipo": "singola",
+     "testo": "Una campagna ha tanti clic ma nessuna vendita. Cosa controlli per primo?",
+     "opzioni": [
+      {
+       "t": "La pagina di destinazione e i termini di ricerca",
+       "giusta": true
+      },
+      {
+       "t": "Il colore del logo",
+       "giusta": false
+      },
+      {
+       "t": "Il numero di follower",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "Se cliccano ma non comprano, il problema è dopo il clic o nelle ricerche sbagliate."
+    },
+    {
+     "tipo": "vf",
+     "testo": "Un ROAS di 2 vuol dire 2 € di vendite per ogni euro speso.",
+     "risposta": true,
+     "spiegazione": "ROAS = ricavi / spesa."
+    },
+    {
+     "tipo": "singola",
+     "testo": "Cosa serve nell'UE prima di usare i cookie pubblicitari?",
+     "opzioni": [
+      {
+       "t": "Il consenso della persona",
+       "giusta": true
+      },
+      {
+       "t": "Niente, basta avere un sito",
+       "giusta": false
+      },
+      {
+       "t": "Un'iscrizione alla newsletter",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "Per i cookie non necessari serve il consenso."
+    }
+   ],
+   "parole": [
+    [
+     "CPC",
+     "Costo medio di un clic."
+    ],
+    [
+     "CPA",
+     "Costo medio di una vendita: spesa diviso conversioni."
+    ],
+    [
+     "ROAS",
+     "Ricavi diviso spesa pubblicitaria."
+    ],
+    [
+     "Conversione",
+     "Un'azione che conta, di solito un acquisto."
+    ]
+   ]
+  }
+ ],
+ "verifica": [
+  {
+   "tipo": "singola",
+   "testo": "Cosa vuol dire PPC?",
+   "opzioni": [
+    {
+     "t": "Si paga ogni volta che qualcuno clicca l'annuncio",
+     "giusta": true
+    },
+    {
+     "t": "Si paga ogni volta che l'annuncio compare",
+     "giusta": false
+    },
+    {
+     "t": "Si paga una volta al mese",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "Pagamento per clic."
+  },
+  {
+   "tipo": "vf",
+   "testo": "Nell'asta di Google conta solo l'offerta.",
+   "risposta": false,
+   "spiegazione": "Conta anche la qualità."
+  },
+  {
+   "tipo": "ordina",
+   "testo": "Dal più grande al più piccolo:",
+   "voci": [
+    "Campagna",
+    "Gruppo di annunci",
+    "Keyword"
+   ],
+   "spiegazione": "La campagna contiene i gruppi, i gruppi le keyword."
+  },
+  {
+   "tipo": "singola",
+   "testo": "Qual è la corrispondenza più stretta?",
+   "opzioni": [
+    {
+     "t": "Esatta",
+     "giusta": true
+    },
+    {
+     "t": "Generica",
+     "giusta": false
+    },
+    {
+     "t": "A frase",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "L'esatta compare solo per ricerche con lo stesso significato."
+  },
+  {
+   "tipo": "singola",
+   "testo": "Chi cerca «tisana ricetta» non compra mai. Cosa fai?",
+   "opzioni": [
+    {
+     "t": "Aggiungo «ricetta» come keyword negativa",
+     "giusta": true
+    },
+    {
+     "t": "Alzo il budget",
+     "giusta": false
+    },
+    {
+     "t": "Tolgo la scritta Sponsorizzato",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "Le negative tolgono le ricerche inutili."
+  },
+  {
+   "tipo": "singola",
+   "testo": "Spendi 200 € e incassi 1.000 €: ROAS?",
+   "opzioni": [
+    {
+     "t": "5",
+     "giusta": true
+    },
+    {
+     "t": "0,2",
+     "giusta": false
+    },
+    {
+     "t": "800",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "1.000 / 200 = 5."
+  },
+  {
+   "tipo": "vf",
+   "testo": "Un annuncio di un tè può dire «brucia i grassi».",
+   "risposta": false,
+   "spiegazione": "È una promessa sulla salute non autorizzata: vietata per gli alimenti."
+  },
+  {
+   "tipo": "multipla",
+   "testo": "Cosa migliora il punteggio di qualità?",
+   "opzioni": [
+    {
+     "t": "Un annuncio pertinente alla ricerca",
+     "giusta": true
+    },
+    {
+     "t": "Una pagina di arrivo coerente con l'annuncio",
+     "giusta": true
+    },
+    {
+     "t": "Tanti punti esclamativi",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "Pertinenza ed esperienza sulla pagina."
+  }
+ ],
+ "prova": {
+  "titolo": "Annunci per i tè freddi",
+  "cosa": "Una richiesta breve di Luca: scegli le keyword e scrivi l'annuncio per i tè freddi.",
+  "link": "/app/sea/esercizio/",
+  "minuti": 20
+ }
+}

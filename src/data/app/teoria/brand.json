@@ -1,0 +1,672 @@
+{
+ "_nota": "Teoria del ruolo Brand manager (Hub 1). Generato da strumenti-dati/crea_teoria_hub1.py. DA RILEGGERE.",
+ "id": "brand",
+ "nome": "Brand manager",
+ "hub": 1,
+ "scheda": {
+  "cosaFa": "Si prende cura dell'identità e della reputazione di un marchio: cosa promette, come si presenta e come parla. Fa in modo che il brand sia riconoscibile e coerente ovunque, dalla confezione ai social, e misura cosa ne pensano le persone.",
+  "conChi": [
+   "Grafici e agenzie creative, per logo, colori e campagne",
+   "Social, PR e copywriter, che devono usare lo stesso tono",
+   "Product marketing ed e-commerce, per confezioni e lanci"
+  ],
+  "strumenti": [
+   {
+    "nome": "Il manuale del brand (brand guidelines)",
+    "cosa": "Regole su logo, colori, caratteri e tono di voce."
+   },
+   {
+    "nome": "Sondaggi e ricerche",
+    "cosa": "Per sapere quante persone conoscono il brand e cosa ne pensano."
+   },
+   {
+    "nome": "Social listening",
+    "cosa": "Strumenti che raccolgono cosa si dice del brand online."
+   },
+   {
+    "nome": "Search Console e Google Trends",
+    "cosa": "Quante persone cercano il nome del brand."
+   }
+  ],
+  "giornata": [
+   [
+    "9:30",
+    "Rivede la grafica della nuova confezione dei tè freddi"
+   ],
+   [
+    "11:00",
+    "Riunione con l'agenzia sulla campagna di Natale"
+   ],
+   [
+    "14:30",
+    "Corregge il tono di una newsletter che suona troppo aggressiva"
+   ],
+   [
+    "16:00",
+    "Legge i commenti della settimana e i risultati di un sondaggio"
+   ]
+  ],
+  "faPerTe": "Fa per te se ti piace curare i dettagli, hai occhio per la coerenza e ti interessa come le persone percepiscono le cose.",
+  "blog": {
+   "slug": "che-cose-il-marketing",
+   "titolo": "Che cos'è il marketing e quali ruoli esistono"
+  }
+ },
+ "lezioni": [
+  {
+   "id": "cos-e-un-brand",
+   "titolo": "Cos'è un brand",
+   "minuti": 10,
+   "blocchi": [
+    {
+     "titolo": "Il brand non è il logo",
+     "testo": "Il brand è l'idea che le persone hanno di un'azienda: cosa promette, come le fa sentire, perché la sceglierebbero. Il logo è solo uno dei segni che la rendono riconoscibile. Un brand si costruisce con tutto quello che le persone incontrano: prodotti, confezioni, sito, servizio clienti, modo di scrivere.",
+     "esempio": "Per molti clienti Cinque Foglie è «il negozio gentile dei tè biologici». Questa idea nasce dalle confezioni curate, dalle risposte rapide e dal tono delle email, non solo dal logo con la foglia.",
+     "domande": [
+      {
+       "tipo": "vf",
+       "testo": "Cambiare il logo basta per cambiare il brand.",
+       "risposta": false,
+       "spiegazione": "Il brand è l'idea complessiva: se prodotti, servizio e tono restano uguali, anche l'idea resta."
+      }
+     ],
+     "blog": {
+      "slug": "che-cose-il-marketing",
+      "titolo": "Che cos'è il marketing e quali ruoli esistono"
+     }
+    },
+    {
+     "titolo": "Identità e immagine",
+     "testo": "L'identità di marca è come l'azienda vuole presentarsi: nome, logo, colori, caratteri, tono di voce, valori. L'immagine di marca è come le persone la vedono davvero. Il lavoro del brand manager è avvicinare le due cose: se l'azienda si vuole gentile ma i clienti la trovano fredda, qualcosa non funziona.",
+     "esempio": "Cinque Foglie si presenta come esperta e accogliente. Se nelle recensioni molti scrivono «sito confuso, risposte lente», l'immagine si allontana dall'identità.",
+     "domande": [
+      {
+       "tipo": "abbina",
+       "testo": "Abbina ogni esempio.",
+       "coppie": [
+        [
+         "Il colore verde scelto per il logo",
+         "Identità"
+        ],
+        [
+         "«Per me è un negozio un po' caro» in una recensione",
+         "Immagine"
+        ]
+       ],
+       "spiegazione": "L'identità la decide l'azienda; l'immagine è nella testa delle persone."
+      }
+     ]
+    },
+    {
+     "titolo": "Il posizionamento",
+     "testo": "Il posizionamento è il posto che il brand vuole occupare nella mente delle persone rispetto ai concorrenti. Si riassume in una frase: per chi è, che bisogno soddisfa e perché è diverso. Serve a decidere cosa fare e cosa no: un brand non può essere tutto per tutti.",
+     "esempio": "«Per chi vuole bere bene ogni giorno senza essere un esperto, Cinque Foglie offre tè biologici spiegati in modo semplice, a differenza dei negozi specializzati che parlano solo agli intenditori.»",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "Cosa contiene una frase di posizionamento?",
+       "opzioni": [
+        {
+         "t": "Per chi è, che bisogno soddisfa e perché è diverso",
+         "giusta": true
+        },
+        {
+         "t": "Solo il prezzo del prodotto",
+         "giusta": false
+        },
+        {
+         "t": "L'elenco di tutti i prodotti",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "Pubblico, bisogno e differenza dai concorrenti."
+      }
+     ]
+    },
+    {
+     "titolo": "Promessa e valori",
+     "testo": "La promessa di marca è quello che il cliente può aspettarsi ogni volta. I valori sono i principi che guidano le scelte. Valgono solo se si vedono nei fatti: un brand che si dice sostenibile ma spedisce in pacchi pieni di plastica perde credibilità. Nell'UE le dichiarazioni ambientali vaghe e non dimostrabili sono considerate pubblicità ingannevole.",
+     "esempio": "Se Cinque Foglie scrive «confezioni 100% riciclabili», deve poterlo dimostrare. «Amici dell'ambiente», senza prove, è troppo vago.",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "Quale frase può usare Cinque Foglie senza rischi?",
+       "opzioni": [
+        {
+         "t": "«Le nostre latte sono in alluminio riciclabile»",
+         "giusta": true
+        },
+        {
+         "t": "«Il tè più ecologico del mondo»",
+         "giusta": false
+        },
+        {
+         "t": "«100% amici del pianeta»",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "Si può dire una cosa precisa e dimostrabile; le frasi vaghe o assolute sono ingannevoli."
+      }
+     ]
+    }
+   ],
+   "riepilogo": [
+    "Il brand è l'idea che le persone hanno di un'azienda, non solo il logo.",
+    "L'identità è come ci si presenta, l'immagine come si è visti: vanno avvicinate.",
+    "Posizionamento, promessa e valori guidano le scelte e devono essere veri."
+   ],
+   "finali": [
+    {
+     "tipo": "singola",
+     "testo": "Una recensione dice «spedizione lenta, ma tè buonissimo». Cosa misura?",
+     "opzioni": [
+      {
+       "t": "L'immagine di marca",
+       "giusta": true
+      },
+      {
+       "t": "L'identità visiva",
+       "giusta": false
+      },
+      {
+       "t": "Il posizionamento scritto dall'azienda",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "È come il brand è percepito da un cliente."
+    },
+    {
+     "tipo": "vf",
+     "testo": "Un buon posizionamento cerca di piacere a tutti.",
+     "risposta": false,
+     "spiegazione": "Posizionarsi vuol dire scegliere un pubblico e una differenza."
+    },
+    {
+     "tipo": "singola",
+     "testo": "Una dichiarazione ambientale va…",
+     "opzioni": [
+      {
+       "t": "Dimostrata con dati precisi",
+       "giusta": true
+      },
+      {
+       "t": "Scritta nel modo più generico possibile",
+       "giusta": false
+      },
+      {
+       "t": "Usata solo sui social",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "Nell'UE le dichiarazioni ambientali vaghe sono considerate ingannevoli."
+    }
+   ],
+   "parole": [
+    [
+     "Brand",
+     "L'idea che le persone hanno di un'azienda."
+    ],
+    [
+     "Identità di marca",
+     "Come l'azienda vuole presentarsi."
+    ],
+    [
+     "Immagine di marca",
+     "Come le persone la vedono davvero."
+    ],
+    [
+     "Posizionamento",
+     "Il posto del brand nella mente delle persone rispetto ai concorrenti."
+    ]
+   ]
+  },
+  {
+   "id": "identita-e-tono",
+   "titolo": "Identità visiva e tono di voce",
+   "minuti": 12,
+   "blocchi": [
+    {
+     "titolo": "L'identità visiva",
+     "testo": "L'identità visiva è l'insieme dei segni grafici: logo, colori, caratteri, stile delle foto e delle illustrazioni. Si usa sempre allo stesso modo, così il brand si riconosce anche senza leggere il nome. Il logo ha delle regole: spazio intorno, dimensioni minime, versioni su sfondo chiaro e scuro, cosa non fare (deformarlo, cambiarne i colori).",
+     "esempio": "La foglia di Cinque Foglie è sempre verde su fondo chiaro e bianca su fondo scuro, mai inclinata e mai più piccola di 24 pixel sul sito.",
+     "domande": [
+      {
+       "tipo": "multipla",
+       "testo": "Quali usi del logo vanno evitati?",
+       "opzioni": [
+        {
+         "t": "Deformarlo per farlo entrare in uno spazio",
+         "giusta": true
+        },
+        {
+         "t": "Cambiargli i colori a piacere",
+         "giusta": true
+        },
+        {
+         "t": "Usare la versione bianca su fondo scuro",
+         "giusta": false
+        },
+        {
+         "t": "Lasciare spazio libero intorno",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "Le versioni previste e lo spazio intorno sono regole del manuale; deformare e ricolorare no."
+      }
+     ]
+    },
+    {
+     "titolo": "Il tono di voce",
+     "testo": "Il tono di voce è il modo in cui il brand parla: le parole che sceglie, quanto è formale, se usa il tu o il lei, se fa battute. Si descrive con tre o quattro aggettivi e con esempi di cosa dire e cosa non dire. Il tono resta lo stesso, ma si adatta alla situazione: un post può essere leggero, la risposta a un reclamo no.",
+     "esempio": "Cinque Foglie è gentile, esperta e semplice: «Ti spieghiamo come prepararlo in 3 passi», non «Acquista ORA il miglior tè del mondo!!!».",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "Quale frase è nel tono «gentile, esperto, semplice»?",
+       "opzioni": [
+        {
+         "t": "«Il Sencha va preparato con acqua a 70-80 °C: così resta dolce.»",
+         "giusta": true
+        },
+        {
+         "t": "«SOLO OGGI!!! Compra prima che finisca!!!»",
+         "giusta": false
+        },
+        {
+         "t": "«L'infusione del Camellia sinensis var. sinensis richiede parametri termici specifici.»",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "La prima è gentile, esperta e semplice; la seconda è aggressiva, la terza troppo tecnica."
+      }
+     ]
+    },
+    {
+     "titolo": "Il manuale del brand",
+     "testo": "Il manuale del brand (brand guidelines o brand book) raccoglie tutte le regole: posizionamento, valori, logo, colori con i loro codici, caratteri, stile delle immagini, tono di voce con esempi. Serve a chiunque lavori sul brand, anche fuori dall'azienda: agenzie, fotografi, nuovi colleghi. Senza manuale ognuno interpreta a modo suo.",
+     "esempio": "Un'agenzia prepara una campagna per Cinque Foglie: con il manuale usa subito il verde giusto e il tono gentile, senza dieci giri di correzioni.",
+     "domande": [
+      {
+       "tipo": "vf",
+       "testo": "Il manuale del brand serve solo ai grafici.",
+       "risposta": false,
+       "spiegazione": "Serve a chiunque produca qualcosa per il brand: testi, foto, video, campagne."
+      }
+     ]
+    },
+    {
+     "titolo": "Coerenza su tutti i canali",
+     "testo": "Una persona incontra il brand in tanti punti: un post, la confezione, il sito, un'email, il servizio clienti. Se ogni punto sembra di un'azienda diversa, il brand non si fissa nella memoria. La coerenza non vuol dire fare tutto uguale, ma far sembrare tutto della stessa persona.",
+     "esempio": "Il sito di Cinque Foglie è gentile, ma il messaggio automatico del carrello dice «ERRORE: dati non validi». Una frase come «Manca il CAP: lo aggiungi?» sarebbe nel tono.",
+     "domande": [
+      {
+       "tipo": "ordina",
+       "testo": "Metti in ordine il percorso tipico di un cliente che conosce il brand.",
+       "voci": [
+        "Vede un post sui social",
+        "Visita il sito",
+        "Compra e riceve la confezione",
+        "Riceve un'email dopo l'acquisto"
+       ],
+       "spiegazione": "In ogni punto il brand deve sembrare lo stesso."
+      }
+     ]
+    }
+   ],
+   "riepilogo": [
+    "L'identità visiva ha regole precise: logo, colori, caratteri, immagini.",
+    "Il tono di voce si descrive con aggettivi ed esempi e si adatta alla situazione.",
+    "Il manuale del brand tiene tutti coerenti, su tutti i canali."
+   ],
+   "finali": [
+    {
+     "tipo": "singola",
+     "testo": "Il tono di un brand si descrive di solito con…",
+     "opzioni": [
+      {
+       "t": "Tre o quattro aggettivi ed esempi di frasi",
+       "giusta": true
+      },
+      {
+       "t": "Il codice del colore principale",
+       "giusta": false
+      },
+      {
+       "t": "Il numero di follower",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "Aggettivi + esempi di cosa dire e cosa no."
+    },
+    {
+     "tipo": "vf",
+     "testo": "Coerenza vuol dire che un reclamo e un post divertente devono avere lo stesso registro.",
+     "risposta": false,
+     "spiegazione": "Il tono resta lo stesso, ma si adatta alla situazione."
+    },
+    {
+     "tipo": "singola",
+     "testo": "A chi serve il manuale del brand?",
+     "opzioni": [
+      {
+       "t": "A tutti quelli che lavorano sul brand, anche fuori dall'azienda",
+       "giusta": true
+      },
+      {
+       "t": "Solo al brand manager",
+       "giusta": false
+      },
+      {
+       "t": "Solo ai clienti",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "Agenzie, fotografi, colleghi: tutti."
+    }
+   ],
+   "parole": [
+    [
+     "Identità visiva",
+     "Logo, colori, caratteri e stile delle immagini."
+    ],
+    [
+     "Tono di voce",
+     "Il modo in cui il brand parla."
+    ],
+    [
+     "Brand guidelines",
+     "Il manuale con tutte le regole del brand."
+    ],
+    [
+     "Punto di contatto",
+     "Ogni momento in cui una persona incontra il brand."
+    ]
+   ]
+  },
+  {
+   "id": "misurare-e-proteggere",
+   "titolo": "Misurare e proteggere il brand",
+   "minuti": 12,
+   "blocchi": [
+    {
+     "titolo": "La notorietà",
+     "testo": "La notorietà (brand awareness) misura quante persone conoscono il brand. Si misura con sondaggi: notorietà spontanea («quali negozi di tè online conosci?») e sollecitata («conosci Cinque Foglie?»). La spontanea è più difficile da ottenere e vale di più. Un indizio gratuito sono le ricerche del nome del brand su Google.",
+     "esempio": "In un sondaggio su 500 appassionati di tè, il 6% nomina Cinque Foglie da solo (spontanea) e il 22% lo riconosce quando lo legge (sollecitata).",
+     "domande": [
+      {
+       "tipo": "abbina",
+       "testo": "Abbina la domanda del sondaggio al tipo di notorietà.",
+       "coppie": [
+        [
+         "«Quali negozi di tè online conosci?»",
+         "Spontanea"
+        ],
+        [
+         "«Conosci Cinque Foglie?»",
+         "Sollecitata"
+        ]
+       ],
+       "spiegazione": "Spontanea = senza suggerimenti; sollecitata = con il nome davanti."
+      }
+     ]
+    },
+    {
+     "titolo": "Cosa pensano le persone",
+     "testo": "Oltre a sapere se le persone ci conoscono, serve sapere cosa ne pensano. Il sentiment è il tono di quello che si dice online del brand: positivo, neutro o negativo. L'NPS (Net Promoter Score) chiede «quanto consiglieresti questo brand a un amico, da 0 a 10?»: chi risponde 9-10 è un promotore, chi risponde da 0 a 6 un detrattore. NPS = % promotori − % detrattori.",
+     "esempio": "Su 100 clienti, 50 danno 9-10, 30 danno 7-8 e 20 danno da 0 a 6: NPS = 50 − 20 = 30.",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "Su 200 risposte, 100 sono promotori e 40 detrattori. Qual è l'NPS?",
+       "opzioni": [
+        {
+         "t": "30",
+         "giusta": true
+        },
+        {
+         "t": "60",
+         "giusta": false
+        },
+        {
+         "t": "140",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "50% promotori − 20% detrattori = 30."
+      }
+     ]
+    },
+    {
+     "titolo": "Proteggere il marchio",
+     "testo": "Il nome e il logo si possono registrare come marchio: così nessun altro può usarli per prodotti simili. In Italia si registra all'UIBM, per tutta l'Unione europea all'EUIPO. Prima di scegliere un nome nuovo si controlla che non esista già un marchio simile nello stesso settore. Proteggere vuol dire anche usare bene i marchi degli altri: non si usano loghi o nomi di altre aziende come se fossero propri.",
+     "esempio": "Cinque Foglie vuole chiamare una linea «Foglie d'Oro»: prima di stampare le confezioni verifica nelle banche dati dei marchi che il nome sia libero per il tè.",
+     "domande": [
+      {
+       "tipo": "vf",
+       "testo": "Un marchio registrato all'EUIPO è protetto in tutti i paesi dell'Unione europea.",
+       "risposta": true,
+       "spiegazione": "Il marchio dell'Unione europea vale in tutti gli Stati membri."
+      }
+     ]
+    },
+    {
+     "titolo": "Quando qualcosa va storto",
+     "testo": "Una crisi di reputazione può nascere da un errore vero (un prodotto difettoso) o da una polemica online. Le regole di base: rispondere presto, dire la verità, scusarsi se l'errore è nostro, spiegare cosa si fa per rimediare, usare lo stesso tono su tutti i canali. Cancellare i commenti critici di solito peggiora le cose.",
+     "esempio": "Un lotto di tisane arriva con le confezioni rotte. Cinque Foglie scrive ai clienti coinvolti, rimanda il prodotto gratis e spiega sui social cosa è successo.",
+     "domande": [
+      {
+       "tipo": "ordina",
+       "testo": "Metti in ordine cosa fare in una piccola crisi.",
+       "voci": [
+        "Capire cosa è successo davvero",
+        "Rispondere presto, con sincerità",
+        "Rimediare per chi è stato coinvolto",
+        "Spiegare cosa cambia perché non succeda più"
+       ],
+       "spiegazione": "Prima i fatti, poi la risposta, il rimedio e la prevenzione."
+      }
+     ]
+    }
+   ],
+   "riepilogo": [
+    "La notorietà si misura con sondaggi (spontanea e sollecitata) e ricerche del nome.",
+    "Sentiment e NPS dicono cosa pensano le persone.",
+    "Il marchio si registra e si protegge; nelle crisi si risponde presto e con sincerità."
+   ],
+   "finali": [
+    {
+     "tipo": "singola",
+     "testo": "Quale indizio gratuito di notorietà si legge su Google?",
+     "opzioni": [
+      {
+       "t": "Quante persone cercano il nome del brand",
+       "giusta": true
+      },
+      {
+       "t": "Il prezzo dei concorrenti",
+       "giusta": false
+      },
+      {
+       "t": "Il numero di prodotti",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "Più persone cercano il nome, più il brand è conosciuto."
+    },
+    {
+     "tipo": "vf",
+     "testo": "In una crisi conviene cancellare i commenti critici.",
+     "risposta": false,
+     "spiegazione": "Di solito peggiora: meglio rispondere presto e con sincerità."
+    },
+    {
+     "tipo": "singola",
+     "testo": "Dove si registra un marchio valido in tutta l'Unione europea?",
+     "opzioni": [
+      {
+       "t": "EUIPO",
+       "giusta": true
+      },
+      {
+       "t": "UIBM",
+       "giusta": false
+      },
+      {
+       "t": "Google",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "UIBM è l'ufficio italiano; EUIPO quello dell'Unione europea."
+    }
+   ],
+   "parole": [
+    [
+     "Notorietà",
+     "Quante persone conoscono il brand."
+    ],
+    [
+     "Sentiment",
+     "Il tono di quello che si dice del brand."
+    ],
+    [
+     "NPS",
+     "% promotori − % detrattori."
+    ],
+    [
+     "Marchio registrato",
+     "Nome o logo protetto per legge."
+    ]
+   ]
+  }
+ ],
+ "verifica": [
+  {
+   "tipo": "vf",
+   "testo": "Il brand coincide con il logo.",
+   "risposta": false,
+   "spiegazione": "Il logo è solo uno dei segni del brand."
+  },
+  {
+   "tipo": "abbina",
+   "testo": "Abbina:",
+   "coppie": [
+    [
+     "Come l'azienda vuole presentarsi",
+     "Identità"
+    ],
+    [
+     "Come le persone la vedono",
+     "Immagine"
+    ]
+   ],
+   "spiegazione": "Identità e immagine vanno avvicinate."
+  },
+  {
+   "tipo": "singola",
+   "testo": "Cosa NON è nel posizionamento?",
+   "opzioni": [
+    {
+     "t": "L'elenco completo dei prezzi",
+     "giusta": true
+    },
+    {
+     "t": "Il pubblico",
+     "giusta": false
+    },
+    {
+     "t": "La differenza dai concorrenti",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "Il posizionamento dice per chi, che bisogno e perché diverso."
+  },
+  {
+   "tipo": "singola",
+   "testo": "Quale frase è nel tono «gentile e semplice»?",
+   "opzioni": [
+    {
+     "t": "«Ti spieghiamo come prepararlo in 3 passi.»",
+     "giusta": true
+    },
+    {
+     "t": "«COMPRA ORA!!!»",
+     "giusta": false
+    },
+    {
+     "t": "«Procedere all'acquisto entro i termini.»",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "Gentile e chiara."
+  },
+  {
+   "tipo": "multipla",
+   "testo": "Cosa c'è in un manuale del brand?",
+   "opzioni": [
+    {
+     "t": "Regole sul logo",
+     "giusta": true
+    },
+    {
+     "t": "Tono di voce con esempi",
+     "giusta": true
+    },
+    {
+     "t": "Le password dei social",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "Logo, colori, caratteri, immagini e tono."
+  },
+  {
+   "tipo": "singola",
+   "testo": "Su 100 clienti: 40 promotori, 30 passivi, 30 detrattori. NPS?",
+   "opzioni": [
+    {
+     "t": "10",
+     "giusta": true
+    },
+    {
+     "t": "40",
+     "giusta": false
+    },
+    {
+     "t": "70",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "40 − 30 = 10."
+  },
+  {
+   "tipo": "vf",
+   "testo": "Una dichiarazione ambientale vaga, senza prove, è un rischio legale nell'UE.",
+   "risposta": true,
+   "spiegazione": "È considerata pubblicità ingannevole."
+  },
+  {
+   "tipo": "singola",
+   "testo": "Un prodotto arriva rotto a molti clienti. Prima cosa?",
+   "opzioni": [
+    {
+     "t": "Capire cosa è successo e rispondere presto e con sincerità",
+     "giusta": true
+    },
+    {
+     "t": "Aspettare che passi",
+     "giusta": false
+    },
+    {
+     "t": "Cancellare i commenti",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "Fatti, risposta rapida, rimedio."
+  }
+ ],
+ "prova": {
+  "titolo": "Il tono di voce di Cinque Foglie",
+  "cosa": "Una richiesta breve di Marta: scegli e correggi i testi perché suonino come Cinque Foglie.",
+  "link": "/app/brand/esercizio/",
+  "minuti": 20
+ }
+}

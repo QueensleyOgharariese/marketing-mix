@@ -177,7 +177,7 @@ const dati = { ruolo: t.id, lezione: verifica ? "verifica" : lezione.id, verific
     salvaTeoria(D.ruolo, (s) => { s.verifica = { giuste, superata: superata || !!s.verifica?.superata }; });
     box.innerHTML = `<div class="fine ${superata ? "ok" : "no"}"><span class="fine-numero">${giuste} su ${totale}</span>
         <h2>${superata ? "Verifica superata" : "Non ancora"}</h2>
-        <p>${superata ? "Hai completato la teoria del ruolo. Ora puoi passare alla simulazione." : `Servono almeno ${totale - 2} risposte giuste. Rileggi le spiegazioni qui sotto e riprova quando vuoi.`}</p></div>
+        <p>${superata ? `Hai completato la teoria del ruolo. ${D.pratica ? "Ora puoi passare alla simulazione." : "La simulazione di questo ruolo arriverà presto."}` : `Servono almeno ${totale - 2} risposte giuste. Rileggi le spiegazioni qui sotto e riprova quando vuoi.`}</p></div>
       <h3>Le tue risposte</h3>
       <ol class="revisione">${D.domande.map((d: Domanda, i: number) => `<li class="${risposte[i] ? "ok" : "no"}"><strong>${esc(d.testo)}</strong><span>${risposte[i] ? "Giusta" : "Sbagliata"}</span><p>${esc(d.spiegazione)}</p></li>`).join("")}</ol>`;
     document.querySelector("[data-piede]")!.innerHTML = `<a class="secondario" href="${D.ruoloLink}">Torna al ruolo</a><button type="button" class="secondario" onclick="location.reload()">Rifai la verifica</button>${superata && D.pratica ? `<a class="bottone-app" href="${D.pratica.link}">Vai alla simulazione →</a>` : ""}`;

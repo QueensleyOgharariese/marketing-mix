@@ -1,0 +1,699 @@
+{
+ "_nota": "Teoria del ruolo Social media manager (Hub 1). Generato da strumenti-dati/crea_teoria_hub1.py. DA RILEGGERE.",
+ "id": "social",
+ "nome": "Social media manager",
+ "hub": 1,
+ "scheda": {
+  "cosaFa": "Gestisce i profili social di un brand: decide cosa pubblicare e quando, crea o coordina i contenuti, risponde alle persone e misura i risultati per capire cosa funziona.",
+  "conChi": [
+   "Content creator, fotografi e grafici, per foto e video",
+   "Brand manager, per restare nel tono del marchio",
+   "Influencer marketing e assistenza clienti, per collaborazioni e domande"
+  ],
+  "strumenti": [
+   {
+    "nome": "Le app e i pannelli delle piattaforme",
+    "cosa": "Per pubblicare e leggere le statistiche di Instagram, TikTok, Facebook, LinkedIn."
+   },
+   {
+    "nome": "Un calendario editoriale",
+    "cosa": "Un foglio o uno strumento per programmare i post."
+   },
+   {
+    "nome": "Strumenti grafici e video",
+    "cosa": "Per creare immagini e video brevi."
+   },
+   {
+    "nome": "Link UTM e Google Analytics",
+    "cosa": "Per sapere quante visite e vendite arrivano dai social."
+   }
+  ],
+  "giornata": [
+   [
+    "9:00",
+    "Risponde ai commenti e ai messaggi della notte"
+   ],
+   [
+    "10:30",
+    "Pubblica il reel sul matcha e controlla le prime reazioni"
+   ],
+   [
+    "14:00",
+    "Prepara il calendario della settimana prossima"
+   ],
+   [
+    "16:30",
+    "Legge le statistiche: quali post sono stati salvati e condivisi di più"
+   ]
+  ],
+  "faPerTe": "Fa per te se ti piace raccontare con immagini e video, sei curiosa delle persone e ti piace capire dai numeri cosa funziona.",
+  "blog": {
+   "slug": "engagement-rate",
+   "titolo": "Engagement rate: cos'è e come si calcola"
+  }
+ },
+ "lezioni": [
+  {
+   "id": "ruolo-e-piattaforme",
+   "titolo": "Il ruolo e le piattaforme",
+   "minuti": 10,
+   "blocchi": [
+    {
+     "titolo": "A cosa servono i social per un brand",
+     "testo": "Un brand usa i social per obiettivi diversi: farsi conoscere (notorietà), creare un rapporto con le persone (community), portare visite al sito e vendite, dare assistenza. Ogni obiettivo si misura in modo diverso, quindi va scelto prima di pubblicare. Il social media manager lavora soprattutto sui contenuti organici, cioè quelli non sponsorizzati.",
+     "esempio": "Per i tè freddi l'obiettivo di Cinque Foglie è far conoscere la novità; per il matcha, creare una community di persone che condividono le loro ricette.",
+     "domande": [
+      {
+       "tipo": "abbina",
+       "testo": "Abbina l'obiettivo a come si misura.",
+       "coppie": [
+        [
+         "Farsi conoscere",
+         "Copertura: quante persone vedono i post"
+        ],
+        [
+         "Creare una community",
+         "Commenti, salvataggi e condivisioni"
+        ],
+        [
+         "Portare vendite",
+         "Visite e acquisti dal link"
+        ]
+       ],
+       "spiegazione": "Prima l'obiettivo, poi il numero giusto da guardare."
+      }
+     ]
+    },
+    {
+     "titolo": "Ogni piattaforma ha il suo pubblico",
+     "testo": "Le piattaforme sono diverse per pubblico e formato. Instagram vive di foto, caroselli e video brevi (reel). TikTok di video brevi e spontanei, scoperti soprattutto tramite i consigli dell'algoritmo. Facebook di gruppi e community. LinkedIn di lavoro e professioni. Pinterest di idee e ispirazioni salvate. Non serve essere ovunque: meglio poche piattaforme fatte bene, dove c'è il proprio pubblico.",
+     "esempio": "Cinque Foglie sceglie Instagram (ricette e foto curate) e Pinterest (idee per regali e tè freddi), e non apre LinkedIn: i suoi clienti non cercano il tè lì.",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "Un brand di tè con pochi collaboratori. Cosa conviene?",
+       "opzioni": [
+        {
+         "t": "Poche piattaforme dove c'è il suo pubblico, curate bene",
+         "giusta": true
+        },
+        {
+         "t": "Aprire un profilo su tutte le piattaforme",
+         "giusta": false
+        },
+        {
+         "t": "Pubblicare lo stesso identico post ovunque",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "Meglio poco e fatto bene, adattando i formati a ogni piattaforma."
+      }
+     ]
+    },
+    {
+     "titolo": "Organico e a pagamento",
+     "testo": "I contenuti organici si pubblicano gratis e raggiungono soprattutto chi segue il profilo o chi li riceve dall'algoritmo. I contenuti sponsorizzati (social ads) si pagano per raggiungere persone scelte per età, interessi, luogo. Spesso li gestisce un altro ruolo o un'agenzia, ma il social media manager sceglie quali contenuti meritano di essere spinti.",
+     "esempio": "Il reel sul cold brew ha avuto molti salvataggi in organico: è un buon candidato da sponsorizzare per farlo vedere a chi ancora non conosce Cinque Foglie.",
+     "domande": [
+      {
+       "tipo": "vf",
+       "testo": "Un post organico raggiunge tutti i follower del profilo, sempre.",
+       "risposta": false,
+       "spiegazione": "Lo vede solo una parte: è l'algoritmo a decidere a chi mostrarlo."
+      }
+     ]
+    },
+    {
+     "titolo": "Come funziona l'algoritmo",
+     "testo": "Ogni piattaforma decide cosa mostrare a ogni persona con un algoritmo, che cerca di prevedere cosa le interesserà. Guarda segnali come quanto tempo si passa su un contenuto, se lo si guarda fino alla fine, se lo si salva, condivide o commenta. Non esiste un trucco segreto: i contenuti che le persone trovano utili o belli vengono mostrati di più.",
+     "esempio": "Un carosello «5 errori da non fare con il matcha» viene salvato tanto perché è utile: l'algoritmo lo mostra a più persone.",
+     "domande": [
+      {
+       "tipo": "multipla",
+       "testo": "Quali segnali dicono all'algoritmo che un contenuto piace?",
+       "opzioni": [
+        {
+         "t": "Le persone lo salvano",
+         "giusta": true
+        },
+        {
+         "t": "Lo guardano fino alla fine",
+         "giusta": true
+        },
+        {
+         "t": "Ha tanti hashtag uguali ripetuti",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "Salvataggi, condivisioni, tempo di visione e commenti contano; riempirlo di hashtag no."
+      }
+     ]
+    }
+   ],
+   "riepilogo": [
+    "Prima si sceglie l'obiettivo, poi i numeri per misurarlo.",
+    "Ogni piattaforma ha pubblico e formati suoi: meglio poche, fatte bene.",
+    "L'algoritmo mostra di più i contenuti che le persone trovano utili o belli."
+   ],
+   "finali": [
+    {
+     "tipo": "singola",
+     "testo": "Cosa misuri se l'obiettivo è farsi conoscere?",
+     "opzioni": [
+      {
+       "t": "La copertura",
+       "giusta": true
+      },
+      {
+       "t": "Il numero di ordini",
+       "giusta": false
+      },
+      {
+       "t": "Il punteggio di qualità",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "Notorietà = quante persone vedono i contenuti."
+    },
+    {
+     "tipo": "vf",
+     "testo": "Per un brand è sempre meglio essere su tutte le piattaforme.",
+     "risposta": false,
+     "spiegazione": "Meglio dove c'è il proprio pubblico, con contenuti adatti."
+    },
+    {
+     "tipo": "singola",
+     "testo": "Le social ads servono a…",
+     "opzioni": [
+      {
+       "t": "Far vedere i contenuti a persone scelte, pagando",
+       "giusta": true
+      },
+      {
+       "t": "Pubblicare gratis",
+       "giusta": false
+      },
+      {
+       "t": "Rispondere ai commenti",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "Sono contenuti sponsorizzati con un pubblico scelto."
+    }
+   ],
+   "parole": [
+    [
+     "Contenuto organico",
+     "Post pubblicato gratis, senza sponsorizzazione."
+    ],
+    [
+     "Social ads",
+     "Contenuti a pagamento mostrati a un pubblico scelto."
+    ],
+    [
+     "Algoritmo",
+     "Il sistema che decide cosa mostrare a ogni persona."
+    ],
+    [
+     "Reel",
+     "Video breve verticale di Instagram."
+    ]
+   ]
+  },
+  {
+   "id": "contenuti-e-piano",
+   "titolo": "Contenuti e piano editoriale",
+   "minuti": 12,
+   "blocchi": [
+    {
+     "titolo": "I pilastri dei contenuti",
+     "testo": "Per non pubblicare a caso si scelgono tre o quattro temi fissi, i pilastri dei contenuti (content pillars). Ogni post appartiene a uno dei pilastri. Così il profilo è riconoscibile e c'è sempre un'idea da cui partire.",
+     "esempio": "Pilastri di Cinque Foglie: «Impara il tè» (come prepararlo), «Ricette» (tè freddi, matcha latte), «Dietro le quinte» (produttori, confezioni), «La community» (foto dei clienti).",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "Un post «Come scegliere la teiera giusta» va nel pilastro…",
+       "opzioni": [
+        {
+         "t": "Impara il tè",
+         "giusta": true
+        },
+        {
+         "t": "Dietro le quinte",
+         "giusta": false
+        },
+        {
+         "t": "La community",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "Spiega qualcosa al pubblico: è un contenuto educativo."
+      }
+     ]
+    },
+    {
+     "titolo": "I formati",
+     "testo": "Lo stesso tema si può raccontare in formati diversi. Video brevi verticali (reel, TikTok) per farsi scoprire. Caroselli, cioè più immagini da scorrere, per spiegare passo per passo: vengono salvati spesso. Storie, che durano 24 ore, per il quotidiano e le domande veloci. Post singoli per una foto forte o un annuncio. Si sceglie il formato in base a cosa si vuole ottenere.",
+     "esempio": "La ricetta del tè freddo diventa un reel di 20 secondi per farsi scoprire e un carosello con le dosi da salvare.",
+     "domande": [
+      {
+       "tipo": "abbina",
+       "testo": "Abbina formato e uso tipico.",
+       "coppie": [
+        [
+         "Video breve verticale",
+         "Farsi scoprire da persone nuove"
+        ],
+        [
+         "Carosello",
+         "Spiegare passo per passo, da salvare"
+        ],
+        [
+         "Storia",
+         "Aggiornamenti quotidiani che spariscono in 24 ore"
+        ]
+       ],
+       "spiegazione": "Ogni formato ha un punto di forza."
+      }
+     ]
+    },
+    {
+     "titolo": "Il calendario editoriale",
+     "testo": "Il calendario editoriale dice cosa si pubblica, dove e quando, di solito per qualche settimana in anticipo. Tiene insieme le date importanti (lanci, festività, stagioni), i pilastri e i formati. Pubblicare con regolarità conta più che pubblicare tantissimo. Si lascia sempre un po' di spazio per le cose che succedono all'improvviso.",
+     "esempio": "Ottobre di Cinque Foglie: tisane per la sera il lunedì, ricette il giovedì, dietro le quinte il sabato; a fine mese il calendario dell'avvento.",
+     "domande": [
+      {
+       "tipo": "ordina",
+       "testo": "Metti in ordine come si prepara un calendario.",
+       "voci": [
+        "Fissare obiettivi e date importanti del mese",
+        "Scegliere i temi dai pilastri",
+        "Assegnare formato e giorno a ogni contenuto",
+        "Preparare e programmare i contenuti"
+       ],
+       "spiegazione": "Prima il perché e il quando, poi il cosa e il come."
+      }
+     ]
+    },
+    {
+     "titolo": "Contenuti degli altri, diritti e accessibilità",
+     "testo": "I contenuti creati dai clienti (UGC, user generated content) sono preziosi, ma prima di ripubblicarli si chiede il permesso e si cita l'autore. Anche musica e immagini hanno dei diritti: si usano solo quelle con licenza adatta, per esempio le librerie musicali delle piattaforme per uso commerciale. Un buon contenuto è anche accessibile: sottotitoli nei video e descrizione delle immagini (testo alternativo) per chi non vede.",
+     "esempio": "Una cliente pubblica una foto bellissima del suo matcha latte: Cinque Foglie le scrive per chiedere se può ripubblicarla e la cita nel post.",
+     "domande": [
+      {
+       "tipo": "multipla",
+       "testo": "Cosa fai prima di ripubblicare la foto di una cliente?",
+       "opzioni": [
+        {
+         "t": "Le chiedi il permesso",
+         "giusta": true
+        },
+        {
+         "t": "La citi nel post",
+         "giusta": true
+        },
+        {
+         "t": "La ripubblichi subito, tanto è pubblica",
+         "giusta": false
+        },
+        {
+         "t": "Togli il suo nome dalla foto",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "Un contenuto pubblico non è libero: serve il permesso dell'autrice."
+      }
+     ]
+    }
+   ],
+   "riepilogo": [
+    "I pilastri dei contenuti danno ordine e riconoscibilità al profilo.",
+    "Ogni formato ha un uso: video per farsi scoprire, caroselli per spiegare, storie per il quotidiano.",
+    "Calendario regolare, permessi per i contenuti degli altri e accessibilità."
+   ],
+   "finali": [
+    {
+     "tipo": "singola",
+     "testo": "Cosa conta di più nel calendario?",
+     "opzioni": [
+      {
+       "t": "La regolarità",
+       "giusta": true
+      },
+      {
+       "t": "Pubblicare dieci post al giorno",
+       "giusta": false
+      },
+      {
+       "t": "Pubblicare solo quando si ha tempo",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "Meglio regolari che tantissimi e a caso."
+    },
+    {
+     "tipo": "vf",
+     "testo": "Una foto pubblica su Instagram si può ripubblicare senza chiedere.",
+     "risposta": false,
+     "spiegazione": "Serve il permesso di chi l'ha creata."
+    },
+    {
+     "tipo": "singola",
+     "testo": "A cosa servono i sottotitoli nei video?",
+     "opzioni": [
+      {
+       "t": "A renderli comprensibili anche senza audio e a chi non sente",
+       "giusta": true
+      },
+      {
+       "t": "A far sembrare il video più lungo",
+       "giusta": false
+      },
+      {
+       "t": "Solo all'algoritmo",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "Accessibilità: molti guardano senza audio, e alcune persone non sentono."
+    }
+   ],
+   "parole": [
+    [
+     "Pilastri dei contenuti",
+     "I 3-4 temi fissi del profilo."
+    ],
+    [
+     "Carosello",
+     "Post con più immagini da scorrere."
+    ],
+    [
+     "Calendario editoriale",
+     "Il piano di cosa pubblicare, dove e quando."
+    ],
+    [
+     "UGC",
+     "Contenuti creati dai clienti."
+    ]
+   ]
+  },
+  {
+   "id": "numeri-e-community",
+   "titolo": "Numeri, community e regole",
+   "minuti": 12,
+   "blocchi": [
+    {
+     "titolo": "Le metriche",
+     "testo": "Copertura: quante persone diverse hanno visto un contenuto. Impressioni: quante volte è stato visto in tutto, anche più volte dalla stessa persona. Interazioni: mi piace, commenti, salvataggi, condivisioni. Clic sul link: quante persone sono andate sul sito. Crescita dei follower: quanti nuovi follower nel periodo. Salvataggi e condivisioni di solito dicono più dei mi piace, perché costano più impegno.",
+     "esempio": "Un carosello ha 4.000 di copertura e 6.000 impressioni: alcune persone l'hanno visto più di una volta.",
+     "domande": [
+      {
+       "tipo": "abbina",
+       "testo": "Abbina la metrica.",
+       "coppie": [
+        [
+         "Copertura",
+         "Persone diverse che hanno visto il contenuto"
+        ],
+        [
+         "Impressioni",
+         "Visualizzazioni totali, anche ripetute"
+        ],
+        [
+         "Salvataggi",
+         "Persone che lo vogliono ritrovare"
+        ]
+       ],
+       "spiegazione": "Copertura ≤ impressioni; salvataggi = interesse forte."
+      }
+     ]
+    },
+    {
+     "titolo": "L'engagement rate",
+     "testo": "L'engagement rate dice quanto le persone reagiscono a un contenuto: interazioni diviso copertura, per 100. Si può calcolare anche sui follower, utile per confrontare profili diversi, ma quando si conosce la copertura è meglio usarla. Non esiste un valore giusto per tutti: si confronta con i propri post precedenti.",
+     "esempio": "Un reel ha 225 interazioni e una copertura di 5.000 persone: 225 / 5.000 × 100 = 4,5%.",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "Un post ha 90 interazioni e una copertura di 3.000. Engagement rate sulla copertura?",
+       "opzioni": [
+        {
+         "t": "3%",
+         "giusta": true
+        },
+        {
+         "t": "0,3%",
+         "giusta": false
+        },
+        {
+         "t": "30%",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "90 / 3.000 × 100 = 3%."
+      }
+     ],
+     "blog": {
+      "slug": "engagement-rate",
+      "titolo": "Engagement rate: cos'è e come si calcola"
+     }
+    },
+    {
+     "titolo": "La community",
+     "testo": "Gestire la community vuol dire rispondere a commenti e messaggi, ringraziare, aiutare, moderare. Si risponde presto e nel tono del brand, anche alle critiche. Si nascondono o segnalano solo spam e insulti, non le critiche sincere. Le domande ripetute diventano idee per nuovi contenuti.",
+     "esempio": "Tre persone chiedono in una settimana «quanto matcha per una tazza?»: risposta gentile a tutte e, il lunedì dopo, un carosello con le dosi.",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "Un cliente critica il ritardo di una spedizione in un commento. Cosa fai?",
+       "opzioni": [
+        {
+         "t": "Rispondo presto, mi scuso e gli scrivo in privato per risolvere",
+         "giusta": true
+        },
+        {
+         "t": "Cancello il commento",
+         "giusta": false
+        },
+        {
+         "t": "Non rispondo per non dargli visibilità",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "Le critiche sincere si gestiscono con una risposta rapida, non si cancellano."
+      }
+     ]
+    },
+    {
+     "titolo": "Le regole: pubblicità, concorsi e privacy",
+     "testo": "Se un contenuto è pubblicità, deve essere chiaro: nelle collaborazioni a pagamento con creator si usano le diciture e gli strumenti delle piattaforme (per esempio «partnership a pagamento», #adv). In Italia i concorsi a premio («chi commenta vince…») hanno regole di legge precise (DPR 430/2001): prima di farne uno si chiede a chi se ne occupa in azienda. E i dati delle persone che scrivono in privato si trattano secondo il GDPR.",
+     "esempio": "Cinque Foglie regala un kit a una creator in cambio di un reel: il reel va segnalato come collaborazione, anche se non c'è stato un pagamento in soldi.",
+     "domande": [
+      {
+       "tipo": "vf",
+       "testo": "Un regalo di prodotti in cambio di un post va segnalato come pubblicità.",
+       "risposta": true,
+       "spiegazione": "Anche un prodotto gratuito in cambio di un contenuto è una collaborazione commerciale da dichiarare."
+      },
+      {
+       "tipo": "singola",
+       "testo": "Vuoi fare un «commenta e vinci». Cosa fai prima?",
+       "opzioni": [
+        {
+         "t": "Verifico le regole sui concorsi a premio con chi se ne occupa",
+         "giusta": true
+        },
+        {
+         "t": "Lo pubblico subito",
+         "giusta": false
+        },
+        {
+         "t": "Lo faccio solo nelle storie, così non vale",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "In Italia i concorsi a premio sono regolati per legge."
+      }
+     ]
+    }
+   ],
+   "riepilogo": [
+    "Copertura, impressioni, interazioni e clic dicono cose diverse.",
+    "Engagement rate = interazioni / copertura × 100, da confrontare con i propri post.",
+    "Community: risposte rapide e nel tono; pubblicità sempre dichiarata, concorsi secondo le regole."
+   ],
+   "finali": [
+    {
+     "tipo": "singola",
+     "testo": "Quale metrica può essere più alta della copertura?",
+     "opzioni": [
+      {
+       "t": "Le impressioni",
+       "giusta": true
+      },
+      {
+       "t": "Le persone raggiunte",
+       "giusta": false
+      },
+      {
+       "t": "I follower nuovi",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "Una persona può vedere lo stesso contenuto più volte."
+    },
+    {
+     "tipo": "vf",
+     "testo": "Gli insulti e lo spam si possono nascondere.",
+     "risposta": true,
+     "spiegazione": "Si moderano spam e insulti; le critiche sincere no."
+    },
+    {
+     "tipo": "singola",
+     "testo": "Una creator riceve un kit gratis in cambio di un post. Il post…",
+     "opzioni": [
+      {
+       "t": "Va segnalato come collaborazione",
+       "giusta": true
+      },
+      {
+       "t": "Non va segnalato perché non c'è stato pagamento",
+       "giusta": false
+      },
+      {
+       "t": "Va pubblicato senza citare il brand",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "Anche un regalo in cambio di contenuto è pubblicità."
+    }
+   ],
+   "parole": [
+    [
+     "Copertura",
+     "Persone diverse che hanno visto un contenuto."
+    ],
+    [
+     "Engagement rate",
+     "Interazioni diviso copertura, per 100."
+    ],
+    [
+     "Community management",
+     "Rispondere, aiutare e moderare le persone."
+    ],
+    [
+     "#adv",
+     "Dicitura che segnala un contenuto pubblicitario."
+    ]
+   ]
+  }
+ ],
+ "verifica": [
+  {
+   "tipo": "singola",
+   "testo": "Prima di pubblicare si sceglie…",
+   "opzioni": [
+    {
+     "t": "L'obiettivo",
+     "giusta": true
+    },
+    {
+     "t": "Il filtro della foto",
+     "giusta": false
+    },
+    {
+     "t": "L'orario a caso",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "L'obiettivo decide contenuti e metriche."
+  },
+  {
+   "tipo": "vf",
+   "testo": "TikTok fa scoprire i contenuti soprattutto tramite l'algoritmo.",
+   "risposta": true,
+   "spiegazione": "La maggior parte dei video arriva dai consigli, non dai profili seguiti."
+  },
+  {
+   "tipo": "abbina",
+   "testo": "Abbina:",
+   "coppie": [
+    [
+     "Carosello",
+     "Spiegare passo per passo"
+    ],
+    [
+     "Video breve",
+     "Farsi scoprire"
+    ]
+   ],
+   "spiegazione": "Ogni formato ha un uso."
+  },
+  {
+   "tipo": "singola",
+   "testo": "120 interazioni, copertura 4.000. Engagement rate?",
+   "opzioni": [
+    {
+     "t": "3%",
+     "giusta": true
+    },
+    {
+     "t": "30%",
+     "giusta": false
+    },
+    {
+     "t": "0,03%",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "120 / 4.000 × 100 = 3%."
+  },
+  {
+   "tipo": "ordina",
+   "testo": "Come si prepara un calendario:",
+   "voci": [
+    "Obiettivi e date",
+    "Temi dai pilastri",
+    "Formato e giorno",
+    "Preparazione e programmazione"
+   ],
+   "spiegazione": "Prima il perché, poi il cosa."
+  },
+  {
+   "tipo": "vf",
+   "testo": "Si possono ripubblicare le foto dei clienti senza chiedere.",
+   "risposta": false,
+   "spiegazione": "Serve il permesso."
+  },
+  {
+   "tipo": "singola",
+   "testo": "Una critica sincera nei commenti si…",
+   "opzioni": [
+    {
+     "t": "Gestisce con una risposta rapida e gentile",
+     "giusta": true
+    },
+    {
+     "t": "Cancella",
+     "giusta": false
+    },
+    {
+     "t": "Ignora",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "Si risponde, non si nasconde."
+  },
+  {
+   "tipo": "vf",
+   "testo": "Un post di una creator pagata con prodotti gratuiti va segnalato come pubblicità.",
+   "risposta": true,
+   "spiegazione": "È una collaborazione commerciale."
+  }
+ ],
+ "prova": {
+  "titolo": "Una settimana di post sul matcha",
+  "cosa": "Una richiesta breve di Sara: scegli formati, giorni e testi per una settimana di post.",
+  "link": "/app/social/esercizio/",
+  "minuti": 20
+ }
+}
