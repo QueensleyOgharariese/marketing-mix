@@ -38,7 +38,7 @@ const TESTI = {
     fase: "STAGE", tuttiPass: "All passes", mostraFase: "Show the roles of a stage", tuttiE12: "All 12",
     quizTitolo: "Not sure where to start?", quizSotto: "Choose what you enjoy most. Pesca will suggest your first pass.", quizDomanda: "What do you enjoy doing?",
     vuotoTitolo: "Pick an answer…", vuotoTesto: "…and the right role to start with appears here.",
-    consiglia: "PESCA SUGGESTS", prova: "Try this role (in Italian) →", leggi: "Read what it does",
+    consiglia: "PESCA SUGGESTS", prova: "Try this role →", leggi: "Read what it does",
     fasi: ["Get known", "Get found", "Convince and sell", "Bring back and measure"],
   },
 };
@@ -130,7 +130,7 @@ const css = [
             <strong>{r.nome}</strong>
             <span>{r.cosa}</span>
             <span class="esito-azioni">
-              <a class="bottone" href={linkEsercizio(r.id)} hreflang={lang === "en" ? "it" : undefined}>{T.prova}</a>
+              <a class="bottone" href={linkEsercizio(r.id, lang)}>{T.prova}</a>
               <a class="link-forte" href={linkRuolo(lang, r.id)}>{T.leggi}</a>
             </span>
           </div>

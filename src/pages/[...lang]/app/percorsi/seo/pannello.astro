@@ -1,31 +1,35 @@
 ---
-import { LINGUE_APP } from "../../../../../i18n";
+import { LINGUE_APP, linguaDa } from "../../../../../i18n";
 // PANNELLO DEL NEGOZIO (CMS finto, ispirato ai pannelli di WordPress o Shopify, con nomi generici)
 // Qui chi gioca modifica davvero il sito: title, description, H1, testo delle categorie, visibilità sui motori
 // di ricerca, reindirizzamenti. Le modifiche si vedono nel negozio, in Ispeziona e negli strumenti.
 // Tutto resta salvato solo in questo browser (src/scripts/cms.ts).
 import Console from "../../../../../components/seopro/Console.astro";
-import catalogo from "../../../../../data/app/seo-pro/catalogo.json";
+import catalogoIt from "../../../../../data/app/seo-pro/catalogo.json";
+import catalogoEn from "../../../../../data/app/seo-pro/catalogo.en.json";
 export function getStaticPaths() { return LINGUE_APP(); }
+const en = linguaDa(Astro.url) === "en";
+const L = (it: string, eng: string) => (en ? eng : it);
+const catalogo = en ? (catalogoEn as typeof catalogoIt) : catalogoIt;
 ---
-<Console attivo="pannello" titolo="Pannello del negozio" sottotitolo="Dove si modifica davvero cinquefoglie.example: pagine, reindirizzamenti e impostazioni del tema" ispirato="i pannelli di gestione dei negozi online (come WordPress o Shopify)">
-  <div class="sp-schede" role="tablist" aria-label="Sezioni del pannello">
-    <button type="button" role="tab" aria-selected="true" data-sezione="pagine">Pagine</button>
-    <button type="button" role="tab" aria-selected="false" data-sezione="redirect">Reindirizzamenti</button>
-    <button type="button" role="tab" aria-selected="false" data-sezione="tema">Tema e impostazioni</button>
+<Console attivo="pannello" titolo={L("Pannello del negozio", "Shop admin")} sottotitolo={L("Dove si modifica davvero cinquefoglie.example: pagine, reindirizzamenti e impostazioni del tema", "Where cinquefoglie.example is really edited: pages, redirects and theme settings")} ispirato={L("i pannelli di gestione dei negozi online (come WordPress o Shopify)", "online shop back offices (like WordPress or Shopify)")}>
+  <div class="sp-schede" role="tablist" aria-label={L("Sezioni del pannello", "Admin sections")}>
+    <button type="button" role="tab" aria-selected="true" data-sezione="pagine">{L("Pagine", "Pages")}</button>
+    <button type="button" role="tab" aria-selected="false" data-sezione="redirect">{L("Reindirizzamenti", "Redirects")}</button>
+    <button type="button" role="tab" aria-selected="false" data-sezione="tema">{L("Tema e impostazioni", "Theme and settings")}</button>
   </div>
 
   <!-- PAGINE -->
   <section data-pannello-sezione="pagine" class="sezione">
     <div class="sp-pannello elenco-testa">
-      <label for="cerca-pagine" class="sr">Cerca una pagina</label>
-      <input id="cerca-pagine" class="sp-cerca" type="search" placeholder="Cerca una pagina, es. /te-verdi/" data-cerca-pagine />
-      <span class="sp-nota">Clicca una pagina per modificarne i dati che legge Google.</span>
+      <label for="cerca-pagine" class="sr">{L("Cerca una pagina", "Search for a page")}</label>
+      <input id="cerca-pagine" class="sp-cerca" type="search" placeholder={L("Cerca una pagina, es. /te-verdi/", "Search for a page, e.g. /te-verdi/")} data-cerca-pagine />
+      <span class="sp-nota">{L("Clicca una pagina per modificarne i dati che legge Google.", "Click a page to edit the data Google reads.")}</span>
     </div>
     <div class="due">
-      <div class="sp-scorri elenco"><table class="tabella-pagine"><thead><tr><th>Pagina</th><th>Stato</th></tr></thead><tbody data-righe-pagine></tbody></table></div>
+      <div class="sp-scorri elenco"><table class="tabella-pagine"><thead><tr><th>{L("Pagina", "Page")}</th><th>{L("Stato", "Status")}</th></tr></thead><tbody data-righe-pagine></tbody></table></div>
       <form class="sp-pannello editor" data-editor hidden>
-        <div class="editor-testa"><h2 data-editor-url></h2><a data-editor-apri target="_self">Apri nel negozio</a></div>
+        <div class="editor-testa"><h2 data-editor-url></h2><a data-editor-apri target="_self">{L("Apri nel negozio", "Open in the shop")}</a></div>
         <label class="campo">Title <span class="conta" data-conta-title></span>
           <input name="title" maxlength="140" autocomplete="off" />
           <span class="barra" aria-hidden="true"><span data-barra-title></span></span>
@@ -33,26 +37,26 @@ export function getStaticPaths() { return LINGUE_APP(); }
         <label class="campo">Meta description <span class="conta" data-conta-desc></span>
           <textarea name="description" rows="3" maxlength="300"></textarea>
         </label>
-        <label class="campo">H1 (il titolo grande nella pagina)
+        <label class="campo">{L("H1 (il titolo grande nella pagina)", "H1 (the big heading on the page)")}
           <input name="h1" maxlength="120" autocomplete="off" />
         </label>
-        <label class="campo" data-campo-intro>Testo introduttivo della categoria <span class="conta" data-conta-intro></span>
+        <label class="campo" data-campo-intro>{L("Testo introduttivo della categoria", "Category intro text")} <span class="conta" data-conta-intro></span>
           <textarea name="intro" rows="8" maxlength="2000"></textarea>
-          <span class="aiuto-campo">Puoi andare a capo per fare più paragrafi.</span>
+          <span class="aiuto-campo">{L("Puoi andare a capo per fare più paragrafi.", "You can start a new line to make more paragraphs.")}</span>
         </label>
-        <label class="campo">Visibilità sui motori di ricerca (meta robots)
-          <select name="robots"><option value="">Come da tema</option><option value="index, follow">Visibile (index, follow)</option><option value="noindex, follow">Nascosta (noindex, follow)</option></select>
+        <label class="campo">{L("Visibilità sui motori di ricerca (meta robots)", "Visibility to search engines (meta robots)")}
+          <select name="robots"><option value="">{L("Come da tema", "As per theme")}</option><option value="index, follow">{L("Visibile", "Visible")} (index, follow)</option><option value="noindex, follow">{L("Nascosta", "Hidden")} (noindex, follow)</option></select>
           <span class="aiuto-campo" data-nota-robots></span>
         </label>
         <div class="anteprima" aria-live="polite">
-          <span class="anteprima-etichetta">Anteprima nei risultati di Google</span>
+          <span class="anteprima-etichetta">{L("Anteprima nei risultati di Google", "Preview in Google's results")}</span>
           <span class="a-url" data-ant-url></span>
           <span class="a-titolo" data-ant-titolo></span>
           <span class="a-desc" data-ant-desc></span>
         </div>
         <div class="azioni">
-          <button type="submit" class="bottone-app">Salva le modifiche</button>
-          <button type="button" class="bottone-app bottone-app--chiaro" data-annulla-pagina>Torna all'originale</button>
+          <button type="submit" class="bottone-app">{L("Salva le modifiche", "Save changes")}</button>
+          <button type="button" class="bottone-app bottone-app--chiaro" data-annulla-pagina>{L("Torna all'originale", "Back to the original")}</button>
           <span class="salvato" data-salvato-pagina aria-live="polite"></span>
         </div>
       </form>
@@ -62,25 +66,25 @@ export function getStaticPaths() { return LINGUE_APP(); }
   <!-- REINDIRIZZAMENTI -->
   <section data-pannello-sezione="redirect" class="sezione" hidden>
     <form class="sp-pannello nuovo-redirect" data-nuovo-redirect>
-      <h2 class="titoletto">Aggiungi o modifica un reindirizzamento 301</h2>
-      <p class="sp-nota">Chi apre il primo indirizzo viene mandato al secondo. Se esiste già un reindirizzamento dallo stesso indirizzo, viene sostituito.</p>
+      <h2 class="titoletto">{L("Aggiungi o modifica un reindirizzamento 301", "Add or edit a 301 redirect")}</h2>
+      <p class="sp-nota">{L("Chi apre il primo indirizzo viene mandato al secondo. Se esiste già un reindirizzamento dallo stesso indirizzo, viene sostituito.", "Anyone opening the first address is sent to the second. If a redirect from the same address already exists, it's replaced.")}</p>
       <div class="campi-riga">
-        <label class="campo">Da (indirizzo vecchio)<input name="da" placeholder="/vecchia-pagina/" autocomplete="off" required /></label>
+        <label class="campo">{L("Da (indirizzo vecchio)", "From (old address)")}<input name="da" placeholder={L("/vecchia-pagina/", "/old-page/")} autocomplete="off" required /></label>
         <span class="freccia" aria-hidden="true">→</span>
-        <label class="campo">A (pagina nuova)<input name="a" placeholder="/pagina-nuova/" autocomplete="off" required list="indirizzi-validi" /></label>
-        <button type="submit" class="bottone-app">Salva il 301</button>
+        <label class="campo">{L("A (pagina nuova)", "To (new page)")}<input name="a" placeholder={L("/pagina-nuova/", "/new-page/")} autocomplete="off" required list="indirizzi-validi" /></label>
+        <button type="submit" class="bottone-app">{L("Salva il 301", "Save the 301")}</button>
       </div>
       <datalist id="indirizzi-validi"></datalist>
       <p class="messaggio" data-msg-redirect aria-live="polite"></p>
     </form>
-    <div class="sp-scorri"><table class="tabella-pagine"><thead><tr><th>Da</th><th>A</th><th>Tipo</th><th><span class="sr">Azioni</span></th></tr></thead><tbody data-righe-redirect></tbody></table></div>
+    <div class="sp-scorri"><table class="tabella-pagine"><thead><tr><th>{L("Da", "From")}</th><th>{L("A", "To")}</th><th>{L("Tipo", "Type")}</th><th><span class="sr">{L("Azioni", "Actions")}</span></th></tr></thead><tbody data-righe-redirect></tbody></table></div>
   </section>
 
   <!-- TEMA -->
   <section data-pannello-sezione="tema" class="sezione" hidden>
     <div class="sp-pannello">
-      <h2 class="titoletto">Categorie visibili sui motori di ricerca</h2>
-      <p class="sp-nota">Se una categoria è nascosta, il tema mette il noindex sulla categoria e su tutti i suoi prodotti. Ultimo aggiornamento del tema: 18/09/2026.</p>
+      <h2 class="titoletto">{L("Categorie visibili sui motori di ricerca", "Categories visible to search engines")}</h2>
+      <p class="sp-nota">{L("Se una categoria è nascosta, il tema mette il noindex sulla categoria e su tutti i suoi prodotti. Ultimo aggiornamento del tema: 18/09/2026.", "If a category is hidden, the theme puts noindex on the category and on all its products. Last theme update: 18/09/2026.")}</p>
       <div class="interruttori" data-categorie>
         {catalogo.categorie.map((c) => (
           <label class="interruttore"><input type="checkbox" value={c.id} /><span class="int-nome">{c.nome}</span><span class="int-stato" data-stato-cat={c.id}></span></label>
@@ -88,18 +92,18 @@ export function getStaticPaths() { return LINGUE_APP(); }
       </div>
     </div>
     <div class="sp-pannello">
-      <h2 class="titoletto">Pagine filtrate (ordina, colore, materiale)</h2>
-      <label class="interruttore"><input type="checkbox" data-canonical-filtri /><span class="int-nome">Canonical automatico verso la categoria</span></label>
-      <p class="sp-nota">Le pagine come /te-verdi/?ordina=prezzo dicono a Google che la versione principale è /te-verdi/.</p>
+      <h2 class="titoletto">{L("Pagine filtrate (ordina, colore, materiale)", "Filtered pages (sort, colour, material)")}</h2>
+      <label class="interruttore"><input type="checkbox" data-canonical-filtri /><span class="int-nome">{L("Canonical automatico verso la categoria", "Automatic canonical to the category")}</span></label>
+      <p class="sp-nota">{L("Le pagine come /te-verdi/?ordina=prezzo dicono a Google che la versione principale è /te-verdi/.", "Pages like /te-verdi/?ordina=prezzo tell Google that the main version is /te-verdi/.")}</p>
     </div>
     <div class="sp-pannello pericolo">
-      <h2 class="titoletto">Ricomincia da capo</h2>
-      <p class="sp-nota">Annulla tutte le modifiche e riporta il negozio com'era all'inizio del percorso.</p>
-      <button type="button" class="bottone-app bottone-app--chiaro" data-ripristina>Ripristina il negozio</button>
+      <h2 class="titoletto">{L("Ricomincia da capo", "Start over")}</h2>
+      <p class="sp-nota">{L("Annulla tutte le modifiche e riporta il negozio com'era all'inizio del percorso.", "Undo all changes and put the shop back as it was at the start.")}</p>
+      <button type="button" class="bottone-app bottone-app--chiaro" data-ripristina>{L("Ripristina il negozio", "Reset the shop")}</button>
       <div class="sp-conferma" data-conferma hidden>
-        <p><strong>Sicura?</strong> Perderai tutte le modifiche (title, testi, reindirizzamenti, tema).</p>
-        <button type="button" class="bottone-app" data-conferma-si>Sì, ripristina</button>
-        <button type="button" class="bottone-app bottone-app--chiaro" data-conferma-no>Annulla</button>
+        <p><strong>{L("Sicura?", "Are you sure?")}</strong> {L("Perderai tutte le modifiche (title, testi, reindirizzamenti, tema).", "You'll lose all changes (titles, texts, redirects, theme).")}</p>
+        <button type="button" class="bottone-app" data-conferma-si>{L("Sì, ripristina", "Yes, reset")}</button>
+        <button type="button" class="bottone-app bottone-app--chiaro" data-conferma-no>{L("Annulla", "Cancel")}</button>
       </div>
       <p class="sp-nota" data-ripristinato role="status"></p>
     </div>
@@ -107,10 +111,16 @@ export function getStaticPaths() { return LINGUE_APP(); }
 </Console>
 
 <script>
-  import { leggiModifiche, salvaModifiche, ripristina, paginaEffettiva, pagineEffettive, pulisciUrl, introCategoria, type Modifiche } from "../../../../../scripts/cms";
+  import { leggiModifiche, salvaModifiche, ripristina, paginaEffettiva, pagineEffettive, pulisciUrl, introCategoria, nomeTipo, type Modifiche } from "../../../../../scripts/cms";
   import { pixel } from "../../../../../scripts/controlli-seo";
-  import catalogo from "../../../../../data/app/seo-pro/catalogo.json";
-  import crawl from "../../../../../data/app/seo-pro/crawl.json";
+  import { t as tr, scegli, conLingua } from "../../../../../scripts/lingua";
+  import catalogoIt from "../../../../../data/app/seo-pro/catalogo.json";
+  import catalogoEn from "../../../../../data/app/seo-pro/catalogo.en.json";
+  import crawlIt from "../../../../../data/app/seo-pro/crawl.json";
+  import crawlEn from "../../../../../data/app/seo-pro/crawl.en.json";
+  // nella versione inglese il negozio "originale" è quello dei dati gemelli in inglese
+  const catalogo = scegli(catalogoIt, catalogoEn as typeof catalogoIt);
+  const crawl = scegli(crawlIt, crawlEn as typeof crawlIt);
 
   const $ = <T extends HTMLElement>(s: string, r: ParentNode = document) => r.querySelector<T>(s)!;
   const esc = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -137,7 +147,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
     $("[data-righe-pagine]").innerHTML = modificabili.filter((p) => !t || p.url.includes(t) || p.title.toLowerCase().includes(t)).map((b) => {
       const p = paginaEffettiva(b.url, m)!;
       const noindex = (p.robots ?? "").includes("noindex");
-      return `<tr data-url="${esc(p.url)}" tabindex="0" class="${p.url === aperta ? "selezionata" : ""}"><td class="url"><span class="u">${esc(p.url)}</span><span class="tipo">${esc(p.tipo)}${p.modificata ? ' · <strong>modificata</strong>' : ""}</span></td><td>${noindex ? '<span class="sp-badge no">nascosta</span>' : '<span class="sp-badge ok">visibile</span>'}</td></tr>`;
+      return `<tr data-url="${esc(p.url)}" tabindex="0" class="${p.url === aperta ? "selezionata" : ""}"><td class="url"><span class="u">${esc(p.url)}</span><span class="tipo">${esc(nomeTipo(p.tipo))}${p.modificata ? ` · <strong>${tr("modificata", "edited")}</strong>` : ""}</span></td><td>${noindex ? `<span class="sp-badge no">${tr("nascosta", "hidden")}</span>` : `<span class="sp-badge ok">${tr("visibile", "visible")}</span>`}</td></tr>`;
     }).join("");
     document.querySelectorAll<HTMLTableRowElement>("[data-righe-pagine] tr").forEach((r) => {
       r.addEventListener("click", () => apri(r.dataset.url!));
@@ -155,7 +165,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
     const cat = CATEGORIE.find((c) => url === `/${c}/`);
     form.hidden = false;
     $("[data-editor-url]").textContent = url;
-    ($("[data-editor-apri]") as HTMLAnchorElement).href = `/app/negozio${url}`;
+    ($("[data-editor-apri]") as HTMLAnchorElement).href = conLingua(`/app/negozio${url}`);
     campo("title").value = p.title ?? "";
     campo("description").value = p.description ?? "";
     campo("h1").value = p.h1 ?? "";
@@ -164,8 +174,9 @@ export function getStaticPaths() { return LINGUE_APP(); }
     (form.elements.namedItem("robots") as HTMLSelectElement).value = m.pagine[url]?.robots ?? "";
     const catDi = url.split("/")[1];
     $("[data-nota-robots]").textContent = CATEGORIE.includes(catDi)
-      ? `"Come da tema": la categoria ${m.tema.nascoste.includes(catDi) ? "è nascosta" : "è visibile"} nelle impostazioni del tema (oggi: ${p.robots || "index, follow"}).`
-      : `Oggi: ${p.robots || "index, follow"}.`;
+      ? tr(`"Come da tema": la categoria ${m.tema.nascoste.includes(catDi) ? "è nascosta" : "è visibile"} nelle impostazioni del tema (oggi: ${p.robots || "index, follow"}).`,
+          `"As per theme": the category ${m.tema.nascoste.includes(catDi) ? "is hidden" : "is visible"} in the theme settings (today: ${p.robots || "index, follow"}).`)
+      : tr(`Oggi: ${p.robots || "index, follow"}.`, `Today: ${p.robots || "index, follow"}.`);
     $("[data-salvato-pagina]").textContent = "";
     aggiornaAnteprima();
     righePagine();
@@ -174,15 +185,15 @@ export function getStaticPaths() { return LINGUE_APP(); }
   function aggiornaAnteprima() {
     const t = campo("title").value, d = campo("description").value, intro = campo("intro").value;
     const px = pixel(t);
-    $("[data-conta-title]").textContent = `${t.length} caratteri, ${px} di 580 px`;
+    $("[data-conta-title]").textContent = tr(`${t.length} caratteri, ${px} di 580 px`, `${t.length} characters, ${px} of 580 px`);
     const barra = $("[data-barra-title]"); barra.style.width = `${Math.min(100, (px / 580) * 100)}%`; barra.className = px > 580 ? "troppo" : "";
-    $("[data-conta-desc]").textContent = `${d.length} caratteri (consigliati 120-160)`;
-    $("[data-conta-intro]").textContent = `${intro.trim() ? intro.trim().split(/\s+/).length : 0} parole`;
+    $("[data-conta-desc]").textContent = tr(`${d.length} caratteri (consigliati 120-160)`, `${d.length} characters (120-160 recommended)`);
+    $("[data-conta-intro]").textContent = `${intro.trim() ? intro.trim().split(/\s+/).length : 0} ${tr("parole", "words")}`;
     $("[data-ant-url]").textContent = `cinquefoglie.example${aperta.replace(/\/$/, "").replace(/\//g, " › ")}`;
     // Google taglia i title troppo lunghi con "..."
     let vis = t; while (pixel(vis + "…") > 580 && vis.length) vis = vis.slice(0, -1);
-    $("[data-ant-titolo]").textContent = pixel(t) > 580 ? vis.trimEnd() + "…" : t || "(title vuoto)";
-    $("[data-ant-desc]").textContent = d.length > 160 ? d.slice(0, 157).trimEnd() + "…" : d || "(Google sceglierà un pezzo di testo della pagina)";
+    $("[data-ant-titolo]").textContent = pixel(t) > 580 ? vis.trimEnd() + "…" : t || tr("(title vuoto)", "(empty title)");
+    $("[data-ant-desc]").textContent = d.length > 160 ? d.slice(0, 157).trimEnd() + "…" : d || tr("(Google sceglierà un pezzo di testo della pagina)", "(Google will pick a piece of text from the page)");
   }
   form.addEventListener("input", aggiornaAnteprima);
   form.addEventListener("submit", (e) => {
@@ -196,12 +207,12 @@ export function getStaticPaths() { return LINGUE_APP(); }
     const r = (form.elements.namedItem("robots") as HTMLSelectElement).value; if (r) nuovi.robots = r;
     if (Object.keys(nuovi).length) m.pagine[aperta] = nuovi; else delete m.pagine[aperta];
     salvaModifiche(m);
-    $("[data-salvato-pagina]").textContent = "Salvato: la modifica è già online nel negozio.";
+    $("[data-salvato-pagina]").textContent = tr("Salvato: la modifica è già online nel negozio.", "Saved: the change is already live in the shop.");
     righePagine();
   });
   $("[data-annulla-pagina]").addEventListener("click", () => {
     const m = leggiModifiche(); delete m.pagine[aperta]; salvaModifiche(m); apri(aperta);
-    $("[data-salvato-pagina]").textContent = "Pagina riportata all'originale.";
+    $("[data-salvato-pagina]").textContent = tr("Pagina riportata all'originale.", "Page put back to the original.");
   });
 
   // ---- Reindirizzamenti
@@ -211,12 +222,12 @@ export function getStaticPaths() { return LINGUE_APP(); }
     const m = leggiModifiche();
     const voci = Object.entries(m.redirect);
     $("[data-righe-redirect]").innerHTML = voci.length ? voci.map(([da, a]) => {
-      const catenaLunga = m.redirect[a] ? ' <span class="sp-badge medio">catena: anche questo rimanda</span>' : "";
-      return `<tr><td class="url">${esc(da)}</td><td class="url">${esc(a)}${catenaLunga}</td><td>301</td><td class="n"><button type="button" class="piccolo" data-modifica="${esc(da)}">Modifica</button> <button type="button" class="piccolo" data-elimina="${esc(da)}">Elimina</button></td></tr>`;
-    }).join("") : `<tr><td colspan="4">Nessun reindirizzamento.</td></tr>`;
+      const catenaLunga = m.redirect[a] ? ` <span class="sp-badge medio">${tr("catena: anche questo rimanda", "chain: this one redirects too")}</span>` : "";
+      return `<tr><td class="url">${esc(da)}</td><td class="url">${esc(a)}${catenaLunga}</td><td>301</td><td class="n"><button type="button" class="piccolo" data-modifica="${esc(da)}">${tr("Modifica", "Edit")}</button> <button type="button" class="piccolo" data-elimina="${esc(da)}">${tr("Elimina", "Delete")}</button></td></tr>`;
+    }).join("") : `<tr><td colspan="4">${tr("Nessun reindirizzamento.", "No redirects.")}</td></tr>`;
     document.querySelectorAll<HTMLButtonElement>("[data-elimina]").forEach((b) => b.addEventListener("click", () => {
       const m2 = leggiModifiche(); delete m2.redirect[b.dataset.elimina!]; salvaModifiche(m2); righeRedirect();
-      $("[data-msg-redirect]").textContent = `Reindirizzamento da ${b.dataset.elimina} eliminato.`;
+      $("[data-msg-redirect]").textContent = tr(`Reindirizzamento da ${b.dataset.elimina} eliminato.`, `Redirect from ${b.dataset.elimina} deleted.`);
     }));
     document.querySelectorAll<HTMLButtonElement>("[data-modifica]").forEach((b) => b.addEventListener("click", () => {
       const f = $<HTMLFormElement>("[data-nuovo-redirect]");
@@ -231,13 +242,13 @@ export function getStaticPaths() { return LINGUE_APP(); }
     const da = pulisciUrl((f.elements.namedItem("da") as HTMLInputElement).value);
     const a = pulisciUrl((f.elements.namedItem("a") as HTMLInputElement).value);
     const msg = $("[data-msg-redirect]");
-    if (!da || !a) { msg.textContent = "Scrivi tutti e due gli indirizzi."; return; }
-    if (da === a) { msg.textContent = "Un indirizzo non può rimandare a sé stesso."; return; }
+    if (!da || !a) { msg.textContent = tr("Scrivi tutti e due gli indirizzi.", "Type both addresses."); return; }
+    if (da === a) { msg.textContent = tr("Un indirizzo non può rimandare a sé stesso.", "An address can't redirect to itself."); return; }
     const m = leggiModifiche();
     m.redirect[da] = a;
     salvaModifiche(m);
     const dest = paginaEffettiva(a, m);
-    msg.textContent = !dest ? `Salvato, ma attenzione: ${a} non esiste nel negozio.` : dest.stato !== 200 ? `Salvato, ma attenzione: ${a} non è una pagina che funziona (stato ${dest.stato}).` : `Salvato: chi apre ${da} ora arriva su ${a}.`;
+    msg.textContent = !dest ? tr(`Salvato, ma attenzione: ${a} non esiste nel negozio.`, `Saved, but careful: ${a} doesn't exist in the shop.`) : dest.stato !== 200 ? tr(`Salvato, ma attenzione: ${a} non è una pagina che funziona (stato ${dest.stato}).`, `Saved, but careful: ${a} isn't a working page (status ${dest.stato}).`) : tr(`Salvato: chi apre ${da} ora arriva su ${a}.`, `Saved: anyone opening ${da} now reaches ${a}.`);
     f.reset();
     righeRedirect();
   });
@@ -247,7 +258,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
     const m = leggiModifiche();
     document.querySelectorAll<HTMLInputElement>("[data-categorie] input").forEach((i) => {
       i.checked = !m.tema.nascoste.includes(i.value);
-      $(`[data-stato-cat="${i.value}"]`).textContent = i.checked ? "visibile" : "nascosta ai motori di ricerca";
+      $(`[data-stato-cat="${i.value}"]`).textContent = i.checked ? tr("visibile", "visible") : tr("nascosta ai motori di ricerca", "hidden from search engines");
     });
     $<HTMLInputElement>("[data-canonical-filtri]").checked = m.tema.canonicalFiltri;
   }
@@ -267,7 +278,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
   $("[data-conferma-si]").addEventListener("click", () => {
     ripristina(); mostraTema(); righePagine(); righeRedirect(); form.hidden = true;
     conferma.hidden = true; btnRip.hidden = false;
-    $("[data-ripristinato]").textContent = "Fatto: il negozio è tornato com'era all'inizio.";
+    $("[data-ripristinato]").textContent = tr("Fatto: il negozio è tornato com'era all'inizio.", "Done: the shop is back as it was at the start.");
   });
 
   righePagine(); righeRedirect(); mostraTema();

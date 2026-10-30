@@ -1,0 +1,279 @@
+{
+ "_nota": "Analytics simulato: solo visite da ricerca organica, con consenso ai cookie (circa 70% delle visite reali). Dati inventati.",
+ "periodo": "1 August - 25 October 2026",
+ "pagine": [
+  {
+   "pagina": "/",
+   "sessioni": 3271,
+   "conversione": 2.0,
+   "ordini": 65,
+   "ricavi": 1560
+  },
+  {
+   "pagina": "/tisane/",
+   "sessioni": 958,
+   "conversione": 2.0,
+   "ordini": 19,
+   "ricavi": 456
+  },
+  {
+   "pagina": "/te-verdi/sencha-bio/",
+   "sessioni": 429,
+   "conversione": 3.5,
+   "ordini": 15,
+   "ricavi": 360
+  },
+  {
+   "pagina": "/matcha/",
+   "sessioni": 1051,
+   "conversione": 1.4,
+   "ordini": 15,
+   "ricavi": 360
+  },
+  {
+   "pagina": "/te-verdi/",
+   "sessioni": 642,
+   "conversione": 2.0,
+   "ordini": 13,
+   "ricavi": 312
+  },
+  {
+   "pagina": "/accessori/teiera-ghisa/",
+   "sessioni": 66,
+   "conversione": 4.5,
+   "ordini": 3,
+   "ricavi": 126
+  },
+  {
+   "pagina": "/blog/come-preparare-il-matcha/",
+   "sessioni": 983,
+   "conversione": 0.5,
+   "ordini": 5,
+   "ricavi": 120
+  },
+  {
+   "pagina": "/matcha/matcha-cerimoniale/",
+   "sessioni": 129,
+   "conversione": 3.9,
+   "ordini": 5,
+   "ricavi": 120
+  },
+  {
+   "pagina": "/blog/sencha-guida-completa/",
+   "sessioni": 544,
+   "conversione": 0.7,
+   "ordini": 4,
+   "ricavi": 96
+  },
+  {
+   "pagina": "/blog/te-freddo-fatto-in-casa/",
+   "sessioni": 627,
+   "conversione": 0.6,
+   "ordini": 4,
+   "ricavi": 96
+  },
+  {
+   "pagina": "/te-verdi/gyokuro/",
+   "sessioni": 85,
+   "conversione": 3.5,
+   "ordini": 3,
+   "ricavi": 72
+  },
+  {
+   "pagina": "/te-verdi/genmaicha/",
+   "sessioni": 81,
+   "conversione": 3.7,
+   "ordini": 3,
+   "ricavi": 72
+  },
+  {
+   "pagina": "/blog/tisane-per-la-sera/",
+   "sessioni": 491,
+   "conversione": 0.6,
+   "ordini": 3,
+   "ricavi": 72
+  },
+  {
+   "pagina": "/tisane/camomilla-bio/",
+   "sessioni": 85,
+   "conversione": 3.5,
+   "ordini": 3,
+   "ricavi": 72
+  },
+  {
+   "pagina": "/tisane/rooibos-vaniglia/",
+   "sessioni": 64,
+   "conversione": 4.7,
+   "ordini": 3,
+   "ricavi": 72
+  },
+  {
+   "pagina": "/matcha/kit-matcha/",
+   "sessioni": 57,
+   "conversione": 3.5,
+   "ordini": 2,
+   "ricavi": 48
+  },
+  {
+   "pagina": "/te-neri/",
+   "sessioni": 120,
+   "conversione": 1.7,
+   "ordini": 2,
+   "ricavi": 48
+  },
+  {
+   "pagina": "/blog/differenza-te-verde-nero/",
+   "sessioni": 360,
+   "conversione": 0.6,
+   "ordini": 2,
+   "ricavi": 48
+  },
+  {
+   "pagina": "/te-freddi/cold-brew-sencha/",
+   "sessioni": 50,
+   "conversione": 4.0,
+   "ordini": 2,
+   "ricavi": 48
+  },
+  {
+   "pagina": "/accessori/tazza-ceramica/",
+   "sessioni": 33,
+   "conversione": 3.0,
+   "ordini": 1,
+   "ricavi": 42
+  },
+  {
+   "pagina": "/te-neri/earl-grey-bio/",
+   "sessioni": 45,
+   "conversione": 2.2,
+   "ordini": 1,
+   "ricavi": 24
+  },
+  {
+   "pagina": "/te-neri/english-breakfast/",
+   "sessioni": 18,
+   "conversione": 5.6,
+   "ordini": 1,
+   "ricavi": 24
+  },
+  {
+   "pagina": "/te-neri/chai-speziato/",
+   "sessioni": 31,
+   "conversione": 3.2,
+   "ordini": 1,
+   "ricavi": 24
+  },
+  {
+   "pagina": "/te-freddi/kit-te-freddo-estate/",
+   "sessioni": 36,
+   "conversione": 2.8,
+   "ordini": 1,
+   "ricavi": 24
+  },
+  {
+   "pagina": "/blog/conservare-il-te/",
+   "sessioni": 141,
+   "conversione": 0.7,
+   "ordini": 1,
+   "ricavi": 24
+  }
+ ],
+ "mesi": [
+  {
+   "mese": "2025-07",
+   "sessioni": 7196,
+   "ordini": 137,
+   "ricavi": 3555
+  },
+  {
+   "mese": "2025-08",
+   "sessioni": 7050,
+   "ordini": 134,
+   "ricavi": 3483
+  },
+  {
+   "mese": "2025-09",
+   "sessioni": 7092,
+   "ordini": 135,
+   "ricavi": 3503
+  },
+  {
+   "mese": "2025-10",
+   "sessioni": 7781,
+   "ordini": 148,
+   "ricavi": 3844
+  },
+  {
+   "mese": "2025-11",
+   "sessioni": 8360,
+   "ordini": 159,
+   "ricavi": 4130
+  },
+  {
+   "mese": "2025-12",
+   "sessioni": 8767,
+   "ordini": 167,
+   "ricavi": 4331
+  },
+  {
+   "mese": "2026-01",
+   "sessioni": 8206,
+   "ordini": 156,
+   "ricavi": 4054
+  },
+  {
+   "mese": "2026-02",
+   "sessioni": 7872,
+   "ordini": 150,
+   "ricavi": 3889
+  },
+  {
+   "mese": "2026-03",
+   "sessioni": 7533,
+   "ordini": 143,
+   "ricavi": 3721
+  },
+  {
+   "mese": "2026-04",
+   "sessioni": 7562,
+   "ordini": 144,
+   "ricavi": 3736
+  },
+  {
+   "mese": "2026-05",
+   "sessioni": 7736,
+   "ordini": 147,
+   "ricavi": 3822
+  },
+  {
+   "mese": "2026-06",
+   "sessioni": 8201,
+   "ordini": 156,
+   "ricavi": 4051
+  },
+  {
+   "mese": "2026-07",
+   "sessioni": 8456,
+   "ordini": 161,
+   "ricavi": 4177
+  },
+  {
+   "mese": "2026-08",
+   "sessioni": 8470,
+   "ordini": 161,
+   "ricavi": 4184
+  },
+  {
+   "mese": "2026-09",
+   "sessioni": 7748,
+   "ordini": 147,
+   "ricavi": 3827
+  },
+  {
+   "mese": "2026-10",
+   "sessioni": 7183,
+   "ordini": 136,
+   "ricavi": 3548
+  }
+ ]
+}

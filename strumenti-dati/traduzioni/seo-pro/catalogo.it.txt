@@ -1,0 +1,99 @@
+1|Tè verdi
+2|Tè verdi | Cinque Foglie
+3|Tè verdi.
+4|Scopri i nostri tè verdi.
+5|Tè neri
+6|Tè neri biologici in foglie e bustine | Cinque Foglie
+7|Earl Grey, Assam, Darjeeling e chai speziato, biologici e in foglie intere. Spedizione in 24 ore e reso facile.
+8|Dal classico Earl Grey al chai speziato: tè neri biologici per la colazione e il pomeriggio.
+9|Tisane
+10|Tisane biologiche
+11|Tisane biologiche senza teina | Cinque Foglie
+12|Camomilla, rooibos, menta e le nostre Tisane della Sera: tisane bio senza teina, in bustine compostabili. Spedizione in 24 ore.
+13|Tisane senza teina per ogni momento della giornata, anche la sera.
+14|Matcha
+15|Matcha biologico giapponese | Cinque Foglie
+16|Matcha cerimoniale e quotidiano, biologico e macinato a pietra in Giappone, con frusta e kit per iniziare. Spedizione in 24 ore.
+17|Matcha per la cerimonia del tè e per il latte di ogni giorno.
+18|Tè freddi
+19|Tè freddi e cold brew | Cinque Foglie
+20|Kit per tè freddo, cold brew di Sencha e tè alla pesca: pronti in frigo in 8 ore. Spedizione in 24 ore.
+21|Tè da preparare a freddo, per l'estate.
+22|Accessori
+23|Accessori per il tè
+24|Teiere, tazze e accessori per il tè | Cinque Foglie
+25|Teiere in ghisa, tazze in ceramica, infusori e barattoli per conservare il tè. Idee regalo con spedizione in 24 ore.
+26|Tutto quello che serve per preparare e conservare il tè.
+27|Sencha biologico
+28|Tè verde Sencha biologico in foglie | Cinque Foglie
+29|Sencha biologico, 100 g. Biologico, selezionato da Cinque Foglie. Spedizione in 24 ore e reso entro 30 giorni.
+30|Gyokuro
+31|Gyokuro | Tè verdi | Cinque Foglie
+32|Gyokuro, 50 g. Biologico, selezionato da Cinque Foglie. Spedizione in 24 ore e reso entro 30 giorni.
+33|Bancha
+34|Bancha | Tè verdi | Cinque Foglie
+35|Bancha, 100 g. Biologico, selezionato da Cinque Foglie. Spedizione in 24 ore e reso entro 30 giorni.
+36|Genmaicha
+37|Genmaicha | Tè verdi | Cinque Foglie
+38|Genmaicha, 100 g. Biologico, selezionato da Cinque Foglie. Spedizione in 24 ore e reso entro 30 giorni.
+39|Tè verde alla menta
+40|Tè verde alla menta | Tè verdi | Cinque Foglie
+41|Tè verde alla menta, 100 g. Biologico, selezionato da Cinque Foglie. Spedizione in 24 ore e reso entro 30 giorni.
+42|Tè verde al gelsomino
+43|Tè verde al gelsomino | Tè verdi | Cinque Foglie
+44|Tè verde al gelsomino, 100 g. Biologico, selezionato da Cinque Foglie. Spedizione in 24 ore e reso entro 30 giorni.
+45|Earl Grey biologico
+46|Cinque Foglie | Negozio di tè online
+47|English Breakfast
+48|Assam
+49|Darjeeling
+50|Chai speziato
+51|Tè nero alla vaniglia
+52|Tisane della Sera
+53|Tisane della Sera | Tisane | Cinque Foglie
+54|Tisane della Sera, 15 bustine. Biologico, selezionato da Cinque Foglie. Spedizione in 24 ore e reso entro 30 giorni.
+55|Camomilla biologica
+56|Camomilla biologica | Tisane | Cinque Foglie
+57|Camomilla biologica, 20 bustine. Biologico, selezionato da Cinque Foglie. Spedizione in 24 ore e reso entro 30 giorni.
+58|Menta piperita
+59|Menta piperita | Tisane | Cinque Foglie
+60|Menta piperita, 20 bustine. Biologico, selezionato da Cinque Foglie. Spedizione in 24 ore e reso entro 30 giorni.
+61|Rooibos alla vaniglia
+62|Rooibos alla vaniglia | Tisane | Cinque Foglie
+63|Rooibos alla vaniglia, 100 g. Biologico, selezionato da Cinque Foglie. Spedizione in 24 ore e reso entro 30 giorni.
+64|Zenzero e limone
+65|Zenzero e limone | Tisane | Cinque Foglie
+66|Zenzero e limone, 20 bustine. Biologico, selezionato da Cinque Foglie. Spedizione in 24 ore e reso entro 30 giorni.
+67|Infuso ai frutti rossi
+68|Infuso ai frutti rossi | Tisane | Cinque Foglie
+69|Infuso ai frutti rossi, 100 g. Biologico, selezionato da Cinque Foglie. Spedizione in 24 ore e reso entro 30 giorni.
+70|Matcha cerimoniale
+71|Matcha cerimoniale | Matcha | Cinque Foglie
+72|Matcha cerimoniale, 30 g. Biologico, selezionato da Cinque Foglie. Spedizione in 24 ore e reso entro 30 giorni.
+73|Matcha quotidiano
+74|Matcha quotidiano | Matcha | Cinque Foglie
+75|Matcha quotidiano, 50 g. Biologico, selezionato da Cinque Foglie. Spedizione in 24 ore e reso entro 30 giorni.
+76|Kit matcha con frusta
+77|Kit matcha con frusta | Matcha | Cinque Foglie
+78|Kit matcha con frusta, kit. Biologico, selezionato da Cinque Foglie. Spedizione in 24 ore e reso entro 30 giorni.
+79|Kit tè freddo estate
+80|Torna a maggio con la nuova stagione
+81|Kit tè freddo estate | Tè freddi | Cinque Foglie
+82|Kit tè freddo estate, kit. Biologico, selezionato da Cinque Foglie. Spedizione in 24 ore e reso entro 30 giorni.
+83|Cold brew di Sencha
+84|Cold brew di Sencha | Tè freddi | Cinque Foglie
+85|Cold brew di Sencha, 10 bustine. Biologico, selezionato da Cinque Foglie. Spedizione in 24 ore e reso entro 30 giorni.
+86|Tè freddo alla pesca
+87|Tè freddo alla pesca | Tè freddi | Cinque Foglie
+88|Tè freddo alla pesca, 100 g. Biologico, selezionato da Cinque Foglie. Spedizione in 24 ore e reso entro 30 giorni.
+89|Teiera in ghisa 0,8 l
+90|Teiera in ghisa 0,8 l | Accessori | Cinque Foglie
+91|Teiera in ghisa 0,8 l, pezzo. Biologico, selezionato da Cinque Foglie. Spedizione in 24 ore e reso entro 30 giorni.
+92|Tazza in ceramica fatta a mano
+93|Tazza in ceramica fatta a mano | Accessori | Cinque Foglie
+94|Tazza in ceramica fatta a mano, pezzo. Biologico, selezionato da Cinque Foglie. Spedizione in 24 ore e reso entro 30 giorni.
+95|Infusore in acciaio
+96|Barattolo in latta 200 g
+97|Frusta in bambù per matcha
+98|Frusta in bambù per matcha | Accessori | Cinque Foglie
+99|Frusta in bambù per matcha, pezzo. Biologico, selezionato da Cinque Foglie. Spedizione in 24 ore e reso entro 30 giorni.

@@ -1,5 +1,5 @@
 ---
-import { LINGUE_APP } from "../../../../i18n";
+import { LINGUE_APP, linguaDa } from "../../../../i18n";
 // APP · 3. ESERCIZIO SEO (versione 3): la pagina prodotto del Sencha in 4 parti, tutto a scelte e blocchi (nessun testo da scrivere)
 //   1. Intento di ricerca  2. Titolo a blocchi (misurato in pixel) e descrizione  3. Dati strutturati Product  4. Risposta breve
 // A sinistra richiesta e scheda prodotto, al centro il lavoro, a destra Pesca, gli aiuti e i controlli per parte.
@@ -10,13 +10,25 @@ import AppLayout from "../../../../layouts/AppLayout.astro";
 import Pesca from "../../../../components/Pesca.astro";
 import Passi from "../../../../components/PassiEsercizio.astro";
 import Guida from "../../../../components/Guida.astro";
-import es from "../../../../data/app/seo-sencha.json";
-import { PARTI, LIMITI } from "../../../../scripts/controlli-seo";
+import esIt from "../../../../data/app/seo-sencha.json";
+import esEn from "../../../../data/app/seo-sencha.en.json";
+import { partiDi, LIMITI } from "../../../../scripts/controlli-seo";
 
+const lang = linguaDa(Astro.url);
+const en = lang === "en";
+const L = (it: string, eng: string) => (en ? eng : it);
+const es = en ? (esEn as typeof esIt) : esIt;
+const PARTI = partiDi(en);
 const s = es.scheda;
 
 // Passi della guida iniziale (si apre da sola la prima volta)
-const guida = [
+const guida = en ? [
+  { zona: "tutto", titolo: "Your first SEO exercise", testo: "Marta has asked you to fix the Sencha tea page, so people find it on Google. You'll do it in <strong>4 parts</strong>, in about 25 minutes. Let me show you how the page works." },
+  { zona: "sinistra", titolo: "On the left: the request and the product page", testo: "Here you'll find Marta's request and the <strong>product page</strong> with price, brewing and shipping. Use only this data: no made-up information." },
+  { zona: "centro", titolo: "In the middle: your work", testo: "The 4 parts, one below the other: working out who searches for what, building the title, choosing the description and the data for Google, choosing the short answer. <strong>You don't have to write anything</strong>: you click blocks and choose between options. Watch out for the traps! The previews show you how it looks on Google." },
+  { zona: "destra", titolo: "On the right: Pesca and the checks", testo: "The checks turn <strong>green</strong> when something is done well, and I tell you what to fix. If you get stuck, open a hint: each one takes off 5 points." },
+  { zona: "tutto", titolo: "It saves itself", testo: "Your work stays saved in this browser, even if you close the page. When you've finished click <strong>Submit and compare</strong>: you'll see your points and a professional's solution." },
+] as const : [
   { zona: "tutto", titolo: "Il tuo primo esercizio da SEO", testo: "Marta ti ha chiesto di sistemare la pagina del tè Sencha, così le persone la trovano su Google. Lo farai in <strong>4 parti</strong>, in circa 25 minuti. Ti spiego come funziona la pagina." },
   { zona: "sinistra", titolo: "A sinistra: la richiesta e la scheda", testo: "Qui trovi la richiesta di Marta e la <strong>scheda prodotto</strong> con prezzo, preparazione e spedizione. Usa solo questi dati: niente informazioni inventate." },
   { zona: "centro", titolo: "Al centro: il tuo lavoro", testo: "Le 4 parti, una sotto l'altra: capire chi cerca cosa, comporre il titolo, scegliere la descrizione e i dati per Google, scegliere la risposta breve. <strong>Non devi scrivere nulla</strong>: clicchi blocchi e scegli tra le proposte. Attenta o attento alle trappole! Le anteprime ti mostrano come appare su Google." },
@@ -24,58 +36,63 @@ const guida = [
   { zona: "tutto", titolo: "Si salva da solo", testo: "Il lavoro resta salvato in questo browser, anche se chiudi la pagina. Quando hai finito clicca <strong>Consegna e confronta</strong>: vedrai i punti e la soluzione di un professionista." },
 ] as const;
 const voci = [
-  ["Prodotto", s.nome], ["Marca", s.marca], ["Origine", s.origine], ["Formato", s.formato],
-  ["Prezzo", `${s.prezzo} €`], ["Disponibilità", s.disponibilita], ["Preparazione", s.preparazione],
-  ["Gusto", s.gusto], ["Spedizione", s.spedizione], ["Recensioni", s.recensioni],
+  [L("Prodotto", "Product"), s.nome], [L("Marca", "Brand"), s.marca], [L("Origine", "Origin"), s.origine], [L("Formato", "Size"), s.formato],
+  [L("Prezzo", "Price"), en ? `€${s.prezzo}` : `${s.prezzo} €`], [L("Disponibilità", "Availability"), s.disponibilita], [L("Preparazione", "Brewing"), s.preparazione],
+  [L("Gusto", "Taste"), s.gusto], [L("Spedizione", "Shipping"), s.spedizione], [L("Recensioni", "Reviews"), s.recensioni],
 ];
+const APP = en ? "/en/app" : "/app";
+// Le scelte dei dati strutturati: il valore è quello che finisce nel codice JSON-LD
+const NOMI = en ? ["Organic Sencha", "Green tea", "Organic matcha"] : ["Sencha biologico", "Tè verde", "Matcha biologico"];
+const MARCHE = en ? ["Cinque Foglie", "Japan", "Sencha green tea"] : ["Cinque Foglie", "Giappone", "Tè verde Sencha"];
+const PREZZI = en ? ["9.90", "12.90", "14.90"] : ["9,90", "12,90", "14,90"];
 export function getStaticPaths() { return LINGUE_APP(); }
 ---
-<AppLayout title={es.titolo} indietro={{ etichetta: "Teoria del ruolo", link: "/app/impara/seo/" }} percorso={[{ etichetta: "SEO", link: "/app/impara/seo/" }, { etichetta: es.titolo }]}>
+<AppLayout title={es.titolo} indietro={{ etichetta: L("Teoria del ruolo", "Role theory"), link: `${APP}/impara/seo/` }} percorso={[{ etichetta: "SEO", link: `${APP}/impara/seo/` }, { etichetta: es.titolo }]}>
   <Passi slot="barra" attivo={2} />
   <div class="layout">
     <!-- ====== SINISTRA: richiesta e scheda prodotto ====== -->
-    <aside class="sinistra" data-barra="esercizio-dati" data-etichetta="richiesta e dati">
+    <aside class="sinistra" data-barra="esercizio-dati" data-etichetta={L("richiesta e dati", "request and data")}>
       <section class="pannello blocco">
-        <span class="mittente"><span class="avatar">{es.richiesta.da}</span><strong>La richiesta di {es.richiesta.nome}</strong></span>
+        <span class="mittente"><span class="avatar">{es.richiesta.da}</span><strong>{L("La richiesta di", "Request from")} {es.richiesta.nome}</strong></span>
         <p>{es.richiesta.testo}</p>
       </section>
       <section class="pannello blocco" aria-labelledby="t-scheda">
-        <div class="riga"><h2 id="t-scheda" class="sottotitolo">Scheda prodotto</h2><span class="simulati">dati simulati</span></div>
+        <div class="riga"><h2 id="t-scheda" class="sottotitolo">{L("Scheda prodotto", "Product page")}</h2><span class="simulati">{L("dati simulati", "simulated data")}</span></div>
         <dl class="scheda-prodotto">
           {voci.map(([k, v]) => (<div><dt>{k}</dt><dd>{v}</dd></div>))}
         </dl>
-        <p class="nota">Usa solo queste informazioni: niente dati inventati.</p>
+        <p class="nota">{L("Usa solo queste informazioni: niente dati inventati.", "Use only this information: no made-up data.")}</p>
       </section>
     </aside>
 
     <!-- ====== CENTRO: il lavoro in 4 parti ====== -->
     <form id="lavoro" class="centro" novalidate>
       <header class="intro">
-        <h1 class="app-titolo">Sistema la pagina del Sencha per Google</h1>
-        <p class="nota">4 parti, circa {es.minuti} minuti. Il lavoro si salva da solo in questo browser. <button type="button" class="link-guida" data-apri-guida>Rivedi la guida</button></p>
-        <div class="serp-attuale"><span class="piccolo">Oggi su Google</span><span class="a-url">{es.attuale.url}</span><span class="a-titolo">{es.attuale.titolo}</span><span class="a-desc">{es.attuale.descrizione}</span></div>
+        <h1 class="app-titolo">{L("Sistema la pagina del Sencha per Google", "Fix the Sencha page for Google")}</h1>
+        <p class="nota">{L(`4 parti, circa ${es.minuti} minuti. Il lavoro si salva da solo in questo browser.`, `4 parts, about ${es.minuti} minutes. Your work saves itself in this browser.`)} <button type="button" class="link-guida" data-apri-guida>{L("Rivedi la guida", "See the guide again")}</button></p>
+        <div class="serp-attuale"><span class="piccolo">{L("Oggi su Google", "On Google today")}</span><span class="a-url">{es.attuale.url}</span><span class="a-titolo">{es.attuale.titolo}</span><span class="a-desc">{es.attuale.descrizione}</span></div>
       </header>
 
       <Lezione lezione={es.lezione} parti={["intento", "titolo", "dati", "risposta"]} />
 
       <!-- 1. INTENTO -->
       <section class="pannello parte" id="parte-intento" aria-labelledby="t-1">
-        <div class="parte-testa"><span class="numero">1</span><h2 id="t-1" class="parte-titolo">Capisci chi cerca cosa</h2></div>
+        <div class="parte-testa"><span class="numero">1</span><h2 id="t-1" class="parte-titolo">{L("Capisci chi cerca cosa", "Work out who searches for what")}</h2></div>
         <Spiega spiega={es.spiega.intento} />
-        <p>Per ogni ricerca scegli cosa vuole fare la persona. Poi scegli la keyword principale della pagina prodotto.</p>
+        <p>{L("Per ogni ricerca scegli cosa vuole fare la persona. Poi scegli la keyword principale della pagina prodotto.", "For each search choose what the person wants to do. Then choose the main keyword for the product page.")}</p>
         <div class="scorri">
           <table class="intenti">
-            <caption class="sr">Ricerche su Google al mese (numeri inventati) e intento</caption>
-            <thead><tr><th scope="col">Ricerca</th><th scope="col">Al mese</th>{es.intenti.map((i) => <th scope="col" title={i.spiega}>{i.nome}</th>)}<th scope="col">Keyword principale</th></tr></thead>
+            <caption class="sr">{L("Ricerche su Google al mese (numeri inventati) e intento", "Google searches per month (made-up numbers) and intent")}</caption>
+            <thead><tr><th scope="col">{L("Ricerca", "Search")}</th><th scope="col">{L("Al mese", "Per month")}</th>{es.intenti.map((i) => <th scope="col" title={i.spiega}>{i.nome}</th>)}<th scope="col">{L("Keyword principale", "Main keyword")}</th></tr></thead>
             <tbody>
               {es.ricerche.map((r, n) => (
                 <tr>
-                  <th scope="row">{r.ricerca} {r.attenzione && <span class="attenzione">attenzione</span>}</th>
+                  <th scope="row">{r.ricerca} {r.attenzione && <span class="attenzione">{L("attenzione", "careful")}</span>}</th>
                   <td class="num">{r.mese}</td>
                   {es.intenti.map((i) => (
                     <td class="scelta-cella"><label><input type="radio" name={`intento-${n}`} value={i.id} data-ricerca={r.ricerca} /><span class="sr">{r.ricerca}: {i.nome}</span></label></td>
                   ))}
-                  <td class="scelta-cella"><label><input type="radio" name="keyword" value={r.ricerca} /><span class="sr">Keyword principale: {r.ricerca}</span></label></td>
+                  <td class="scelta-cella"><label><input type="radio" name="keyword" value={r.ricerca} /><span class="sr">{L("Keyword principale", "Main keyword")}: {r.ricerca}</span></label></td>
                 </tr>
               ))}
             </tbody>
@@ -83,110 +100,110 @@ export function getStaticPaths() { return LINGUE_APP(); }
         </div>
         <p class="legenda">{es.intenti.map((i) => <span><strong>{i.nome}</strong>: {i.spiega.toLowerCase()}</span>)}</p>
         <p class="attenzione-nota">{es.notaRicerche}</p>
-        <p class="perche"><strong>Perché conta oggi.</strong> {es.perche.intento}</p>
+        <p class="perche"><strong>{L("Perché conta oggi.", "Why it matters today.")}</strong> {es.perche.intento}</p>
       </section>
 
       <!-- 2. TITOLO E DESCRIZIONE -->
       <section class="pannello parte" id="parte-titolo" aria-labelledby="t-2">
-        <div class="parte-testa"><span class="numero">2</span><h2 id="t-2" class="parte-titolo">Componi il titolo e scegli la descrizione</h2></div>
+        <div class="parte-testa"><span class="numero">2</span><h2 id="t-2" class="parte-titolo">{L("Componi il titolo e scegli la descrizione", "Build the title and choose the description")}</h2></div>
         <Spiega spiega={es.spiega.titolo} />
-        <p>Clicca i blocchi nell'ordine in cui vuoi che compaiano. Clicca un blocco del titolo per toglierlo. Non tutti i blocchi sono buoni!</p>
+        <p>{L("Clicca i blocchi nell'ordine in cui vuoi che compaiano. Clicca un blocco del titolo per toglierlo. Non tutti i blocchi sono buoni!", "Click the blocks in the order you want them to appear. Click a block in the title to remove it. Not all the blocks are good!")}</p>
         <div class="campo">
-          <div class="riga"><span class="etichetta-campo" id="l-titolo">Il tuo titolo (title)</span><span class="conta"><span data-conta="titolo">0 caratteri</span> · <span data-pixel>0 / {LIMITI.titoloPx} px</span></span></div>
-          <div class="titolo-composto" aria-labelledby="l-titolo" aria-live="polite" data-composto><span class="vuoto-titolo">Clicca i blocchi qui sotto per comporre il titolo</span></div>
+          <div class="riga"><span class="etichetta-campo" id="l-titolo">{L("Il tuo titolo (title)", "Your title")}</span><span class="conta"><span data-conta="titolo">{L("0 caratteri", "0 characters")}</span> · <span data-pixel>0 / {LIMITI.titoloPx} px</span></span></div>
+          <div class="titolo-composto" aria-labelledby="l-titolo" aria-live="polite" data-composto><span class="vuoto-titolo">{L("Clicca i blocchi qui sotto per comporre il titolo", "Click the blocks below to build the title")}</span></div>
           <span class="barra" aria-hidden="true"><span data-barra="titolo"></span></span>
-          <div class="blocchi" role="group" aria-label="Blocchi di testo">
+          <div class="blocchi" role="group" aria-label={L("Blocchi di testo", "Text blocks")}>
             {es.blocchi.map((b) => (
               <button type="button" class="blocco" data-blocco={b.id} aria-pressed="false">{b.testo}</button>
             ))}
           </div>
-          <button type="button" class="svuota" data-svuota>Svuota il titolo</button>
+          <button type="button" class="svuota" data-svuota>{L("Svuota il titolo", "Clear the title")}</button>
         </div>
         <fieldset class="opzioni">
-          <legend class="etichetta-campo">Scegli la descrizione (meta description)</legend>
+          <legend class="etichetta-campo">{L("Scegli la descrizione (meta description)", "Choose the description (meta description)")}</legend>
           {es.descrizioni.map((d) => (
-            <label class="opzione"><input type="radio" name="descrizione" value={d.id} /><span class="opzione-testo">{d.testo}</span><span class="opzione-conta">{d.testo.length} caratteri</span></label>
+            <label class="opzione"><input type="radio" name="descrizione" value={d.id} /><span class="opzione-testo">{d.testo}</span><span class="opzione-conta">{d.testo.length} {L("caratteri", "characters")}</span></label>
           ))}
         </fieldset>
         <div class="serp">
-          <span class="piccolo">Anteprima nei risultati</span>
+          <span class="piccolo">{L("Anteprima nei risultati", "Preview in the results")}</span>
           <span class="a-url">{es.attuale.url}</span>
           <span class="a-titolo" data-anteprima="titolo">{es.attuale.titolo}</span>
           <span class="a-ricco" data-ricco hidden></span>
           <span class="a-desc" data-anteprima="descrizione">{es.attuale.descrizione}</span>
         </div>
-        <p class="perche"><strong>Perché conta oggi.</strong> {es.perche.titolo}</p>
+        <p class="perche"><strong>{L("Perché conta oggi.", "Why it matters today.")}</strong> {es.perche.titolo}</p>
       </section>
 
       <!-- 3. DATI STRUTTURATI -->
       <section class="pannello parte" id="parte-dati" aria-labelledby="t-3">
-        <div class="parte-testa"><span class="numero">3</span><h2 id="t-3" class="parte-titolo">Prepara i dati per Google</h2></div>
+        <div class="parte-testa"><span class="numero">3</span><h2 id="t-3" class="parte-titolo">{L("Prepara i dati per Google", "Prepare the data for Google")}</h2></div>
         <Spiega spiega={es.spiega.dati} />
-        <p>Scegli i dati strutturati del prodotto guardando la scheda: sono codice che le persone non vedono, ma Google sì.</p>
+        <p>{L("Scegli i dati strutturati del prodotto guardando la scheda: sono codice che le persone non vedono, ma Google sì.", "Choose the product's structured data by looking at the product page: it's code that people don't see, but Google does.")}</p>
         <div class="griglia-campi">
-          <label class="campo">Nome del prodotto
-            <select id="s-nome"><option value="">Scegli…</option><option>Sencha biologico</option><option>Tè verde</option><option>Matcha biologico</option></select>
+          <label class="campo">{L("Nome del prodotto", "Product name")}
+            <select id="s-nome"><option value="">{L("Scegli…", "Choose…")}</option>{NOMI.map((x) => <option>{x}</option>)}</select>
           </label>
-          <label class="campo">Marca
-            <select id="s-marca"><option value="">Scegli…</option><option>Cinque Foglie</option><option>Giappone</option><option>Tè verde Sencha</option></select>
+          <label class="campo">{L("Marca", "Brand")}
+            <select id="s-marca"><option value="">{L("Scegli…", "Choose…")}</option>{MARCHE.map((x) => <option>{x}</option>)}</select>
           </label>
-          <label class="campo">Prezzo
-            <select id="s-prezzo"><option value="">Scegli…</option><option>9,90</option><option>12,90</option><option>14,90</option></select>
+          <label class="campo">{L("Prezzo", "Price")}
+            <select id="s-prezzo"><option value="">{L("Scegli…", "Choose…")}</option>{PREZZI.map((x) => <option>{x}</option>)}</select>
           </label>
-          <label class="campo">Valuta
-            <select id="s-valuta"><option value="EUR">EUR (euro)</option><option value="USD">USD (dollaro)</option></select>
+          <label class="campo">{L("Valuta", "Currency")}
+            <select id="s-valuta"><option value="EUR">EUR (euro)</option><option value="USD">USD ({L("dollaro", "dollar")})</option></select>
           </label>
-          <label class="campo">Disponibilità
-            <select id="s-disp"><option value="">Scegli…</option><option value="InStock">Disponibile</option><option value="OutOfStock">Esaurito</option><option value="PreOrder">Preordine</option></select>
+          <label class="campo">{L("Disponibilità", "Availability")}
+            <select id="s-disp"><option value="">{L("Scegli…", "Choose…")}</option><option value="InStock">{L("Disponibile", "In stock")}</option><option value="OutOfStock">{L("Esaurito", "Out of stock")}</option><option value="PreOrder">{L("Preordine", "Pre-order")}</option></select>
           </label>
-          <label class="spunta"><input id="s-stelle" type="checkbox" /><span>Aggiungi le stelle: 4,8 su 5 (120 recensioni)</span></label>
+          <label class="spunta"><input id="s-stelle" type="checkbox" /><span>{L("Aggiungi le stelle: 4,8 su 5 (120 recensioni)", "Add the stars: 4.8 out of 5 (120 reviews)")}</span></label>
         </div>
         <details class="codice">
-          <summary>Guarda il codice che stai creando (JSON-LD)</summary>
+          <summary>{L("Guarda il codice che stai creando (JSON-LD)", "See the code you're creating (JSON-LD)")}</summary>
           <pre data-jsonld></pre>
         </details>
-        <p class="perche"><strong>Perché conta oggi.</strong> {es.perche.dati}</p>
+        <p class="perche"><strong>{L("Perché conta oggi.", "Why it matters today.")}</strong> {es.perche.dati}</p>
       </section>
 
       <!-- 4. RISPOSTA BREVE -->
       <section class="pannello parte" id="parte-risposta" aria-labelledby="t-4">
-        <div class="parte-testa"><span class="numero">4</span><h2 id="t-4" class="parte-titolo">Scegli la risposta a una domanda</h2></div>
+        <div class="parte-testa"><span class="numero">4</span><h2 id="t-4" class="parte-titolo">{L("Scegli la risposta a una domanda", "Choose the answer to a question")}</h2></div>
         <Spiega spiega={es.spiega.risposta} />
-        <p>Molte persone chiedono a Google: <strong>"{es.domanda}"</strong>. Quale risposta breve metteresti sulla pagina?</p>
+        <p>{L("Molte persone chiedono a Google:", "Lots of people ask Google:")} <strong>"{es.domanda}"</strong>. {L("Quale risposta breve metteresti sulla pagina?", "Which short answer would you put on the page?")}</p>
         <fieldset class="opzioni">
-          <legend class="sr">Scegli la risposta breve</legend>
+          <legend class="sr">{L("Scegli la risposta breve", "Choose the short answer")}</legend>
           {es.risposte.map((r) => (
-            <label class="opzione"><input type="radio" name="risposta" value={r.id} /><span class="opzione-testo">{r.testo}</span><span class="opzione-conta">{r.testo.split(/\s+/).length} parole</span></label>
+            <label class="opzione"><input type="radio" name="risposta" value={r.id} /><span class="opzione-testo">{r.testo}</span><span class="opzione-conta">{r.testo.split(/\s+/).length} {L("parole", "words")}</span></label>
           ))}
         </fieldset>
         <div class="paa">
-          <span class="piccolo">Anteprima · Le persone chiedono anche</span>
-          <div class="paa-riquadro"><strong>{es.domanda}</strong><span data-anteprima="risposta">La risposta che scegli comparirà qui.</span><span class="a-url">{es.attuale.url}</span></div>
+          <span class="piccolo">{L("Anteprima · Le persone chiedono anche", "Preview · People also ask")}</span>
+          <div class="paa-riquadro"><strong>{es.domanda}</strong><span data-anteprima="risposta">{L("La risposta che scegli comparirà qui.", "The answer you choose will appear here.")}</span><span class="a-url">{es.attuale.url}</span></div>
         </div>
-        <p class="perche"><strong>Perché conta oggi.</strong> {es.perche.risposta}</p>
+        <p class="perche"><strong>{L("Perché conta oggi.", "Why it matters today.")}</strong> {es.perche.risposta}</p>
       </section>
 
       <div class="consegna">
         <span class="salvato" data-salvato aria-live="polite"></span>
-        <button type="submit" class="bottone-app">Consegna e confronta →</button>
+        <button type="submit" class="bottone-app">{L("Consegna e confronta →", "Submit and compare →")}</button>
       </div>
     </form>
 
     <!-- ====== DESTRA: Pesca, controlli per parte, aiuti ====== -->
-    <aside class="destra" data-barra="esercizio-controlli" data-lato="destra" data-etichetta="Pesca e controlli">
+    <aside class="destra" data-barra="esercizio-controlli" data-lato="destra" data-etichetta={L("Pesca e controlli", "Pesca and checks")}>
       <div class="pannello blocco">
-        <div class="mittente"><Pesca dimensione={46} occhiali animata={false} /><span><strong>Pesca</strong><span class="nota">Ti do un suggerimento alla volta</span></span></div>
-        <p class="pesca-dice" data-pesca aria-live="polite">Inizia dalla parte 1: per ogni ricerca scegli cosa vuole fare la persona.</p>
+        <div class="mittente"><Pesca dimensione={46} occhiali animata={false} /><span><strong>Pesca</strong><span class="nota">{L("Ti do un suggerimento alla volta", "I give you one hint at a time")}</span></span></div>
+        <p class="pesca-dice" data-pesca aria-live="polite">{L("Inizia dalla parte 1: per ogni ricerca scegli cosa vuole fare la persona.", "Start with part 1: for each search choose what the person wants to do.")}</p>
       </div>
       <div class="pannello blocco">
-        <strong>Controlli automatici</strong>
-        <p class="nota">Ogni controllo mostra cosa hai fatto bene solo quando lo superi.</p>
+        <strong>{L("Controlli automatici", "Automatic checks")}</strong>
+        <p class="nota">{L("Ogni controllo mostra cosa hai fatto bene solo quando lo superi.", "Each check shows what you did well only when you pass it.")}</p>
         <ul class="parti">
           {PARTI.map((p, n) => (
             <li>
               <a href={`#parte-${p.id}`} class="parte-link"><span>{n + 1}. {p.nome}</span><span class="conteggio" data-conteggio={n}>0/4</span></a>
               <ul class="controlli">
-                {p.controlli.map((c, k) => (<li data-controllo={n * 4 + k}><span class="segno" aria-hidden="true"></span><span class="nome-controllo">{c}</span><span class="attesa">Da superare</span><span class="sr" data-esito>non ancora</span></li>))}
+                {p.controlli.map((c, k) => (<li data-controllo={n * 4 + k}><span class="segno" aria-hidden="true"></span><span class="nome-controllo">{c}</span><span class="attesa">{L("Da superare", "To pass")}</span><span class="sr" data-esito>{L("non ancora", "not yet")}</span></li>))}
               </ul>
             </li>
           ))}
@@ -194,12 +211,12 @@ export function getStaticPaths() { return LINGUE_APP(); }
       </div>
       {es.aiuti.map((a, i) => (
         <details class="pannello aiuto" data-aiuto={i}>
-          <summary>Aiuto {i + 1}: {a.titolo} <span class="costo">−5 punti</span></summary>
+          <summary>{L("Aiuto", "Hint")} {i + 1}: {a.titolo} <span class="costo">{L("−5 punti", "−5 points")}</span></summary>
           <p>{a.testo}</p>
         </details>
       ))}
       <details class="pannello aiuto">
-        <summary>Glossario</summary>
+        <summary>{L("Glossario", "Glossary")}</summary>
         <p>{es.glossario}</p>
       </details>
     </aside>
@@ -208,9 +225,11 @@ export function getStaticPaths() { return LINGUE_APP(); }
 </AppLayout>
 
 <script>
-  import { conLingua } from "../../../../scripts/lingua";
-  import es from "../../../../data/app/seo-sencha.json";
+  import { conLingua, scegli, t, EN } from "../../../../scripts/lingua";
+  import esIt from "../../../../data/app/seo-sencha.json";
+  import esEn from "../../../../data/app/seo-sencha.en.json";
   import { controlla, jsonLd, pixel, LIMITI, PARTI, type Lavoro } from "../../../../scripts/controlli-seo";
+  const es = scegli(esIt, esEn as typeof esIt);
   import { leggi, aggiornaRuolo } from "../../../../scripts/progressi";
 
   const $ = <T extends HTMLElement>(sel: string) => document.querySelector<T>(sel)!;
@@ -272,7 +291,24 @@ export function getStaticPaths() { return LINGUE_APP(); }
 
 
   // Suggerimento di Pesca: il primo controllo non ancora superato
-  const SUGGERIMENTI = [
+  const SUGGERIMENTI = EN ? [
+    "Part 1: generic searches or ones with \"how\" and \"benefits\" are for learning.",
+    "Part 1: people who type the exact product name want to choose (or buy).",
+    "Part 1: \"buy sencha online\" is crystal clear: the person wants to buy.",
+    "Part 1: for a product page choose a keyword close to the product, not the most searched one.",
+    "Part 2: put the block with the keyword you chose in the title.",
+    "Part 2: the title must have at least 30 characters and stay under 580 pixels: remove the blocks that are too long.",
+    "Part 2: end the title with the \"| Cinque Foglie\" block.",
+    "Part 2: choose a description between 70 and 160 characters with no health promises.",
+    "Part 3: choose the product name and brand as on the product page.",
+    "Part 3: the price must match the one on the product page.",
+    "Part 3: check currency and availability on the product page.",
+    "Part 3: no stars! The product page says there are no verified reviews.",
+    "Part 4: choose a short answer, between 30 and 70 words.",
+    "Part 4: the right answer has the water temperature from the product page.",
+    "Part 4: check the steeping time on the product page too.",
+    "Part 4: watch out for health promises, they're forbidden for food.",
+  ] : [
     "Parte 1: le ricerche generiche o con \"come\" e \"benefici\" sono per informarsi.",
     "Parte 1: chi scrive il nome preciso del prodotto vuole scegliere (o comprare).",
     "Parte 1: \"comprare sencha online\" è chiarissima: la persona vuole comprare.",
@@ -295,7 +331,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
     const l = lavoro();
     // Contatori e barre
     const px = pixel(l.titolo.trim());
-    $("[data-conta=titolo]").textContent = `${l.titolo.trim().length} caratteri`;
+    $("[data-conta=titolo]").textContent = `${l.titolo.trim().length} ${t("caratteri", "characters")}`;
     $("[data-pixel]").textContent = `${px} / ${LIMITI.titoloPx} px`;
     const bt = $("[data-barra=titolo]");
     bt.style.width = `${Math.min(100, (px / LIMITI.titoloPx) * 100)}%`;
@@ -303,11 +339,11 @@ export function getStaticPaths() { return LINGUE_APP(); }
     // Titolo composto: i blocchi scelti, cliccabili per toglierli
     const composto = $("[data-composto]");
     composto.innerHTML = "";
-    if (pezzi.length === 0) composto.innerHTML = '<span class="vuoto-titolo">Clicca i blocchi qui sotto per comporre il titolo</span>';
+    if (pezzi.length === 0) composto.innerHTML = `<span class="vuoto-titolo">${t("Clicca i blocchi qui sotto per comporre il titolo", "Click the blocks below to build the title")}</span>`;
     pezzi.forEach((id, i) => {
       const b = document.createElement("button");
       b.type = "button"; b.className = "pezzo"; b.textContent = testoBlocco(id);
-      b.setAttribute("aria-label", `Togli "${testoBlocco(id)}" dal titolo`);
+      b.setAttribute("aria-label", t(`Togli "${testoBlocco(id)}" dal titolo`, `Remove "${testoBlocco(id)}" from the title`));
       b.addEventListener("click", () => { pezzi.splice(i, 1); salva(); });
       composto.appendChild(b);
     });
@@ -322,12 +358,13 @@ export function getStaticPaths() { return LINGUE_APP(); }
     if (pixel(mostrato) > LIMITI.titoloPx) { while (mostrato.length > 1 && pixel(mostrato + " ...") > LIMITI.titoloPx) mostrato = mostrato.slice(0, -1); mostrato = mostrato.trimEnd() + " ..."; }
     $("[data-anteprima=titolo]").textContent = mostrato;
     $("[data-anteprima=descrizione]").textContent = l.descrizione.length > 160 ? l.descrizione.slice(0, 155).trimEnd() + " ..." : (l.descrizione || es.attuale.descrizione);
-    $("[data-anteprima=risposta]").textContent = l.risposta || "La risposta che scegli comparirà qui.";
+    $("[data-anteprima=risposta]").textContent = l.risposta || t("La risposta che scegli comparirà qui.", "The answer you choose will appear here.");
     const ricco = $("[data-ricco]");
     const parti: string[] = [];
-    if (l.schema.stelle) parti.push("★★★★★ 4,8 (120)");
-    if (l.schema.prezzo.trim()) parti.push(`${l.schema.prezzo.trim()} ${l.schema.valuta === "EUR" ? "€" : "$"}`);
-    if (l.schema.disponibilita) parti.push(({ InStock: "Disponibile", OutOfStock: "Esaurito", PreOrder: "Preordine" } as Record<string, string>)[l.schema.disponibilita] ?? "");
+    if (l.schema.stelle) parti.push(t("★★★★★ 4,8 (120)", "★★★★★ 4.8 (120)"));
+    const valuta = l.schema.valuta === "EUR" ? "€" : "$";
+    if (l.schema.prezzo.trim()) parti.push(EN ? `${valuta}${l.schema.prezzo.trim()}` : `${l.schema.prezzo.trim()} ${valuta}`);
+    if (l.schema.disponibilita) parti.push((EN ? { InStock: "In stock", OutOfStock: "Out of stock", PreOrder: "Pre-order" } : { InStock: "Disponibile", OutOfStock: "Esaurito", PreOrder: "Preordine" } as Record<string, string>)[l.schema.disponibilita] ?? "");
     ricco.hidden = parti.length === 0;
     ricco.textContent = parti.join(" · ");
     $("[data-jsonld]").textContent = jsonLd(l, `https://${es.attuale.url.replace(/ › /g, "/")}`);
@@ -337,11 +374,11 @@ export function getStaticPaths() { return LINGUE_APP(); }
     esiti.forEach((ok, i) => {
       const li = $(`[data-controllo="${i}"]`);
       li.classList.toggle("ok", ok);
-      li.querySelector("[data-esito]")!.textContent = ok ? "superato" : "non ancora";
+      li.querySelector("[data-esito]")!.textContent = ok ? t("superato", "passed") : t("non ancora", "not yet");
     });
     PARTI.forEach((_, n) => { $(`[data-conteggio="${n}"]`).textContent = `${esiti.slice(n * 4, n * 4 + 4).filter(Boolean).length}/4`; });
     const primo = esiti.findIndex((ok) => !ok);
-    pesca.textContent = primo === -1 ? "Tutti i controlli sono verdi! Rileggi le tue scelte come farebbe una cliente, poi consegna." : SUGGERIMENTI[primo];
+    pesca.textContent = primo === -1 ? t("Tutti i controlli sono verdi! Rileggi le tue scelte come farebbe una cliente, poi consegna.", "All the checks are green! Reread your choices as a customer would, then submit.") : SUGGERIMENTI[primo];
     return { l, esiti };
   }
 
@@ -349,7 +386,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
   function salva() {
     const { l } = aggiorna();
     aggiornaRuolo("seo", { stato: seo?.stato === "completato" ? "completato" : "in-corso", bozza: l });
-    salvato.textContent = "Salvato in questo browser";
+    salvato.textContent = t("Salvato in questo browser", "Saved in this browser");
   }
 
   // Click su un blocco: lo aggiunge in fondo al titolo
@@ -367,7 +404,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
     e.preventDefault();
     const { l, esiti } = aggiorna();
     if (!l.titolo || !l.descrizione || !l.risposta) {
-      pesca.textContent = "Prima di consegnare componi il titolo e scegli descrizione e risposta breve.";
+      pesca.textContent = t("Prima di consegnare componi il titolo e scegli descrizione e risposta breve.", "Before submitting build the title and choose the description and short answer.");
       document.getElementById(!l.titolo ? "parte-titolo" : !l.descrizione ? "parte-titolo" : "parte-risposta")!.scrollIntoView({ behavior: "smooth" });
       return;
     }

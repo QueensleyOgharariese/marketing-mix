@@ -25,11 +25,15 @@ SALTA |= {"giusti", "ids", "campo", "da"}  # esercizi: id delle colonne, delle s
 # se invece contengono oggetti (le righe di una tabella con il loro testo) si traducono normalmente.
 SALTA_SE_CODICI = {"righe"}
 # Chiavi da saltare solo in alcuni file (aggiunte quando serve)
-SALTA_FILE = {"sea-sim/pianificatore.json": {"intento", "concorrenza"}}  # codici usati dalla pagina per i colori
+SALTA_FILE = {"sea-sim/pianificatore.json": {"intento", "concorrenza"},
+              # Simulazione SEO: intento e motivo sono codici (colori, filtri, convalide); robots è testo tecnico che resta uguale
+              "seo-pro/keyword.json": {"intento"}, "seo-pro/search-console.json": {"intento"},
+              "seo-pro/crawl.json": {"motivo", "robots"}, "seo-pro/indicizzazione.json": {"motivo"}}  # codici usati dalla pagina per i colori
 # Chiavi che in alcuni file vanno tradotte anche se di solito si saltano
 # (nel Social "post" è l'elenco dei post e "pilastro" è un testo che si vede, non un codice)
 TRADUCI_FILE = {f"social-sim/{n}.json": {"post", "pilastro"} for n in ("post", "calendario", "profilo", "commenti", "libreria")}
 TRADUCI_FILE["brand-sim/indagini.json"] = {"quando"}  # "marzo 2026" si vede nella tabella della notorietà
+TRADUCI_FILE["seo-sencha.json"] = {"formato", "quando", "mese"}  # formato e data della richiesta si leggono; "mese" sono le ricerche al mese (9.900 -> 9,900)
 # File in cui anche i numeri senza lettere passano al formato inglese: "1.300" -> "1,300", "1,5%" -> "1.5%"
 NUMERI_EN = ("esercizi/", "seo-sencha.json")
 
@@ -45,7 +49,14 @@ def numero_en(s):
     return re.sub(r"([\d.,]+) €", r"€\1", s)
 
 
+# Nei dati della Simulazione SEO gli indirizzi ("/te-verdi/", "https://…", "cinquefoglie.example") sono codici:
+# restano uguali in inglese (il negozio inglese usa gli stessi indirizzi). Vale solo mentre si lavora su quei file.
+URL_CODICE = [False]
+
+
 def lettere(s):
+    if URL_CODICE[0] and re.match(r"^(/|https?://|[\w.-]+\.example\b)", s.strip()):
+        return False
     return bool(re.search(r"[A-Za-zÀ-ÿ]", s))
 
 
@@ -87,6 +98,7 @@ def percorsi(nome):
 
 
 def estrai(nome):
+    URL_CODICE[0] = nome.startswith("seo-pro/")
     src, it, _, _ = percorsi(nome)
     salta = (SALTA | SALTA_FILE.get(nome, set())) - TRADUCI_FILE.get(nome, set())
     righe = unici(stringhe(json.load(open(src, encoding="utf-8")), salta))
@@ -106,6 +118,7 @@ def leggi_righe(p):
 
 
 def applica(nome):
+    URL_CODICE[0] = nome.startswith("seo-pro/")
     src, it, en, out = percorsi(nome)
     salta = (SALTA | SALTA_FILE.get(nome, set())) - TRADUCI_FILE.get(nome, set())
     dati = json.load(open(src, encoding="utf-8"))

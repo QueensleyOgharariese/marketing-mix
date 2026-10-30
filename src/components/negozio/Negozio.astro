@@ -12,17 +12,26 @@ import "@fontsource/fraunces/latin-600.css";
 import AppLayout from "../../layouts/AppLayout.astro";
 import GuidaMissione from "../seopro/GuidaMissione.astro";
 import SchermoIntero from "../SchermoIntero.astro";
-import catalogo from "../../data/app/seo-pro/catalogo.json";
-import crawl from "../../data/app/seo-pro/crawl.json";
+import catalogoIt from "../../data/app/seo-pro/catalogo.json";
+import catalogoEn from "../../data/app/seo-pro/catalogo.en.json";
+import crawlIt from "../../data/app/seo-pro/crawl.json";
+import crawlEn from "../../data/app/seo-pro/crawl.en.json";
+import { linguaDa } from "../../i18n";
 
 interface Props { url: string; titoloScheda: string; }
 const { url, titoloScheda } = Astro.props;
+// Versione inglese (/en/app/negozio/...): testi dai dati gemelli .en.json, indirizzi uguali
+const en = linguaDa(Astro.url) === "en";
+const L = (it: string, eng: string) => (en ? eng : it);
+const catalogo = en ? (catalogoEn as typeof catalogoIt) : catalogoIt;
+const crawl = en ? (crawlEn as typeof crawlIt) : crawlIt;
+const APP = en ? "/en/app" : "/app";
 const pagina = crawl.pagine.find((p) => p.url === url);
 const testa = pagina ?? { title: "", description: "", robots: "", canonical: "", h1: "", stato: 404 };
-const NEG = "/app/negozio";
+const NEG = `${APP}/negozio`;
 const attiva = (id: string) => url.startsWith(`/${id}/`);
 ---
-<AppLayout title={`Negozio · ${titoloScheda}`} percorso={[{ etichetta: "Simulazione SEO", link: "/app/percorsi/seo/" }, { etichetta: "Il negozio" }, { etichetta: titoloScheda }]} indietro={{ etichetta: "Simulazione SEO", link: "/app/percorsi/seo/" }}>
+<AppLayout title={`${L("Negozio", "Shop")} · ${titoloScheda}`} percorso={[{ etichetta: L("Simulazione SEO", "SEO Simulation"), link: `${APP}/percorsi/seo/` }, { etichetta: L("Il negozio", "The shop") }, { etichetta: titoloScheda }]} indietro={{ etichetta: L("Simulazione SEO", "SEO Simulation"), link: `${APP}/percorsi/seo/` }}>
   <SchermoIntero slot="barra" />
   <div class="area">
     <div class="finestra" data-url-negozio={url}>
@@ -30,16 +39,16 @@ const attiva = (id: string) => url.startsWith(`/${id}/`);
         <span class="pallini" aria-hidden="true"><i></i><i></i><i></i></span>
         <span class="indirizzo" data-indirizzo><svg class="lucchetto" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5 V7.5 A4 4 0 0 1 16 7.5 V10.5"/></svg>https://{catalogo.dominio}{url}</span>
         <details class="ispeziona">
-          <summary>Ispeziona</summary>
-          <div class="codice" role="region" aria-label="Cosa legge Google in questa pagina">
-            <span class="codice-titolo">Cosa legge Google</span>
+          <summary>{L("Ispeziona", "Inspect")}</summary>
+          <div class="codice" role="region" aria-label={L("Cosa legge Google in questa pagina", "What Google reads on this page")}>
+            <span class="codice-titolo">{L("Cosa legge Google", "What Google reads")}</span>
             <dl>
-              <div><dt>Stato</dt><dd data-isp="stato">{testa.stato === 200 ? "200 OK" : testa.stato === 404 ? "404 Non trovata" : `${testa.stato} Reindirizzamento`}</dd></div>
-              <div><dt>&lt;title&gt;</dt><dd data-isp="title">{testa.title || <em>vuoto</em>}</dd></div>
-              <div><dt>meta description</dt><dd data-isp="description">{testa.description || <em>manca</em>}</dd></div>
+              <div><dt>{L("Stato", "Status")}</dt><dd data-isp="stato">{testa.stato === 200 ? "200 OK" : testa.stato === 404 ? L("404 Non trovata", "404 Not found") : `${testa.stato} ${L("Reindirizzamento", "Redirect")}`}</dd></div>
+              <div><dt>&lt;title&gt;</dt><dd data-isp="title">{testa.title || <em>{L("vuoto", "empty")}</em>}</dd></div>
+              <div><dt>meta description</dt><dd data-isp="description">{testa.description || <em>{L("manca", "missing")}</em>}</dd></div>
               <div><dt>meta robots</dt><dd data-isp="robots" class:list={{ allarme: (testa.robots || "").includes("noindex") }}>{testa.robots || <em>—</em>}</dd></div>
-              <div><dt>canonical</dt><dd data-isp="canonical">{testa.canonical ? `https://${catalogo.dominio}${testa.canonical}` : <em>manca</em>}</dd></div>
-              <div><dt>&lt;h1&gt;</dt><dd data-isp="h1">{testa.h1 || <em>manca</em>}</dd></div>
+              <div><dt>canonical</dt><dd data-isp="canonical">{testa.canonical ? `https://${catalogo.dominio}${testa.canonical}` : <em>{L("manca", "missing")}</em>}</dd></div>
+              <div><dt>&lt;h1&gt;</dt><dd data-isp="h1">{testa.h1 || <em>{L("manca", "missing")}</em>}</dd></div>
             </dl>
           </div>
         </details>
@@ -47,7 +56,7 @@ const attiva = (id: string) => url.startsWith(`/${id}/`);
 
       <p class="avviso-301" data-avviso-301 hidden></p>
       <div class="sito">
-        <p class="striscia">Spedizione gratuita da 39 €. Consegna in 24-48 ore in tutta Italia.</p>
+        <p class="striscia">{L("Spedizione gratuita da 39 €. Consegna in 24-48 ore in tutta Italia.", "Free shipping from €39. Delivery in 24-48 hours across Italy.")}</p>
         <header class="sito-testa">
           <div class="testa-riga">
             <a class="sito-logo" href={NEG + "/"}>
@@ -55,18 +64,18 @@ const attiva = (id: string) => url.startsWith(`/${id}/`);
               Cinque Foglie
             </a>
             <form class="cerca" role="search" onsubmit="return false">
-              <label for="cerca-negozio" class="sr">Cerca nel negozio</label>
-              <input id="cerca-negozio" type="search" placeholder="Cerca tè, tisane, accessori…" />
-              <button type="submit" aria-label="Cerca"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button>
+              <label for="cerca-negozio" class="sr">{L("Cerca nel negozio", "Search the shop")}</label>
+              <input id="cerca-negozio" type="search" placeholder={L("Cerca tè, tisane, accessori…", "Search teas, herbal teas, accessories…")} />
+              <button type="submit" aria-label={L("Cerca", "Search")}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button>
             </form>
-            <nav class="conto" aria-label="Il tuo account">
-              <a href={`${NEG}/account/`}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>Accedi</a>
-              <a class="carrello" href={`${NEG}/carrello/`}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 7h14l-1.5 11h-11z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>Carrello</a>
+            <nav class="conto" aria-label={L("Il tuo account", "Your account")}>
+              <a href={`${NEG}/account/`}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>{L("Accedi", "Sign in")}</a>
+              <a class="carrello" href={`${NEG}/carrello/`}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 7h14l-1.5 11h-11z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>{L("Carrello", "Cart")}</a>
             </nav>
           </div>
-          <nav class="menu" aria-label="Categorie del negozio">
+          <nav class="menu" aria-label={L("Categorie del negozio", "Shop categories")}>
             {catalogo.categorie.map((c) => <a href={`${NEG}/${c.id}/`} aria-current={attiva(c.id) ? "page" : undefined}>{c.nome}</a>)}
-            <a class="menu-blog" href={`${NEG}/blog/`} aria-current={attiva("blog") ? "page" : undefined}>Il Diario del tè</a>
+            <a class="menu-blog" href={`${NEG}/blog/`} aria-current={attiva("blog") ? "page" : undefined}>{L("Il Diario del tè", "The Tea Journal")}</a>
           </nav>
         </header>
 
@@ -74,16 +83,16 @@ const attiva = (id: string) => url.startsWith(`/${id}/`);
 
         <footer class="sito-piede">
           <div class="piede-colonne">
-            <div><strong class="piede-logo">Cinque Foglie</strong><p>Tè e tisane biologiche, selezionati e confezionati in Veneto.</p></div>
-            <div><strong>Negozio</strong>{catalogo.categorie.slice(0, 4).map((c) => <a href={`${NEG}/${c.id}/`}>{c.nome}</a>)}</div>
-            <div><strong>Aiuto</strong><a href={`${NEG}/spedizioni-e-resi/`}>Spedizioni e resi</a><a href={`${NEG}/contatti/`}>Contatti</a><a href={`${NEG}/chi-siamo/`}>Chi siamo</a></div>
-            <div><strong>Il Diario del tè</strong><a href={`${NEG}/blog/`}>Tutti gli articoli</a><a href={`${NEG}/blog/sencha-guida-completa/`}>Guida al Sencha</a></div>
+            <div><strong class="piede-logo">Cinque Foglie</strong><p>{L("Tè e tisane biologiche, selezionati e confezionati in Veneto.", "Organic teas and herbal teas, selected and packed in Veneto.")}</p></div>
+            <div><strong>{L("Negozio", "Shop")}</strong>{catalogo.categorie.slice(0, 4).map((c) => <a href={`${NEG}/${c.id}/`}>{c.nome}</a>)}</div>
+            <div><strong>{L("Aiuto", "Help")}</strong><a href={`${NEG}/spedizioni-e-resi/`}>{L("Spedizioni e resi", "Shipping and returns")}</a><a href={`${NEG}/contatti/`}>{L("Contatti", "Contact")}</a><a href={`${NEG}/chi-siamo/`}>{L("Chi siamo", "About us")}</a></div>
+            <div><strong>{L("Il Diario del tè", "The Tea Journal")}</strong><a href={`${NEG}/blog/`}>{L("Tutti gli articoli", "All articles")}</a><a href={`${NEG}/blog/sencha-guida-completa/`}>{L("Guida al Sencha", "Sencha guide")}</a></div>
           </div>
-          <p class="finto">Cinque Foglie è un negozio finto, creato per gli esercizi di Marketing Mix: non si può comprare nulla.</p>
+          <p class="finto">{L("Cinque Foglie è un negozio finto, creato per gli esercizi di Marketing Mix: non si può comprare nulla.", "Cinque Foglie is a fake shop, created for the Marketing Mix exercises: you can't buy anything.")}</p>
         </footer>
       </div>
     </div>
-    <aside class="guida-negozio" aria-label="Guida della missione" data-barra="guida-negozio" data-lato="destra" data-etichetta="guida"><GuidaMissione pagina="negozio" /></aside>
+    <aside class="guida-negozio" aria-label={L("Guida della missione", "Exercise guide")} data-barra="guida-negozio" data-lato="destra" data-etichetta="guida"><GuidaMissione pagina="negozio" /></aside>
   </div>
 </AppLayout>
 
@@ -91,6 +100,7 @@ const attiva = (id: string) => url.startsWith(`/${id}/`);
 <script>
   // Applica al negozio le modifiche fatte nel Pannello del negozio (src/scripts/cms.ts)
   import { leggiModifiche, paginaEffettiva, introCategoria } from "../../scripts/cms";
+  import { t, conLingua } from "../../scripts/lingua";
   const finestra = document.querySelector<HTMLElement>("[data-url-negozio]");
   if (finestra) {
     const url = finestra.dataset.urlNegozio!;
@@ -99,26 +109,26 @@ const attiva = (id: string) => url.startsWith(`/${id}/`);
     // 1. Reindirizzamento 301: si va subito alla pagina nuova (come farebbe il server)
     const verso = m.redirect[url];
     if (verso && !qui.searchParams.get("da")) {
-      location.replace(`/app/negozio${verso}?da=${encodeURIComponent(url)}`);
+      location.replace(conLingua(`/app/negozio${verso}`) + `?da=${encodeURIComponent(url)}`);
     } else {
       const da = qui.searchParams.get("da");
       if (da) {
         const avviso = document.querySelector<HTMLElement>("[data-avviso-301]")!;
         avviso.hidden = false;
-        avviso.textContent = `Reindirizzamento 301: hai aperto ${da} e il sito ti ha portato qui.`;
+        avviso.textContent = t(`Reindirizzamento 301: hai aperto ${da} e il sito ti ha portato qui.`, `301 redirect: you opened ${da} and the website brought you here.`);
       }
       // 2. Ispeziona: quello che legge Google oggi
       const p = paginaEffettiva(url, m);
       if (p) {
-        const vuoto = (t: string, s = "manca") => t ? t : `<em>${s}</em>`;
+        const vuoto = (x: string, s = t("manca", "missing")) => x ? x : `<em>${s}</em>`;
         const esc = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;");
         const set = (k: string, html: string) => { const el = document.querySelector(`[data-isp="${k}"]`); if (el) el.innerHTML = html; };
-        set("stato", p.stato === 200 ? "200 OK" : p.stato === 404 ? "404 Non trovata" : `${p.stato} Reindirizzamento`);
-        set("title", vuoto(esc(p.title ?? ""), "vuoto"));
+        set("stato", p.stato === 200 ? "200 OK" : p.stato === 404 ? t("404 Non trovata", "404 Not found") : `${p.stato} ${t("Reindirizzamento", "Redirect")}`);
+        set("title", vuoto(esc(p.title ?? ""), t("vuoto", "empty")));
         set("description", vuoto(esc(p.description ?? "")));
         set("robots", vuoto(esc(p.robots ?? ""), "—"));
         document.querySelector("[data-isp=robots]")?.classList.toggle("allarme", (p.robots ?? "").includes("noindex"));
-        set("canonical", p.canonical ? `https://cinquefoglie.example${esc(p.canonical)}` : "<em>manca</em>");
+        set("canonical", p.canonical ? `https://cinquefoglie.example${esc(p.canonical)}` : `<em>${t("manca", "missing")}</em>`);
         set("h1", vuoto(esc(p.h1 ?? "")));
         // 3. Testi visibili: H1 e testo introduttivo delle categorie
         const h = document.querySelector<HTMLElement>("[data-cms-h1]");
@@ -132,7 +142,7 @@ const attiva = (id: string) => url.startsWith(`/${id}/`);
         }
         const intro = document.querySelector<HTMLElement>("[data-cms-intro]");
         if (intro && m.pagine[url]?.intro !== undefined) {
-          intro.replaceChildren(...introCategoria(intro.dataset.cmsIntro!, m).split(/\n+/).filter((x) => x.trim()).map((t) => { const e = document.createElement("p"); e.textContent = t.trim(); return e; }));
+          intro.replaceChildren(...introCategoria(intro.dataset.cmsIntro!, m).split(/\n+/).filter((x) => x.trim()).map((r) => { const e = document.createElement("p"); e.textContent = r.trim(); return e; }));
         }
       }
     }

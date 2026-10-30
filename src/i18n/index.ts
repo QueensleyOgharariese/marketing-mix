@@ -83,7 +83,7 @@ export const COMUNI = {
     bottoneMenu: "Try a role",
     footer: {
       invito: "Ready for your first day?",
-      sottoInvito: "Each role takes about 20 minutes. The practice company is in Italian for now.",
+      sottoInvito: "Each role takes about 20 minutes, in English or in Italian.",
       bottone: "Enter the company",
       tornaSu: "Back to top",
       colonne: [

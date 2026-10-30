@@ -60,4 +60,4 @@ Cinque Foglie is the practice tea shop of Marketing Mix. To sell a new herbal te
 
 ## How to find the role for you
 
-The best way is to try them. On the [Roles page](/en/roles/) you'll find what each one does, and in the practice company you can try an exercise for each role, for free and without signing up (the exercises are in Italian for now).
+The best way is to try them. On the [Roles page](/en/roles/) you'll find what each one does, and in the practice company you can try an exercise for each role, for free and without signing up.

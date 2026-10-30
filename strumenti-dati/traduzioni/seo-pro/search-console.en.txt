@@ -1,0 +1,42 @@
+1|Home
+2|Green teas category
+3|Black teas category
+4|Herbal teas category
+5|Matcha category
+6|Iced teas category
+7|Accessories category
+8|Product pages
+9|Blog
+10|1 August - 25 October 2026
+11|cinque foglie
+12|how to make matcha
+13|matcha
+14|herbal tea
+15|homemade iced tea
+16|organic matcha
+17|evening herbal tea
+18|green tea vs black tea
+19|organic herbal tea
+20|sencha green tea
+21|green tea
+22|green teas
+23|sencha
+24|how to make sencha
+25|organic sencha
+26|organic green tea
+27|ceremonial matcha
+28|how to store tea
+29|black tea
+30|caffeine free herbal tea
+31|organic chamomile
+32|gyokuro
+33|genmaicha
+34|cast iron teapot
+35|rooibos
+36|matcha whisk
+37|cold brew tea
+38|earl grey
+39|iced tea kit
+40|ceramic tea cup
+41|chai
+42|english breakfast tea

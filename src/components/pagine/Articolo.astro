@@ -26,7 +26,7 @@ const TESTI = {
     locale: "en-GB", percorso: "Breadcrumb", ruolo: "SEO and copywriting", lettura: "Reading time", inBreve: "In 30 seconds", consiglio: "Pesca's tip",
     prova: "Test yourself", provaMaiuscolo: "TEST YOURSELF", scegli: "Choose an answer", giusto: "Correct!", quasi: "Not quite.", faq: "Frequently asked questions",
     argomenti: "Topics:", indice: "Article contents", inQuesto: "IN THIS ARTICLE", provaSubito: "Try it now", gratuito: "Free tool",
-    inAzienda: "at work", guidato: "Guided exercise (in Italian)", mappa: "The roles map", dodici: "12 roles to try", continua: "Keep reading", leggi: "Read →",
+    inAzienda: "at work", guidato: "Guided exercise", mappa: "The roles map", dodici: "12 roles to try", continua: "Keep reading", leggi: "Read →",
     categorie: { ruoli: "Role guides", basi: "Basics", carriera: "Career", regole: "Rules" },
   },
 };
@@ -118,7 +118,7 @@ const percorso = T.categorie[a.categoria as keyof typeof T.categorie];
           <div class="prova-subito">
             <strong>{T.provaSubito}</strong>
             {strumento?.pronto && <a class="voce" href={linkStrumento(lang, strumento.id)}><span class="tondo"><Icona nome={strumento.icona} dimensione={18} /></span><span><strong>{strumento.nome}</strong><small>{T.gratuito}</small></span></a>}
-            {ruolo && <a class="voce" href={linkEsercizio(ruolo.id)} hreflang={lang === "en" ? "it" : undefined}><span class="tondo"><Icona nome={ruolo.id} dimensione={18} /></span><span><strong>{ruolo.nome} {T.inAzienda}</strong><small>{T.guidato}</small></span></a>}
+            {ruolo && <a class="voce" href={linkEsercizio(ruolo.id, lang)}><span class="tondo"><Icona nome={ruolo.id} dimensione={18} /></span><span><strong>{ruolo.nome} {T.inAzienda}</strong><small>{T.guidato}</small></span></a>}
             {!ruolo && <a class="voce" href={link(lang, "ruoli")}><span class="tondo"><Icona nome="persone" dimensione={18} /></span><span><strong>{T.mappa}</strong><small>{T.dodici}</small></span></a>}
           </div>
         )}

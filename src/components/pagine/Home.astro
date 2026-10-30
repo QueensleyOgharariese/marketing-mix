@@ -101,7 +101,7 @@ const TESTI = {
     leggiRuoli: "Read what each role does",
     esOcchiello: "Real exercises, not quizzes", esTitolo: "A request from the boss. Your work. The solution.",
     passi: [["Read the request", " from someone at the practice company."], ["Do the work", " with the data and tools you need."], ["Compare", " your result with a professional's."]],
-    provaEsercizio: "Try the first exercise (in Italian)",
+    provaEsercizio: "Try the first exercise",
     pescaStudiosa: "The peach with glasses looking at the exercise",
     esEtichetta: "Exercise 1 · SEO", esMinuti: "about 25 minutes",
     esRichiestaDa: "From Marta, the founder:", esRichiesta: "the Sencha tea page doesn't show up on Google. Build the right title for the search \"Sencha green tea\".",
@@ -261,7 +261,7 @@ const blog = link(lang, "blog");
         <ol class="passi">
           {T.passi.map(([forte, resto], i) => <li><span class="numero">{i + 1}</span><span><strong>{forte}</strong>{resto}</span></li>)}
         </ol>
-        <a class="bottone" href={link(lang, "app")} hreflang={lang === "en" ? "it" : undefined}>{T.provaEsercizio}</a>
+        <a class="bottone" href={link(lang, "app")}>{T.provaEsercizio}</a>
       </div>
       <div class="esercizio-anteprima">
         <Pesca dimensione={140} occhiali class="studiosa" etichetta={T.pescaStudiosa} />

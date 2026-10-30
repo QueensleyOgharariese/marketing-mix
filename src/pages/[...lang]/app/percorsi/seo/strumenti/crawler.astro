@@ -1,16 +1,33 @@
 ---
-import { LINGUE_APP } from "../../../../../../i18n";
+import { LINGUE_APP, linguaDa } from "../../../../../../i18n";
 // STRUMENTO · CRAWLER: ispirato a Screaming Frog SEO Spider
 // Elenca tutti gli indirizzi trovati seguendo i link del sito, con stato, indicizzabilità, title (anche in pixel),
 // description, H1, canonical, parole, link in entrata, LCP. I filtri raggruppano i problemi per tipo.
 // Cliccando un indirizzo si vedono i dettagli: chi lo linka (per i 404) e la catena di redirect.
 // Dati: src/data/app/seo-pro/crawl.json (generati da strumenti-dati/genera_negozio.py).
 import Console from "../../../../../../components/seopro/Console.astro";
-import crawl from "../../../../../../data/app/seo-pro/crawl.json";
-import { num } from "../../../../../../scripts/tabella";
+import crawlIt from "../../../../../../data/app/seo-pro/crawl.json";
+import crawlEn from "../../../../../../data/app/seo-pro/crawl.en.json";
+import { num as numIt } from "../../../../../../scripts/tabella";
+import { nomeTipo as tipoIt } from "../../../../../../scripts/cms";
+
+const en = linguaDa(Astro.url) === "en";
+const L = (it: string, eng: string) => (en ? eng : it);
+const crawl = en ? (crawlEn as typeof crawlIt) : crawlIt;
+const num = (x: number, d = 0) => numIt(x, d, en);
+// tipi e motivi sono codici italiani: in inglese si mostrano tradotti (le funzioni di cms.ts lo fanno nel browser)
+const TIPI: Record<string, string> = { Categoria: "Category", Prodotto: "Product", Articolo: "Article", Filtro: "Filter", Paginazione: "Pagination", Servizio: "Service page", "Vecchio indirizzo": "Old address" };
+const MOTIVI: Record<string, string> = { Reindirizzamento: "redirect", "Errore client (404)": "client error (404)" };
+const nomeTipo = (x: string) => (en ? TIPI[x] ?? x : tipoIt(x));
+const nomeMotivo = (x: string) => (en ? MOTIVI[x] ?? x : x).toLowerCase();
 
 // Problemi raggruppati come nel design junior: errori, cose da sistemare, cose da controllare
-const GRUPPI: [string, string, [string, string][]][] = [
+const GRUPPI: [string, string, [string, string][]][] = en ? [
+  ["tutti", "", [["tutti", "All addresses"]]],
+  ["errori", "Errors", [["4xx", "404 pages"]]],
+  ["sistemare", "To fix", [["title-dup", "Duplicate titles"], ["desc-manca", "Missing description"], ["h1-manca", "Missing H1"], ["lcp", "LCP over 2.5 s"]]],
+  ["controllare", "To check", [["noindex", "Non-indexable"], ["3xx", "3xx redirects"], ["title-lungo", "Title over 580 px"], ["poche-parole", "Under 200 words"]]],
+] : [
   ["tutti", "", [["tutti", "Tutti gli indirizzi"]]],
   ["errori", "Errori", [["4xx", "Pagine 404"]]],
   ["sistemare", "Da sistemare", [["title-dup", "Title duplicati"], ["desc-manca", "Description mancante"], ["h1-manca", "H1 mancante"], ["lcp", "LCP oltre 2,5 s"]]],
@@ -18,13 +35,13 @@ const GRUPPI: [string, string, [string, string][]][] = [
 ];
 export function getStaticPaths() { return LINGUE_APP(); }
 ---
-<Console attivo="crawler" titolo="Crawler" sottotitolo="Il sito letto pagina per pagina, seguendo i link, come fa Google" ispirato="Screaming Frog SEO Spider">
+<Console attivo="crawler" titolo="Crawler" sottotitolo={L("Il sito letto pagina per pagina, seguendo i link, come fa Google", "The website read page by page, following the links, as Google does")} ispirato="Screaming Frog SEO Spider">
   <div class="sp-pannello comandi">
-    <span data-intestazione-scansione><strong>Scansione completata</strong> il {crawl.data.split("-").reverse().join("/")}: {crawl.pagine.length} indirizzi di <span class="url">https://cinquefoglie.example/</span></span>
-    <input class="sp-cerca" type="search" placeholder="Filtra gli indirizzi…" data-testo />
+    <span data-intestazione-scansione><strong>{L("Scansione completata", "Crawl completed")}</strong> {L("il", "on")} {crawl.data.split("-").reverse().join("/")}: {crawl.pagine.length} {L("indirizzi di", "addresses of")} <span class="url">https://cinquefoglie.example/</span></span>
+    <input class="sp-cerca" type="search" placeholder={L("Filtra gli indirizzi…", "Filter the addresses…")} data-testo />
   </div>
   <div class="corpo">
-    <nav class="filtri sp-pannello" aria-label="Problemi trovati">
+    <nav class="filtri sp-pannello" aria-label={L("Problemi trovati", "Problems found")}>
       {GRUPPI.map(([gid, nome, voci]) => (
         <div class:list={["gruppo", gid]}>
           {nome && <span class="gruppo-nome">{nome}</span>}
@@ -36,20 +53,20 @@ export function getStaticPaths() { return LINGUE_APP(); }
   <div class="sp-scorri">
     <table data-tabella id="t-crawl">
       <thead><tr>
-        <th data-ordina="testo">Indirizzo e title</th><th data-ordina="testo">Tipo</th><th data-ordina="numero" class="n">Stato</th><th data-ordina="testo">Indicizzabile</th>
-        <th data-ordina="numero" class="n">Title px</th><th data-ordina="numero" class="n">Descr. car.</th><th data-ordina="testo">H1</th>
-        <th data-ordina="numero" class="n">Parole</th><th data-ordina="numero" class="n">Link entrata</th><th data-ordina="numero" class="n">LCP</th>
+        <th data-ordina="testo">{L("Indirizzo e title", "Address and title")}</th><th data-ordina="testo">{L("Tipo", "Type")}</th><th data-ordina="numero" class="n">{L("Stato", "Status")}</th><th data-ordina="testo">{L("Indicizzabile", "Indexable")}</th>
+        <th data-ordina="numero" class="n">Title px</th><th data-ordina="numero" class="n">{L("Descr. car.", "Descr. chars")}</th><th data-ordina="testo">H1</th>
+        <th data-ordina="numero" class="n">{L("Parole", "Words")}</th><th data-ordina="numero" class="n">{L("Link entrata", "Inlinks")}</th><th data-ordina="numero" class="n">LCP</th>
       </tr></thead>
       <tbody>
         {crawl.pagine.map((p, i) => (
           <tr data-i={i} tabindex="0">
             <td class="url"><span class="u">{p.url}</span><span class="title" data-title={p.title}>{p.title || "—"}</span></td>
-            <td>{p.tipo}</td>
+            <td>{nomeTipo(p.tipo)}</td>
             <td class="n" data-valore={p.stato}><span class:list={["sp-badge", p.stato === 200 ? "ok" : p.stato === 404 ? "no" : "medio"]}>{p.stato}</span></td>
-            <td>{p.indicizzabile ? <span class="sp-badge ok">Sì</span> : <span class="sp-badge no">No, {p.motivo.toLowerCase()}</span>}</td>
+            <td>{p.indicizzabile ? <span class="sp-badge ok">{L("Sì", "Yes")}</span> : <span class="sp-badge no">No, {nomeMotivo(p.motivo)}</span>}</td>
             <td class="n" data-px></td>
-            <td class="n" data-valore={p.description.length}>{p.stato === 200 ? (p.description ? p.description.length : <span class="sp-badge no">manca</span>) : ""}</td>
-            <td>{p.stato === 200 ? (p.h1 || <span class="sp-badge no">manca</span>) : ""}</td>
+            <td class="n" data-valore={p.description.length}>{p.stato === 200 ? (p.description ? p.description.length : <span class="sp-badge no">{L("manca", "missing")}</span>) : ""}</td>
+            <td>{p.stato === 200 ? (p.h1 || <span class="sp-badge no">{L("manca", "missing")}</span>) : ""}</td>
             <td class="n" data-valore={p.parole}>{p.parole ? num(p.parole) : ""}</td>
             <td class="n" data-valore={p.inlinks}>{p.inlinks}</td>
             <td class="n" data-valore={p.lcp ?? 0}>{p.lcp ? `${num(p.lcp, 1)} s` : ""}</td>
@@ -63,17 +80,21 @@ export function getStaticPaths() { return LINGUE_APP(); }
   </div>
 
   <details class="sp-pannello aiuto">
-    <summary>Come funziona un crawler</summary>
-    <p>Un crawler fa quello che fa Google: parte dalla home e segue tutti i link, pagina dopo pagina, annotando cosa trova. <strong>Stato</strong>: 200 la pagina esiste, 301 reindirizza a un'altra, 404 non esiste. <strong>Indicizzabile</strong>: se Google può metterla nei risultati (non lo è se ha "noindex", se reindirizza o se il canonical indica un'altra pagina). <strong>Link in entrata</strong>: quante pagine del sito la linkano. I title si misurano in pixel: oltre circa 580 px Google li taglia.</p>
+    <summary>{L("Come funziona un crawler", "How a crawler works")}</summary>
+    {en
+      ? <p>A crawler does what Google does: it starts from the home page and follows all the links, page after page, noting what it finds. <strong>Status</strong>: 200 the page exists, 301 it redirects to another, 404 it doesn't exist. <strong>Indexable</strong>: whether Google can put it in the results (it can't if it has "noindex", if it redirects or if the canonical points to another page). <strong>Inlinks</strong>: how many pages on the website link to it. Titles are measured in pixels: beyond about 580 px Google cuts them.</p>
+      : <p>Un crawler fa quello che fa Google: parte dalla home e segue tutti i link, pagina dopo pagina, annotando cosa trova. <strong>Stato</strong>: 200 la pagina esiste, 301 reindirizza a un'altra, 404 non esiste. <strong>Indicizzabile</strong>: se Google può metterla nei risultati (non lo è se ha "noindex", se reindirizza o se il canonical indica un'altra pagina). <strong>Link in entrata</strong>: quante pagine del sito la linkano. I title si misurano in pixel: oltre circa 580 px Google li taglia.</p>}
   </details>
 </Console>
 
 <script>
-  import crawl from "../../../../../../data/app/seo-pro/crawl.json";
+  import crawlIt from "../../../../../../data/app/seo-pro/crawl.json";
+  import crawlEn from "../../../../../../data/app/seo-pro/crawl.en.json";
   import { attivaTabelle, num } from "../../../../../../scripts/tabella";
   import { pixel } from "../../../../../../scripts/controlli-seo";
-
-  import { leggiModifiche, paginaEffettiva, OGGI, catena as catenaCms } from "../../../../../../scripts/cms";
+  import { t as tr, scegli, conLingua } from "../../../../../../scripts/lingua";
+  import { leggiModifiche, paginaEffettiva, OGGI, catena as catenaCms, nomeTipo, nomeMotivo } from "../../../../../../scripts/cms";
+  const crawl = scegli(crawlIt, crawlEn as typeof crawlIt);
 
   const $ = <T extends HTMLElement>(s: string) => document.querySelector<T>(s)!;
   const righe = [...document.querySelectorAll<HTMLTableRowElement>("#t-crawl tbody tr")];
@@ -82,17 +103,17 @@ export function getStaticPaths() { return LINGUE_APP(); }
   const PAG = crawl.pagine.map((p) => paginaEffettiva(p.url, MOD) ?? p);
   const esc0 = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;");
   if (PAG.some((p) => p.modificata)) {
-    $("[data-intestazione-scansione]").innerHTML = `<strong>Nuova scansione</strong> il ${OGGI}: ${PAG.length} indirizzi, con le modifiche del pannello`;
+    $("[data-intestazione-scansione]").innerHTML = tr(`<strong>Nuova scansione</strong> il ${OGGI}: ${PAG.length} indirizzi, con le modifiche del pannello`, `<strong>New crawl</strong> on ${OGGI}: ${PAG.length} addresses, with the admin changes`);
     righe.forEach((r) => {
       const p = PAG[Number(r.dataset.i)];
       if (!p.modificata) return;
       const c = r.cells;
       c[2].dataset.valore = String(p.stato);
       c[2].innerHTML = `<span class="sp-badge ${p.stato === 200 ? "ok" : p.stato === 404 ? "no" : "medio"}">${p.stato}</span>`;
-      c[3].innerHTML = p.indicizzabile ? '<span class="sp-badge ok">Sì</span>' : `<span class="sp-badge no">No, ${esc0((p.motivo || "").toLowerCase())}</span>`;
+      c[3].innerHTML = p.indicizzabile ? `<span class="sp-badge ok">${tr("Sì", "Yes")}</span>` : `<span class="sp-badge no">No, ${esc0(nomeMotivo(p.motivo || "").toLowerCase())}</span>`;
       const t = c[0].querySelector<HTMLElement>(".title")!; t.dataset.title = p.title ?? ""; t.textContent = p.title || "—";
-      c[5].dataset.valore = String((p.description ?? "").length); c[5].innerHTML = p.stato === 200 ? (p.description ? String(p.description.length) : '<span class="sp-badge no">manca</span>') : "";
-      c[6].innerHTML = p.stato === 200 ? (p.h1 ? esc0(p.h1) : '<span class="sp-badge no">manca</span>') : "";
+      c[5].dataset.valore = String((p.description ?? "").length); c[5].innerHTML = p.stato === 200 ? (p.description ? String(p.description.length) : `<span class="sp-badge no">${tr("manca", "missing")}</span>`) : "";
+      c[6].innerHTML = p.stato === 200 ? (p.h1 ? esc0(p.h1) : `<span class="sp-badge no">${tr("manca", "missing")}</span>`) : "";
       r.classList.add("cambiata");
     });
   }
@@ -108,7 +129,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
       cella.innerHTML = px > 580 ? `<span class="sp-badge no">${px}</span>` : String(px);
       r.dataset.px = String(px);
     } else cella.dataset.valore = "0";
-    if (p.stato === 200 && contaTitle[p.title] > 1) r.querySelector<HTMLElement>(".title")!.insertAdjacentHTML("beforeend", ` <span class="sp-badge medio">${contaTitle[p.title]} uguali</span>`);
+    if (p.stato === 200 && contaTitle[p.title] > 1) r.querySelector<HTMLElement>(".title")!.insertAdjacentHTML("beforeend", ` <span class="sp-badge medio">${contaTitle[p.title]} ${tr("uguali", "identical")}</span>`);
   });
   attivaTabelle();
 
@@ -148,20 +169,21 @@ export function getStaticPaths() { return LINGUE_APP(); }
     righe.forEach((x) => x.classList.remove("selezionata"));
     r.classList.add("selezionata");
     const p = PAG[Number(r.dataset.i)];
+    const manca = tr("manca", "missing");
     const voci: [string, string][] = [
-      ["Indirizzo", `<span class="url">${esc(p.url)}</span>`], ["Tipo", p.tipo], ["Stato", String(p.stato)],
-      ["Indicizzabile", p.indicizzabile ? "Sì" : `No, ${p.motivo.toLowerCase()}`],
+      [tr("Indirizzo", "Address"), `<span class="url">${esc(p.url)}</span>`], [tr("Tipo", "Type"), nomeTipo(p.tipo)], [tr("Stato", "Status"), String(p.stato)],
+      [tr("Indicizzabile", "Indexable"), p.indicizzabile ? tr("Sì", "Yes") : `No, ${nomeMotivo(p.motivo).toLowerCase()}`],
     ];
-    if (p.stato === 200) voci.push(["Title", esc(p.title) + (r.dataset.px ? ` (${r.dataset.px} px)` : "")], ["Meta description", p.description ? `${esc(p.description)} (${p.description.length} caratteri)` : "manca"],
-      ["H1", p.h1 ? esc(p.h1) : "manca"], ["Meta robots", p.robots], ["Canonical", p.canonical ? `<span class="url">${esc(p.canonical)}</span>` : "manca"], ["Parole", num(p.parole)],
-      ["Profondità", `${p.profondita} clic dalla home`], ...(p.lcp ? [["LCP (laboratorio)", `${num(p.lcp, 1)} s · peso della pagina ${num(p.peso ?? 0)} KB`] as [string, string]] : []));
-    if (p.redirect) voci.push(["Catena di redirect", catena(p.url).map((u) => `<span class="url">${esc(u)}</span>`).join(" → ") + ` (${catena(p.url).length - 1} salti)`]);
+    if (p.stato === 200) voci.push(["Title", esc(p.title) + (r.dataset.px ? ` (${r.dataset.px} px)` : "")], ["Meta description", p.description ? `${esc(p.description)} (${p.description.length} ${tr("caratteri", "characters")})` : manca],
+      ["H1", p.h1 ? esc(p.h1) : manca], ["Meta robots", p.robots], ["Canonical", p.canonical ? `<span class="url">${esc(p.canonical)}</span>` : manca], [tr("Parole", "Words"), num(p.parole)],
+      [tr("Profondità", "Depth"), tr(`${p.profondita} clic dalla home`, `${p.profondita} ${p.profondita === 1 ? "click" : "clicks"} from the home page`)], ...(p.lcp ? [[tr("LCP (laboratorio)", "LCP (lab)"), `${num(p.lcp, 1)} s · ${tr("peso della pagina", "page weight")} ${num(p.peso ?? 0)} KB`] as [string, string]] : []));
+    if (p.redirect) voci.push([tr("Catena di redirect", "Redirect chain"), catena(p.url).map((u) => `<span class="url">${esc(u)}</span>`).join(" → ") + ` (${catena(p.url).length - 1} ${tr("salti", catena(p.url).length === 2 ? "hop" : "hops")})`]);
     const linkanti = (crawl.link404 as Record<string, string[]>)[p.url];
-    if (linkanti) voci.push(["Linkata da", linkanti.map((u) => `<span class="url">${esc(u)}</span>`).join("<br>")]);
-    if (p.note) voci.push(["Nota", esc(p.note)]);
+    if (linkanti) voci.push([tr("Linkata da", "Linked from"), linkanti.map((u) => `<span class="url">${esc(u)}</span>`).join("<br>")]);
+    if (p.note) voci.push([tr("Nota", "Note"), esc(p.note)]);
     dett.hidden = false;
-    dett.innerHTML = `<strong>Dettagli dell'indirizzo</strong><dl>${voci.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl>` +
-      (p.stato === 200 ? `<a href="/app/negozio${p.url.split("?")[0]}">Apri la pagina nel negozio →</a>` : "");
+    dett.innerHTML = `<strong>${tr("Dettagli dell'indirizzo", "Address details")}</strong><dl>${voci.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl>` +
+      (p.stato === 200 ? `<a href="${conLingua(`/app/negozio${p.url.split("?")[0]}`)}">${tr("Apri la pagina nel negozio →", "Open the page in the shop →")}</a>` : "");
     dett.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
   righe.forEach((r) => { r.addEventListener("click", () => apri(r)); r.addEventListener("keydown", (e) => { if (e.key === "Enter") apri(r); }); });

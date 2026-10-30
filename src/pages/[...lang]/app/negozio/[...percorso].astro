@@ -1,5 +1,5 @@
 ---
-import { LINGUE_APP, conLingue } from "../../../../i18n";
+import { LINGUE_APP, conLingue, linguaDa } from "../../../../i18n";
 // PAGINE DEL NEGOZIO FINTO (home, categorie, prodotti, blog, pagine di servizio, 404)
 // Un solo file crea tutte le pagine partendo da crawl.json e catalogo.json.
 // Esempio: la pagina /te-verdi/sencha-bio/ del negozio qui è /app/negozio/te-verdi/sencha-bio/.
@@ -9,41 +9,65 @@ import { LINGUE_APP, conLingue } from "../../../../i18n";
 import Negozio from "../../../../components/negozio/Negozio.astro";
 import Confezione from "../../../../components/negozio/Confezione.astro";
 import SchedaProdotto from "../../../../components/negozio/SchedaProdotto.astro";
-import catalogo from "../../../../data/app/seo-pro/catalogo.json";
-import crawl from "../../../../data/app/seo-pro/crawl.json";
-import { prezzo, voto, alKg, PREPARAZIONE } from "../../../../scripts/negozio";
+import catalogoIt from "../../../../data/app/seo-pro/catalogo.json";
+import catalogoEn from "../../../../data/app/seo-pro/catalogo.en.json";
+import crawlIt from "../../../../data/app/seo-pro/crawl.json";
+import crawlEn from "../../../../data/app/seo-pro/crawl.en.json";
+import { prezzo as prezzoIt, voto as votoIt, alKg as alKgIt, preparazione } from "../../../../scripts/negozio";
 
 // Ogni pagina esiste in italiano (/app/...) e in inglese (/en/app/...): conLingue() raddoppia i percorsi
 export function getStaticPaths() {
   return conLingue((() => {
   // Pagine vere (200) e la pagina tolta (404). Filtri e vecchi indirizzi non hanno una pagina propria.
-  return crawl.pagine
+  return crawlIt.pagine
     .filter((p) => (p.stato === 200 || p.stato === 404) && !p.url.includes("?"))
     .map((p) => ({ params: { percorso: p.url === "/" ? undefined : p.url.replace(/^\/|\/$/g, "") }, props: { url: p.url } }));
 })());
 }
 const { url } = Astro.props as { url: string };
+// Versione inglese: stessi indirizzi del negozio, testi dai dati gemelli .en.json
+const lang = linguaDa(Astro.url);
+const en = lang === "en";
+const L = (it: string, eng: string) => (en ? eng : it);
+const catalogo = en ? (catalogoEn as typeof catalogoIt) : catalogoIt;
+const crawl = en ? (crawlEn as typeof crawlIt) : crawlIt;
+const prezzo = (x: number) => prezzoIt(x, en);
+const voto = (id: string) => votoIt(id, en);
+const alKg = (p: number, f: string) => alKgIt(p, f, en);
+const PREPARAZIONE = preparazione(en);
 const pagina = crawl.pagine.find((p) => p.url === url)!;
-const N = (u: string) => `/app/negozio${u}`;
+const N = (u: string) => `${en ? "/en" : ""}/app/negozio${u}`;
 const cat = catalogo.categorie.find((c) => url === `/${c.id}/`);
 const prodotto = catalogo.prodotti.find((p) => p.url === url);
 const categoriaDi = (id: string) => catalogo.categorie.find((c) => c.id === id)!;
 const linkaIl404 = (crawl.link404 as Record<string, string[]>)["/te-neri/earl-grey-classico/"].includes(url);
 const blog = crawl.pagine.filter((p) => p.tipo === "Articolo");
-const minuti = (parole: number) => `${Math.max(2, Math.round(parole / 200))} minuti`;
-const TEMA: Record<string, string> = { "/blog/sencha-guida-completa/": "Guida", "/blog/come-preparare-il-matcha/": "Ricetta", "/blog/tisane-per-la-sera/": "Consigli",
-  "/blog/te-freddo-fatto-in-casa/": "Ricetta", "/blog/differenza-te-verde-nero/": "Guida", "/blog/conservare-il-te/": "Consigli" };
+const minuti = (parole: number) => `${Math.max(2, Math.round(parole / 200))} ${L("minuti", "minutes")}`;
+const [GUIDA, RICETTA, CONSIGLI] = [L("Guida", "Guide"), L("Ricetta", "Recipe"), L("Consigli", "Tips")];
+const TEMA: Record<string, string> = { "/blog/sencha-guida-completa/": GUIDA, "/blog/come-preparare-il-matcha/": RICETTA, "/blog/tisane-per-la-sera/": CONSIGLI,
+  "/blog/te-freddo-fatto-in-casa/": RICETTA, "/blog/differenza-te-verde-nero/": GUIDA, "/blog/conservare-il-te/": CONSIGLI };
 const SFONDI = ["#d7e4cc", "#dfe9c8", "#efdcc4", "#f6e2d6", "#e4e8ec", "#ece4d8"];
 
 // Filtri e ordinamenti che esistono davvero per questa categoria (sono quelli che il crawler trova)
 const filtri = cat ? crawl.pagine.filter((p) => p.url.startsWith(`/${cat.id}/?`)) : [];
 const nomeFiltro = (u: string) => {
   const [k, v] = u.split("?")[1].split("=");
+  // i valori nell'indirizzo restano in italiano (sono codici); in inglese si mostra un'etichetta tradotta
+  const VAL: Record<string, string> = { prezzo: "price", nome: "name", "verde-chiaro": "light green", ceramica: "ceramic" };
+  const CHIAVI: Record<string, string> = { colore: "Colour", materiale: "Material" };
+  if (en) return k === "ordina" ? `Sort by ${VAL[v] ?? v}` : k === "page" ? `Page ${v}` : `${CHIAVI[k] ?? k}: ${VAL[v] ?? v.replace(/-/g, " ")}`;
   return k === "ordina" ? `Ordina per ${v}` : k === "page" ? `Pagina ${v}` : `${k[0].toUpperCase() + k.slice(1)}: ${v.replace(/-/g, " ")}`;
 };
 
 // Testi delle schede prodotto, per categoria (inventati)
-const GUSTO: Record<string, string> = {
+const GUSTO: Record<string, string> = en ? {
+  "te-verdi": "Whole steamed leaves, with a fresh, grassy taste and a hint of sweetness. Great hot and also cold brewed.",
+  "te-neri": "Full, rounded taste, perfect at breakfast and great with a dash of milk too.",
+  tisane: "Caffeine free, to drink at any time, evening included. Bags in compostable paper.",
+  matcha: "Fine powder of stone-ground tea leaves. Whisk it until it forms a light froth.",
+  "te-freddi": "Made cold: leave it in the fridge for 8 hours, with no added sugar.",
+  accessori: "Made to last: wash by hand with hot water, without scented detergents.",
+} : {
   "te-verdi": "Foglie intere cotte al vapore, dal gusto fresco ed erbaceo con una punta dolce. Ottimo caldo e anche in infusione a freddo.",
   "te-neri": "Gusto pieno e rotondo, perfetto a colazione e ottimo anche con un goccio di latte.",
   tisane: "Senza teina, da bere a ogni ora, anche la sera. Bustine in carta compostabile.",
@@ -51,100 +75,105 @@ const GUSTO: Record<string, string> = {
   "te-freddi": "Da preparare a freddo: si lascia in frigo per 8 ore, senza zucchero aggiunto.",
   accessori: "Pensato per durare: si lava a mano con acqua calda, senza detersivi profumati.",
 };
-const RECENSIONI: Record<string, [string, string, string][]> = {
+const RECENSIONI: Record<string, [string, string, string][]> = en ? {
+  default: [["Good, I'll buy it again", "Marta", "Arrived in a day, carefully packed. I use it every morning."], ["As described", "Luca", "Clean, precise taste. The small size runs out quickly if there are two of you drinking it."]],
+  accessori: [["Well made", "Sara", "Solid and nice to look at. Arrived carefully packed."], ["Great present", "Paolo", "I gave it to my mother, she uses it every day."]],
+} : {
   default: [["Buono, lo ricompro", "Marta", "Arrivato in un giorno, confezione curata. Lo uso ogni mattina."], ["Come descritto", "Luca", "Gusto pulito e preciso. Il formato piccolo finisce in fretta se lo bevete in due."]],
   accessori: [["Fatto bene", "Sara", "Solido e bello da vedere. Arrivato imballato con cura."], ["Ottimo regalo", "Paolo", "L'ho regalato a mia madre, lo usa ogni giorno."]],
 };
 const titolo = prodotto?.nome ?? cat?.nome ?? pagina.h1 ?? "Cinque Foglie";
+const SERALI = catalogo.prodotti.find((p) => p.id === "tisane-della-sera")!.nome; // «Tisane della Sera» / «Evening Herbal Teas»
+const EARL = L("Earl Grey classico", "classic Earl Grey");
 const piuVenduti = ["sencha-bio", "matcha-quotidiano", "tisane-della-sera", "teiera-ghisa"].map((id) => catalogo.prodotti.find((x) => x.id === id)!);
 ---
-<Negozio url={url} titoloScheda={pagina.stato === 404 ? "Pagina non trovata" : titolo}>
+<Negozio url={url} titoloScheda={pagina.stato === 404 ? L("Pagina non trovata", "Page not found") : titolo}>
   {pagina.stato === 404 ? (
     <section class="vuota">
       <p class="grande-num">404</p>
-      <h1>Pagina non trovata</h1>
-      <p>Il prodotto che cerchi non è più disponibile.</p>
-      <a class="nbottone" href={N("/")}>Torna al negozio</a>
+      <h1>{L("Pagina non trovata", "Page not found")}</h1>
+      <p>{L("Il prodotto che cerchi non è più disponibile.", "The product you're looking for is no longer available.")}</p>
+      <a class="nbottone" href={N("/")}>{L("Torna al negozio", "Back to the shop")}</a>
     </section>
   ) : url === "/" ? (
     <>
       <section class="eroe">
         <div class="eroe-testo">
-          <p class="occhiello">Nuovo raccolto d'autunno</p>
+          <p class="occhiello">{L("Nuovo raccolto d'autunno", "New autumn harvest")}</p>
           <h1>{pagina.h1}</h1>
-          <p class="eroe-sotto">Tè verdi, neri, matcha e tisane senza teina, biologici e in foglie intere. Spedizione in 24 ore in tutta Italia.</p>
-          <div class="bottoni"><a class="nbottone" href={N("/te-verdi/")}>Scopri i tè verdi</a><a class="nbottone nbottone--contorno" href={N("/matcha/")}>Il matcha</a></div>
+          <p class="eroe-sotto">{L("Tè verdi, neri, matcha e tisane senza teina, biologici e in foglie intere. Spedizione in 24 ore in tutta Italia.", "Green and black teas, matcha and caffeine-free herbal teas, organic and whole leaf. 24-hour shipping across Italy.")}</p>
+          <div class="bottoni"><a class="nbottone" href={N("/te-verdi/")}>{L("Scopri i tè verdi", "Discover our green teas")}</a><a class="nbottone nbottone--contorno" href={N("/matcha/")}>{L("Il matcha", "Matcha")}</a></div>
         </div>
         <div class="eroe-foto">
           {["te-verdi", "matcha", "tisane"].map((c, i) => <div class={`barattolo b${i}`}><Confezione categoria={c} nome={categoriaDi(c).nome} /></div>)}
         </div>
       </section>
 
-      <ul class="vantaggi" aria-label="Perché comprare da noi">
-        <li><strong>Spedizione gratuita</strong>da 39 €</li>
-        <li><strong>Biologico certificato</strong>tutto il catalogo</li>
-        <li><strong>Reso entro 30 giorni</strong>senza spiegazioni</li>
-        <li><strong>Pagamenti sicuri</strong>carta, PayPal, bonifico</li>
+      <ul class="vantaggi" aria-label={L("Perché comprare da noi", "Why buy from us")}>
+        <li><strong>{L("Spedizione gratuita", "Free shipping")}</strong>{L("da 39 €", "from €39")}</li>
+        <li><strong>{L("Biologico certificato", "Certified organic")}</strong>{L("tutto il catalogo", "the whole range")}</li>
+        <li><strong>{L("Reso entro 30 giorni", "Returns within 30 days")}</strong>{L("senza spiegazioni", "no questions asked")}</li>
+        <li><strong>{L("Pagamenti sicuri", "Secure payments")}</strong>{L("carta, PayPal, bonifico", "card, PayPal, bank transfer")}</li>
       </ul>
 
-      <h2>Esplora per categoria</h2>
+      <h2>{L("Esplora per categoria", "Shop by category")}</h2>
       <ul class="griglia-cat">
-        {catalogo.categorie.map((c) => (<li><a href={N(`/${c.id}/`)}><Confezione categoria={c.id} nome={c.nome} /><span>{c.nome}</span><small>{catalogo.prodotti.filter((p) => p.categoria === c.id).length} prodotti</small></a></li>))}
+        {catalogo.categorie.map((c) => (<li><a href={N(`/${c.id}/`)}><Confezione categoria={c.id} nome={c.nome} /><span>{c.nome}</span><small>{catalogo.prodotti.filter((p) => p.categoria === c.id).length} {L("prodotti", "products")}</small></a></li>))}
       </ul>
 
-      <div class="titolo-riga"><h2>I più venduti</h2><a href={N("/te-verdi/")}>Vedi tutti</a></div>
+      <div class="titolo-riga"><h2>{L("I più venduti", "Best sellers")}</h2><a href={N("/te-verdi/")}>{L("Vedi tutti", "See all")}</a></div>
       <ul class="griglia">{piuVenduti.map((p) => <li><SchedaProdotto p={p} categoriaNome={categoriaDi(p.categoria).nome} /></li>)}</ul>
 
       <section class="banner">
         <div>
-          <p class="occhiello occhiello--chiaro">Per le sere d'autunno</p>
-          <h2>Tisane della Sera</h2>
-          <p>Tre miscele biologiche senza teina, in bustine compostabili. Camomilla, melissa e scorza d'arancia.</p>
-          <a class="nbottone nbottone--miele" href={N("/tisane/tisane-della-sera/")}>Scopri le Tisane della Sera</a>
+          <p class="occhiello occhiello--chiaro">{L("Per le sere d'autunno", "For autumn evenings")}</p>
+          <h2>{SERALI}</h2>
+          <p>{L("Tre miscele biologiche senza teina, in bustine compostabili. Camomilla, melissa e scorza d'arancia.", "Three organic caffeine-free blends, in compostable bags. Chamomile, lemon balm and orange peel.")}</p>
+          <a class="nbottone nbottone--miele" href={N("/tisane/tisane-della-sera/")}>{L("Scopri le Tisane della Sera", "Discover the Evening Herbal Teas")}</a>
         </div>
-        <div class="banner-foto"><Confezione categoria="tisane" nome="Tisane della Sera" /></div>
+        <div class="banner-foto"><Confezione categoria="tisane" nome={SERALI} /></div>
       </section>
 
-      <p class="nota-link">Torna l'<a href={N("/te-neri/earl-grey-classico/")}>Earl Grey classico</a>, il preferito dei nostri clienti.</p>
+      <p class="nota-link">{L("Torna l'", "The ")}<a href={N("/te-neri/earl-grey-classico/")}>{EARL}</a>{L(", il preferito dei nostri clienti.", ", our customers' favourite, is back.")}</p>
 
-      <div class="titolo-riga"><h2>Dal Diario del tè</h2><a href={N("/blog/")}>Tutti gli articoli</a></div>
+      <div class="titolo-riga"><h2>{L("Dal Diario del tè", "From the Tea Journal")}</h2><a href={N("/blog/")}>{L("Tutti gli articoli", "All articles")}</a></div>
       <ul class="griglia-blog">
         {blog.slice(0, 3).map((b, i) => (<li><a href={N(b.url)}><span class="blog-foto" style={`background:${SFONDI[i]}`}></span><small>{TEMA[b.url]}, {minuti(b.parole)}</small><strong>{b.h1}</strong></a></li>))}
       </ul>
 
       <form class="newsletter" onsubmit="return false">
-        <div><h2>Un tè nuovo ogni mese, via email</h2><p>Ricette, raccolti e offerte per chi si iscrive. Ti puoi cancellare quando vuoi.</p></div>
+        <div><h2>{L("Un tè nuovo ogni mese, via email", "A new tea every month, by email")}</h2><p>{L("Ricette, raccolti e offerte per chi si iscrive. Ti puoi cancellare quando vuoi.", "Recipes, harvests and offers for subscribers. You can unsubscribe whenever you like.")}</p></div>
         <div class="newsletter-campi">
-          <div class="riga-campi"><label for="email-neg" class="sr">La tua email</label><input id="email-neg" type="email" placeholder="La tua email" /><button type="submit" class="nbottone" disabled title="Negozio finto">Iscriviti</button></div>
-          <label class="consenso"><input type="checkbox" /> Ho letto l'informativa privacy e voglio ricevere la newsletter.</label>
+          <div class="riga-campi"><label for="email-neg" class="sr">{L("La tua email", "Your email")}</label><input id="email-neg" type="email" placeholder={L("La tua email", "Your email")} /><button type="submit" class="nbottone" disabled title={L("Negozio finto", "Fake shop")}>{L("Iscriviti", "Subscribe")}</button></div>
+          <label class="consenso"><input type="checkbox" /> {L("Ho letto l'informativa privacy e voglio ricevere la newsletter.", "I've read the privacy notice and want to receive the newsletter.")}</label>
         </div>
       </form>
     </>
   ) : cat ? (
     <>
-      <nav class="briciole" aria-label="Sei qui"><a href={N("/")}>Home</a><span aria-hidden="true">›</span>{cat.nome}</nav>
+      <nav class="briciole" aria-label={L("Sei qui", "You are here")}><a href={N("/")}>Home</a><span aria-hidden="true">›</span>{cat.nome}</nav>
       <div class="cat-testa">
         <div>
           {cat.h1 ? <h1 data-cms-h1>{cat.h1}</h1> : <p class="titolo-finto" data-cms-h1>{cat.nome}</p>}
           <div class="intro" data-cms-intro={cat.id}><p>{cat.intro}</p></div>
         </div>
-        <span class="conta">{catalogo.prodotti.filter((p) => p.categoria === cat.id).length} prodotti</span>
+        <span class="conta">{catalogo.prodotti.filter((p) => p.categoria === cat.id).length} {L("prodotti", "products")}</span>
       </div>
       <div class="cat-corpo">
-        <aside class="filtri" aria-label="Filtri e ordinamento">
-          <strong>Ordina e filtra</strong>
-          {filtri.length ? filtri.map((f) => <a href={N(f.url)}>{nomeFiltro(f.url)}</a>) : <span class="nessuno">In evidenza</span>}
-          <label class="disp-filtro"><input type="checkbox" checked disabled /> Solo disponibili</label>
+        <aside class="filtri" aria-label={L("Filtri e ordinamento", "Filters and sorting")}>
+          <strong>{L("Ordina e filtra", "Sort and filter")}</strong>
+          {filtri.length ? filtri.map((f) => <a href={N(f.url)}>{nomeFiltro(f.url)}</a>) : <span class="nessuno">{L("In evidenza", "Featured")}</span>}
+          <label class="disp-filtro"><input type="checkbox" checked disabled /> {L("Solo disponibili", "In stock only")}</label>
         </aside>
         <ul class="griglia">
           {catalogo.prodotti.filter((p) => p.categoria === cat.id).map((p) => <li><SchedaProdotto p={p} /></li>)}
         </ul>
       </div>
-      {linkaIl404 && <p class="nota-link">Cerchi un classico? Prova il nostro <a href={N("/te-neri/earl-grey-classico/")}>Earl Grey classico</a>.</p>}
+      {linkaIl404 && <p class="nota-link">{L("Cerchi un classico? Prova il nostro ", "Looking for a classic? Try our ")}<a href={N("/te-neri/earl-grey-classico/")}>{EARL}</a>.</p>}
     </>
   ) : prodotto ? (
     <>
-      <nav class="briciole" aria-label="Sei qui"><a href={N("/")}>Home</a><span aria-hidden="true">›</span><a href={N(`/${prodotto.categoria}/`)}>{categoriaDi(prodotto.categoria).nome}</a><span aria-hidden="true">›</span>{prodotto.nome}</nav>
+      <nav class="briciole" aria-label={L("Sei qui", "You are here")}><a href={N("/")}>Home</a><span aria-hidden="true">›</span><a href={N(`/${prodotto.categoria}/`)}>{categoriaDi(prodotto.categoria).nome}</a><span aria-hidden="true">›</span>{prodotto.nome}</nav>
       <section class="prodotto">
         <div class="galleria">
           <div class="foto-grande"><Confezione categoria={prodotto.categoria} nome={prodotto.nome} grande /></div>
@@ -153,46 +182,46 @@ const piuVenduti = ["sencha-bio", "matcha-quotidiano", "tisane-della-sera", "tei
         <div class="prodotto-testi">
           <p class="occhiello">{categoriaDi(prodotto.categoria).nome}</p>
           <h1 data-cms-h1>{prodotto.h1}</h1>
-          <a class="voto-link" href="#recensioni">{prodotto.recensioni ? <><span class="stelle" aria-hidden="true">★★★★★</span> {voto(prodotto.id)} su 5, {prodotto.recensioni} recensioni</> : "Ancora nessuna recensione"}</a>
+          <a class="voto-link" href="#recensioni">{prodotto.recensioni ? <><span class="stelle" aria-hidden="true">★★★★★</span> {voto(prodotto.id)} {L("su 5", "out of 5")}, {prodotto.recensioni} {L("recensioni", "reviews")}</> : L("Ancora nessuna recensione", "No reviews yet")}</a>
           <div class="prezzo-blocco">
             <strong class="prezzo">{prezzo(prodotto.prezzo)}</strong>
-            <span>IVA inclusa{alKg(prodotto.prezzo, prodotto.formato) && `, ${alKg(prodotto.prezzo, prodotto.formato)} al kg`}. Formato: {prodotto.formato}</span>
+            <span>{L("IVA inclusa", "VAT included")}{alKg(prodotto.prezzo, prodotto.formato) && `, ${alKg(prodotto.prezzo, prodotto.formato)} ${L("al kg", "per kg")}`}. {L("Formato", "Size")}: {prodotto.formato}</span>
           </div>
           <p class="descr">{GUSTO[prodotto.categoria]}</p>
           <div class="acquista">
             <div class="qta" aria-hidden="true"><span>−</span><span>1</span><span>+</span></div>
-            <button type="button" class="nbottone grande" disabled title="Negozio finto: non si può comprare">{prodotto.disponibile ? "Aggiungi al carrello" : "Avvisami quando torna"}</button>
+            <button type="button" class="nbottone grande" disabled title={L("Negozio finto: non si può comprare", "Fake shop: you can't buy anything")}>{prodotto.disponibile ? L("Aggiungi al carrello", "Add to cart") : L("Avvisami quando torna", "Notify me when it's back")}</button>
           </div>
           <ul class="consegna">
-            {prodotto.disponibile ? <li><span class="pallino ok"></span>Disponibile: ordina entro le 14 e lo spediamo oggi</li> : <li><span class="pallino no"></span>Esaurito. {prodotto.nota}</li>}
-            <li><span class="pallino"></span>Spedizione gratuita sopra i 39 €</li>
-            <li><span class="pallino"></span>Reso entro 30 giorni</li>
+            {prodotto.disponibile ? <li><span class="pallino ok"></span>{L("Disponibile: ordina entro le 14 e lo spediamo oggi", "In stock: order by 2 pm and we'll ship it today")}</li> : <li><span class="pallino no"></span>{L("Esaurito.", "Out of stock.")} {prodotto.nota}</li>}
+            <li><span class="pallino"></span>{L("Spedizione gratuita sopra i 39 €", "Free shipping over €39")}</li>
+            <li><span class="pallino"></span>{L("Reso entro 30 giorni", "Returns within 30 days")}</li>
           </ul>
           {PREPARAZIONE[prodotto.categoria] && (
-            <div class="preparazione" aria-label="Come si prepara">
+            <div class="preparazione" aria-label={L("Come si prepara", "How to brew it")}>
               {PREPARAZIONE[prodotto.categoria].map(([v, c]) => <div><strong>{v}</strong><span>{c}</span></div>)}
             </div>
           )}
-          {linkaIl404 && <p class="nota-link">Ti piace? Prova anche l'<a href={N("/te-neri/earl-grey-classico/")}>Earl Grey classico</a>.</p>}
+          {linkaIl404 && <p class="nota-link">{L("Ti piace? Prova anche l'", "Like it? Try the ")}<a href={N("/te-neri/earl-grey-classico/")}>{EARL}</a>{L(".", " too.")}</p>}
         </div>
       </section>
 
       <section class="dettagli">
-        <h2>Descrizione</h2>
-        <p>{GUSTO[prodotto.categoria]} Selezionato e confezionato in Veneto da Cinque Foglie.</p>
+        <h2>{L("Descrizione", "Description")}</h2>
+        <p>{GUSTO[prodotto.categoria]} {L("Selezionato e confezionato in Veneto da Cinque Foglie.", "Selected and packed in Veneto by Cinque Foglie.")}</p>
         <dl>
-          <div><dt>Formato</dt><dd>{prodotto.formato}</dd></div>
-          <div><dt>Certificazione</dt><dd>{prodotto.categoria === "accessori" ? "non applicabile" : "biologico UE"}</dd></div>
-          <div><dt>Conservazione</dt><dd>{prodotto.categoria === "accessori" ? "lavare a mano" : "luogo fresco e asciutto, lontano dalla luce"}</dd></div>
+          <div><dt>{L("Formato", "Size")}</dt><dd>{prodotto.formato}</dd></div>
+          <div><dt>{L("Certificazione", "Certification")}</dt><dd>{prodotto.categoria === "accessori" ? L("non applicabile", "not applicable") : L("biologico UE", "EU organic")}</dd></div>
+          <div><dt>{L("Conservazione", "Storage")}</dt><dd>{prodotto.categoria === "accessori" ? L("lavare a mano", "hand wash") : L("luogo fresco e asciutto, lontano dalla luce", "cool, dry place, away from light")}</dd></div>
         </dl>
       </section>
 
       <section id="recensioni" class="recensioni">
         <div class="rec-sintesi">
-          <h2>Recensioni</h2>
+          <h2>{L("Recensioni", "Reviews")}</h2>
           {prodotto.recensioni
-            ? <><p class="rec-voto"><strong>{voto(prodotto.id)}</strong> su 5, {prodotto.recensioni} recensioni</p><p class="rec-nota">Recensioni di esempio di un negozio finto.</p></>
-            : <p>Ancora nessuna recensione per questo prodotto.</p>}
+            ? <><p class="rec-voto"><strong>{voto(prodotto.id)}</strong> {L("su 5", "out of 5")}, {prodotto.recensioni} {L("recensioni", "reviews")}</p><p class="rec-nota">{L("Recensioni di esempio di un negozio finto.", "Sample reviews from a fake shop.")}</p></>
+            : <p>{L("Ancora nessuna recensione per questo prodotto.", "No reviews for this product yet.")}</p>}
         </div>
         {prodotto.recensioni > 0 && (
           <div class="rec-elenco">
@@ -203,7 +232,7 @@ const piuVenduti = ["sencha-bio", "matcha-quotidiano", "tisane-della-sera", "tei
         )}
       </section>
 
-      <h2>Potrebbe piacerti anche</h2>
+      <h2>{L("Potrebbe piacerti anche", "You might also like")}</h2>
       <ul class="griglia">
         {catalogo.prodotti.filter((p) => p.categoria === prodotto.categoria && p.id !== prodotto.id).slice(0, 4).map((p) => <li><SchedaProdotto p={p} /></li>)}
       </ul>
@@ -211,32 +240,34 @@ const piuVenduti = ["sencha-bio", "matcha-quotidiano", "tisane-della-sera", "tei
   ) : url === "/blog/" ? (
     <>
       <h1>{pagina.h1}</h1>
-      <p class="intro">Guide, ricette e consigli per preparare il tè a casa.</p>
+      <p class="intro">{L("Guide, ricette e consigli per preparare il tè a casa.", "Guides, recipes and tips for making tea at home.")}</p>
       <ul class="griglia-blog">
         {blog.map((b, i) => (<li><a href={N(b.url)}><span class="blog-foto" style={`background:${SFONDI[i % SFONDI.length]}`}></span><small>{TEMA[b.url]}, {minuti(b.parole)}</small><strong>{b.h1}</strong></a></li>))}
       </ul>
     </>
   ) : pagina.tipo === "Articolo" ? (
     <article class="articolo">
-      <nav class="briciole" aria-label="Sei qui"><a href={N("/")}>Home</a><span aria-hidden="true">›</span><a href={N("/blog/")}>Il Diario del tè</a><span aria-hidden="true">›</span>{TEMA[url]}</nav>
+      <nav class="briciole" aria-label={L("Sei qui", "You are here")}><a href={N("/")}>Home</a><span aria-hidden="true">›</span><a href={N("/blog/")}>{L("Il Diario del tè", "The Tea Journal")}</a><span aria-hidden="true">›</span>{TEMA[url]}</nav>
       <p class="occhiello">{TEMA[url]}, {minuti(pagina.parole)}</p>
       <h1 data-cms-h1>{pagina.h1}</h1>
       <p class="intro">{pagina.description}</p>
       <div class="blog-foto grande" style={`background:${SFONDI[blog.findIndex((b) => b.url === url) % SFONDI.length]}`}></div>
-      <p>Articolo di circa {pagina.parole} parole. In questo negozio finto mostriamo solo l'inizio: il testo completo non serve per gli esercizi.</p>
-      {url === "/blog/sencha-guida-completa/" && <p>Il tè verde Sencha è il tè più bevuto in Giappone. In questa guida trovi cos'è, come si prepara e dove comprare il <strong>tè verde Sencha</strong> migliore: il nostro <a href={N("/te-verdi/sencha-bio/")}>Sencha biologico</a>.</p>}
-      {linkaIl404 && <p class="nota-link">Il nostro consiglio: l'<a href={N("/te-neri/earl-grey-classico/")}>Earl Grey classico</a>.</p>}
+      <p>{en ? `An article of about ${pagina.parole} words. In this fake shop we only show the beginning: the full text isn't needed for the exercises.` : `Articolo di circa ${pagina.parole} parole. In questo negozio finto mostriamo solo l'inizio: il testo completo non serve per gli esercizi.`}</p>
+      {url === "/blog/sencha-guida-completa/" && (en
+        ? <p>Sencha green tea is the most popular tea in Japan. In this guide you'll find what it is, how to brew it and where to buy the best <strong>sencha green tea</strong>: our <a href={N("/te-verdi/sencha-bio/")}>Organic Sencha</a>.</p>
+        : <p>Il tè verde Sencha è il tè più bevuto in Giappone. In questa guida trovi cos'è, come si prepara e dove comprare il <strong>tè verde Sencha</strong> migliore: il nostro <a href={N("/te-verdi/sencha-bio/")}>Sencha biologico</a>.</p>)}
+      {linkaIl404 && <p class="nota-link">{L("Il nostro consiglio: l'", "Our tip: the ")}<a href={N("/te-neri/earl-grey-classico/")}>{EARL}</a>.</p>}
     </article>
   ) : pagina.tipo === "Tag" ? (
     <>
-      <nav class="briciole" aria-label="Sei qui"><a href={N("/")}>Home</a><span aria-hidden="true">›</span><a href={N("/blog/")}>Il Diario del tè</a><span aria-hidden="true">›</span>{pagina.h1}</nav>
+      <nav class="briciole" aria-label={L("Sei qui", "You are here")}><a href={N("/")}>Home</a><span aria-hidden="true">›</span><a href={N("/blog/")}>{L("Il Diario del tè", "The Tea Journal")}</a><span aria-hidden="true">›</span>{pagina.h1}</nav>
       <h1>{pagina.h1}</h1>
       <ul class="elenco-blog">{blog.slice(0, 2).map((b) => <li><a href={N(b.url)}>{b.h1}</a></li>)}</ul>
     </>
   ) : (
     <section class="servizio">
       <h1>{pagina.h1}</h1>
-      <p class="intro">Pagina di servizio del negozio finto: qui non c'è niente da comprare.</p>
+      <p class="intro">{L("Pagina di servizio del negozio finto: qui non c'è niente da comprare.", "A service page of the fake shop: there's nothing to buy here.")}</p>
     </section>
   )}
 </Negozio>

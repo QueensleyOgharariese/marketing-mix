@@ -1,0 +1,302 @@
+{
+ "_nota": "Esercizio SEO 1, versione 3: tutto a scelte e blocchi, nessun testo libero. Dati simulati: volumi, prezzo e scheda prodotto sono inventati.",
+ "id": "seo",
+ "titolo": "Exercise 1 · The Sencha page",
+ "minuti": 25,
+ "richiesta": {
+  "da": "MR",
+  "nome": "Marta",
+  "ruolo": "Founder",
+  "quando": "today at 9:12",
+  "oggetto": "The Sencha can't be found online",
+  "testo": "Hi! Our organic Sencha green tea sells well in the shop, but nobody finds it online. Can you fix the page for Google? Work out who's searching for it, choose the title and description, prepare the data for Google and choose a short answer on how to brew it. Thanks so much!"
+ },
+ "attuale": {
+  "url": "cinquefoglie.example › te-verdi › sencha-bio",
+  "titolo": "Sencha | Cinque Foglie",
+  "descrizione": "Green tea. Buy now."
+ },
+ "scheda": {
+  "nome": "Organic Sencha",
+  "marca": "Cinque Foglie",
+  "origine": "Japan",
+  "formato": "Loose whole leaves, 100 g compostable bag",
+  "prezzo": "12.90",
+  "valuta": "EUR",
+  "disponibilita": "In stock",
+  "preparazione": "Water at 75 °C, steep for 2 minutes. Great iced too: 8 hours in the fridge.",
+  "gusto": "Fresh and grassy, slightly sweet",
+  "spedizione": "24-hour shipping",
+  "recensioni": "No verified reviews yet"
+ },
+ "intenti": [
+  {
+   "id": "info",
+   "nome": "Learn",
+   "spiega": "Wants to understand or learn something"
+  },
+  {
+   "id": "scelta",
+   "nome": "Choose",
+   "spiega": "Knows what they want and compares products"
+  },
+  {
+   "id": "acquisto",
+   "nome": "Buy",
+   "spiega": "Is ready to buy"
+  }
+ ],
+ "ricerche": [
+  {
+   "ricerca": "green tea",
+   "mese": "9,900",
+   "giusti": [
+    "info"
+   ]
+  },
+  {
+   "ricerca": "green tea benefits",
+   "mese": "6,600",
+   "giusti": [
+    "info"
+   ],
+   "attenzione": true
+  },
+  {
+   "ricerca": "sencha green tea",
+   "mese": "1,300",
+   "giusti": [
+    "scelta",
+    "acquisto"
+   ]
+  },
+  {
+   "ricerca": "how to make sencha",
+   "mese": "590",
+   "giusti": [
+    "info"
+   ]
+  },
+  {
+   "ricerca": "organic sencha",
+   "mese": "480",
+   "giusti": [
+    "scelta",
+    "acquisto"
+   ]
+  },
+  {
+   "ricerca": "iced sencha",
+   "mese": "210",
+   "giusti": [
+    "info"
+   ]
+  },
+  {
+   "ricerca": "buy sencha online",
+   "mese": "170",
+   "giusti": [
+    "acquisto"
+   ]
+  }
+ ],
+ "keywordGiuste": [
+  "sencha green tea",
+  "organic sencha"
+ ],
+ "notaRicerche": "\"Benefits\" brings lots of visits, but in the EU health claims about food are regulated (Regulation EC 1924/2006): on a product page talk about taste and quality.",
+ "domanda": "How do you brew Sencha tea?",
+ "perche": {
+  "intento": "Today Google tries to understand what searchers want. For people who want to learn it shows guides; for people who want to choose or buy it shows product pages. The Sencha page must target the searches of people who want to choose or buy.",
+  "titolo": "Google measures the title in pixels, not characters: beyond about 580 pixels it cuts it. If the title doesn't describe the page well, Google may also rewrite it itself.",
+  "dati": "Product structured data tells Google the price and availability, which can appear in the results and in Google Shopping. Review stars can only be shown with real reviews: making them up is forbidden (EU Directive 2019/2161, \"Omnibus\").",
+  "risposta": "A short, clear answer with verifiable data is easier to show in \"People also ask\" boxes and to quote in AI-generated overviews (AI Overviews)."
+ },
+ "parole": [
+  "search intent",
+  "keyword",
+  "title",
+  "meta description",
+  "structured data",
+  "AI Overviews"
+ ],
+ "consiglio": "Before writing, work out who's searching for what: search intent decides what page the person wants to see.",
+ "aiuti": [
+  {
+   "titolo": "How do I work out the intent?",
+   "testo": "Look at the words: \"how\", \"what is\", \"benefits\" = learn. The exact product name = choose. \"Buy\", \"price\", \"online\" = buy."
+  },
+  {
+   "titolo": "Which keyword for a product page?",
+   "testo": "Not the most searched, but the closest to the product: people who type \"green tea\" want general information, people who type \"sencha green tea\" already know what they want."
+  },
+  {
+   "titolo": "What do I put in the structured data?",
+   "testo": "Only true information that's visible on the page: name, brand, price, currency and availability. If there are no real reviews, no stars."
+  },
+  {
+   "titolo": "How do I choose the short answer?",
+   "testo": "The best one starts with the answer straight away, uses the numbers on the product page (temperature and time) and makes no health promises."
+  }
+ ],
+ "glossario": "Title: the blue title in the results. Meta description: the grey text underneath, it doesn't change the position but convinces people to click. Structured data: hidden code (JSON-LD) that describes the product to Google.",
+ "soluzione": {
+  "intento": "Learn: green tea, green tea benefits, how to make sencha, iced sencha. Choose: sencha green tea, organic sencha. Buy: buy sencha online. Main keyword: \"sencha green tea\".",
+  "titolo": "Organic loose leaf Sencha green tea | Cinque Foglie",
+  "descrizione": "Organic Japanese whole leaf Sencha, with a fresh, grassy taste. Great iced too. 24-hour shipping.",
+  "dati": "Name, brand, price 12.90 EUR, in stock. No star rating, because there are no verified reviews yet.",
+  "risposta": "To brew Sencha tea heat the water to 75 °C, without boiling it, and steep the leaves for 2 minutes. Use about 3 grams of leaves per cup. In summer you can make it iced: leave it in the fridge for 8 hours.",
+  "note": [
+   "The keyword is in the title, where Google and people notice it straight away.",
+   "The title really describes the page: that gives Google fewer reasons to rewrite it.",
+   "The structured data only contains true information: no stars without reviews.",
+   "The short answer starts with the answer and uses numbers taken from the product page."
+  ]
+ },
+ "autovalutazione": [
+  "I understand why the most searched keyword isn't the right one for a product page.",
+  "I could explain why the chosen description is better than the others.",
+  "I understand what makes an answer suitable for \"People also ask\" and AI overviews.",
+  "I checked the product page before choosing the data, without guessing."
+ ],
+ "risposta": "Thank you! Now the page speaks the way people speak and Google knows the price and availability. Next time we'll also prepare a guide for people searching \"how to make sencha\": it's another page, for another intent.",
+ "imparato": [
+  "search intent",
+  "choosing a keyword",
+  "titles in pixels",
+  "Product structured data",
+  "answers for AI searches",
+  "rules on health and reviews"
+ ],
+ "blocchi": [
+  {
+   "id": "kw1",
+   "testo": "Sencha green tea"
+  },
+  {
+   "id": "kw2",
+   "testo": "Organic Sencha"
+  },
+  {
+   "id": "bio",
+   "testo": "Organic"
+  },
+  {
+   "id": "foglie",
+   "testo": "loose leaf"
+  },
+  {
+   "id": "giap",
+   "testo": "Japanese"
+  },
+  {
+   "id": "brand",
+   "testo": "| Cinque Foglie"
+  },
+  {
+   "id": "brand2",
+   "testo": "Cinque Foglie |"
+  },
+  {
+   "id": "migliore",
+   "testo": "the best in Italy"
+  },
+  {
+   "id": "grassi",
+   "testo": "that burns fat"
+  },
+  {
+   "id": "offerta",
+   "testo": "Unmissable offer!"
+  },
+  {
+   "id": "lungo",
+   "testo": "with free 24-hour shipping from our online shop"
+  }
+ ],
+ "descrizioni": [
+  {
+   "id": "d1",
+   "testo": "Organic Japanese whole leaf Sencha, with a fresh, grassy taste. Great iced too. 24-hour shipping."
+  },
+  {
+   "id": "d2",
+   "testo": "The Sencha green tea that burns fat and detoxes: the secret to feeling good every day. 24-hour shipping."
+  },
+  {
+   "id": "d3",
+   "testo": "Green tea. Buy now."
+  },
+  {
+   "id": "d4",
+   "testo": "Discover our organic Japanese whole leaf Sencha, hand-picked and carefully selected to give you a fresh, grassy and slightly sweet taste, perfect at any time of the day. 24-hour shipping."
+  }
+ ],
+ "risposte": [
+  {
+   "id": "r1",
+   "testo": "To brew Sencha tea heat the water to 75 °C, without boiling it, and steep the leaves for 2 minutes. Use about 3 grams of leaves per cup. In summer you can make it iced: leave it in the fridge for 8 hours."
+  },
+  {
+   "id": "r2",
+   "testo": "Bring the water to the boil, at 100 °C, and steep the leaves for 5 minutes, so the tea becomes stronger and fuller-bodied. Use about 3 grams of leaves per cup and serve it straight away, piping hot."
+  },
+  {
+   "id": "r3",
+   "testo": "Sencha is brewed with water at 75 °C and steeped for 2 minutes. It's perfect for losing weight and detoxing the body: drink three cups a day to feel better and lighter straight away."
+  },
+  {
+   "id": "r4",
+   "testo": "Sencha tea is one of Japan's best-loved green teas and has a long, fascinating history going back many centuries. Every family has its own way of preparing and serving it, and every area of Japan has its own traditions. That's why there's no single right way: it depends on your taste, your habits and the time of day you drink it."
+  }
+ ],
+ "lezione": {
+  "intro": "SEO (Search Engine Optimization) is the work of getting a website found on Google without paying for ads. SEO specialists work out what people search for, fix pages so they answer those searches well and help Google read them. It's slow work: results come in weeks, not hours.",
+  "concetti": [
+   {
+    "nome": "Keywords and search intent",
+    "spiegazione": "A keyword is the search a person types into Google. Behind every search there's an intent: to learn, to choose between products or to buy. A product page should target people who want to choose or buy; people who want to learn are looking for a guide.",
+    "esempio": "\"how to clean a cast iron teapot\" is for learning (it needs a guide); \"1 litre cast iron teapot\" is for choosing (it needs the product page)."
+   },
+   {
+    "nome": "Title and meta description",
+    "spiegazione": "The title is the blue title in Google's results; the meta description is the grey text underneath. The title must contain the keyword and stay within about 580 pixels, otherwise it gets cut. The brand name usually goes at the end. The description makes people want to click.",
+    "esempio": "\"0.8 l cast iron teapot, enamelled inside | Casa del Tè\" is clear; \"Casa del Tè | Products\" doesn't say what's on the page."
+   },
+   {
+    "nome": "Structured data",
+    "spiegazione": "These are lines of code (JSON-LD) that people don't see, but Google does: they state precisely the product's name, brand, price and availability. They must match what's written on the page. Stars can only be shown with real reviews.",
+    "esempio": "If the page says €39 and the structured data says €29, Google notices and may not show the price."
+   },
+   {
+    "nome": "Short answers",
+    "spiegazione": "Google often shows short answers to questions, in the \"People also ask\" box or in answers generated by artificial intelligence. An answer of 30-70 words, precise and with the right numbers, is more likely to be chosen.",
+    "esempio": "\"How do you clean a cast iron teapot?\" Short answer: \"Rinse it with hot water, no soap, and dry it straight away over a low flame to avoid rust.\""
+   }
+  ],
+  "cosaFarai": [
+   "Work out the intent behind each search and choose the main keyword",
+   "Build the title and choose the meta description",
+   "Prepare the product's structured data",
+   "Choose the short answer on how to brew Sencha"
+  ]
+ },
+ "spiega": {
+  "intento": {
+   "testo": "Read each search as if a person had typed it: do they want to learn something, compare products or buy straight away? Some searches have two intents. As the main keyword choose a search by people who want to choose or buy, not the one with the most searches overall.",
+   "esempio": "Teapots: \"cast iron teapot\" has big volumes but is generic; \"enamelled cast iron teapot\" comes from people who know what they want: great for the product page."
+  },
+  "titolo": {
+   "testo": "Build the title by putting the keyword first, then a useful detail, then the brand name. Watch the pixel counter: if it turns red, the title is too long. For the description look for a sentence that describes the product and invites people to click, without health promises.",
+   "esempio": "\"Enamelled cast iron teapot 0.8 l | Casa del Tè\" with the description \"Enamelled cast iron that keeps the heat for a long time, for 3-4 cups. 24-hour shipping.\""
+  },
+  "dati": {
+   "testo": "Every field must be copied from the product page on the left, without making anything up. The name is the product, not the category; the brand is who sells it, not the country of origin. Stars are only added if there are verified reviews: see what the product page says.",
+   "esempio": "For the teapot: name \"Enamelled cast iron teapot\", brand \"Casa del Tè\", price as on the page. No stars if there are no reviews."
+  },
+  "risposta": {
+   "testo": "A good short answer has between 30 and 70 words, gives the right numbers taken from the product page (temperature, time) and doesn't promise health effects. Check each answer against these three criteria before choosing.",
+   "esempio": "\"To clean the cast iron teapot rinse it with hot water without soap and dry it straight away over a low flame\": precise and useful. \"Cast iron is good for your blood\": a health promise, to avoid."
+  }
+ }
+}

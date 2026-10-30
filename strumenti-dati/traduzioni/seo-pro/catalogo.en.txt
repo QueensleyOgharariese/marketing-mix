@@ -1,0 +1,99 @@
+1|Green teas
+2|Green teas | Cinque Foglie
+3|Green teas.
+4|Discover our green teas.
+5|Black teas
+6|Organic loose leaf and bagged black teas | Cinque Foglie
+7|Earl Grey, Assam, Darjeeling and spiced chai, organic and whole leaf. 24-hour shipping and easy returns.
+8|From classic Earl Grey to spiced chai: organic black teas for breakfast and the afternoon.
+9|Herbal teas
+10|Organic herbal teas
+11|Organic caffeine-free herbal teas | Cinque Foglie
+12|Chamomile, rooibos, mint and our Evening Herbal Teas: organic caffeine-free herbal teas in compostable bags. 24-hour shipping.
+13|Caffeine-free herbal teas for every moment of the day, evening included.
+14|Matcha
+15|Organic Japanese matcha | Cinque Foglie
+16|Ceremonial and everyday matcha, organic and stone-ground in Japan, with whisks and starter kits. 24-hour shipping.
+17|Matcha for the tea ceremony and for your everyday latte.
+18|Iced teas
+19|Iced teas and cold brew | Cinque Foglie
+20|Iced tea kits, Sencha cold brew and peach iced tea: ready in the fridge in 8 hours. 24-hour shipping.
+21|Teas to brew cold, for the summer.
+22|Accessories
+23|Tea accessories
+24|Teapots, cups and tea accessories | Cinque Foglie
+25|Cast iron teapots, ceramic cups, infusers and tins for storing tea. Gift ideas with 24-hour shipping.
+26|Everything you need to brew and store tea.
+27|Organic Sencha
+28|Organic loose leaf Sencha green tea | Cinque Foglie
+29|Organic Sencha, 100 g. Organic, selected by Cinque Foglie. 24-hour shipping and returns within 30 days.
+30|Gyokuro
+31|Gyokuro | Green teas | Cinque Foglie
+32|Gyokuro, 50 g. Organic, selected by Cinque Foglie. 24-hour shipping and returns within 30 days.
+33|Bancha
+34|Bancha | Green teas | Cinque Foglie
+35|Bancha, 100 g. Organic, selected by Cinque Foglie. 24-hour shipping and returns within 30 days.
+36|Genmaicha
+37|Genmaicha | Green teas | Cinque Foglie
+38|Genmaicha, 100 g. Organic, selected by Cinque Foglie. 24-hour shipping and returns within 30 days.
+39|Mint green tea
+40|Mint green tea | Green teas | Cinque Foglie
+41|Mint green tea, 100 g. Organic, selected by Cinque Foglie. 24-hour shipping and returns within 30 days.
+42|Jasmine green tea
+43|Jasmine green tea | Green teas | Cinque Foglie
+44|Jasmine green tea, 100 g. Organic, selected by Cinque Foglie. 24-hour shipping and returns within 30 days.
+45|Organic Earl Grey
+46|Cinque Foglie | Online tea shop
+47|English Breakfast
+48|Assam
+49|Darjeeling
+50|Spiced chai
+51|Vanilla black tea
+52|Evening Herbal Teas
+53|Evening Herbal Teas | Herbal teas | Cinque Foglie
+54|Evening Herbal Teas, 15 bags. Organic, selected by Cinque Foglie. 24-hour shipping and returns within 30 days.
+55|Organic chamomile
+56|Organic chamomile | Herbal teas | Cinque Foglie
+57|Organic chamomile, 20 bags. Organic, selected by Cinque Foglie. 24-hour shipping and returns within 30 days.
+58|Peppermint
+59|Peppermint | Herbal teas | Cinque Foglie
+60|Peppermint, 20 bags. Organic, selected by Cinque Foglie. 24-hour shipping and returns within 30 days.
+61|Vanilla rooibos
+62|Vanilla rooibos | Herbal teas | Cinque Foglie
+63|Vanilla rooibos, 100 g. Organic, selected by Cinque Foglie. 24-hour shipping and returns within 30 days.
+64|Ginger and lemon
+65|Ginger and lemon | Herbal teas | Cinque Foglie
+66|Ginger and lemon, 20 bags. Organic, selected by Cinque Foglie. 24-hour shipping and returns within 30 days.
+67|Red berry infusion
+68|Red berry infusion | Herbal teas | Cinque Foglie
+69|Red berry infusion, 100 g. Organic, selected by Cinque Foglie. 24-hour shipping and returns within 30 days.
+70|Ceremonial matcha
+71|Ceremonial matcha | Matcha | Cinque Foglie
+72|Ceremonial matcha, 30 g. Organic, selected by Cinque Foglie. 24-hour shipping and returns within 30 days.
+73|Everyday matcha
+74|Everyday matcha | Matcha | Cinque Foglie
+75|Everyday matcha, 50 g. Organic, selected by Cinque Foglie. 24-hour shipping and returns within 30 days.
+76|Matcha kit with whisk
+77|Matcha kit with whisk | Matcha | Cinque Foglie
+78|Matcha kit with whisk, kit. Organic, selected by Cinque Foglie. 24-hour shipping and returns within 30 days.
+79|Summer iced tea kit
+80|Back in May with the new season
+81|Summer iced tea kit | Iced teas | Cinque Foglie
+82|Summer iced tea kit, kit. Organic, selected by Cinque Foglie. 24-hour shipping and returns within 30 days.
+83|Sencha cold brew
+84|Sencha cold brew | Iced teas | Cinque Foglie
+85|Sencha cold brew, 10 bags. Organic, selected by Cinque Foglie. 24-hour shipping and returns within 30 days.
+86|Peach iced tea
+87|Peach iced tea | Iced teas | Cinque Foglie
+88|Peach iced tea, 100 g. Organic, selected by Cinque Foglie. 24-hour shipping and returns within 30 days.
+89|Cast iron teapot 0.8 l
+90|Cast iron teapot 0.8 l | Accessories | Cinque Foglie
+91|Cast iron teapot 0.8 l, piece. Organic, selected by Cinque Foglie. 24-hour shipping and returns within 30 days.
+92|Handmade ceramic cup
+93|Handmade ceramic cup | Accessories | Cinque Foglie
+94|Handmade ceramic cup, piece. Organic, selected by Cinque Foglie. 24-hour shipping and returns within 30 days.
+95|Steel infuser
+96|Tin canister 200 g
+97|Bamboo matcha whisk
+98|Bamboo matcha whisk | Accessories | Cinque Foglie
+99|Bamboo matcha whisk, piece. Organic, selected by Cinque Foglie. 24-hour shipping and returns within 30 days.

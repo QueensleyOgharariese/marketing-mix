@@ -1,5 +1,5 @@
 ---
-import { LINGUE_APP } from "../../../../i18n";
+import { LINGUE_APP, linguaDa } from "../../../../i18n";
 // APP · 4. CORREZIONE (mista)
 // Parte automatica: i 4 controlli misurabili (40 punti). Parte creativa: autovalutazione
 // confrontando il proprio lavoro con la soluzione di un professionista (60 punti).
@@ -7,11 +7,17 @@ import { LINGUE_APP } from "../../../../i18n";
 import AppLayout from "../../../../layouts/AppLayout.astro";
 import Pesca from "../../../../components/Pesca.astro";
 import Passi from "../../../../components/PassiEsercizio.astro";
-import es from "../../../../data/app/seo-sencha.json";
-import { PARTI } from "../../../../scripts/controlli-seo";
+import esIt from "../../../../data/app/seo-sencha.json";
+import esEn from "../../../../data/app/seo-sencha.en.json";
+import { partiDi } from "../../../../scripts/controlli-seo";
 export function getStaticPaths() { return LINGUE_APP(); }
+const en = linguaDa(Astro.url) === "en";
+const L = (it: string, eng: string) => (en ? eng : it);
+const es = en ? (esEn as typeof esIt) : esIt;
+const PARTI = partiDi(en);
+const APP = en ? "/en/app" : "/app";
 ---
-<AppLayout title="Correzione · SEO" indietro={{ etichetta: "Teoria del ruolo", link: "/app/impara/seo/" }} percorso={[{ etichetta: "SEO", link: "/app/impara/seo/" }, { etichetta: "Esercizio 1 · Correzione" }]}>
+<AppLayout title={L("Correzione · SEO", "Feedback · SEO")} indietro={{ etichetta: L("Teoria del ruolo", "Role theory"), link: `${APP}/impara/seo/` }} percorso={[{ etichetta: "SEO", link: `${APP}/impara/seo/` }, { etichetta: L("Esercizio 1 · Correzione", "Exercise 1 · Feedback") }]}>
   <Passi slot="barra" attivo={3} />
 
   <!-- Se non c'è ancora una consegna -->
@@ -19,9 +25,9 @@ export function getStaticPaths() { return LINGUE_APP(); }
     <section class="pannello vuoto">
       <Pesca dimensione={80} occhiali />
       <div>
-        <h1 class="app-titolo">Non hai ancora consegnato</h1>
-        <p>Scrivi titolo e descrizione nell'esercizio, poi torna qui per il confronto.</p>
-        <a class="bottone-app" href="/app/seo/esercizio/">Vai all'esercizio →</a>
+        <h1 class="app-titolo">{L("Non hai ancora consegnato", "You haven't submitted yet")}</h1>
+        <p>{L("Scrivi titolo e descrizione nell'esercizio, poi torna qui per il confronto.", "Do the exercise, then come back here for the comparison.")}</p>
+        <a class="bottone-app" href={`${APP}/seo/esercizio/`}>{L("Vai all'esercizio →", "Go to the exercise →")}</a>
       </div>
     </section>
   </main>
@@ -29,22 +35,22 @@ export function getStaticPaths() { return LINGUE_APP(); }
   <main class="contenuto" data-pieno hidden>
     <section class="pannello risultato">
       <div class="risultato-testa">
-        <Pesca dimensione={72} class="festa" etichetta="Pesca che festeggia" />
+        <Pesca dimensione={72} class="festa" etichetta={L("Pesca che festeggia", "Pesca celebrating")} />
         <div>
-          <h1 class="app-titolo">Consegnato! Ora confronta il tuo lavoro</h1>
-          <p>Due parti: i controlli automatici su ciò che si misura, e la tua autovalutazione rispetto alla soluzione di un professionista.</p>
+          <h1 class="app-titolo">{L("Consegnato! Ora confronta il tuo lavoro", "Submitted! Now compare your work")}</h1>
+          <p>{L("Due parti: i controlli automatici su ciò che si misura, e la tua autovalutazione rispetto alla soluzione di un professionista.", "Two parts: the automatic checks on what can be measured, and your self-assessment against a professional's solution.")}</p>
         </div>
       </div>
       <dl class="punti" aria-live="polite">
-        <div><dt>Controlli automatici</dt><dd><span data-p-auto>0</span> / 40</dd><span class="barra"><span data-b-auto></span></span></div>
-        <div><dt>Autovalutazione</dt><dd><span data-p-voto>0</span> / 60</dd><span class="barra"><span data-b-voto></span></span></div>
-        <div data-riga-aiuti><dt>Aiuti di Pesca</dt><dd>− <span data-p-aiuti>0</span></dd></div>
-        <div class="totale"><dt>Totale</dt><dd data-p-totale>0</dd></div>
+        <div><dt>{L("Controlli automatici", "Automatic checks")}</dt><dd><span data-p-auto>0</span> / 40</dd><span class="barra"><span data-b-auto></span></span></div>
+        <div><dt>{L("Autovalutazione", "Self-assessment")}</dt><dd><span data-p-voto>0</span> / 60</dd><span class="barra"><span data-b-voto></span></span></div>
+        <div data-riga-aiuti><dt>{L("Aiuti di Pesca", "Pesca's hints")}</dt><dd>− <span data-p-aiuti>0</span></dd></div>
+        <div class="totale"><dt>{L("Totale", "Total")}</dt><dd data-p-totale>0</dd></div>
       </dl>
     </section>
 
     <section class="pannello controlli" aria-labelledby="t-controlli">
-      <h2 id="t-controlli" class="sottotitolo">Controlli automatici, parte per parte</h2>
+      <h2 id="t-controlli" class="sottotitolo">{L("Controlli automatici, parte per parte", "Automatic checks, part by part")}</h2>
       <div class="gruppi">
         {PARTI.map((p, n) => (
           <div class="gruppo">
@@ -60,25 +66,25 @@ export function getStaticPaths() { return LINGUE_APP(); }
     </section>
 
     <!-- Confronto parte per parte: il tuo lavoro a sinistra, la soluzione a destra -->
-    <section class="confronto" aria-label="Confronto con la soluzione">
+    <section class="confronto" aria-label={L("Confronto con la soluzione", "Comparison with the solution")}>
       <div class="riga-confronto">
-        <div class="pannello lavoro"><span class="piccolo">1 · Il tuo intento e la keyword</span><span>Keyword scelta: <strong data-tuo="keyword"></strong></span><ul class="intenti-tuoi" data-tuo="intenti"></ul></div>
-        <div class="pannello lavoro lavoro--pro"><span class="piccolo">Soluzione</span><span>{es.soluzione.intento}</span></div>
+        <div class="pannello lavoro"><span class="piccolo">{L("1 · Il tuo intento e la keyword", "1 · Your intent and keyword")}</span><span>{L("Keyword scelta", "Chosen keyword")}: <strong data-tuo="keyword"></strong></span><ul class="intenti-tuoi" data-tuo="intenti"></ul></div>
+        <div class="pannello lavoro lavoro--pro"><span class="piccolo">{L("Soluzione", "Solution")}</span><span>{es.soluzione.intento}</span></div>
       </div>
       <div class="riga-confronto">
-        <div class="pannello lavoro"><span class="piccolo">2 · Il tuo risultato su Google</span><span class="a-titolo" data-tuo="titolo"></span><span class="a-desc" data-tuo="descrizione"></span></div>
-        <div class="pannello lavoro lavoro--pro"><span class="piccolo">Soluzione</span><span class="a-titolo">{es.soluzione.titolo}</span><span class="a-desc">{es.soluzione.descrizione}</span></div>
+        <div class="pannello lavoro"><span class="piccolo">{L("2 · Il tuo risultato su Google", "2 · Your result on Google")}</span><span class="a-titolo" data-tuo="titolo"></span><span class="a-desc" data-tuo="descrizione"></span></div>
+        <div class="pannello lavoro lavoro--pro"><span class="piccolo">{L("Soluzione", "Solution")}</span><span class="a-titolo">{es.soluzione.titolo}</span><span class="a-desc">{es.soluzione.descrizione}</span></div>
       </div>
       <div class="riga-confronto">
-        <div class="pannello lavoro"><span class="piccolo">3 · I tuoi dati strutturati</span><span data-tuo="dati"></span></div>
-        <div class="pannello lavoro lavoro--pro"><span class="piccolo">Soluzione</span><span>{es.soluzione.dati}</span></div>
+        <div class="pannello lavoro"><span class="piccolo">{L("3 · I tuoi dati strutturati", "3 · Your structured data")}</span><span data-tuo="dati"></span></div>
+        <div class="pannello lavoro lavoro--pro"><span class="piccolo">{L("Soluzione", "Solution")}</span><span>{es.soluzione.dati}</span></div>
       </div>
       <div class="riga-confronto">
-        <div class="pannello lavoro"><span class="piccolo">4 · La tua risposta breve</span><span data-tuo="risposta"></span></div>
-        <div class="pannello lavoro lavoro--pro"><span class="piccolo">Soluzione</span><span>{es.soluzione.risposta}</span></div>
+        <div class="pannello lavoro"><span class="piccolo">{L("4 · La tua risposta breve", "4 · Your short answer")}</span><span data-tuo="risposta"></span></div>
+        <div class="pannello lavoro lavoro--pro"><span class="piccolo">{L("Soluzione", "Solution")}</span><span>{es.soluzione.risposta}</span></div>
       </div>
       <div class="pannello note-pro">
-        <strong>Perché la soluzione funziona</strong>
+        <strong>{L("Perché la soluzione funziona", "Why the solution works")}</strong>
         <ul class="perche">{es.soluzione.note.map((p) => <li>{p}</li>)}</ul>
       </div>
     </section>
@@ -86,35 +92,35 @@ export function getStaticPaths() { return LINGUE_APP(); }
     <section class="parte-finale">
       <form class="pannello autovalutazione" data-autovalutazione>
         <div>
-          <h2 class="sottotitolo">Autovalutazione</h2>
-          <p class="nota">Guarda la soluzione e segna onestamente cosa hai fatto anche tu. Ogni punto vale 15.</p>
+          <h2 class="sottotitolo">{L("Autovalutazione", "Self-assessment")}</h2>
+          <p class="nota">{L("Guarda la soluzione e segna onestamente cosa hai fatto anche tu. Ogni punto vale 15.", "Look at the solution and honestly tick what you did too. Each point is worth 15.")}</p>
         </div>
         {es.autovalutazione.map((frase, i) => (
           <label class="scelta"><input type="checkbox" data-voto={i} /><span>{frase}</span></label>
         ))}
         <fieldset class="gradimento">
-          <legend>Quanto ti è piaciuto questo ruolo?</legend>
+          <legend>{L("Quanto ti è piaciuto questo ruolo?", "How much did you enjoy this role?")}</legend>
           <div class="stelle">
             {[1, 2, 3, 4, 5].map((n) => (
               <label><input type="radio" name="gradimento" value={n} /><span>{n}</span></label>
             ))}
           </div>
-          <p class="nota">1 = per niente, 5 = moltissimo. Serve a consigliarti il percorso giusto.</p>
+          <p class="nota">{L("1 = per niente, 5 = moltissimo. Serve a consigliarti il percorso giusto.", "1 = not at all, 5 = very much. It helps us recommend the right path for you.")}</p>
         </fieldset>
       </form>
 
       <aside class="lato">
         <div class="pannello risposta">
-          <span class="mittente"><span class="avatar">{es.richiesta.da}</span><strong>Risposta di {es.richiesta.nome}</strong></span>
+          <span class="mittente"><span class="avatar">{es.richiesta.da}</span><strong>{L("Risposta di", "Reply from")} {es.richiesta.nome}</strong></span>
           <p>{es.risposta}</p>
         </div>
         <div class="pannello imparato">
-          <strong>Cosa hai imparato</strong>
+          <strong>{L("Cosa hai imparato", "What you've learned")}</strong>
           <ul>{es.imparato.map((x) => <li>{x}</li>)}</ul>
         </div>
         <div class="azioni">
-          <button type="button" class="bottone-app" data-completa>Segna come completato →</button>
-          <a class="bottone-app bottone-app--chiaro" href="/app/seo/esercizio/">Riprova</a>
+          <button type="button" class="bottone-app" data-completa>{L("Segna come completato →", "Mark as completed →")}</button>
+          <a class="bottone-app bottone-app--chiaro" href={`${APP}/seo/esercizio/`}>{L("Riprova", "Try again")}</a>
         </div>
       </aside>
     </section>
@@ -122,9 +128,11 @@ export function getStaticPaths() { return LINGUE_APP(); }
 </AppLayout>
 
 <script>
-  import { conLingua } from "../../../../scripts/lingua";
+  import { conLingua, scegli, t } from "../../../../scripts/lingua";
   import { leggi, aggiornaRuolo, punteggio } from "../../../../scripts/progressi";
-  import es from "../../../../data/app/seo-sencha.json";
+  import esIt from "../../../../data/app/seo-sencha.json";
+  import esEn from "../../../../data/app/seo-sencha.en.json";
+  const es = scegli(esIt, esEn as typeof esIt);
   const INTENTI_JS = Object.fromEntries(es.intenti.map((i) => [i.id, i.nome]));
 
   const seo = leggi().ruoli.seo;
@@ -135,7 +143,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
     const c = seo.consegna;
     const l = c.lavoro as any;
     const metti = (chiave: string, testo: string) => { document.querySelector(`[data-tuo="${chiave}"]`)!.textContent = testo; };
-    metti("keyword", l.keyword || "nessuna");
+    metti("keyword", l.keyword || t("nessuna", "none"));
     metti("titolo", l.titolo);
     metti("descrizione", l.descrizione);
     metti("risposta", l.risposta);
@@ -147,8 +155,9 @@ export function getStaticPaths() { return LINGUE_APP(); }
       document.querySelector('[data-tuo="intenti"]')!.appendChild(li);
     });
     const d = l.schema ?? {};
-    const disp: Record<string, string> = { InStock: "disponibile", OutOfStock: "esaurito", PreOrder: "preordine" };
-    metti("dati", `Nome: ${d.nome || "–"}. Marca: ${d.marca || "–"}. Prezzo: ${d.prezzo || "–"} ${d.valuta}. ${disp[d.disponibilita] ?? "disponibilità non indicata"}. ${d.stelle ? "Con stelle 4,8 (inventate!)" : "Nessuna stella"}.`);
+    const disp: Record<string, string> = { InStock: t("disponibile", "in stock"), OutOfStock: t("esaurito", "out of stock"), PreOrder: t("preordine", "pre-order") };
+    metti("dati", t(`Nome: ${d.nome || "–"}. Marca: ${d.marca || "–"}. Prezzo: ${d.prezzo || "–"} ${d.valuta}. ${disp[d.disponibilita] ?? "disponibilità non indicata"}. ${d.stelle ? "Con stelle 4,8 (inventate!)" : "Nessuna stella"}.`,
+      `Name: ${d.nome || "–"}. Brand: ${d.marca || "–"}. Price: ${d.prezzo || "–"} ${d.valuta}. ${disp[d.disponibilita] ?? "availability not given"}. ${d.stelle ? "With 4.8 stars (made up!)" : "No stars"}.`));
     c.controlli.forEach((ok, i) => {
       const li = document.querySelector(`[data-controllo="${i}"]`);
       li?.classList.toggle("ok", ok);

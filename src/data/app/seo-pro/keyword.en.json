@@ -1,0 +1,864 @@
+{
+ "_nota": "Ricerca keyword simulata (Italia, ricerche mensili medie). Dati inventati. trend = 12 mesi da luglio a giugno (1 = media). posizione = posizione di oggi del sito (vuota se il sito non compare tra i primi 100: è il caso delle tisane, uscite da Google con il noindex).",
+ "mesiTrend": [
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun"
+ ],
+ "keyword": [
+  {
+   "keyword": "green tea",
+   "volume": 33100,
+   "difficolta": 61,
+   "cpc": 0.45,
+   "intento": "informativa",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "People also ask",
+    "Images",
+    "Shopping"
+   ],
+   "posizione": 8.4
+  },
+  {
+   "keyword": "green teas",
+   "volume": 4400,
+   "difficolta": 38,
+   "cpc": 0.6,
+   "intento": "commerciale",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Shopping",
+    "People also ask"
+   ],
+   "posizione": 7.1
+  },
+  {
+   "keyword": "organic green tea",
+   "volume": 2900,
+   "difficolta": 34,
+   "cpc": 0.7,
+   "intento": "commerciale",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Shopping"
+   ],
+   "posizione": 7.6
+  },
+  {
+   "keyword": "sencha green tea",
+   "volume": 1600,
+   "difficolta": 27,
+   "cpc": 0.55,
+   "intento": "commerciale",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Shopping",
+    "People also ask"
+   ],
+   "posizione": 9.2
+  },
+  {
+   "keyword": "sencha",
+   "volume": 2400,
+   "difficolta": 31,
+   "cpc": 0.4,
+   "intento": "informativa",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Featured snippet",
+    "People also ask"
+   ],
+   "posizione": 8.8
+  },
+  {
+   "keyword": "how to make sencha",
+   "volume": 590,
+   "difficolta": 12,
+   "cpc": 0.1,
+   "intento": "informativa",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Featured snippet"
+   ],
+   "posizione": 3.2
+  },
+  {
+   "keyword": "japanese green tea",
+   "volume": 1300,
+   "difficolta": 29,
+   "cpc": 0.5,
+   "intento": "commerciale",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Shopping"
+   ],
+   "posizione": null
+  },
+  {
+   "keyword": "green tea benefits",
+   "volume": 14800,
+   "difficolta": 42,
+   "cpc": 0.2,
+   "intento": "informativa",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "People also ask",
+    "Featured snippet"
+   ],
+   "posizione": null
+  },
+  {
+   "keyword": "matcha",
+   "volume": 40500,
+   "difficolta": 66,
+   "cpc": 0.65,
+   "intento": "commerciale",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Shopping",
+    "Videos",
+    "People also ask"
+   ],
+   "posizione": 6.8
+  },
+  {
+   "keyword": "organic matcha",
+   "volume": 3600,
+   "difficolta": 37,
+   "cpc": 0.8,
+   "intento": "transazionale",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Shopping"
+   ],
+   "posizione": 3.9
+  },
+  {
+   "keyword": "how to make matcha",
+   "volume": 6600,
+   "difficolta": 22,
+   "cpc": 0.15,
+   "intento": "informativa",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Videos",
+    "Featured snippet"
+   ],
+   "posizione": 2.4
+  },
+  {
+   "keyword": "matcha latte recipe",
+   "volume": 2900,
+   "difficolta": 18,
+   "cpc": 0.1,
+   "intento": "informativa",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Videos",
+    "Images"
+   ],
+   "posizione": null
+  },
+  {
+   "keyword": "matcha whisk",
+   "volume": 1900,
+   "difficolta": 19,
+   "cpc": 0.45,
+   "intento": "transazionale",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Shopping"
+   ],
+   "posizione": 7.9
+  },
+  {
+   "keyword": "black tea",
+   "volume": 8100,
+   "difficolta": 48,
+   "cpc": 0.4,
+   "intento": "informativa",
+   "trend": [
+    0.75,
+    0.75,
+    0.95,
+    1.15,
+    1.3,
+    1.35,
+    1.3,
+    1.15,
+    1.0,
+    0.9,
+    0.8,
+    0.75
+   ],
+   "serp": [
+    "People also ask"
+   ],
+   "posizione": 9.1
+  },
+  {
+   "keyword": "earl grey",
+   "volume": 9900,
+   "difficolta": 45,
+   "cpc": 0.35,
+   "intento": "commerciale",
+   "trend": [
+    0.75,
+    0.75,
+    0.95,
+    1.15,
+    1.3,
+    1.35,
+    1.3,
+    1.15,
+    1.0,
+    0.9,
+    0.8,
+    0.75
+   ],
+   "serp": [
+    "Shopping",
+    "People also ask"
+   ],
+   "posizione": 14.2
+  },
+  {
+   "keyword": "chai tea",
+   "volume": 5400,
+   "difficolta": 33,
+   "cpc": 0.4,
+   "intento": "commerciale",
+   "trend": [
+    0.75,
+    0.75,
+    0.95,
+    1.15,
+    1.3,
+    1.35,
+    1.3,
+    1.15,
+    1.0,
+    0.9,
+    0.8,
+    0.75
+   ],
+   "serp": [
+    "Videos",
+    "Shopping"
+   ],
+   "posizione": 15.8
+  },
+  {
+   "keyword": "caffeine free tea",
+   "volume": 2400,
+   "difficolta": 26,
+   "cpc": 0.5,
+   "intento": "commerciale",
+   "trend": [
+    0.55,
+    0.55,
+    0.9,
+    1.35,
+    1.6,
+    1.7,
+    1.6,
+    1.3,
+    1.0,
+    0.8,
+    0.6,
+    0.55
+   ],
+   "serp": [
+    "People also ask",
+    "Shopping"
+   ],
+   "posizione": null
+  },
+  {
+   "keyword": "herbal tea",
+   "volume": 18100,
+   "difficolta": 52,
+   "cpc": 0.55,
+   "intento": "commerciale",
+   "trend": [
+    0.55,
+    0.55,
+    0.9,
+    1.35,
+    1.6,
+    1.7,
+    1.6,
+    1.3,
+    1.0,
+    0.8,
+    0.6,
+    0.55
+   ],
+   "serp": [
+    "Shopping",
+    "People also ask"
+   ],
+   "posizione": null
+  },
+  {
+   "keyword": "organic herbal tea",
+   "volume": 3600,
+   "difficolta": 35,
+   "cpc": 0.75,
+   "intento": "transazionale",
+   "trend": [
+    0.55,
+    0.55,
+    0.9,
+    1.35,
+    1.6,
+    1.7,
+    1.6,
+    1.3,
+    1.0,
+    0.8,
+    0.6,
+    0.55
+   ],
+   "serp": [
+    "Shopping"
+   ],
+   "posizione": null
+  },
+  {
+   "keyword": "herbal tea for sleep",
+   "volume": 6600,
+   "difficolta": 39,
+   "cpc": 0.6,
+   "intento": "commerciale",
+   "trend": [
+    0.55,
+    0.55,
+    0.9,
+    1.35,
+    1.6,
+    1.7,
+    1.6,
+    1.3,
+    1.0,
+    0.8,
+    0.6,
+    0.55
+   ],
+   "serp": [
+    "People also ask"
+   ],
+   "posizione": null
+  },
+  {
+   "keyword": "evening herbal tea",
+   "volume": 2900,
+   "difficolta": 24,
+   "cpc": 0.4,
+   "intento": "informativa",
+   "trend": [
+    0.55,
+    0.55,
+    0.9,
+    1.35,
+    1.6,
+    1.7,
+    1.6,
+    1.3,
+    1.0,
+    0.8,
+    0.6,
+    0.55
+   ],
+   "serp": [
+    "Featured snippet"
+   ],
+   "posizione": 3.6
+  },
+  {
+   "keyword": "rooibos",
+   "volume": 6600,
+   "difficolta": 36,
+   "cpc": 0.4,
+   "intento": "commerciale",
+   "trend": [
+    0.55,
+    0.55,
+    0.9,
+    1.35,
+    1.6,
+    1.7,
+    1.6,
+    1.3,
+    1.0,
+    0.8,
+    0.6,
+    0.55
+   ],
+   "serp": [
+    "People also ask",
+    "Shopping"
+   ],
+   "posizione": null
+  },
+  {
+   "keyword": "organic chamomile",
+   "volume": 1600,
+   "difficolta": 28,
+   "cpc": 0.55,
+   "intento": "transazionale",
+   "trend": [
+    0.55,
+    0.55,
+    0.9,
+    1.35,
+    1.6,
+    1.7,
+    1.6,
+    1.3,
+    1.0,
+    0.8,
+    0.6,
+    0.55
+   ],
+   "serp": [
+    "Shopping"
+   ],
+   "posizione": null
+  },
+  {
+   "keyword": "ginger and lemon tea",
+   "volume": 1900,
+   "difficolta": 21,
+   "cpc": 0.35,
+   "intento": "commerciale",
+   "trend": [
+    0.55,
+    0.55,
+    0.9,
+    1.35,
+    1.6,
+    1.7,
+    1.6,
+    1.3,
+    1.0,
+    0.8,
+    0.6,
+    0.55
+   ],
+   "serp": [
+    "Videos",
+    "Shopping"
+   ],
+   "posizione": null
+  },
+  {
+   "keyword": "homemade iced tea",
+   "volume": 9900,
+   "difficolta": 21,
+   "cpc": 0.1,
+   "intento": "informativa",
+   "trend": [
+    3.2,
+    2.6,
+    1.0,
+    0.35,
+    0.2,
+    0.15,
+    0.15,
+    0.2,
+    0.4,
+    0.8,
+    1.8,
+    2.8
+   ],
+   "serp": [
+    "Videos",
+    "Featured snippet"
+   ],
+   "posizione": 2.7
+  },
+  {
+   "keyword": "cold brew tea",
+   "volume": 1000,
+   "difficolta": 16,
+   "cpc": 0.3,
+   "intento": "commerciale",
+   "trend": [
+    3.2,
+    2.6,
+    1.0,
+    0.35,
+    0.2,
+    0.15,
+    0.15,
+    0.2,
+    0.4,
+    0.8,
+    1.8,
+    2.8
+   ],
+   "serp": [
+    "Videos"
+   ],
+   "posizione": 6.1
+  },
+  {
+   "keyword": "peach iced tea",
+   "volume": 4400,
+   "difficolta": 30,
+   "cpc": 0.3,
+   "intento": "commerciale",
+   "trend": [
+    3.2,
+    2.6,
+    1.0,
+    0.35,
+    0.2,
+    0.15,
+    0.15,
+    0.2,
+    0.4,
+    0.8,
+    1.8,
+    2.8
+   ],
+   "serp": [
+    "Shopping",
+    "Videos"
+   ],
+   "posizione": null
+  },
+  {
+   "keyword": "cast iron teapot",
+   "volume": 5400,
+   "difficolta": 41,
+   "cpc": 0.9,
+   "intento": "commerciale",
+   "trend": [
+    0.8,
+    0.8,
+    0.9,
+    1.0,
+    1.4,
+    2.2,
+    0.9,
+    0.85,
+    0.85,
+    0.85,
+    0.85,
+    0.8
+   ],
+   "serp": [
+    "Shopping",
+    "Images"
+   ],
+   "posizione": 11.8
+  },
+  {
+   "keyword": "tea gift ideas",
+   "volume": 2400,
+   "difficolta": 33,
+   "cpc": 0.8,
+   "intento": "commerciale",
+   "trend": [
+    0.8,
+    0.8,
+    0.9,
+    1.0,
+    1.4,
+    2.2,
+    0.9,
+    0.85,
+    0.85,
+    0.85,
+    0.85,
+    0.8
+   ],
+   "serp": [
+    "Shopping",
+    "People also ask"
+   ],
+   "posizione": null
+  },
+  {
+   "keyword": "tea advent calendar",
+   "volume": 3600,
+   "difficolta": 29,
+   "cpc": 0.7,
+   "intento": "transazionale",
+   "trend": [
+    0.0,
+    0.0,
+    0.1,
+    0.6,
+    2.6,
+    3.2,
+    0.1,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "serp": [
+    "Shopping"
+   ],
+   "posizione": null
+  },
+  {
+   "keyword": "how to store tea",
+   "volume": 880,
+   "difficolta": 9,
+   "cpc": 0.05,
+   "intento": "informativa",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Featured snippet"
+   ],
+   "posizione": 3.4
+  },
+  {
+   "keyword": "green tea vs black tea",
+   "volume": 1900,
+   "difficolta": 11,
+   "cpc": 0.05,
+   "intento": "informativa",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Featured snippet"
+   ],
+   "posizione": 2.9
+  },
+  {
+   "keyword": "tea water temperature",
+   "volume": 1300,
+   "difficolta": 10,
+   "cpc": 0.05,
+   "intento": "informativa",
+   "trend": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "serp": [
+    "Featured snippet"
+   ],
+   "posizione": null
+  }
+ ]
+}

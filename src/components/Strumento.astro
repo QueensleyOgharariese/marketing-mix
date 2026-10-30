@@ -18,7 +18,7 @@ const T = {
         lavoro: "Usalo nel lavoro vero", attrezzo: "È uno degli attrezzi di questo ruolo. Provalo nell'azienda finta, con un esercizio guidato.", prova: "Prova il ruolo →",
         altri: "Altri strumenti pronti", tutti: "Tutti gli strumenti →", dalBlog: "Dal blog", leggi: "Leggi la teoria →" },
   en: { percorso: "Breadcrumb", strumenti: "Tools", gratis: "free", privacy: "Your browser does the calculations: what you type is never sent or stored.",
-        lavoro: "Use it at work", attrezzo: "It's one of the tools of this role. Try the role in the practice company, with a guided exercise (in Italian for now).", prova: "Try the role →",
+        lavoro: "Use it at work", attrezzo: "It's one of the tools of this role. Try the role in the practice company, with a guided exercise.", prova: "Try the role →",
         altri: "Other ready tools", tutti: "All tools →", dalBlog: "From the blog", leggi: "Read the theory →" },
 }[lang];
 ---
@@ -41,7 +41,7 @@ const T = {
           <span class="etichetta">{T.lavoro}</span>
           <strong>{ruolo.nome}</strong>
           <p>{T.attrezzo}</p>
-          <a class="bottone" href={linkEsercizio(ruolo.id)} hreflang={lang === "en" ? "it" : undefined}>{T.prova}</a>
+          <a class="bottone" href={linkEsercizio(ruolo.id, lang)}>{T.prova}</a>
           <a class="link-forte" href={linkRuolo(lang, ruolo.id)}>{ruolo.titoloPagina}</a>
         </div>
         <div class="riquadro">

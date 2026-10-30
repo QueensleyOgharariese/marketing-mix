@@ -44,7 +44,7 @@ const menu = t.menu.map(([etichetta, pagina]) => ({ etichetta, link: indirizzo(l
           ? <><span class="lingua-attiva" lang="it" aria-current="true">IT</span><a class="lingua-link" lang="en" hreflang="en" href={traduzione} aria-label="English version">EN</a></>
           : <><a class="lingua-link" lang="it" hreflang="it" href={traduzione} aria-label="Versione italiana">IT</a><span class="lingua-attiva" lang="en" aria-current="true">EN</span></>}
       </div>
-      <a href={indirizzo(lang, "app")} class="bottone bottone-menu" hreflang={lang === "en" ? "it" : undefined}>{t.bottoneMenu} <span aria-hidden="true">→</span></a>
+      <a href={indirizzo(lang, "app")} class="bottone bottone-menu">{t.bottoneMenu} <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </header>

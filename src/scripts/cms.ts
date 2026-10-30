@@ -1,8 +1,14 @@
 // PANNELLO DEL NEGOZIO (un CMS finto): le modifiche fatte da chi gioca e il sito "effettivo" che ne risulta
 // Le modifiche restano solo in questo browser (localStorage). Tutti gli strumenti leggono il sito da qui:
 // così, se nel pannello togli il noindex alle tisane, lo vedono anche Ispeziona, il crawler e l'indicizzazione.
-import crawl from "../data/app/seo-pro/crawl.json";
-import catalogo from "../data/app/seo-pro/catalogo.json";
+// Nella versione inglese dell'app si leggono i dati gemelli (.en.json): stessi indirizzi e codici, testi in inglese
+import crawlIt from "../data/app/seo-pro/crawl.json";
+import crawlEn from "../data/app/seo-pro/crawl.en.json";
+import catalogoIt from "../data/app/seo-pro/catalogo.json";
+import catalogoEn from "../data/app/seo-pro/catalogo.en.json";
+import { scegli, EN } from "./lingua";
+const crawl = scegli(crawlIt, crawlEn as typeof crawlIt);
+const catalogo = scegli(catalogoIt, catalogoEn as typeof catalogoIt);
 
 export type CampiPagina = { title?: string; description?: string; robots?: string; h1?: string; intro?: string };
 export type Modifiche = {
@@ -137,3 +143,19 @@ export function catena(url: string, m = leggiModifiche()) {
   while (m.redirect[u] && passi.length < 6) { u = m.redirect[u]; passi.push(u); }
   return passi;
 }
+
+// Tipo di pagina e motivo restano codici italiani nei dati (servono a filtri e colori):
+// nella versione inglese si mostrano con queste etichette
+const TIPI_EN: Record<string, string> = { Home: "Home", Categoria: "Category", Prodotto: "Product", Blog: "Blog", Articolo: "Article", Tag: "Tag",
+  Filtro: "Filter", Paginazione: "Pagination", Servizio: "Service page", "Vecchio indirizzo": "Old address" };
+const MOTIVI_EN: Record<string, string> = { noindex: "noindex", Reindirizzamento: "Redirect", "Errore client (404)": "Client error (404)", Canonicalizzata: "Canonicalised" };
+export const nomeTipo = (tipo: string) => (EN ? TIPI_EN[tipo] ?? tipo : tipo);
+export const nomeMotivo = (motivo: string) => (EN ? MOTIVI_EN[motivo] ?? motivo : motivo);
+// I motivi del rapporto Pagine (indicizzazione.json) con i nomi che usa Search Console in inglese
+export const NOMI_MOTIVI_EN: Record<string, string> = {
+  'Esclusa in base al tag "noindex"': "Excluded by 'noindex' tag",
+  "Pagina duplicata senza URL canonico selezionato dall'utente": "Duplicate without user-selected canonical",
+  "Scansionata, ma attualmente non indicizzata": "Crawled - currently not indexed",
+  "Non trovata (404)": "Not found (404)",
+  "Pagina con reindirizzamento": "Page with redirect",
+};

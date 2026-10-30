@@ -3,3 +3,7 @@ node_modules/
 dist/
 .astro/
 .DS_Store
+# Screenshot delle prove automatiche (finivano per sbaglio nella cartella principale)
+/*.png
+# File temporanei di Python
+__pycache__/

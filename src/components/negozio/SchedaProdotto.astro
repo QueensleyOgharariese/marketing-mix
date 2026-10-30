@@ -3,23 +3,27 @@
 // Foto disegnata, nome, formato, voto, prezzo e bottone "Aggiungi" (finto, disattivato).
 import Confezione from "./Confezione.astro";
 import { voto, prezzo, etichettaProdotto } from "../../scripts/negozio";
+import { linguaDa } from "../../i18n";
 interface Props { p: { id: string; categoria: string; nome: string; prezzo: number; formato: string; disponibile: boolean; url: string; recensioni: number }; categoriaNome?: string }
 const { p, categoriaNome } = Astro.props;
-const etichetta = etichettaProdotto(p);
+const en = linguaDa(Astro.url) === "en";
+const L = (it: string, eng: string) => (en ? eng : it);
+const etichetta = etichettaProdotto(p, en);
+const link = `${en ? "/en" : ""}/app/negozio${p.url}`;
 ---
 <article class="nscheda">
-  <a class="foto" href={`/app/negozio${p.url}`} tabindex="-1" aria-hidden="true">
+  <a class="foto" href={link} tabindex="-1" aria-hidden="true">
     {etichetta && <span class="etichetta">{etichetta}</span>}
     <Confezione categoria={p.categoria} nome={p.nome} />
   </a>
   <div class="testi">
     {categoriaNome && <span class="cat">{categoriaNome}</span>}
-    <a class="nome" href={`/app/negozio${p.url}`}>{p.nome}</a>
+    <a class="nome" href={link}>{p.nome}</a>
     <span class="formato">{p.formato}</span>
-    <span class="voto">{p.recensioni ? <><span class="stelle" aria-hidden="true">★★★★★</span> {voto(p.id)} <span class="sr">su 5,</span>({p.recensioni}<span class="sr"> recensioni</span>)</> : "Nessuna recensione"}</span>
+    <span class="voto">{p.recensioni ? <><span class="stelle" aria-hidden="true">★★★★★</span> {voto(p.id, en)} <span class="sr">{L("su 5,", "out of 5,")}</span>({p.recensioni}<span class="sr"> {L("recensioni", "reviews")}</span>)</> : L("Nessuna recensione", "No reviews")}</span>
     <div class="piede">
-      <strong>{prezzo(p.prezzo)}</strong>
-      <button type="button" disabled={!p.disponibile} title="Negozio finto: non si può comprare">{p.disponibile ? "Aggiungi" : "Esaurito"}</button>
+      <strong>{prezzo(p.prezzo, en)}</strong>
+      <button type="button" disabled={!p.disponibile} title={L("Negozio finto: non si può comprare", "Fake shop: you can't buy anything")}>{p.disponibile ? L("Aggiungi", "Add") : L("Esaurito", "Out of stock")}</button>
     </div>
   </div>
 </article>

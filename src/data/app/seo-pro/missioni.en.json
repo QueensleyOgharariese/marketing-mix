@@ -1,0 +1,2079 @@
+{
+ "_nota": "Percorso SEO junior a livelli. Generato da strumenti-dati/crea_livelli_seo.py: vedi le note in testa allo script.",
+ "livelli": [
+  {
+   "n": 0,
+   "nome": "Tutorial",
+   "cosa": "How the workspace works."
+  },
+  {
+   "n": 1,
+   "nome": "Basics",
+   "cosa": "One concept at a time. «How it works» is already open and the hint is always available."
+  },
+  {
+   "n": 2,
+   "nome": "Diagnosis",
+   "cosa": "Mixed problems, including false alarms. You open «How it works» yourself."
+  },
+  {
+   "n": 3,
+   "nome": "Cases",
+   "cosa": "No hints: just data and theory. Calculations, priorities and texts to write."
+  }
+ ],
+ "missioni": [
+  {
+   "id": "tutorial",
+   "n": 0,
+   "livello": 0,
+   "nome": "Tutorial: how it works",
+   "tempo": "8 minutes",
+   "strumenti": "Shop, Admin",
+   "cosa": "Where things are and how to save and check a change.",
+   "obiettivo": "Learn to find your way around the workspace and to save and check a change.",
+   "passi": [
+    {
+     "strumento": "console",
+     "tipo": "info",
+     "domanda": "How the workspace is laid out",
+     "spiega": "You work as a junior SEO specialist in the Cinque Foglie online shop. The screen has three areas.",
+     "esempio": "",
+     "compito": "",
+     "come": [
+      "<strong>On the left the menu</strong> (on a phone it's at the top): the overview, the shop, the Shop admin and the five tools (Console, Indexing, Keywords, Crawler, Analytics).",
+      "<strong>In the middle</strong> the open tool: this is where you read the data.",
+      "<strong>On the right this guide</strong>: the task at the top, the answers below. The <strong>How it works</strong>, <strong>Theory</strong> and <strong>Hint</strong> tabs help you when needed; the button to check is always at the bottom.",
+      "The side bars close with the X and reopen with the icon on the edge. <strong>Full screen</strong> at the top leaves only the tool."
+     ],
+     "opzioni": [],
+     "perche": "",
+     "aiuto": "",
+     "dove": ".console > .menu"
+    },
+    {
+     "strumento": "negozio",
+     "pagina": "/app/negozio/accessori/",
+     "tipo": "radio",
+     "domanda": "Open Inspect in the shop",
+     "spiega": "The shop is Cinque Foglie's real website. At the top there's a bar like a browser's: the Inspect button shows the page data that Google reads and a customer doesn't see.",
+     "esempio": "It's like looking at the label on the back of a product: the packaging is on the front, the technical information on the back.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "The cart with the chosen products",
+       "giusta": false,
+       "nota": "The cart is the green button in the shop's header. Inspect is the dark one next to the address."
+      },
+      {
+       "id": "o2",
+       "testo": "The data Google reads: status, title, description, H1…",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Customer reviews",
+       "giusta": false,
+       "nota": "Reviews are on the product pages. Press Inspect and look at the rows in the box."
+      }
+     ],
+     "perche": "You'll need Inspect in almost every exercise: after each fix you open it to see whether the page has changed.",
+     "aiuto": "The Inspect button is dark, on the same line as the address https://cinquefoglie.example/accessori/.",
+     "dove": ".ispeziona summary",
+     "consegna": "Open Inspect on the Accessories page and look at what it shows.",
+     "errore": ""
+    },
+    {
+     "strumento": "pannello",
+     "tipo": "azione",
+     "verifica": "tutorialAccessori",
+     "domanda": "Save your first change",
+     "spiega": "The Shop admin is the website's back office: in a real company it could be WordPress or Shopify. What you save here goes live straight away and is seen by the shop and all the tools. After each change press Check my work: the guide tells you what's fine and what isn't.",
+     "esempio": "In a travel blog's back office you change an article's title, press Save and the new title is already on the website.",
+     "vai": {
+      "link": "/app/percorsi/seo/pannello/?pagina=/accessori/",
+      "testo": "Open /accessori/ in the Admin"
+     },
+     "opzioni": [],
+     "perche": "You changed the website and checked it: in the exercises you always work like this. If you make a mistake, the Admin has Back to the original.",
+     "aiuto": "The H1 field is the third in the form, under Title and Meta description. Press Save changes before Check my work.",
+     "dove": "[data-editor] input[name=h1]",
+     "consegna": "In the Admin change the H1 of /accessori/ to «Teapots, cups and tea accessories», save and check.",
+     "negozio": "/app/negozio/accessori/",
+     "errore": ""
+    },
+    {
+     "strumento": "console",
+     "tipo": "info",
+     "domanda": "Points, levels and how to choose",
+     "spiega": "Last rules, then we start from the Basics level.",
+     "esempio": "",
+     "compito": "",
+     "come": [
+      "Three levels: <strong>Basics</strong>, <strong>Diagnosis</strong> and <strong>Cases</strong>. Each exercise is a small project made of mini exercises; within a level you choose the order. The next level unlocks when you finish the one before.",
+      "<strong>How it works</strong> explains the tool, not the answer. <strong>Theory</strong> is free. <strong>Hint</strong> costs 5 points.",
+      "The guide fades as you go up a level: in Basics «How it works» is already open, in Diagnosis you open it yourself, in Cases there's only theory and data.",
+      "Each exercise starts from 100 points: a wrong answer takes off 10 points. When you write or edit the website you can try again without losing points.",
+      "To start again from scratch: <strong>Start over</strong> at the top of the guide."
+     ],
+     "opzioni": [],
+     "perche": "",
+     "aiuto": "",
+     "dove": ""
+    }
+   ],
+   "imparato": [
+    "The guide on the right follows you onto every page.",
+    "Inspect shows the page data that Google reads.",
+    "In the Admin you save a change, then press Check my work."
+   ],
+   "elena": "Perfect, now you know how to use the workspace. Start with the Basics: short exercises, one tool at a time.",
+   "situazione": "Hi, welcome to Cinque Foglie! Before we start I'll show you where things are: ten minutes and you're ready to go.",
+   "prepara": {
+    "pagine": [
+     "/accessori/"
+    ]
+   }
+  },
+  {
+   "id": "base1",
+   "livello": 1,
+   "n": 1,
+   "nome": "The black tea product pages",
+   "tempo": "30 minutes",
+   "strumenti": "Shop, Crawler, Admin",
+   "cosa": "Title, H1 and meta description: reading them, finding the wrong ones and rewriting them.",
+   "situazione": "On Google our black teas all show up with the same title and no description. The copywriter doesn't know where to start: can you help me understand and fix it?",
+   "obiettivo": "Understand title, H1 and description, find the wrong product pages and rewrite two as an example for the copywriter.",
+   "passi": [
+    {
+     "strumento": "negozio",
+     "tipo": "radio",
+     "domanda": "What's the title of the Black teas page?",
+     "spiega": "Every page has two titles. The title is written in the code and Google sees it: it's the blue title in the results. The H1 is the big title read by people visiting the page. They can differ: the title is usually longer, describes the page better and ends with the shop's name.",
+     "esempio": "In a shoe shop the H1 can be «Sneakers» and the title «Men's and women's sneakers | ShopName».",
+     "errore": "Thinking the title is the page's big heading. That's the H1: the title isn't visible in the body of the page.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Black teas",
+       "giusta": false,
+       "nota": "That's the H1, the big heading written on the page. The title is another row in Inspect."
+      },
+      {
+       "id": "o2",
+       "testo": "Organic loose leaf and bagged black teas | Cinque Foglie",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Cinque Foglie | Online tea shop",
+       "giusta": false,
+       "nota": "That's the title of some product pages, not of the category. Read Inspect on this page."
+      }
+     ],
+     "perche": "The category title says what's there (organic black teas, loose leaf and bagged) and ends with the brand. The H1 «Black teas» is shorter because people already on the page know where they are.",
+     "aiuto": "In Inspect the rows are: Status, Title, Description, Robots, Canonical, H1. You need the second.",
+     "dove": ".ispeziona summary",
+     "pagina": "/app/negozio/te-neri/",
+     "consegna": ""
+    },
+    {
+     "strumento": "negozio",
+     "tipo": "radio",
+     "domanda": "Where does the title appear?",
+     "spiega": "The title isn't visible on the page. Google uses it as the result's title and the browser uses it as the tab name at the top. That's why it's the first thing a person reads about us on Google: it decides whether they click.",
+     "esempio": "If you open ten tabs in the browser, the names you read at the top are the pages' titles.",
+     "errore": "Writing the title only for Google, packed with keywords: people read it and it has to convince them to click.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "In the big heading at the top of the page",
+       "giusta": false,
+       "nota": "That's the H1. The title isn't visible in the body of the page."
+      },
+      {
+       "id": "o2",
+       "testo": "In the blue title of Google's results and in the browser tab",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Only in the Shop admin",
+       "giusta": false,
+       "nota": "You write it in the Admin, but who sees it? Think about search results."
+      }
+     ],
+     "perche": "The title matters a lot in SEO because it's the first contact with searchers: a clear title brings more clicks.",
+     "aiuto": "The big heading on the page is the H1. The title is seen outside the page.",
+     "dove": "",
+     "pagina": "/app/negozio/te-neri/",
+     "consegna": ""
+    },
+    {
+     "strumento": "negozio",
+     "tipo": "radio",
+     "domanda": "What's wrong with the Assam product page title?",
+     "spiega": "A good product page title says what you're buying: the product name, the type (black tea) and a feature (organic, loose leaf), then the brand at the end. People reading the result must understand straight away whether it's what they're looking for.",
+     "esempio": "For an olive oil: «Apulian extra virgin olive oil 750 ml | ShopName» instead of «ShopName | Local products».",
+     "errore": "Putting the shop's name at the start: it takes up the most visible space and doesn't say what's for sale.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "It's too long: Google cuts it",
+       "giusta": false,
+       "nota": "«Cinque Foglie | Online tea shop» is short. The problem is what it says, not how long it is."
+      },
+      {
+       "id": "o2",
+       "testo": "It doesn't say the product name: it's the shop's generic title",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "The shop's name is missing",
+       "giusta": false,
+       "nota": "The shop's name is there, in fact at the start. Something else is missing."
+      }
+     ],
+     "perche": "The title «Cinque Foglie | Online tea shop» could go on any page: it doesn't say Assam is sold here. People searching for «Assam tea» don't recognise it in the results.",
+     "aiuto": "Read the title out loud: is it clear the page sells Assam?",
+     "dove": ".ispeziona summary",
+     "pagina": "/app/negozio/te-neri/assam/",
+     "consegna": "Open Inspect on the Assam product page and read the title."
+    },
+    {
+     "strumento": "crawler",
+     "tipo": "radio",
+     "domanda": "Which title is repeated on lots of product pages?",
+     "spiega": "The crawler visits all the website's pages by following links, as Google does. The «Duplicate titles» filter shows pages with the same title as another. If lots of different pages have the same title, Google can't tell how they differ. The exception is a category's filtered versions (e.g. /te-verdi/?ordina=prezzo): there the same title is normal and is solved with the canonical.",
+     "esempio": "A travel agency with 30 pages all called «Trips | Agency» instead of «10-day trip to Japan | Agency».",
+     "errore": "Also fixing by hand the filtered pages with ? in the address: for those you don't change the title, you use the canonical.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Cinque Foglie | Online tea shop",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Green teas | Cinque Foglie",
+       "giusta": false,
+       "nota": "It's repeated only between /te-verdi/ and its filtered versions (with ? in the address): that's normal, it's solved with the canonical."
+      },
+      {
+       "id": "o3",
+       "testo": "Organic loose leaf and bagged black teas | Cinque Foglie",
+       "giusta": false,
+       "nota": "It's the Black teas category title, repeated only in its filtered versions. Look for the same title on different products."
+      }
+     ],
+     "perche": "The black tea product pages and two accessories have the shop's generic title: probably those pages' template doesn't use the product name. It's a real problem, because they're different pages.",
+     "aiuto": "Look at the rows for /te-neri/assam/ and /te-neri/darjeeling/: what title do they have?",
+     "dove": "[data-filtro=\"title-dup\"]",
+     "consegna": ""
+    },
+    {
+     "strumento": "crawler",
+     "tipo": "checkbox",
+     "domanda": "Which pages have the generic title?",
+     "spiega": "Before fixing you need to know how big the problem is: how many pages and of what type. That way you can tell whether fixing them by hand is enough or whether it's better to ask the web team to change the pages' template.",
+     "esempio": "If 3 recipes out of 300 have no photo you add them by hand; if all the dessert recipes are missing one, you fix that section's template.",
+     "errore": "Stopping at the first wrong page: often the same error is repeated across a whole section of the website.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "/te-neri/darjeeling/",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "/accessori/infusore-acciaio/",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "/te-verdi/sencha-bio/",
+       "giusta": false,
+       "nota": "The Sencha has its own title: «Organic loose leaf Sencha green tea | Cinque Foglie»."
+      },
+      {
+       "id": "o4",
+       "testo": "/te-neri/chai-speziato/",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o5",
+       "testo": "/tisane/camomilla-bio/",
+       "giusta": false,
+       "nota": "The chamomile has the title «Organic chamomile | Herbal teas | Cinque Foglie»."
+      }
+     ],
+     "perche": "The generic title is on all 6 black tea product pages and on 2 accessories: 8 pages. They're two whole sections, so it's worth fixing those pages' template. Meanwhile you rewrite Assam as an example.",
+     "aiuto": "The pages with the generic title are all among the black teas and accessories.",
+     "dove": "[data-filtro=\"title-dup\"]",
+     "consegna": "Select all the pages with the generic title «Cinque Foglie | Online tea shop»."
+    },
+    {
+     "strumento": "pannello",
+     "tipo": "azione",
+     "verifica": "titoloAssam",
+     "vai": {
+      "link": "/app/percorsi/seo/pannello/?pagina=/te-neri/assam/",
+      "testo": "Open Assam in the Admin"
+     },
+     "domanda": "Write the Assam product page title",
+     "spiega": "Rules for a product title: start with what the person is searching for (the product name and type), add a feature that sets it apart, end with «| Cinque Foglie». It must fit within about 580 pixels: beyond that, Google cuts it with dots.",
+     "esempio": "For a sun cream: «Children's sun cream SPF 50, 100 ml | ShopName».",
+     "errore": "Repeating the same word several times («Assam black tea, Indian black tea, black tea…»): it looks like spam and Google may rewrite the title.",
+     "opzioni": [],
+     "perche": "Example from a senior colleague: «Organic loose leaf Assam black tea | Cinque Foglie». Yours can be different: what counts is that it follows the same rules.",
+     "aiuto": "Start from the product name, add «black tea» and a feature (organic, loose leaf), end with «| Cinque Foglie».",
+     "dove": "[data-editor] input[name=title]",
+     "consegna": "In the Admin rewrite the title of /te-neri/assam/: it must make clear what you're buying.",
+     "negozio": "/app/negozio/te-neri/assam/"
+    },
+    {
+     "strumento": "crawler",
+     "tipo": "radio",
+     "domanda": "Which page doesn't need fixing?",
+     "spiega": "The meta description is the grey text under the title in Google's results. It doesn't raise your position, but it convinces people to click. It's only needed on pages that appear on Google: noindex pages, like the cart, don't appear, so there it isn't needed.",
+     "esempio": "A restaurant writes the description for the menu and the booking page, not for the staff-only login page.",
+     "errore": "Fixing everything the crawler flags, in the order it appears. First you check whether the page really appears on Google.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "/te-neri/darjeeling/",
+       "giusta": false,
+       "nota": "It's a product page and appears on Google: the description is needed."
+      },
+      {
+       "id": "o2",
+       "testo": "/carrello/",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "/te-neri/assam/",
+       "giusta": false,
+       "nota": "It's a product page: it appears on Google and the description is needed."
+      }
+     ],
+     "perche": "The cart is noindex: it doesn't appear on Google, so nobody will see its description. Time should be spent on the products.",
+     "aiuto": "In the cart's details the Indexable row says no.",
+     "dove": "[data-filtro=\"desc-manca\"]",
+     "consegna": ""
+    },
+    {
+     "strumento": "pannello",
+     "tipo": "azione",
+     "verifica": "descDarjeeling",
+     "vai": {
+      "link": "/app/percorsi/seo/pannello/?pagina=/te-neri/darjeeling/",
+      "testo": "Open Darjeeling in the Admin"
+     },
+     "domanda": "Write the Darjeeling description",
+     "spiega": "A good description has between 100 and 160 characters: beyond that, Google cuts it. It says what's on the page and gives a reason to click (shipping, format, origin). For a food you can't promise health effects: European law on health claims forbids it (Regulation EC 1924/2006).",
+     "esempio": "For an olive oil: «Apulian extra virgin olive oil from Coratina olives, in a 750 ml bottle. 24-hour shipping and free returns».",
+     "errore": "Copying the title into the description, or writing a generic sentence («Discover our tea»): it adds nothing and doesn't convince people to click.",
+     "opzioni": [],
+     "perche": "Example from a senior colleague: «Organic Darjeeling from the hills of India, a delicate whole leaf black tea. Free shipping from €39 in 24-48 hours.»",
+     "aiuto": "Write two sentences: what it is (Darjeeling black tea, loose leaf) and a benefit (shipping, organic). The counter tells you how many characters you have.",
+     "dove": "[data-editor] textarea[name=description]",
+     "consegna": "In the Admin write the meta description of /te-neri/darjeeling/: it must convince people reading it on Google to click.",
+     "negozio": "/app/negozio/te-neri/darjeeling/"
+    }
+   ],
+   "imparato": [
+    "The title is the blue title on Google, the H1 the big heading on the page.",
+    "A product title gives name, type and a feature, and ends with the brand.",
+    "Before fixing you measure how big the problem is.",
+    "The description is only needed on pages that appear on Google: 100-160 characters and a reason to click."
+   ],
+   "elena": "Perfect: I'll send your two examples to the copywriter and ask the web team to fix the product page template.",
+   "prepara": {
+    "pagine": [
+     "/te-neri/assam/",
+     "/te-neri/darjeeling/"
+    ]
+   }
+  },
+  {
+   "id": "base2",
+   "livello": 1,
+   "n": 2,
+   "nome": "Hidden headings and broken links",
+   "tempo": "30 minutes",
+   "strumenti": "Crawler, Shop, Admin",
+   "cosa": "A missing H1 and a vanished product: find them, understand why and fix them.",
+   "situazione": "Two reports: the crawler says a category has no main heading, and a customer writes that the Earl Grey link in the newsletter gives an error. Can you take a look?",
+   "obiettivo": "Find and fix the missing H1 and the 404 page, understanding why they're problems.",
+   "passi": [
+    {
+     "strumento": "crawler",
+     "tipo": "radio",
+     "domanda": "Which category has no H1?",
+     "spiega": "The H1 is the page's main heading in the HTML code. It tells Google and people using a screen reader (the program that reads pages aloud for people who can't see) what the page is about. Every page should have one.",
+     "esempio": "On a recipe website the desserts page has «Dessert recipes» as its H1, not «Welcome».",
+     "errore": "Looking only at the page: some text can look like a big heading but not be one in the code.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "/tisane/",
+       "giusta": false,
+       "nota": "The herbal teas have the H1 «Organic herbal teas»: they don't show up with the Missing H1 filter."
+      },
+      {
+       "id": "o2",
+       "testo": "/matcha/",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "/te-verdi/",
+       "giusta": false,
+       "nota": "/te-verdi/ ha l'H1 «Tè verdi». Clicca il filtro H1 mancante e guarda cosa resta."
+      }
+     ],
+     "perche": "The crawler finds /matcha/ and its filtered version /matcha/?ordina=prezzo: it's the same problem, because the filtered page uses the same template.",
+     "aiuto": "The Missing H1 filter is the third in the To fix group.",
+     "dove": "[data-filtro=\"h1-manca\"]",
+     "consegna": ""
+    },
+    {
+     "strumento": "negozio",
+     "tipo": "radio",
+     "domanda": "On the Matcha page the big heading is visible. Why does the crawler say the H1 is missing?",
+     "spiega": "Google doesn't look at how the page appears, it reads the code. Some text can have a heading's style (big, bold) but be a normal paragraph. For Google what counts is the type of element in the code: only an h1 element is the main heading.",
+     "esempio": "It's like a letter written all in big letters but with no subject line: whoever sorts it doesn't know what it's about.",
+     "errore": "Trusting your eyes. In SEO you always check the code, with tools like Inspect or the crawler.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "In the code it's a paragraph styled like a heading, not an h1",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "It's an image with the text inside",
+       "giusta": false,
+       "nota": "It's real text, you can select it. The problem is what type of element it is in the code."
+      },
+      {
+       "id": "o3",
+       "testo": "The crawler is wrong: the H1 is there",
+       "giusta": false,
+       "nota": "Inspect says the same as the crawler: H1 missing. The heading you see isn't an h1 in the code."
+      }
+     ],
+     "perche": "The theme shows the category name styled like a heading but as a paragraph. To fix it just write the H1 in the Admin: the theme puts it in the code as a real h1.",
+     "aiuto": "In Inspect the H1 row says «missing» even though you see a heading on the page.",
+     "dove": ".ispeziona summary",
+     "pagina": "/app/negozio/matcha/",
+     "consegna": "Open Inspect on the Matcha page and compare what you see with what Google reads."
+    },
+    {
+     "strumento": "pannello",
+     "tipo": "azione",
+     "verifica": "h1Matcha",
+     "vai": {
+      "link": "/app/percorsi/seo/pannello/?pagina=/matcha/",
+      "testo": "Open /matcha/ in the Admin"
+     },
+     "domanda": "Add the H1 to the Matcha page",
+     "spiega": "A good H1 is short, says what the page is about and contains the main keyword. It doesn't have to match the title: the title is for Google's results, the H1 for people already on the page.",
+     "esempio": "In a bike shop: title «City e-bikes, 40 models | ShopName», H1 «City e-bikes».",
+     "errore": "Putting more than one H1 on the page, or a very long H1 with every keyword.",
+     "opzioni": [],
+     "perche": "Now Google knows what the page's heading is, and in the crawler the page no longer appears among those without an H1.",
+     "aiuto": "The H1 field is the third in the form, under Title and Meta description.",
+     "dove": "[data-editor] input[name=h1]",
+     "consegna": "In the Admin add the H1 to the /matcha/ page.",
+     "negozio": "/app/negozio/matcha/"
+    },
+    {
+     "strumento": "crawler",
+     "tipo": "radio",
+     "domanda": "How many pages on the website link to the 404 page?",
+     "spiega": "A 404 page no longer exists: anyone opening it finds an error. The damage depends on how many people reach it: if lots of pages on the website link to it, lots of visitors and Google end up on an error. The crawler shows this in the details, in the «Linked from» row.",
+     "esempio": "On a recipe website the deleted tiramisu recipe is linked from 40 other recipes: that's a big problem. If nothing links to it, it's a small problem.",
+     "errore": "Only checking that the page gives an error, without asking who reaches it and from where.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "None: only the newsletter uses it",
+       "giusta": false,
+       "nota": "In the details, the Linked from row lists several pages on the website."
+      },
+      {
+       "id": "o2",
+       "testo": "2 pages",
+       "giusta": false,
+       "nota": "Count the Linked from row again: there are also blog articles and the home page."
+      },
+      {
+       "id": "o3",
+       "testo": "6 pages, including the home page",
+       "giusta": true,
+       "nota": ""
+      }
+     ],
+     "perche": "The 404 page is linked from 6 pages, including the home page and two blog articles: lots of people reach it. It needs fixing straight away.",
+     "aiuto": "The Linked from row is at the bottom of the details, before the Note.",
+     "dove": "[data-filtro=\"4xx\"]",
+     "consegna": "Find the 404 page in the crawler and see where it's linked from."
+    },
+    {
+     "strumento": "crawler",
+     "tipo": "radio",
+     "domanda": "Which product replaces the 404 page?",
+     "spiega": "If a product has been removed but there's one that replaces it, you create a 301 redirect: anyone opening the old address reaches the new one, and Google passes the old page's value to the new page. The 301 points to the most similar page.",
+     "esempio": "A bookshop removes the old edition of a book and sends anyone looking for it to the new edition.",
+     "errore": "Sending every vanished page to the home page: people looking for a specific product get lost, and Google treats it almost like an error («soft 404»).",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "/te-neri/english-breakfast/",
+       "giusta": false,
+       "nota": "It's another black tea, but not the replacement. Read the Note."
+      },
+      {
+       "id": "o2",
+       "testo": "/te-neri/earl-grey-bio/",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "The home page",
+       "giusta": false,
+       "nota": "Sending everything to the home page confuses people looking for a specific product: Google treats it almost like a 404."
+      }
+     ],
+     "perche": "The organic Earl Grey has taken the place of the classic one: it's the closest page to what people opening the old address were looking for.",
+     "aiuto": "The Note is the last row of the details.",
+     "dove": "[data-filtro=\"4xx\"]",
+     "consegna": ""
+    },
+    {
+     "strumento": "pannello",
+     "tipo": "azione",
+     "verifica": "redirect404",
+     "vai": {
+      "link": "/app/percorsi/seo/pannello/#redirect",
+      "testo": "Open redirects"
+     },
+     "domanda": "Create the 301 redirect",
+     "spiega": "A redirect is written as a «From → To» rule: From is the old address, To the new one. The 301 code means «moved permanently»: Google updates its results. There's also the 302 («moved for a while»), used for temporary changes, for example a page under maintenance.",
+     "esempio": "A restaurant moves and leaves a sign on the old door: «We've moved to 12 Rome Street».",
+     "errore": "Using a 302 for a permanent change: Google keeps the old page.",
+     "opzioni": [],
+     "perche": "Anyone opening the newsletter link now reaches the organic Earl Grey, with a notice that explains the 301.",
+     "aiuto": "From: /te-neri/earl-grey-classico/ — To: the address you found in the Note.",
+     "dove": "[data-nuovo-redirect]",
+     "consegna": "Make sure anyone opening the 404 page reaches the right product.",
+     "negozio": "/app/negozio/te-neri/earl-grey-classico/"
+    },
+    {
+     "strumento": "pannello",
+     "tipo": "radio",
+     "domanda": "The 301 works. What's left to do with the 6 internal links?",
+     "spiega": "The 301 is a safety net: it works for people coming from outside (newsletter, other websites, Google). But we control the links inside our website: it's better to update them so they point straight to the new page. Every redirect is an extra step that slows the page down a little and that Google has to follow.",
+     "esempio": "After moving house you put a sign on the old door, but you give your friends the new address directly.",
+     "errore": "Thinking the 301 is enough forever and leaving the website full of links that go through a redirect.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Nothing: the 301 is enough",
+       "giusta": false,
+       "nota": "The 301 works, but every internal link that goes through a redirect is an extra step for people and for Google."
+      },
+      {
+       "id": "o2",
+       "testo": "Ask for the internal links to be updated so they point straight to /te-neri/earl-grey-bio/",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Delete the 6 pages that link to the old product",
+       "giusta": false,
+       "nota": "They're good pages (the home page, the category, the articles): you just need to change the link."
+      }
+     ],
+     "perche": "The 301 stays for people coming from outside, and on the website the links go straight to the right page. Usually you ask the copywriter or the web team to update them.",
+     "aiuto": "The 301 is for people coming from outside. What about the links we control?",
+     "dove": "[data-righe-redirect]",
+     "consegna": ""
+    }
+   ],
+   "imparato": [
+    "Google reads the code: big text isn't necessarily an H1.",
+    "An H1 is short and says what the page is about.",
+    "How serious a 404 is depends on how many pages link to it.",
+    "The 301 points to the most similar page; then you update the internal links."
+   ],
+   "elena": "The newsletter link works and the Matcha page has its heading. I've asked the copywriter to update the internal links.",
+   "prepara": {
+    "pagine": [
+     "/matcha/"
+    ],
+    "redirect": [
+     "/te-neri/earl-grey-classico/"
+    ]
+   }
+  },
+  {
+   "id": "d1",
+   "livello": 2,
+   "n": 1,
+   "nome": "The herbal teas that vanished from Google",
+   "tempo": "35 minutes",
+   "strumenti": "Indexing, Shop, Admin, Console",
+   "cosa": "A drop in indexed pages: when, how many, why, who caused it and how to fix it.",
+   "situazione": "Our herbal teas can't be found on Google any more, yet they're on the website. Can you tell me what happened and fix it?",
+   "obiettivo": "Find when and why the pages left Google, fix the cause and let Google know.",
+   "prepara": {
+    "tema": true,
+    "convalide": [
+     "Esclusa in base al tag \"noindex\""
+    ]
+   },
+   "passi": [
+    {
+     "strumento": "indicizzazione",
+     "domanda": "Has Google lost some pages? Since when?",
+     "spiega": "The indexing chart shows, week by week, how many pages are in Google's index (green) and how many aren't (grey). A sudden drop in the green means something has removed pages from the results.",
+     "esempio": "A candle shop sees 40 indexed pages for months, then 32 in two weeks: it looks for what changed on the website in those days.",
+     "tipo": "radio",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "None: the number has been stable since August",
+       "giusta": false,
+       "nota": "Look at the last few weeks: the green bars get lower."
+      },
+      {
+       "id": "o2",
+       "testo": "7 pages, from mid-September onwards",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "24 pages, all in August",
+       "giusta": false,
+       "nota": "24 is the number of pages outside Google today, not the ones lost; and in August the number doesn't move."
+      },
+      {
+       "id": "o4",
+       "testo": "46 pages, this week",
+       "giusta": false,
+       "nota": "46 is the number of pages still indexed."
+      }
+     ],
+     "perche": "Indexed pages go from 53 to 46 right after 18 September, the day the shop's new theme went live. When a drop coincides with a change to the website, the change is the first suspect.",
+     "aiuto": "Compare the first bar (3/8) with the last (19/10) and see where it starts to go down.",
+     "dove": ".sp-grafico",
+     "consegna": "In the indexing report find when the drop starts and how many pages are lost.",
+     "errore": "Looking only at the last week: without comparing it with the previous ones you can't tell since when the problem has been there."
+    },
+    {
+     "strumento": "indicizzazione",
+     "tipo": "radio",
+     "domanda": "Which reason explains the drop?",
+     "consegna": "Compare the exclusion reasons and find the one linked to the drop.",
+     "spiega": "The report lists the reasons why pages are outside Google. Some have always been there and are normal; to find the cause of a drop you look for the reason that grew in exactly those weeks.",
+     "esempio": "A restaurant loses customers in October: the bad reviews have been there for years, but in October it changed its opening hours. The hours are the first thing to look at.",
+     "errore": "Picking the reason with the most pages. The biggest reason can be old and harmless.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Duplicate without user-selected canonical",
+       "giusta": false,
+       "nota": "They're the filtered versions of the categories: they were there before the drop and don't involve the herbal teas."
+      },
+      {
+       "id": "o2",
+       "testo": "Excluded by 'noindex' tag",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Crawled - currently not indexed",
+       "giusta": false,
+       "nota": "They're blog tag pages and a second category page: they have nothing to do with the drop."
+      },
+      {
+       "id": "o4",
+       "testo": "Not found (404)",
+       "giusta": false,
+       "nota": "There's only one 404 page: it doesn't explain 7 fewer pages."
+      }
+     ],
+     "perche": "The pages excluded by noindex are the herbal teas: category and products. It's the reason that explains the 7 lost pages.",
+     "aiuto": "Open each reason and look at which pages it contains: which ones have to do with the herbal teas?",
+     "dove": "tr[data-motivo=\"0\"]"
+    },
+    {
+     "strumento": "indicizzazione",
+     "tipo": "checkbox",
+     "domanda": "Among the noindex pages, which are a problem?",
+     "consegna": "Select all the pages that shouldn't have noindex.",
+     "spiega": "Noindex asks Google not to show a page. Sometimes that's right: cart, account and service pages shouldn't appear in the results. It's only a problem when it's on pages we want people to find on Google.",
+     "esempio": "On a courses website, a «My profile» page with noindex is fine; a course page with noindex is a serious error.",
+     "errore": "Removing noindex from everything that has it, cart included: Google fills up with useless pages.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "/tisane/",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "/tisane/camomilla-bio/",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "/carrello/",
+       "giusta": false,
+       "nota": "The cart shouldn't appear on Google: noindex is right there."
+      },
+      {
+       "id": "o4",
+       "testo": "/tisane/zenzero-limone/",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o5",
+       "testo": "/account/",
+       "giusta": false,
+       "nota": "The personal area shouldn't appear on Google: noindex is right there."
+      }
+     ],
+     "perche": "The herbal tea pages must be on Google, the cart and account must not. In the «On the website today» column the report already says so: «That's fine» for cart and account.",
+     "aiuto": "Ask yourself for each page: would anyone search for it on Google?",
+     "dove": "tr[data-motivo=\"0\"]"
+    },
+    {
+     "strumento": "pannello",
+     "tipo": "radio",
+     "domanda": "Where does the noindex come from?",
+     "consegna": "Find in the Shop admin the setting that puts noindex on the herbal teas.",
+     "spiega": "A noindex on lots of pages at once usually isn't written by hand page by page: it comes from a setting in the theme or the back office. To fix it properly you look for the cause, so the problem doesn't come back with new pages.",
+     "esempio": "If all of a shop's prices are suddenly wrong, you don't fix them one by one: you check the discount rule that calculates them.",
+     "errore": "Fixing the pages one by one: it works, but the next herbal tea added to the catalogue will be born with noindex again.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Someone wrote it in the meta robots of every herbal tea page",
+       "giusta": false,
+       "nota": "Open a herbal tea page in Admin → Pages: the meta robots is «As per theme»."
+      },
+      {
+       "id": "o2",
+       "testo": "From the theme setting that hides the Herbal teas category from search engines",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "From Google, which decided not to show the herbal teas",
+       "giusta": false,
+       "nota": "The report says the source is the website, not Google."
+      }
+     ],
+     "perche": "In Admin → Theme and settings the Herbal teas category is hidden, and the theme was updated on 18/09/2026: the same day the pages started to vanish.",
+     "aiuto": "Look at the Theme and settings tab in the Admin and at the date of the theme's last update.",
+     "dove": "[data-categorie]"
+    },
+    {
+     "tipo": "azione",
+     "strumento": "pannello",
+     "domanda": "Put the herbal teas back on Google",
+     "spiega": "The new theme from 18 September has a setting that hides the Herbal teas category from search engines: it puts noindex on the category and on all its products. You fix it where the problem started, in the theme settings, not page by page.",
+     "esempio": "In a candle shop the theme update hides the \"Scented candles\" category: you just tick \"Visible to search engines\" again, and all the product pages become visible again.",
+     "verifica": "tisaneVisibili",
+     "vai": {
+      "link": "/app/percorsi/seo/pannello/#tema",
+      "testo": "Open the Shop admin"
+     },
+     "perche": "Now Inspect on /tisane/ shows \"index, follow\" and the crawler marks it as indexable. Cart and account stay out, and that's how it should be.",
+     "aiuto": "Look for the unticked category in the \"Categories visible to search engines\" section.",
+     "opzioni": [],
+     "dove": "[data-categorie]",
+     "consegna": "Fix the cause in the Admin, without touching the pages that must stay out of Google.",
+     "negozio": "/app/negozio/tisane/",
+     "errore": "Switching off the cause and forgetting to check: open a herbal tea in the shop and look at the meta robots with Inspect."
+    },
+    {
+     "strumento": "console",
+     "tipo": "radio",
+     "domanda": "Can Google already see the fix?",
+     "consegna": "Use the Console's URL Inspection on /tisane/.",
+     "spiega": "Google doesn't read the website in real time: it keeps a copy of each page from its last visit. After a fix, for a while Google still shows the old version. The Console's URL Inspection compares the two versions.",
+     "esempio": "You change your profile photo on a social network: for a few days, in some searches, the old one still appears.",
+     "errore": "Thinking the problem is solved as soon as you save: the numbers on Google only change after Google has reread the pages.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Yes, changes on the website reach Google straight away",
+       "giusta": false,
+       "nota": "In URL Inspection Google's column still shows noindex."
+      },
+      {
+       "id": "o2",
+       "testo": "No: Google remembers the old version with noindex, while the website is already fixed",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "No, because the fix didn't work",
+       "giusta": false,
+       "nota": "Look at the «The website now» column: the meta robots has already changed."
+      }
+     ],
+     "perche": "The website is fine, but Google has the version with noindex in memory. To speed things up you ask Google to check again.",
+     "aiuto": "In URL Inspection type /tisane/ and compare the two columns.",
+     "dove": "[data-controllo-url]"
+    },
+    {
+     "tipo": "azione",
+     "strumento": "indicizzazione",
+     "domanda": "Ask Google to validate the fix",
+     "spiega": "Fixing the website isn't enough: Google only notices when it rereads the pages. In webmaster tools you ask to \"validate the fix\": Google rechecks the pages with that problem and, if it's solved, puts them back in the results.",
+     "esempio": "The candle shop, after fixing the category, opens the excluded pages report and presses \"Validate fix\" on the noindex reason.",
+     "verifica": "convalidaNoindex",
+     "vai": {
+      "link": "/app/percorsi/seo/strumenti/indicizzazione/",
+      "testo": "Open Pages and indexing"
+     },
+     "perche": "Validation has started. The chart's numbers don't change straight away: Google rereads the pages over the next few days.",
+     "aiuto": "If validation fails, the problem is still on the website: check step 2 again.",
+     "opzioni": [],
+     "dove": "tr[data-motivo=\"0\"]",
+     "consegna": "Ask Google to validate the fix for all the pages with the same problem.",
+     "errore": ""
+    }
+   ],
+   "imparato": [
+    "You read a drop by comparing the weeks and looking for what changed in those days.",
+    "Not every noindex is an error: cart and account must stay out.",
+    "You fix the cause (the theme), not the pages one by one.",
+    "Google only sees fixes after rereading them: you ask for validation."
+   ],
+   "elena": "I see: the herbal teas are visible again and Google is rechecking them. And now I know the problem was the theme."
+  },
+  {
+   "id": "d2",
+   "livello": 2,
+   "n": 2,
+   "nome": "The green teas page nobody clicks",
+   "tempo": "45 minutes",
+   "strumenti": "Console, Keywords, Admin",
+   "cosa": "Low CTR, keywords, two pages stealing each other's searches: understand and rewrite.",
+   "situazione": "The green teas page often appears on Google but very few people reach it. And for «sencha green tea» we never move up. Can you take a look?",
+   "obiettivo": "Understand why the page gets few clicks, choose its keyword, solve the cannibalisation and rewrite it.",
+   "prepara": {
+    "pagine": [
+     "/te-verdi/"
+    ],
+    "richieste": [
+     "/te-verdi/"
+    ]
+   },
+   "passi": [
+    {
+     "strumento": "console",
+     "domanda": "What's wrong with the /te-verdi/ page?",
+     "spiega": "CTR is the percentage of people who click after seeing the result (clicks ÷ impressions). In position 7-8 a normal CTR is around 3%. Lots of impressions with a much lower CTR mean the result doesn't make people want to click.",
+     "esempio": "A candle shop appears 50,000 times for \"scented candles\" but gets 200 clicks (0.4%): its title is just \"Candles | Shop\".",
+     "tipo": "radio",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "It isn't indexed",
+       "giusta": false,
+       "nota": "It has more than 140,000 impressions: it appears on Google."
+      },
+      {
+       "id": "o2",
+       "testo": "It appears a lot but almost nobody clicks: the result doesn't make people want to click",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "It's too low down to get clicks",
+       "giusta": false,
+       "nota": "In position 7.8 a page usually gets many more clicks."
+      },
+      {
+       "id": "o4",
+       "testo": "It's a seasonal drop",
+       "giusta": false,
+       "nota": "Searches for green tea are stable all year."
+      }
+     ],
+     "perche": "/te-verdi/ ha 140.549 impressioni e un CTR dello 0,6%: è vista moltissimo, ma il title e la description non convincono.",
+     "aiuto": "Divide the clicks by the impressions and compare it with the 3% of a similar position.",
+     "dove": "[data-scheda='pagine']",
+     "consegna": "Compare the impressions, CTR and position of /te-verdi/ with the other pages.",
+     "errore": "Looking only at clicks: a page with few clicks can have a position problem or a CTR problem, and they're solved differently."
+    },
+    {
+     "strumento": "console",
+     "tipo": "radio",
+     "domanda": "How many more clicks with a normal CTR?",
+     "consegna": "Estimate how many clicks /te-verdi/ would get with a 3% CTR, over the same period.",
+     "spiega": "To see whether it's worth working on a page you estimate the gain: impressions × expected CTR = clicks. The difference from today's clicks is what you can gain. For a category on the first page a 3% CTR is realistic.",
+     "esempio": "A page with 10,000 impressions and 1% CTR gets 100 clicks. At 3% it would get 300: 200 more clicks.",
+     "errore": "Doing the calculation with an unrealistic CTR (e.g. 30%): the estimate becomes a promise that won't be kept.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "About 300 more clicks",
+       "giusta": false,
+       "nota": "Check the impressions again: there are more than 140,000 in 3 months."
+      },
+      {
+       "id": "o2",
+       "testo": "About 3,300 more clicks in 3 months",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "About 33,000 more clicks",
+       "giusta": false,
+       "nota": "You used a CTR that's too high: with 3% the result is ten times smaller."
+      }
+     ],
+     "perche": "140,549 impressions × 3% = about 4,200 clicks, against today's 878: about 3,300 more clicks in 3 months. It's the page with the most room for improvement on the whole website.",
+     "aiuto": "Take the impressions of /te-verdi/ from the Pages tab, multiply by 0.03 and subtract today's clicks.",
+     "dove": "[data-scheda='pagine']"
+    },
+    {
+     "strumento": "console",
+     "domanda": "Which pages appear for \"sencha green tea\"?",
+     "spiega": "There's cannibalisation when two pages of the same website appear for the same search. Google doesn't know which to choose, it alternates them, and neither reaches the top.",
+     "esempio": "A candle shop has the product page \"Vanilla candle\" and an article \"Vanilla candle: a guide\": for the search \"vanilla candle\" both appear, in positions 9 and 11.",
+     "tipo": "radio",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Only the Sencha product page",
+       "giusta": false,
+       "nota": "Look at the details: there are two pages."
+      },
+      {
+       "id": "o2",
+       "testo": "The Sencha product page and the blog guide on Sencha",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "The Green teas category and the home page",
+       "giusta": false,
+       "nota": "Look at the query details: other pages appear."
+      },
+      {
+       "id": "o4",
+       "testo": "No page: the website doesn't appear",
+       "giusta": false,
+       "nota": "The query has 370 clicks: the website appears."
+      }
+     ],
+     "perche": "The product page (position 9.2) and the guide (position 10.4) compete for the same search. Together they only get a 2.1% CTR: neither convinces Google to move it higher.",
+     "aiuto": "When a query has more than one page, a yellow label appears in the Pages column.",
+     "dove": "#t-query",
+     "consegna": "In the Queries tab find which pages appear for «sencha green tea».",
+     "errore": "Thinking two pages in the results are better than one: they often split the clicks and neither moves up."
+    },
+    {
+     "strumento": "console",
+     "domanda": "How do you solve the cannibalisation?",
+     "spiega": "You almost never need to delete a page. You give each one a different intent: the product page targets people who want to buy, the guide people who want to learn. Then the guide links to the product, so Google understands which page is for buying.",
+     "esempio": "Candles: the product page stays on \"vanilla candle\"; the article becomes \"How to choose a scented candle for your home\" and links to the product page.",
+     "tipo": "radio",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Delete the blog guide",
+       "giusta": false,
+       "nota": "The guide brings visits from people looking for information: they'd be lost."
+      },
+      {
+       "id": "o2",
+       "testo": "Put \"sencha green tea\" even more times on both pages",
+       "giusta": false,
+       "nota": "It makes the confusion worse: the two pages would look even more alike."
+      },
+      {
+       "id": "o3",
+       "testo": "Product on \"sencha green tea\"; guide on \"how to make sencha\", with a link to the product",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o4",
+       "testo": "Put the product page on noindex",
+       "giusta": false,
+       "nota": "That way the product disappears from Google precisely for people who want to buy it."
+      }
+     ],
+     "perche": "Each page now has a job: the product page sells, the guide teaches and leads to the product with a link. It's the most common solution and the one that loses the least.",
+     "aiuto": "One of the two pages is already great for people looking for information: for which informational search?",
+     "dove": "#t-query",
+     "consegna": "Choose how to give each page a different job.",
+     "errore": "Deleting one of the two pages: you lose what was good about it (links, visits, content)."
+    },
+    {
+     "tipo": "azione",
+     "strumento": "pannello",
+     "domanda": "Write the title and description of /te-verdi/",
+     "spiega": "The title is the blue title in the results: it must start with the page's keyword, say what's specific about it, stay within about 580 pixels and end with the brand. The description is the grey text underneath: in 100-160 characters it says what people who click will find and a concrete benefit. No repeated keywords and no health promises.",
+     "esempio": "Candles: title \"Soy wax scented candles: 20 fragrances | Luce di Casa\"; description \"Over 20 fragrances in soy wax, handmade in Tuscany. Choose by room and get them in 24 hours.\"",
+     "verifica": "titoloTeVerdi",
+     "vai": {
+      "link": "/app/percorsi/seo/pannello/?pagina=/te-verdi/",
+      "testo": "Open /te-verdi/ in the Admin"
+     },
+     "perche": "Example from a senior colleague: title \"Organic green teas: Sencha and Gyokuro | Cinque Foglie\"; description \"Sencha, Gyokuro, Genmaicha and other organic whole leaf green teas. A guide to choosing and 24-hour shipping.\" Yours can be different: what counts is that it follows the same rules.",
+     "aiuto": "Start from: \"Organic green teas: [two or three tea names] | Cinque Foglie\".",
+     "opzioni": [],
+     "dove": "[data-editor] input[name=title]",
+     "consegna": "Rewrite the title and meta description of /te-verdi/ in the Admin.",
+     "negozio": "/app/negozio/te-verdi/",
+     "errore": "Repeating «green teas» three times in the title to «rank better»: it looks like spam and Google may rewrite it."
+    },
+    {
+     "tipo": "azione",
+     "strumento": "pannello",
+     "domanda": "Write the category text",
+     "spiega": "A category's text helps people who have to choose and helps Google understand the page. 80-150 useful words are enough: how to choose, how to brew, which teas there are. You write for people; the keyword appears naturally, once or twice.",
+     "esempio": "Candles: \"Soy wax candles burn longer and make less smoke. For the living room choose woody fragrances, for the bedroom lavender or vanilla. Light them for at least two hours the first time…\"",
+     "verifica": "testoTeVerdi",
+     "vai": {
+      "link": "/app/percorsi/seo/pannello/?pagina=/te-verdi/",
+      "testo": "Open /te-verdi/ in the Admin"
+     },
+     "perche": "Example from a senior colleague: \"Green teas fall into two big families. Japanese ones, like Sencha and Gyokuro, are steamed and have a fresh, grassy taste; Chinese ones, like jasmine tea, are pan-fired and softer. To keep them from turning bitter use water at 70-80 °C and steep for 1-2 minutes. If you're just starting, try the organic Sencha: it's the most versatile, good iced too. All our green teas are organic and whole leaf.\"",
+     "aiuto": "Write 3-4 sentences: the two families (Japanese and Chinese), the water temperature, a tip for getting started.",
+     "opzioni": [],
+     "dove": "[data-campo-intro]",
+     "consegna": "Rewrite the intro text of /te-verdi/: it must help people choosing a green tea.",
+     "negozio": "/app/negozio/te-verdi/",
+     "errore": "Writing a text for Google, full of keywords, that nobody reads: Google rewards texts that are useful to people."
+    },
+    {
+     "tipo": "azione",
+     "strumento": "console",
+     "domanda": "Ask Google to reread the page",
+     "spiega": "After changing an important page you can ask Google to reread it straight away, with URL Inspection. It doesn't guarantee timing, but it usually speeds things up.",
+     "esempio": "The candle shop, after rewriting the category, checks it with URL Inspection and presses \"Request indexing\".",
+     "verifica": "richiestaTeVerdi",
+     "vai": {
+      "link": "/app/percorsi/seo/strumenti/console/",
+      "testo": "Open the Search Console"
+     },
+     "perche": "Google has the new version of the page in its queue. In a few weeks you check whether the CTR rises from 0.6%.",
+     "aiuto": "URL Inspection is at the top of the Console, under the chart.",
+     "opzioni": [],
+     "dove": "[data-controllo-url]",
+     "consegna": "Ask Google to reread /te-verdi/.",
+     "errore": ""
+    }
+   ],
+   "imparato": [
+    "A low CTR with lots of impressions is a title and description problem.",
+    "You estimate the gain before working: impressions × expected CTR.",
+    "Cannibalisation is solved by giving each page a different intent.",
+    "After a rewrite you ask Google to reread the page."
+   ],
+   "elena": "Wonderful, the new title and text are live and the copywriter is fixing the Sencha guide. In a few weeks we'll see whether the CTR rises."
+  },
+  {
+   "id": "d3",
+   "livello": 2,
+   "n": 3,
+   "nome": "Duplicate pages and redirects",
+   "tempo": "35 minutes",
+   "strumenti": "Indexing, Crawler, Admin",
+   "cosa": "Duplicate filters, a redirect chain and warnings that aren't problems: tell them apart and fix them.",
+   "situazione": "In Google's report there are 14 excluded pages that aren't the herbal teas. The web team wants to know which need fixing and which don't.",
+   "obiettivo": "Understand which exclusions are real problems, fix them and leave the normal ones alone.",
+   "prepara": {
+    "tema": true,
+    "redirect": [
+     "/prodotto.php?id=12",
+     "/te-verdi/sencha/"
+    ]
+   },
+   "passi": [
+    {
+     "strumento": "indicizzazione",
+     "tipo": "radio",
+     "domanda": "What are duplicate pages without a canonical?",
+     "consegna": "Open the reason «Duplicate without user-selected canonical» and look at the addresses.",
+     "spiega": "When a category can be sorted or filtered, each choice creates a new address (e.g. /te-verdi/?ordina=prezzo) with almost the same content. If the website doesn't say which is the main version, Google has to guess and wastes time reading them all.",
+     "esempio": "A shoe shop has /scarpe/, /scarpe/?colore=nero and /scarpe/?ordina=prezzo: three addresses, only one real page.",
+     "errore": "Believing that more addresses on Google means more traffic: the copies compete with each other.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Products copied from another website",
+       "giusta": false,
+       "nota": "Look at the addresses: they all have a ? with ordina, colore, materiale."
+      },
+      {
+       "id": "o2",
+       "testo": "The sorted and filtered versions of the categories",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Blog articles with the same title",
+       "giusta": false,
+       "nota": "The addresses are categories, not the blog."
+      }
+     ],
+     "perche": "They're the same categories seen with a different sort order or filter. Google considers them copies and chooses by itself which to keep.",
+     "aiuto": "Open the reason and look at what the addresses have in common.",
+     "dove": "tr[data-motivo=\"1\"]"
+    },
+    {
+     "strumento": "indicizzazione",
+     "tipo": "radio",
+     "domanda": "How do you fix them?",
+     "consegna": "Choose the solution that keeps the filters for shoppers.",
+     "spiega": "The canonical is an indication in the code that tells Google: «this page is a copy, the main version is that other one». People can still use the filters, but Google gathers everything on the category.",
+     "esempio": "A recipe also published in a printable version: the printable version points to the normal recipe as its canonical.",
+     "errore": "Using noindex or deleting the filters: the filters are useful to shoppers, the only problem is telling Google which is the main page.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Remove the filters from the shop",
+       "giusta": false,
+       "nota": "The filters are useful to shoppers: the problem is only for Google."
+      },
+      {
+       "id": "o2",
+       "testo": "A canonical from the filtered versions to the category",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Put noindex on all the categories",
+       "giusta": false,
+       "nota": "That way the real categories would leave Google too."
+      }
+     ],
+     "perche": "With the canonical the filtered versions stay usable and Google knows the page to show is the category.",
+     "aiuto": "Look in the theory for the word that indicates the main version.",
+     "dove": ""
+    },
+    {
+     "strumento": "pannello",
+     "tipo": "azione",
+     "verifica": "canonicalFiltri",
+     "vai": {
+      "link": "/app/percorsi/seo/pannello/#tema",
+      "testo": "Open the Admin"
+     },
+     "negozio": "",
+     "domanda": "Set the canonical of the filtered pages",
+     "consegna": "In the Admin turn on the canonical for all the filtered pages in one go.",
+     "spiega": "When the same problem affects lots of pages built from the same template, you fix the template: a single setting instead of 7 pages edited by hand.",
+     "esempio": "On a blog you turn on the canonical for all the «print» pages in the settings, not article by article.",
+     "errore": "Fixing by hand only today's 7 pages: tomorrow a new filter creates another copy without a canonical.",
+     "opzioni": [],
+     "perche": "Now all the filtered versions point to the category as the main page, including those that will be created in the future.",
+     "aiuto": "It's a general setting, not a single page's: look for it in the settings tab.",
+     "dove": "[data-canonical-filtri]"
+    },
+    {
+     "strumento": "crawler",
+     "tipo": "radio",
+     "domanda": "Which address makes two hops?",
+     "spiega": "A redirect sends from one address to another. If the destination address redirects somewhere else in turn, a chain forms: each hop slows the page down and Google may stop following it.",
+     "esempio": "A parcel sent to the old address, forwarded to last year's and only then to the right one.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "/prodotto.php?id=12",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "/negozio/tisane/",
+       "giusta": false,
+       "nota": "It goes straight to /tisane/, which is a real page: only one hop, that's fine."
+      },
+      {
+       "id": "o3",
+       "testo": "/te-verdi/sencha/",
+       "giusta": false,
+       "nota": "It goes straight to /te-verdi/sencha-bio/: only one hop. But it's the middle link of a chain: who reaches it first?"
+      }
+     ],
+     "perche": "/prodotto.php?id=12 porta a /te-verdi/sencha/, che porta a /te-verdi/sencha-bio/: due salti invece di uno.",
+     "aiuto": "In the details the Redirect chain ends with the number of hops in brackets: look for the one with 2.",
+     "dove": "[data-filtro=\"3xx\"]",
+     "consegna": "In the crawler find the old address that reaches the final page with more than one hop.",
+     "errore": ""
+    },
+    {
+     "tipo": "azione",
+     "strumento": "pannello",
+     "domanda": "Shorten the redirect chain",
+     "spiega": "A redirect chain is when A redirects to B, which redirects to C. Each hop slows things down and Google may stop following them. You fix it by pointing A straight to the final page.",
+     "esempio": "A bookshop has /libro.php?id=3 → /libri/vecchio/ → /libri/nuovo/: it edits the first so it goes straight to /libri/nuovo/.",
+     "verifica": "catena",
+     "vai": {
+      "link": "/app/percorsi/seo/pannello/#redirect",
+      "testo": "Open redirects"
+     },
+     "perche": "Now the old website's old address reaches the organic Sencha in a single hop, without going through /te-verdi/sencha/.",
+     "aiuto": "/prodotto.php?id=12 deve portare direttamente a /te-verdi/sencha-bio/.",
+     "opzioni": [],
+     "dove": "[data-righe-redirect]",
+     "consegna": "Shorten the chain: every old address must reach the final page in a single hop.",
+     "negozio": "",
+     "errore": "Deleting the redirect in the middle: anyone still using that address gets a 404."
+    },
+    {
+     "strumento": "crawler",
+     "tipo": "radio",
+     "domanda": "/negozio/tisane/ porta a /tisane/. Va sistemato?",
+     "consegna": "Check in the crawler where it goes and how many hops it makes.",
+     "spiega": "A redirect isn't a problem in itself: its job is precisely not to lose visits when an address changes. It becomes a problem if it goes to the wrong page, if it makes several hops or if the website's internal links go through it.",
+     "esempio": "A «we've moved» sign with the right address is useful; three signs pointing to each other aren't.",
+     "errore": "Removing all the redirects to have a «clean» crawler: anyone arriving from the old addresses ends up on an error.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "No: it's a single hop to the right page",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Yes, it must be removed because every redirect is an error",
+       "giusta": false,
+       "nota": "Without a redirect anyone using the old address gets a 404."
+      },
+      {
+       "id": "o3",
+       "testo": "Yes, it must be turned into a 302",
+       "giusta": false,
+       "nota": "The move is permanent: the 301 is the right one."
+      }
+     ],
+     "perche": "The crawler lists it among the things «to check», not to fix: checked, it's fine as it is. Being able to say «this isn't a problem» is half the job.",
+     "aiuto": "Look at the Redirect chain row in the details: how many hops does it make?",
+     "dove": "[data-filtro=\"3xx\"]"
+    },
+    {
+     "strumento": "indicizzazione",
+     "tipo": "radio",
+     "domanda": "«Crawled, but not indexed»: what do you do?",
+     "consegna": "Open the reason «Crawled - currently not indexed» and decide.",
+     "spiega": "Google doesn't index everything it reads: it leaves out pages it considers not very useful, like tag pages with a few lines or pages 2, 3… of a category. It isn't the website's error: it's Google's choice. You only step in if an important page stays out.",
+     "esempio": "In a library you don't put every sheet of paper in the window: only the books. Tag pages are sheets of paper.",
+     "errore": "Trying to get everything indexed: you waste time on pages that wouldn't bring visits.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "It's urgent: request indexing for every page",
+       "giusta": false,
+       "nota": "They're blog tags and a page 2: they wouldn't bring visits."
+      },
+      {
+       "id": "o2",
+       "testo": "Nothing urgent: they're not very useful pages, it's normal for them to stay out",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Put a 301 from the tag pages to the home page",
+       "giusta": false,
+       "nota": "That way people using the tags on the blog end up on the home page: it makes the website worse for no reason."
+      }
+     ],
+     "perche": "The 4 pages are three blog tags with 60 words and a second category page. Google is right to leave them out.",
+     "aiuto": "Open the reason and look at what pages they are: would you search for them on Google?",
+     "dove": "tr[data-motivo=\"2\"]"
+    }
+   ],
+   "imparato": [
+    "The filtered versions of a category are fixed with the canonical, not by removing the filters.",
+    "When the problem is in a template, you fix the template.",
+    "A redirect chain is shortened by pointing to the final page.",
+    "Not every warning is a problem: a one-hop redirect and thin pages outside Google are fine as they are."
+   ],
+   "elena": "Perfect: I'll pass only the two real problems to the web team, and I know what to answer if they ask about the other warnings."
+  },
+  {
+   "id": "c1",
+   "livello": 3,
+   "n": 1,
+   "nome": "End-of-month audit",
+   "tempo": "45 minutes",
+   "strumenti": "Indexing, Crawler, Admin",
+   "cosa": "Speed, titles, priorities and a written request to the web team.",
+   "situazione": "End of the month: I need to know what still needs fixing on the website and in what order. The web team has time for only one big thing.",
+   "obiettivo": "Find the remaining problems, understand how much they matter, fix what you can and write the request to the web team.",
+   "prepara": {
+    "pagine": [
+     "/blog/sencha-guida-completa/"
+    ]
+   },
+   "passi": [
+    {
+     "strumento": "indicizzazione",
+     "tipo": "radio",
+     "domanda": "Which pages are slow, and where?",
+     "consegna": "In the Core Web Vitals tab find the group of pages with a problem and the device.",
+     "spiega": "Core Web Vitals measure the experience of visitors: LCP is the time it takes for the largest element on the page to appear. Under 2.5 seconds is good, over 4 seconds is poor. Google measures them with real visits, separating phone and computer.",
+     "esempio": "A recipe website that's fast on a computer can be very slow on a phone if it loads full-size photos.",
+     "errore": "Looking only at the computer data: today most visits come from phones.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "The blog, on computer",
+       "giusta": false,
+       "nota": "The blog is good on both devices."
+      },
+      {
+       "id": "o2",
+       "testo": "The product pages, on phone",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "The categories, on phone",
+       "giusta": false,
+       "nota": "The categories are within the limits."
+      },
+      {
+       "id": "o4",
+       "testo": "None: all the groups are good",
+       "giusta": false,
+       "nota": "Look at the group with the Poor status."
+      }
+     ],
+     "perche": "The 29 product pages have an LCP of 4.1 seconds on phone: over the «poor» threshold. On computer, though, they're fine.",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "indicizzazione",
+     "tipo": "radio",
+     "domanda": "Why does that problem matter more than the others?",
+     "consegna": "Choose the reason why it should be fixed first.",
+     "spiega": "To decide priorities you look at where the problem touches money: how many pages, how many visits and whether they're pages where people buy. A small defect on pages that sell can be worth more than a big defect on pages nobody visits.",
+     "esempio": "In a physical shop a slow checkout costs more than a crooked sign in the stockroom.",
+     "errore": "Ranking problems by how many times a tool flags them instead of by their effect on sales.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "It affects the pages where people buy, on the most used device",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Because Google penalises the whole website",
+       "giusta": false,
+       "nota": "The problem affects a group of pages, not the whole website."
+      },
+      {
+       "id": "o3",
+       "testo": "It doesn't matter: users wait a few seconds",
+       "giusta": false,
+       "nota": "Beyond 3-4 seconds many people go back, especially on phones."
+      }
+     ],
+     "perche": "Product pages are where people add to the cart: if on phone they take 4 seconds, some people leave before buying.",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "guida",
+     "tipo": "testo",
+     "verifica": "ticketLcp",
+     "domanda": "Write the request to the web team",
+     "consegna": "Write 2-5 sentences for the web team: which problem, on which pages and device, what causes it and what you propose to do.",
+     "spiega": "A request (ticket) for developers must be clear even to someone who doesn't know SEO: what's wrong, where, the data that proves it, the cause if you know it and the result you want. That way the work can be estimated and everyone knows when it's done.",
+     "esempio": "«Course pages on phone take 5 s to show the main photo (LCP, threshold 2.5 s). The cause is the 3 MB image. Proposal: a smaller version for phones and WebP format. Done when LCP is under 2.5 s.»",
+     "errore": "Writing «the website is slow, fix it»: without pages, data and cause the team doesn't know where to start.",
+     "opzioni": [],
+     "perche": "Example from a senior colleague: «The 29 product pages on phone have an LCP of 4.1 s (threshold 2.5 s). Cause: the main photo is a JPG of about 2.4 MB, without dimensions and without a phone version. Proposal: a smaller version for phones, WebP format and dimensions in the code. Goal: LCP under 2.5 s.»",
+     "aiuto": "",
+     "dove": "",
+     "parole": [
+      25,
+      140
+     ]
+    },
+    {
+     "strumento": "crawler",
+     "tipo": "radio",
+     "domanda": "Which title goes over 580 pixels?",
+     "consegna": "Use the crawler to find it.",
+     "spiega": "Google shows the title up to about 580 pixels (about 60 characters): beyond that, it cuts it with dots and sometimes rewrites it itself. The words cut off are the ones at the end.",
+     "esempio": "«Running shoes for beginners: how to choose them, prices and the 10 best models | Shop» gets cut before the most useful part.",
+     "errore": "Counting only characters: wide letters (m, w) take up more space than narrow ones (i, l).",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "/te-verdi/",
+       "giusta": false,
+       "nota": "The title of /te-verdi/ is short."
+      },
+      {
+       "id": "o2",
+       "testo": "/blog/sencha-guida-completa/",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "/te-neri/assam/",
+       "giusta": false,
+       "nota": "The Assam title is under 580 pixels."
+      }
+     ],
+     "perche": "The Sencha guide has a title over 580 pixels: «Sencha green tea: what it is, how to brew it and where to buy it | Cinque Foglie».",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "crawler",
+     "tipo": "radio",
+     "domanda": "What's wrong, besides the length?",
+     "consegna": "Reread the title thinking about searchers and what they find.",
+     "spiega": "A title promises something to searchers. A guide should promise information; a product page a purchase. If a guide also promises a purchase, it starts competing with the product page for the same searches.",
+     "esempio": "An article «How to choose a bike and where to buy it» appears for «buy bike» instead of the shop pages that sell them.",
+     "errore": "Thinking only about pixels and leaving a promise in the title that takes people to the wrong page.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "The word «Sencha» is missing",
+       "giusta": false,
+       "nota": "«Sencha» is there, at the start."
+      },
+      {
+       "id": "o2",
+       "testo": "«Where to buy it» promises a purchase: the guide competes with the Sencha product page",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "The brand shouldn't be there",
+       "giusta": false,
+       "nota": "The brand at the end is fine."
+      }
+     ],
+     "perche": "It's the cause of the cannibalisation on «sencha green tea»: the guide says it sells, so Google puts it in competition with the product page.",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "pannello",
+     "tipo": "azione",
+     "verifica": "titoloGuidaSencha",
+     "vai": {
+      "link": "/app/percorsi/seo/pannello/?pagina=/blog/sencha-guida-completa/",
+      "testo": "Open the guide in the Admin"
+     },
+     "negozio": "/app/negozio/blog/sencha-guida-completa/",
+     "domanda": "Rewrite the Sencha guide's title",
+     "consegna": "In the Admin rewrite the title of /blog/sencha-guida-completa/.",
+     "spiega": "An article's title states the question it answers and what readers will find (e.g. «how to brew it», «temperature and times»). It must stay within 580 pixels and end with the brand.",
+     "esempio": "«How to make bread at home: dough, rising and baking | BlogName».",
+     "errore": "Removing the buying part and leaving a vague title («Sencha | Cinque Foglie»): it doesn't say what you'll learn.",
+     "opzioni": [],
+     "perche": "Example from a senior colleague: «Sencha green tea: what it is and how to brew it | Cinque Foglie». Now the guide answers people looking for information, and the product page people who want to buy.",
+     "aiuto": "",
+     "dove": "[data-editor] input[name=title]"
+    },
+    {
+     "strumento": "indicizzazione",
+     "tipo": "radio",
+     "domanda": "Elena asks you for the order of the work. Which one?",
+     "consegna": "Choose the order you'd do them in.",
+     "spiega": "Priorities are decided by crossing impact (how many pages and how much money), effort (who does it and how long it takes) and urgency. Things you can do yourself in a few minutes don't wait; those that need the web team are queued by impact.",
+     "esempio": "In the kitchen you first turn off the burning hob, then wash the dishes, then tidy the pantry.",
+     "errore": "Putting easy but useless things first to have a «ticked» list.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "1) product page speed on phone (web team), 2) internal links to the old Earl Grey page, 3) missing accessory descriptions, 4) unindexed blog tags: leave as they are",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "1) unindexed blog tags, 2) accessory descriptions, 3) product page speed",
+       "giusta": false,
+       "nota": "Blog tags don't bring visits: they're the last thing, in fact they can be left as they are."
+      },
+      {
+       "id": "o3",
+       "testo": "1) titles too long across the whole website, 2) speed, 3) everything else",
+       "giusta": false,
+       "nota": "There was only one title that was too long and you've already fixed it. Speed affects 29 pages that sell."
+      }
+     ],
+     "perche": "Product page speed affects all the pages where people buy; the internal links to the Earl Grey are a few minutes' work; the accessory descriptions help CTR; the blog tags are fine as they are.",
+     "aiuto": "",
+     "dove": ""
+    }
+   ],
+   "imparato": [
+    "Core Web Vitals are read by group of pages and by device.",
+    "Priorities are decided by looking at where the problem affects sales.",
+    "A request to the web team says what, where, the data, the cause and when it's done.",
+    "A guide's title promises information, not a purchase."
+   ],
+   "elena": "Crystal clear. I've passed your request to the web team as it is: they say it's the clearest they've received in months."
+  },
+  {
+   "id": "c2",
+   "livello": 3,
+   "n": 2,
+   "nome": "The October drop",
+   "tempo": "50 minutes",
+   "strumenti": "Console, Indexing, Analytics",
+   "cosa": "Separate what's normal from the real problem, calculate the cost and write the summary.",
+   "situazione": "October is going badly: clicks from Google have dropped compared with September, and usually we go up in autumn. On Friday I'm presenting the numbers: can you explain what happened?",
+   "obiettivo": "Understand whether the drop is normal or not, where it comes from, how much it costs and write the summary for Elena.",
+   "passi": [
+    {
+     "strumento": "console",
+     "tipo": "radio",
+     "domanda": "How much did clicks drop in October?",
+     "consegna": "In the Console, for the whole website, compare September and October 2026.",
+     "spiega": "A change is measured as a percentage: (new − old) / old × 100. That way you can compare months and parts of the website of different sizes.",
+     "esempio": "From 2,000 to 1,800 visits: (1,800 − 2,000) / 2,000 = −10%.",
+     "errore": "Comparing the absolute numbers of very different parts: 100 fewer clicks on the blog and 100 on the herbal teas don't weigh the same.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "About −7% compared with September",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "About −27%",
+       "giusta": false,
+       "nota": "Check again: from about 11,000 to about 10,300."
+      },
+      {
+       "id": "o3",
+       "testo": "They went up",
+       "giusta": false,
+       "nota": "Look at September and October 2026 in the chart."
+      }
+     ],
+     "perche": "From 11,068 to 10,261 clicks: about −7%.",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "console",
+     "tipo": "radio",
+     "domanda": "Is it a normal drop for the season?",
+     "consegna": "Compare the same change of months with the year before.",
+     "spiega": "Many websites have seasonality: times of the year when searches go up or down by themselves. To see whether a drop is normal you compare the same period of the year before.",
+     "esempio": "A swimwear shop drops in September every year: it isn't a problem, it's the season.",
+     "errore": "Comparing only with the previous month and mistaking the season for a problem (or the other way round).",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Yes, last year clicks dropped in October too",
+       "giusta": false,
+       "nota": "Look at September and October 2025: they went up."
+      },
+      {
+       "id": "o2",
+       "testo": "No: last year from September to October clicks went up by about 10%",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "You can't tell without more data",
+       "giusta": false,
+       "nota": "The comparison with the year before is exactly the data you need."
+      }
+     ],
+     "perche": "In 2025 from September to October clicks went from 10,131 to 11,116 (about +10%). This year they're going down: something's wrong.",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "console",
+     "domanda": "Is the drop across the whole website or in one part?",
+     "spiega": "Many searches change with the seasons. To see whether a drop is a problem compare the same month of the year before, not just the previous month, and look at one part of the website at a time.",
+     "esempio": "An ice-cream shop sells less in October than in August: that's normal. But if it also sells less than last October, there's a problem to look for.",
+     "tipo": "radio",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "The blog",
+       "giusta": false,
+       "nota": "The blog is growing compared with the year before."
+      },
+      {
+       "id": "o2",
+       "testo": "The Herbal teas category",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "The iced teas",
+       "giusta": false,
+       "nota": "They're dropping compared with September, but growing compared with the year before."
+      },
+      {
+       "id": "o4",
+       "testo": "All of them in the same way",
+       "giusta": false,
+       "nota": "Try changing part of the website: the differences are big."
+      }
+     ],
+     "perche": "The herbal teas lose about half their clicks compared with the same months of 2025, and in October almost all of them. The other parts are stable or growing.",
+     "aiuto": "Look at the red number under \"Total clicks\" for each part of the website.",
+     "dove": "[data-segmento]",
+     "consegna": "Find the part of the website that drops much more than the others.",
+     "errore": ""
+    },
+    {
+     "strumento": "console",
+     "domanda": "And the iced teas? Are they a problem?",
+     "spiega": "A drop is normal when it repeats every year in the same period. You compare this year's change with the previous year's: if it's similar, it's seasonality.",
+     "esempio": "The ice-cream shop loses 60% of its customers from September to October, every year: it isn't a problem, it's the season.",
+     "tipo": "radio",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Yes: they drop by 65% from September to October",
+       "giusta": false,
+       "nota": "They dropped in the same way in 2025 too."
+      },
+      {
+       "id": "o2",
+       "testo": "No: they drop every autumn, in 2025 too, and they're above the year before",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Yes: they have noindex too",
+       "giusta": false,
+       "nota": "In the indexing report the noindex affects the herbal teas, not the iced teas."
+      },
+      {
+       "id": "o4",
+       "testo": "You can't tell without the sales data",
+       "giusta": false,
+       "nota": "The clicks for the two years are enough to see the seasonality."
+      }
+     ],
+     "perche": "From September to October iced teas drop by about two thirds both in 2025 and in 2026; in October 2026 they have more clicks than in October 2025. It's the season.",
+     "aiuto": "Compare October 2026 with October 2025, not with September.",
+     "dove": "[data-segmento]",
+     "consegna": "Check whether the iced tea drop is a problem or the season.",
+     "errore": ""
+    },
+    {
+     "strumento": "indicizzazione",
+     "tipo": "radio",
+     "domanda": "What links the herbal tea drop to a change on the website?",
+     "consegna": "Look in the indexing report for the date and the reason.",
+     "spiega": "When a drop affects a specific part of the website and starts on a specific date, you look for what changed in that part in those days: a theme update, a migration, a change of addresses.",
+     "esempio": "A restaurant's sales drop from the Tuesday its booking website changed: first you check the website.",
+     "errore": "Blaming Google's algorithm without checking what changed on your own website.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "A Google algorithm update",
+       "giusta": false,
+       "nota": "The report says the source is the website, and the drop only affects the herbal teas."
+      },
+      {
+       "id": "o2",
+       "testo": "The noindex that came with the new theme on 18 September",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "The herbal tea prices",
+       "giusta": false,
+       "nota": "Prices don't remove pages from Google."
+      }
+     ],
+     "perche": "Indexed pages drop from the week of 21 September, right after the new theme of 18/09, and the ones that left are exactly the herbal teas.",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "statistiche",
+     "domanda": "How much does the herbal tea problem cost per month?",
+     "spiega": "To turn a drop in visits into euros multiply three numbers: the sessions lost, the page's conversion rate (how many visits out of 100 become an order) and the average order value.",
+     "esempio": "A candle shop loses 500 visits a month on a page that converts at 3%, with €20 orders: 500 × 3% × €20 = €300 a month.",
+     "tipo": "radio",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "About €50",
+       "giusta": false,
+       "nota": "Check the conversion again: it's 2%, not 0.2%."
+      },
+      {
+       "id": "o2",
+       "testo": "About €470",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "About €4,700",
+       "giusta": false,
+       "nota": "Check again: 970 × 2% is about 19 orders, not 190."
+      },
+      {
+       "id": "o4",
+       "testo": "It can't be calculated",
+       "giusta": false,
+       "nota": "You have all three numbers: sessions lost, conversion and average value."
+      }
+     ],
+     "perche": "970 sessions × 2% = about 19 orders; 19 × €24 = about €466 a month. And it grows in winter, when herbal teas are searched for more.",
+     "aiuto": "Average order value of /tisane/: revenue ÷ orders. Then 970 × 2% × that value.",
+     "dove": "#t-ga",
+     "consegna": "Calculate how much the visits lost by the herbal teas are worth per month.",
+     "errore": ""
+    },
+    {
+     "strumento": "console",
+     "tipo": "radio",
+     "domanda": "How urgent is it?",
+     "consegna": "Look at the herbal teas, month by month, in the year before.",
+     "spiega": "For seasonality you also need to look at the months ahead: a problem on a winter product costs little in September and a lot in December.",
+     "esempio": "A coat shop that disappears from Google in August loses little; if it stays out in November too it loses the season.",
+     "errore": "Calculating the cost only on the past month when the strong months are still to come.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "It can wait until spring: it costs little",
+       "giusta": false,
+       "nota": "Look at the herbal teas in 2025 between November and January."
+      },
+      {
+       "id": "o2",
+       "testo": "Very: between November and January herbal teas get almost three times the clicks",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "It isn't urgent because herbal teas are a small part",
+       "giusta": false,
+       "nota": "In the cold months they're one of the most searched parts."
+      }
+     ],
+     "perche": "In 2025 herbal teas got about 1,900-2,100 clicks a month between November and January, against about 750 in September. Staying out of Google in winter would cost much more than today's €470.",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "guida",
+     "tipo": "testo",
+     "verifica": "messaggioElena",
+     "domanda": "Write the summary for Elena",
+     "consegna": "Write 3-8 sentences: what happened, since when, why, how much it costs, what's normal and what you've done or propose.",
+     "spiega": "A summary for a manager puts the conclusion first, then the numbers that prove it and finally what to do. No unexplained jargon: the reader must be able to decide in a minute.",
+     "esempio": "«The October drop comes from the trail shoes category, which left Google on 3 October because of a back-office error: it costs about €800 a month. The sandals drop, on the other hand, is seasonal. I've fixed the error and asked Google to recheck: the numbers will come back in 2-3 weeks.»",
+     "errore": "Recounting every step of the analysis: the manager wants the conclusion and what to do.",
+     "opzioni": [],
+     "perche": "Example from a senior colleague: «The October drop (−7%) comes from the herbal teas: since 18 September the new theme has hidden them from Google with a noindex. They cost about €470 a month and will weigh more in winter. The iced tea drop, on the other hand, is seasonal, as every year. I've removed the noindex and asked Google to validate the fix.»",
+     "aiuto": "",
+     "dove": "",
+     "parole": [
+      40,
+      170
+     ]
+    }
+   ],
+   "imparato": [
+    "separating seasonality from real problems",
+    "linking a drop to a change on the website",
+    "turning a traffic drop into euros",
+    "writing a summary for a manager",
+    "looking at the months ahead to understand urgency"
+   ],
+   "elena": "Crystal clear, thank you! The noindex has already been removed and the herbal teas are coming back on Google. You did a great job: welcome to the team, for real."
+  },
+  {
+   "id": "c3",
+   "livello": 3,
+   "n": 3,
+   "nome": "The content plan",
+   "tempo": "45 minutes",
+   "strumenti": "Keywords, Analytics",
+   "cosa": "What to write until Christmas, in what order, and the brief for the copywriter.",
+   "situazione": "The copywriter has time for one article a week. What should we have them work on until Christmas?",
+   "obiettivo": "Use seasonality, intent and sales data to choose what to publish and when, and write the brief for the first article.",
+   "passi": [
+    {
+     "strumento": "keyword",
+     "domanda": "When do you update the iced tea article?",
+     "spiega": "Many searches have a season. An article should be published or updated a few weeks before the peak: Google needs time to read it and rank it.",
+     "esempio": "A candle shop sees searches for \"Christmas candles\" rise in November: it updates the article at the start of October.",
+     "tipo": "radio",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "In April-May, before searches go up",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "In August, when searches are already high",
+       "giusta": false,
+       "nota": "The peak is already half over: it would arrive late."
+      },
+      {
+       "id": "o3",
+       "testo": "In October, now",
+       "giusta": false,
+       "nota": "In autumn searches are very low: wait for spring."
+      },
+      {
+       "id": "o4",
+       "testo": "There's no need to update it: it's already in position 2.7",
+       "giusta": false,
+       "nota": "An article updated before the season defends its position."
+      }
+     ],
+     "perche": "Searches grow from May and peak in July. Updating it in April-May makes it ready when it's needed.",
+     "aiuto": "Find the tallest bar and count back a couple of months.",
+     "dove": "[data-testo]",
+     "consegna": "",
+     "errore": ""
+    },
+    {
+     "strumento": "keyword",
+     "domanda": "\"tea advent calendar\": what's needed?",
+     "spiega": "Each search asks for a type of page. If the intent is to buy, you need a product or category page; if it's to learn, you need an article. And for a seasonal search the page must be online before the season.",
+     "esempio": "\"Christmas candle kit\" is a search by people who want to buy in November: you need the kit's product page, online in October.",
+     "tipo": "radio",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "A blog article to publish in December",
+       "giusta": false,
+       "nota": "December is too late, and searchers want to buy, not read."
+      },
+      {
+       "id": "o2",
+       "testo": "A product page online at the start of November, if we really sell it",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Nothing: from January to September nobody searches for it",
+       "giusta": false,
+       "nota": "It has 3,600 searches a month on average, almost all in November and December: it's worth it."
+      },
+      {
+       "id": "o4",
+       "testo": "Repeat \"advent calendar\" on the home page",
+       "giusta": false,
+       "nota": "You don't win a keyword by repeating it on another page."
+      }
+     ],
+     "perche": "It's a transactional search peaking in November-December. You need a real product page, published in advance; if the product doesn't exist, you don't create a fake page.",
+     "aiuto": "Look at the Intent column and the months when the small bars are high.",
+     "dove": "[data-testo]",
+     "consegna": "",
+     "errore": ""
+    },
+    {
+     "strumento": "statistiche",
+     "domanda": "What are blog articles for?",
+     "spiega": "Articles reach people who are looking for information and don't know the shop yet. They convert less than product pages, but bring lots of new visits: their job is to lead people towards the products with useful internal links.",
+     "esempio": "A guide \"How to choose a candle\" brings 3,000 visits a month and few direct orders, but many readers click the link to the category and buy there.",
+     "tipo": "radio",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "They're useless: they convert less than 1%",
+       "giusta": false,
+       "nota": "They bring lots of visits from new people who can then buy."
+      },
+      {
+       "id": "o2",
+       "testo": "They bring new people: they should be linked to the products with useful internal links",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "They should be removed to raise the average conversion",
+       "giusta": false,
+       "nota": "The average conversion would go up, but total orders would go down."
+      },
+      {
+       "id": "o4",
+       "testo": "They should be filled with discount banners",
+       "giusta": false,
+       "nota": "People looking for information aren't ready to buy: too many banners make them leave."
+      }
+     ],
+     "perche": "Articles have lots of sessions and a low conversion (0.5-0.7%); product pages the opposite (on average around 3-4%). They're two different jobs: the blog brings people, the products sell.",
+     "aiuto": "Look at the Type column: compare the Article rows with the Product rows.",
+     "dove": "#t-ga",
+     "consegna": "",
+     "errore": ""
+    },
+    {
+     "strumento": "keyword",
+     "domanda": "Which new keyword would you try with an article?",
+     "spiega": "A good opportunity for the blog is a search the website doesn't reach today, with informational intent, low difficulty and linked to the products you sell. Keywords about the health effects of food should be handled very carefully.",
+     "esempio": "A candle shop finds \"how to make a candle last longer\": 1,800 searches, difficulty 15, it doesn't appear. It's perfect for an article that then links to the candles.",
+     "tipo": "radio",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "green tea benefits",
+       "giusta": false,
+       "nota": "Lots of searches, but it's about health: for a food, promises are regulated (Reg. EC 1924/2006) and the difficulty is high."
+      },
+      {
+       "id": "o2",
+       "testo": "herbal tea",
+       "giusta": false,
+       "nota": "The website doesn't appear because of the noindex: it's solved by fixing the website (the «The herbal teas that vanished from Google» mission), not with an article."
+      },
+      {
+       "id": "o3",
+       "testo": "matcha latte recipe",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o4",
+       "testo": "tea advent calendar",
+       "giusta": false,
+       "nota": "It's a search by people who want to buy a product: you need a product page, not an article."
+      }
+     ],
+     "perche": "\"matcha latte recipe\" has 2,900 searches, difficulty 18 (easy), informational intent, and leads straight to the shop's matcha.",
+     "aiuto": "Look for the lowest difficulty among the informational keywords linked to a product we sell.",
+     "dove": "[data-assente]",
+     "consegna": "",
+     "errore": ""
+    },
+    {
+     "strumento": "keyword",
+     "domanda": "Which article do you write first, at the end of October?",
+     "spiega": "To choose what to write now cross three things: the season (what people search for in the next two months), the intent (linked to what you sell) and today's position (where the website doesn't appear there's room to grow).",
+     "esempio": "At the end of October a candle shop writes \"Scented gift ideas for Christmas\": it's searched for in November-December and leads to the products.",
+     "tipo": "radio",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Gift ideas for tea lovers",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "How to make iced tea at home",
+       "giusta": false,
+       "nota": "It's searched for in summer: the end of October isn't the time."
+      },
+      {
+       "id": "o3",
+       "testo": "All the benefits of green tea",
+       "giusta": false,
+       "nota": "It's about health: for a food, promises are regulated."
+      },
+      {
+       "id": "o4",
+       "testo": "The history of tea in China",
+       "giusta": false,
+       "nota": "Interesting, but almost nobody searches for it and it doesn't lead to the products."
+      }
+     ],
+     "perche": "\"tea gift ideas\" peaks in December, has commercial intent and the website doesn't appear today: written now, it will be ready for Christmas and will lead to the teapots and cups.",
+     "aiuto": "Which search peaks in November-December and doesn't see us in the rankings today?",
+     "dove": "[data-testo]",
+     "consegna": "",
+     "errore": ""
+    },
+    {
+     "strumento": "guida",
+     "tipo": "testo",
+     "verifica": "briefRegali",
+     "domanda": "Write the brief for the copywriter",
+     "consegna": "Write the brief for the first article: main keyword, who it's for, when to publish it by, what it must contain and which products to link.",
+     "spiega": "A brief is the assignment for the writer: without it, the copywriter guesses. It contains the keyword and the intent, the audience, the date, the points to cover and the internal links to the products.",
+     "esempio": "«Keyword: gift ideas for people who love cooking. For people looking for a present in November. Publish by 10/11. Sections: 5 ideas under €30, how to choose, gift wrapping. Links to the kit and utensil pages.»",
+     "errore": "Giving only the title: the copywriter doesn't know who they're writing for, when it's needed and where to take readers.",
+     "opzioni": [],
+     "perche": "Example from a senior colleague: «Keyword: tea gift ideas. For people looking for a present for a tea lover, budget €20-50. Publish by mid-November (searches rise from November). Sections: ideas by budget, kits and accessories, how to choose the right tea. Links: matcha kit, cast iron teapot, evening herbal teas.»",
+     "aiuto": "",
+     "dove": "",
+     "parole": [
+      30,
+      160
+     ]
+    }
+   ],
+   "imparato": [
+    "using seasonality to decide when to publish",
+    "matching intent and page type",
+    "understanding the blog's role in sales",
+    "choosing the content plan's priorities",
+    "finding searches where the website doesn't appear yet",
+    "writing a clear brief for the people who produce content"
+   ],
+   "elena": "Great plan: the gift article starts next week."
+  }
+ ]
+}

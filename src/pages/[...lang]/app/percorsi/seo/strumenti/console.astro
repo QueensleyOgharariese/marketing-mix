@@ -1,37 +1,43 @@
 ---
-import { LINGUE_APP } from "../../../../../../i18n";
+import { LINGUE_APP, linguaDa } from "../../../../../../i18n";
 // STRUMENTO · CONSOLE DI RICERCA (rendimento): ispirata al rapporto "Risultati di ricerca" di Google Search Console
 // Grafico di 16 mesi (clic, impressioni, CTR, posizione), filtro per parte del sito, confronto con l'anno prima,
 // tabelle di query e pagine. Cliccando una query si vedono le pagine che compaiono per quella ricerca.
 // Dati: src/data/app/seo-pro/search-console.json (generati da strumenti-dati/genera_negozio.py).
 import Console from "../../../../../../components/seopro/Console.astro";
-import sc from "../../../../../../data/app/seo-pro/search-console.json";
-import { num } from "../../../../../../scripts/tabella";
+import scIt from "../../../../../../data/app/seo-pro/search-console.json";
+import scEn from "../../../../../../data/app/seo-pro/search-console.en.json";
+import { num as numIt } from "../../../../../../scripts/tabella";
+const en = linguaDa(Astro.url) === "en";
+const L = (it: string, eng: string) => (en ? eng : it);
+// Versione inglese: le query sono ricerche pensate in inglese (non tradotte parola per parola), stessi numeri
+const sc = en ? (scEn as typeof scIt) : scIt;
+const num = (x: number, d = 0) => numIt(x, d, en);
 const segmenti = Object.entries(sc.segmenti);
 export function getStaticPaths() { return LINGUE_APP(); }
 ---
-<Console attivo="console" titolo="Console di ricerca" sottotitolo="Come appare cinquefoglie.example nei risultati di Google" ispirato="Google Search Console (rapporto Risultati di ricerca)">
+<Console attivo="console" titolo={L("Console di ricerca", "Search console")} sottotitolo={L("Come appare cinquefoglie.example nei risultati di Google", "How cinquefoglie.example appears in Google's results")} ispirato={L("Google Search Console (rapporto Risultati di ricerca)", "Google Search Console (Search results report)")}>
   <div class="sp-pannello comandi">
-    <label>Proprietà <strong class="url">{sc.proprieta}</strong></label>
-    <label>Parte del sito
+    <label>{L("Proprietà", "Property")} <strong class="url">{sc.proprieta}</strong></label>
+    <label>{L("Parte del sito", "Part of the website")}
       <select class="sp-scegli" data-segmento>
-        <option value="tutto">Tutto il sito</option>
+        <option value="tutto">{L("Tutto il sito", "Whole website")}</option>
         {segmenti.map(([id, nome]) => <option value={id}>{nome}</option>)}
       </select>
     </label>
-    <label>Periodo
+    <label>{L("Periodo", "Period")}
       <select class="sp-scegli" data-periodo>
-        <option value="3">Ultimi 3 mesi</option>
-        <option value="6">Ultimi 6 mesi</option>
-        <option value="12">Ultimi 12 mesi</option>
-        <option value="16" selected>Ultimi 16 mesi</option>
+        <option value="3">{L("Ultimi 3 mesi", "Last 3 months")}</option>
+        <option value="6">{L("Ultimi 6 mesi", "Last 6 months")}</option>
+        <option value="12">{L("Ultimi 12 mesi", "Last 12 months")}</option>
+        <option value="16" selected>{L("Ultimi 16 mesi", "Last 16 months")}</option>
       </select>
     </label>
-    <label class="spunta"><input type="checkbox" data-confronta /> Confronta con l'anno prima</label>
+    <label class="spunta"><input type="checkbox" data-confronta /> {L("Confronta con l'anno prima", "Compare with the year before")}</label>
   </div>
 
-  <div class="sp-cifre" role="group" aria-label="Metriche da mostrare nel grafico">
-    {[["clic", "Clic totali"], ["impressioni", "Impressioni totali"], ["ctr", "CTR medio"], ["posizione", "Posizione media"]].map(([id, nome], i) => (
+  <div class="sp-cifre" role="group" aria-label={L("Metriche da mostrare nel grafico", "Metrics to show in the chart")}>
+    {[["clic", L("Clic totali", "Total clicks")], ["impressioni", L("Impressioni totali", "Total impressions")], ["ctr", L("CTR medio", "Average CTR")], ["posizione", L("Posizione media", "Average position")]].map(([id, nome], i) => (
       <button type="button" class:list={["metrica", `m-${id}`]} data-metrica={id} aria-pressed={i < 2 ? "true" : "false"}>
         <span>{nome}</span><strong data-valore={id}>–</strong><small data-variazione={id}></small>
       </button>
@@ -39,18 +45,18 @@ export function getStaticPaths() { return LINGUE_APP(); }
   </div>
 
   <div class="sp-pannello">
-    <svg class="sp-grafico" data-grafico viewBox="0 0 900 260" role="img" aria-label="Andamento mensile"></svg>
-    <p class="evento" data-evento hidden><span class="evento-n" aria-hidden="true">1</span><span><strong>18 settembre 2026:</strong> il team web ha pubblicato il nuovo tema del negozio.</span></p>
+    <svg class="sp-grafico" data-grafico viewBox="0 0 900 260" role="img" aria-label={L("Andamento mensile", "Monthly trend")}></svg>
+    <p class="evento" data-evento hidden><span class="evento-n" aria-hidden="true">1</span><span><strong>{L("18 settembre 2026:", "18 September 2026:")}</strong> {L("il team web ha pubblicato il nuovo tema del negozio.", "the web team published the shop's new theme.")}</span></p>
     <p class="sp-nota" data-legenda></p>
   </div>
 
   <section class="sp-pannello controllo-url" aria-labelledby="t-controllo">
-    <h2 id="t-controllo" class="titoletto">Controllo URL</h2>
-    <p class="sp-nota">Scrivi un indirizzo per vedere com'è su Google e com'è sul sito adesso. Dopo una modifica puoi chiedere a Google di rileggere la pagina.</p>
+    <h2 id="t-controllo" class="titoletto">{L("Controllo URL", "URL Inspection")}</h2>
+    <p class="sp-nota">{L("Scrivi un indirizzo per vedere com'è su Google e com'è sul sito adesso. Dopo una modifica puoi chiedere a Google di rileggere la pagina.", "Type an address to see how it is on Google and how it is on the website now. After a change you can ask Google to reread the page.")}</p>
     <form class="url-riga" data-controllo-url>
-      <label for="url-da-controllare" class="sr">Indirizzo da controllare</label>
+      <label for="url-da-controllare" class="sr">{L("Indirizzo da controllare", "Address to inspect")}</label>
       <input id="url-da-controllare" class="sp-cerca" name="url" placeholder="/te-verdi/" autocomplete="off" />
-      <button type="submit" class="bottone-app">Controlla</button>
+      <button type="submit" class="bottone-app">{L("Controlla", "Inspect")}</button>
     </form>
     <div class="url-esito" data-url-esito hidden></div>
   </section>
@@ -58,16 +64,16 @@ export function getStaticPaths() { return LINGUE_APP(); }
   <div class="sp-pannello tabelle">
     <div class="sp-riga">
       <div class="sp-schede" role="tablist">
-        <button type="button" role="tab" aria-selected="true" data-scheda="query">Query</button>
-        <button type="button" role="tab" aria-selected="false" data-scheda="pagine">Pagine</button>
+        <button type="button" role="tab" aria-selected="true" data-scheda="query">{L("Query", "Queries")}</button>
+        <button type="button" role="tab" aria-selected="false" data-scheda="pagine">{L("Pagine", "Pages")}</button>
       </div>
-      <span class="sp-nota">Periodo delle tabelle: {sc.periodoQuery}</span>
+      <span class="sp-nota">{L("Periodo delle tabelle", "Table period")}: {sc.periodoQuery}</span>
     </div>
     <div data-pannello="query">
-      <div class="sp-riga barra-tab"><input class="sp-cerca" type="search" placeholder="Filtra le query…" data-filtra="t-query" /><span class="sp-nota">Clicca una query per vedere quali pagine compaiono.</span></div>
+      <div class="sp-riga barra-tab"><input class="sp-cerca" type="search" placeholder={L("Filtra le query…", "Filter the queries…")} data-filtra="t-query" /><span class="sp-nota">{L("Clicca una query per vedere quali pagine compaiono.", "Click a query to see which pages appear.")}</span></div>
       <div class="sp-scorri">
         <table data-tabella id="t-query">
-          <thead><tr><th data-ordina="testo">Query</th><th data-ordina="numero" class="n">Clic</th><th data-ordina="numero" class="n">Impressioni</th><th data-ordina="numero" class="n">CTR</th><th data-ordina="numero" class="n">Posizione</th><th data-ordina="numero" class="n">Pagine</th></tr></thead>
+          <thead><tr><th data-ordina="testo">Query</th><th data-ordina="numero" class="n">{L("Clic", "Clicks")}</th><th data-ordina="numero" class="n">{L("Impressioni", "Impressions")}</th><th data-ordina="numero" class="n">CTR</th><th data-ordina="numero" class="n">{L("Posizione", "Position")}</th><th data-ordina="numero" class="n">{L("Pagine", "Pages")}</th></tr></thead>
           <tbody>
             {sc.query.map((q, i) => (
               <tr data-query={i} tabindex="0">
@@ -76,7 +82,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
                 <td class="n" data-valore={q.impressioni}>{num(q.impressioni)}</td>
                 <td class="n" data-valore={q.ctr}>{num(q.ctr, 1)}%</td>
                 <td class="n" data-valore={q.posizione}>{num(q.posizione, 1)}</td>
-                <td class="n" data-valore={q.pagine.length}>{q.pagine.length > 1 ? <span class="sp-badge medio">{q.pagine.length} pagine</span> : "1"}</td>
+                <td class="n" data-valore={q.pagine.length}>{q.pagine.length > 1 ? <span class="sp-badge medio">{q.pagine.length} {L("pagine", "pages")}</span> : "1"}</td>
               </tr>
             ))}
           </tbody>
@@ -85,14 +91,14 @@ export function getStaticPaths() { return LINGUE_APP(); }
       <div class="dettaglio" data-dettaglio hidden></div>
     </div>
     <div data-pannello="pagine" hidden>
-      <div class="sp-riga barra-tab"><input class="sp-cerca" type="search" placeholder="Filtra le pagine…" data-filtra="t-pagine" /></div>
+      <div class="sp-riga barra-tab"><input class="sp-cerca" type="search" placeholder={L("Filtra le pagine…", "Filter the pages…")} data-filtra="t-pagine" /></div>
       <div class="sp-scorri">
         <table data-tabella id="t-pagine">
-          <thead><tr><th data-ordina="testo">Pagina</th><th data-ordina="numero" class="n">Clic</th><th data-ordina="numero" class="n">Impressioni</th><th data-ordina="numero" class="n">CTR</th><th data-ordina="numero" class="n">Posizione</th></tr></thead>
+          <thead><tr><th data-ordina="testo">{L("Pagina", "Page")}</th><th data-ordina="numero" class="n">{L("Clic", "Clicks")}</th><th data-ordina="numero" class="n">{L("Impressioni", "Impressions")}</th><th data-ordina="numero" class="n">CTR</th><th data-ordina="numero" class="n">{L("Posizione", "Position")}</th></tr></thead>
           <tbody>
             {sc.pagine.map((p) => (
               <tr>
-                <td class="url"><a href={`/app/negozio${p.url}`}>{p.url}</a></td>
+                <td class="url"><a href={`${en ? "/en" : ""}/app/negozio${p.url}`}>{p.url}</a></td>
                 <td class="n" data-valore={p.clic}>{num(p.clic)}</td>
                 <td class="n" data-valore={p.impressioni}>{num(p.impressioni)}</td>
                 <td class="n" data-valore={p.ctr}>{num(p.ctr, 1)}%</td>
@@ -106,14 +112,19 @@ export function getStaticPaths() { return LINGUE_APP(); }
   </div>
 
   <details class="sp-pannello aiuto">
-    <summary>Come si leggono questi numeri</summary>
-    <p><strong>Impressioni</strong>: quante volte una pagina è comparsa nei risultati. <strong>Clic</strong>: quante volte qualcuno ci ha cliccato. <strong>CTR</strong>: clic ÷ impressioni. <strong>Posizione</strong>: la posizione media nei risultati (1 = primo). Una pagina con tante impressioni e un CTR basso spesso ha un titolo o una descrizione poco convincenti. Per capire se un calo è normale, confronta con lo stesso mese dell'anno prima: molti prodotti hanno una stagione.</p>
+    <summary>{L("Come si leggono questi numeri", "How to read these numbers")}</summary>
+    {en && <p><strong>Impressions</strong>: how many times a page appeared in the results. <strong>Clicks</strong>: how many times someone clicked on it. <strong>CTR</strong>: clicks ÷ impressions. <strong>Position</strong>: the average position in the results (1 = first). A page with lots of impressions and a low CTR often has an unconvincing title or description. To see whether a drop is normal, compare with the same month of the year before: many products have a season.</p>}
+    {!en && <p><strong>Impressioni</strong>: quante volte una pagina è comparsa nei risultati. <strong>Clic</strong>: quante volte qualcuno ci ha cliccato. <strong>CTR</strong>: clic ÷ impressioni. <strong>Posizione</strong>: la posizione media nei risultati (1 = primo). Una pagina con tante impressioni e un CTR basso spesso ha un titolo o una descrizione poco convincenti. Per capire se un calo è normale, confronta con lo stesso mese dell'anno prima: molti prodotti hanno una stagione.</p>}
   </details>
 </Console>
 
 <script>
-  import sc from "../../../../../../data/app/seo-pro/search-console.json";
+  import scIt from "../../../../../../data/app/seo-pro/search-console.json";
+  import scEn from "../../../../../../data/app/seo-pro/search-console.en.json";
   import { attivaTabelle, num } from "../../../../../../scripts/tabella";
+  import { t, scegli, conLingua, EN } from "../../../../../../scripts/lingua";
+  import { nomeMotivo } from "../../../../../../scripts/cms";
+  const sc = scegli(scIt, scEn as typeof scIt);
   attivaTabelle();
 
   type Mese = (typeof sc.mesi)[number] & Record<string, any>;
@@ -123,7 +134,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
   const POS = (seg: string) => BASI[seg].posizione;
 
   const $ = <T extends HTMLElement>(s: string) => document.querySelector<T>(s)!;
-  const MESI_NOMI = ["gen", "feb", "mar", "apr", "mag", "giu", "lug", "ago", "set", "ott", "nov", "dic"];
+  const MESI_NOMI = EN ? ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] : ["gen", "feb", "mar", "apr", "mag", "giu", "lug", "ago", "set", "ott", "nov", "dic"];
   const etichetta = (m: string) => `${MESI_NOMI[Number(m.slice(5)) - 1]} ${m.slice(2, 4)}`;
 
   // Valori di un mese per la parte del sito scelta
@@ -161,7 +172,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
       if (prec) {
         const d = k === "posizione" ? ora[k] - prec[k] : (ora[k] / prec[k] - 1) * 100;
         const buono = k === "posizione" ? d < 0 : d > 0;
-        el.textContent = k === "posizione" ? `${d > 0 ? "+" : ""}${num(d, 1)} rispetto all'anno prima` : `${d > 0 ? "+" : ""}${num(d, 0)}% rispetto all'anno prima`;
+        el.textContent = (k === "posizione" ? `${d > 0 ? "+" : ""}${num(d, 1)}` : `${d > 0 ? "+" : ""}${num(d, 0)}%`) + t(" rispetto all'anno prima", " compared with the year before");
         el.className = buono ? "su" : "giu";
       } else el.textContent = "";
     }
@@ -199,9 +210,9 @@ export function getStaticPaths() { return LINGUE_APP(); }
     }
     $("[data-evento]").hidden = eventiVisibili === 0;
     $("[data-grafico]").innerHTML = svg;
-    $("[data-legenda]").textContent = (confronta ? "Linea continua: questo periodo. Linea tratteggiata: lo stesso periodo dell'anno prima. " : "") +
-      (attive.includes("posizione") ? "Per la posizione, più in alto nel grafico è meglio (1 = primo risultato). " : "") +
-      (seg !== "tutto" ? "Per una parte del sito, impressioni e posizione sono stime." : "");
+    $("[data-legenda]").textContent = (confronta ? t("Linea continua: questo periodo. Linea tratteggiata: lo stesso periodo dell'anno prima. ", "Solid line: this period. Dashed line: the same period of the year before. ") : "") +
+      (attive.includes("posizione") ? t("Per la posizione, più in alto nel grafico è meglio (1 = primo risultato). ", "For position, higher up in the chart is better (1 = first result). ") : "") +
+      (seg !== "tutto" ? t("Per una parte del sito, impressioni e posizione sono stime.", "For a part of the website, impressions and position are estimates.") : "");
   }
 
   document.querySelectorAll<HTMLButtonElement>("[data-metrica]").forEach((b) => b.addEventListener("click", () => {
@@ -219,7 +230,9 @@ export function getStaticPaths() { return LINGUE_APP(); }
   }));
 
   // ---- Controllo URL: Google (ultima scansione, 25/10) e sito di oggi (con le modifiche del pannello)
-  import crawlDati from "../../../../../../data/app/seo-pro/crawl.json";
+  import crawlIt from "../../../../../../data/app/seo-pro/crawl.json";
+  import crawlEn from "../../../../../../data/app/seo-pro/crawl.en.json";
+  const crawlDati = scegli(crawlIt, crawlEn as typeof crawlIt);
   import { leggiModifiche, salvaModifiche, paginaEffettiva, pulisciUrl, OGGI } from "../../../../../../scripts/cms";
   const escU = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;");
   function controllaUrl(u: string) {
@@ -228,22 +241,22 @@ export function getStaticPaths() { return LINGUE_APP(); }
     const google = crawlDati.pagine.find((p) => p.url === url);
     const oggi = paginaEffettiva(url);
     box.hidden = false;
-    if (!google && !oggi) { box.innerHTML = `<p>Google non conosce <span class="url">${escU(url)}</span>: controlla di averlo scritto bene.</p>`; return; }
+    if (!google && !oggi) { box.innerHTML = t(`<p>Google non conosce <span class="url">${escU(url)}</span>: controlla di averlo scritto bene.</p>`, `<p>Google doesn't know <span class="url">${escU(url)}</span>: check you've typed it correctly.</p>`); return; }
     const m = leggiModifiche();
     const richiesta = m.richieste[url];
     const riga = (k: string, v: string) => `<div><dt>${k}</dt><dd>${v || "<em>—</em>"}</dd></div>`;
     const scheda = (titolo: string, p: any, nota: string) => `<div class="url-scheda"><strong>${titolo}</strong><span class="sp-nota">${nota}</span><dl>` +
-      riga("Stato", p ? String(p.stato) : "–") + riga("Su Google", p ? (p.indicizzabile ? '<span class="sp-badge ok">Può comparire</span>' : `<span class="sp-badge no">No, ${escU((p.motivo || "").toLowerCase())}</span>`) : "") +
+      riga(t("Stato", "Status"), p ? String(p.stato) : "–") + riga(t("Su Google", "On Google"), p ? (p.indicizzabile ? `<span class="sp-badge ok">${t("Può comparire", "Can appear")}</span>` : `<span class="sp-badge no">No, ${escU(nomeMotivo(p.motivo || "").toLowerCase())}</span>`) : "") +
       riga("Title", p ? escU(p.title ?? "") : "") + riga("Description", p ? escU(p.description ?? "") : "") + riga("Meta robots", p ? escU(p.robots ?? "") : "") + `</dl></div>`;
-    box.innerHTML = `<div class="url-schede">${scheda("Come l'ha vista Google", google, "Ultima scansione: 25/10/2026")}${scheda("Il sito adesso", oggi, oggi?.modificata ? "Contiene le tue modifiche" : "Uguale all'ultima scansione")}</div>
-      <div class="url-azioni">${richiesta ? `<span class="sp-badge medio">Indicizzazione richiesta il ${richiesta}</span>` : `<button type="button" class="bottone-app" data-richiedi>Richiedi indicizzazione</button>`}<span class="url-msg" data-url-msg aria-live="polite"></span></div>`;
+    box.innerHTML = `<div class="url-schede">${scheda(t("Come l'ha vista Google", "How Google saw it"), google, t("Ultima scansione: 25/10/2026", "Last crawled: 25/10/2026"))}${scheda(t("Il sito adesso", "The website now"), oggi, oggi?.modificata ? t("Contiene le tue modifiche", "Contains your changes") : t("Uguale all'ultima scansione", "Same as the last crawl"))}</div>
+      <div class="url-azioni">${richiesta ? `<span class="sp-badge medio">${t("Indicizzazione richiesta il", "Indexing requested on")} ${richiesta}</span>` : `<button type="button" class="bottone-app" data-richiedi>${t("Richiedi indicizzazione", "Request indexing")}</button>`}<span class="url-msg" data-url-msg aria-live="polite"></span></div>`;
     box.querySelector("[data-richiedi]")?.addEventListener("click", () => {
       const msg = box.querySelector<HTMLElement>("[data-url-msg]")!;
-      if (!oggi || oggi.stato !== 200) { msg.textContent = "Questa pagina non risponde 200: Google non la può indicizzare."; return; }
-      if ((oggi.robots ?? "").includes("noindex")) { msg.textContent = "La pagina ha ancora il noindex: Google non la può indicizzare. Toglilo prima nel pannello."; return; }
+      if (!oggi || oggi.stato !== 200) { msg.textContent = t("Questa pagina non risponde 200: Google non la può indicizzare.", "This page doesn't respond 200: Google can't index it."); return; }
+      if ((oggi.robots ?? "").includes("noindex")) { msg.textContent = t("La pagina ha ancora il noindex: Google non la può indicizzare. Toglilo prima nel pannello.", "The page still has noindex: Google can't index it. Remove it in the admin first."); return; }
       const m2 = leggiModifiche(); m2.richieste[url] = OGGI; salvaModifiche(m2);
       controllaUrl(url);
-      box.querySelector<HTMLElement>("[data-url-msg]")!.textContent = "Richiesta inviata: Google rileggerà la pagina nei prossimi giorni.";
+      box.querySelector<HTMLElement>("[data-url-msg]")!.textContent = t("Richiesta inviata: Google rileggerà la pagina nei prossimi giorni.", "Request sent: Google will reread the page over the next few days.");
     });
   }
   $<HTMLFormElement>("[data-controllo-url]").addEventListener("submit", (e) => {
@@ -258,9 +271,10 @@ export function getStaticPaths() { return LINGUE_APP(); }
     riga.classList.add("selezionata");
     const q = sc.query[Number(riga.dataset.query)];
     dett.hidden = false;
-    dett.innerHTML = `<p class="d-testa"><strong>"${q.query}"</strong> · intento ${q.intento}</p><table class="mini"><thead><tr><th>Pagina</th><th>Clic</th><th>Impressioni</th><th>Posizione</th></tr></thead><tbody>` +
-      q.pagine.map((p) => `<tr><td class="url"><a href="/app/negozio${p.url}">${p.url}</a></td><td>${num(p.clic)}</td><td>${num(p.impressioni)}</td><td>${num(p.posizione, 1)}</td></tr>`).join("") +
-      `</tbody></table>` + (q.pagine.length > 1 ? `<p class="sp-nota">Per questa ricerca compaiono ${q.pagine.length} pagine diverse del sito.</p>` : "");
+    const INTENTI_EN: Record<string, string> = { informativa: "informational", commerciale: "commercial", transazionale: "transactional", navigazionale: "navigational" };
+    dett.innerHTML = `<p class="d-testa"><strong>"${q.query}"</strong> · ${t("intento", "intent")} ${EN ? INTENTI_EN[q.intento] ?? q.intento : q.intento}</p><table class="mini"><thead><tr><th>${t("Pagina", "Page")}</th><th>${t("Clic", "Clicks")}</th><th>${t("Impressioni", "Impressions")}</th><th>${t("Posizione", "Position")}</th></tr></thead><tbody>` +
+      q.pagine.map((p) => `<tr><td class="url"><a href="${conLingua(`/app/negozio${p.url}`)}">${p.url}</a></td><td>${num(p.clic)}</td><td>${num(p.impressioni)}</td><td>${num(p.posizione, 1)}</td></tr>`).join("") +
+      `</tbody></table>` + (q.pagine.length > 1 ? `<p class="sp-nota">${t(`Per questa ricerca compaiono ${q.pagine.length} pagine diverse del sito.`, `${q.pagine.length} different pages of the website appear for this search.`)}</p>` : "");
   }
   document.querySelectorAll<HTMLTableRowElement>("tr[data-query]").forEach((r) => {
     r.addEventListener("click", () => apri(r));

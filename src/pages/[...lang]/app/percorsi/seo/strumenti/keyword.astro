@@ -1,15 +1,24 @@
 ---
-import { LINGUE_APP } from "../../../../../../i18n";
+import { LINGUE_APP, linguaDa } from "../../../../../../i18n";
 // STRUMENTO · RICERCA KEYWORD: ispirato a Google Keyword Planner e ai tool come Semrush
 // Volume medio mensile, difficoltà, CPC, intento, andamento nell'anno (stagionalità), elementi della SERP,
 // posizione attuale di cinquefoglie.example. Filtri per testo, intento e volume; ordinamento per colonna.
 // Dati: src/data/app/seo-pro/keyword.json (generati da strumenti-dati/genera_negozio.py).
 import Console from "../../../../../../components/seopro/Console.astro";
-import kw from "../../../../../../data/app/seo-pro/keyword.json";
-import { num } from "../../../../../../scripts/tabella";
+import kwIt from "../../../../../../data/app/seo-pro/keyword.json";
+import kwEn from "../../../../../../data/app/seo-pro/keyword.en.json";
+import { num as numIt } from "../../../../../../scripts/tabella";
 
+const en = linguaDa(Astro.url) === "en";
+const L = (it: string, eng: string) => (en ? eng : it);
+// Versione inglese: ricerche ripensate in inglese (non tradotte parola per parola), stessi numeri
+const kw = en ? (kwEn as typeof kwIt) : kwIt;
+const num = (x: number, d = 0) => numIt(x, d, en);
 const INTENTI = ["informativa", "commerciale", "transazionale", "navigazionale"];
-const kd = (d: number) => (d < 25 ? ["ok", "Facile"] : d < 45 ? ["medio", "Media"] : ["no", "Difficile"]);
+// l'intento resta un codice (colori e filtro): in inglese si mostra tradotto
+const INTENTI_EN: Record<string, string> = { informativa: "informational", commerciale: "commercial", transazionale: "transactional", navigazionale: "navigational" };
+const nomeIntento = (i: string) => (en ? INTENTI_EN[i] ?? i : i);
+const kd = (d: number) => (d < 25 ? ["ok", L("Facile", "Easy")] : d < 45 ? ["medio", L("Media", "Medium")] : ["no", L("Difficile", "Hard")]);
 // Andamento nei 12 mesi (da luglio a giugno): 12 barrette, la più alta è il mese con più ricerche.
 // Barrette tutte uguali = keyword stabile tutto l'anno (non stagionale).
 const barre = (t: number[]) => {
@@ -18,48 +27,48 @@ const barre = (t: number[]) => {
 };
 export function getStaticPaths() { return LINGUE_APP(); }
 ---
-<Console attivo="keyword" titolo="Ricerca keyword" sottotitolo="Cosa cercano le persone in Italia, e in quali mesi" ispirato="Google Keyword Planner e strumenti come Semrush">
+<Console attivo="keyword" titolo={L("Ricerca keyword", "Keyword research")} sottotitolo={L("Cosa cercano le persone in Italia, e in quali mesi", "What people search for, and in which months")} ispirato={L("Google Keyword Planner e strumenti come Semrush", "Google Keyword Planner and tools like Semrush")}>
   <div class="sp-pannello comandi">
-    <input class="sp-cerca" type="search" placeholder="Cerca una keyword…" data-testo />
-    <label>Intento
+    <input class="sp-cerca" type="search" placeholder={L("Cerca una keyword…", "Search for a keyword…")} data-testo />
+    <label>{L("Intento", "Intent")}
       <select class="sp-scegli" data-intento>
-        <option value="">Tutti</option>
-        {INTENTI.map((i) => <option value={i}>{i}</option>)}
+        <option value="">{L("Tutti", "All")}</option>
+        {INTENTI.map((i) => <option value={i}>{nomeIntento(i)}</option>)}
       </select>
     </label>
-    <label>Volume almeno
+    <label>{L("Volume almeno", "Volume at least")}
       <select class="sp-scegli" data-volume>
-        <option value="0">qualsiasi</option><option value="1000">1.000</option><option value="5000">5.000</option><option value="10000">10.000</option>
+        <option value="0">{L("qualsiasi", "any")}</option><option value="1000">{num(1000)}</option><option value="5000">{num(5000)}</option><option value="10000">{num(10000)}</option>
       </select>
     </label>
-    <label class="spunta"><input type="checkbox" data-assente /> Solo dove il sito non compare</label>
+    <label class="spunta"><input type="checkbox" data-assente /> {L("Solo dove il sito non compare", "Only where the website doesn't appear")}</label>
     <span class="sp-nota" data-conteggio></span>
   </div>
 
   <div class="sp-cifre">
-    <div class="sp-cifra"><span>Keyword trovate</span><strong data-c-n>–</strong></div>
-    <div class="sp-cifra"><span>Ricerche al mese, in tutto</span><strong data-c-vol>–</strong></div>
-    <div class="sp-cifra"><span>Dove il sito non compare</span><strong data-c-assenti>–</strong></div>
+    <div class="sp-cifra"><span>{L("Keyword trovate", "Keywords found")}</span><strong data-c-n>–</strong></div>
+    <div class="sp-cifra"><span>{L("Ricerche al mese, in tutto", "Searches per month, in total")}</span><strong data-c-vol>–</strong></div>
+    <div class="sp-cifra"><span>{L("Dove il sito non compare", "Where the website doesn't appear")}</span><strong data-c-assenti>–</strong></div>
   </div>
 
   <div class="sp-scorri">
     <table data-tabella id="t-kw">
       <thead><tr>
-        <th data-ordina="testo">Keyword</th><th data-ordina="testo">Intento</th><th data-ordina="numero" class="n">Volume</th>
-        <th data-ordina="numero" class="n">Difficoltà</th><th data-ordina="numero" class="n">CPC</th><th>Andamento (lug → giu)</th>
-        <th>Elementi della SERP</th><th data-ordina="numero" class="n">Posizione del sito</th>
+        <th data-ordina="testo">Keyword</th><th data-ordina="testo">{L("Intento", "Intent")}</th><th data-ordina="numero" class="n">Volume</th>
+        <th data-ordina="numero" class="n">{L("Difficoltà", "Difficulty")}</th><th data-ordina="numero" class="n">CPC</th><th>{L("Andamento (lug → giu)", "Trend (Jul → Jun)")}</th>
+        <th>{L("Elementi della SERP", "SERP features")}</th><th data-ordina="numero" class="n">{L("Posizione del sito", "Website position")}</th>
       </tr></thead>
       <tbody>
         {kw.keyword.map((k) => (
           <tr data-intento={k.intento} data-vol={k.volume} data-assente={k.posizione == null ? "si" : "no"}>
             <td><strong>{k.keyword}</strong></td>
-            <td><span class:list={["sp-badge", `int-${k.intento}`]}>{k.intento}</span></td>
+            <td><span class:list={["sp-badge", `int-${k.intento}`]}>{nomeIntento(k.intento)}</span></td>
             <td class="n" data-valore={k.volume}>{num(k.volume)}</td>
             <td class="n" data-valore={k.difficolta}><span class:list={["sp-badge", kd(k.difficolta)[0]]} title={kd(k.difficolta)[1]}>{k.difficolta}</span></td>
-            <td class="n" data-valore={k.cpc}>{num(k.cpc, 2)} €</td>
-            <td><svg width="84" height="24" viewBox="0 0 84 24" role="img" aria-label={`Andamento: ${k.trend.map((v, i) => `${kw.mesiTrend[i]} ${num(v * 100)}%`).join(", ")}`}>{barre(k.trend).map((b) => <rect x={b.x} y={22 - b.h} width="5" height={b.h} rx="1" fill="#c4520b" />)}</svg></td>
+            <td class="n" data-valore={k.cpc}>{en ? `€${num(k.cpc, 2)}` : `${num(k.cpc, 2)} €`}</td>
+            <td><svg width="84" height="24" viewBox="0 0 84 24" role="img" aria-label={`${L("Andamento", "Trend")}: ${k.trend.map((v, i) => `${kw.mesiTrend[i]} ${num(v * 100)}%`).join(", ")}`}>{barre(k.trend).map((b) => <rect x={b.x} y={22 - b.h} width="5" height={b.h} rx="1" fill="#c4520b" />)}</svg></td>
             <td><div class="serp">{k.serp.map((s) => <span class="sp-badge">{s}</span>)}</div></td>
-            <td class="n" data-valore={k.posizione ?? 999}>{k.posizione != null ? num(k.posizione, 1) : <span class="assente">non compare</span>}</td>
+            <td class="n" data-valore={k.posizione ?? 999}>{k.posizione != null ? num(k.posizione, 1) : <span class="assente">{L("non compare", "doesn't appear")}</span>}</td>
           </tr>
         ))}
       </tbody>
@@ -67,13 +76,15 @@ export function getStaticPaths() { return LINGUE_APP(); }
   </div>
 
   <details class="sp-pannello aiuto">
-    <summary>Come si leggono queste colonne</summary>
-    <p><strong>Volume</strong>: ricerche medie al mese in Italia. <strong>Difficoltà</strong> (0-100): quanto è difficile arrivare in prima pagina; sotto 25 è facile, sopra 45 difficile. <strong>CPC</strong>: quanto costa in media un clic negli annunci, un indizio di quanto vale la ricerca per chi vende. <strong>Andamento</strong>: la curva mostra in quali mesi si cerca di più (stagionalità). <strong>Elementi della SERP</strong>: cosa mostra Google oltre ai risultati normali (Shopping, video, "Le persone chiedono anche"…). <strong>Posizione del sito</strong>: dove compare oggi cinquefoglie.example; "non compare" vuol dire oltre la 100ª posizione o fuori dall'indice.</p>
+    <summary>{L("Come si leggono queste colonne", "How to read these columns")}</summary>
+    {en && <p><strong>Volume</strong>: average monthly searches. <strong>Difficulty</strong> (0-100): how hard it is to reach the first page; under 25 is easy, over 45 hard. <strong>CPC</strong>: the average cost of a click in ads, a clue to how much the search is worth to sellers. <strong>Trend</strong>: the bars show in which months people search the most (seasonality). <strong>SERP features</strong>: what Google shows besides the normal results (Shopping, videos, "People also ask"…). <strong>Website position</strong>: where cinquefoglie.example appears today; "doesn't appear" means beyond position 100 or out of the index.</p>}
+    {!en && <p><strong>Volume</strong>: ricerche medie al mese in Italia. <strong>Difficoltà</strong> (0-100): quanto è difficile arrivare in prima pagina; sotto 25 è facile, sopra 45 difficile. <strong>CPC</strong>: quanto costa in media un clic negli annunci, un indizio di quanto vale la ricerca per chi vende. <strong>Andamento</strong>: la curva mostra in quali mesi si cerca di più (stagionalità). <strong>Elementi della SERP</strong>: cosa mostra Google oltre ai risultati normali (Shopping, video, "Le persone chiedono anche"…). <strong>Posizione del sito</strong>: dove compare oggi cinquefoglie.example; "non compare" vuol dire oltre la 100ª posizione o fuori dall'indice.</p>}
   </details>
 </Console>
 
 <script>
   import { attivaTabelle, num } from "../../../../../../scripts/tabella";
+  import { t as tr } from "../../../../../../scripts/lingua";
   attivaTabelle();
   const $ = <T extends HTMLElement>(s: string) => document.querySelector<T>(s)!;
   function filtra() {
@@ -87,7 +98,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
       r.hidden = !ok;
       if (ok) { n++; vol += Number(r.dataset.vol); if (r.dataset.assente === "si") assenti++; }
     });
-    $("[data-conteggio]").textContent = `${n} keyword`;
+    $("[data-conteggio]").textContent = `${n} ${tr("keyword", n === 1 ? "keyword" : "keywords")}`;
     $("[data-c-n]").textContent = String(n);
     $("[data-c-vol]").textContent = num(vol);
     $("[data-c-assenti]").textContent = String(assenti);

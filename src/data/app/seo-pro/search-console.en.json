@@ -1,0 +1,1022 @@
+{
+ "_nota": "Search Console simulata di cinquefoglie.example. Dati inventati, coerenti con crawl.json.",
+ "proprieta": "https://cinquefoglie.example/",
+ "aggiornato": "2026-10-25",
+ "mesi": [
+  {
+   "mese": "2025-07",
+   "home": 1519,
+   "te-verdi": 427,
+   "te-neri": 376,
+   "tisane": 655,
+   "matcha": 673,
+   "te-freddi": 834,
+   "accessori": 301,
+   "prodotti": 2578,
+   "blog": 2917,
+   "clic": 10280,
+   "impressioni": 267700,
+   "ctr": 3.8,
+   "posizione": 7.4
+  },
+  {
+   "mese": "2025-08",
+   "home": 1572,
+   "te-verdi": 426,
+   "te-neri": 388,
+   "tisane": 661,
+   "matcha": 699,
+   "te-freddi": 670,
+   "accessori": 316,
+   "prodotti": 2474,
+   "blog": 2866,
+   "clic": 10072,
+   "impressioni": 261702,
+   "ctr": 3.8,
+   "posizione": 7.4
+  },
+  {
+   "mese": "2025-09",
+   "home": 1594,
+   "te-verdi": 454,
+   "te-neri": 524,
+   "tisane": 1053,
+   "matcha": 704,
+   "te-freddi": 273,
+   "accessori": 341,
+   "prodotti": 2234,
+   "blog": 2954,
+   "clic": 10131,
+   "impressioni": 265535,
+   "ctr": 3.8,
+   "posizione": 7.4
+  },
+  {
+   "mese": "2025-10",
+   "home": 1587,
+   "te-verdi": 447,
+   "te-neri": 646,
+   "tisane": 1568,
+   "matcha": 718,
+   "te-freddi": 96,
+   "accessori": 411,
+   "prodotti": 2571,
+   "blog": 3072,
+   "clic": 11116,
+   "impressioni": 287613,
+   "ctr": 3.9,
+   "posizione": 7.3
+  },
+  {
+   "mese": "2025-11",
+   "home": 1646,
+   "te-verdi": 463,
+   "te-neri": 707,
+   "tisane": 1893,
+   "matcha": 729,
+   "te-freddi": 54,
+   "accessori": 585,
+   "prodotti": 2732,
+   "blog": 3134,
+   "clic": 11943,
+   "impressioni": 308328,
+   "ctr": 3.9,
+   "posizione": 7.3
+  },
+  {
+   "mese": "2025-12",
+   "home": 1660,
+   "te-verdi": 480,
+   "te-neri": 727,
+   "tisane": 2123,
+   "matcha": 718,
+   "te-freddi": 41,
+   "accessori": 900,
+   "prodotti": 2751,
+   "blog": 3124,
+   "clic": 12524,
+   "impressioni": 325989,
+   "ctr": 3.8,
+   "posizione": 7.3
+  },
+  {
+   "mese": "2026-01",
+   "home": 1599,
+   "te-verdi": 453,
+   "te-neri": 742,
+   "tisane": 2009,
+   "matcha": 729,
+   "te-freddi": 43,
+   "accessori": 362,
+   "prodotti": 2719,
+   "blog": 3067,
+   "clic": 11723,
+   "impressioni": 299503,
+   "ctr": 3.9,
+   "posizione": 7.2
+  },
+  {
+   "mese": "2026-02",
+   "home": 1637,
+   "te-verdi": 462,
+   "te-neri": 649,
+   "tisane": 1692,
+   "matcha": 781,
+   "te-freddi": 58,
+   "accessori": 361,
+   "prodotti": 2504,
+   "blog": 3102,
+   "clic": 11246,
+   "impressioni": 290115,
+   "ctr": 3.9,
+   "posizione": 7.3
+  },
+  {
+   "mese": "2026-03",
+   "home": 1701,
+   "te-verdi": 466,
+   "te-neri": 593,
+   "tisane": 1269,
+   "matcha": 771,
+   "te-freddi": 117,
+   "accessori": 357,
+   "prodotti": 2304,
+   "blog": 3184,
+   "clic": 10762,
+   "impressioni": 280512,
+   "ctr": 3.8,
+   "posizione": 7.4
+  },
+  {
+   "mese": "2026-04",
+   "home": 1768,
+   "te-verdi": 483,
+   "te-neri": 524,
+   "tisane": 1059,
+   "matcha": 793,
+   "te-freddi": 237,
+   "accessori": 355,
+   "prodotti": 2391,
+   "blog": 3193,
+   "clic": 10803,
+   "impressioni": 282133,
+   "ctr": 3.8,
+   "posizione": 7.4
+  },
+  {
+   "mese": "2026-05",
+   "home": 1780,
+   "te-verdi": 491,
+   "te-neri": 468,
+   "tisane": 822,
+   "matcha": 787,
+   "te-freddi": 527,
+   "accessori": 381,
+   "prodotti": 2482,
+   "blog": 3314,
+   "clic": 11052,
+   "impressioni": 290264,
+   "ctr": 3.8,
+   "posizione": 7.4
+  },
+  {
+   "mese": "2026-06",
+   "home": 1781,
+   "te-verdi": 521,
+   "te-neri": 460,
+   "tisane": 711,
+   "matcha": 835,
+   "te-freddi": 819,
+   "accessori": 340,
+   "prodotti": 2956,
+   "blog": 3293,
+   "clic": 11716,
+   "impressioni": 306944,
+   "ctr": 3.8,
+   "posizione": 7.4
+  },
+  {
+   "mese": "2026-07",
+   "home": 1796,
+   "te-verdi": 522,
+   "te-neri": 467,
+   "tisane": 739,
+   "matcha": 794,
+   "te-freddi": 953,
+   "accessori": 368,
+   "prodotti": 3064,
+   "blog": 3377,
+   "clic": 12080,
+   "impressioni": 315973,
+   "ctr": 3.8,
+   "posizione": 7.4
+  },
+  {
+   "mese": "2026-08",
+   "home": 1831,
+   "te-verdi": 529,
+   "te-neri": 474,
+   "tisane": 749,
+   "matcha": 818,
+   "te-freddi": 833,
+   "accessori": 375,
+   "prodotti": 2935,
+   "blog": 3556,
+   "clic": 12100,
+   "impressioni": 318287,
+   "ctr": 3.8,
+   "posizione": 7.4
+  },
+  {
+   "mese": "2026-09",
+   "home": 1840,
+   "te-verdi": 513,
+   "te-neri": 581,
+   "tisane": 754,
+   "matcha": 818,
+   "te-freddi": 322,
+   "accessori": 425,
+   "prodotti": 2429,
+   "blog": 3386,
+   "clic": 11068,
+   "impressioni": 293190,
+   "ctr": 3.8,
+   "posizione": 7.5
+  },
+  {
+   "mese": "2026-10",
+   "home": 1889,
+   "te-verdi": 538,
+   "te-neri": 740,
+   "tisane": 184,
+   "matcha": 857,
+   "te-freddi": 114,
+   "accessori": 471,
+   "prodotti": 2007,
+   "blog": 3461,
+   "clic": 10261,
+   "impressioni": 280131,
+   "ctr": 3.7,
+   "posizione": 7.6
+  }
+ ],
+ "segmenti": {
+  "home": "Home",
+  "te-verdi": "Green teas category",
+  "te-neri": "Black teas category",
+  "tisane": "Herbal teas category",
+  "matcha": "Matcha category",
+  "te-freddi": "Iced teas category",
+  "accessori": "Accessories category",
+  "prodotti": "Product pages",
+  "blog": "Blog"
+ },
+ "basi": {
+  "home": {
+   "ctr": 0.32,
+   "posizione": 1.4
+  },
+  "te-verdi": {
+   "ctr": 0.009,
+   "posizione": 7.8
+  },
+  "te-neri": {
+   "ctr": 0.041,
+   "posizione": 6.2
+  },
+  "tisane": {
+   "ctr": 0.052,
+   "posizione": 4.9
+  },
+  "matcha": {
+   "ctr": 0.047,
+   "posizione": 5.1
+  },
+  "te-freddi": {
+   "ctr": 0.045,
+   "posizione": 5.6
+  },
+  "accessori": {
+   "ctr": 0.028,
+   "posizione": 8.4
+  },
+  "prodotti": {
+   "ctr": 0.046,
+   "posizione": 6.6
+  },
+  "blog": {
+   "ctr": 0.031,
+   "posizione": 8.9
+  }
+ },
+ "periodoQuery": "1 August - 25 October 2026",
+ "query": [
+  {
+   "query": "cinque foglie",
+   "intento": "navigazionale",
+   "pagine": [
+    {
+     "url": "/",
+     "clic": 3900,
+     "impressioni": 5200,
+     "posizione": 1.1
+    }
+   ],
+   "clic": 3900,
+   "impressioni": 5200,
+   "posizione": 1.1,
+   "ctr": 75.0
+  },
+  {
+   "query": "how to make matcha",
+   "intento": "informativa",
+   "pagine": [
+    {
+     "url": "/blog/come-preparare-il-matcha/",
+     "clic": 980,
+     "impressioni": 14500,
+     "posizione": 2.4
+    }
+   ],
+   "clic": 980,
+   "impressioni": 14500,
+   "posizione": 2.4,
+   "ctr": 6.8
+  },
+  {
+   "query": "matcha",
+   "intento": "commerciale",
+   "pagine": [
+    {
+     "url": "/matcha/",
+     "clic": 620,
+     "impressioni": 22000,
+     "posizione": 6.8
+    },
+    {
+     "url": "/blog/come-preparare-il-matcha/",
+     "clic": 140,
+     "impressioni": 9000,
+     "posizione": 11.6
+    }
+   ],
+   "clic": 760,
+   "impressioni": 31000,
+   "posizione": 8.2,
+   "ctr": 2.5
+  },
+  {
+   "query": "herbal tea",
+   "intento": "commerciale",
+   "pagine": [
+    {
+     "url": "/tisane/",
+     "clic": 690,
+     "impressioni": 15200,
+     "posizione": 6.1
+    }
+   ],
+   "clic": 690,
+   "impressioni": 15200,
+   "posizione": 6.1,
+   "ctr": 4.5
+  },
+  {
+   "query": "homemade iced tea",
+   "intento": "informativa",
+   "pagine": [
+    {
+     "url": "/blog/te-freddo-fatto-in-casa/",
+     "clic": 690,
+     "impressioni": 9900,
+     "posizione": 2.7
+    }
+   ],
+   "clic": 690,
+   "impressioni": 9900,
+   "posizione": 2.7,
+   "ctr": 7.0
+  },
+  {
+   "query": "organic matcha",
+   "intento": "transazionale",
+   "pagine": [
+    {
+     "url": "/matcha/",
+     "clic": 540,
+     "impressioni": 9400,
+     "posizione": 3.9
+    }
+   ],
+   "clic": 540,
+   "impressioni": 9400,
+   "posizione": 3.9,
+   "ctr": 5.7
+  },
+  {
+   "query": "evening herbal tea",
+   "intento": "informativa",
+   "pagine": [
+    {
+     "url": "/blog/tisane-per-la-sera/",
+     "clic": 480,
+     "impressioni": 8700,
+     "posizione": 3.6
+    }
+   ],
+   "clic": 480,
+   "impressioni": 8700,
+   "posizione": 3.6,
+   "ctr": 5.5
+  },
+  {
+   "query": "green tea vs black tea",
+   "intento": "informativa",
+   "pagine": [
+    {
+     "url": "/blog/differenza-te-verde-nero/",
+     "clic": 410,
+     "impressioni": 6900,
+     "posizione": 2.9
+    }
+   ],
+   "clic": 410,
+   "impressioni": 6900,
+   "posizione": 2.9,
+   "ctr": 5.9
+  },
+  {
+   "query": "organic herbal tea",
+   "intento": "transazionale",
+   "pagine": [
+    {
+     "url": "/tisane/",
+     "clic": 410,
+     "impressioni": 6100,
+     "posizione": 4.4
+    }
+   ],
+   "clic": 410,
+   "impressioni": 6100,
+   "posizione": 4.4,
+   "ctr": 6.7
+  },
+  {
+   "query": "sencha green tea",
+   "intento": "commerciale",
+   "pagine": [
+    {
+     "url": "/te-verdi/sencha-bio/",
+     "clic": 210,
+     "impressioni": 9800,
+     "posizione": 9.2
+    },
+    {
+     "url": "/blog/sencha-guida-completa/",
+     "clic": 160,
+     "impressioni": 8100,
+     "posizione": 10.4
+    }
+   ],
+   "clic": 370,
+   "impressioni": 17900,
+   "posizione": 9.7,
+   "ctr": 2.1
+  },
+  {
+   "query": "green tea",
+   "intento": "informativa",
+   "pagine": [
+    {
+     "url": "/te-verdi/",
+     "clic": 310,
+     "impressioni": 61000,
+     "posizione": 8.4
+    }
+   ],
+   "clic": 310,
+   "impressioni": 61000,
+   "posizione": 8.4,
+   "ctr": 0.5
+  },
+  {
+   "query": "green teas",
+   "intento": "commerciale",
+   "pagine": [
+    {
+     "url": "/te-verdi/",
+     "clic": 260,
+     "impressioni": 38000,
+     "posizione": 7.1
+    }
+   ],
+   "clic": 260,
+   "impressioni": 38000,
+   "posizione": 7.1,
+   "ctr": 0.7
+  },
+  {
+   "query": "sencha",
+   "intento": "informativa",
+   "pagine": [
+    {
+     "url": "/blog/sencha-guida-completa/",
+     "clic": 140,
+     "impressioni": 7200,
+     "posizione": 8.8
+    },
+    {
+     "url": "/te-verdi/sencha-bio/",
+     "clic": 120,
+     "impressioni": 6100,
+     "posizione": 11.3
+    }
+   ],
+   "clic": 260,
+   "impressioni": 13300,
+   "posizione": 9.9,
+   "ctr": 2.0
+  },
+  {
+   "query": "how to make sencha",
+   "intento": "informativa",
+   "pagine": [
+    {
+     "url": "/blog/sencha-guida-completa/",
+     "clic": 260,
+     "impressioni": 5100,
+     "posizione": 3.2
+    }
+   ],
+   "clic": 260,
+   "impressioni": 5100,
+   "posizione": 3.2,
+   "ctr": 5.1
+  },
+  {
+   "query": "organic sencha",
+   "intento": "transazionale",
+   "pagine": [
+    {
+     "url": "/te-verdi/sencha-bio/",
+     "clic": 190,
+     "impressioni": 3900,
+     "posizione": 4.1
+    }
+   ],
+   "clic": 190,
+   "impressioni": 3900,
+   "posizione": 4.1,
+   "ctr": 4.9
+  },
+  {
+   "query": "organic green tea",
+   "intento": "commerciale",
+   "pagine": [
+    {
+     "url": "/te-verdi/",
+     "clic": 180,
+     "impressioni": 21000,
+     "posizione": 7.6
+    }
+   ],
+   "clic": 180,
+   "impressioni": 21000,
+   "posizione": 7.6,
+   "ctr": 0.9
+  },
+  {
+   "query": "ceremonial matcha",
+   "intento": "commerciale",
+   "pagine": [
+    {
+     "url": "/matcha/matcha-cerimoniale/",
+     "clic": 160,
+     "impressioni": 2700,
+     "posizione": 4.4
+    }
+   ],
+   "clic": 160,
+   "impressioni": 2700,
+   "posizione": 4.4,
+   "ctr": 5.9
+  },
+  {
+   "query": "how to store tea",
+   "intento": "informativa",
+   "pagine": [
+    {
+     "url": "/blog/conservare-il-te/",
+     "clic": 150,
+     "impressioni": 2600,
+     "posizione": 3.4
+    }
+   ],
+   "clic": 150,
+   "impressioni": 2600,
+   "posizione": 3.4,
+   "ctr": 5.8
+  },
+  {
+   "query": "black tea",
+   "intento": "informativa",
+   "pagine": [
+    {
+     "url": "/te-neri/",
+     "clic": 140,
+     "impressioni": 12000,
+     "posizione": 9.1
+    }
+   ],
+   "clic": 140,
+   "impressioni": 12000,
+   "posizione": 9.1,
+   "ctr": 1.2
+  },
+  {
+   "query": "caffeine free herbal tea",
+   "intento": "commerciale",
+   "pagine": [
+    {
+     "url": "/blog/tisane-per-la-sera/",
+     "clic": 120,
+     "impressioni": 4300,
+     "posizione": 9.8
+    }
+   ],
+   "clic": 120,
+   "impressioni": 4300,
+   "posizione": 9.8,
+   "ctr": 2.8
+  },
+  {
+   "query": "organic chamomile",
+   "intento": "transazionale",
+   "pagine": [
+    {
+     "url": "/tisane/camomilla-bio/",
+     "clic": 96,
+     "impressioni": 1900,
+     "posizione": 6.8
+    }
+   ],
+   "clic": 96,
+   "impressioni": 1900,
+   "posizione": 6.8,
+   "ctr": 5.1
+  },
+  {
+   "query": "gyokuro",
+   "intento": "commerciale",
+   "pagine": [
+    {
+     "url": "/te-verdi/gyokuro/",
+     "clic": 95,
+     "impressioni": 2600,
+     "posizione": 6.3
+    }
+   ],
+   "clic": 95,
+   "impressioni": 2600,
+   "posizione": 6.3,
+   "ctr": 3.7
+  },
+  {
+   "query": "genmaicha",
+   "intento": "commerciale",
+   "pagine": [
+    {
+     "url": "/te-verdi/genmaicha/",
+     "clic": 88,
+     "impressioni": 2900,
+     "posizione": 7.0
+    }
+   ],
+   "clic": 88,
+   "impressioni": 2900,
+   "posizione": 7.0,
+   "ctr": 3.0
+  },
+  {
+   "query": "cast iron teapot",
+   "intento": "commerciale",
+   "pagine": [
+    {
+     "url": "/accessori/teiera-ghisa/",
+     "clic": 75,
+     "impressioni": 8100,
+     "posizione": 11.8
+    }
+   ],
+   "clic": 75,
+   "impressioni": 8100,
+   "posizione": 11.8,
+   "ctr": 0.9
+  },
+  {
+   "query": "rooibos",
+   "intento": "commerciale",
+   "pagine": [
+    {
+     "url": "/tisane/rooibos-vaniglia/",
+     "clic": 71,
+     "impressioni": 4100,
+     "posizione": 9.6
+    }
+   ],
+   "clic": 71,
+   "impressioni": 4100,
+   "posizione": 9.6,
+   "ctr": 1.7
+  },
+  {
+   "query": "matcha whisk",
+   "intento": "transazionale",
+   "pagine": [
+    {
+     "url": "/matcha/kit-matcha/",
+     "clic": 70,
+     "impressioni": 2100,
+     "posizione": 7.9
+    }
+   ],
+   "clic": 70,
+   "impressioni": 2100,
+   "posizione": 7.9,
+   "ctr": 3.3
+  },
+  {
+   "query": "cold brew tea",
+   "intento": "commerciale",
+   "pagine": [
+    {
+     "url": "/te-freddi/cold-brew-sencha/",
+     "clic": 60,
+     "impressioni": 2200,
+     "posizione": 6.1
+    }
+   ],
+   "clic": 60,
+   "impressioni": 2200,
+   "posizione": 6.1,
+   "ctr": 2.7
+  },
+  {
+   "query": "earl grey",
+   "intento": "commerciale",
+   "pagine": [
+    {
+     "url": "/te-neri/earl-grey-bio/",
+     "clic": 52,
+     "impressioni": 8800,
+     "posizione": 14.2
+    }
+   ],
+   "clic": 52,
+   "impressioni": 8800,
+   "posizione": 14.2,
+   "ctr": 0.6
+  },
+  {
+   "query": "iced tea kit",
+   "intento": "transazionale",
+   "pagine": [
+    {
+     "url": "/te-freddi/kit-te-freddo-estate/",
+     "clic": 44,
+     "impressioni": 1300,
+     "posizione": 5.2
+    }
+   ],
+   "clic": 44,
+   "impressioni": 1300,
+   "posizione": 5.2,
+   "ctr": 3.4
+  },
+  {
+   "query": "ceramic tea cup",
+   "intento": "commerciale",
+   "pagine": [
+    {
+     "url": "/accessori/tazza-ceramica/",
+     "clic": 40,
+     "impressioni": 3600,
+     "posizione": 12.4
+    }
+   ],
+   "clic": 40,
+   "impressioni": 3600,
+   "posizione": 12.4,
+   "ctr": 1.1
+  },
+  {
+   "query": "chai",
+   "intento": "commerciale",
+   "pagine": [
+    {
+     "url": "/te-neri/chai-speziato/",
+     "clic": 34,
+     "impressioni": 6400,
+     "posizione": 15.8
+    }
+   ],
+   "clic": 34,
+   "impressioni": 6400,
+   "posizione": 15.8,
+   "ctr": 0.5
+  },
+  {
+   "query": "english breakfast tea",
+   "intento": "commerciale",
+   "pagine": [
+    {
+     "url": "/te-neri/english-breakfast/",
+     "clic": 21,
+     "impressioni": 3300,
+     "posizione": 17.5
+    }
+   ],
+   "clic": 21,
+   "impressioni": 3300,
+   "posizione": 17.5,
+   "ctr": 0.6
+  }
+ ],
+ "pagine": [
+  {
+   "url": "/",
+   "clic": 4688,
+   "impressioni": 6251,
+   "posizione": 1.1,
+   "ctr": 75.0
+  },
+  {
+   "url": "/matcha/",
+   "clic": 1470,
+   "impressioni": 39792,
+   "posizione": 5.9,
+   "ctr": 3.7
+  },
+  {
+   "url": "/blog/come-preparare-il-matcha/",
+   "clic": 1337,
+   "impressioni": 28049,
+   "posizione": 5.9,
+   "ctr": 4.8
+  },
+  {
+   "url": "/tisane/",
+   "clic": 1299,
+   "impressioni": 25159,
+   "posizione": 5.6,
+   "ctr": 5.2
+  },
+  {
+   "url": "/blog/te-freddo-fatto-in-casa/",
+   "clic": 883,
+   "impressioni": 12665,
+   "posizione": 2.7,
+   "ctr": 7.0
+  },
+  {
+   "url": "/te-verdi/",
+   "clic": 878,
+   "impressioni": 140549,
+   "posizione": 7.8,
+   "ctr": 0.6
+  },
+  {
+   "url": "/blog/sencha-guida-completa/",
+   "clic": 747,
+   "impressioni": 27196,
+   "posizione": 8.0,
+   "ctr": 2.7
+  },
+  {
+   "url": "/blog/tisane-per-la-sera/",
+   "clic": 736,
+   "impressioni": 15943,
+   "posizione": 5.7,
+   "ctr": 4.6
+  },
+  {
+   "url": "/te-verdi/sencha-bio/",
+   "clic": 650,
+   "impressioni": 24759,
+   "posizione": 8.8,
+   "ctr": 2.6
+  },
+  {
+   "url": "/blog/differenza-te-verde-nero/",
+   "clic": 538,
+   "impressioni": 9059,
+   "posizione": 2.9,
+   "ctr": 5.9
+  },
+  {
+   "url": "/blog/conservare-il-te/",
+   "clic": 197,
+   "impressioni": 3417,
+   "posizione": 3.4,
+   "ctr": 5.8
+  },
+  {
+   "url": "/matcha/matcha-cerimoniale/",
+   "clic": 188,
+   "impressioni": 3166,
+   "posizione": 4.4,
+   "ctr": 5.9
+  },
+  {
+   "url": "/te-neri/",
+   "clic": 177,
+   "impressioni": 15137,
+   "posizione": 9.1,
+   "ctr": 1.2
+  },
+  {
+   "url": "/te-verdi/gyokuro/",
+   "clic": 128,
+   "impressioni": 3497,
+   "posizione": 6.3,
+   "ctr": 3.7
+  },
+  {
+   "url": "/tisane/camomilla-bio/",
+   "clic": 120,
+   "impressioni": 2374,
+   "posizione": 6.8,
+   "ctr": 5.1
+  },
+  {
+   "url": "/te-verdi/genmaicha/",
+   "clic": 114,
+   "impressioni": 3743,
+   "posizione": 7.0,
+   "ctr": 3.0
+  },
+  {
+   "url": "/accessori/teiera-ghisa/",
+   "clic": 99,
+   "impressioni": 10702,
+   "posizione": 11.8,
+   "ctr": 0.9
+  },
+  {
+   "url": "/tisane/rooibos-vaniglia/",
+   "clic": 95,
+   "impressioni": 5471,
+   "posizione": 9.6,
+   "ctr": 1.7
+  },
+  {
+   "url": "/matcha/kit-matcha/",
+   "clic": 84,
+   "impressioni": 2507,
+   "posizione": 7.9,
+   "ctr": 3.4
+  },
+  {
+   "url": "/te-freddi/cold-brew-sencha/",
+   "clic": 70,
+   "impressioni": 2567,
+   "posizione": 6.1,
+   "ctr": 2.7
+  },
+  {
+   "url": "/te-neri/earl-grey-bio/",
+   "clic": 63,
+   "impressioni": 10617,
+   "posizione": 14.2,
+   "ctr": 0.6
+  },
+  {
+   "url": "/te-freddi/kit-te-freddo-estate/",
+   "clic": 54,
+   "impressioni": 1583,
+   "posizione": 5.2,
+   "ctr": 3.4
+  },
+  {
+   "url": "/accessori/tazza-ceramica/",
+   "clic": 48,
+   "impressioni": 4296,
+   "posizione": 12.4,
+   "ctr": 1.1
+  },
+  {
+   "url": "/te-neri/chai-speziato/",
+   "clic": 43,
+   "impressioni": 8054,
+   "posizione": 15.8,
+   "ctr": 0.5
+  },
+  {
+   "url": "/te-neri/english-breakfast/",
+   "clic": 26,
+   "impressioni": 4053,
+   "posizione": 17.5,
+   "ctr": 0.6
+  }
+ ]
+}

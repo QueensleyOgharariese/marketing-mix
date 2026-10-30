@@ -1,0 +1,50 @@
+1|Jul
+2|Aug
+3|Sep
+4|Oct
+5|Nov
+6|Dec
+7|Jan
+8|Feb
+9|Mar
+10|Apr
+11|May
+12|Jun
+13|green tea
+14|People also ask
+15|Images
+16|Shopping
+17|green teas
+18|organic green tea
+19|sencha green tea
+20|sencha
+21|Featured snippet
+22|how to make sencha
+23|japanese green tea
+24|green tea benefits
+25|matcha
+26|Videos
+27|organic matcha
+28|how to make matcha
+29|matcha latte recipe
+30|matcha whisk
+31|black tea
+32|earl grey
+33|chai tea
+34|caffeine free tea
+35|herbal tea
+36|organic herbal tea
+37|herbal tea for sleep
+38|evening herbal tea
+39|rooibos
+40|organic chamomile
+41|ginger and lemon tea
+42|homemade iced tea
+43|cold brew tea
+44|peach iced tea
+45|cast iron teapot
+46|tea gift ideas
+47|tea advent calendar
+48|how to store tea
+49|green tea vs black tea
+50|tea water temperature

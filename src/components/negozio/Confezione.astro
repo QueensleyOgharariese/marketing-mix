@@ -1,6 +1,7 @@
 ---
 // "FOTO" DI UN PRODOTTO: un disegno semplice di un barattolo (o di un oggetto), del colore della categoria.
 // Niente foto vere: tutto originale (regola del progetto sulle licenze).
+import { linguaDa } from "../../i18n";
 interface Props { categoria: string; nome: string; grande?: boolean; }
 const { categoria, nome, grande = false } = Astro.props;
 const COLORI: Record<string, [string, string]> = {
@@ -9,11 +10,13 @@ const COLORI: Record<string, [string, string]> = {
 };
 const [colore, sfondo] = COLORI[categoria] ?? ["#556270", "#ebeae6"];
 // Sull'etichetta va la parola che distingue il prodotto (es. "Tè verde alla menta" → "Menta")
-const corto = nome.replace(/^(tè (verde|nero|freddo)( al| alla| e)?|tè|kit|cold brew|tazza in|teiera in|infusore in|barattolo in)\s+/i, "");
+// In inglese il nome ha l'aggettivo prima («Organic Sencha», «Mint green tea»): si tolgono «organic» e «… tea»
+const cortoEn = nome.replace(/^organic\s+/i, "").replace(/\s+(green |black |iced )?(tea|teapot|cup|infuser|canister|whisk|infusion)\b.*$/i, "");
+const corto = linguaDa(Astro.url) === "en" && cortoEn ? cortoEn : nome.replace(/^(tè (verde|nero|freddo)( al| alla| e)?|tè|kit|cold brew|tazza in|teiera in|infusore in|barattolo in)\s+/i, "");
 const parola = corto.length > 10 ? corto.split(" ")[0] : corto;
 const etichetta = parola.charAt(0).toUpperCase() + parola.slice(1);
 ---
-<svg class:list={["confezione", { grande }]} viewBox="0 0 200 170" role="img" aria-label={`Confezione di ${nome}`}>
+<svg class:list={["confezione", { grande }]} viewBox="0 0 200 170" role="img" aria-label={nome}>
   <rect width="200" height="170" fill={sfondo} />
   <rect x="58" y="22" width="84" height="20" rx="5" fill="#2f3b33" />
   <rect x="62" y="42" width="76" height="128" rx="8" fill={colore} />

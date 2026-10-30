@@ -1,17 +1,30 @@
 ---
-import { LINGUE_APP } from "../../../../../../i18n";
+import { LINGUE_APP, linguaDa } from "../../../../../../i18n";
 // STRUMENTO · PAGINE E INDICIZZAZIONE: ispirato ai rapporti "Pagine" e "Core Web Vitals" di Google Search Console
 // Quante pagine sono su Google, perché le altre non ci sono (con i motivi come li scrive Google),
 // andamento settimanale; Core Web Vitals da telefono e da computer con le soglie ufficiali.
 // Dati: src/data/app/seo-pro/indicizzazione.json e crawl.json.
 import Console from "../../../../../../components/seopro/Console.astro";
-import ind from "../../../../../../data/app/seo-pro/indicizzazione.json";
-import crawl from "../../../../../../data/app/seo-pro/crawl.json";
-import { num } from "../../../../../../scripts/tabella";
+import indIt from "../../../../../../data/app/seo-pro/indicizzazione.json";
+import indEn from "../../../../../../data/app/seo-pro/indicizzazione.en.json";
+import crawlIt from "../../../../../../data/app/seo-pro/crawl.json";
+import crawlEn from "../../../../../../data/app/seo-pro/crawl.en.json";
+import { num as numIt } from "../../../../../../scripts/tabella";
+import { NOMI_MOTIVI_EN } from "../../../../../../scripts/cms";
+
+const en = linguaDa(Astro.url) === "en";
+const L = (it: string, eng: string) => (en ? eng : it);
+const ind = en ? (indEn as typeof indIt) : indIt;
+const crawl = en ? (crawlEn as typeof crawlIt) : crawlIt;
+const num = (x: number, d = 0) => numIt(x, d, en);
+// I motivi restano codici italiani (servono alla convalida): in inglese si mostrano con i nomi di Search Console
+const nomeMotivo = (m: string) => (en ? NOMI_MOTIVI_EN[m] ?? m : m);
+const GRUPPI_EN: Record<string, string> = { "Schede prodotto": "Product pages", Categorie: "Categories", Blog: "Blog" };
 
 const nonInd = ind.motivi.reduce((s, m) => s + m.pagine.length, 0);
 const soglie = ind.cwv.soglie;
-const giudizio = (v: number, [buono, scarso]: number[]) => (v <= buono ? ["ok", "Buono"] : v <= scarso ? ["medio", "Da migliorare"] : ["no", "Scarso"]);
+const [BUONO, MEDIO, SCARSO] = [L("Buono", "Good"), L("Da migliorare", "Needs improvement"), L("Scarso", "Poor")];
+const giudizio = (v: number, [buono, scarso]: number[]) => (v <= buono ? ["ok", BUONO] : v <= scarso ? ["medio", MEDIO] : ["no", SCARSO]);
 const info = (url: string) => crawl.pagine.find((p) => p.url === url);
 // Andamento: barre impilate (indicizzate in verde, non indicizzate in grigio)
 const W = 900, H = 220, sx = 30;
@@ -22,7 +35,13 @@ const iEvento = ind.storico.findIndex((s) => s.settimana === "2026-09-14");
 const xEvento = sx + iEvento * bw + bw * (4 / 7);
 const perse = ind.storico[0].indicizzate - ind.storico[ind.storico.length - 1].indicizzate;
 // Cosa vuol dire ogni motivo, in parole semplici (livello junior)
-const SPIEGA: Record<string, string> = {
+const SPIEGA: Record<string, string> = en ? {
+  'Esclusa in base al tag "noindex"': "The page asks Google not to show it.",
+  "Pagina duplicata senza URL canonico selezionato dall'utente": "The same content has several addresses and the website doesn't say which is the right one.",
+  "Scansionata, ma attualmente non indicizzata": "Google read it and decided it isn't needed in the results.",
+  "Non trovata (404)": "The page no longer exists, but something still links to it.",
+  "Pagina con reindirizzamento": "The address redirects to another page.",
+} : {
   'Esclusa in base al tag "noindex"': "La pagina chiede a Google di non mostrarla.",
   "Pagina duplicata senza URL canonico selezionato dall'utente": "Lo stesso contenuto ha più indirizzi e il sito non dice qual è quello giusto.",
   "Scansionata, ma attualmente non indicizzata": "Google l'ha letta e ha deciso che non serve nei risultati.",
@@ -31,64 +50,64 @@ const SPIEGA: Record<string, string> = {
 };
 export function getStaticPaths() { return LINGUE_APP(); }
 ---
-<Console attivo="indicizzazione" titolo="Pagine e indicizzazione" sottotitolo="Quali pagine Google ha messo nel suo archivio e quanto sono veloci" ispirato="Google Search Console (rapporti Pagine e Core Web Vitals)">
+<Console attivo="indicizzazione" titolo={L("Pagine e indicizzazione", "Pages and indexing")} sottotitolo={L("Quali pagine Google ha messo nel suo archivio e quanto sono veloci", "Which pages Google has put in its index and how fast they are")} ispirato={L("Google Search Console (rapporti Pagine e Core Web Vitals)", "Google Search Console (Pages and Core Web Vitals reports)")}>
   <div class="sp-schede" role="tablist">
-    <button type="button" role="tab" aria-selected="true" data-scheda="pagine">Indicizzazione delle pagine</button>
+    <button type="button" role="tab" aria-selected="true" data-scheda="pagine">{L("Indicizzazione delle pagine", "Page indexing")}</button>
     <button type="button" role="tab" aria-selected="false" data-scheda="cwv">Core Web Vitals</button>
   </div>
 
   <section data-pannello="pagine" class="sezione">
     <div class="sp-cifre">
-      <div class="sp-cifra"><span><i class="qu verde"></i>Pagine indicizzate</span><strong>{num(ind.indicizzate)}</strong><small class="giu">{perse} in meno da metà settembre</small></div>
-      <div class="sp-cifra"><span><i class="qu grigio"></i>Pagine non indicizzate</span><strong>{num(nonInd)}</strong><small class="neutro">per {ind.motivi.length} motivi diversi</small></div>
-      <div class="sp-cifra"><span>Ultimo aggiornamento</span><strong>{ind.aggiornato.split("-").reverse().join("/")}</strong><small>dati simulati</small></div>
+      <div class="sp-cifra"><span><i class="qu verde"></i>{L("Pagine indicizzate", "Indexed pages")}</span><strong>{num(ind.indicizzate)}</strong><small class="giu">{L(`${perse} in meno da metà settembre`, `${perse} fewer since mid-September`)}</small></div>
+      <div class="sp-cifra"><span><i class="qu grigio"></i>{L("Pagine non indicizzate", "Pages not indexed")}</span><strong>{num(nonInd)}</strong><small class="neutro">{L(`per ${ind.motivi.length} motivi diversi`, `for ${ind.motivi.length} different reasons`)}</small></div>
+      <div class="sp-cifra"><span>{L("Ultimo aggiornamento", "Last updated")}</span><strong>{ind.aggiornato.split("-").reverse().join("/")}</strong><small>{L("dati simulati", "simulated data")}</small></div>
     </div>
 
     <div class="sp-pannello">
-      <strong class="sottotitolo">Andamento nelle ultime 12 settimane</strong>
-      <svg class="sp-grafico" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Pagine indicizzate e non indicizzate per settimana">
+      <strong class="sottotitolo">{L("Andamento nelle ultime 12 settimane", "Trend over the last 12 weeks")}</strong>
+      <svg class="sp-grafico" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={L("Pagine indicizzate e non indicizzate per settimana", "Indexed and non-indexed pages per week")}>
         {ind.storico.map((s, i) => {
           const hI = (s.indicizzate / maxTot) * (H - 40), hN = (s.non_indicizzate / maxTot) * (H - 40);
           const x = sx + i * bw + 6;
           return (<g>
-            <rect x={x} y={H - 24 - hI} width={bw - 12} height={hI} fill="#2f7a4f"><title>{`${s.settimana}: ${s.indicizzate} indicizzate`}</title></rect>
-            <rect x={x} y={H - 24 - hI - hN} width={bw - 12} height={hN} fill="#c9c6c0"><title>{`${s.settimana}: ${s.non_indicizzate} non indicizzate`}</title></rect>
+            <rect x={x} y={H - 24 - hI} width={bw - 12} height={hI} fill="#2f7a4f"><title>{`${s.settimana}: ${s.indicizzate} ${L("indicizzate", "indexed")}`}</title></rect>
+            <rect x={x} y={H - 24 - hI - hN} width={bw - 12} height={hN} fill="#c9c6c0"><title>{`${s.settimana}: ${s.non_indicizzate} ${L("non indicizzate", "not indexed")}`}</title></rect>
             <text x={x + (bw - 12) / 2} y={H - 8} font-size="11" text-anchor="middle" fill="#6f6a64">{s.settimana.slice(8)}/{s.settimana.slice(5, 7)}</text>
           </g>);
         })}
         <line x1={xEvento} x2={xEvento} y1="8" y2={H - 24} stroke="#ff7a1a" stroke-width="1.5" stroke-dasharray="4 4" />
         <circle cx={xEvento} cy="12" r="9" fill="#ff7a1a" /><text x={xEvento} y="16" text-anchor="middle" font-size="11" font-weight="700" fill="#2a1d18">1</text>
       </svg>
-      <p class="evento"><span class="evento-n" aria-hidden="true">1</span><span><strong>18 settembre 2026:</strong> pubblicato il nuovo tema del negozio.</span></p>
-      <p class="sp-nota"><span class="leg verde"></span> Indicizzate <span class="leg grigio"></span> Non indicizzate. Ogni barra è una settimana, che inizia il giorno indicato.</p>
+      <p class="evento"><span class="evento-n" aria-hidden="true">1</span><span><strong>{L("18 settembre 2026:", "18 September 2026:")}</strong> {L("pubblicato il nuovo tema del negozio.", "the shop's new theme went live.")}</span></p>
+      <p class="sp-nota"><span class="leg verde"></span> {L("Indicizzate", "Indexed")} <span class="leg grigio"></span> {L("Non indicizzate. Ogni barra è una settimana, che inizia il giorno indicato.", "Not indexed. Each bar is a week, starting on the day shown.")}</p>
     </div>
 
     <div class="sp-pannello">
-      <strong class="sottotitolo">Perché alcune pagine non sono indicizzate</strong>
-      <p class="sp-nota">Clicca un motivo per vedere le pagine. Non tutti i motivi sono un problema: alcune pagine è giusto che non siano su Google.</p>
+      <strong class="sottotitolo">{L("Perché alcune pagine non sono indicizzate", "Why some pages aren't indexed")}</strong>
+      <p class="sp-nota">{L("Clicca un motivo per vedere le pagine. Non tutti i motivi sono un problema: alcune pagine è giusto che non siano su Google.", "Click a reason to see the pages. Not every reason is a problem: some pages are rightly not on Google.")}</p>
       <div class="sp-scorri">
         <table data-tabella>
-          <thead><tr><th data-ordina="testo">Motivo</th><th data-ordina="testo">Fonte</th><th>Convalida</th><th data-ordina="numero" class="n">Pagine</th></tr></thead>
+          <thead><tr><th data-ordina="testo">{L("Motivo", "Reason")}</th><th data-ordina="testo">{L("Fonte", "Source")}</th><th>{L("Convalida", "Validation")}</th><th data-ordina="numero" class="n">{L("Pagine", "Pages")}</th></tr></thead>
           <tbody>
             {ind.motivi.map((m, i) => (
-              <tr data-motivo={i} tabindex="0"><td><strong class="motivo">{m.motivo}</strong><span class="spiega-motivo">{SPIEGA[m.motivo] ?? ""}</span></td><td>{m.fonte}</td><td data-convalida={i}><span class="sp-badge">Non iniziata</span></td><td class="n" data-valore={m.pagine.length}>{m.pagine.length}</td></tr>
+              <tr data-motivo={i} tabindex="0"><td><strong class="motivo">{nomeMotivo(m.motivo)}</strong><span class="spiega-motivo">{SPIEGA[m.motivo] ?? ""}</span></td><td>{m.fonte}</td><td data-convalida={i}><span class="sp-badge">{L("Non iniziata", "Not started")}</span></td><td class="n" data-valore={m.pagine.length}>{m.pagine.length}</td></tr>
             ))}
           </tbody>
         </table>
       </div>
       {ind.motivi.map((m, i) => (
         <div class="elenco" data-elenco={i} hidden>
-          <div class="elenco-testa"><strong>{m.motivo}</strong>
-            <div class="convalida"><button type="button" class="bottone-app bottone-app--chiaro" data-convalida-btn={i}>Convalida correzione</button></div>
+          <div class="elenco-testa"><strong>{nomeMotivo(m.motivo)}</strong>
+            <div class="convalida"><button type="button" class="bottone-app bottone-app--chiaro" data-convalida-btn={i}>{L("Convalida correzione", "Validate fix")}</button></div>
           </div>
           <p class="convalida-msg" data-convalida-msg={i} aria-live="polite" hidden></p>
           <div class="sp-scorri">
             <table class="mini">
-              <thead><tr><th>URL</th><th>Ultima scansione</th><th>Dettagli</th><th>Sul sito oggi</th></tr></thead>
+              <thead><tr><th>URL</th><th>{L("Ultima scansione", "Last crawled")}</th><th>{L("Dettagli", "Details")}</th><th>{L("Sul sito oggi", "On the website today")}</th></tr></thead>
               <tbody>
                 {m.pagine.map((u) => { const p = info(u); return (
-                  <tr><td class="url">{p && p.stato === 200 ? <a href={`/app/negozio${u.split("?")[0]}`}>{u}</a> : u}</td><td>{crawl.data.split("-").reverse().join("/")}</td>
-                    <td>{p?.stato === 301 ? `Reindirizza a ${p.redirect}` : p?.stato === 404 ? `Linkata da ${(crawl.link404 as Record<string, string[]>)[u]?.length ?? 0} pagine` : p?.robots?.includes("noindex") ? `meta robots: ${p.robots}` : p?.tipo === "Filtro" ? "Google ha scelto come canonica la categoria" : `${p?.parole ?? 0} parole`}</td><td data-oggi={u} data-motivo-id={i}>–</td></tr>
+                  <tr><td class="url">{p && p.stato === 200 ? <a href={`${en ? "/en" : ""}/app/negozio${u.split("?")[0]}`}>{u}</a> : u}</td><td>{crawl.data.split("-").reverse().join("/")}</td>
+                    <td>{p?.stato === 301 ? `${L("Reindirizza a", "Redirects to")} ${p.redirect}` : p?.stato === 404 ? L(`Linkata da ${(crawl.link404 as Record<string, string[]>)[u]?.length ?? 0} pagine`, `Linked from ${(crawl.link404 as Record<string, string[]>)[u]?.length ?? 0} pages`) : p?.robots?.includes("noindex") ? `meta robots: ${p.robots}` : p?.tipo === "Filtro" ? L("Google ha scelto come canonica la categoria", "Google chose the category as canonical") : `${p?.parole ?? 0} ${L("parole", "words")}`}</td><td data-oggi={u} data-motivo-id={i}>–</td></tr>
                 ); })}
               </tbody>
             </table>
@@ -100,20 +119,22 @@ export function getStaticPaths() { return LINGUE_APP(); }
 
   <section data-pannello="cwv" class="sezione" hidden>
     <div class="sp-pannello">
-      <p class="sp-nota">I Core Web Vitals misurano l'esperienza di chi visita: <strong>LCP</strong> (quanto ci mette a comparire il contenuto principale; buono entro {soglie.lcp[0]} s), <strong>INP</strong> (quanto risponde la pagina quando tocchi qualcosa; buono entro {soglie.inp[0]} ms) e <strong>CLS</strong> (quanto si spostano gli elementi mentre carica; buono entro {soglie.cls[0]}). Sono dati raccolti dai visitatori veri negli ultimi 28 giorni.</p>
+      {en
+        ? <p class="sp-nota">Core Web Vitals measure the visitor's experience: <strong>LCP</strong> (how long the main content takes to appear; good within {soglie.lcp[0]} s), <strong>INP</strong> (how quickly the page responds when you tap something; good within {soglie.inp[0]} ms) and <strong>CLS</strong> (how much elements move while it loads; good within {soglie.cls[0]}). The data is collected from real visitors over the last 28 days.</p>
+        : <p class="sp-nota">I Core Web Vitals misurano l'esperienza di chi visita: <strong>LCP</strong> (quanto ci mette a comparire il contenuto principale; buono entro {soglie.lcp[0]} s), <strong>INP</strong> (quanto risponde la pagina quando tocchi qualcosa; buono entro {soglie.inp[0]} ms) e <strong>CLS</strong> (quanto si spostano gli elementi mentre carica; buono entro {soglie.cls[0]}). Sono dati raccolti dai visitatori veri negli ultimi 28 giorni.</p>}
     </div>
     {(["telefono", "computer"] as const).map((dispositivo) => (
       <div class="sp-pannello">
-        <strong class="sottotitolo">{dispositivo === "telefono" ? "Da telefono" : "Da computer"}</strong>
+        <strong class="sottotitolo">{dispositivo === "telefono" ? L("Da telefono", "On phone") : L("Da computer", "On computer")}</strong>
         <div class="sp-scorri">
           <table data-tabella>
-            <thead><tr><th>Gruppo di pagine</th><th class="n">Pagine</th><th class="n">LCP</th><th class="n">INP</th><th class="n">CLS</th><th>Stato</th></tr></thead>
+            <thead><tr><th>{L("Gruppo di pagine", "Page group")}</th><th class="n">{L("Pagine", "Pages")}</th><th class="n">LCP</th><th class="n">INP</th><th class="n">CLS</th><th>{L("Stato", "Status")}</th></tr></thead>
             <tbody>
               {ind.cwv[dispositivo].map((g) => {
                 const l = giudizio(g.lcp, soglie.lcp), n = giudizio(g.inp, soglie.inp), c = giudizio(g.cls, soglie.cls);
-                const peggio = [l, n, c].some((x) => x[0] === "no") ? ["no", "Scarso"] : [l, n, c].some((x) => x[0] === "medio") ? ["medio", "Da migliorare"] : ["ok", "Buono"];
+                const peggio = [l, n, c].some((x) => x[0] === "no") ? ["no", SCARSO] : [l, n, c].some((x) => x[0] === "medio") ? ["medio", MEDIO] : ["ok", BUONO];
                 return (<tr>
-                  <td>{g.gruppo}<br /><span class="url esempio">es. {g.esempio}</span></td><td class="n">{g.pagine}</td>
+                  <td>{en ? GRUPPI_EN[g.gruppo] ?? g.gruppo : g.gruppo}<br /><span class="url esempio">{L("es.", "e.g.")} {g.esempio}</span></td><td class="n">{g.pagine}</td>
                   <td class="n"><span class:list={["sp-badge", l[0]]}>{num(g.lcp, 1)} s</span></td>
                   <td class="n"><span class:list={["sp-badge", n[0]]}>{g.inp} ms</span></td>
                   <td class="n"><span class:list={["sp-badge", c[0]]}>{num(g.cls, 2)}</span></td>
@@ -126,8 +147,8 @@ export function getStaticPaths() { return LINGUE_APP(); }
       </div>
     ))}
     <details class="sp-pannello">
-      <summary class="sottotitolo">Analisi della pagina di esempio (schede prodotto, da telefono)</summary>
-      <p class="sp-nota">Elemento più grande (LCP): la foto principale del prodotto. {ind.cwv.causa}</p>
+      <summary class="sottotitolo">{L("Analisi della pagina di esempio (schede prodotto, da telefono)", "Analysis of the sample page (product pages, on phone)")}</summary>
+      <p class="sp-nota">{L("Elemento più grande (LCP): la foto principale del prodotto.", "Largest element (LCP): the main product photo.")} {ind.cwv.causa}</p>
     </details>
   </section>
 </Console>
@@ -136,6 +157,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
   import { attivaTabelle } from "../../../../../../scripts/tabella";
   import ind from "../../../../../../data/app/seo-pro/indicizzazione.json";
   import { leggiModifiche, salvaModifiche, paginaEffettiva, OGGI } from "../../../../../../scripts/cms";
+  import { t } from "../../../../../../scripts/lingua";
   attivaTabelle();
   document.querySelectorAll<HTMLButtonElement>("[data-scheda]").forEach((b) => b.addEventListener("click", () => {
     document.querySelectorAll("[data-scheda]").forEach((x) => x.setAttribute("aria-selected", String(x === b)));
@@ -167,11 +189,11 @@ export function getStaticPaths() { return LINGUE_APP(); }
     document.querySelectorAll<HTMLElement>("[data-oggi]").forEach((td) => {
       const motivo = ind.motivi[Number(td.dataset.motivoId)].motivo;
       const u = td.dataset.oggi!;
-      td.innerHTML = giusta(motivo, u) ? '<span class="sp-badge">Va bene così</span>' : ancoraProblema(motivo, u) ? '<span class="sp-badge no">Da sistemare</span>' : motivo.includes("reindirizzamento") || motivo.includes("Scansionata") ? '<span class="sp-badge">–</span>' : '<span class="sp-badge ok">Corretta</span>';
+      td.innerHTML = giusta(motivo, u) ? `<span class="sp-badge">${t("Va bene così", "That's fine")}</span>` : ancoraProblema(motivo, u) ? `<span class="sp-badge no">${t("Da sistemare", "To fix")}</span>` : motivo.includes("reindirizzamento") || motivo.includes("Scansionata") ? '<span class="sp-badge">–</span>' : `<span class="sp-badge ok">${t("Corretta", "Fixed")}</span>`;
     });
     ind.motivi.forEach((mo, i) => {
       const cella = document.querySelector<HTMLElement>(`[data-convalida="${i}"]`)!;
-      cella.innerHTML = m.convalide[mo.motivo] ? `<span class="sp-badge medio">Iniziata il ${m.convalide[mo.motivo]}</span>` : '<span class="sp-badge">Non iniziata</span>';
+      cella.innerHTML = m.convalide[mo.motivo] ? `<span class="sp-badge medio">${t("Iniziata il", "Started on")} ${m.convalide[mo.motivo]}</span>` : `<span class="sp-badge">${t("Non iniziata", "Not started")}</span>`;
     });
   }
   document.querySelectorAll<HTMLButtonElement>("[data-convalida-btn]").forEach((b) => b.addEventListener("click", () => {
@@ -182,12 +204,14 @@ export function getStaticPaths() { return LINGUE_APP(); }
     msg.hidden = false;
     if (rimaste.length) {
       msg.className = "convalida-msg no";
-      msg.textContent = `Convalida non riuscita: Google ha ricontrollato e il problema c'è ancora su ${rimaste.length} ${rimaste.length === 1 ? "pagina" : "pagine"} (${rimaste.slice(0, 3).join(", ")}${rimaste.length > 3 ? "…" : ""}). Correggi prima il sito.`;
+      const elenco = `${rimaste.slice(0, 3).join(", ")}${rimaste.length > 3 ? "…" : ""}`;
+      msg.textContent = t(`Convalida non riuscita: Google ha ricontrollato e il problema c'è ancora su ${rimaste.length} ${rimaste.length === 1 ? "pagina" : "pagine"} (${elenco}). Correggi prima il sito.`,
+        `Validation failed: Google rechecked and the problem is still on ${rimaste.length} ${rimaste.length === 1 ? "page" : "pages"} (${elenco}). Fix the website first.`);
       return;
     }
     const m = leggiModifiche(); m.convalide[mo.motivo] = OGGI; salvaModifiche(m);
     msg.className = "convalida-msg ok";
-    msg.textContent = `Convalida iniziata il ${OGGI}. Google rileggerà le pagine nei prossimi giorni: i numeri del grafico cambieranno solo dopo.`;
+    msg.textContent = t(`Convalida iniziata il ${OGGI}. Google rileggerà le pagine nei prossimi giorni: i numeri del grafico cambieranno solo dopo.`, `Validation started on ${OGGI}. Google will reread the pages over the next few days: the chart's numbers will only change after that.`);
     aggiornaOggi();
   }));
   aggiornaOggi();

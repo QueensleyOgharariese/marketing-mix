@@ -8,7 +8,8 @@ export function normalizza(testo: string) {
 }
 
 // Parole che fanno pensare a promesse sulla salute (vietate per gli alimenti senza autorizzazione, Reg. CE 1924/2006)
-const SALUTE = [/brucia/, /grass/, /dimagr/, /detox/, /depur/, /benefic/, /\bcur(a|e|ano)\b/, /guari/, /previen/, /salute/, /antiossid/, /metabolism/, /drenant/,
+// /\bgrass[ioae]\b/ trova «grassi» ma non «grassy» (erbaceo, in inglese)
+const SALUTE = [/brucia/, /\bgrass[ioae]\b/, /dimagr/, /detox/, /depur/, /benefic/, /\bcur(a|e|ano)\b/, /guari/, /previen/, /salute/, /antiossid/, /metabolism/, /drenant/,
   // le stesse promesse in inglese (l'app esiste anche in inglese)
   /\bburn/, /\bfat\b/, /slim/, /weight/, /cleans/, /purif/, /benefit/, /\bcures?\b/, /\bheal/, /prevent/, /health/, /antioxid/, /metabol/, /draining/];
 export function senzaSalute(...testi: string[]) {
@@ -94,23 +95,23 @@ export function controlla(l: Lavoro, ricerche: Ricerca[], keywordGiuste: string[
     cerca(l.titolo, "cinque foglie", true) !== null,
     l.descrizione.trim().length >= LIMITI.descrizione[0] && l.descrizione.trim().length <= LIMITI.descrizione[1] && senzaSalute(l.titolo, l.descrizione),
     // C. Dati strutturati
-    l.schema.nome === "Sencha biologico" && l.schema.marca === "Cinque Foglie",
+    ["Sencha biologico", "Organic Sencha"].includes(l.schema.nome) && l.schema.marca === "Cinque Foglie", // nome italiano o inglese (app in due lingue)
     prezzo === "12.90",
     l.schema.valuta === "EUR" && l.schema.disponibilita === "InStock",
     !l.schema.stelle && l.schema.nome.trim().length > 0, // vale solo dopo aver iniziato a compilare i dati
     // D. Risposta breve
     contaParole(l.risposta) >= LIMITI.parole[0] && contaParole(l.risposta) <= LIMITI.parole[1],
-    /\b7[0-9]\s*(°\s*c|gradi)/.test(r) || /\b80\s*(°\s*c|gradi)/.test(r),
-    /\b(2|due)\s*minut/.test(r),
+    /\b7[0-9]\s*(°\s*c|gradi|degrees)/.test(r) || /\b80\s*(°\s*c|gradi|degrees)/.test(r),
+    /\b(2|due|two)\s*minut/.test(r),
     senzaSalute(l.risposta),
   ];
 }
 
 // Errori di battitura trovati (per avvisare la persona, senza togliere punti)
-export function avvisiBattitura(l: Lavoro) {
+export function avvisiBattitura(l: Lavoro, en = false) {
   const avvisi: string[] = [];
-  if (l.keyword && cerca(l.titolo, l.keyword) === "quasi") avvisi.push(`Nel titolo la keyword "${l.keyword}" sembra scritta con un errore: controllala.`);
-  if (cerca(l.titolo, "cinque foglie", true) === "quasi") avvisi.push("Controlla come hai scritto \"Cinque Foglie\" alla fine del titolo.");
+  if (l.keyword && cerca(l.titolo, l.keyword) === "quasi") avvisi.push(en ? `In the title the keyword "${l.keyword}" seems to have a typo: check it.` : `Nel titolo la keyword "${l.keyword}" sembra scritta con un errore: controllala.`);
+  if (cerca(l.titolo, "cinque foglie", true) === "quasi") avvisi.push(en ? "Check how you've written \"Cinque Foglie\" at the end of the title." : "Controlla come hai scritto \"Cinque Foglie\" alla fine del titolo.");
   return avvisi;
 }
 
@@ -120,6 +121,15 @@ export const PARTI = [
   { id: "dati", nome: "Dati strutturati", controlli: ["Nome e marca del prodotto", "Prezzo uguale alla scheda prodotto", "Valuta EUR e prodotto disponibile", "Nessuna valutazione a stelle inventata"] },
   { id: "risposta", nome: "Risposta breve", controlli: ["Tra 30 e 70 parole", "Temperatura giusta dell'acqua", "Tempo giusto di infusione", "Nessuna promessa sulla salute"] },
 ];
+
+// Le stesse parti nella versione inglese dell'app (stesso ordine dei controlli)
+export const PARTI_EN = [
+  { id: "intento", nome: "Search intent", controlli: ["Searches for learning recognised", "Searches for choosing recognised", "Search for buying recognised", "Main keyword suited to a product page"] },
+  { id: "titolo", nome: "Title and description", controlli: ["The title contains the chosen keyword", "Title of at least 30 characters and no more than 580 pixels", "The brand name is at the end of the title", "Description of 70-160 characters, with no health promises"] },
+  { id: "dati", nome: "Structured data", controlli: ["Product name and brand", "Price matches the product page", "EUR currency and product in stock", "No made-up star rating"] },
+  { id: "risposta", nome: "Short answer", controlli: ["Between 30 and 70 words", "Right water temperature", "Right steeping time", "No health promises"] },
+];
+export const partiDi = (en = false) => (en ? PARTI_EN : PARTI);
 
 export const NOMI_CONTROLLI = PARTI.flatMap((p) => p.controlli);
 
