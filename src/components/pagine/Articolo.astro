@@ -142,6 +142,16 @@ const percorso = T.categorie[a.categoria as keyof typeof T.categorie];
   )}
 </Base>
 
+<script>
+  // Tabelle degli articoli: ogni cella riceve il nome della sua colonna, per la versione a schede sul telefono
+  document.querySelectorAll<HTMLTableElement>(".testo-articolo table").forEach((t) => {
+    const nomi = [...t.querySelectorAll("thead th")].map((th) => th.textContent?.trim() ?? "");
+    if (nomi.length < 3) return;
+    t.classList.add("a-schede");
+    t.querySelectorAll("tbody tr").forEach((tr) => [...tr.children].forEach((c, i) => { if (nomi[i]) c.setAttribute("data-etichetta", nomi[i]); }));
+  });
+</script>
+
 <style>
   /* Barra di lettura in alto: si riempie mentre scorri (solo CSS; dove non è supportata resta nascosta) */
   .lettura { position: fixed; left: 0; top: 0; height: 5px; width: 100%; background: var(--arancio); transform-origin: 0 50%; transform: scaleX(0); z-index: 60; }
@@ -174,8 +184,19 @@ const percorso = T.categorie[a.categoria as keyof typeof T.categorie];
   .testo-articolo :global(li::marker) { color: var(--arancio-scuro); font-weight: 800; }
   .testo-articolo :global(code) { background: var(--crema); padding: 2px 6px; border-radius: 6px; font-size: .88em; overflow-wrap: anywhere; }
   .testo-articolo :global(table) { width: 100%; border-collapse: collapse; font-size: 1rem; line-height: 1.5; border: 2px solid var(--inchiostro); border-radius: 18px; border-collapse: separate; border-spacing: 0; overflow: hidden; }
-  /* Sul telefono la tabella scorre di lato invece di uscire dallo schermo */
-  @media (max-width: 640px) { .testo-articolo :global(table) { display: block; overflow-x: auto; } }
+  /* Sul telefono le tabelle con 3 o più colonne diventano schede: una riga = un blocco, ogni cella con il nome
+     della sua colonna (data-etichetta, aggiunto dallo script in fondo). Quelle da 2 colonne restano tabelle. */
+  @media (max-width: 640px) {
+    .testo-articolo :global(table.a-schede) { display: block; border: 0; border-radius: 0; overflow: visible; }
+    .testo-articolo :global(table.a-schede thead) { display: none; }
+    .testo-articolo :global(table.a-schede tbody) { display: flex; flex-direction: column; gap: 12px; }
+    .testo-articolo :global(table.a-schede tr) { display: block; border: 2px solid var(--inchiostro); border-radius: 16px; padding: 6px 0; background: #fff !important; }
+    .testo-articolo :global(table.a-schede td), .testo-articolo :global(table.a-schede th) { display: block; border: 0 !important; padding: 6px 14px; }
+    .testo-articolo :global(table.a-schede td[data-etichetta]::before) { content: attr(data-etichetta); display: block; font-size: .75rem; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; color: var(--testo-3); }
+    .testo-articolo :global(table.a-schede td:first-child) { font-weight: 800; font-size: 1.05rem; }
+    .testo-articolo :global(table.a-schede td:first-child::before) { display: none; }
+    .testo-articolo :global(table:not(.a-schede)) { display: block; overflow-x: auto; }
+  }
   .testo-articolo :global(thead) { background: var(--inchiostro); color: #fff; }
   .testo-articolo :global(th), .testo-articolo :global(td) { text-align: left; padding: 12px 16px; vertical-align: top; }
   .testo-articolo :global(tbody td), .testo-articolo :global(tbody th) { border-top: 1px solid #f1e6dd; }

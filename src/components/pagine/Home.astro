@@ -1,7 +1,7 @@
 ---
 // HOME PAGE (italiano e inglese)
 // Sezioni: 1 apertura · 2 dentro il marketing · 3 i 12 ruoli · 4 esercizi · 5 percorso
-//          6 strumenti · 7 strumento in azione · 8 blog · 9 newsletter
+//          6 strumenti · 7 strumento in azione · 8 blog (la newsletter è stata tolta il 30/10/2026)
 // Un solo componente per le due lingue: i testi stanno in TESTI.it e TESTI.en, uno accanto all'altro,
 // così è facile tenerli allineati. Le pagine src/pages/index.astro e src/pages/en/index.astro lo usano.
 // Tutte le animazioni si fermano se il sistema chiede "riduci movimento" (vedi global.css).
@@ -68,8 +68,7 @@ const TESTI = {
     demoT: "Tè verde Sencha biologico | Cinque Foglie",
     demoD: "Sencha giapponese dal gusto fresco ed erbaceo. Foglie intere, bustine compostabili, spedizione in 24 ore.",
     demoUrl: "cinquefoglie.example › te-verdi › sencha-bio",
-    blogTitolo: "Dal blog: le basi, spiegate semplici", tuttiArticoli: "Tutti gli articoli →",
-    nlTitolo: "Un ruolo nuovo ogni due settimane", nlTesto: "Esercizi e consigli per entrare nel marketing, nella tua email. La newsletter parte presto.", inArrivoBadge: "In arrivo",
+    blogTitolo: "Dal blog: le basi, spiegate semplici", tuttiArticoli: "Tutti gli articoli →",  inArrivoBadge: "In arrivo",
   },
   en: {
     titoloPagina: `${impostazioni.nomeSito}: learn marketing by doing`,
@@ -122,8 +121,7 @@ const TESTI = {
     demoT: "Organic Sencha Green Tea | Cinque Foglie",
     demoD: "Japanese Sencha with a fresh, grassy taste. Whole leaves, compostable bags, 24-hour delivery.",
     demoUrl: "cinquefoglie.example › green-tea › organic-sencha",
-    blogTitolo: "From the blog: the basics, explained simply", tuttiArticoli: "All articles →",
-    nlTitolo: "A new role every two weeks", nlTesto: "Exercises and tips to get into marketing, in your inbox. The newsletter starts soon.", inArrivoBadge: "Coming soon",
+    blogTitolo: "From the blog: the basics, explained simply", tuttiArticoli: "All articles →",  inArrivoBadge: "Coming soon",
   },
 };
 const T = TESTI[lang];
@@ -365,19 +363,6 @@ const blog = link(lang, "blog");
     </section>
   )}
 
-  <!-- ============ 9. NEWSLETTER (in arrivo) ============ -->
-  <!-- Il modulo di iscrizione arriverà con il servizio di newsletter (doppio consenso, informativa privacy).
-       Fino ad allora non raccogliamo email: niente modulo finto. -->
-  <section class="contenitore">
-    <div class="newsletter">
-      <Pesca dimensione={120} colore="#ffc06b" />
-      <div class="newsletter-testi">
-        <h2 class="titolo-sezione titolo-medio">{T.nlTitolo}</h2>
-        <p>{T.nlTesto}</p>
-      </div>
-      <span class="presto">{T.inArrivoBadge}</span>
-    </div>
-  </section>
 </Base>
 
 <style>
@@ -574,9 +559,4 @@ const blog = link(lang, "blog");
   .articolo-testi strong { font-family: var(--font-titoli); font-size: 1.35rem; line-height: 1.15; }
   .articolo-testi span:last-child { font-size: .95rem; color: var(--testo-2); line-height: 1.45; }
 
-  /* ---------- 9. Newsletter ---------- */
-  .newsletter { background: var(--arancio); border-radius: 32px; padding: clamp(24px, 4vw, 40px); display: flex; flex-wrap: wrap; gap: 24px 32px; align-items: center; }
-  .newsletter-testi { flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
-  .newsletter-testi p { font-size: 1.05rem; line-height: 1.5; }
-  .presto { background: var(--inchiostro); color: #fff; font-weight: 700; padding: 14px 22px; border-radius: 14px; }
 </style>
