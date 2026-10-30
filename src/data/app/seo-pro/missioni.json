@@ -9,17 +9,17 @@
   {
    "n": 1,
    "nome": "Basi",
-   "cosa": "Un concetto, uno strumento, un'azione. 5-8 minuti ciascuno."
+   "cosa": "Istruzioni passo per passo e teoria in ogni mini esercizio. Si impara a leggere i dati e a correggere una cosa alla volta."
   },
   {
    "n": 2,
    "nome": "Diagnosi",
-   "cosa": "Trovi un problema nei dati e lo correggi nel sito. 10-20 minuti."
+   "cosa": "Meno guida: niente istruzioni passo per passo, solo indizi. Trovi tu i problemi nei dati e li correggi."
   },
   {
    "n": 3,
    "nome": "Casi",
-   "cosa": "Problemi aperti: più strumenti, priorità da decidere. 30 minuti."
+   "cosa": "Nessuna istruzione, problemi mescolati e trappole: decidi tu cosa conta e da dove partire."
   }
  ],
  "missioni": [
@@ -121,8 +121,9 @@
      "esempio": "",
      "compito": "",
      "come": [
-      "Gli esercizi sono divisi in tre livelli: <strong>Basi</strong>, <strong>Diagnosi</strong> e <strong>Casi</strong>. Dentro un livello scegli tu l'ordine.",
+      "Gli esercizi sono divisi in tre livelli: <strong>Basi</strong>, <strong>Diagnosi</strong> e <strong>Casi</strong>. Ogni esercizio è un piccolo progetto fatto di mini esercizi. Dentro un livello scegli tu l'ordine.",
       "Il livello dopo si apre quando hai finito tutti gli esercizi di quello prima.",
+      "Salendo di livello la guida cala: nelle <strong>Basi</strong> hai le istruzioni passo per passo, in <strong>Diagnosi</strong> solo indizi (le istruzioni si possono aprire per 5 punti), nei <strong>Casi</strong> nessuna istruzione.",
       "Ogni esercizio parte da <strong>100 punti</strong>: una risposta sbagliata toglie 10 punti, aprire l'<strong>Aiuto</strong> ne toglie 5. Quando scrivi o modifichi il sito puoi riprovare senza perdere punti.",
       "Per ripartire da zero: Pannello del negozio → Tema e impostazioni → <strong>Ripristina il negozio</strong>."
      ],
@@ -141,23 +142,23 @@
    "situazione": "Ciao, benvenuta in Cinque Foglie! Prima di iniziare ti faccio vedere dove sono le cose: dieci minuti e sei operativa."
   },
   {
-   "id": "b1",
+   "id": "base1",
    "livello": 1,
    "n": 1,
-   "nome": "Title e H1: qual è la differenza",
-   "tempo": "5 minuti",
-   "strumenti": "Negozio",
-   "cosa": "Due titoli per ogni pagina: uno per Google, uno per chi legge.",
-   "situazione": "Il copywriter mi chiede che differenza c'è tra title e H1. Me lo spieghi con la pagina dei tè neri?",
-   "obiettivo": "Trova title e H1 della pagina Tè neri e capisci dove compare ciascuno.",
+   "nome": "Le schede dei tè neri",
+   "tempo": "30 minuti",
+   "strumenti": "Negozio, Crawler, Pannello",
+   "cosa": "Title, H1 e meta description: leggerli, trovare quelli sbagliati e riscriverli.",
+   "situazione": "Su Google i nostri tè neri compaiono tutti con lo stesso titolo e senza descrizione. Il copywriter non sa da dove partire: mi aiuti a capire e a sistemare?",
+   "obiettivo": "Capire title, H1 e description, trovare le schede sbagliate e riscriverne due come esempio per il copywriter.",
    "passi": [
     {
      "strumento": "negozio",
-     "pagina": "/app/negozio/te-neri/",
      "tipo": "radio",
      "domanda": "Qual è il title della pagina Tè neri?",
-     "spiega": "Ogni pagina ha due titoli. Il title è scritto nel codice: è il titolo blu nei risultati di Google e il nome della scheda del browser. L'H1 è il titolo grande che si legge nella pagina. Possono essere diversi: il title spesso è più lungo e finisce con il nome del negozio.",
+     "spiega": "Ogni pagina ha due titoli. Il title è scritto nel codice e lo vede Google: è il titolo blu nei risultati. L'H1 è il titolo grande che legge chi visita la pagina. Possono essere diversi: il title di solito è più lungo, descrive meglio la pagina e finisce con il nome del negozio.",
      "esempio": "In un negozio di scarpe l'H1 può essere «Sneakers» e il title «Sneakers uomo e donna | NomeNegozio».",
+     "errore": "Pensare che il title sia il titolo grande della pagina. Quello è l'H1: il title non si vede nel corpo della pagina.",
      "compito": "",
      "come": [
       "Sei nella pagina <strong>Tè neri</strong> del negozio.",
@@ -169,7 +170,7 @@
        "id": "o1",
        "testo": "Tè neri",
        "giusta": false,
-       "nota": "Questo è l'H1: il titolo grande scritto nella pagina. Il title è un'altra riga di Ispeziona."
+       "nota": "Questo è l'H1, il titolo grande scritto nella pagina. Il title è un'altra riga di Ispeziona."
       },
       {
        "id": "o2",
@@ -186,18 +187,19 @@
      ],
      "perche": "Il title della categoria dice cosa c'è (tè neri biologici, in foglie e bustine) e chiude con il brand. L'H1 «Tè neri» è più corto perché chi è già nella pagina sa dove si trova.",
      "aiuto": "In Ispeziona le righe sono: Stato, Title, Description, Robots, Canonical, H1. Ti serve la seconda.",
-     "dove": ".ispeziona summary"
+     "dove": ".ispeziona summary",
+     "pagina": "/app/negozio/te-neri/"
     },
     {
      "strumento": "negozio",
-     "pagina": "/app/negozio/te-neri/",
      "tipo": "radio",
      "domanda": "Dove compare il title?",
-     "spiega": "Il title non si vede nel corpo della pagina. Lo vedono Google, che lo usa come titolo del risultato, e il browser, che lo scrive nella scheda in alto.",
+     "spiega": "Il title non si vede nella pagina. Lo usa Google come titolo del risultato e lo usa il browser come nome della scheda in alto. Per questo è la prima cosa che una persona legge di noi su Google: decide se cliccare.",
      "esempio": "Se apri dieci schede nel browser, i nomi che leggi in alto sono i title delle pagine.",
+     "errore": "Scrivere il title solo per Google, pieno di parole chiave: lo leggono le persone e deve convincerle a cliccare.",
      "compito": "",
      "come": [
-      "Guarda la pagina Tè neri: il titolo grande che leggi è l'H1.",
+      "Guarda la pagina: il titolo grande che leggi è l'H1.",
       "Pensa a dove hai visto invece il title.",
       "Scegli la risposta e premi <strong>Controlla</strong>."
      ],
@@ -221,114 +223,56 @@
        "nota": "Nel Pannello lo scrivi, ma chi lo vede? Pensa ai risultati di una ricerca."
       }
      ],
-     "perche": "Per questo il title conta tanto nella SEO: è la prima cosa che una persona legge su Google e decide se cliccare.",
+     "perche": "Il title conta tanto nella SEO perché è il primo contatto con chi cerca: un title chiaro porta più clic.",
      "aiuto": "Il titolo grande nella pagina è l'H1. Il title si vede fuori dalla pagina.",
-     "dove": ""
-    }
-   ],
-   "imparato": [
-    "Il title è il titolo blu su Google e il nome della scheda del browser.",
-    "L'H1 è il titolo grande nella pagina.",
-    "Si leggono entrambi con Ispeziona."
-   ],
-   "elena": "Chiarissimo, lo giro al copywriter. Grazie!"
-  },
-  {
-   "id": "b2",
-   "livello": 1,
-   "n": 2,
-   "nome": "Aggiungi l'H1 mancante",
-   "tempo": "6 minuti",
-   "strumenti": "Crawler, Pannello",
-   "cosa": "Trova una pagina senza H1 con il crawler e correggila.",
-   "situazione": "Mi dicono che una categoria non ha il titolo principale nel codice. Riesci a trovarla e sistemarla?",
-   "obiettivo": "Trova con il crawler la categoria senza H1 e aggiungilo nel Pannello.",
-   "passi": [
+     "dove": "",
+     "pagina": "/app/negozio/te-neri/"
+    },
     {
-     "strumento": "crawler",
+     "strumento": "negozio",
      "tipo": "radio",
-     "domanda": "Quale categoria non ha l'H1?",
-     "spiega": "Il crawler visita tutte le pagine del sito seguendo i link, come fa Google, e raccoglie i problemi. A sinistra i filtri li raggruppano per tipo: cliccandone uno vedi solo le pagine con quel problema.",
-     "esempio": "In un sito di ricette il filtro «Description mancante» mostra le 12 ricette che non hanno la descrizione per Google.",
+     "domanda": "Cosa non va nel title della scheda Assam?",
+     "spiega": "Un buon title di una scheda prodotto dice cosa si compra: il nome del prodotto, il tipo (tè nero) e una caratteristica (biologico, in foglie), poi il brand alla fine. Chi legge il risultato deve capire subito se è quello che cerca.",
+     "esempio": "Per un olio: «Olio extravergine pugliese da 750 ml | NomeNegozio» invece di «NomeNegozio | Prodotti tipici».",
+     "errore": "Mettere il nome del negozio all'inizio: occupa lo spazio più visibile e non dice cosa si vende.",
      "compito": "",
      "come": [
-      "Apri il <a href=\"/app/percorsi/seo/strumenti/crawler/\">Crawler</a>.",
-      "A sinistra, nel gruppo <strong>Da sistemare</strong>, clicca il filtro <strong>H1 mancante</strong>.",
-      "Guarda quali indirizzi restano nella tabella: cerca la pagina di categoria (quella senza ? nell'indirizzo).",
-      "Scegli la risposta e premi <strong>Controlla</strong>."
+      "Apri <a href=\"/app/negozio/te-neri/assam/\">la scheda Assam nel negozio</a>.",
+      "Premi <strong>Ispeziona</strong> e leggi il <strong>Title</strong>.",
+      "Confrontalo con il nome del prodotto nella pagina. Scegli e premi <strong>Controlla</strong>."
      ],
      "opzioni": [
       {
        "id": "o1",
-       "testo": "/tisane/",
+       "testo": "È troppo lungo: Google lo taglia",
        "giusta": false,
-       "nota": "Le tisane hanno l'H1: con il filtro H1 mancante non compaiono."
+       "nota": "«Cinque Foglie | Negozio di tè online» è corto. Il problema è cosa dice, non quanto è lungo."
       },
       {
        "id": "o2",
-       "testo": "/matcha/",
+       "testo": "Non dice il nome del prodotto: è il title generico del negozio",
        "giusta": true,
        "nota": ""
       },
       {
        "id": "o3",
-       "testo": "/te-verdi/",
+       "testo": "Manca il nome del negozio",
        "giusta": false,
-       "nota": "/te-verdi/ ha l'H1 «Tè verdi». Clicca il filtro H1 mancante e guarda cosa resta."
+       "nota": "Il nome del negozio c'è, anzi è all'inizio. Manca altro."
       }
      ],
-     "perche": "La categoria Matcha ha un titolo grande che sembra un H1, ma nel codice è un paragrafo: Google non lo considera il titolo della pagina.",
-     "aiuto": "Il filtro H1 mancante è il terzo del gruppo Da sistemare. La riga con ?ordina=prezzo è una versione filtrata della stessa pagina.",
-     "dove": "[data-filtro=\"h1-manca\"]"
+     "perche": "Il title «Cinque Foglie | Negozio di tè online» potrebbe andare su qualunque pagina: non dice che qui si vende l'Assam. Chi cerca «tè Assam» non lo riconosce nei risultati.",
+     "aiuto": "Leggi il title ad alta voce: si capisce che la pagina vende l'Assam?",
+     "dove": "",
+     "pagina": "/app/negozio/te-neri/assam/"
     },
-    {
-     "strumento": "pannello",
-     "tipo": "azione",
-     "verifica": "h1Matcha",
-     "domanda": "Aggiungi l'H1 alla pagina Matcha",
-     "spiega": "L'H1 è il titolo principale della pagina nel codice: dice a Google e a chi usa uno screen reader di cosa parla la pagina. Deve essercene uno, breve e con la parola chiave.",
-     "esempio": "In un sito di ricette la pagina dei dolci ha come H1 «Ricette di dolci», non «Benvenuti».",
-     "compito": "",
-     "come": [
-      "Apri <a href=\"/app/percorsi/seo/pannello/?pagina=/matcha/\">/matcha/ nel Pannello del negozio</a>.",
-      "Nel campo <strong>H1</strong> scrivi un titolo breve con la parola matcha, per esempio <strong>Tè matcha</strong>.",
-      "Premi <strong>Salva le modifiche</strong>, poi <strong>Controlla il lavoro</strong>.",
-      "Apri <a href=\"/app/negozio/matcha/\">/matcha/ nel negozio</a> e premi Ispeziona: ora l'H1 c'è."
-     ],
-     "vai": {
-      "link": "/app/percorsi/seo/pannello/?pagina=/matcha/",
-      "testo": "Apri /matcha/ nel Pannello"
-     },
-     "opzioni": [],
-     "perche": "Ora Google sa qual è il titolo della pagina, e nel crawler la pagina non compare più tra quelle senza H1.",
-     "aiuto": "Il campo H1 è il terzo del modulo, sotto Title e Meta description. Ricordati di premere Salva le modifiche prima di Controlla il lavoro.",
-     "dove": "[data-editor] input[name=h1]"
-    }
-   ],
-   "imparato": [
-    "Il filtro H1 mancante del crawler trova le pagine senza titolo principale.",
-    "Un titolo che sembra grande non è per forza un H1 nel codice.",
-    "L'H1 si aggiunge nel Pannello."
-   ],
-   "elena": "Visto, la pagina Matcha ora ha il suo titolo. Ottimo."
-  },
-  {
-   "id": "b3",
-   "livello": 1,
-   "n": 3,
-   "nome": "Un title uguale per tanti prodotti",
-   "tempo": "8 minuti",
-   "strumenti": "Crawler, Pannello",
-   "cosa": "Scrivi il title di una scheda prodotto che ora è generico.",
-   "situazione": "Su Google i nostri tè neri compaiono tutti con lo stesso titolo, «Cinque Foglie | Negozio di tè online». Così nessuno capisce cosa vendiamo.",
-   "obiettivo": "Trova i title duplicati e riscrivi quello della scheda Assam.",
-   "passi": [
     {
      "strumento": "crawler",
      "tipo": "radio",
      "domanda": "Quale title si ripete su tante schede prodotto?",
-     "spiega": "Se tante pagine hanno lo stesso title, Google non capisce in cosa sono diverse e le persone nei risultati non sanno quale aprire. Ogni pagina deve avere un title suo. Fanno eccezione le versioni filtrate di una categoria (es. /te-verdi/?ordina=prezzo): lì il title uguale è normale e si risolve con il canonical.",
+     "spiega": "Il crawler visita tutte le pagine del sito seguendo i link, come fa Google. Il filtro «Title duplicati» mostra le pagine che hanno lo stesso title di un'altra. Se tante pagine diverse hanno lo stesso title, Google non capisce in cosa sono diverse. Fanno eccezione le versioni filtrate di una categoria (es. /te-verdi/?ordina=prezzo): lì il title uguale è normale e si risolve con il canonical.",
      "esempio": "Un'agenzia di viaggi con 30 pagine intitolate tutte «Viaggi | Agenzia» invece di «Viaggio in Giappone di 10 giorni | Agenzia».",
+     "errore": "Correggere a mano anche le pagine filtrate con il ? nell'indirizzo: per quelle non si cambia il title, si usa il canonical.",
      "compito": "",
      "come": [
       "Apri il <a href=\"/app/percorsi/seo/strumenti/crawler/\">Crawler</a>.",
@@ -361,52 +305,84 @@
      "dove": "[data-filtro=\"title-dup\"]"
     },
     {
+     "strumento": "crawler",
+     "tipo": "checkbox",
+     "domanda": "Quali pagine hanno il title generico?",
+     "spiega": "Prima di correggere bisogna sapere quanto è grande il problema: quante pagine e di che tipo. Così si capisce se basta sistemarle a mano o se conviene chiedere al team web di cambiare il modello delle pagine.",
+     "esempio": "Se 3 ricette su 300 non hanno la foto si aggiungono a mano; se mancano a tutte le ricette di dolci, si corregge il modello di quella sezione.",
+     "errore": "Fermarsi alla prima pagina sbagliata: spesso lo stesso errore è ripetuto su tutta una sezione del sito.",
+     "compito": "",
+     "come": [
+      "Resta nel filtro <strong>Title duplicati</strong> del Crawler.",
+      "Per ogni pagina qui sotto scrivi l'indirizzo in <strong>Filtra gli indirizzi</strong>: se compare con il title «Cinque Foglie | Negozio di tè online» è da selezionare; se non compare, il suo title non è duplicato.",
+      "Seleziona <strong>tutte</strong> quelle con il title «Cinque Foglie | Negozio di tè online» e premi <strong>Controlla</strong>."
+     ],
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "/te-neri/darjeeling/",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "/accessori/infusore-acciaio/",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "/te-verdi/sencha-bio/",
+       "giusta": false,
+       "nota": "Il Sencha ha un title suo: «Tè verde Sencha biologico in foglie | Cinque Foglie»."
+      },
+      {
+       "id": "o4",
+       "testo": "/te-neri/chai-speziato/",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o5",
+       "testo": "/tisane/camomilla-bio/",
+       "giusta": false,
+       "nota": "La camomilla ha il title «Camomilla biologica | Tisane | Cinque Foglie»."
+      }
+     ],
+     "perche": "Il title generico c'è su tutte e 6 le schede dei tè neri e su 2 accessori: 8 pagine. Sono due sezioni intere, quindi conviene correggere il modello di quelle pagine. Tu intanto riscrivi l'Assam come esempio.",
+     "aiuto": "Le pagine con il title generico sono tutte tra i tè neri e gli accessori.",
+     "dove": "[data-filtro=\"title-dup\"]"
+    },
+    {
      "strumento": "pannello",
      "tipo": "azione",
      "verifica": "titoloAssam",
-     "domanda": "Scrivi il title della scheda Assam",
-     "spiega": "Il title di una scheda prodotto dice cosa si compra: il nome del prodotto, cosa lo rende diverso (biologico, in foglie, il formato) e alla fine il brand. Deve stare entro circa 580 pixel, altrimenti Google lo taglia.",
-     "esempio": "Per una crema solare: «Crema solare SPF 50 per bambini, 100 ml | NomeNegozio».",
-     "compito": "",
-     "come": [
-      "Apri <a href=\"/app/percorsi/seo/pannello/?pagina=/te-neri/assam/\">/te-neri/assam/ nel Pannello</a>.",
-      "Nel campo <strong>Title</strong> scrivi un title che contenga <strong>Assam</strong>, dica che è un tè nero e finisca con <strong>| Cinque Foglie</strong>. Guarda il contatore dei pixel.",
-      "Premi <strong>Salva le modifiche</strong>, poi <strong>Controlla il lavoro</strong>."
-     ],
      "vai": {
       "link": "/app/percorsi/seo/pannello/?pagina=/te-neri/assam/",
       "testo": "Apri l'Assam nel Pannello"
      },
+     "domanda": "Scrivi il title della scheda Assam",
+     "spiega": "Regole del title di un prodotto: inizia con quello che la persona cerca (il nome del prodotto e il tipo), aggiunge una caratteristica che lo distingue, chiude con «| Cinque Foglie». Deve stare entro circa 580 pixel: oltre, Google lo taglia con i puntini.",
+     "esempio": "Per una crema solare: «Crema solare SPF 50 per bambini, 100 ml | NomeNegozio».",
+     "errore": "Ripetere la stessa parola più volte («Tè nero Assam, tè nero indiano, tè nero…»): sembra spam e Google può riscrivere il title.",
+     "compito": "",
+     "come": [
+      "Apri <a href=\"/app/percorsi/seo/pannello/?pagina=/te-neri/assam/\">/te-neri/assam/ nel Pannello</a>.",
+      "Nel campo <strong>Title</strong> scrivi un title che contenga <strong>Assam</strong>, dica che è un <strong>tè nero</strong> e finisca con <strong>| Cinque Foglie</strong>. Guarda il contatore dei pixel.",
+      "Premi <strong>Salva le modifiche</strong>, poi <strong>Controlla il lavoro</strong>."
+     ],
      "opzioni": [],
      "perche": "Esempio di un collega senior: «Tè nero Assam biologico in foglie | Cinque Foglie». Il tuo può essere diverso: conta che rispetti le stesse regole.",
      "aiuto": "Parti dal nome del prodotto, aggiungi «tè nero» e una caratteristica (biologico, in foglie), chiudi con «| Cinque Foglie».",
      "dove": "[data-editor] input[name=title]"
-    }
-   ],
-   "imparato": [
-    "Ogni pagina deve avere un title diverso.",
-    "Il title di un prodotto contiene il nome del prodotto e chiude con il brand.",
-    "Il title deve stare entro circa 580 pixel."
-   ],
-   "elena": "Molto meglio! Chiedo al team web di usare lo stesso schema per tutti i tè neri."
-  },
-  {
-   "id": "b4",
-   "livello": 1,
-   "n": 4,
-   "nome": "Scrivi una meta description",
-   "tempo": "8 minuti",
-   "strumenti": "Crawler, Pannello",
-   "cosa": "Il testo grigio sotto il titolo su Google: scegli dove serve e scrivilo.",
-   "situazione": "Il crawler dice che 16 pagine non hanno la description. Le sistemiamo tutte?",
-   "obiettivo": "Capisci quali pagine hanno bisogno della description e scrivi quella del Darjeeling.",
-   "passi": [
+    },
     {
      "strumento": "crawler",
      "tipo": "radio",
      "domanda": "Quale pagina non serve sistemare?",
-     "spiega": "La meta description è il testo grigio sotto il titolo nei risultati di Google. Serve solo alle pagine che compaiono su Google. Le pagine in noindex, come il carrello, non compaiono: lì non serve.",
+     "spiega": "La meta description è il testo grigio sotto il titolo nei risultati di Google. Non fa salire di posizione, ma convince a cliccare. Serve solo alle pagine che compaiono su Google: le pagine in noindex, come il carrello, non compaiono, quindi lì non serve.",
      "esempio": "Un ristorante scrive la description del menu e della pagina prenotazioni, non della pagina di accesso riservata allo staff.",
+     "errore": "Sistemare tutto quello che il crawler segnala, nell'ordine in cui compare. Prima si guarda se la pagina compare davvero su Google.",
      "compito": "",
      "come": [
       "Apri il <a href=\"/app/percorsi/seo/strumenti/crawler/\">Crawler</a> e clicca il filtro <strong>Description mancante</strong>.",
@@ -441,19 +417,20 @@
      "strumento": "pannello",
      "tipo": "azione",
      "verifica": "descDarjeeling",
+     "vai": {
+      "link": "/app/percorsi/seo/pannello/?pagina=/te-neri/darjeeling/",
+      "testo": "Apri il Darjeeling nel Pannello"
+     },
      "domanda": "Scrivi la description del Darjeeling",
-     "spiega": "Una buona description ha tra 100 e 160 caratteri, dice cosa si trova nella pagina e dà un motivo per cliccare (spedizione, formato, provenienza). Non deve promettere effetti sulla salute: per un alimento non si può.",
+     "spiega": "Una buona description ha tra 100 e 160 caratteri: oltre, Google la taglia. Dice cosa si trova nella pagina e dà un motivo per cliccare (spedizione, formato, provenienza). Per un alimento non si possono promettere effetti sulla salute: lo vieta la legge europea sulle indicazioni salutistiche (Regolamento CE 1924/2006).",
      "esempio": "Per un olio: «Olio extravergine pugliese da olive coratine, in bottiglia da 750 ml. Spedizione in 24 ore e reso gratuito».",
+     "errore": "Copiare il title nella description, o scrivere una frase generica («Scopri il nostro tè»): non aggiunge niente e non convince a cliccare.",
      "compito": "",
      "come": [
       "Apri <a href=\"/app/percorsi/seo/pannello/?pagina=/te-neri/darjeeling/\">/te-neri/darjeeling/ nel Pannello</a>.",
       "Nel campo <strong>Meta description</strong> scrivi tra 100 e 160 caratteri: nomina il Darjeeling e un vantaggio concreto.",
       "Guarda l'<strong>Anteprima nei risultati di Google</strong>, poi premi <strong>Salva le modifiche</strong> e <strong>Controlla il lavoro</strong>."
      ],
-     "vai": {
-      "link": "/app/percorsi/seo/pannello/?pagina=/te-neri/darjeeling/",
-      "testo": "Apri il Darjeeling nel Pannello"
-     },
      "opzioni": [],
      "perche": "Esempio di un collega senior: «Darjeeling biologico dalle colline dell'India, tè nero delicato in foglie intere. Spedizione gratuita da 39 € in 24-48 ore.»",
      "aiuto": "Scrivi due frasi: cosa è (tè nero Darjeeling, in foglie) e un vantaggio (spedizione, biologico). Il contatore ti dice quanti caratteri hai.",
@@ -461,41 +438,179 @@
     }
    ],
    "imparato": [
-    "La description è il testo grigio sotto il titolo su Google.",
-    "Serve solo alle pagine che compaiono su Google.",
-    "100-160 caratteri, cosa c'è nella pagina e un motivo per cliccare."
+    "Il title è il titolo blu su Google, l'H1 il titolo grande nella pagina.",
+    "Un title di prodotto dice nome, tipo e una caratteristica, e chiude con il brand.",
+    "Prima di correggere si misura quanto è grande il problema.",
+    "La description serve solo alle pagine che compaiono su Google: 100-160 caratteri e un motivo per cliccare."
    ],
-   "elena": "Perfetto, così ci concentriamo sui prodotti. Il resto delle schede lo scrive il copywriter."
+   "elena": "Perfetto: mando i tuoi due esempi al copywriter e chiedo al team web di sistemare il modello delle schede."
   },
   {
-   "id": "b5",
+   "id": "base2",
    "livello": 1,
-   "n": 5,
-   "nome": "Un link rotto: il redirect 301",
-   "tempo": "8 minuti",
-   "strumenti": "Crawler, Pannello",
-   "cosa": "Un prodotto non esiste più: manda chi lo cerca al prodotto nuovo.",
-   "situazione": "Un cliente mi scrive che il link all'Earl Grey nella newsletter dà errore. Puoi controllare?",
-   "obiettivo": "Trova la pagina 404 e crea un reindirizzamento 301 verso il prodotto che la sostituisce.",
+   "n": 2,
+   "nome": "Titoli nascosti e link rotti",
+   "tempo": "30 minuti",
+   "strumenti": "Crawler, Negozio, Pannello",
+   "cosa": "Un H1 che non c'è e un prodotto sparito: trovarli, capire perché e correggerli.",
+   "situazione": "Due segnalazioni: il crawler dice che una categoria non ha il titolo principale, e un cliente mi scrive che il link all'Earl Grey nella newsletter dà errore. Ci guardi?",
+   "obiettivo": "Trovare e correggere l'H1 mancante e la pagina 404, capendo perché sono problemi.",
    "passi": [
     {
      "strumento": "crawler",
      "tipo": "radio",
-     "domanda": "Quale prodotto sostituisce la pagina 404?",
-     "spiega": "Una pagina 404 non esiste più: chi la apre trova un errore, e Google la toglie dai risultati. Se il prodotto è stato sostituito, si crea un reindirizzamento 301: chi apre l'indirizzo vecchio arriva al nuovo.",
-     "esempio": "Una libreria toglie dal catalogo la vecchia edizione di un libro e manda chi la cerca alla nuova edizione.",
+     "domanda": "Quale categoria non ha l'H1?",
+     "spiega": "L'H1 è il titolo principale della pagina nel codice HTML. Dice a Google e a chi usa uno screen reader (il programma che legge le pagine ad alta voce per chi non vede) di cosa parla la pagina. Ogni pagina dovrebbe averne uno.",
+     "esempio": "In un sito di ricette la pagina dei dolci ha come H1 «Ricette di dolci», non «Benvenuti».",
+     "errore": "Guardare solo la pagina: un testo può sembrare un titolo grande ma nel codice non esserlo.",
+     "compito": "",
+     "come": [
+      "Apri il <a href=\"/app/percorsi/seo/strumenti/crawler/\">Crawler</a>.",
+      "Nel gruppo <strong>Da sistemare</strong> clicca <strong>H1 mancante</strong>.",
+      "Guarda quali indirizzi restano: cerca la categoria (quella senza ? nell'indirizzo). Scegli e premi <strong>Controlla</strong>."
+     ],
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "/tisane/",
+       "giusta": false,
+       "nota": "Le tisane hanno l'H1 «Tisane biologiche»: con il filtro H1 mancante non compaiono."
+      },
+      {
+       "id": "o2",
+       "testo": "/matcha/",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "/te-verdi/",
+       "giusta": false,
+       "nota": "/te-verdi/ ha l'H1 «Tè verdi». Clicca il filtro H1 mancante e guarda cosa resta."
+      }
+     ],
+     "perche": "Il crawler trova /matcha/ e la sua versione filtrata /matcha/?ordina=prezzo: è lo stesso problema, perché la pagina filtrata usa lo stesso modello.",
+     "aiuto": "Il filtro H1 mancante è il terzo del gruppo Da sistemare.",
+     "dove": "[data-filtro=\"h1-manca\"]"
+    },
+    {
+     "strumento": "negozio",
+     "tipo": "radio",
+     "domanda": "Nella pagina Matcha il titolo grande si vede. Perché il crawler dice che manca l'H1?",
+     "spiega": "Google non guarda come appare la pagina, legge il codice. Un testo può avere lo stile di un titolo (grande, in grassetto) ma essere un paragrafo normale. Per Google conta il tipo di elemento nel codice: solo un elemento h1 è il titolo principale.",
+     "esempio": "È come una lettera scritta tutta in grande ma senza oggetto: chi la smista non sa di cosa parla.",
+     "errore": "Fidarsi dell'occhio. In SEO si controlla sempre il codice, con strumenti come Ispeziona o il crawler.",
+     "compito": "",
+     "come": [
+      "Apri <a href=\"/app/negozio/matcha/\">la pagina Matcha nel negozio</a>: vedi il titolo grande «Matcha».",
+      "Premi <strong>Ispeziona</strong> e leggi la riga <strong>H1</strong>.",
+      "Scegli la risposta e premi <strong>Controlla</strong>."
+     ],
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Nel codice è un paragrafo con lo stile di un titolo, non un h1",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "È un'immagine con il testo dentro",
+       "giusta": false,
+       "nota": "È un testo vero, si può selezionare. Il problema è che tipo di elemento è nel codice."
+      },
+      {
+       "id": "o3",
+       "testo": "Il crawler sbaglia: l'H1 c'è",
+       "giusta": false,
+       "nota": "Ispeziona dice la stessa cosa del crawler: H1 manca. Il titolo che vedi non è un h1 nel codice."
+      }
+     ],
+     "perche": "Il tema mostra il nome della categoria con lo stile di un titolo ma come paragrafo. Per correggerlo basta scrivere l'H1 nel Pannello: il tema lo mette nel codice come vero h1.",
+     "aiuto": "In Ispeziona la riga H1 dice «manca» anche se nella pagina vedi un titolo.",
+     "dove": ".ispeziona summary",
+     "pagina": "/app/negozio/matcha/"
+    },
+    {
+     "strumento": "pannello",
+     "tipo": "azione",
+     "verifica": "h1Matcha",
+     "vai": {
+      "link": "/app/percorsi/seo/pannello/?pagina=/matcha/",
+      "testo": "Apri /matcha/ nel Pannello"
+     },
+     "domanda": "Aggiungi l'H1 alla pagina Matcha",
+     "spiega": "Un buon H1 è breve, dice di cosa parla la pagina e contiene la parola chiave principale. Non deve essere uguale al title: il title è per i risultati di Google, l'H1 per chi è già nella pagina.",
+     "esempio": "In un negozio di bici: title «Bici elettriche da città, 40 modelli | NomeNegozio», H1 «Bici elettriche da città».",
+     "errore": "Mettere più di un H1 nella pagina, o un H1 lunghissimo con tutte le parole chiave.",
+     "compito": "",
+     "come": [
+      "Apri <a href=\"/app/percorsi/seo/pannello/?pagina=/matcha/\">/matcha/ nel Pannello del negozio</a>.",
+      "Nel campo <strong>H1</strong> scrivi un titolo breve con la parola matcha, per esempio <strong>Tè matcha</strong>.",
+      "Premi <strong>Salva le modifiche</strong>, poi <strong>Controlla il lavoro</strong>.",
+      "Apri <a href=\"/app/negozio/matcha/\">/matcha/ nel negozio</a> e premi Ispeziona: ora l'H1 c'è."
+     ],
+     "opzioni": [],
+     "perche": "Ora Google sa qual è il titolo della pagina, e nel crawler la pagina non compare più tra quelle senza H1.",
+     "aiuto": "Il campo H1 è il terzo del modulo, sotto Title e Meta description.",
+     "dove": "[data-editor] input[name=h1]"
+    },
+    {
+     "strumento": "crawler",
+     "tipo": "radio",
+     "domanda": "Quante pagine del sito linkano la pagina 404?",
+     "spiega": "Una pagina 404 non esiste più: chi la apre trova un errore. Il danno dipende da quante persone ci arrivano: se tante pagine del sito la linkano, tanti visitatori e Google finiscono su un errore. Il crawler lo dice nei dettagli, alla riga «Linkata da».",
+     "esempio": "In un sito di ricette la ricetta cancellata del tiramisù è linkata da 40 altre ricette: è un problema grande. Se non la linka nessuno, è un problema piccolo.",
+     "errore": "Guardare solo che la pagina dà errore, senza chiedersi chi ci arriva e da dove.",
      "compito": "",
      "come": [
       "Apri il <a href=\"/app/percorsi/seo/strumenti/crawler/\">Crawler</a> e clicca il filtro <strong>Pagine 404</strong> (gruppo Errori).",
-      "Clicca la riga che compare e leggi i <strong>Dettagli dell'indirizzo</strong>: la nota dice quale prodotto lo sostituisce.",
-      "Scegli la risposta e premi <strong>Controlla</strong>."
+      "Clicca la riga che compare e leggi nei <strong>Dettagli dell'indirizzo</strong> la riga <strong>Linkata da</strong>.",
+      "Conta le pagine, scegli e premi <strong>Controlla</strong>."
+     ],
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Nessuna: la usa solo la newsletter",
+       "giusta": false,
+       "nota": "Nei dettagli, la riga Linkata da elenca diverse pagine del sito."
+      },
+      {
+       "id": "o2",
+       "testo": "2 pagine",
+       "giusta": false,
+       "nota": "Conta di nuovo la riga Linkata da: ci sono anche articoli del blog e la home."
+      },
+      {
+       "id": "o3",
+       "testo": "6 pagine, compresa la home",
+       "giusta": true,
+       "nota": ""
+      }
+     ],
+     "perche": "La pagina 404 è linkata da 6 pagine, tra cui la home e due articoli del blog: tante persone ci arrivano. Va sistemata subito.",
+     "aiuto": "La riga Linkata da è in fondo ai dettagli, prima della Nota.",
+     "dove": "[data-filtro=\"4xx\"]"
+    },
+    {
+     "strumento": "crawler",
+     "tipo": "radio",
+     "domanda": "Quale prodotto sostituisce la pagina 404?",
+     "spiega": "Se un prodotto è stato tolto ma ne esiste uno che lo sostituisce, si crea un reindirizzamento 301: chi apre l'indirizzo vecchio arriva al nuovo, e Google passa alla pagina nuova il valore di quella vecchia. Il 301 va verso la pagina più simile.",
+     "esempio": "Una libreria toglie la vecchia edizione di un libro e manda chi la cerca alla nuova edizione.",
+     "errore": "Mandare tutte le pagine sparite alla home: chi cercava un prodotto preciso si perde, e Google lo tratta quasi come un errore («soft 404»).",
+     "compito": "",
+     "come": [
+      "Resta nei dettagli della pagina 404 nel Crawler.",
+      "Leggi la riga <strong>Nota</strong>: dice quale prodotto la sostituisce.",
+      "Scegli e premi <strong>Controlla</strong>."
      ],
      "opzioni": [
       {
        "id": "o1",
        "testo": "/te-neri/english-breakfast/",
        "giusta": false,
-       "nota": "È un altro tè nero, ma non il sostituto. Leggi la nota nei dettagli della pagina 404."
+       "nota": "È un altro tè nero, ma non il sostituto. Leggi la Nota."
       },
       {
        "id": "o2",
@@ -511,39 +626,77 @@
       }
      ],
      "perche": "L'Earl Grey biologico ha preso il posto del classico: è la pagina più vicina a quello che cercava chi apre il vecchio indirizzo.",
-     "aiuto": "Il filtro Pagine 404 è nel gruppo Errori, in alto a sinistra.",
+     "aiuto": "La Nota è l'ultima riga dei dettagli.",
      "dove": "[data-filtro=\"4xx\"]"
     },
     {
-     "tipo": "azione",
      "strumento": "pannello",
-     "domanda": "Sistema il prodotto che non esiste più",
-     "spiega": "Una pagina 404 linkata da altre pagine è un vicolo cieco per le persone e per Google. Se esiste un prodotto che la sostituisce, si crea un reindirizzamento 301 dal vecchio indirizzo al nuovo.",
-     "esempio": "Una libreria toglie la vecchia edizione di un libro: crea un 301 da /libri/vecchia-edizione/ a /libri/nuova-edizione/.",
-     "compito": "Nel <strong>Crawler</strong> apri il filtro <strong>Pagine 404</strong> e leggi la nota. Poi nel <strong>Pannello</strong> → <strong>Reindirizzamenti</strong> scrivi da dove a dove.",
+     "tipo": "azione",
      "verifica": "redirect404",
      "vai": {
       "link": "/app/percorsi/seo/pannello/#redirect",
       "testo": "Apri i reindirizzamenti"
      },
-     "perche": "Chi clicca uno dei 6 link al vecchio Earl Grey arriva sul nuovo: prova a cliccare il link \"Earl Grey classico\" nella home del negozio. Il crawler ora lo segna come 301.",
-     "aiuto": "Il sostituto è scritto nella nota del 404: è l'Earl Grey biologico, all'indirizzo /te-neri/earl-grey-bio/.",
-     "opzioni": [],
-     "dove": "[data-nuovo-redirect]",
+     "domanda": "Crea il reindirizzamento 301",
+     "spiega": "Un reindirizzamento si scrive come una regola «Da → A»: Da è l'indirizzo vecchio, A quello nuovo. Il codice 301 dice «spostato per sempre»: Google aggiorna i suoi risultati. Esiste anche il 302 («spostato per un po'»), che si usa per cambi temporanei, per esempio una pagina in manutenzione.",
+     "esempio": "Un ristorante cambia indirizzo e lascia un cartello sulla porta vecchia: «Ci siamo trasferiti in via Roma 12».",
+     "errore": "Usare un 302 per un cambio definitivo: Google continua a tenere la pagina vecchia.",
+     "compito": "",
      "come": [
       "Apri <a href=\"/app/percorsi/seo/pannello/#redirect\">Pannello del negozio → Reindirizzamenti</a>.",
-      "In <strong>Da</strong> scrivi l'indirizzo della pagina 404, in <strong>A</strong> l'indirizzo del prodotto che la sostituisce.",
+      "In <strong>Da</strong> scrivi l'indirizzo della pagina 404, in <strong>A</strong> quello del prodotto che la sostituisce.",
       "Premi <strong>Salva il 301</strong>, poi <strong>Controlla il lavoro</strong>.",
       "Prova: apri <a href=\"/app/negozio/te-neri/earl-grey-classico/\">il vecchio indirizzo nel negozio</a> e guarda dove arrivi."
-     ]
+     ],
+     "opzioni": [],
+     "perche": "Chi apre il link della newsletter ora arriva all'Earl Grey biologico, con un avviso che spiega il 301.",
+     "aiuto": "Da: /te-neri/earl-grey-classico/ — A: l'indirizzo che hai trovato nella Nota.",
+     "dove": "[data-nuovo-redirect]"
+    },
+    {
+     "strumento": "pannello",
+     "tipo": "radio",
+     "domanda": "Il 301 funziona. Cosa resta da fare con i 6 link interni?",
+     "spiega": "Il 301 è una rete di sicurezza: funziona per chi arriva da fuori (newsletter, altri siti, Google). Ma i link dentro il nostro sito li controlliamo noi: è meglio aggiornarli perché puntino direttamente alla pagina nuova. Ogni redirect è un passaggio in più che rallenta un po' la pagina e Google deve seguire.",
+     "esempio": "Dopo un trasloco metti il cartello sulla porta vecchia, ma ai tuoi amici dai direttamente l'indirizzo nuovo.",
+     "errore": "Pensare che il 301 basti per sempre e lasciare il sito pieno di link che passano da un redirect.",
+     "compito": "",
+     "come": [
+      "Ripensa alla riga <strong>Linkata da</strong> del Crawler: 6 pagine del sito puntano ancora all'indirizzo vecchio.",
+      "Scegli cosa faresti e premi <strong>Controlla</strong>."
+     ],
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Niente: il 301 basta",
+       "giusta": false,
+       "nota": "Il 301 funziona, ma ogni link interno che passa da un redirect è un passaggio in più per le persone e per Google."
+      },
+      {
+       "id": "o2",
+       "testo": "Chiedere di aggiornare i link interni perché puntino direttamente a /te-neri/earl-grey-bio/",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Cancellare le 6 pagine che linkano il prodotto vecchio",
+       "giusta": false,
+       "nota": "Sono pagine buone (la home, la categoria, gli articoli): basta cambiare il link."
+      }
+     ],
+     "perche": "Il 301 resta per chi arriva da fuori, e nel sito i link vanno direttamente alla pagina giusta. Di solito si chiede al copywriter o al team web di aggiornarli.",
+     "aiuto": "Il 301 è per chi arriva da fuori. E i link che controlliamo noi?",
+     "dove": "[data-righe-redirect]"
     }
    ],
    "imparato": [
-    "Una pagina 404 non esiste più.",
-    "Il 301 manda chi apre l'indirizzo vecchio a quello nuovo.",
-    "Il redirect va verso la pagina più simile, non verso la home."
+    "Google legge il codice: un testo grande non è per forza un H1.",
+    "Un H1 è breve e dice di cosa parla la pagina.",
+    "La gravità di un 404 dipende da quante pagine lo linkano.",
+    "Il 301 va verso la pagina più simile; poi si aggiornano i link interni."
    ],
-   "elena": "Provato: il link della newsletter ora porta all'Earl Grey biologico. Grazie!"
+   "elena": "Il link della newsletter funziona e la pagina Matcha ha il suo titolo. Ho chiesto al copywriter di aggiornare i link interni."
   },
   {
    "id": "d1",

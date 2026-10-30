@@ -73,7 +73,7 @@ const calo = Math.round((1 - ott.clic / set.clic) * 100);
             <li class="esercizio" data-missione={m.id}>
               <strong>{m.nome}</strong>
               <span class="cosa">{m.cosa}</span>
-              <span class="meta">{m.tempo} · {m.strumenti}</span>
+              <span class="meta">{m.passi.length} mini esercizi · {m.tempo}<br />{m.strumenti}</span>
               <div class="riga-stato"><span class="stato" data-stato>Chiuso</span><button type="button" class="azione" data-azione hidden></button></div>
             </li>
           ))}

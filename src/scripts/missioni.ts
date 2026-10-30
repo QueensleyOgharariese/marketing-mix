@@ -9,7 +9,7 @@ export type Opzione = { id: string; testo: string; giusta: boolean; nota: string
 // tipo: "radio" o "checkbox" = si sceglie una risposta; "azione" = si lavora sul sito e la guida controlla com'è adesso;
 // "info" = solo spiegazione (usato nel tutorial), si va avanti con "Ho capito".
 // come: le istruzioni numerate "Come si fa" (possono contenere link e grassetti).
-export type Passo = { strumento: string; pagina?: string; domanda: string; spiega: string; esempio: string; compito: string; come?: string[]; tipo: "radio" | "checkbox" | "azione" | "info"; opzioni: Opzione[]; perche: string; aiuto: string; dove: string; verifica?: string; vai?: { link: string; testo: string } };
+export type Passo = { strumento: string; pagina?: string; domanda: string; spiega: string; esempio: string; errore?: string; compito: string; come?: string[]; tipo: "radio" | "checkbox" | "azione" | "info"; opzioni: Opzione[]; perche: string; aiuto: string; dove: string; verifica?: string; vai?: { link: string; testo: string } };
 // livello: 0-3; n: posizione dentro il livello; situazione: il messaggio di Elena che apre l'esercizio
 export type Missione = { id: string; n: number; livello: number; situazione: string; nome: string; tempo: string; strumenti: string; cosa: string; obiettivo: string; passi: Passo[]; imparato: string[]; elena: string };
 export type StatoMissione = { stato: "in-corso" | "completata"; passo: number; errori: number; aiuti: number[]; primoColpo: boolean[] };
