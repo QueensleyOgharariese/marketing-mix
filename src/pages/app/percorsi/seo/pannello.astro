@@ -279,12 +279,21 @@ import catalogo from "../../../../data/app/seo-pro/catalogo.json";
   .elenco-testa { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; }
   .due { display: grid; grid-template-columns: minmax(260px, 1fr) minmax(0, 1.4fr); gap: 20px; align-items: start; }
   .elenco { max-height: 640px; overflow-y: auto; }
-  .tabella-pagine :global(td.url .u) { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 30ch; }
+  .tabella-pagine :global(td.url .u) { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  /* elenco delle pagine: larghezze fisse, così la colonna Stato resta sempre visibile */
+  .elenco .tabella-pagine { table-layout: fixed; }
+  .elenco .tabella-pagine th:last-child { width: 104px; }
   .tabella-pagine :global(td.url .tipo) { display: block; font-family: var(--font-testo); font-size: .75rem; color: #6b6660; margin-top: 2px; }
   .tabella-pagine :global(td.url .tipo strong) { color: #b4530a; font-weight: 600; }
   .tabella-pagine { width: 100%; border-collapse: collapse; font-size: .86rem; }
   .tabella-pagine th { text-align: left; font-size: .75rem; color: #5f5a55; padding: 10px 12px; border-bottom: 1px solid #e3e1dc; background: #f8f8f6; position: sticky; top: 0; }
-  .tabella-pagine td { padding: 10px 12px; border-bottom: 1px solid #efeeeb; vertical-align: top; }
+  /* le righe sono create dallo script: per questo gli stili usano :global */
+  .tabella-pagine :global(td) { padding: 10px 12px; border-bottom: 1px solid #efeeeb; vertical-align: middle; }
+  .tabella-pagine :global(td.url) { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .8rem; }
+  .tabella-pagine :global(td.n) { text-align: right; white-space: nowrap; }
+  .tabella-pagine :global(.piccolo) { font: inherit; font-family: var(--font-testo); font-size: .8rem; font-weight: 700; padding: 6px 10px; border-radius: 8px; border: 1px solid #d1cec8; background: #fff; color: var(--inchiostro); cursor: pointer; }
+  .tabella-pagine :global(.piccolo:hover) { border-color: var(--inchiostro); }
+  .tabella-pagine :global(.piccolo[data-elimina]) { color: #8a1f17; }
   .tabella-pagine :global(tr[data-url]) { cursor: pointer; }
   .tabella-pagine :global(tr[data-url]:hover), .tabella-pagine :global(tr.selezionata) { background: #efeeea; }
   .editor { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 80px; }

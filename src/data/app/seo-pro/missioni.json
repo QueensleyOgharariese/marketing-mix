@@ -139,7 +139,12 @@
     "Nel Pannello salvi una modifica, poi premi Controlla il lavoro."
    ],
    "elena": "Perfetto, ora sai usare la scrivania. Comincia dalle Basi: esercizi brevi, uno strumento alla volta.",
-   "situazione": "Ciao, benvenuta in Cinque Foglie! Prima di iniziare ti faccio vedere dove sono le cose: dieci minuti e sei operativa."
+   "situazione": "Ciao, benvenuta in Cinque Foglie! Prima di iniziare ti faccio vedere dove sono le cose: dieci minuti e sei operativa.",
+   "prepara": {
+    "pagine": [
+     "/accessori/"
+    ]
+   }
   },
   {
    "id": "base1",
@@ -263,7 +268,7 @@
      ],
      "perche": "Il title «Cinque Foglie | Negozio di tè online» potrebbe andare su qualunque pagina: non dice che qui si vende l'Assam. Chi cerca «tè Assam» non lo riconosce nei risultati.",
      "aiuto": "Leggi il title ad alta voce: si capisce che la pagina vende l'Assam?",
-     "dove": "",
+     "dove": ".ispeziona summary",
      "pagina": "/app/negozio/te-neri/assam/"
     },
     {
@@ -277,7 +282,7 @@
      "come": [
       "Apri il <a href=\"/app/percorsi/seo/strumenti/crawler/\">Crawler</a>.",
       "A sinistra, nel gruppo <strong>Da sistemare</strong>, clicca <strong>Title duplicati</strong>.",
-      "Scorri la tabella verso destra fino alla colonna <strong>Title</strong> (oppure clicca una riga e leggi il Title nei dettagli). Quale testo si ripete su schede prodotto diverse, cioè indirizzi senza ?",
+      "Sotto ogni indirizzo c'è il suo <strong>title</strong>, in grigio. Quale testo si ripete su schede prodotto diverse, cioè indirizzi senza ?",
       "Scegli la risposta e premi <strong>Controlla</strong>."
      ],
      "opzioni": [
@@ -443,7 +448,13 @@
     "Prima di correggere si misura quanto è grande il problema.",
     "La description serve solo alle pagine che compaiono su Google: 100-160 caratteri e un motivo per cliccare."
    ],
-   "elena": "Perfetto: mando i tuoi due esempi al copywriter e chiedo al team web di sistemare il modello delle schede."
+   "elena": "Perfetto: mando i tuoi due esempi al copywriter e chiedo al team web di sistemare il modello delle schede.",
+   "prepara": {
+    "pagine": [
+     "/te-neri/assam/",
+     "/te-neri/darjeeling/"
+    ]
+   }
   },
   {
    "id": "base2",
@@ -696,7 +707,15 @@
     "La gravità di un 404 dipende da quante pagine lo linkano.",
     "Il 301 va verso la pagina più simile; poi si aggiornano i link interni."
    ],
-   "elena": "Il link della newsletter funziona e la pagina Matcha ha il suo titolo. Ho chiesto al copywriter di aggiornare i link interni."
+   "elena": "Il link della newsletter funziona e la pagina Matcha ha il suo titolo. Ho chiesto al copywriter di aggiornare i link interni.",
+   "prepara": {
+    "pagine": [
+     "/matcha/"
+    ],
+    "redirect": [
+     "/te-neri/earl-grey-classico/"
+    ]
+   }
   },
   {
    "id": "d1",
@@ -804,7 +823,13 @@
     "Un noindex messo per errore dal tema nasconde intere categorie.",
     "Dopo la correzione si chiede a Google di convalidarla."
    ],
-   "elena": "Ho visto: le tisane sono di nuovo visibili. Bel lavoro!"
+   "elena": "Ho visto: le tisane sono di nuovo visibili. Bel lavoro!",
+   "prepara": {
+    "tema": true,
+    "convalide": [
+     "Esclusa in base al tag \"noindex\""
+    ]
+   }
   },
   {
    "id": "d2",
@@ -937,7 +962,15 @@
     "scrivere un testo di categoria utile",
     "chiedere a Google di rileggere una pagina"
    ],
-   "elena": "Bellissimo, il nuovo title è già online. Tra qualche settimana guardiamo se il CTR sale."
+   "elena": "Bellissimo, il nuovo title è già online. Tra qualche settimana guardiamo se il CTR sale.",
+   "prepara": {
+    "pagine": [
+     "/te-verdi/"
+    ],
+    "richieste": [
+     "/te-verdi/"
+    ]
+   }
   },
   {
    "id": "d3",
@@ -1015,7 +1048,13 @@
     "Si accorcia facendo puntare il primo indirizzo alla pagina finale.",
     "I redirect intermedi restano, per chi usa ancora quegli indirizzi."
    ],
-   "elena": "Perfetto, ora il vecchio indirizzo arriva al Sencha in un salto."
+   "elena": "Perfetto, ora il vecchio indirizzo arriva al Sencha in un salto.",
+   "prepara": {
+    "redirect": [
+     "/prodotto.php?id=12",
+     "/te-verdi/sencha/"
+    ]
+   }
   },
   {
    "id": "d4",

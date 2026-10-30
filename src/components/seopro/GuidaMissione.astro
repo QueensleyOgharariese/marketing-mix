@@ -14,7 +14,7 @@ const { pagina } = Astro.props;
 </div>
 
 <script>
-  import { TUTTE, LIVELLI, STRUMENTI, leggiStato, salvaStato, linkPasso, controlla, punti, avvia, etichetta, consigliata, livelloAperto, type Missione, type Passo } from "../../scripts/missioni";
+  import { TUTTE, LIVELLI, STRUMENTI, leggiStato, salvaStato, linkPasso, controlla, punti, avvia, ricomincia, etichetta, consigliata, livelloAperto, type Missione, type Passo } from "../../scripts/missioni";
   import { verifica } from "../../scripts/verifiche";
 
   const radice = document.querySelector<HTMLElement>("[data-guida-missione]");
@@ -94,7 +94,7 @@ const { pagina } = Astro.props;
 
     const p = m.passi[sm.passo];
     const ultimo = sm.passo === m.passi.length - 1;
-    const testa = `<p class="gm-missione">${esc(etichetta(m))}</p>${barre(m, sm.passo)}<p class="gm-passo">${tutorial ? "Passo" : "Mini esercizio"} ${sm.passo + 1} di ${m.passi.length}</p>`;
+    const testa = `<p class="gm-missione">${esc(etichetta(m))}</p>${barre(m, sm.passo)}<p class="gm-passo">${tutorial ? "Passo" : "Mini esercizio"} ${sm.passo + 1} di ${m.passi.length}<button type="button" class="gm-ricomincia" data-ricomincia>Ricomincia l'esercizio</button></p>`;
     // All'inizio dell'esercizio: il messaggio di Elena (la situazione) e l'obiettivo in una riga
     const obiettivo = sm.passo === 0 ? `<div class="gm-situazione"><span class="gm-da">Elena M., responsabile e-commerce</span><p>${esc(m.situazione)}</p></div><p class="gm-obiettivo"><strong>Obiettivo:</strong> ${esc(m.obiettivo)}</p>` : "";
 
@@ -192,7 +192,9 @@ const { pagina } = Astro.props;
     if (ultimo) { c2.stato = "completata"; salvaStato(s2); disegna(); document.dispatchEvent(new CustomEvent("missioni-aggiornate")); radice!.scrollIntoView({ behavior: "smooth", block: "start" }); return; }
     c2.passo += 1; salvaStato(s2);
     const prossimo = m.passi[c2.passo];
-    if (prossimo.tipo !== "info" && prossimo.strumento !== pagina) location.href = linkPasso(prossimo);
+    // si cambia pagina se il passo dopo è in un altro strumento, o in un'altra pagina del negozio
+    const altraPagina = prossimo.tipo !== "azione" && !!prossimo.pagina && location.pathname !== prossimo.pagina;
+    if (prossimo.tipo !== "info" && (prossimo.strumento !== pagina || altraPagina)) location.href = linkPasso(prossimo);
     else { disegna(); radice!.scrollIntoView({ behavior: "smooth", block: "start" }); }
   }
 
@@ -205,6 +207,14 @@ const { pagina } = Astro.props;
     }));
   }
 
+  // "Ricomincia l'esercizio": torna al primo mini esercizio e riporta le pagine dell'esercizio com'erano
+  radice?.addEventListener("click", (e) => {
+    const b = (e.target as HTMLElement).closest("[data-ricomincia]");
+    if (!b) return;
+    if (b.getAttribute("data-conferma") !== "si") { b.setAttribute("data-conferma", "si"); b.textContent = "Sicura? Clicca di nuovo"; return; }
+    const id = leggiStato().attiva; if (id) location.href = ricomincia(id);
+  });
+
   disegna();
 </script>
 
@@ -214,7 +224,9 @@ const { pagina } = Astro.props;
   .gm :global(.gm-barre) { display: flex; gap: 6px; }
   .gm :global(.gm-barre span) { flex: 1; height: 6px; border-radius: 3px; background: #e9e8e4; }
   .gm :global(.gm-barre span.fatto) { background: #2f7a4f; } .gm :global(.gm-barre span.ora) { background: var(--arancio); }
-  .gm :global(.gm-passo) { margin: 0; font-size: .8rem; color: #625e58; }
+  .gm :global(.gm-passo) { margin: 0; font-size: .8rem; color: #625e58; display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+  .gm :global(.gm-ricomincia) { font: inherit; font-size: .78rem; color: #55514c; background: none; border: 0; padding: 0; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+  .gm :global(.gm-ricomincia[data-conferma]) { color: #8a1f17; font-weight: 700; }
   .gm :global(.gm-obiettivo) { margin: 0; font-size: .85rem; line-height: 1.55; color: #423e39; background: #f4f4f2; border-radius: 10px; padding: 10px 12px; }
   .gm :global(.gm-situazione) { border-left: 3px solid var(--arancio); padding: 2px 0 2px 12px; }
   .gm :global(.gm-situazione p) { margin: 2px 0 0; line-height: 1.55; font-size: .88rem; }

@@ -34,18 +34,17 @@ const GRUPPI: [string, string, [string, string][]][] = [
   <div class="sp-scorri">
     <table data-tabella id="t-crawl">
       <thead><tr>
-        <th data-ordina="testo">Indirizzo</th><th data-ordina="testo">Tipo</th><th data-ordina="numero" class="n">Stato</th><th data-ordina="testo">Indicizzabile</th>
-        <th data-ordina="testo">Title</th><th data-ordina="numero" class="n">Title px</th><th data-ordina="numero" class="n">Descr. car.</th><th data-ordina="testo">H1</th>
+        <th data-ordina="testo">Indirizzo e title</th><th data-ordina="testo">Tipo</th><th data-ordina="numero" class="n">Stato</th><th data-ordina="testo">Indicizzabile</th>
+        <th data-ordina="numero" class="n">Title px</th><th data-ordina="numero" class="n">Descr. car.</th><th data-ordina="testo">H1</th>
         <th data-ordina="numero" class="n">Parole</th><th data-ordina="numero" class="n">Link entrata</th><th data-ordina="numero" class="n">LCP</th>
       </tr></thead>
       <tbody>
         {crawl.pagine.map((p, i) => (
           <tr data-i={i} tabindex="0">
-            <td class="url">{p.url}</td>
+            <td class="url"><span class="u">{p.url}</span><span class="title" data-title={p.title}>{p.title || "—"}</span></td>
             <td>{p.tipo}</td>
             <td class="n" data-valore={p.stato}><span class:list={["sp-badge", p.stato === 200 ? "ok" : p.stato === 404 ? "no" : "medio"]}>{p.stato}</span></td>
             <td>{p.indicizzabile ? <span class="sp-badge ok">Sì</span> : <span class="sp-badge no">No, {p.motivo.toLowerCase()}</span>}</td>
-            <td class="title" data-title={p.title}>{p.title || <em>—</em>}</td>
             <td class="n" data-px></td>
             <td class="n" data-valore={p.description.length}>{p.stato === 200 ? (p.description ? p.description.length : <span class="sp-badge no">manca</span>) : ""}</td>
             <td>{p.stato === 200 ? (p.h1 || <span class="sp-badge no">manca</span>) : ""}</td>
@@ -89,9 +88,9 @@ const GRUPPI: [string, string, [string, string][]][] = [
       c[2].dataset.valore = String(p.stato);
       c[2].innerHTML = `<span class="sp-badge ${p.stato === 200 ? "ok" : p.stato === 404 ? "no" : "medio"}">${p.stato}</span>`;
       c[3].innerHTML = p.indicizzabile ? '<span class="sp-badge ok">Sì</span>' : `<span class="sp-badge no">No, ${esc0((p.motivo || "").toLowerCase())}</span>`;
-      c[4].dataset.title = p.title ?? ""; c[4].innerHTML = p.title ? esc0(p.title) : "<em>—</em>";
-      c[6].dataset.valore = String((p.description ?? "").length); c[6].innerHTML = p.stato === 200 ? (p.description ? String(p.description.length) : '<span class="sp-badge no">manca</span>') : "";
-      c[7].innerHTML = p.stato === 200 ? (p.h1 ? esc0(p.h1) : '<span class="sp-badge no">manca</span>') : "";
+      const t = c[0].querySelector<HTMLElement>(".title")!; t.dataset.title = p.title ?? ""; t.textContent = p.title || "—";
+      c[5].dataset.valore = String((p.description ?? "").length); c[5].innerHTML = p.stato === 200 ? (p.description ? String(p.description.length) : '<span class="sp-badge no">manca</span>') : "";
+      c[6].innerHTML = p.stato === 200 ? (p.h1 ? esc0(p.h1) : '<span class="sp-badge no">manca</span>') : "";
       r.classList.add("cambiata");
     });
   }
@@ -181,8 +180,10 @@ const GRUPPI: [string, string, [string, string][]][] = [
   .sp-scorri { max-height: 560px; overflow: auto; }
   tr[data-i] { cursor: pointer; }
   :global(tr.cambiata) td:first-child { box-shadow: inset 3px 0 0 var(--arancio); }
-  .title { min-width: 220px; }
-  #t-crawl td.url { white-space: nowrap; }
+  /* Il title sta sotto l'indirizzo, così si legge anche quando la tabella è stretta (guida aperta) */
+  #t-crawl td.url { min-width: 240px; max-width: 320px; }
+  #t-crawl td.url .u { display: block; white-space: nowrap; }
+  #t-crawl td.url .title { display: block; margin-top: 3px; font-family: var(--font-testo); font-size: .78rem; line-height: 1.4; color: #55514c; white-space: normal; }
   .dettaglio { border: 2px solid var(--arancio); background: #f8f8f6; display: flex; flex-direction: column; gap: 10px; }
   .dettaglio :global(dl) { margin: 0; display: flex; flex-direction: column; gap: 6px; font-size: .85rem; }
   .dettaglio :global(dl div) { display: grid; grid-template-columns: 160px 1fr; gap: 10px; }

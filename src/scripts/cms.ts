@@ -42,6 +42,19 @@ export function ripristina() {
   document.dispatchEvent(new CustomEvent("negozio-modificato"));
 }
 
+// Riporta com'erano all'inizio solo alcune parti del negozio: serve quando si inizia (o si rifà) un esercizio,
+// così il problema da trovare c'è davvero anche se prima si era già modificato il sito.
+export type Parti = { pagine?: string[]; redirect?: string[]; tema?: boolean; convalide?: string[]; richieste?: string[] };
+export function ripristinaParti(parti: Parti) {
+  const m = leggiModifiche(); const base = iniziali();
+  for (const u of parti.pagine ?? []) delete m.pagine[u];
+  for (const u of parti.redirect ?? []) { if (base.redirect[u]) m.redirect[u] = base.redirect[u]; else delete m.redirect[u]; }
+  if (parti.tema) m.tema = base.tema;
+  for (const k of parti.convalide ?? []) delete m.convalide[k];
+  for (const u of parti.richieste ?? []) delete m.richieste[u];
+  try { localStorage.setItem(CHIAVE, JSON.stringify(m)); } catch {}
+}
+
 // Normalizza un indirizzo scritto a mano: "te-neri/assam" -> "/te-neri/assam/"; toglie il dominio se c'è
 export function pulisciUrl(u: string) {
   let x = u.trim().replace(/^https?:\/\/[^/]+/i, "");
