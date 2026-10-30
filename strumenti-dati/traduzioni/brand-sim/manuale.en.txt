@@ -1,0 +1,26 @@
+1|Helping people who aren't experts discover good tea, explaining everything simply.
+2|Clarity
+3|We explain what's in the cup and how to brew it, without expert jargon.
+4|Respect for growers
+5|We buy from small organic growers and say who they are.
+6|Curiosity
+7|We make people want to try a new tea, without judging those who only drink chamomile.
+8|Friendly but expert
+9|Simple: short sentences, everyday words
+10|Calm: no shouting, no fake urgency
+11|Cold or bureaucratic
+12|Snobbish or for experts only
+13|Pushy when selling
+14|We talk to people directly and warmly, always: never stiff, formal language.
+15|No capitals for shouting and no «!!!».
+16|One thing at a time: the concrete benefit first, then the details.
+17|Emoji are fine only on social media, one per text at most.
+18|No health claims: teas and herbal teas are foods.
+19|Dear customer, we hereby inform you that the product is available.
+20|Good news: your favourite tea is back.
+21|SUPER DEAL!!! BUY NOW!!!
+22|This week Sencha costs 15% less.
+23|Five stylised leaves in a circle. On a light background it's dark green, on a dark background white. It's never distorted and its colour never changes.
+24|Leaf green
+25|Cream
+26|Ink

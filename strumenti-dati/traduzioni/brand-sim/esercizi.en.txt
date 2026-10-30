@@ -1,0 +1,401 @@
+1|Tutorial
+2|How the brand tools work.
+3|Basics
+4|One concept at a time. «How it works» is already open and the hint is always available.
+5|Diagnosis
+6|Mixed problems, including false alarms. You open «How it works» yourself.
+7|Cases
+8|No hints: just data and theory. The 2027 strategy and the press office.
+9|Tutorial: how it works
+10|8 minutes
+11|Brand manual
+12|Where things are and how to save and check a change.
+13|Hi, I'm Irene and I look after the Cinque Foglie brand. Before we start I'll show you where we keep everything: ten minutes and you're ready to go.
+14|Learn to move between the manual, research, copy, plan and press office and to save a change.
+15|How the workspace is laid out
+16|You work on the brand of Cinque Foglie, a fictional online tea shop. The screen has three areas.
+17|<strong>On the left the menu</strong> (on a phone it's at the top): the brand manual, the brand research, the copy, the brand plan and the press office.
+18|<strong>In the middle</strong> the open tool.
+19|<strong>On the right this guide</strong>: the task at the top, the answers below. The <strong>How it works</strong>, <strong>Theory</strong> and <strong>Hint</strong> tabs help you when needed; the button to check is always at the bottom.
+20|People, publications and numbers are invented, but consistent from one tool to another.
+21|What is one of Cinque Foglie's values?
+22|Read the Values section of the Manual.
+23|The brand manual collects who the brand is: mission, values, tone of voice, logo and colours. It's there so that anyone writing or designing for the brand does it the same way.
+24|A bookshop chain's manual says: «We talk about books like a friend giving advice, never like a teacher».
+25|The lowest prices of all
+26|It isn't one of the values, and it wouldn't even be true.
+27|Clarity
+28|Luxury
+29|The manual says the opposite: nothing snobbish.
+30|Clarity, respect for growers and curiosity: the three values everything else rests on.
+31|Open the Manual
+32|Save your first change
+33|In the Manual write the sentence «Teas and herbal teas, explained simply» in the Tagline field. Then save.
+34|The tagline is the short sentence that goes with the brand name (for example under the logo). In the Manual you write it and press Save: from then on it's the official sentence.
+35|The tagline of a fictional bike company: «Pedal your city».
+36|You saved a change and checked it: in the exercises you always work like this.
+37|The Tagline field is at the top of the Manual.
+38|Points, levels and how to choose
+39|Last rules, then we start from the Basics.
+40|Three levels: <strong>Basics</strong>, <strong>Diagnosis</strong> and <strong>Cases</strong>. Each exercise is a small project made of mini exercises.
+41|<strong>How it works</strong> explains the tool, not the answer. <strong>Theory</strong> is free. <strong>Hint</strong> costs 5 points.
+42|The guide fades as you go up a level: in Basics «How it works» is already open, in Diagnosis you open it yourself, in Cases there's only theory and data.
+43|Each exercise starts from 100 points: a wrong answer takes off 10 points. When you write or edit you can try again without losing points.
+44|The manual collects mission, values, tone, logo and colours.
+45|The tagline goes with the brand name.
+46|After every change you check.
+47|Perfect, now you know where things are. We start from the Basics.
+48|The positioning
+49|30 minutes
+50|Research, Manual
+51|Who Cinque Foglie is for, who it competes with and what makes it different: the positioning statement.
+52|The most important thing is missing from the manual: the positioning. Everyone in the company describes it their own way. Can you write it, starting from the data?
+53|Write Cinque Foglie's positioning starting from customers and competitors.
+54|Who are Cinque Foglie's most important customers?
+55|Look at the Customer segments in the Research.
+56|Positioning starts from a precise audience. You don't choose «everyone»: you choose the largest or most important group, the one for which the brand wants to be the first choice.
+57|A gym chooses «office workers with 45 minutes for lunch», not «people who want to keep fit».
+58|Wanting to speak to everyone: in the end the message reaches nobody.
+59|Everyday tea enthusiasts, 25-40 years old
+60|Passionate experts
+61|They're 18%: important, but not the main group.
+62|Everyone who drinks tea
+63|Too broad: positioning chooses.
+64|Almost half the customers (46%) drink tea every day and want to understand what they buy.
+65|What space do competitors leave free?
+66|Compare the rows of the Competitors table.
+67|You look for a position competitors don't hold and that matters to the chosen audience. The competitors table puts the differences side by side.
+68|Between cheap pizzerias and Michelin-starred restaurants, a pizzeria chooses «quality ingredients explained on the menu, at a normal price».
+69|Choosing a difference the audience doesn't care about (for example the colour of the website).
+70|Organic tea explained simply, at a medium price
+71|The lowest price
+72|The big chain and the marketplace already hold it.
+73|Rare teas for experts
+74|It's the boutique's territory, and it isn't the main audience.
+75|The chain and the marketplace explain little, the boutique talks to experts: nobody explains organic tea simply.
+76|Write the positioning
+77|In the Manual fill in the four Positioning fields: who it's for, what (category), what makes us different and why to believe it (a proof).
+78|A simple formula: For [audience], [brand] is [category] that [difference], because [concrete proof]. The proof (reason to believe) is a verifiable fact, not an adjective.
+79|For people who cycle to work in the city, Pedalo is the folding bike that fits under the desk, because it folds in 10 seconds and weighs 9 kg.
+80|Writing «the best» or «quality» as the difference: it sets nobody apart and can't be proven.
+81|The positioning now says who Cinque Foglie is for, what it offers that's different and why to believe it.
+82|Use the data: the largest segment, the free space between competitors, a fact like «guides for every tea» or «everything certified organic».
+83|How do you know whether a positioning is precise enough?
+84|Think about the competitors.
+85|A good test: if a competitor could write the same sentence, it isn't positioning, it's a generic description.
+86|«We sell comfortable shoes» everyone says; «walking shoes for people who stand 8 hours at work» they don't.
+87|If a competitor couldn't write the same sentence
+88|If it contains lots of positive adjectives
+89|Adjectives make the sentence more generic, not more precise.
+90|If it's at least a page long
+91|Positioning fits in one sentence.
+92|If the big chain could sign it, the sentence needs narrowing.
+93|What is a «proof» (reason to believe)?
+94|Reread the «Why believe it» field.
+95|The proof is a fact that makes the difference credible: a number, a certification, something that can be checked.
+96|«Delivery in 30 minutes» becomes credible with «12 delivery points in the city».
+97|A verifiable fact, like «all the teas are certified organic»
+98|A promise, like «you'll love it for sure»
+99|It's a promise, not a proof.
+100|A slogan, like «the tastiest tea»
+101|It can't be checked.
+102|A proof can be checked: certifications, numbers, guides for every tea.
+103|Positioning chooses a precise audience.
+104|You look for the free space between competitors.
+105|Formula: who it's for, what, what makes us different, why believe it.
+106|If a competitor could write it, it isn't positioning.
+107|At last we'll all say it the same way. I'll present it to the team on Monday.
+108|The tone of voice
+109|Manual, Copy
+110|Five texts written by different people: which follow the tone of voice and how to fix the others.
+111|The customer reads the home page, then one of our emails, then a reply from customer service: they look like three different companies. Can you help me bring them into line?
+112|Recognise the off-tone texts and rewrite them following the manual.
+113|How does Cinque Foglie speak?
+114|Read the Tone of voice in the Manual.
+115|Tone of voice is the brand's way of speaking: the words it uses, how formal it is, how it treats the reader. It stays the same on every channel, only the intensity changes a little.
+116|An online bank speaks clearly and reassuringly both in the app and in its payment reminder emails.
+117|Changing personality from one channel to another.
+118|Friendly but expert, simple, without shouting, warm and direct
+119|Formal and technical, stiff and distant
+120|It's the opposite of what the manual says.
+121|Enthusiastic, with lots of capitals and exclamation marks
+122|The manual forbids shouting and fake urgency.
+123|Friendly but expert, simple, calm, always warm and direct.
+124|Which texts are off tone?
+125|Compare each text with the rules in the Manual. You can choose more than one answer.
+126|To check a text you compare it with the tone rules: warm or stiff, capitals, simple sentences, calm.
+127|Considering an emoji on social media off tone: the manual allows it.
+128|The promotion email
+129|The standard customer service reply
+130|The social media bio
+131|An emoji on social media is allowed by the manual.
+132|The Sencha description
+133|It's simple, warm and calm: it's on tone.
+134|The email shouts (capitals and «!!!») and customer service is cold and stiffly formal.
+135|Open the Copy
+136|Rewrite the promotion email
+137|Rewrite the email's subject and first line: same offer (15% off today only), in Cinque Foglie's tone.
+138|You can create interest without shouting: you state the concrete benefit, calmly, and invite people to do something. No fake urgency: if the offer lasts one day, you simply say so.
+139|Instead of «CRAZY SALE!!!»: «Until Sunday jackets cost 30% less».
+140|Removing the capitals but leaving three exclamation marks and «buy now».
+141|The promotion is clear and calm, and recognisably Cinque Foglie.
+142|Rewrite the customer service reply
+143|Rewrite the standard reply to people asking where their order is.
+144|Customer service replies are brand too. A good reply is warm and direct, acknowledges the wait, says what happens and when, and is signed by a person.
+145|«Hi Marco, I understand the wait. Your parcel left yesterday and will arrive by Thursday. I'll write to you as soon as I see it out for delivery. Anna»
+146|Empty phrases like «according to the expected timeframes»: they say nothing.
+147|The reply now sounds like Cinque Foglie: close, concrete, signed.
+148|Why keep the same tone on every channel?
+149|Think about people who come across the brand several times.
+150|A consistent tone makes the brand recognisable and builds trust: readers feel they're always talking to the same «person».
+151|If a friend wrote to you warmly one day and like an office the next, you'd wonder what had happened.
+152|It makes the brand recognisable and trustworthy
+153|It saves on copywriting
+154|It isn't the main reason.
+155|It's a legal requirement
+156|There's no law on tone of voice.
+157|Consistency = recognisability + trust.
+158|The tone of voice is the same on every channel.
+159|You create interest without shouting.
+160|Customer service is brand too: warmth, concreteness, a signature.
+161|Much better! I'll put them in the manual as «before and after» examples.
+162|What people think of us
+163|35 minutes
+164|Research, Copy
+165|NPS collapses, searches for the name fall: what's a real problem and what isn't.
+166|The board has seen two numbers: NPS has dropped and searches for our name are falling. Someone says the brand is in crisis. Is it true?
+167|Understand what's really happening to the brand and fix what depends on us.
+168|What's October's NPS?
+169|NPS = % promoters − % detractors.
+170|NPS (Net Promoter Score) asks «How likely are you to recommend Cinque Foglie to a friend, from 0 to 10?». Promoters: 9-10. Passives: 7-8. Detractors: 0-6. NPS = percentage of promoters minus percentage of detractors: it goes from -100 to +100.
+171|70% promoters and 10% detractors: NPS 60.
+172|Averaging the scores: NPS isn't an average.
+173|31 (it was 52 in September)
+174|45 is the percentage of promoters: the detractors have to be taken off.
+175|Did you add instead of subtracting?
+176|45% − 14% = 31. In September it was 60% − 8% = 52.
+177|Why did it fall?
+178|Look at October's detractors' reasons.
+179|Numbers say how much, open answers say why. You group them and look at the most frequent reason.
+180|A restaurant sees its reviews collapse: half are about the wait, not the food.
+181|Immediately thinking the problem is communication.
+182|Mainly because of shipping that's late compared with the promise
+183|Because people don't like the tea any more
+184|Taste is only 9% of the reasons.
+185|Because the logo is old
+186|Nobody mentions it.
+187|Almost half the detractors (48%) talk about shipping slower than promised: since October the average is 4.1 days, the website says 24 hours.
+188|Align the website's promise
+189|The line at the top of the home page promises something we don't deliver today. Rewrite it with a true promise.
+190|A brand is a promise kept. If communication promises more than the company does, the disappointment lands on the brand. You promise what you deliver, and meanwhile fix the problem.
+191|A courier that promises «same-day delivery» but delivers in three days loses more trust than one that promises «in 3 days» and keeps to it.
+192|Leaving the promise as it is and hoping the warehouse sorts itself out.
+193|The home page now promises real timeframes: people who order know what to expect.
+194|Look in the Research at how long shipping takes today.
+195|Searches for the name fall 18% from September to October. Is it a problem?
+196|Look at searches for the name month by month, including 2025.
+197|Before talking about a crisis you compare with the same period the year before. Many numbers are seasonal: they rise and fall every year in the same months.
+198|An ice cream maker sees sales falling in September: it happens every year, it isn't a crisis.
+199|Comparing only with the previous month.
+200|No: it happens every year, and compared with October 2025 they're 22% higher
+201|Yes: awareness is collapsing
+202|October 2026 is higher than October 2025.
+203|Yes, because NPS has fallen
+204|They're two different things: the drop in searches is seasonal.
+205|False alarm: after the summer searches fall every year (-16% in 2025), but compared with last year they're growing.
+206|What does the awareness survey say?
+207|Compare March and September.
+208|Unaided awareness: how many name the brand without prompts. Aided awareness: how many recognise it in a list. Aided grows first; unaided is harder to move.
+209|Many people recognise an app's name when they see it, few would mention it spontaneously.
+210|Aided is growing (from 16% to 21%), unaided is stuck at 4%
+211|Both are falling
+212|Aided is growing.
+213|Unaided is at 21%
+214|21% is aided.
+215|More people recognise us, but still very few name us on their own: it's the starting point of the 2027 plan.
+216|Reply to the board
+217|Write 3-5 sentences: is the brand in crisis? What's a real problem, what isn't, and what do you propose.
+218|In a report that answers a fear you give the answer straight away, then the numbers, then what to do. You separate what's a problem from what isn't.
+219|«September sales aren't in crisis: they fall every year after the summer and are higher than in 2025. The real problem is returns, up to 12%: we propose…»
+220|Putting everything on the same level.
+221|Example from a senior colleague: «The brand isn't in crisis: searches for the name fall every year after the summer and are 22% higher than in October 2025, and aided awareness has risen to 21%. The real problem is NPS, down from 52 to 31 because of shipping that's late compared with the 24-hour promise. We've already corrected the promise on the website; we propose sorting out delivery times with the warehouse.»
+222|Open answers say why.
+223|A brand is a promise kept.
+224|You compare with the same period the year before.
+225|A perfect answer for the board: no brand crisis, but a promise to keep. I'll talk to the warehouse.
+226|The «100% sustainable» packaging
+227|Copy, Research
+228|An environmental claim on the box that can no longer be written from 27 September 2026: correct it with facts.
+229|A customer wrote to us: «You say 100% sustainable but there was bubble wrap in the parcel». And the lawyer says that under the new European rules that sentence is a problem. Can you help me?
+230|Replace generic environmental claims with precise, verifiable facts.
+231|Which sentence on the box is a problem?
+232|Read the packaging text.
+233|Generic environmental claims («sustainable», «eco», «green», «zero impact») are banned unless proven: EU directive 2024/825 says so, applied from 27 September 2026. Neutrality claims based only on offsetting emissions are banned too.
+234|An «eco-friendly» bottle becomes «stainless steel bottle, reusable for years».
+235|Thinking a true fact is enough to justify a generic word.
+236|«100% sustainable packaging. Zero-impact shipping.»
+237|«Teas and herbal teas, explained simply»
+238|It's the tagline: no environmental claim.
+239|The organic control body's code
+240|It's required for organic products.
+241|«100% sustainable» and «zero impact» are generic and unprovable, and «zero impact» relies on offsetting.
+242|What can really be said about the packaging?
+243|Read the Quality office sheet in the Research.
+244|Instead of a generic word you write precise, verifiable facts about a specific part of the product.
+245|Not «sustainable dress» but «certified organic cotton, dyes free of heavy metals».
+246|That the tin is recyclable aluminium and the inner bag is certified compostable
+247|That the whole parcel is plastic-free
+248|Since October there's bubble wrap.
+249|That shipping doesn't pollute
+250|Emissions are offset, not eliminated.
+251|Recyclable tin, EN 13432 compostable bag, 80% recycled cardboard box: precise facts.
+252|Rewrite the packaging line
+253|Rewrite the line on the back of the box using only facts from the quality office sheet.
+254|A good environmental claim says which part (the tin, the bag), what (recyclable, compostable), and with what proof (certification or percentage). It can explain how to dispose of it.
+255|«Bottle made of 50% recycled plastic. Cap recyclable with plastics.»
+256|Removing «100%» and leaving «sustainable».
+257|The box now states true, useful facts: the customer also knows where to throw away each part.
+258|We offset emissions with a tree project. Can we write «zero-impact shipping»?
+259|Think about what offsetting means.
+260|Offsetting means funding a project elsewhere, not eliminating the shipping emissions. The new European rules ban saying a product has a neutral or zero impact only thanks to offsetting.
+261|An airline that plants trees can't say the flight is «zero impact».
+262|No: the emissions are there, they're just offset elsewhere
+263|Yes, if there are enough trees
+264|The rule bans exactly this kind of claim.
+265|Yes, if we write it in small print
+266|The size of the text changes nothing.
+267|You can talk about the offsetting project, but not say «zero impact».
+268|The label says «organic». Does that have to go too?
+269|Look at the quality office sheet.
+270|Not every «green» word is a problem: «organic» is a term regulated by EU law (regulation 2018/848) and can be used if the product is certified, with the control body's code.
+271|A certified organic wine can say so on the label; a «natural» wine without certification can't.
+272|Removing certified words too, out of fear.
+273|Yes, it's a generic environmental claim
+274|It's a regulated, certified term.
+275|No: it's certified under EU regulation 2018/848
+276|Yes, until we change the packaging
+277|The certification is already there.
+278|False alarm: «organic» is certified and can be used.
+279|Generic words like «sustainable» or «zero impact» aren't used without proof.
+280|You write precise facts: which part, what, what proof.
+281|Offsetting doesn't mean «zero impact».
+282|Certified «organic» can be used.
+283|The lawyer approved the new sentence. And the bubble wrap customer appreciated the honesty.
+284|The 2027 brand strategy
+285|40 minutes
+286|Research, Brand plan
+287|Goal, audience, message, channels and KPIs on one page, to present to management.
+288|In December I'm presenting the 2027 brand strategy to management. Can you prepare the plan page? It must fit on one page and start from the data.
+289|Build the 2027 brand plan and summarise it for management.
+290|Which goal is well written?
+291|A goal must be measurable and have a deadline.
+292|A SMART goal is specific, measurable, achievable, relevant and time-bound. For the brand you start from today's numbers (unaided awareness 4%).
+293|Not «become more famous», but «raise unaided awareness from 10% to 14% among urban cyclists by December».
+294|Writing goals that can't be measured.
+295|Raise unaided awareness from 4% to 7% among tea drinkers, by December 2027
+296|Become the most loved tea brand in Italy
+297|It can't be measured and has no deadline.
+298|Have more followers
+299|It doesn't say how many, by when, or whether it serves the brand goal.
+300|Starting number, target number, audience, deadline.
+301|Open the Plan
+302|Fill in the brand plan
+303|In the Brand plan fill in goal, audience, key message, channels and KPIs.
+304|The plan connects everything: the goal (with numbers and a deadline), the positioning's audience, a message consistent with the brand's difference, a few channels chosen for that audience, and KPIs that measure exactly the goal.
+305|Goal: unaided awareness from 10% to 14% by December. KPIs: unaided awareness, searches for the name. Channels: trade podcasts, events, creators.
+306|Choosing every channel and every KPI: the plan no longer chooses anything.
+307|The plan fits on one page and every part is connected to the others.
+308|Which KPI on its own doesn't say whether awareness is growing?
+309|Think about what each KPI measures.
+310|A vanity metric is a number that's nice to see go up but doesn't say whether the goal is getting closer.
+311|For a language school, views of a funny video don't say whether enrolments are growing.
+312|Likes on posts
+313|Unaided awareness
+314|It's exactly the goal.
+315|Searches for the shop's name
+316|They're a good indirect sign of awareness.
+317|Likes measure the reaction to a post, not how many people know the brand.
+318|When presenting to management, where do you start?
+319|Think about people with little time.
+320|For decision-makers you use the pyramid: first the conclusion and the request, then the reasons, then the details. The audience knows straight away what they have to decide.
+321|«We're asking for €20,000 to raise awareness from 10% to 14%. Here's why…»
+322|Starting from the story of how the work was done.
+323|From the goal and what you're asking for, then the reasons
+324|From the brand's history since 2019
+325|Interesting, but it doesn't help decide.
+326|From the list of all the data collected
+327|The data serves as proof, afterwards.
+328|Conclusion and request first, then the whys.
+329|Write the summary for management
+330|Write 3-5 sentences that open the presentation: goal, how we get there, how we measure it.
+331|The summary is the first thing management reads: it must stand on its own.
+332|«In 2027 we want to raise unaided awareness from 10% to 14% among urban cyclists. We're focusing on podcasts and city events. We measure with the June and December survey and with searches for the name.»
+333|Repeating the plan field by field.
+334|Example from a senior colleague: «In 2027 we want to raise Cinque Foglie's unaided awareness from 4% to 7% among tea drinkers, by December. We speak to everyday tea enthusiasts with a single message: organic tea explained simply. We're focusing on the press office, social media and partnerships with creators. We measure with the June and December survey, searches for the name and NPS.»
+335|SMART goal: from how much to how much, for whom, by when.
+336|A few channels chosen for the audience.
+337|KPIs that measure the goal, not vanity metrics.
+338|To management: conclusion and request first.
+339|Management approved the plan. And asked who wrote it!
+340|Press: the calendar and a journalist
+341|Press office
+342|A press release for the advent calendar, who to send it to, and a reply to a journalist during the crisis.
+343|Two things for the press office: the release for the advent calendar, which comes out on 2 November. And Paolo Neri from Foglie & Tazze is asking us about the broken kits: he wants an answer by 5 pm.
+344|Write and send the press release and reply to the journalist correctly.
+345|What makes the calendar news?
+346|Read the facts about the calendar in the Press office.
+347|A journalist doesn't publish advertising: they look for news. You highlight what's new, concrete and interesting for their readers (numbers, people, a local story).
+348|«A bakery opens» isn't news; «a bakery relights the 1920 wood-fired oven closed for 40 years» is.
+349|Filling the release with adjectives («beautiful», «unique»).
+350|24 teas from 8 small growers in 6 countries, illustrated by an artist from Verona
+351|That it's the most beautiful calendar ever
+352|It's an opinion, not news.
+353|That it costs €34.90
+354|The price must be written, but it isn't the news.
+355|Concrete numbers, small growers and a local artist: that's what a journalist can tell.
+356|Open the Press office
+357|Write the press release
+358|In the Press release tab write the release's headline, subheading, text and press contacts.
+359|The release has an informative headline, a first paragraph answering who, what, when, where and why, then the details, a quote from someone in the company and at the end the press contacts. One page at most.
+360|Headline: «Rossi bakery relights its 1920 wood-fired oven». First paragraph: who, what, when, where. Quote from the owner. Contacts.
+361|Putting the news at the end after the company's history.
+362|The release can be understood from the headline and first paragraph alone.
+363|Open the Journalists
+364|Choose who to send it to
+365|In the Journalists tab choose who to send the release to.
+366|You send it only to people who cover the release's topics: an off-topic release loses credibility. And people who asked to stop receiving releases aren't contacted: it's their right (under the GDPR too).
+367|A publisher sends the release about a cookbook to food journalists, not sports ones.
+368|Sending it to everyone «since it costs nothing anyway».
+369|The release reaches only people who may be interested, and nobody receives it against their will.
+370|When do you send it?
+371|The calendar comes out on 2 November.
+372|Usually the release is sent a few days before with an embargo: journalists get it in advance to prepare the piece, but can only publish from the date and time given.
+373|An app sends its release on Monday «under embargo until Thursday at 9», the launch day.
+374|A few days before, with an embargo until 2 November
+375|On 24 December
+376|Too late: the calendar is needed from 1 December.
+377|Two months before, without an embargo
+378|Too early: it risks coming out before the launch or being forgotten.
+379|Embargo: early access for writers, everyone publishes together on launch day.
+380|Open the Requests
+381|Reply to Paolo Neri
+382|In the Requests tab reply to Paolo Neri's question about the matcha kits, using the internal note.
+383|With a journalist during a crisis: you reply in time, with verified facts (how many, what happened), you say what's being done and say who to contact. No «no comment», no blaming others, no guesses.
+384|«We confirm that 30 of yesterday's orders arrived damaged. We've already resent the products and changed the packaging. For further questions: Anna Verdi, 333 000 0000.»
+385|Replying «no comment» or not replying: the piece will come out anyway, without your version.
+386|Paolo has the facts, the remedy and a contact: the piece will also tell how you reacted.
+387|On the phone Paolo says: «This stays between us». What do you do?
+388|Think about how you talk to the press.
+389|With a journalist there's really no «between us»: you always speak as if everything could be published. Off-the-record rules must be agreed beforehand, and aren't always respected.
+390|A spokesperson makes a joke «you won't write that anyway» and finds it in the headline.
+391|I speak as if everything could be published
+392|I also tell him my guesses about the courier
+393|If they come out, they become the news.
+394|I tell him things that differ from the release, since he won't write them
+395|Two different versions lose credibility.
+396|Golden rule: nothing is off the record.
+397|A press release tells news, not an opinion.
+398|You send it only to relevant people and not to those who asked not to receive it.
+399|Embargo: early access for writers, publication together.
+400|In a crisis: facts, remedy, contact; no «no comment».
+401|Foglie & Tazze wrote «quick, transparent reply»: it couldn't have gone better.

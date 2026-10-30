@@ -1,0 +1,35 @@
+{
+ "_nota": "Testi del brand da controllare (inventati).",
+ "voci": [
+  {
+   "id": "t1",
+   "canale": "Website · line at the top of the home page",
+   "testo": "Organic teas and herbal teas, at your door in 24 hours."
+  },
+  {
+   "id": "t2",
+   "canale": "Email · subject and first line of the promotion",
+   "testo": "UNMISSABLE OFFER!!! TODAY ONLY 15% OFF EVERYTHING, BUY NOW BEFORE IT ENDS!!!"
+  },
+  {
+   "id": "t3",
+   "canale": "Social · profile bio",
+   "testo": "Organic teas and herbal teas, explained simply 🍃 Shipping across Italy"
+  },
+  {
+   "id": "t4",
+   "canale": "Customer service · standard reply to people asking where their order is",
+   "testo": "Dear customer, your request has been received and will be processed according to the expected timeframes. Yours faithfully, Customer Service."
+  },
+  {
+   "id": "t5",
+   "canale": "Packaging · line on the back of the box",
+   "testo": "100% sustainable packaging. Zero-impact shipping."
+  },
+  {
+   "id": "t6",
+   "canale": "Website · Sencha description",
+   "testo": "Your everyday green tea: fresh, grassy, slightly bitter. All you need is water at 75 °C and two minutes."
+  }
+ ]
+}

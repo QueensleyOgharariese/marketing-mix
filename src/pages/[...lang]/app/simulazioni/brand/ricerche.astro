@@ -1,13 +1,18 @@
 ---
-import { LINGUE_APP } from "../../../../../i18n";
+import { LINGUE_APP, linguaDa } from "../../../../../i18n";
 // SIMULAZIONE BRAND · RICERCHE SUL BRAND
 // Segmenti di clienti, concorrenti, NPS con i motivi dei detrattori, tempi di spedizione,
 // ricerche del nome (2025-2026), notorietà e scheda dell'ufficio qualità sul packaging (da indagini.json, inventato).
 import Console from "../../../../../components/seopro/Console.astro";
-import I from "../../../../../data/app/brand-sim/indagini.json";
-import { num } from "../../../../../scripts/tabella";
+import I_IT from "../../../../../data/app/brand-sim/indagini.json";
+import I_EN from "../../../../../data/app/brand-sim/indagini.en.json";
+import { num as numero } from "../../../../../scripts/tabella";
+const lang = linguaDa(Astro.url);
+const L = (it: string, en: string) => (lang === "en" ? en : it);
+const I = lang === "en" ? (I_EN as typeof I_IT) : I_IT;
+const num = (x: number, d = 0) => numero(x, d, lang === "en");
 const pc = (x: number) => `${Math.round(x * 100)}%`;
-const MESI = ["gen", "feb", "mar", "apr", "mag", "giu", "lug", "ago", "set", "ott", "nov", "dic"];
+const MESI = lang === "en" ? ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] : ["gen", "feb", "mar", "apr", "mag", "giu", "lug", "ago", "set", "ott", "nov", "dic"];
 const nomeMese = (m: string) => `${MESI[Number(m.slice(5)) - 1]} ${m.slice(0, 4)}`;
 const nps = (r: { promotori: number; detrattori: number }) => Math.round((r.promotori - r.detrattori) * 100);
 // grafico delle ricerche del nome: due linee (2025 e 2026), mesi da gennaio a dicembre
@@ -16,9 +21,9 @@ const max = Math.max(...I.ricercheNome.map((r) => r.ricerche));
 const punti = (serie: { ricerche: number }[]) => serie.map((r, i) => `${40 + i * 48},${170 - (r.ricerche / max) * 140}`).join(" ");
 export function getStaticPaths() { return LINGUE_APP(); }
 ---
-<Console sim="brand" attivo="ricerche" titolo="Ricerche sul brand" sottotitolo="Sondaggi, concorrenti e numeri del brand (dati inventati)">
+<Console sim="brand" attivo="ricerche" titolo={L("Ricerche sul brand", "Brand research")} sottotitolo={L("Sondaggi, concorrenti e numeri del brand (dati inventati)", "Surveys, competitors and brand numbers (invented data)")}>
   <section class="sp-pannello" data-segmenti>
-    <h2 class="ri-tit">Segmenti di clienti</h2>
+    <h2 class="ri-tit">{L("Segmenti di clienti", "Customer segments")}</h2>
     <p class="sp-nota">{I.segmenti.fonte}</p>
     <div class="ri-segmenti">{I.segmenti.voci.map((s) => (
       <div class="ri-seg"><strong>{s.nome}</strong><span class="ri-quota">{pc(s.quota)}</span><span class="sp-nota">{s.eta}</span><span>{s.cosa}</span></div>
@@ -26,57 +31,57 @@ export function getStaticPaths() { return LINGUE_APP(); }
   </section>
 
   <section class="sp-pannello" data-concorrenti>
-    <h2 class="ri-tit">Concorrenti</h2>
+    <h2 class="ri-tit">{L("Concorrenti", "Competitors")}</h2>
     <div class="sp-scorri"><table data-tabella>
-      <thead><tr><th>Negozio</th><th>Prezzo</th><th>Scelta</th><th>Spiegazioni</th><th>Biologico</th></tr></thead>
+      <thead><tr><th>{L("Negozio", "Shop")}</th><th>{L("Prezzo", "Price")}</th><th>{L("Scelta", "Range")}</th><th>{L("Spiegazioni", "Explanations")}</th><th>{L("Biologico", "Organic")}</th></tr></thead>
       <tbody>{I.concorrenti.map((c) => <tr class={c.nome === "Cinque Foglie" ? "ri-noi" : ""}><td><strong>{c.nome}</strong></td><td>{c.prezzo}</td><td>{c.scelta}</td><td>{c.spiegazioni}</td><td>{c.biologico}</td></tr>)}</tbody>
     </table></div>
   </section>
 
   <div class="ri-due">
     <section class="sp-pannello" data-nps>
-      <h2 class="ri-tit">NPS mese per mese</h2>
-      <p class="sp-nota">«Quanto consiglieresti Cinque Foglie a un amico, da 0 a 10?» Promotori 9-10, passivi 7-8, detrattori 0-6.</p>
+      <h2 class="ri-tit">{L("NPS mese per mese", "NPS month by month")}</h2>
+      <p class="sp-nota">{L("«Quanto consiglieresti Cinque Foglie a un amico, da 0 a 10?» Promotori 9-10, passivi 7-8, detrattori 0-6.", "«How likely are you to recommend Cinque Foglie to a friend, from 0 to 10?» Promoters 9-10, passives 7-8, detractors 0-6.")}</p>
       <div class="sp-scorri"><table data-tabella>
-        <thead><tr><th>Mese</th><th class="n">Risposte</th><th class="n">Promotori</th><th class="n">Passivi</th><th class="n">Detrattori</th></tr></thead>
+        <thead><tr><th>{L("Mese", "Month")}</th><th class="n">{L("Risposte", "Responses")}</th><th class="n">{L("Promotori", "Promoters")}</th><th class="n">{L("Passivi", "Passives")}</th><th class="n">{L("Detrattori", "Detractors")}</th></tr></thead>
         <tbody>{I.nps.map((r) => <tr><td>{nomeMese(r.mese)}</td><td class="n">{r.risposte}</td><td class="n">{pc(r.promotori)}</td><td class="n">{pc(r.passivi)}</td><td class="n">{pc(r.detrattori)}</td></tr>)}</tbody>
       </table></div>
-      <p class="sp-nota">Il NPS non è calcolato qui: si fa promotori meno detrattori.</p>
+      <p class="sp-nota">{L("Il NPS non è calcolato qui: si fa promotori meno detrattori.", "NPS isn't calculated here: it's promoters minus detractors.")}</p>
     </section>
     <section class="sp-pannello" data-motivi>
-      <h2 class="ri-tit">Perché ci danno 0-6 (ottobre 2026)</h2>
+      <h2 class="ri-tit">{L("Perché ci danno 0-6 (ottobre 2026)", "Why they give us 0-6 (October 2026)")}</h2>
       <ul class="ri-motivi">{I.motiviDetrattori.voci.map((v) => (
         <li><span class="ri-barra" style={`width:${v.quota * 100}%`}></span><strong>{pc(v.quota)}</strong> {v.motivo}{v.esempio && <em>«{v.esempio}»</em>}</li>
       ))}</ul>
-      <p class="sp-nota" data-spedizioni><strong>Spedizioni:</strong> il sito promette {I.spedizioni.promessaSito}. Tempo medio di consegna: settembre {num(I.spedizioni.mediaGiorni["2026-09"], 1)} giorni, ottobre {num(I.spedizioni.mediaGiorni["2026-10"], 1)} giorni lavorativi. {I.spedizioni.nota}</p>
+      <p class="sp-nota" data-spedizioni><strong>{L("Spedizioni:", "Shipping:")}</strong> {L("il sito promette", "the website promises")} {I.spedizioni.promessaSito}. {L("Tempo medio di consegna: settembre", "Average delivery time: September")} {num(I.spedizioni.mediaGiorni["2026-09"], 1)} {L("giorni, ottobre", "days, October")} {num(I.spedizioni.mediaGiorni["2026-10"], 1)} {L("giorni lavorativi.", "working days.")} {I.spedizioni.nota}</p>
     </section>
   </div>
 
   <section class="sp-pannello" data-ricerche-brand>
-    <h2 class="ri-tit">Ricerche del nome «Cinque Foglie» su Google</h2>
-    <svg class="sp-grafico" viewBox="0 0 600 200" role="img" aria-label="Ricerche del nome mese per mese nel 2025 e nel 2026: stessa forma ogni anno, il 2026 più alto">
+    <h2 class="ri-tit">{L("Ricerche del nome «Cinque Foglie» su Google", "Searches for the name «Cinque Foglie» on Google")}</h2>
+    <svg class="sp-grafico" viewBox="0 0 600 200" role="img" aria-label={L("Ricerche del nome mese per mese nel 2025 e nel 2026: stessa forma ogni anno, il 2026 più alto", "Searches for the name month by month in 2025 and 2026: same shape every year, 2026 higher")}>
       <polyline points={punti(anni[0])} fill="none" stroke="#9d9890" stroke-width="2.5" stroke-dasharray="6 4" />
       <polyline points={punti(anni[1])} fill="none" stroke="#e0650f" stroke-width="3" />
       {MESI.map((m, i) => <text x={40 + i * 48} y="192" text-anchor="middle" font-size="11" fill="#55514c">{m}</text>)}
     </svg>
     <p class="sp-nota"><span class="ri-leg ri-25"></span> 2025 &nbsp; <span class="ri-leg ri-26"></span> 2026</p>
     <div class="sp-scorri"><table data-tabella>
-      <thead><tr><th>Anno</th>{MESI.map((m) => <th class="n">{m}</th>)}</tr></thead>
+      <thead><tr><th>{L("Anno", "Year")}</th>{MESI.map((m) => <th class="n">{m}</th>)}</tr></thead>
       <tbody>{["2025", "2026"].map((a, k) => <tr><td><strong>{a}</strong></td>{MESI.map((_, i) => <td class="n">{anni[k][i] ? num(anni[k][i].ricerche) : "–"}</td>)}</tr>)}</tbody>
     </table></div>
   </section>
 
   <section class="sp-pannello" data-notorieta>
-    <h2 class="ri-tit">Notorietà</h2>
-    <p class="sp-nota">{I.notorieta.fonte}. Spontanea: {I.notorieta.definizioni.spontanea} Guidata: {I.notorieta.definizioni.guidata}</p>
+    <h2 class="ri-tit">{L("Notorietà", "Awareness")}</h2>
+    <p class="sp-nota">{I.notorieta.fonte}. {L("Spontanea:", "Unaided:")} {I.notorieta.definizioni.spontanea} {L("Guidata:", "Aided:")} {I.notorieta.definizioni.guidata}</p>
     <div class="sp-scorri"><table data-tabella>
-      <thead><tr><th>Rilevazione</th><th class="n">Spontanea</th><th class="n">Guidata</th></tr></thead>
+      <thead><tr><th>{L("Rilevazione", "Survey")}</th><th class="n">{L("Spontanea", "Unaided")}</th><th class="n">{L("Guidata", "Aided")}</th></tr></thead>
       <tbody>{I.notorieta.rilevazioni.map((r) => <tr><td>{r.quando}</td><td class="n">{pc(r.spontanea)}</td><td class="n">{pc(r.guidata)}</td></tr>)}</tbody>
     </table></div>
   </section>
 
   <section class="sp-pannello" data-scheda-packaging>
-    <h2 class="ri-tit">Scheda del packaging</h2>
+    <h2 class="ri-tit">{L("Scheda del packaging", "Packaging sheet")}</h2>
     <p class="sp-nota">{I.schedaPackaging.fonte}</p>
     <ul class="ri-fatti">{I.schedaPackaging.fatti.map((f) => <li>{f}</li>)}</ul>
   </section>

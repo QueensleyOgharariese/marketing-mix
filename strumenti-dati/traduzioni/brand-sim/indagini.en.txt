@@ -1,0 +1,56 @@
+1|Survey of 612 customers, September 2026
+2|Everyday tea enthusiasts
+3|25-40 years old
+4|They drink tea every day, want to understand what they buy and try new things without spending too much.
+5|Gift buyers
+6|30-55 years old
+7|They buy mainly at Christmas and for birthdays, and look for beautiful packaging.
+8|Passionate experts
+9|35-60 years old
+10|They know origins and vintages, and look for rare teas.
+11|Wellbeing
+12|20-35 years old
+13|They choose herbal teas and matcha for their daily routine.
+14|Big tea chain
+15|low
+16|very wide
+17|few, catalogue language
+18|partly
+19|Fine tea boutique
+20|high
+21|medium
+22|in-depth but for experts
+23|yes
+24|General marketplace
+25|low to medium
+26|huge
+27|none
+28|mixed
+29|Cinque Foglie
+30|medium
+31|120 teas and herbal teas
+32|simple guides for every tea
+33|yes, all certified
+34|Shipping late compared with the promise
+35|The website says 24 hours, it arrived after 5 days.
+36|Too much plastic in the parcel
+37|The box says sustainable, but inside there was bubble wrap.
+38|Price
+39|Good but a bit expensive.
+40|Taste
+41|The rooibos was different from usual.
+42|Other
+43|24 hours
+44|Since October the warehouse has changed courier: average deliveries have gone from 1.8 to 4.1 working days.
+45|Survey of 1,000 people who drink tea at least once a week
+46|March 2026
+47|September 2026
+48|Unprompted: «Which tea shops do you know?»
+49|With a list: «Which of these do you know?»
+50|Quality office, October 2026
+51|Aluminium tin: recyclable with metal waste.
+52|Inner bag in compostable paper certified to the EN 13432 standard.
+53|Shipping box in 80% recycled cardboard.
+54|Filler: since October plastic bubble wrap (the paper filler supplier ran out of stock). From 15 November it's back to paper.
+55|Shipping: emissions are offset with a reforestation project (offsetting, not reduction).
+56|All teas are certified organic under EU regulation 2018/848, with the control body's code on the label.

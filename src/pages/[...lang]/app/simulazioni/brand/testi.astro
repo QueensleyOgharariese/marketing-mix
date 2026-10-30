@@ -1,36 +1,37 @@
 ---
-import { LINGUE_APP } from "../../../../../i18n";
+import { LINGUE_APP, testiDa } from "../../../../../i18n";
 // SIMULAZIONE BRAND · TESTI DEL BRAND
 // Sei testi su canali diversi: si leggono, si riscrivono e si salvano (o si torna all'originale).
 import Console from "../../../../../components/seopro/Console.astro";
 export function getStaticPaths() { return LINGUE_APP(); }
+const L = testiDa(Astro.url);
 ---
-<Console sim="brand" attivo="testi" titolo="Testi del brand" sottotitolo="Come parla Cinque Foglie, canale per canale">
+<Console sim="brand" attivo="testi" titolo={L("Testi del brand", "Brand copy")} sottotitolo={L("Come parla Cinque Foglie, canale per canale", "How Cinque Foglie speaks, channel by channel")}>
   <ul class="tx-lista" data-testi></ul>
 </Console>
 
 <script>
-  import { leggi, salva, testo, contaParole } from "../../../../../scripts/brand/stato";
-  import T from "../../../../../data/app/brand-sim/testi.json";
-  const esc = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  import { leggi, salva, testo, contaParole, TESTI as T } from "../../../../../scripts/brand/stato";
+  import { t } from "../../../../../scripts/lingua";
+  const esc = (x: string) => x.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   const lista = document.querySelector<HTMLElement>("[data-testi]")!;
   let aperto: string | null = null;
   function disegna() {
     const m = leggi();
     lista.innerHTML = T.voci.map((v) => {
-      const t = testo(v.id, m), cambiato = v.id in m.testi;
+      const tx = testo(v.id, m), cambiato = v.id in m.testi;
       return `<li class="tx-voce" data-testo="${v.id}">
-        <div class="tx-testa"><span class="sp-nota">${esc(v.canale)}</span>${cambiato ? '<span class="sp-badge ok">Riscritto</span>' : ""}</div>
-        ${aperto === v.id ? `<form class="tx-form" data-form-testo="${v.id}"><label class="sr" for="tx-${v.id}">Testo</label><textarea id="tx-${v.id}" rows="4">${esc(t)}</textarea>
+        <div class="tx-testa"><span class="sp-nota">${esc(v.canale)}</span>${cambiato ? `<span class="sp-badge ok">${t("Riscritto", "Rewritten")}</span>` : ""}</div>
+        ${aperto === v.id ? `<form class="tx-form" data-form-testo="${v.id}"><label class="sr" for="tx-${v.id}">${t("Testo", "Text")}</label><textarea id="tx-${v.id}" rows="4">${esc(tx)}</textarea>
             <span class="sp-nota" data-conta></span>
-            <div class="tx-bottoni"><button type="submit" class="bottone-app">Salva</button><button type="button" class="tx-sec" data-annulla>Annulla</button></div></form>`
-          : `<p class="tx-testo">${esc(t)}</p><span class="sp-nota">${contaParole(t)} parole · ${t.length} caratteri</span>
-            <div class="tx-bottoni"><button type="button" class="tx-sec" data-modifica>Modifica</button>${cambiato ? '<button type="button" class="tx-link" data-originale>Torna all\'originale</button>' : ""}</div>`}
+            <div class="tx-bottoni"><button type="submit" class="bottone-app">${t("Salva", "Save")}</button><button type="button" class="tx-sec" data-annulla>${t("Annulla", "Cancel")}</button></div></form>`
+          : `<p class="tx-testo">${esc(tx)}</p><span class="sp-nota">${contaParole(tx)} ${t("parole", "words")} · ${tx.length} ${t("caratteri", "characters")}</span>
+            <div class="tx-bottoni"><button type="button" class="tx-sec" data-modifica>${t("Modifica", "Edit")}</button>${cambiato ? `<button type="button" class="tx-link" data-originale>${t("Torna all'originale", "Back to the original")}</button>` : ""}</div>`}
       </li>`;
     }).join("");
     const f = lista.querySelector<HTMLFormElement>("[data-form-testo]");
     if (f) {
-      const area = f.querySelector("textarea")!, conta = () => { f.querySelector("[data-conta]")!.textContent = `${contaParole(area.value)} parole · ${area.value.length} caratteri`; };
+      const area = f.querySelector("textarea")!, conta = () => { f.querySelector("[data-conta]")!.textContent = `${contaParole(area.value)} ${t("parole", "words")} · ${area.value.length} ${t("caratteri", "characters")}`; };
       area.addEventListener("input", conta); conta(); area.focus();
       f.addEventListener("submit", (e) => {
         e.preventDefault(); const m2 = leggi(); const id = f.dataset.formTesto!;

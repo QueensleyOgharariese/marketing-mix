@@ -1,0 +1,56 @@
+1|Sondaggio a 612 clienti, settembre 2026
+2|Curiosi del tè di ogni giorno
+3|25-40 anni
+4|Bevono tè ogni giorno, vogliono capire cosa comprano e provare cose nuove senza spendere troppo.
+5|Chi fa un regalo
+6|30-55 anni
+7|Comprano soprattutto a Natale e per i compleanni, cercano confezioni belle.
+8|Esperti appassionati
+9|35-60 anni
+10|Conoscono le origini e le annate, cercano tè rari.
+11|Benessere
+12|20-35 anni
+13|Scelgono tisane e matcha per la routine della giornata.
+14|Grande catena del tè
+15|basso
+16|molto ampia
+17|poche, linguaggio da catalogo
+18|in parte
+19|Boutique del tè pregiato
+20|alto
+21|media
+22|approfondite ma per esperti
+23|sì
+24|Marketplace generalista
+25|da basso a medio
+26|enorme
+27|nessuna
+28|misto
+29|Cinque Foglie
+30|medio
+31|120 tè e tisane
+32|guide semplici per ogni tè
+33|sì, tutto certificato
+34|Spedizione in ritardo rispetto alla promessa
+35|Sul sito c'è scritto 24 ore, è arrivato dopo 5 giorni.
+36|Troppa plastica nel pacco
+37|Sulla scatola dite sostenibile, ma dentro c'era il pluriball.
+38|Prezzo
+39|Buono ma un po' caro.
+40|Gusto
+41|Il rooibos era diverso dal solito.
+42|Altro
+43|24 ore
+44|Da ottobre il magazzino ha cambiato corriere: le consegne medie sono passate da 1,8 a 4,1 giorni lavorativi.
+45|Sondaggio a 1.000 persone che bevono tè almeno una volta a settimana
+46|marzo 2026
+47|settembre 2026
+48|Senza suggerimenti: «Quali negozi di tè conosci?»
+49|Con un elenco: «Tra questi, quali conosci?»
+50|Ufficio qualità, ottobre 2026
+51|Latta in alluminio: riciclabile nella raccolta dei metalli.
+52|Busta interna in carta compostabile certificata secondo la norma EN 13432.
+53|Scatola di spedizione in cartone riciclato all'80%.
+54|Riempitivo: da ottobre pluriball in plastica (il fornitore di carta riempitiva ha finito le scorte). Dal 15 novembre si torna alla carta.
+55|Spedizioni: le emissioni sono compensate con un progetto di riforestazione (compensazione, non riduzione).
+56|Tutti i tè sono biologici certificati secondo il regolamento UE 2018/848, con il codice dell'organismo di controllo sull'etichetta.

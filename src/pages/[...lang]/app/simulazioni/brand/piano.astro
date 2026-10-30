@@ -1,25 +1,28 @@
 ---
-import { LINGUE_APP } from "../../../../../i18n";
+import { LINGUE_APP, testiDa } from "../../../../../i18n";
 // SIMULAZIONE BRAND · PIANO DI BRAND 2027
 // Una pagina: obiettivo, pubblico, messaggio chiave, canali e KPI (scelti da elenchi). Si salva in questo browser.
 import Console from "../../../../../components/seopro/Console.astro";
-const CANALI = ["Ufficio stampa", "Social", "Newsletter", "Collaborazioni con creator", "Annunci sui motori di ricerca", "Packaging", "Eventi e fiere", "Podcast di settore", "Pubblicità in TV nazionale"];
-const KPI = ["Notorietà spontanea", "Notorietà guidata", "Ricerche del nome del negozio", "NPS", "Numero di follower", "Like ai post", "Fatturato del mese", "Visite alla home"];
 export function getStaticPaths() { return LINGUE_APP(); }
+const L = testiDa(Astro.url);
+// Il valore salvato è il codice (il nome italiano), uguale nelle due lingue; l'etichetta cambia con la lingua
+const CANALI = [["Ufficio stampa", "Press office"], ["Social", "Social media"], ["Newsletter", "Newsletter"], ["Collaborazioni con creator", "Partnerships with creators"], ["Annunci sui motori di ricerca", "Search engine ads"], ["Packaging", "Packaging"], ["Eventi e fiere", "Events and fairs"], ["Podcast di settore", "Trade podcasts"], ["Pubblicità in TV nazionale", "National TV advertising"]].map(([v, en]) => ({ v, nome: L(v, en) }));
+const KPI = [["Notorietà spontanea", "Unaided awareness"], ["Notorietà guidata", "Aided awareness"], ["Ricerche del nome del negozio", "Searches for the shop's name"], ["NPS", "NPS"], ["Numero di follower", "Number of followers"], ["Like ai post", "Likes on posts"], ["Fatturato del mese", "Monthly revenue"], ["Visite alla home", "Home page visits"]].map(([v, en]) => ({ v, nome: L(v, en) }));
 ---
-<Console sim="brand" attivo="piano" titolo="Piano di brand 2027" sottotitolo="Una pagina, da presentare alla direzione">
+<Console sim="brand" attivo="piano" titolo={L("Piano di brand 2027", "2027 brand plan")} sottotitolo={L("Una pagina, da presentare alla direzione", "One page, to present to management")}>
   <form class="sp-pannello pn-form" data-piano>
-    <label>Obiettivo <span class="sp-nota">Da quanto a quanto, per chi, entro quando.</span><textarea name="obiettivo" rows="2"></textarea></label>
-    <label>Pubblico <span class="sp-nota">A chi parliamo prima di tutto.</span><textarea name="pubblico" rows="2"></textarea></label>
-    <label>Messaggio chiave <span class="sp-nota">Una frase: cosa vogliamo che ricordino.</span><textarea name="messaggio" rows="2"></textarea></label>
-    <fieldset><legend>Canali</legend><div class="pn-scelte">{CANALI.map((c) => <label class="pn-check"><input type="checkbox" name="canali" value={c} /> {c}</label>)}</div></fieldset>
-    <fieldset><legend>KPI (come misuriamo)</legend><div class="pn-scelte">{KPI.map((k) => <label class="pn-check"><input type="checkbox" name="kpi" value={k} /> {k}</label>)}</div></fieldset>
-    <div class="pn-bottoni"><button type="submit" class="bottone-app">Salva il piano</button><span class="sp-nota" data-esito-piano></span></div>
+    <label>{L("Obiettivo", "Goal")} <span class="sp-nota">{L("Da quanto a quanto, per chi, entro quando.", "From how much to how much, for whom, by when.")}</span><textarea name="obiettivo" rows="2"></textarea></label>
+    <label>{L("Pubblico", "Audience")} <span class="sp-nota">{L("A chi parliamo prima di tutto.", "Who we speak to first of all.")}</span><textarea name="pubblico" rows="2"></textarea></label>
+    <label>{L("Messaggio chiave", "Key message")} <span class="sp-nota">{L("Una frase: cosa vogliamo che ricordino.", "One sentence: what we want them to remember.")}</span><textarea name="messaggio" rows="2"></textarea></label>
+    <fieldset><legend>{L("Canali", "Channels")}</legend><div class="pn-scelte">{CANALI.map((c) => <label class="pn-check"><input type="checkbox" name="canali" value={c.v} /> {c.nome}</label>)}</div></fieldset>
+    <fieldset><legend>{L("KPI (come misuriamo)", "KPIs (how we measure)")}</legend><div class="pn-scelte">{KPI.map((k) => <label class="pn-check"><input type="checkbox" name="kpi" value={k.v} /> {k.nome}</label>)}</div></fieldset>
+    <div class="pn-bottoni"><button type="submit" class="bottone-app">{L("Salva il piano", "Save the plan")}</button><span class="sp-nota" data-esito-piano></span></div>
   </form>
 </Console>
 
 <script>
   import { leggi, salva } from "../../../../../scripts/brand/stato";
+  import { t } from "../../../../../scripts/lingua";
   const f = document.querySelector<HTMLFormElement>("[data-piano]")!;
   const m = leggi();
   for (const k of ["obiettivo", "pubblico", "messaggio"] as const) f.querySelector<HTMLTextAreaElement>(`[name=${k}]`)!.value = m.piano[k] ?? "";
@@ -27,7 +30,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
   f.addEventListener("submit", (e) => {
     e.preventDefault(); const d = new FormData(f), m2 = leggi();
     m2.piano = { obiettivo: String(d.get("obiettivo") ?? "").trim(), pubblico: String(d.get("pubblico") ?? "").trim(), messaggio: String(d.get("messaggio") ?? "").trim(), canali: d.getAll("canali").map(String), kpi: d.getAll("kpi").map(String) };
-    salva(m2); document.querySelector("[data-esito-piano]")!.textContent = "Piano salvato.";
+    salva(m2); document.querySelector("[data-esito-piano]")!.textContent = t("Piano salvato.", "Plan saved.");
   });
 </script>
 

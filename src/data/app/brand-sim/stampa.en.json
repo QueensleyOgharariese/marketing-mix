@@ -1,0 +1,86 @@
+{
+ "_nota": "Ufficio stampa di Cinque Foglie: giornalisti e testate inventati.",
+ "giornalisti": [
+  {
+   "id": "g1",
+   "nome": "Marta Ferri",
+   "testata": "Il Mestolo (cooking blog)",
+   "tema": "Recipes, food products",
+   "nota": ""
+  },
+  {
+   "id": "g2",
+   "nome": "Paolo Neri",
+   "testata": "Foglie & Tazze (tea magazine)",
+   "tema": "Tea, herbal teas, growers",
+   "nota": ""
+  },
+  {
+   "id": "g3",
+   "nome": "Chiara Lodi",
+   "testata": "Cronache Scaligere (local daily paper, business page)",
+   "tema": "Verona businesses",
+   "nota": ""
+  },
+  {
+   "id": "g4",
+   "nome": "Sara Conti",
+   "testata": "Gift ideas of the week (newsletter)",
+   "tema": "Gifts, Christmas",
+   "nota": ""
+  },
+  {
+   "id": "g5",
+   "nome": "Luca Riva",
+   "testata": "Sport e Motori Oggi",
+   "tema": "Football, cars",
+   "nota": ""
+  },
+  {
+   "id": "g6",
+   "nome": "Elisa Fontana",
+   "testata": "Vivere Bio (monthly magazine)",
+   "tema": "Organic, food",
+   "nota": "In March 2026 she asked to stop receiving press releases from us."
+  },
+  {
+   "id": "g7",
+   "nome": "Andrea Gallo",
+   "testata": "Cronache Scaligere (crime news)",
+   "tema": "Crime",
+   "nota": ""
+  },
+  {
+   "id": "g8",
+   "nome": "Giulia Marchi",
+   "testata": "Pausa tè (podcast)",
+   "tema": "Tea, small growers",
+   "nota": ""
+  }
+ ],
+ "fattiCalendario": [
+  "24 organic teas and herbal teas, one for each day from 1 to 24 December.",
+  "They come from 8 small growers in 6 countries.",
+  "Illustrations by an artist from Verona, printed on recycled cardboard.",
+  "Price: €34.90. On sale online from 2 November 2026, while the 3,000 copies last.",
+  "Quote available: Marco F., founder: «We wanted a calendar that helps people discover a new tea every day, with a simple guide behind every little window.»",
+  "Press contacts: Sara L., stampa@cinquefoglie.example, 045 000 0000 (invented number)."
+ ],
+ "richieste": [
+  {
+   "id": "r1",
+   "da": "Paolo Neri",
+   "testata": "Foglie & Tazze",
+   "quando": "29/10, 11:40",
+   "oggetto": "Matcha kits arrived broken",
+   "testo": "Good morning, I'm writing a piece about the matcha kits that arrived with a broken whisk, which people are talking about on social media. Can you confirm that the problem affects all the kits sold? Do you intend to withdraw them from the market? I'd need an answer by 5 pm. Thank you, Paolo Neri"
+  }
+ ],
+ "notaInterna": [
+  "About 40 kits shipped on 28/10 arrived with the bamboo whisk broken: it snapped during transport (same batch of packaging).",
+  "The other kits sold had no problems.",
+  "We're sending a new whisk free to all the customers involved; we're contacting them one by one.",
+  "From 3 November the whisks travel in a rigid case.",
+  "Press spokesperson: Elena M., e-commerce manager (phone 045 000 0000, invented)."
+ ]
+}

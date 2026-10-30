@@ -1,0 +1,39 @@
+1|Marta Ferri
+2|Il Mestolo (cooking blog)
+3|Recipes, food products
+4|Paolo Neri
+5|Foglie & Tazze (tea magazine)
+6|Tea, herbal teas, growers
+7|Chiara Lodi
+8|Cronache Scaligere (local daily paper, business page)
+9|Verona businesses
+10|Sara Conti
+11|Gift ideas of the week (newsletter)
+12|Gifts, Christmas
+13|Luca Riva
+14|Sport e Motori Oggi
+15|Football, cars
+16|Elisa Fontana
+17|Vivere Bio (monthly magazine)
+18|Organic, food
+19|In March 2026 she asked to stop receiving press releases from us.
+20|Andrea Gallo
+21|Cronache Scaligere (crime news)
+22|Crime
+23|Giulia Marchi
+24|Pausa tè (podcast)
+25|Tea, small growers
+26|24 organic teas and herbal teas, one for each day from 1 to 24 December.
+27|They come from 8 small growers in 6 countries.
+28|Illustrations by an artist from Verona, printed on recycled cardboard.
+29|Price: €34.90. On sale online from 2 November 2026, while the 3,000 copies last.
+30|Quote available: Marco F., founder: «We wanted a calendar that helps people discover a new tea every day, with a simple guide behind every little window.»
+31|Press contacts: Sara L., stampa@cinquefoglie.example, 045 000 0000 (invented number).
+32|Foglie & Tazze
+33|Matcha kits arrived broken
+34|Good morning, I'm writing a piece about the matcha kits that arrived with a broken whisk, which people are talking about on social media. Can you confirm that the problem affects all the kits sold? Do you intend to withdraw them from the market? I'd need an answer by 5 pm. Thank you, Paolo Neri
+35|About 40 kits shipped on 28/10 arrived with the bamboo whisk broken: it snapped during transport (same batch of packaging).
+36|The other kits sold had no problems.
+37|We're sending a new whisk free to all the customers involved; we're contacting them one by one.
+38|From 3 November the whisks travel in a rigid case.
+39|Press spokesperson: Elena M., e-commerce manager (phone 045 000 0000, invented).

@@ -1,0 +1,12 @@
+1|Sito · frase in alto nella home
+2|Tè e tisane biologici, a casa tua in 24 ore.
+3|Email · oggetto e prima riga della promozione
+4|OFFERTA IMPERDIBILE!!! SOLO OGGI -15% SU TUTTO, COMPRA SUBITO PRIMA CHE FINISCA!!!
+5|Social · bio del profilo
+6|Tè e tisane biologici, spiegati semplici 🍃 Spedizione in tutta Italia
+7|Assistenza · risposta standard a chi chiede dov'è l'ordine
+8|Gentile cliente, la Sua richiesta è stata presa in carico e verrà evasa secondo le tempistiche previste. Distinti saluti, Servizio Clienti.
+9|Packaging · frase sul retro della scatola
+10|Confezione 100% sostenibile. Spedizioni a impatto zero.
+11|Sito · descrizione del Sencha
+12|Il tè verde di ogni giorno: fresco, erbaceo, leggermente amaro. Ti basta acqua a 75 °C e due minuti.

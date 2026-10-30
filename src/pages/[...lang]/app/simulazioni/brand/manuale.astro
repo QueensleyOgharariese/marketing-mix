@@ -1,53 +1,57 @@
 ---
-import { LINGUE_APP } from "../../../../../i18n";
+import { LINGUE_APP, linguaDa } from "../../../../../i18n";
 // SIMULAZIONE BRAND · MANUALE DEL BRAND
 // In alto i campi da compilare (payoff e posizionamento), sotto le parti da leggere:
 // missione, valori, tono di voce, logo e colori (da manuale.json, inventato).
 import Console from "../../../../../components/seopro/Console.astro";
-import M from "../../../../../data/app/brand-sim/manuale.json";
+import M_IT from "../../../../../data/app/brand-sim/manuale.json";
+import M_EN from "../../../../../data/app/brand-sim/manuale.en.json";
 export function getStaticPaths() { return LINGUE_APP(); }
+const lang = linguaDa(Astro.url);
+const L = (it: string, en: string) => (lang === "en" ? en : it);
+const M = lang === "en" ? (M_EN as typeof M_IT) : M_IT;
 ---
-<Console sim="brand" attivo="manuale" titolo="Manuale del brand" sottotitolo="Chi è Cinque Foglie e come parla">
+<Console sim="brand" attivo="manuale" titolo={L("Manuale del brand", "Brand manual")} sottotitolo={L("Chi è Cinque Foglie e come parla", "Who Cinque Foglie is and how it speaks")}>
   <form class="sp-pannello ma-form" data-payoff>
-    <label for="payoff"><strong>Payoff</strong> <span class="sp-nota">La frase breve che accompagna il nome del brand.</span></label>
-    <div class="ma-riga"><input id="payoff" name="payoff" class="sp-cerca" placeholder="Ancora da scrivere" /><button type="submit" class="bottone-app">Salva</button><span class="sp-nota" data-esito-payoff></span></div>
+    <label for="payoff"><strong>{L("Payoff", "Tagline")}</strong> <span class="sp-nota">{L("La frase breve che accompagna il nome del brand.", "The short sentence that goes with the brand name.")}</span></label>
+    <div class="ma-riga"><input id="payoff" name="payoff" class="sp-cerca" placeholder={L("Ancora da scrivere", "Still to be written")} /><button type="submit" class="bottone-app">{L("Salva", "Save")}</button><span class="sp-nota" data-esito-payoff></span></div>
   </form>
 
   <form class="sp-pannello ma-form" data-posizionamento>
-    <h2 class="ma-tit">Posizionamento</h2>
-    <p class="sp-nota">Per [pubblico], Cinque Foglie è [categoria] che [differenza], perché [prova].</p>
-    <label>Per chi <input name="perChi" class="sp-cerca" placeholder="Il pubblico principale" /></label>
-    <label>Che cosa (categoria) <input name="categoria" class="sp-cerca" placeholder="Che cosa è Cinque Foglie" /></label>
-    <label>Cosa ci rende diversi <input name="differenza" class="sp-cerca" placeholder="La differenza rispetto ai concorrenti" /></label>
-    <label>Perché crederci <input name="prova" class="sp-cerca" placeholder="Un fatto che si può verificare" /></label>
-    <div class="ma-riga"><button type="submit" class="bottone-app">Salva il posizionamento</button><span class="sp-nota" data-esito-pos></span></div>
+    <h2 class="ma-tit">{L("Posizionamento", "Positioning")}</h2>
+    <p class="sp-nota">{L("Per [pubblico], Cinque Foglie è [categoria] che [differenza], perché [prova].", "For [audience], Cinque Foglie is [category] that [difference], because [proof].")}</p>
+    <label>{L("Per chi", "Who it's for")} <input name="perChi" class="sp-cerca" placeholder={L("Il pubblico principale", "The main audience")} /></label>
+    <label>{L("Che cosa (categoria)", "What (category)")} <input name="categoria" class="sp-cerca" placeholder={L("Che cosa è Cinque Foglie", "What Cinque Foglie is")} /></label>
+    <label>{L("Cosa ci rende diversi", "What makes us different")} <input name="differenza" class="sp-cerca" placeholder={L("La differenza rispetto ai concorrenti", "The difference compared with competitors")} /></label>
+    <label>{L("Perché crederci", "Why believe it")} <input name="prova" class="sp-cerca" placeholder={L("Un fatto che si può verificare", "A fact that can be checked")} /></label>
+    <div class="ma-riga"><button type="submit" class="bottone-app">{L("Salva il posizionamento", "Save the positioning")}</button><span class="sp-nota" data-esito-pos></span></div>
     <p class="ma-anteprima" data-anteprima-pos></p>
   </form>
 
   <section class="sp-pannello">
-    <h2 class="ma-tit">Missione</h2>
+    <h2 class="ma-tit">{L("Missione", "Mission")}</h2>
     <p>{M.missione}</p>
   </section>
 
   <section class="sp-pannello" data-valori>
-    <h2 class="ma-tit">Valori</h2>
+    <h2 class="ma-tit">{L("Valori", "Values")}</h2>
     <dl class="ma-valori">{M.valori.map((v) => <div><dt>{v.nome}</dt><dd>{v.cosa}</dd></div>)}</dl>
   </section>
 
   <section class="sp-pannello" data-tono>
-    <h2 class="ma-tit">Tono di voce</h2>
+    <h2 class="ma-tit">{L("Tono di voce", "Tone of voice")}</h2>
     <div class="ma-due">
-      <div><h3>Siamo</h3><ul>{M.tono.siamo.map((x) => <li>{x}</li>)}</ul></div>
-      <div><h3>Non siamo</h3><ul>{M.tono.nonSiamo.map((x) => <li>{x}</li>)}</ul></div>
+      <div><h3>{L("Siamo", "We are")}</h3><ul>{M.tono.siamo.map((x) => <li>{x}</li>)}</ul></div>
+      <div><h3>{L("Non siamo", "We aren't")}</h3><ul>{M.tono.nonSiamo.map((x) => <li>{x}</li>)}</ul></div>
     </div>
-    <h3>Regole</h3>
+    <h3>{L("Regole", "Rules")}</h3>
     <ul>{M.tono.regole.map((x) => <li>{x}</li>)}</ul>
-    <h3>Prima e dopo</h3>
+    <h3>{L("Prima e dopo", "Before and after")}</h3>
     <ul class="ma-esempi">{M.tono.esempi.map((e) => <li><span class="ma-prima">{e.prima}</span><span class="ma-dopo">{e.dopo}</span></li>)}</ul>
   </section>
 
   <section class="sp-pannello">
-    <h2 class="ma-tit">Logo e colori</h2>
+    <h2 class="ma-tit">{L("Logo e colori", "Logo and colours")}</h2>
     <p>{M.logo}</p>
     <ul class="ma-colori">{M.colori.map((c) => <li><span class="ma-campione" style={`background:${c.hex}`}></span>{c.nome} <code>{c.hex}</code></li>)}</ul>
   </section>
@@ -55,6 +59,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
 
 <script>
   import { leggi, salva } from "../../../../../scripts/brand/stato";
+  import { t } from "../../../../../scripts/lingua";
   const fP = document.querySelector<HTMLFormElement>("[data-payoff]")!;
   const fPos = document.querySelector<HTMLFormElement>("[data-posizionamento]")!;
   const CAMPI = ["perChi", "categoria", "differenza", "prova"] as const;
@@ -63,13 +68,13 @@ export function getStaticPaths() { return LINGUE_APP(); }
     fP.querySelector<HTMLInputElement>("input")!.value = m.payoff;
     for (const k of CAMPI) fPos.querySelector<HTMLInputElement>(`[name=${k}]`)!.value = m.posizionamento[k] ?? "";
     const p = m.posizionamento;
-    document.querySelector("[data-anteprima-pos]")!.textContent = CAMPI.every((k) => p[k]) ? `Per ${p.perChi}, Cinque Foglie è ${p.categoria} che ${p.differenza}, perché ${p.prova}.` : "";
+    document.querySelector("[data-anteprima-pos]")!.textContent = CAMPI.every((k) => p[k]) ? t(`Per ${p.perChi}, Cinque Foglie è ${p.categoria} che ${p.differenza}, perché ${p.prova}.`, `For ${p.perChi}, Cinque Foglie is ${p.categoria} that ${p.differenza}, because ${p.prova}.`) : "";
   }
-  fP.addEventListener("submit", (e) => { e.preventDefault(); const m = leggi(); m.payoff = fP.querySelector<HTMLInputElement>("input")!.value.trim(); salva(m); riempi(); document.querySelector("[data-esito-payoff]")!.textContent = "Salvato."; });
+  fP.addEventListener("submit", (e) => { e.preventDefault(); const m = leggi(); m.payoff = fP.querySelector<HTMLInputElement>("input")!.value.trim(); salva(m); riempi(); document.querySelector("[data-esito-payoff]")!.textContent = t("Salvato.", "Saved."); });
   fPos.addEventListener("submit", (e) => {
     e.preventDefault(); const m = leggi(); const d = new FormData(fPos);
     m.posizionamento = Object.fromEntries(CAMPI.map((k) => [k, String(d.get(k) ?? "").trim()]));
-    salva(m); riempi(); document.querySelector("[data-esito-pos]")!.textContent = "Salvato.";
+    salva(m); riempi(); document.querySelector("[data-esito-pos]")!.textContent = t("Salvato.", "Saved.");
   });
   riempi();
 </script>

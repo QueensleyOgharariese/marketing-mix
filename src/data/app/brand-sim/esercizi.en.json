@@ -1,0 +1,1171 @@
+{
+ "_nota": "Simulazione Brand a livelli (con strategia e ufficio stampa). Generato da strumenti-dati/crea_esercizi_brand.py. Dati in genera_brand.py.",
+ "livelli": [
+  {
+   "n": 0,
+   "nome": "Tutorial",
+   "cosa": "How the brand tools work."
+  },
+  {
+   "n": 1,
+   "nome": "Basics",
+   "cosa": "One concept at a time. «How it works» is already open and the hint is always available."
+  },
+  {
+   "n": 2,
+   "nome": "Diagnosis",
+   "cosa": "Mixed problems, including false alarms. You open «How it works» yourself."
+  },
+  {
+   "n": 3,
+   "nome": "Cases",
+   "cosa": "No hints: just data and theory. The 2027 strategy and the press office."
+  }
+ ],
+ "missioni": [
+  {
+   "id": "tutorial",
+   "livello": 0,
+   "n": 0,
+   "nome": "Tutorial: how it works",
+   "tempo": "8 minutes",
+   "strumenti": "Brand manual",
+   "cosa": "Where things are and how to save and check a change.",
+   "situazione": "Hi, I'm Irene and I look after the Cinque Foglie brand. Before we start I'll show you where we keep everything: ten minutes and you're ready to go.",
+   "obiettivo": "Learn to move between the manual, research, copy, plan and press office and to save a change.",
+   "passi": [
+    {
+     "strumento": "manuale",
+     "tipo": "info",
+     "domanda": "How the workspace is laid out",
+     "consegna": "",
+     "spiega": "You work on the brand of Cinque Foglie, a fictional online tea shop. The screen has three areas.",
+     "esempio": "",
+     "errore": "",
+     "come": [
+      "<strong>On the left the menu</strong> (on a phone it's at the top): the brand manual, the brand research, the copy, the brand plan and the press office.",
+      "<strong>In the middle</strong> the open tool.",
+      "<strong>On the right this guide</strong>: the task at the top, the answers below. The <strong>How it works</strong>, <strong>Theory</strong> and <strong>Hint</strong> tabs help you when needed; the button to check is always at the bottom.",
+      "People, publications and numbers are invented, but consistent from one tool to another."
+     ],
+     "opzioni": [],
+     "perche": "",
+     "aiuto": "",
+     "dove": ".console > .menu"
+    },
+    {
+     "strumento": "manuale",
+     "tipo": "radio",
+     "domanda": "What is one of Cinque Foglie's values?",
+     "consegna": "Read the Values section of the Manual.",
+     "spiega": "The brand manual collects who the brand is: mission, values, tone of voice, logo and colours. It's there so that anyone writing or designing for the brand does it the same way.",
+     "esempio": "A bookshop chain's manual says: «We talk about books like a friend giving advice, never like a teacher».",
+     "errore": "",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "The lowest prices of all",
+       "giusta": false,
+       "nota": "It isn't one of the values, and it wouldn't even be true."
+      },
+      {
+       "id": "o2",
+       "testo": "Clarity",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Luxury",
+       "giusta": false,
+       "nota": "The manual says the opposite: nothing snobbish."
+      }
+     ],
+     "perche": "Clarity, respect for growers and curiosity: the three values everything else rests on.",
+     "aiuto": "",
+     "dove": "[data-valori]"
+    },
+    {
+     "strumento": "manuale",
+     "tipo": "azione",
+     "verifica": "brand_tutorial",
+     "vai": {
+      "link": "/app/simulazioni/brand/manuale/",
+      "testo": "Open the Manual"
+     },
+     "negozio": "",
+     "domanda": "Save your first change",
+     "consegna": "In the Manual write the sentence «Teas and herbal teas, explained simply» in the Tagline field. Then save.",
+     "spiega": "The tagline is the short sentence that goes with the brand name (for example under the logo). In the Manual you write it and press Save: from then on it's the official sentence.",
+     "esempio": "The tagline of a fictional bike company: «Pedal your city».",
+     "errore": "",
+     "opzioni": [],
+     "perche": "You saved a change and checked it: in the exercises you always work like this.",
+     "aiuto": "The Tagline field is at the top of the Manual.",
+     "dove": "[data-payoff]"
+    },
+    {
+     "strumento": "manuale",
+     "tipo": "info",
+     "domanda": "Points, levels and how to choose",
+     "consegna": "",
+     "spiega": "Last rules, then we start from the Basics.",
+     "esempio": "",
+     "errore": "",
+     "come": [
+      "Three levels: <strong>Basics</strong>, <strong>Diagnosis</strong> and <strong>Cases</strong>. Each exercise is a small project made of mini exercises.",
+      "<strong>How it works</strong> explains the tool, not the answer. <strong>Theory</strong> is free. <strong>Hint</strong> costs 5 points.",
+      "The guide fades as you go up a level: in Basics «How it works» is already open, in Diagnosis you open it yourself, in Cases there's only theory and data.",
+      "Each exercise starts from 100 points: a wrong answer takes off 10 points. When you write or edit you can try again without losing points."
+     ],
+     "opzioni": [],
+     "perche": "",
+     "aiuto": "",
+     "dove": ""
+    }
+   ],
+   "imparato": [
+    "The manual collects mission, values, tone, logo and colours.",
+    "The tagline goes with the brand name.",
+    "After every change you check."
+   ],
+   "elena": "Perfect, now you know where things are. We start from the Basics.",
+   "prepara": {
+    "payoff": true
+   }
+  },
+  {
+   "id": "base1",
+   "livello": 1,
+   "n": 1,
+   "nome": "The positioning",
+   "tempo": "30 minutes",
+   "strumenti": "Research, Manual",
+   "cosa": "Who Cinque Foglie is for, who it competes with and what makes it different: the positioning statement.",
+   "situazione": "The most important thing is missing from the manual: the positioning. Everyone in the company describes it their own way. Can you write it, starting from the data?",
+   "obiettivo": "Write Cinque Foglie's positioning starting from customers and competitors.",
+   "passi": [
+    {
+     "strumento": "ricerche",
+     "tipo": "radio",
+     "domanda": "Who are Cinque Foglie's most important customers?",
+     "consegna": "Look at the Customer segments in the Research.",
+     "spiega": "Positioning starts from a precise audience. You don't choose «everyone»: you choose the largest or most important group, the one for which the brand wants to be the first choice.",
+     "esempio": "A gym chooses «office workers with 45 minutes for lunch», not «people who want to keep fit».",
+     "errore": "Wanting to speak to everyone: in the end the message reaches nobody.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Everyday tea enthusiasts, 25-40 years old",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Passionate experts",
+       "giusta": false,
+       "nota": "They're 18%: important, but not the main group."
+      },
+      {
+       "id": "o3",
+       "testo": "Everyone who drinks tea",
+       "giusta": false,
+       "nota": "Too broad: positioning chooses."
+      }
+     ],
+     "perche": "Almost half the customers (46%) drink tea every day and want to understand what they buy.",
+     "aiuto": "",
+     "dove": "[data-segmenti]"
+    },
+    {
+     "strumento": "ricerche",
+     "tipo": "radio",
+     "domanda": "What space do competitors leave free?",
+     "consegna": "Compare the rows of the Competitors table.",
+     "spiega": "You look for a position competitors don't hold and that matters to the chosen audience. The competitors table puts the differences side by side.",
+     "esempio": "Between cheap pizzerias and Michelin-starred restaurants, a pizzeria chooses «quality ingredients explained on the menu, at a normal price».",
+     "errore": "Choosing a difference the audience doesn't care about (for example the colour of the website).",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Organic tea explained simply, at a medium price",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "The lowest price",
+       "giusta": false,
+       "nota": "The big chain and the marketplace already hold it."
+      },
+      {
+       "id": "o3",
+       "testo": "Rare teas for experts",
+       "giusta": false,
+       "nota": "It's the boutique's territory, and it isn't the main audience."
+      }
+     ],
+     "perche": "The chain and the marketplace explain little, the boutique talks to experts: nobody explains organic tea simply.",
+     "aiuto": "",
+     "dove": "[data-concorrenti]"
+    },
+    {
+     "strumento": "manuale",
+     "tipo": "azione",
+     "verifica": "brand_posizionamento",
+     "vai": {
+      "link": "/app/simulazioni/brand/manuale/",
+      "testo": "Open the Manual"
+     },
+     "negozio": "",
+     "domanda": "Write the positioning",
+     "consegna": "In the Manual fill in the four Positioning fields: who it's for, what (category), what makes us different and why to believe it (a proof).",
+     "spiega": "A simple formula: For [audience], [brand] is [category] that [difference], because [concrete proof]. The proof (reason to believe) is a verifiable fact, not an adjective.",
+     "esempio": "For people who cycle to work in the city, Pedalo is the folding bike that fits under the desk, because it folds in 10 seconds and weighs 9 kg.",
+     "errore": "Writing «the best» or «quality» as the difference: it sets nobody apart and can't be proven.",
+     "opzioni": [],
+     "perche": "The positioning now says who Cinque Foglie is for, what it offers that's different and why to believe it.",
+     "aiuto": "Use the data: the largest segment, the free space between competitors, a fact like «guides for every tea» or «everything certified organic».",
+     "dove": "[data-posizionamento]"
+    },
+    {
+     "strumento": "manuale",
+     "tipo": "radio",
+     "domanda": "How do you know whether a positioning is precise enough?",
+     "consegna": "Think about the competitors.",
+     "spiega": "A good test: if a competitor could write the same sentence, it isn't positioning, it's a generic description.",
+     "esempio": "«We sell comfortable shoes» everyone says; «walking shoes for people who stand 8 hours at work» they don't.",
+     "errore": "",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "If a competitor couldn't write the same sentence",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "If it contains lots of positive adjectives",
+       "giusta": false,
+       "nota": "Adjectives make the sentence more generic, not more precise."
+      },
+      {
+       "id": "o3",
+       "testo": "If it's at least a page long",
+       "giusta": false,
+       "nota": "Positioning fits in one sentence."
+      }
+     ],
+     "perche": "If the big chain could sign it, the sentence needs narrowing.",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "manuale",
+     "tipo": "radio",
+     "domanda": "What is a «proof» (reason to believe)?",
+     "consegna": "Reread the «Why believe it» field.",
+     "spiega": "The proof is a fact that makes the difference credible: a number, a certification, something that can be checked.",
+     "esempio": "«Delivery in 30 minutes» becomes credible with «12 delivery points in the city».",
+     "errore": "",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "A verifiable fact, like «all the teas are certified organic»",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "A promise, like «you'll love it for sure»",
+       "giusta": false,
+       "nota": "It's a promise, not a proof."
+      },
+      {
+       "id": "o3",
+       "testo": "A slogan, like «the tastiest tea»",
+       "giusta": false,
+       "nota": "It can't be checked."
+      }
+     ],
+     "perche": "A proof can be checked: certifications, numbers, guides for every tea.",
+     "aiuto": "",
+     "dove": ""
+    }
+   ],
+   "imparato": [
+    "Positioning chooses a precise audience.",
+    "You look for the free space between competitors.",
+    "Formula: who it's for, what, what makes us different, why believe it.",
+    "If a competitor could write it, it isn't positioning."
+   ],
+   "elena": "At last we'll all say it the same way. I'll present it to the team on Monday.",
+   "prepara": {
+    "posizionamento": true
+   }
+  },
+  {
+   "id": "base2",
+   "livello": 1,
+   "n": 2,
+   "nome": "The tone of voice",
+   "tempo": "30 minutes",
+   "strumenti": "Manual, Copy",
+   "cosa": "Five texts written by different people: which follow the tone of voice and how to fix the others.",
+   "situazione": "The customer reads the home page, then one of our emails, then a reply from customer service: they look like three different companies. Can you help me bring them into line?",
+   "obiettivo": "Recognise the off-tone texts and rewrite them following the manual.",
+   "passi": [
+    {
+     "strumento": "manuale",
+     "tipo": "radio",
+     "domanda": "How does Cinque Foglie speak?",
+     "consegna": "Read the Tone of voice in the Manual.",
+     "spiega": "Tone of voice is the brand's way of speaking: the words it uses, how formal it is, how it treats the reader. It stays the same on every channel, only the intensity changes a little.",
+     "esempio": "An online bank speaks clearly and reassuringly both in the app and in its payment reminder emails.",
+     "errore": "Changing personality from one channel to another.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Friendly but expert, simple, without shouting, warm and direct",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Formal and technical, stiff and distant",
+       "giusta": false,
+       "nota": "It's the opposite of what the manual says."
+      },
+      {
+       "id": "o3",
+       "testo": "Enthusiastic, with lots of capitals and exclamation marks",
+       "giusta": false,
+       "nota": "The manual forbids shouting and fake urgency."
+      }
+     ],
+     "perche": "Friendly but expert, simple, calm, always warm and direct.",
+     "aiuto": "",
+     "dove": "[data-tono]"
+    },
+    {
+     "strumento": "testi",
+     "tipo": "checkbox",
+     "domanda": "Which texts are off tone?",
+     "consegna": "Compare each text with the rules in the Manual. You can choose more than one answer.",
+     "spiega": "To check a text you compare it with the tone rules: warm or stiff, capitals, simple sentences, calm.",
+     "esempio": "",
+     "errore": "Considering an emoji on social media off tone: the manual allows it.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "The promotion email",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "The standard customer service reply",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "The social media bio",
+       "giusta": false,
+       "nota": "An emoji on social media is allowed by the manual."
+      },
+      {
+       "id": "o4",
+       "testo": "The Sencha description",
+       "giusta": false,
+       "nota": "It's simple, warm and calm: it's on tone."
+      }
+     ],
+     "perche": "The email shouts (capitals and «!!!») and customer service is cold and stiffly formal.",
+     "aiuto": "",
+     "dove": "[data-testi]"
+    },
+    {
+     "strumento": "testi",
+     "tipo": "azione",
+     "verifica": "brand_email",
+     "vai": {
+      "link": "/app/simulazioni/brand/testi/",
+      "testo": "Open the Copy"
+     },
+     "negozio": "",
+     "domanda": "Rewrite the promotion email",
+     "consegna": "Rewrite the email's subject and first line: same offer (15% off today only), in Cinque Foglie's tone.",
+     "spiega": "You can create interest without shouting: you state the concrete benefit, calmly, and invite people to do something. No fake urgency: if the offer lasts one day, you simply say so.",
+     "esempio": "Instead of «CRAZY SALE!!!»: «Until Sunday jackets cost 30% less».",
+     "errore": "Removing the capitals but leaving three exclamation marks and «buy now».",
+     "opzioni": [],
+     "perche": "The promotion is clear and calm, and recognisably Cinque Foglie.",
+     "aiuto": "",
+     "dove": "[data-testo=\"t2\"]"
+    },
+    {
+     "strumento": "testi",
+     "tipo": "azione",
+     "verifica": "brand_assistenza",
+     "vai": {
+      "link": "/app/simulazioni/brand/testi/",
+      "testo": "Open the Copy"
+     },
+     "negozio": "",
+     "domanda": "Rewrite the customer service reply",
+     "consegna": "Rewrite the standard reply to people asking where their order is.",
+     "spiega": "Customer service replies are brand too. A good reply is warm and direct, acknowledges the wait, says what happens and when, and is signed by a person.",
+     "esempio": "«Hi Marco, I understand the wait. Your parcel left yesterday and will arrive by Thursday. I'll write to you as soon as I see it out for delivery. Anna»",
+     "errore": "Empty phrases like «according to the expected timeframes»: they say nothing.",
+     "opzioni": [],
+     "perche": "The reply now sounds like Cinque Foglie: close, concrete, signed.",
+     "aiuto": "",
+     "dove": "[data-testo=\"t4\"]"
+    },
+    {
+     "strumento": "testi",
+     "tipo": "radio",
+     "domanda": "Why keep the same tone on every channel?",
+     "consegna": "Think about people who come across the brand several times.",
+     "spiega": "A consistent tone makes the brand recognisable and builds trust: readers feel they're always talking to the same «person».",
+     "esempio": "If a friend wrote to you warmly one day and like an office the next, you'd wonder what had happened.",
+     "errore": "",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "It makes the brand recognisable and trustworthy",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "It saves on copywriting",
+       "giusta": false,
+       "nota": "It isn't the main reason."
+      },
+      {
+       "id": "o3",
+       "testo": "It's a legal requirement",
+       "giusta": false,
+       "nota": "There's no law on tone of voice."
+      }
+     ],
+     "perche": "Consistency = recognisability + trust.",
+     "aiuto": "",
+     "dove": ""
+    }
+   ],
+   "imparato": [
+    "The tone of voice is the same on every channel.",
+    "You create interest without shouting.",
+    "Customer service is brand too: warmth, concreteness, a signature."
+   ],
+   "elena": "Much better! I'll put them in the manual as «before and after» examples.",
+   "prepara": {
+    "testi": [
+     "t2",
+     "t4"
+    ]
+   }
+  },
+  {
+   "id": "d1",
+   "livello": 2,
+   "n": 1,
+   "nome": "What people think of us",
+   "tempo": "35 minutes",
+   "strumenti": "Research, Copy",
+   "cosa": "NPS collapses, searches for the name fall: what's a real problem and what isn't.",
+   "situazione": "The board has seen two numbers: NPS has dropped and searches for our name are falling. Someone says the brand is in crisis. Is it true?",
+   "obiettivo": "Understand what's really happening to the brand and fix what depends on us.",
+   "passi": [
+    {
+     "strumento": "ricerche",
+     "tipo": "radio",
+     "domanda": "What's October's NPS?",
+     "consegna": "NPS = % promoters − % detractors.",
+     "spiega": "NPS (Net Promoter Score) asks «How likely are you to recommend Cinque Foglie to a friend, from 0 to 10?». Promoters: 9-10. Passives: 7-8. Detractors: 0-6. NPS = percentage of promoters minus percentage of detractors: it goes from -100 to +100.",
+     "esempio": "70% promoters and 10% detractors: NPS 60.",
+     "errore": "Averaging the scores: NPS isn't an average.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "31 (it was 52 in September)",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "45",
+       "giusta": false,
+       "nota": "45 is the percentage of promoters: the detractors have to be taken off."
+      },
+      {
+       "id": "o3",
+       "testo": "59",
+       "giusta": false,
+       "nota": "Did you add instead of subtracting?"
+      }
+     ],
+     "perche": "45% − 14% = 31. In September it was 60% − 8% = 52.",
+     "aiuto": "",
+     "dove": "[data-nps]"
+    },
+    {
+     "strumento": "ricerche",
+     "tipo": "radio",
+     "domanda": "Why did it fall?",
+     "consegna": "Look at October's detractors' reasons.",
+     "spiega": "Numbers say how much, open answers say why. You group them and look at the most frequent reason.",
+     "esempio": "A restaurant sees its reviews collapse: half are about the wait, not the food.",
+     "errore": "Immediately thinking the problem is communication.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Mainly because of shipping that's late compared with the promise",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Because people don't like the tea any more",
+       "giusta": false,
+       "nota": "Taste is only 9% of the reasons."
+      },
+      {
+       "id": "o3",
+       "testo": "Because the logo is old",
+       "giusta": false,
+       "nota": "Nobody mentions it."
+      }
+     ],
+     "perche": "Almost half the detractors (48%) talk about shipping slower than promised: since October the average is 4.1 days, the website says 24 hours.",
+     "aiuto": "",
+     "dove": "[data-motivi]"
+    },
+    {
+     "strumento": "testi",
+     "tipo": "azione",
+     "verifica": "brand_promessa",
+     "vai": {
+      "link": "/app/simulazioni/brand/testi/",
+      "testo": "Open the Copy"
+     },
+     "negozio": "",
+     "domanda": "Align the website's promise",
+     "consegna": "The line at the top of the home page promises something we don't deliver today. Rewrite it with a true promise.",
+     "spiega": "A brand is a promise kept. If communication promises more than the company does, the disappointment lands on the brand. You promise what you deliver, and meanwhile fix the problem.",
+     "esempio": "A courier that promises «same-day delivery» but delivers in three days loses more trust than one that promises «in 3 days» and keeps to it.",
+     "errore": "Leaving the promise as it is and hoping the warehouse sorts itself out.",
+     "opzioni": [],
+     "perche": "The home page now promises real timeframes: people who order know what to expect.",
+     "aiuto": "Look in the Research at how long shipping takes today.",
+     "dove": "[data-testo=\"t1\"]"
+    },
+    {
+     "strumento": "ricerche",
+     "tipo": "radio",
+     "domanda": "Searches for the name fall 18% from September to October. Is it a problem?",
+     "consegna": "Look at searches for the name month by month, including 2025.",
+     "spiega": "Before talking about a crisis you compare with the same period the year before. Many numbers are seasonal: they rise and fall every year in the same months.",
+     "esempio": "An ice cream maker sees sales falling in September: it happens every year, it isn't a crisis.",
+     "errore": "Comparing only with the previous month.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "No: it happens every year, and compared with October 2025 they're 22% higher",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Yes: awareness is collapsing",
+       "giusta": false,
+       "nota": "October 2026 is higher than October 2025."
+      },
+      {
+       "id": "o3",
+       "testo": "Yes, because NPS has fallen",
+       "giusta": false,
+       "nota": "They're two different things: the drop in searches is seasonal."
+      }
+     ],
+     "perche": "False alarm: after the summer searches fall every year (-16% in 2025), but compared with last year they're growing.",
+     "aiuto": "",
+     "dove": "[data-ricerche-brand]"
+    },
+    {
+     "strumento": "ricerche",
+     "tipo": "radio",
+     "domanda": "What does the awareness survey say?",
+     "consegna": "Compare March and September.",
+     "spiega": "Unaided awareness: how many name the brand without prompts. Aided awareness: how many recognise it in a list. Aided grows first; unaided is harder to move.",
+     "esempio": "Many people recognise an app's name when they see it, few would mention it spontaneously.",
+     "errore": "",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Aided is growing (from 16% to 21%), unaided is stuck at 4%",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Both are falling",
+       "giusta": false,
+       "nota": "Aided is growing."
+      },
+      {
+       "id": "o3",
+       "testo": "Unaided is at 21%",
+       "giusta": false,
+       "nota": "21% is aided."
+      }
+     ],
+     "perche": "More people recognise us, but still very few name us on their own: it's the starting point of the 2027 plan.",
+     "aiuto": "",
+     "dove": "[data-notorieta]"
+    },
+    {
+     "strumento": "guida",
+     "tipo": "testo",
+     "verifica": "brand_reportNotorieta",
+     "domanda": "Reply to the board",
+     "consegna": "Write 3-5 sentences: is the brand in crisis? What's a real problem, what isn't, and what do you propose.",
+     "spiega": "In a report that answers a fear you give the answer straight away, then the numbers, then what to do. You separate what's a problem from what isn't.",
+     "esempio": "«September sales aren't in crisis: they fall every year after the summer and are higher than in 2025. The real problem is returns, up to 12%: we propose…»",
+     "errore": "Putting everything on the same level.",
+     "opzioni": [],
+     "perche": "Example from a senior colleague: «The brand isn't in crisis: searches for the name fall every year after the summer and are 22% higher than in October 2025, and aided awareness has risen to 21%. The real problem is NPS, down from 52 to 31 because of shipping that's late compared with the 24-hour promise. We've already corrected the promise on the website; we propose sorting out delivery times with the warehouse.»",
+     "aiuto": "",
+     "dove": "",
+     "parole": [
+      30,
+      150
+     ]
+    }
+   ],
+   "imparato": [
+    "NPS = % promoters − % detractors.",
+    "Open answers say why.",
+    "A brand is a promise kept.",
+    "You compare with the same period the year before."
+   ],
+   "elena": "A perfect answer for the board: no brand crisis, but a promise to keep. I'll talk to the warehouse.",
+   "prepara": {
+    "testi": [
+     "t1"
+    ]
+   }
+  },
+  {
+   "id": "d2",
+   "livello": 2,
+   "n": 2,
+   "nome": "The «100% sustainable» packaging",
+   "tempo": "30 minutes",
+   "strumenti": "Copy, Research",
+   "cosa": "An environmental claim on the box that can no longer be written from 27 September 2026: correct it with facts.",
+   "situazione": "A customer wrote to us: «You say 100% sustainable but there was bubble wrap in the parcel». And the lawyer says that under the new European rules that sentence is a problem. Can you help me?",
+   "obiettivo": "Replace generic environmental claims with precise, verifiable facts.",
+   "passi": [
+    {
+     "strumento": "testi",
+     "tipo": "radio",
+     "domanda": "Which sentence on the box is a problem?",
+     "consegna": "Read the packaging text.",
+     "spiega": "Generic environmental claims («sustainable», «eco», «green», «zero impact») are banned unless proven: EU directive 2024/825 says so, applied from 27 September 2026. Neutrality claims based only on offsetting emissions are banned too.",
+     "esempio": "An «eco-friendly» bottle becomes «stainless steel bottle, reusable for years».",
+     "errore": "Thinking a true fact is enough to justify a generic word.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "«100% sustainable packaging. Zero-impact shipping.»",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "«Teas and herbal teas, explained simply»",
+       "giusta": false,
+       "nota": "It's the tagline: no environmental claim."
+      },
+      {
+       "id": "o3",
+       "testo": "The organic control body's code",
+       "giusta": false,
+       "nota": "It's required for organic products."
+      }
+     ],
+     "perche": "«100% sustainable» and «zero impact» are generic and unprovable, and «zero impact» relies on offsetting.",
+     "aiuto": "",
+     "dove": "[data-testo=\"t5\"]"
+    },
+    {
+     "strumento": "ricerche",
+     "tipo": "radio",
+     "domanda": "What can really be said about the packaging?",
+     "consegna": "Read the Quality office sheet in the Research.",
+     "spiega": "Instead of a generic word you write precise, verifiable facts about a specific part of the product.",
+     "esempio": "Not «sustainable dress» but «certified organic cotton, dyes free of heavy metals».",
+     "errore": "",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "That the tin is recyclable aluminium and the inner bag is certified compostable",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "That the whole parcel is plastic-free",
+       "giusta": false,
+       "nota": "Since October there's bubble wrap."
+      },
+      {
+       "id": "o3",
+       "testo": "That shipping doesn't pollute",
+       "giusta": false,
+       "nota": "Emissions are offset, not eliminated."
+      }
+     ],
+     "perche": "Recyclable tin, EN 13432 compostable bag, 80% recycled cardboard box: precise facts.",
+     "aiuto": "",
+     "dove": "[data-scheda-packaging]"
+    },
+    {
+     "strumento": "testi",
+     "tipo": "azione",
+     "verifica": "brand_packaging",
+     "vai": {
+      "link": "/app/simulazioni/brand/testi/",
+      "testo": "Open the Copy"
+     },
+     "negozio": "",
+     "domanda": "Rewrite the packaging line",
+     "consegna": "Rewrite the line on the back of the box using only facts from the quality office sheet.",
+     "spiega": "A good environmental claim says which part (the tin, the bag), what (recyclable, compostable), and with what proof (certification or percentage). It can explain how to dispose of it.",
+     "esempio": "«Bottle made of 50% recycled plastic. Cap recyclable with plastics.»",
+     "errore": "Removing «100%» and leaving «sustainable».",
+     "opzioni": [],
+     "perche": "The box now states true, useful facts: the customer also knows where to throw away each part.",
+     "aiuto": "",
+     "dove": "[data-testo=\"t5\"]"
+    },
+    {
+     "strumento": "testi",
+     "tipo": "radio",
+     "domanda": "We offset emissions with a tree project. Can we write «zero-impact shipping»?",
+     "consegna": "Think about what offsetting means.",
+     "spiega": "Offsetting means funding a project elsewhere, not eliminating the shipping emissions. The new European rules ban saying a product has a neutral or zero impact only thanks to offsetting.",
+     "esempio": "An airline that plants trees can't say the flight is «zero impact».",
+     "errore": "",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "No: the emissions are there, they're just offset elsewhere",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Yes, if there are enough trees",
+       "giusta": false,
+       "nota": "The rule bans exactly this kind of claim."
+      },
+      {
+       "id": "o3",
+       "testo": "Yes, if we write it in small print",
+       "giusta": false,
+       "nota": "The size of the text changes nothing."
+      }
+     ],
+     "perche": "You can talk about the offsetting project, but not say «zero impact».",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "ricerche",
+     "tipo": "radio",
+     "domanda": "The label says «organic». Does that have to go too?",
+     "consegna": "Look at the quality office sheet.",
+     "spiega": "Not every «green» word is a problem: «organic» is a term regulated by EU law (regulation 2018/848) and can be used if the product is certified, with the control body's code.",
+     "esempio": "A certified organic wine can say so on the label; a «natural» wine without certification can't.",
+     "errore": "Removing certified words too, out of fear.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Yes, it's a generic environmental claim",
+       "giusta": false,
+       "nota": "It's a regulated, certified term."
+      },
+      {
+       "id": "o2",
+       "testo": "No: it's certified under EU regulation 2018/848",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Yes, until we change the packaging",
+       "giusta": false,
+       "nota": "The certification is already there."
+      }
+     ],
+     "perche": "False alarm: «organic» is certified and can be used.",
+     "aiuto": "",
+     "dove": "[data-scheda-packaging]"
+    }
+   ],
+   "imparato": [
+    "Generic words like «sustainable» or «zero impact» aren't used without proof.",
+    "You write precise facts: which part, what, what proof.",
+    "Offsetting doesn't mean «zero impact».",
+    "Certified «organic» can be used."
+   ],
+   "elena": "The lawyer approved the new sentence. And the bubble wrap customer appreciated the honesty.",
+   "prepara": {
+    "testi": [
+     "t5"
+    ]
+   }
+  },
+  {
+   "id": "c1",
+   "livello": 3,
+   "n": 1,
+   "nome": "The 2027 brand strategy",
+   "tempo": "40 minutes",
+   "strumenti": "Research, Brand plan",
+   "cosa": "Goal, audience, message, channels and KPIs on one page, to present to management.",
+   "situazione": "In December I'm presenting the 2027 brand strategy to management. Can you prepare the plan page? It must fit on one page and start from the data.",
+   "obiettivo": "Build the 2027 brand plan and summarise it for management.",
+   "passi": [
+    {
+     "strumento": "ricerche",
+     "tipo": "radio",
+     "domanda": "Which goal is well written?",
+     "consegna": "A goal must be measurable and have a deadline.",
+     "spiega": "A SMART goal is specific, measurable, achievable, relevant and time-bound. For the brand you start from today's numbers (unaided awareness 4%).",
+     "esempio": "Not «become more famous», but «raise unaided awareness from 10% to 14% among urban cyclists by December».",
+     "errore": "Writing goals that can't be measured.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Raise unaided awareness from 4% to 7% among tea drinkers, by December 2027",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Become the most loved tea brand in Italy",
+       "giusta": false,
+       "nota": "It can't be measured and has no deadline."
+      },
+      {
+       "id": "o3",
+       "testo": "Have more followers",
+       "giusta": false,
+       "nota": "It doesn't say how many, by when, or whether it serves the brand goal."
+      }
+     ],
+     "perche": "Starting number, target number, audience, deadline.",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "piano",
+     "tipo": "azione",
+     "verifica": "brand_piano",
+     "vai": {
+      "link": "/app/simulazioni/brand/piano/",
+      "testo": "Open the Plan"
+     },
+     "negozio": "",
+     "domanda": "Fill in the brand plan",
+     "consegna": "In the Brand plan fill in goal, audience, key message, channels and KPIs.",
+     "spiega": "The plan connects everything: the goal (with numbers and a deadline), the positioning's audience, a message consistent with the brand's difference, a few channels chosen for that audience, and KPIs that measure exactly the goal.",
+     "esempio": "Goal: unaided awareness from 10% to 14% by December. KPIs: unaided awareness, searches for the name. Channels: trade podcasts, events, creators.",
+     "errore": "Choosing every channel and every KPI: the plan no longer chooses anything.",
+     "opzioni": [],
+     "perche": "The plan fits on one page and every part is connected to the others.",
+     "aiuto": "",
+     "dove": "[data-piano]"
+    },
+    {
+     "strumento": "piano",
+     "tipo": "radio",
+     "domanda": "Which KPI on its own doesn't say whether awareness is growing?",
+     "consegna": "Think about what each KPI measures.",
+     "spiega": "A vanity metric is a number that's nice to see go up but doesn't say whether the goal is getting closer.",
+     "esempio": "For a language school, views of a funny video don't say whether enrolments are growing.",
+     "errore": "",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Likes on posts",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Unaided awareness",
+       "giusta": false,
+       "nota": "It's exactly the goal."
+      },
+      {
+       "id": "o3",
+       "testo": "Searches for the shop's name",
+       "giusta": false,
+       "nota": "They're a good indirect sign of awareness."
+      }
+     ],
+     "perche": "Likes measure the reaction to a post, not how many people know the brand.",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "piano",
+     "tipo": "radio",
+     "domanda": "When presenting to management, where do you start?",
+     "consegna": "Think about people with little time.",
+     "spiega": "For decision-makers you use the pyramid: first the conclusion and the request, then the reasons, then the details. The audience knows straight away what they have to decide.",
+     "esempio": "«We're asking for €20,000 to raise awareness from 10% to 14%. Here's why…»",
+     "errore": "Starting from the story of how the work was done.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "From the goal and what you're asking for, then the reasons",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "From the brand's history since 2019",
+       "giusta": false,
+       "nota": "Interesting, but it doesn't help decide."
+      },
+      {
+       "id": "o3",
+       "testo": "From the list of all the data collected",
+       "giusta": false,
+       "nota": "The data serves as proof, afterwards."
+      }
+     ],
+     "perche": "Conclusion and request first, then the whys.",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "guida",
+     "tipo": "testo",
+     "verifica": "brand_sintesiPiano",
+     "domanda": "Write the summary for management",
+     "consegna": "Write 3-5 sentences that open the presentation: goal, how we get there, how we measure it.",
+     "spiega": "The summary is the first thing management reads: it must stand on its own.",
+     "esempio": "«In 2027 we want to raise unaided awareness from 10% to 14% among urban cyclists. We're focusing on podcasts and city events. We measure with the June and December survey and with searches for the name.»",
+     "errore": "Repeating the plan field by field.",
+     "opzioni": [],
+     "perche": "Example from a senior colleague: «In 2027 we want to raise Cinque Foglie's unaided awareness from 4% to 7% among tea drinkers, by December. We speak to everyday tea enthusiasts with a single message: organic tea explained simply. We're focusing on the press office, social media and partnerships with creators. We measure with the June and December survey, searches for the name and NPS.»",
+     "aiuto": "",
+     "dove": "",
+     "parole": [
+      30,
+      150
+     ]
+    }
+   ],
+   "imparato": [
+    "SMART goal: from how much to how much, for whom, by when.",
+    "A few channels chosen for the audience.",
+    "KPIs that measure the goal, not vanity metrics.",
+    "To management: conclusion and request first."
+   ],
+   "elena": "Management approved the plan. And asked who wrote it!",
+   "prepara": {
+    "piano": true
+   }
+  },
+  {
+   "id": "c2",
+   "livello": 3,
+   "n": 2,
+   "nome": "Press: the calendar and a journalist",
+   "tempo": "40 minutes",
+   "strumenti": "Press office",
+   "cosa": "A press release for the advent calendar, who to send it to, and a reply to a journalist during the crisis.",
+   "situazione": "Two things for the press office: the release for the advent calendar, which comes out on 2 November. And Paolo Neri from Foglie & Tazze is asking us about the broken kits: he wants an answer by 5 pm.",
+   "obiettivo": "Write and send the press release and reply to the journalist correctly.",
+   "passi": [
+    {
+     "strumento": "stampa",
+     "tipo": "radio",
+     "domanda": "What makes the calendar news?",
+     "consegna": "Read the facts about the calendar in the Press office.",
+     "spiega": "A journalist doesn't publish advertising: they look for news. You highlight what's new, concrete and interesting for their readers (numbers, people, a local story).",
+     "esempio": "«A bakery opens» isn't news; «a bakery relights the 1920 wood-fired oven closed for 40 years» is.",
+     "errore": "Filling the release with adjectives («beautiful», «unique»).",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "24 teas from 8 small growers in 6 countries, illustrated by an artist from Verona",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "That it's the most beautiful calendar ever",
+       "giusta": false,
+       "nota": "It's an opinion, not news."
+      },
+      {
+       "id": "o3",
+       "testo": "That it costs €34.90",
+       "giusta": false,
+       "nota": "The price must be written, but it isn't the news."
+      }
+     ],
+     "perche": "Concrete numbers, small growers and a local artist: that's what a journalist can tell.",
+     "aiuto": "",
+     "dove": "[data-fatti-calendario]"
+    },
+    {
+     "strumento": "stampa",
+     "tipo": "azione",
+     "verifica": "brand_comunicato",
+     "vai": {
+      "link": "/app/simulazioni/brand/stampa/",
+      "testo": "Open the Press office"
+     },
+     "negozio": "",
+     "domanda": "Write the press release",
+     "consegna": "In the Press release tab write the release's headline, subheading, text and press contacts.",
+     "spiega": "The release has an informative headline, a first paragraph answering who, what, when, where and why, then the details, a quote from someone in the company and at the end the press contacts. One page at most.",
+     "esempio": "Headline: «Rossi bakery relights its 1920 wood-fired oven». First paragraph: who, what, when, where. Quote from the owner. Contacts.",
+     "errore": "Putting the news at the end after the company's history.",
+     "opzioni": [],
+     "perche": "The release can be understood from the headline and first paragraph alone.",
+     "aiuto": "",
+     "dove": "[data-comunicato]"
+    },
+    {
+     "strumento": "stampa",
+     "tipo": "azione",
+     "verifica": "brand_destinatari",
+     "vai": {
+      "link": "/app/simulazioni/brand/stampa/#giornalisti",
+      "testo": "Open the Journalists"
+     },
+     "negozio": "",
+     "domanda": "Choose who to send it to",
+     "consegna": "In the Journalists tab choose who to send the release to.",
+     "spiega": "You send it only to people who cover the release's topics: an off-topic release loses credibility. And people who asked to stop receiving releases aren't contacted: it's their right (under the GDPR too).",
+     "esempio": "A publisher sends the release about a cookbook to food journalists, not sports ones.",
+     "errore": "Sending it to everyone «since it costs nothing anyway».",
+     "opzioni": [],
+     "perche": "The release reaches only people who may be interested, and nobody receives it against their will.",
+     "aiuto": "",
+     "dove": "[data-giornalisti]"
+    },
+    {
+     "strumento": "stampa",
+     "tipo": "radio",
+     "domanda": "When do you send it?",
+     "consegna": "The calendar comes out on 2 November.",
+     "spiega": "Usually the release is sent a few days before with an embargo: journalists get it in advance to prepare the piece, but can only publish from the date and time given.",
+     "esempio": "An app sends its release on Monday «under embargo until Thursday at 9», the launch day.",
+     "errore": "",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "A few days before, with an embargo until 2 November",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "On 24 December",
+       "giusta": false,
+       "nota": "Too late: the calendar is needed from 1 December."
+      },
+      {
+       "id": "o3",
+       "testo": "Two months before, without an embargo",
+       "giusta": false,
+       "nota": "Too early: it risks coming out before the launch or being forgotten."
+      }
+     ],
+     "perche": "Embargo: early access for writers, everyone publishes together on launch day.",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "stampa",
+     "tipo": "azione",
+     "verifica": "brand_rispostaGiornalista",
+     "vai": {
+      "link": "/app/simulazioni/brand/stampa/#richieste",
+      "testo": "Open the Requests"
+     },
+     "negozio": "",
+     "domanda": "Reply to Paolo Neri",
+     "consegna": "In the Requests tab reply to Paolo Neri's question about the matcha kits, using the internal note.",
+     "spiega": "With a journalist during a crisis: you reply in time, with verified facts (how many, what happened), you say what's being done and say who to contact. No «no comment», no blaming others, no guesses.",
+     "esempio": "«We confirm that 30 of yesterday's orders arrived damaged. We've already resent the products and changed the packaging. For further questions: Anna Verdi, 333 000 0000.»",
+     "errore": "Replying «no comment» or not replying: the piece will come out anyway, without your version.",
+     "opzioni": [],
+     "perche": "Paolo has the facts, the remedy and a contact: the piece will also tell how you reacted.",
+     "aiuto": "",
+     "dove": "[data-richiesta=\"r1\"]"
+    },
+    {
+     "strumento": "stampa",
+     "tipo": "radio",
+     "domanda": "On the phone Paolo says: «This stays between us». What do you do?",
+     "consegna": "Think about how you talk to the press.",
+     "spiega": "With a journalist there's really no «between us»: you always speak as if everything could be published. Off-the-record rules must be agreed beforehand, and aren't always respected.",
+     "esempio": "A spokesperson makes a joke «you won't write that anyway» and finds it in the headline.",
+     "errore": "",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "I speak as if everything could be published",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "I also tell him my guesses about the courier",
+       "giusta": false,
+       "nota": "If they come out, they become the news."
+      },
+      {
+       "id": "o3",
+       "testo": "I tell him things that differ from the release, since he won't write them",
+       "giusta": false,
+       "nota": "Two different versions lose credibility."
+      }
+     ],
+     "perche": "Golden rule: nothing is off the record.",
+     "aiuto": "",
+     "dove": ""
+    }
+   ],
+   "imparato": [
+    "A press release tells news, not an opinion.",
+    "You send it only to relevant people and not to those who asked not to receive it.",
+    "Embargo: early access for writers, publication together.",
+    "In a crisis: facts, remedy, contact; no «no comment»."
+   ],
+   "elena": "Foglie & Tazze wrote «quick, transparent reply»: it couldn't have gone better.",
+   "prepara": {
+    "comunicato": true,
+    "destinatari": true,
+    "risposte": [
+     "r1"
+    ]
+   }
+  }
+ ]
+}

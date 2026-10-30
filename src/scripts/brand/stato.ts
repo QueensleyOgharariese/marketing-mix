@@ -1,6 +1,10 @@
 // SIMULAZIONE BRAND: le modifiche fatte da chi gioca (manuale, testi, piano, ufficio stampa).
 // Come per le altre simulazioni: tutto resta in questo browser (localStorage) e tutti gli strumenti leggono da qui.
-import TESTI from "../../data/app/brand-sim/testi.json";
+import TESTI_IT from "../../data/app/brand-sim/testi.json";
+import TESTI_EN from "../../data/app/brand-sim/testi.en.json";
+import { scegli } from "../lingua";
+// I testi nella lingua della pagina (il gemello inglese ha gli stessi id)
+export const TESTI = scegli(TESTI_IT, TESTI_EN as typeof TESTI_IT);
 
 const CHIAVE = "marketing-mix-brand-modifiche";
 export type Posizionamento = { perChi: string; categoria: string; differenza: string; prova: string };

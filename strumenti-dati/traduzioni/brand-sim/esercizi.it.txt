@@ -1,0 +1,401 @@
+1|Tutorial
+2|Come funzionano gli strumenti del brand.
+3|Basi
+4|Un concetto alla volta. «Come funziona» è già aperto e l'indizio è sempre disponibile.
+5|Diagnosi
+6|Problemi mescolati, anche falsi allarmi. «Come funziona» lo apri tu.
+7|Casi
+8|Nessun indizio: solo dati e teoria. La strategia 2027 e l'ufficio stampa.
+9|Tutorial: come funziona
+10|8 minuti
+11|Manuale del brand
+12|Dove sono le cose e come si salva e si controlla una modifica.
+13|Ciao, sono Irene e curo il brand di Cinque Foglie. Prima di iniziare ti mostro dove teniamo tutto: dieci minuti e sei operativa.
+14|Impara a muoverti tra manuale, ricerche, testi, piano e ufficio stampa e a salvare una modifica.
+15|Come è fatta la scrivania
+16|Lavori sul brand di Cinque Foglie, un negozio online di tè inventato. Lo schermo ha tre zone.
+17|<strong>A sinistra il menu</strong> (sul telefono è in alto): il manuale del brand, le ricerche sul brand, i testi, il piano di brand e l'ufficio stampa.
+18|<strong>Al centro</strong> lo strumento aperto.
+19|<strong>A destra questa guida</strong>: in alto il compito, sotto le risposte. Le schede <strong>Come funziona</strong>, <strong>Teoria</strong> e <strong>Indizio</strong> ti aiutano quando serve; il bottone per controllare è sempre in fondo.
+20|Persone, testate e numeri sono inventati, ma coerenti tra uno strumento e l'altro.
+21|Qual è uno dei valori di Cinque Foglie?
+22|Leggi la sezione Valori del Manuale.
+23|Il manuale del brand raccoglie chi è il brand: missione, valori, tono di voce, logo e colori. Serve perché chiunque scriva o disegni per il brand lo faccia nello stesso modo.
+24|Il manuale di una catena di librerie dice: «Parliamo di libri come un amico che consiglia, mai come un professore».
+25|Prezzi più bassi di tutti
+26|Non è tra i valori, e non sarebbe nemmeno vero.
+27|Chiarezza
+28|Lusso
+29|Il manuale dice il contrario: niente snob.
+30|Chiarezza, rispetto per chi coltiva e curiosità: i tre valori su cui si basa tutto il resto.
+31|Apri il Manuale
+32|Salva la tua prima modifica
+33|Nel Manuale scrivi nel campo Payoff la frase «Tè e tisane, spiegati semplici». Poi salva.
+34|Il payoff è la frase breve che accompagna il nome del brand (per esempio sotto il logo). Nel Manuale lo scrivi e premi Salva: da quel momento è la frase ufficiale.
+35|Il payoff di un'azienda di biciclette inventata: «Pedala la tua città».
+36|Hai salvato una modifica e l'hai controllata: negli esercizi si lavora sempre così.
+37|Il campo Payoff è in alto nel Manuale.
+38|Punti, livelli e come scegliere
+39|Ultime regole, poi si parte dalle Basi.
+40|Tre livelli: <strong>Basi</strong>, <strong>Diagnosi</strong> e <strong>Casi</strong>. Ogni esercizio è un piccolo progetto fatto di mini esercizi.
+41|<strong>Come funziona</strong> spiega lo strumento, non la risposta. <strong>Teoria</strong> è gratis. <strong>Indizio</strong> costa 5 punti.
+42|La guida cala salendo di livello: nelle Basi «Come funziona» è già aperto, in Diagnosi lo apri tu, nei Casi ci sono solo teoria e dati.
+43|Ogni esercizio parte da 100 punti: una risposta sbagliata toglie 10 punti. Quando scrivi o modifichi puoi riprovare senza perdere punti.
+44|Il manuale raccoglie missione, valori, tono, logo e colori.
+45|Il payoff accompagna il nome del brand.
+46|Dopo ogni modifica si controlla.
+47|Perfetto, ora sai dove sono le cose. Si parte dalle Basi.
+48|Il posizionamento
+49|30 minuti
+50|Ricerche, Manuale
+51|Per chi è Cinque Foglie, contro chi compete e cosa la rende diversa: la frase di posizionamento.
+52|Nel manuale manca la cosa più importante: il posizionamento. Ognuno in azienda lo racconta a modo suo. Me lo scrivi, partendo dai dati?
+53|Scrivere il posizionamento di Cinque Foglie partendo da clienti e concorrenti.
+54|Chi sono i clienti più importanti di Cinque Foglie?
+55|Guarda i Segmenti di clienti nelle Ricerche.
+56|Il posizionamento parte da un pubblico preciso. Non si sceglie «tutti»: si sceglie il gruppo più grande o più importante, quello per cui il brand vuole essere la prima scelta.
+57|Una palestra sceglie «chi lavora in ufficio e ha 45 minuti in pausa pranzo», non «chi vuole stare in forma».
+58|Volere parlare a tutti: alla fine il messaggio non arriva a nessuno.
+59|I curiosi del tè di ogni giorno, 25-40 anni
+60|Gli esperti appassionati
+61|Sono il 18%: importanti, ma non il gruppo principale.
+62|Tutti quelli che bevono tè
+63|Troppo largo: il posizionamento sceglie.
+64|Quasi metà dei clienti (46%) beve tè ogni giorno e vuole capire cosa compra.
+65|Quale spazio lasciano liberi i concorrenti?
+66|Confronta le righe della tabella dei Concorrenti.
+67|Si cerca una posizione che i concorrenti non occupano e che conta per il pubblico scelto. La tabella dei concorrenti mette le differenze una accanto all'altra.
+68|Tra pizzerie economiche e ristoranti stellati, una pizzeria sceglie «ingredienti di qualità spiegati nel menu, a prezzo normale».
+69|Scegliere una differenza che non interessa al pubblico (per esempio il colore del sito).
+70|Tè biologico spiegato in modo semplice, a prezzo medio
+71|Il prezzo più basso
+72|Lo occupano già la grande catena e il marketplace.
+73|Tè rari per esperti
+74|È il territorio della boutique, e non è il pubblico principale.
+75|La catena e il marketplace spiegano poco, la boutique parla agli esperti: nessuno spiega in modo semplice il tè biologico.
+76|Scrivi il posizionamento
+77|Nel Manuale compila i quattro campi del Posizionamento: per chi, che cosa (categoria), cosa ci rende diversi e perché crederci (una prova).
+78|Una formula semplice: Per [pubblico], [brand] è [categoria] che [differenza], perché [prova concreta]. La prova (reason to believe) è un fatto verificabile, non un aggettivo.
+79|Per chi va al lavoro in bici in città, Pedalo è la bici pieghevole che sta sotto la scrivania, perché si chiude in 10 secondi e pesa 9 kg.
+80|Scrivere «il migliore» o «di qualità» come differenza: non distingue nessuno e non si può dimostrare.
+81|Il posizionamento ora dice per chi è Cinque Foglie, cosa offre di diverso e perché crederci.
+82|Usa i dati: il segmento più grande, lo spazio libero tra i concorrenti, un fatto come «guide per ogni tè» o «tutto certificato biologico».
+83|Come capisci se un posizionamento è abbastanza preciso?
+84|Pensa ai concorrenti.
+85|Un buon test: se la stessa frase potesse scriverla un concorrente, non è un posizionamento, è una descrizione generica.
+86|«Vendiamo scarpe comode» lo dicono tutti; «scarpe da camminata per chi sta in piedi 8 ore al lavoro» no.
+87|Se un concorrente non potrebbe scrivere la stessa frase
+88|Se contiene molti aggettivi positivi
+89|Gli aggettivi rendono la frase più generica, non più precisa.
+90|Se è lunga almeno una pagina
+91|Il posizionamento sta in una frase.
+92|Se la grande catena potrebbe firmarla, la frase va ristretta.
+93|Cos'è una «prova» (reason to believe)?
+94|Rileggi il campo «Perché crederci».
+95|La prova è un fatto che rende credibile la differenza: un numero, una certificazione, qualcosa che si può verificare.
+96|«Consegna in 30 minuti» diventa credibile con «12 punti di consegna in città».
+97|Un fatto verificabile, come «tutti i tè sono biologici certificati»
+98|Una promessa, come «ti piacerà di sicuro»
+99|È una promessa, non una prova.
+100|Uno slogan, come «il tè più buono»
+101|Non si può verificare.
+102|Una prova si può controllare: certificazioni, numeri, guide per ogni tè.
+103|Il posizionamento sceglie un pubblico preciso.
+104|Si cerca lo spazio libero tra i concorrenti.
+105|Formula: per chi, che cosa, cosa ci rende diversi, perché crederci.
+106|Se lo potrebbe scrivere un concorrente, non è un posizionamento.
+107|Finalmente lo diciamo tutti nello stesso modo. Lo presento lunedì al team.
+108|Il tono di voce
+109|Manuale, Testi
+110|Cinque testi scritti da persone diverse: quali rispettano il tono di voce e come sistemare gli altri.
+111|Il cliente legge la home, poi una nostra email, poi una risposta dell'assistenza: sembrano tre aziende diverse. Mi aiuti a rimetterli in riga?
+112|Riconoscere i testi fuori tono e riscriverli seguendo il manuale.
+113|Come parla Cinque Foglie?
+114|Leggi il Tono di voce nel Manuale.
+115|Il tono di voce è il modo di parlare del brand: le parole che usa, quanto è formale, come tratta chi legge. Resta lo stesso su tutti i canali, cambia solo un po' l'intensità.
+116|Una banca online parla in modo chiaro e rassicurante sia nell'app sia nelle email di sollecito.
+117|Cambiare personalità da un canale all'altro.
+118|Amichevole ma competente, semplice, senza urlare, dando del tu
+119|Formale e tecnico, dando del lei
+120|È il contrario di quello che dice il manuale.
+121|Entusiasta, con tante maiuscole e punti esclamativi
+122|Il manuale vieta le urla e la fretta finta.
+123|Amichevoli ma competenti, semplici, calmi, sempre il tu.
+124|Quali testi sono fuori tono?
+125|Confronta ogni testo con le regole del Manuale. Puoi scegliere più risposte.
+126|Per controllare un testo si confronta con le regole del tono: tu o lei, maiuscole, frasi semplici, calma.
+127|Considerare fuori tono un'emoji sui social: il manuale lo permette.
+128|L'email della promozione
+129|La risposta standard dell'assistenza
+130|La bio dei social
+131|Un'emoji sui social è ammessa dal manuale.
+132|La descrizione del Sencha
+133|È semplice, dà del tu, è calma: è in tono.
+134|L'email urla (maiuscole e «!!!») e l'assistenza è fredda e dà del lei.
+135|Apri i Testi
+136|Riscrivi l'email della promozione
+137|Riscrivi oggetto e prima riga dell'email: stessa offerta (-15% solo oggi), nel tono di Cinque Foglie.
+138|Si può creare interesse senza urlare: si dice il vantaggio concreto, con calma, e si invita a fare qualcosa. Niente fretta finta: se l'offerta dura un giorno, lo si dice e basta.
+139|Invece di «SALDI PAZZESCHI!!!»: «Fino a domenica le giacche costano il 30% in meno».
+140|Togliere le maiuscole ma lasciare tre punti esclamativi e «compra subito».
+141|La promozione è chiara e calma, ed è riconoscibile come Cinque Foglie.
+142|Riscrivi la risposta dell'assistenza
+143|Riscrivi la risposta standard a chi chiede dov'è il suo ordine.
+144|Anche le risposte dell'assistenza sono brand. Una buona risposta dà del tu, riconosce l'attesa, dice cosa succede e quando, ed è firmata da una persona.
+145|«Ciao Marco, capisco l'attesa. Il tuo pacco è partito ieri e arriva entro giovedì. Ti scrivo appena lo vedo in consegna. Anna»
+146|Frasi vuote come «secondo le tempistiche previste»: non dicono niente.
+147|La risposta ora suona come Cinque Foglie: vicina, concreta, firmata.
+148|Perché tenere lo stesso tono su tutti i canali?
+149|Pensa a chi incontra il brand più volte.
+150|Un tono coerente rende il brand riconoscibile e fa fidare: chi legge sente di parlare sempre con la stessa «persona».
+151|Se un amico ti scrivesse un giorno in modo affettuoso e il giorno dopo come un ufficio, ti chiederesti cosa è successo.
+152|Rende il brand riconoscibile e affidabile
+153|Fa risparmiare sui testi
+154|Non è il motivo principale.
+155|È un obbligo di legge
+156|Non c'è nessuna legge sul tono di voce.
+157|Coerenza = riconoscibilità + fiducia.
+158|Il tono di voce è lo stesso su tutti i canali.
+159|Si crea interesse senza urlare.
+160|Anche l'assistenza è brand: tu, concretezza, una firma.
+161|Molto meglio! Le metto nel manuale come esempi «prima e dopo».
+162|Cosa pensano di noi
+163|35 minuti
+164|Ricerche, Testi
+165|Il NPS crolla, le ricerche del nome calano: cosa è un problema vero e cosa no.
+166|Il consiglio di amministrazione ha visto due numeri: il NPS è sceso e le ricerche del nostro nome calano. Qualcuno dice che il brand è in crisi. È vero?
+167|Capire cosa sta succedendo davvero al brand e correggere quello che dipende da noi.
+168|Qual è il NPS di ottobre?
+169|NPS = % promotori − % detrattori.
+170|Il NPS (Net Promoter Score) chiede «Quanto consiglieresti Cinque Foglie a un amico, da 0 a 10?». Promotori: 9-10. Passivi: 7-8. Detrattori: 0-6. NPS = percentuale di promotori meno percentuale di detrattori: va da -100 a +100.
+171|70% promotori e 10% detrattori: NPS 60.
+172|Fare la media dei voti: il NPS non è una media.
+173|31 (era 52 a settembre)
+174|45 è la percentuale di promotori: va tolta quella dei detrattori.
+175|Hai sommato invece di sottrarre?
+176|45% − 14% = 31. A settembre era 60% − 8% = 52.
+177|Perché è sceso?
+178|Guarda i motivi dei detrattori di ottobre.
+179|I numeri dicono quanto, le risposte aperte dicono perché. Si raggruppano e si guarda il motivo più frequente.
+180|Un ristorante vede crollare le recensioni: metà parlano dell'attesa, non del cibo.
+181|Pensare subito che il problema sia la comunicazione.
+182|Soprattutto per le spedizioni in ritardo rispetto alla promessa
+183|Perché il tè non piace più
+184|Il gusto è solo il 9% dei motivi.
+185|Perché il logo è vecchio
+186|Nessuno ne parla.
+187|Quasi la metà dei detrattori (48%) parla di spedizioni più lente di quanto promesso: da ottobre la media è 4,1 giorni, il sito dice 24 ore.
+188|Allinea la promessa del sito
+189|La frase in alto nella home promette una cosa che oggi non manteniamo. Riscrivila con una promessa vera.
+190|Un brand è una promessa mantenuta. Se la comunicazione promette più di quello che l'azienda fa, la delusione si scarica sul brand. Si promette quello che si mantiene, e intanto si sistema il problema.
+191|Un corriere che promette «consegna in giornata» ma consegna in tre giorni perde più fiducia di uno che promette «in 3 giorni» e li rispetta.
+192|Lasciare la promessa e sperare che il magazzino si sistemi da solo.
+193|La home ora promette tempi veri: chi ordina sa cosa aspettarsi.
+194|Guarda nelle Ricerche quanto ci mettono oggi le spedizioni.
+195|Le ricerche del nome calano del 18% da settembre a ottobre. È un problema?
+196|Guarda le ricerche del nome mese per mese, anche nel 2025.
+197|Prima di parlare di crisi si confronta con lo stesso periodo dell'anno prima. Molti numeri hanno una stagionalità: salgono e scendono ogni anno negli stessi mesi.
+198|Un gelataio vede le vendite calare a settembre: succede ogni anno, non è una crisi.
+199|Confrontare solo con il mese prima.
+200|No: succede ogni anno, e rispetto a ottobre 2025 sono più alte del 22%
+201|Sì: la notorietà sta crollando
+202|Ottobre 2026 è più alto di ottobre 2025.
+203|Sì, perché il NPS è sceso
+204|Sono due cose diverse: il calo delle ricerche è stagionale.
+205|Falso allarme: dopo l'estate le ricerche calano tutti gli anni (-16% nel 2025), ma rispetto all'anno scorso crescono.
+206|Cosa dice il sondaggio sulla notorietà?
+207|Confronta marzo e settembre.
+208|Notorietà spontanea: quanti nominano il brand senza suggerimenti. Notorietà guidata: quanti lo riconoscono in un elenco. La guidata cresce prima; la spontanea è più difficile da muovere.
+209|Molti riconoscono il nome di un'app quando lo vedono, pochi lo direbbero spontaneamente.
+210|La guidata cresce (dal 16% al 21%), la spontanea è ferma al 4%
+211|Calano tutte e due
+212|La guidata cresce.
+213|La spontanea è al 21%
+214|21% è la guidata.
+215|Più persone ci riconoscono, ma ancora pochissime ci nominano da sole: è il punto di partenza del piano 2027.
+216|Rispondi al consiglio di amministrazione
+217|Scrivi 3-5 frasi: il brand è in crisi? Cosa è un problema vero, cosa no, e cosa proponi.
+218|In un report che risponde a una paura si dà subito la risposta, poi i numeri, poi cosa fare. Si separa quello che è un problema da quello che non lo è.
+219|«Le vendite di settembre non sono in crisi: calano ogni anno dopo l'estate e sono più alte del 2025. Il problema vero è il reso, salito al 12%: proponiamo…»
+220|Mettere tutto sullo stesso piano.
+221|Esempio di una collega senior: «Il brand non è in crisi: le ricerche del nome calano ogni anno dopo l'estate e sono più alte del 22% rispetto a ottobre 2025, e la notorietà guidata è salita al 21%. Il problema vero è il NPS, sceso da 52 a 31 per le spedizioni in ritardo rispetto alla promessa delle 24 ore. Abbiamo già corretto la promessa sul sito; proponiamo di risolvere i tempi con il magazzino.»
+222|Le risposte aperte dicono il perché.
+223|Un brand è una promessa mantenuta.
+224|Si confronta con lo stesso periodo dell'anno prima.
+225|Risposta perfetta per il CdA: nessuna crisi di brand, ma una promessa da mantenere. Parlo io con il magazzino.
+226|Il packaging «100% sostenibile»
+227|Testi, Ricerche
+228|Una frase ambientale sulla scatola che dal 27 settembre 2026 non si può più scrivere: correggerla con i fatti.
+229|Una cliente ci ha scritto: «Dite 100% sostenibile ma nel pacco c'era il pluriball». E l'avvocato dice che con le nuove regole europee quella frase è un problema. Mi aiuti?
+230|Sostituire le affermazioni ambientali generiche con fatti precisi e verificabili.
+231|Quale frase sulla scatola è un problema?
+232|Leggi il testo del packaging.
+233|Le affermazioni ambientali generiche («sostenibile», «eco», «green», «a impatto zero») sono vietate se non dimostrate: lo dice la direttiva UE 2024/825, applicata dal 27 settembre 2026. Vietate anche le affermazioni di neutralità basate solo sulla compensazione delle emissioni.
+234|Una borraccia «eco-friendly» diventa «borraccia in acciaio inox, riutilizzabile per anni».
+235|Pensare che basti un dato vero per giustificare una parola generica.
+236|«Confezione 100% sostenibile. Spedizioni a impatto zero.»
+237|«Tè e tisane, spiegati semplici»
+238|È il payoff: nessuna affermazione ambientale.
+239|Il codice dell'organismo di controllo biologico
+240|È obbligatorio per i prodotti biologici.
+241|«100% sostenibile» e «impatto zero» sono generiche e non dimostrabili, e «impatto zero» si basa sulla compensazione.
+242|Cosa si può dire davvero del packaging?
+243|Leggi la Scheda dell'ufficio qualità nelle Ricerche.
+244|Al posto di una parola generica si scrivono fatti precisi e verificabili, su una parte specifica del prodotto.
+245|Non «abito sostenibile» ma «cotone biologico certificato, tinture senza metalli pesanti».
+246|Che la latta è in alluminio riciclabile e la busta interna è compostabile certificata
+247|Che tutto il pacco è senza plastica
+248|Da ottobre c'è il pluriball.
+249|Che le spedizioni non inquinano
+250|Le emissioni sono compensate, non eliminate.
+251|Latta riciclabile, busta compostabile EN 13432, scatola in cartone riciclato all'80%: fatti precisi.
+252|Riscrivi la frase del packaging
+253|Riscrivi la frase sul retro della scatola usando solo fatti della scheda dell'ufficio qualità.
+254|Una buona dichiarazione ambientale dice su quale parte (la latta, la busta), cosa (riciclabile, compostabile), e con quale prova (certificazione o percentuale). Può spiegare come smaltire.
+255|«Bottiglia in plastica riciclata al 50%. Tappo riciclabile nella plastica.»
+256|Togliere «100%» e lasciare «sostenibile».
+257|La scatola ora dice fatti veri e utili: la cliente sa anche dove buttare ogni parte.
+258|Compensiamo le emissioni con un progetto di alberi. Possiamo scrivere «spedizioni a impatto zero»?
+259|Pensa a cosa vuol dire compensare.
+260|Compensare vuol dire finanziare un progetto altrove, non eliminare le emissioni delle spedizioni. Le nuove regole europee vietano di dire che un prodotto ha impatto neutro o zero solo grazie alla compensazione.
+261|Una compagnia aerea che pianta alberi non può dire che il volo è «a impatto zero».
+262|No: le emissioni ci sono, sono solo compensate altrove
+263|Sì, se gli alberi sono abbastanza
+264|La regola vieta proprio questo tipo di affermazione.
+265|Sì, se lo scriviamo in piccolo
+266|La grandezza del testo non cambia nulla.
+267|Si può raccontare il progetto di compensazione, ma non dire «impatto zero».
+268|Sull'etichetta c'è scritto «biologico». Va tolto anche quello?
+269|Guarda la scheda dell'ufficio qualità.
+270|Non ogni parola «verde» è un problema: «biologico» è un termine regolato da una legge europea (regolamento UE 2018/848) e si può usare se il prodotto è certificato, con il codice dell'organismo di controllo.
+271|Un vino certificato biologico può scriverlo in etichetta; un vino «naturale» senza certificazione no.
+272|Togliere per paura anche le parole certificate.
+273|Sì, è un'affermazione ambientale generica
+274|È un termine regolato e certificato.
+275|No: è certificato secondo il regolamento UE 2018/848
+276|Sì, finché non cambiamo il packaging
+277|La certificazione c'è già.
+278|Falso allarme: «biologico» è certificato e si può usare.
+279|Parole generiche come «sostenibile» o «impatto zero» non si usano senza prove.
+280|Si scrivono fatti precisi: quale parte, cosa, quale prova.
+281|Compensare non vuol dire «impatto zero».
+282|«Biologico» certificato si può usare.
+283|L'avvocato ha approvato la frase nuova. E la cliente del pluriball ha apprezzato la sincerità.
+284|La strategia di brand 2027
+285|40 minuti
+286|Ricerche, Piano di brand
+287|Obiettivo, pubblico, messaggio, canali e KPI su una pagina, da presentare alla direzione.
+288|A dicembre presento alla direzione la strategia di brand per il 2027. Mi prepari la pagina del piano? Deve stare in una pagina e partire dai dati.
+289|Costruire il piano di brand 2027 e riassumerlo per la direzione.
+290|Quale obiettivo è scritto bene?
+291|Un obiettivo deve essere misurabile e avere una scadenza.
+292|Un obiettivo SMART è specifico, misurabile, raggiungibile, rilevante e con una scadenza. Per il brand si parte dai numeri di oggi (notorietà spontanea 4%).
+293|Non «diventare più famosi», ma «portare la notorietà spontanea dal 10% al 14% tra i ciclisti urbani entro dicembre».
+294|Scrivere obiettivi che non si possono misurare.
+295|Portare la notorietà spontanea dal 4% al 7% tra chi beve tè, entro dicembre 2027
+296|Diventare il brand di tè più amato d'Italia
+297|Non si misura e non ha scadenza.
+298|Avere più follower
+299|Non dice quanti, entro quando, né se serve all'obiettivo di brand.
+300|Numero di partenza, numero di arrivo, pubblico, scadenza.
+301|Apri il Piano
+302|Compila il piano di brand
+303|Nel Piano di brand compila obiettivo, pubblico, messaggio chiave, canali e KPI.
+304|Il piano collega tutto: l'obiettivo (con numeri e scadenza), il pubblico del posizionamento, un messaggio coerente con la differenza del brand, pochi canali scelti per quel pubblico, e KPI che misurano proprio l'obiettivo.
+305|Obiettivo: notorietà spontanea dal 10% al 14% entro dicembre. KPI: notorietà spontanea, ricerche del nome. Canali: podcast di settore, eventi, creator.
+306|Scegliere tutti i canali e tutti i KPI: il piano non sceglie più niente.
+307|Il piano sta in una pagina e ogni parte è collegata alle altre.
+308|Quale KPI da solo non dice se la notorietà cresce?
+309|Pensa a cosa misura ogni KPI.
+310|Una vanity metric è un numero che fa piacere vedere salire ma non dice se l'obiettivo si avvicina.
+311|Per una scuola di lingue, le visualizzazioni di un video divertente non dicono se crescono le iscrizioni.
+312|I like ai post
+313|La notorietà spontanea
+314|È proprio l'obiettivo.
+315|Le ricerche del nome del negozio
+316|Sono un buon segnale indiretto di notorietà.
+317|I like misurano la reazione a un post, non quante persone conoscono il brand.
+318|Presentando alla direzione, da dove parti?
+319|Pensa a chi ha poco tempo.
+320|Per chi decide si usa la piramide: prima la conclusione e la richiesta, poi i motivi, poi i dettagli. Chi ascolta sa subito cosa deve decidere.
+321|«Chiediamo 20.000 € per portare la notorietà dal 10% al 14%. Ecco perché…»
+322|Partire dalla storia di come si è lavorato.
+323|Dall'obiettivo e da cosa chiedi, poi i motivi
+324|Dalla storia del brand dal 2019
+325|Interessante, ma non aiuta a decidere.
+326|Dall'elenco di tutti i dati raccolti
+327|I dati servono come prova, dopo.
+328|Prima conclusione e richiesta, poi i perché.
+329|Scrivi la sintesi per la direzione
+330|Scrivi 3-5 frasi che aprono la presentazione: obiettivo, come ci arriviamo, come lo misuriamo.
+331|La sintesi è la prima cosa che legge la direzione: deve stare in piedi da sola.
+332|«Nel 2027 vogliamo portare la notorietà spontanea dal 10% al 14% tra i ciclisti urbani. Ci concentriamo su podcast e eventi in città. Misuriamo con il sondaggio di giugno e dicembre e con le ricerche del nome.»
+333|Ripetere il piano campo per campo.
+334|Esempio di una collega senior: «Nel 2027 vogliamo portare la notorietà spontanea di Cinque Foglie dal 4% al 7% tra chi beve tè, entro dicembre. Parliamo ai curiosi del tè di ogni giorno con un messaggio solo: il tè biologico spiegato semplice. Ci concentriamo su ufficio stampa, social e collaborazioni con creator. Misuriamo con il sondaggio di giugno e dicembre, le ricerche del nome e il NPS.»
+335|Obiettivo SMART: da quanto a quanto, per chi, entro quando.
+336|Pochi canali scelti per il pubblico.
+337|KPI che misurano l'obiettivo, non vanity metric.
+338|Alla direzione: prima conclusione e richiesta.
+339|La direzione ha approvato il piano. E ha chiesto chi l'ha scritto!
+340|Press: il calendario e una giornalista
+341|Ufficio stampa
+342|Un comunicato stampa per il calendario dell'avvento, a chi mandarlo, e una risposta a una giornalista durante la crisi.
+343|Due cose per l'ufficio stampa: il comunicato per il calendario dell'avvento, che esce il 2 novembre. E Paolo Neri di Foglie & Tazze ci chiede dei kit rotti: vuole una risposta entro le 17.
+344|Scrivere e inviare il comunicato e rispondere alla giornalista in modo corretto.
+345|Cosa rende il calendario una notizia?
+346|Leggi i fatti sul calendario nell'Ufficio stampa.
+347|Un giornalista non pubblica pubblicità: cerca una notizia. Si mette in evidenza ciò che è nuovo, concreto e interessante per i suoi lettori (numeri, persone, una storia locale).
+348|«Un panificio apre» non è una notizia; «un panificio riapre il forno a legna del 1920 chiuso da 40 anni» sì.
+349|Riempire il comunicato di aggettivi («bellissimo», «unico»).
+350|24 tè da 8 piccoli produttori di 6 Paesi, illustrato da un'artista veronese
+351|Che è il calendario più bello di sempre
+352|È un'opinione, non una notizia.
+353|Che costa 34,90 €
+354|Il prezzo va scritto, ma non è la notizia.
+355|Numeri concreti, piccoli produttori e un'artista locale: è questo che un giornalista può raccontare.
+356|Apri l'Ufficio stampa
+357|Scrivi il comunicato stampa
+358|Nella scheda Comunicato scrivi titolo, sottotitolo, testo e contatti stampa del comunicato.
+359|Il comunicato ha un titolo informativo, un primo paragrafo che risponde a chi, cosa, quando, dove e perché, poi i dettagli, una citazione di una persona dell'azienda e alla fine i contatti per la stampa. Massimo una pagina.
+360|Titolo: «Il panificio Rossi riaccende il forno a legna del 1920». Primo paragrafo: chi, cosa, quando, dove. Citazione del titolare. Contatti.
+361|Mettere la notizia in fondo dopo la storia dell'azienda.
+362|Il comunicato si capisce già dal titolo e dal primo paragrafo.
+363|Apri i Giornalisti
+364|Scegli a chi mandarlo
+365|Nella scheda Giornalisti scegli a chi mandare il comunicato.
+366|Si manda solo a chi si occupa dei temi del comunicato: un comunicato fuori tema fa perdere credibilità. E chi ha chiesto di non ricevere più comunicati non si contatta: è un suo diritto (anche per il GDPR).
+367|Una casa editrice manda il comunicato di un libro di cucina ai giornalisti di cucina, non a quelli di sport.
+368|Mandarlo a tutti «tanto non costa niente».
+369|Il comunicato arriva solo a chi può essere interessato, e nessuno lo riceve contro la sua volontà.
+370|Quando lo mandi?
+371|Il calendario esce il 2 novembre.
+372|Di solito si manda il comunicato qualche giorno prima con un embargo: i giornalisti lo ricevono in anticipo per preparare il pezzo, ma possono pubblicarlo solo dalla data e ora indicate.
+373|Un'app manda il comunicato il lunedì «sotto embargo fino a giovedì alle 9», giorno del lancio.
+374|Qualche giorno prima, con embargo fino al 2 novembre
+375|Il 24 dicembre
+376|Troppo tardi: il calendario serve dal 1° dicembre.
+377|Due mesi prima, senza embargo
+378|Troppo presto: rischia di uscire prima del lancio o di essere dimenticato.
+379|Embargo: anticipo per chi scrive, uscita tutti insieme il giorno del lancio.
+380|Apri le Richieste
+381|Rispondi a Paolo Neri
+382|Nella scheda Richieste rispondi alla domanda di Paolo Neri sui kit matcha, usando la nota interna.
+383|Con un giornalista durante una crisi: si risponde in tempo, con i fatti verificati (quanti, cosa è successo), si dice cosa si sta facendo e si indica chi contattare. Niente «no comment», niente colpe ad altri, niente supposizioni.
+384|«Confermiamo che 30 ordini di ieri sono arrivati danneggiati. Abbiamo già rispedito i prodotti e cambiato imballaggio. Per altre domande: Anna Verdi, 333 000 0000.»
+385|Rispondere «no comment» o non rispondere: il pezzo uscirà comunque, senza la vostra versione.
+386|Paolo ha i fatti, il rimedio e un contatto: il pezzo racconterà anche come avete reagito.
+387|Al telefono Paolo dice: «Questo resta tra noi». Cosa fai?
+388|Pensa a come si parla con la stampa.
+389|Con un giornalista non esiste davvero il «tra noi»: si parla sempre come se tutto potesse essere pubblicato. Le regole sul «fuori registrazione» vanno concordate prima, e non sempre sono rispettate.
+390|Un portavoce fa una battuta «tanto non la scrivi» e la ritrova nel titolo.
+391|Parlo come se tutto potesse essere pubblicato
+392|Gli racconto anche le supposizioni sul corriere
+393|Se escono, diventano la notizia.
+394|Gli dico cose diverse dal comunicato, tanto non le scrive
+395|Due versioni diverse fanno perdere credibilità.
+396|Regola d'oro: nulla è fuori registrazione.
+397|Un comunicato racconta una notizia, non un'opinione.
+398|Si manda solo a chi è pertinente e non a chi ha chiesto di non riceverlo.
+399|Embargo: anticipo per chi scrive, uscita insieme.
+400|In crisi: fatti, rimedio, contatto; niente «no comment».
+401|Foglie & Tazze ha scritto «risposta rapida e trasparente»: meglio di così non poteva andare.

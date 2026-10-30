@@ -29,6 +29,7 @@ SALTA_FILE = {"sea-sim/pianificatore.json": {"intento", "concorrenza"}}  # codic
 # Chiavi che in alcuni file vanno tradotte anche se di solito si saltano
 # (nel Social "post" è l'elenco dei post e "pilastro" è un testo che si vede, non un codice)
 TRADUCI_FILE = {f"social-sim/{n}.json": {"post", "pilastro"} for n in ("post", "calendario", "profilo", "commenti", "libreria")}
+TRADUCI_FILE["brand-sim/indagini.json"] = {"quando"}  # "marzo 2026" si vede nella tabella della notorietà
 # File in cui anche i numeri senza lettere passano al formato inglese: "1.300" -> "1,300", "1,5%" -> "1.5%"
 NUMERI_EN = ("esercizi/", "seo-sencha.json")
 

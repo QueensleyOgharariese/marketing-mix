@@ -1,0 +1,62 @@
+{
+ "_nota": "Manuale del brand di Cinque Foglie (inventato).",
+ "missione": "Helping people who aren't experts discover good tea, explaining everything simply.",
+ "valori": [
+  {
+   "nome": "Clarity",
+   "cosa": "We explain what's in the cup and how to brew it, without expert jargon."
+  },
+  {
+   "nome": "Respect for growers",
+   "cosa": "We buy from small organic growers and say who they are."
+  },
+  {
+   "nome": "Curiosity",
+   "cosa": "We make people want to try a new tea, without judging those who only drink chamomile."
+  }
+ ],
+ "tono": {
+  "siamo": [
+   "Friendly but expert",
+   "Simple: short sentences, everyday words",
+   "Calm: no shouting, no fake urgency"
+  ],
+  "nonSiamo": [
+   "Cold or bureaucratic",
+   "Snobbish or for experts only",
+   "Pushy when selling"
+  ],
+  "regole": [
+   "We talk to people directly and warmly, always: never stiff, formal language.",
+   "No capitals for shouting and no «!!!».",
+   "One thing at a time: the concrete benefit first, then the details.",
+   "Emoji are fine only on social media, one per text at most.",
+   "No health claims: teas and herbal teas are foods."
+  ],
+  "esempi": [
+   {
+    "prima": "Dear customer, we hereby inform you that the product is available.",
+    "dopo": "Good news: your favourite tea is back."
+   },
+   {
+    "prima": "SUPER DEAL!!! BUY NOW!!!",
+    "dopo": "This week Sencha costs 15% less."
+   }
+  ]
+ },
+ "logo": "Five stylised leaves in a circle. On a light background it's dark green, on a dark background white. It's never distorted and its colour never changes.",
+ "colori": [
+  {
+   "nome": "Leaf green",
+   "hex": "#1F5C38"
+  },
+  {
+   "nome": "Cream",
+   "hex": "#F4F1EA"
+  },
+  {
+   "nome": "Ink",
+   "hex": "#24211E"
+  }
+ ]
+}

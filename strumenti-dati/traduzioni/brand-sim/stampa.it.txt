@@ -1,0 +1,39 @@
+1|Marta Ferri
+2|Il Mestolo (blog di cucina)
+3|Ricette, prodotti alimentari
+4|Paolo Neri
+5|Foglie & Tazze (rivista sul tè)
+6|Tè, tisane, produttori
+7|Chiara Lodi
+8|Cronache Scaligere (quotidiano locale, pagina economia)
+9|Imprese di Verona
+10|Sara Conti
+11|Idee regalo della settimana (newsletter)
+12|Regali, Natale
+13|Luca Riva
+14|Sport e Motori Oggi
+15|Calcio, automobili
+16|Elisa Fontana
+17|Vivere Bio (mensile)
+18|Biologico, alimentazione
+19|A marzo 2026 ha chiesto di non ricevere più comunicati stampa da noi.
+20|Andrea Gallo
+21|Cronache Scaligere (cronaca nera)
+22|Cronaca
+23|Giulia Marchi
+24|Pausa tè (podcast)
+25|Tè, piccoli produttori
+26|24 tè e tisane biologici, uno per ogni giorno dal 1 al 24 dicembre.
+27|Arrivano da 8 piccoli produttori di 6 Paesi.
+28|Illustrazioni di un'artista veronese, stampate su cartone riciclato.
+29|Prezzo: 34,90 €. In vendita online dal 2 novembre 2026, fino a esaurimento delle 3.000 copie.
+30|Citazione disponibile: Marco F., fondatore: «Volevamo un calendario che facesse scoprire un tè nuovo ogni giorno, con una guida semplice dietro ogni finestrella.»
+31|Contatti stampa: Sara L., stampa@cinquefoglie.example, 045 000 0000 (numero inventato).
+32|Foglie & Tazze
+33|Kit matcha arrivati rotti
+34|Buongiorno, sto scrivendo un pezzo sui kit matcha arrivati con la frusta rotta di cui si parla sui social. Mi conferma che il problema riguarda tutti i kit venduti? Avete intenzione di ritirarli dal mercato? Mi servirebbe una risposta entro le 17. Grazie, Paolo Neri
+35|Circa 40 kit spediti il 28/10 sono arrivati con la frusta di bambù rotta: si è spezzata durante il trasporto (stesso lotto di imballaggi).
+36|Gli altri kit venduti non hanno avuto problemi.
+37|A tutti i clienti coinvolti spediamo una frusta nuova gratis; li stiamo contattando uno per uno.
+38|Dal 3 novembre le fruste viaggiano in un astuccio rigido.
+39|Portavoce per la stampa: Elena M., responsabile e-commerce (telefono 045 000 0000, inventato).
