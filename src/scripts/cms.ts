@@ -104,6 +104,11 @@ export function paginaEffettiva(url: string, m = leggiModifiche()): Pagina | und
   const c = m.pagine[url];
   if (c) {
     for (const k of ["title", "description", "h1"] as const) if (c[k] !== undefined) { (p as any)[k] = c[k]; p.modificata = true; }
+    if (c.intro !== undefined) { // il crawler conta le parole: si toglie il testo vecchio e si aggiunge il nuovo
+      const vecchio = catalogo.categorie.find((x) => x.id === cat)?.intro ?? "";
+      const n = (t: string) => t.trim().split(/\s+/).filter(Boolean).length;
+      p.parole = Math.max(0, (p.parole ?? 0) - n(vecchio) + n(c.intro)); p.modificata = true;
+    }
     if (c.robots !== undefined) {
       p.robots = c.robots; p.modificata = true;
       const noindex = c.robots.includes("noindex");

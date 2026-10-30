@@ -8,9 +8,10 @@ import { ripristinaParti, type Parti } from "./cms";
 
 export type Opzione = { id: string; testo: string; giusta: boolean; nota: string };
 // tipo: "radio" o "checkbox" = si sceglie una risposta; "azione" = si lavora sul sito e la guida controlla com'è adesso;
-// "info" = solo spiegazione (usato nel tutorial), si va avanti con "Ho capito".
-// come: le istruzioni numerate "Come si fa" (possono contenere link e grassetti).
-export type Passo = { strumento: string; pagina?: string; domanda: string; spiega: string; esempio: string; errore?: string; compito: string; come?: string[]; tipo: "radio" | "checkbox" | "azione" | "info"; opzioni: Opzione[]; perche: string; aiuto: string; dove: string; verifica?: string; vai?: { link: string; testo: string } };
+// "testo" = si scrive nella guida (richiesta, messaggio, brief) e la guida lo controlla; "info" = solo da leggere (tutorial).
+// consegna: cosa fare, senza la soluzione. come: solo nei passi "info" (elenco da leggere).
+// negozio: dove vedere il risultato nel negozio. parole: [minimo, massimo] per i passi "testo".
+export type Passo = { strumento: string; pagina?: string; domanda: string; consegna?: string; spiega: string; esempio: string; errore?: string; compito?: string; come?: string[]; negozio?: string; parole?: number[]; tipo: "radio" | "checkbox" | "azione" | "testo" | "info"; opzioni: Opzione[]; perche: string; aiuto: string; dove: string; verifica?: string; vai?: { link: string; testo: string } };
 // livello: 0-3; n: posizione dentro il livello; situazione: il messaggio di Elena che apre l'esercizio
 export type Missione = { id: string; n: number; livello: number; situazione: string; prepara?: Parti; nome: string; tempo: string; strumenti: string; cosa: string; obiettivo: string; passi: Passo[]; imparato: string[]; elena: string };
 export type StatoMissione = { stato: "in-corso" | "completata"; passo: number; errori: number; aiuti: number[]; primoColpo: boolean[] };
@@ -61,7 +62,7 @@ export function saltaTutorial() {
 export const consigliata = (s: Stato) => TUTTE.find((m) => sbloccata(s, m) && !fatta(s, m));
 
 // Indirizzo dove si fa un passo
-export const linkPasso = (p: Passo) => p.vai?.link ?? p.pagina ?? STRUMENTI[p.strumento].link;
+export const linkPasso = (p: Passo) => p.vai?.link ?? p.pagina ?? STRUMENTI[p.strumento]?.link ?? STRUMENTI.console.link; // i passi "testo" si fanno nella guida, ovunque
 
 // Avvia (o riprende) una missione e restituisce dove andare
 export function avvia(id: string) {

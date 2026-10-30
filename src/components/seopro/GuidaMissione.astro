@@ -1,61 +1,60 @@
 ---
-// GUIDA DELLA MISSIONE (pannello a destra negli strumenti e nel negozio)
-// Mostra il passo della missione in corso, nello stesso ordine degli esercizi:
-// passo, domanda, "Prima di rispondere" (spiegazione + esempio su un'altra attività), "Come si fa" (istruzioni
-// numerate), risposte o "Controlla il lavoro", "Mostrami dove", aiuto chiuso (−5 punti).
-// Dopo Controlla: perché è giusto, o cosa non va. Se il passo si fa in un altro strumento, la guida porta lì.
-// Vale anche per il tutorial (passi "info" che si leggono e basta). Il contenuto arriva da missioni.json
-// e viene disegnato nel browser, perché dipende dallo stato salvato (localStorage).
+// GUIDA DELL'ESERCIZIO (pannello a destra negli strumenti, nel Pannello del negozio e nel negozio)
+// Ordine (30/10/2026): prima il compito, poi la risposta; gli aiuti stanno in tre schede chiuse finché non servono.
+//   testa:  nome dell'esercizio, barre di avanzamento, "Mini esercizio X di N", Ricomincia
+//   corpo:  messaggio di Elena (solo al primo mini esercizio), domanda, consegna, risposta
+//           (scelta, modifica sul sito o testo da scrivere), esito, schede di aiuto
+//   piede:  Controlla (sempre visibile in basso) e "Mostrami lo strumento"
+// Schede di aiuto:
+//   Come funziona = come si usa lo strumento (aiuto-strumenti.json), mai la risposta
+//   Teoria        = spiegazione, esempio, errore comune (gratis)
+//   Indizio       = una spinta verso la risposta (costa 5 punti)
+// La guida cala con il livello: Basi "Come funziona" già aperto; Diagnosi tutto chiuso; Casi solo Teoria.
+// Il contenuto arriva da missioni.json e viene disegnato nel browser, perché dipende dallo stato salvato (localStorage).
 interface Props { pagina: string } // id dello strumento in cui si trova la guida (console, crawler, negozio...)
 const { pagina } = Astro.props;
 ---
 <div class="gm" data-guida-missione={pagina} aria-live="polite">
-  <p class="gm-attesa">Caricamento della missione…</p>
+  <p class="gm-attesa">Caricamento dell'esercizio…</p>
 </div>
 
 <script>
   import { TUTTE, LIVELLI, STRUMENTI, leggiStato, salvaStato, linkPasso, controlla, punti, avvia, ricomincia, etichetta, consigliata, livelloAperto, type Missione, type Passo } from "../../scripts/missioni";
   import { verifica } from "../../scripts/verifiche";
+  import AIUTO from "../../data/app/seo-pro/aiuto-strumenti.json";
 
   const radice = document.querySelector<HTMLElement>("[data-guida-missione]");
   const esc = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  const AIUTI = AIUTO as unknown as Record<string, { nome: string; punti: string[] }>;
+
+  // Testi scritti nella guida (passi "testo"): restano salvati in questo browser
+  const CHIAVE_TESTI = "marketing-mix-seo-testi";
+  const leggiTesti = (): Record<string, string> => { try { return JSON.parse(localStorage.getItem(CHIAVE_TESTI) ?? "{}"); } catch { return {}; } };
+  const salvaTesto = (k: string, v: string) => { try { const t = leggiTesti(); t[k] = v; localStorage.setItem(CHIAVE_TESTI, JSON.stringify(t)); } catch {} };
+  const contaParole = (t: string) => t.trim().split(/\s+/).filter(Boolean).length;
 
   function barre(m: Missione, passo: number) {
     return `<div class="gm-barre" aria-hidden="true">${m.passi.map((_, i) => `<span class="${i < passo ? "fatto" : i === passo ? "ora" : ""}"></span>`).join("")}</div>`;
   }
-  // "Prima di iniziare": la teoria in breve e un esempio su un'altra attività
-  function spiegazione(p: Passo, titolo: string) {
-    if (!p.spiega) return "";
-    return `<section class="gm-spiega"><h3>${titolo}</h3><p>${esc(p.spiega)}</p>${p.esempio ? `<p class="gm-esempio"><strong>Per esempio</strong>${esc(p.esempio)}</p>` : ""}${p.errore ? `<p class="gm-errore"><strong>Errore comune</strong>${esc(p.errore)}</p>` : ""}</section>`;
+  function teoria(p: Passo) {
+    return `<p>${esc(p.spiega)}</p>${p.esempio ? `<p class="gm-esempio"><strong>Per esempio</strong>${esc(p.esempio)}</p>` : ""}${p.errore ? `<p class="gm-errore"><strong>Errore comune</strong>${esc(p.errore)}</p>` : ""}`;
   }
-  // "Come si fa": istruzioni numerate (scritte in missioni.json, possono contenere link).
-  // La guida cala salendo di livello: tutorial e Basi le mostrano; Diagnosi le nasconde dietro
-  // "Mostra i passi" (conta come un aiuto, −5 punti); Casi non le mostra.
-  function comeSiFa(p: Passo, livello = 1) {
-    if (!p.come?.length) return p.compito ? `<p class="gm-compito">${p.compito}</p>` : "";
-    const lista = `<ol>${p.come.map((c) => `<li>${c}</li>`).join("")}</ol>`;
-    if (livello <= 1) return `<section class="gm-come"><h3>Come si fa</h3>${lista}</section>`;
-    if (livello === 2) return `<details class="gm-come gm-come--chiuso" data-mostra-passi><summary>Mostra i passi <span>(−5 punti)</span></summary>${lista}</details>`;
-    return "";
+  function comeFunziona(p: Passo) {
+    const a = AIUTI[p.strumento];
+    return a ? `<h3>${esc(a.nome)}</h3><ul>${a.punti.map((x) => `<li>${x}</li>`).join("")}</ul>` : "<p>Questo mini esercizio non usa uno strumento.</p>";
   }
-  // "Mostrami dove" compare solo se l'elemento da evidenziare è in questa pagina
-  function bottoneDove(p: Passo, livello = 1) {
-    return livello < 3 && p.dove && document.querySelector(p.dove) ? `<button type="button" class="gm-secondario" data-dove>Mostrami dove</button>` : "";
-  }
-  function collegaDove(p: Passo) {
-    radice!.querySelector("[data-dove]")?.addEventListener("click", () => {
-      const el = document.querySelector<HTMLElement>(p.dove);
-      if (!el) return;
-      // se è dentro una barra chiusa, la riapre
-      const barra = el.closest<HTMLElement>("[data-barra][data-chiuso]");
-      barra?.querySelector<HTMLButtonElement>(".apri-pannello")?.click();
-      // un elemento molto alto (es. il menu) si mostra dall'inizio, con il bordo disegnato all'interno
-      const alto = el.getBoundingClientRect().height > innerHeight * 0.8;
-      el.scrollIntoView({ behavior: "smooth", block: alto ? "start" : "center" });
-      el.classList.add("gm-evidenzia");
-      if (alto) el.style.outlineOffset = "-3px";
-      setTimeout(() => { el.classList.remove("gm-evidenzia"); el.style.outlineOffset = ""; }, 2600);
-    });
+  // Il bottone "Mostrami lo strumento" c'è solo se l'elemento è in questa pagina (e non nei Casi)
+  const puoMostrare = (p: Passo, livello: number) => livello < 3 && !!p.dove && !!document.querySelector(p.dove);
+
+  function mostraElemento(sel: string) {
+    const el = document.querySelector<HTMLElement>(sel);
+    if (!el) return;
+    el.closest<HTMLElement>("[data-barra][data-chiuso]")?.querySelector<HTMLButtonElement>(".apri-pannello")?.click();
+    const alto = el.getBoundingClientRect().height > innerHeight * 0.8;
+    el.scrollIntoView({ behavior: "smooth", block: alto ? "start" : "center" });
+    el.classList.add("gm-evidenzia");
+    if (alto) el.style.outlineOffset = "-3px";
+    setTimeout(() => { el.classList.remove("gm-evidenzia"); el.style.outlineOffset = ""; }, 2600);
   }
 
   function disegna() {
@@ -65,9 +64,9 @@ const { pagina } = Astro.props;
     const m = TUTTE.find((x) => x.id === s.attiva);
     const sm = m ? s.missioni[m.id] : undefined;
 
-    // Nessuna missione in corso
+    // Nessun esercizio in corso
     if (!m || !sm) {
-      radice.innerHTML = `<h2 class="gm-titolo">Nessun esercizio in corso</h2><p class="gm-testo">Puoi esplorare gli strumenti liberamente. Quando vuoi, scegli un esercizio dalla panoramica.</p><a class="bottone-app" href="/app/percorsi/seo/#livelli">Scegli un esercizio</a>`;
+      radice.innerHTML = `<div class="gm-corpo"><h2 class="gm-titolo">Nessun esercizio in corso</h2><p class="gm-testo">Puoi esplorare gli strumenti liberamente. Quando vuoi, scegli un esercizio dalla panoramica.</p><a class="bottone-app" href="/app/percorsi/seo/#livelli">Scegli un esercizio</a></div>`;
       return;
     }
     const tutorial = m.id === "tutorial";
@@ -77,15 +76,16 @@ const { pagina } = Astro.props;
       const prossima = consigliata(s);
       const primo = sm.primoColpo.filter(Boolean).length;
       const domande = m.passi.filter((p) => p.tipo !== "info").length;
-      // Se con questo esercizio si è finito un livello, si apre quello dopo
       const nuovo = m.livello < 3 && livelloAperto(s, m.livello + 1) && prossima?.livello === m.livello + 1 ? LIVELLI[m.livello + 1] : undefined;
-      radice.innerHTML = `<p class="gm-missione">${esc(etichetta(m))}</p>${barre(m, m.passi.length)}
-        <h2 class="gm-titolo">${tutorial ? "Tutorial completato" : "Esercizio completato"}</h2>
-        ${tutorial ? "" : `<p class="gm-punti"><strong>${punti(sm)}</strong> punti su 100</p><p class="gm-testo">Giuste al primo tentativo: ${primo} su ${domande}. Aiuti aperti: ${sm.aiuti.length}.</p>`}
-        ${nuovo && !tutorial ? `<p class="gm-sblocco"><strong>Livello ${nuovo.n} aperto: ${esc(nuovo.nome)}</strong>${esc(nuovo.cosa)}</p>` : ""}
-        <div class="gm-blocco"><h3>Cosa hai imparato</h3><ul>${m.imparato.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
-        <div class="gm-messaggio"><strong>Elena M.</strong><p>${esc(m.elena)}</p></div>
-        <div class="gm-bottoni">${prossima ? `<button type="button" class="bottone-app" data-prossima="${prossima.id}">Prossimo: ${esc(prossima.nome)}</button>` : ""}<a class="gm-secondario" href="/app/percorsi/seo/#livelli">${prossima ? "Scegli tu" : "Torna agli esercizi"}</a></div>`;
+      radice.innerHTML = `<div class="gm-testa"><p class="gm-missione">${esc(etichetta(m))}</p>${barre(m, m.passi.length)}</div>
+        <div class="gm-corpo">
+          <h2 class="gm-titolo">${tutorial ? "Tutorial completato" : "Esercizio completato"}</h2>
+          ${tutorial ? "" : `<p class="gm-punti"><strong>${punti(sm)}</strong> punti su 100</p><p class="gm-testo">Giusti al primo tentativo: ${primo} su ${domande}. Aiuti usati: ${sm.aiuti.length}.</p>`}
+          ${nuovo && !tutorial ? `<p class="gm-sblocco"><strong>Livello ${nuovo.n} aperto: ${esc(nuovo.nome)}</strong>${esc(nuovo.cosa)}</p>` : ""}
+          <div class="gm-blocco"><h3>Cosa hai imparato</h3><ul>${m.imparato.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
+          <div class="gm-messaggio"><strong>Elena M.</strong><p>${esc(m.elena)}</p></div>
+        </div>
+        <div class="gm-piede">${prossima ? `<button type="button" class="bottone-app" data-prossima="${prossima.id}">Prossimo: ${esc(prossima.nome)}</button>` : ""}<a class="gm-secondario" href="/app/percorsi/seo/#livelli">${prossima ? "Scegli tu" : "Torna agli esercizi"}</a></div>`;
       radice.querySelector<HTMLButtonElement>("[data-prossima]")?.addEventListener("click", (e) => {
         location.href = avvia((e.currentTarget as HTMLElement).dataset.prossima!);
       });
@@ -94,120 +94,167 @@ const { pagina } = Astro.props;
 
     const p = m.passi[sm.passo];
     const ultimo = sm.passo === m.passi.length - 1;
-    const testa = `<p class="gm-missione">${esc(etichetta(m))}</p>${barre(m, sm.passo)}<p class="gm-passo">${tutorial ? "Passo" : "Mini esercizio"} ${sm.passo + 1} di ${m.passi.length}<button type="button" class="gm-ricomincia" data-ricomincia>Ricomincia l'esercizio</button></p>`;
-    // All'inizio dell'esercizio: il messaggio di Elena (la situazione) e l'obiettivo in una riga
-    const obiettivo = sm.passo === 0 ? `<div class="gm-situazione"><span class="gm-da">Elena M., responsabile e-commerce</span><p>${esc(m.situazione)}</p></div><p class="gm-obiettivo"><strong>Obiettivo:</strong> ${esc(m.obiettivo)}</p>` : "";
+    const livello = m.livello;
+    const testa = `<div class="gm-testa"><p class="gm-missione">${esc(etichetta(m))}</p>${barre(m, sm.passo)}<p class="gm-passo">${tutorial ? "Passo" : "Mini esercizio"} ${sm.passo + 1} di ${m.passi.length}<button type="button" class="gm-ricomincia" data-ricomincia>Ricomincia</button></p></div>`;
+    const elena = sm.passo === 0 && m.situazione ? `<div class="gm-situazione"><span class="gm-da">Elena M., responsabile e-commerce</span><p>${esc(m.situazione)}</p></div>` : "";
+    const avanti = ultimo ? (tutorial ? "Concludi il tutorial" : "Concludi l'esercizio") : "Passo successivo";
 
-    // Passo "info" (tutorial): si legge e si va avanti. Si vede in qualunque pagina.
+    // Passo "info" (tutorial): si legge e si va avanti
     if (p.tipo === "info") {
-      radice.innerHTML = `${testa}${obiettivo}
+      radice.innerHTML = `${testa}<div class="gm-corpo">${elena}
         <h2 class="gm-titolo">${esc(p.domanda)}</h2>
-        ${spiegazione(p, "In breve")}${comeSiFa(p).replace("Come si fa", "Da sapere")}
-        <div class="gm-bottoni"><button type="button" class="bottone-app" data-avanti>${ultimo ? "Concludi il tutorial" : "Ho capito, avanti"}</button>${bottoneDove(p)}</div>`;
-      radice.querySelector("[data-avanti]")!.addEventListener("click", () => avanti(m, ultimo, pagina));
-      collegaDove(p);
+        <p class="gm-testo">${esc(p.spiega)}</p>
+        ${p.come?.length ? `<ul class="gm-elenco">${p.come.map((c) => `<li>${c}</li>`).join("")}</ul>` : ""}</div>
+        <div class="gm-piede"><button type="button" class="bottone-app" data-avanti>${ultimo ? "Concludi il tutorial" : "Ho capito, avanti"}</button>${p.dove && document.querySelector(p.dove) ? `<button type="button" class="gm-secondario" data-dove>Mostrami dove</button>` : ""}</div>`;
+      radice.querySelector("[data-avanti]")!.addEventListener("click", () => vaiAvanti(m, ultimo, pagina));
+      radice.querySelector("[data-dove]")?.addEventListener("click", () => mostraElemento(p.dove));
       return;
     }
 
-    // Passo "azione": si lavora sul sito (pannello o strumenti) e la guida controlla com'è il sito adesso.
-    // Si vede da qualunque pagina, così si può lavorare e controllare senza perdere la guida.
-    if (p.tipo === "azione") {
-      radice.innerHTML = `${testa}${obiettivo}
+    // Passo a scelta che si fa in un altro strumento: la guida dice dove e porta lì
+    if ((p.tipo === "radio" || p.tipo === "checkbox") && p.strumento !== pagina) {
+      radice.innerHTML = `${testa}<div class="gm-corpo">${elena}<h2 class="gm-titolo">${esc(p.domanda)}</h2><p class="gm-testo">Questo mini esercizio si fa in <strong>${esc(STRUMENTI[p.strumento].nome)}</strong>.</p></div>
+        <div class="gm-piede"><a class="bottone-app" href="${linkPasso(p)}">Vai a ${esc(STRUMENTI[p.strumento].nome)}</a></div>`;
+      return;
+    }
+
+    // --- Risposta: scelta, modifica sul sito o testo ---
+    const chiaveTesto = `${m.id}-${sm.passo}`;
+    let risposta = "";
+    if (p.tipo === "radio" || p.tipo === "checkbox") {
+      risposta = `<fieldset class="gm-opzioni"><legend>${p.tipo === "checkbox" ? "Scegli tutte le risposte giuste" : "Scegli una risposta"}</legend>
+        ${p.opzioni.map((o) => `<label class="gm-opzione"><input type="${p.tipo}" name="gm-r" value="${o.id}" /><span>${esc(o.testo)}</span></label>`).join("")}</fieldset>`;
+    } else if (p.tipo === "azione") {
+      risposta = `<div class="gm-lavoro">
+          ${p.vai ? `<a class="gm-secondario" href="${p.vai.link}">${esc(p.vai.testo)}</a>` : ""}
+          <p class="gm-nota">Fai la modifica, salvala e poi premi <strong>Controlla il lavoro</strong>. Puoi riprovare senza perdere punti.${p.negozio ? ` <a href="${p.negozio}">Guarda il risultato nel negozio</a>` : ""}</p>
+        </div>`;
+    } else if (p.tipo === "testo") {
+      const [min, max] = p.parole ?? [30, 160];
+      risposta = `<label class="gm-scrivi"><span class="sr">Il tuo testo</span>
+          <textarea rows="8" data-gm-testo placeholder="Scrivi qui…">${esc(leggiTesti()[chiaveTesto] ?? "")}</textarea>
+          <span class="gm-conta" data-conta>0 parole · tra ${min} e ${max}</span></label>`;
+    }
+
+    // --- Schede di aiuto (dipendono dal livello) ---
+    const schede: [string, string, string][] = livello >= 3
+      ? [["teoria", "Teoria", "gratis"]]
+      : [["funziona", "Come funziona", "lo strumento"], ["teoria", "Teoria", "gratis"], ["indizio", "Indizio", "−5 punti"]];
+    const aperta = livello <= 1 ? "funziona" : "";
+    const usatoIndizio = sm.aiuti.includes(sm.passo);
+
+    radice.innerHTML = `${testa}<div class="gm-corpo">${elena}
         <h2 class="gm-titolo">${esc(p.domanda)}</h2>
-        ${comeSiFa(p, m.livello)}${spiegazione(p, "Da sapere prima di iniziare")}
+        ${p.consegna ? `<p class="gm-consegna">${esc(p.consegna)}</p>` : ""}
+        ${risposta}
         <div class="gm-esito" data-esito hidden></div>
-        <div class="gm-bottoni"><button type="button" class="bottone-app" data-verifica>Controlla il lavoro</button>${bottoneDove(p, m.livello)}</div>
-        <details class="gm-aiuto" data-aiuto ${sm.aiuti.includes(sm.passo) ? "open" : ""}><summary>Aiuto <span>(−5 punti)</span></summary><p>${esc(p.aiuto)}</p></details>`;
-      const esitoA = radice.querySelector<HTMLElement>("[data-esito]")!;
-      radice.querySelector("[data-verifica]")!.addEventListener("click", () => {
-        const r = verifica(p.verifica!);
+        <div class="gm-schede" role="tablist" aria-label="Aiuti">${schede.map(([id, nome, nota]) => `<button type="button" role="tab" aria-selected="${id === aperta}" data-scheda-aiuto="${id}">${nome}<small>${nota}</small></button>`).join("")}</div>
+        <div class="gm-scheda-corpo" data-scheda-corpo ${aperta ? "" : "hidden"}></div>
+      </div>
+      <div class="gm-piede"><button type="button" class="bottone-app" data-controlla>${p.tipo === "radio" || p.tipo === "checkbox" ? "Controlla" : "Controlla il lavoro"}</button>${puoMostrare(p, livello) ? `<button type="button" class="gm-secondario" data-dove>Mostrami lo strumento</button>` : ""}</div>`;
+
+    const corpoScheda = radice.querySelector<HTMLElement>("[data-scheda-corpo]")!;
+    const contenuto: Record<string, () => string> = {
+      funziona: () => comeFunziona(p),
+      teoria: () => `<h3>Teoria</h3>${teoria(p)}`,
+      indizio: () => leggiStato().missioni[m.id].aiuti.includes(leggiStato().missioni[m.id].passo)
+        ? `<h3>Indizio</h3><p>${esc(p.aiuto)}</p>`
+        : `<h3>Indizio</h3><p>L'indizio ti avvicina alla risposta e costa 5 punti.</p><button type="button" class="gm-secondario" data-usa-indizio>Mostra l'indizio (−5 punti)</button>`,
+    };
+    const apriScheda = (id: string) => {
+      radice.querySelectorAll<HTMLButtonElement>("[data-scheda-aiuto]").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.schedaAiuto === id)));
+      corpoScheda.hidden = !id;
+      corpoScheda.innerHTML = id ? contenuto[id]() : "";
+      corpoScheda.querySelector("[data-usa-indizio]")?.addEventListener("click", () => {
         const st = leggiStato(); const cur = st.missioni[m.id];
-        if (cur.primoColpo[cur.passo] === undefined) cur.primoColpo[cur.passo] = r.ok;
-        salvaStato(st); // nei passi azione si può riprovare quante volte serve: gli errori non tolgono punti
-        esitoA.hidden = false;
-        requestAnimationFrame(() => esitoA.scrollIntoView({ behavior: "smooth", block: "nearest" }));
-        const lista = `<ul class="gm-controlli">${r.controlli.map((c) => `<li class="${c.ok ? "ok" : "no"}"><span class="gm-segno" aria-hidden="true"></span><span><strong>${esc(c.nome)}</strong>${c.ok ? "" : `<br>${esc(c.suggerimento)}`}</span><span class="sr">${c.ok ? "superato" : "da sistemare"}</span></li>`).join("")}</ul>`;
-        if (r.ok) {
-          esitoA.className = "gm-esito ok";
-          esitoA.innerHTML = `<strong>Fatto.</strong>${lista}<p>${esc(p.perche)}</p><button type="button" class="bottone-app" data-avanti>${ultimo ? "Concludi l'esercizio" : "Passo successivo"}</button>`;
-          esitoA.querySelector("[data-avanti]")!.addEventListener("click", () => avanti(m, ultimo, pagina));
-        } else {
-          esitoA.className = "gm-esito no";
-          esitoA.innerHTML = `<strong>Non ancora.</strong>${lista}<p>Sistema i punti rossi, salva e premi di nuovo "Controlla il lavoro".</p>`;
-        }
+        if (!cur.aiuti.includes(cur.passo)) { cur.aiuti.push(cur.passo); salvaStato(st); }
+        apriScheda("indizio");
       });
-      collegaDove(p);
-      collegaAiuto(m);
-      return;
-    }
+    };
+    radice.querySelectorAll<HTMLButtonElement>("[data-scheda-aiuto]").forEach((b) => b.addEventListener("click", () => {
+      const id = b.dataset.schedaAiuto!;
+      apriScheda(b.getAttribute("aria-selected") === "true" ? "" : id); // un secondo clic chiude la scheda
+    }));
+    if (aperta) apriScheda(aperta);
+    if (usatoIndizio && !aperta) { /* l'indizio già usato si riapre gratis cliccando la scheda */ }
 
-    // Passo a scelta che si fa in un altro strumento: la guida dice cosa fare e porta lì
-    if (p.strumento !== pagina) {
-      radice.innerHTML = `${testa}<h2 class="gm-titolo">${esc(p.domanda)}</h2><p class="gm-testo">Questo passo si fa in <strong>${esc(STRUMENTI[p.strumento].nome)}</strong>.</p><a class="bottone-app" href="${linkPasso(p)}">Vai a ${esc(STRUMENTI[p.strumento].nome)}</a>`;
-      return;
-    }
+    radice.querySelector("[data-dove]")?.addEventListener("click", () => mostraElemento(p.dove));
 
-    radice.innerHTML = `${testa}${obiettivo}
-      <h2 class="gm-titolo">${esc(p.domanda)}</h2>
-      ${comeSiFa(p, m.livello)}${spiegazione(p, "Da sapere per rispondere")}
-      <fieldset class="gm-opzioni"><legend>${p.tipo === "checkbox" ? "Scegli tutte le risposte giuste" : "Scegli una risposta"}</legend>
-        ${p.opzioni.map((o) => `<label class="gm-opzione"><input type="${p.tipo}" name="gm-r" value="${o.id}" /><span>${esc(o.testo)}</span></label>`).join("")}
-      </fieldset>
-      <div class="gm-esito" data-esito hidden></div>
-      <div class="gm-bottoni"><button type="button" class="bottone-app" data-controlla>Controlla</button>${bottoneDove(p, m.livello)}</div>
-      <details class="gm-aiuto" data-aiuto ${sm.aiuti.includes(sm.passo) ? "open" : ""}><summary>Aiuto <span>(−5 punti)</span></summary><p>${esc(p.aiuto)}</p></details>`;
+    // Testo: contatore di parole e salvataggio automatico
+    const area = radice.querySelector<HTMLTextAreaElement>("[data-gm-testo]");
+    if (area) {
+      const conta = radice.querySelector<HTMLElement>("[data-conta]")!;
+      const [min, max] = p.parole ?? [30, 160];
+      const aggiorna = () => { const n = contaParole(area.value); conta.textContent = `${n} parole · tra ${min} e ${max}`; conta.classList.toggle("fuori", n > 0 && (n < min || n > max)); };
+      area.addEventListener("input", () => { salvaTesto(chiaveTesto, area.value); aggiorna(); });
+      aggiorna();
+    }
 
     const esito = radice.querySelector<HTMLElement>("[data-esito]")!;
-    radice.querySelector("[data-controlla]")!.addEventListener("click", () => {
-      const scelte = [...radice.querySelectorAll<HTMLInputElement>("input[name=gm-r]:checked")].map((x) => x.value);
-      if (!scelte.length) { esito.hidden = false; esito.className = "gm-esito"; esito.innerHTML = "<p>Scegli almeno una risposta.</p>"; return; }
-      const r = controlla(p, scelte);
+    const btn = radice.querySelector<HTMLButtonElement>("[data-controlla]")!;
+    const mostraEsito = () => { esito.hidden = false; requestAnimationFrame(() => esito.scrollIntoView({ behavior: "smooth", block: "nearest" })); };
+    // Quando è giusto, il bottone in basso diventa "Passo successivo"
+    const fatto = () => {
+      btn.textContent = avanti;
+      btn.dataset.fatto = "si";
+    };
+    btn.addEventListener("click", () => {
+      if (btn.dataset.fatto) { vaiAvanti(m, ultimo, pagina); return; }
       const st = leggiStato(); const cur = st.missioni[m.id];
+
+      if (p.tipo === "radio" || p.tipo === "checkbox") {
+        const scelte = [...radice.querySelectorAll<HTMLInputElement>("input[name=gm-r]:checked")].map((x) => x.value);
+        if (!scelte.length) { esito.className = "gm-esito"; esito.innerHTML = "<p>Scegli almeno una risposta.</p>"; mostraEsito(); return; }
+        const r = controlla(p, scelte);
+        if (cur.primoColpo[cur.passo] === undefined) cur.primoColpo[cur.passo] = r.ok;
+        if (!r.ok && !tutorial) cur.errori += 1; // nel tutorial gli errori non contano
+        salvaStato(st);
+        if (r.ok) {
+          esito.className = "gm-esito ok";
+          esito.innerHTML = `<strong>Giusto.</strong><p>${esc(p.perche)}</p>`;
+          radice.querySelectorAll<HTMLInputElement>("input[name=gm-r]").forEach((x) => (x.disabled = true));
+          fatto();
+        } else {
+          esito.className = "gm-esito no";
+          const note = r.sbagliate.map((o) => `<li><strong>${esc(o.testo)}</strong>: ${esc(o.nota)}</li>`).join("");
+          const manca = r.mancanti.length && p.tipo === "checkbox" ? "<p>Manca ancora almeno una risposta giusta.</p>" : "";
+          esito.innerHTML = `<strong>Non ancora.</strong>${note ? `<ul>${note}</ul>` : ""}${manca}<p>Riprova. Se ti serve, apri la Teoria.</p>`;
+        }
+        mostraEsito();
+        return;
+      }
+
+      // Modifica sul sito o testo scritto: la verifica controlla com'è adesso, si può riprovare senza perdere punti
+      const r = verifica(p.verifica!, area?.value ?? "");
       if (cur.primoColpo[cur.passo] === undefined) cur.primoColpo[cur.passo] = r.ok;
-      if (!r.ok && !tutorial) cur.errori += 1; // nel tutorial gli errori non contano
       salvaStato(st);
-      esito.hidden = false;
-      requestAnimationFrame(() => esito.scrollIntoView({ behavior: "smooth", block: "nearest" }));
+      const lista = `<ul class="gm-controlli">${r.controlli.map((c) => `<li class="${c.ok ? "ok" : "no"}"><span class="gm-segno" aria-hidden="true"></span><span><strong>${esc(c.nome)}</strong>${c.ok ? "" : `<br>${esc(c.suggerimento)}`}</span><span class="sr">${c.ok ? "superato" : "da sistemare"}</span></li>`).join("")}</ul>`;
       if (r.ok) {
         esito.className = "gm-esito ok";
-        esito.innerHTML = `<strong>Giusto.</strong><p>${esc(p.perche)}</p><button type="button" class="bottone-app" data-avanti>${ultimo ? "Concludi l'esercizio" : "Passo successivo"}</button>`;
-        radice.querySelectorAll<HTMLInputElement>("input[name=gm-r]").forEach((x) => (x.disabled = true));
-        radice.querySelector<HTMLButtonElement>("[data-controlla]")!.disabled = true;
-        esito.querySelector("[data-avanti]")!.addEventListener("click", () => avanti(m, ultimo, pagina));
+        esito.innerHTML = `<strong>Fatto.</strong>${lista}<p>${esc(p.perche)}</p>`;
+        if (area) area.readOnly = true;
+        fatto();
       } else {
         esito.className = "gm-esito no";
-        const note = r.sbagliate.map((o) => `<li><strong>${esc(o.testo)}</strong>: ${esc(o.nota)}</li>`).join("");
-        const manca = r.mancanti.length && p.tipo === "checkbox" ? "<p>Manca ancora almeno una risposta giusta.</p>" : "";
-        esito.innerHTML = `<strong>Non ancora.</strong>${note ? `<ul>${note}</ul>` : ""}${manca}<p>Rileggi "Da sapere" e riprova.</p>`;
+        esito.innerHTML = `<strong>Non ancora.</strong>${lista}<p>${p.tipo === "testo" ? "Completa il testo" : "Sistema i punti rossi, salva"} e premi di nuovo "Controlla il lavoro".</p>`;
       }
+      mostraEsito();
     });
-    collegaDove(p);
-    collegaAiuto(m);
   }
 
-  // Passa al passo successivo (o conclude). Se il passo dopo si fa in un'altra pagina, porta lì
-  // (i passi "info" si leggono dove si è).
-  function avanti(m: Missione, ultimo: boolean, pagina: string) {
+  // Passa al mini esercizio dopo (o conclude). Se si fa in un'altra pagina, porta lì.
+  function vaiAvanti(m: Missione, ultimo: boolean, pagina: string) {
     const s2 = leggiStato(); const c2 = s2.missioni[m.id];
     if (ultimo) { c2.stato = "completata"; salvaStato(s2); disegna(); document.dispatchEvent(new CustomEvent("missioni-aggiornate")); radice!.scrollIntoView({ behavior: "smooth", block: "start" }); return; }
     c2.passo += 1; salvaStato(s2);
     const prossimo = m.passi[c2.passo];
-    // si cambia pagina se il passo dopo è in un altro strumento, o in un'altra pagina del negozio
-    const altraPagina = prossimo.tipo !== "azione" && !!prossimo.pagina && location.pathname !== prossimo.pagina;
-    if (prossimo.tipo !== "info" && (prossimo.strumento !== pagina || altraPagina)) location.href = linkPasso(prossimo);
+    const altraPagina = (prossimo.tipo === "radio" || prossimo.tipo === "checkbox") && !!prossimo.pagina && location.pathname !== prossimo.pagina;
+    const altroStrumento = (prossimo.tipo === "radio" || prossimo.tipo === "checkbox" || prossimo.tipo === "azione") && prossimo.strumento !== pagina;
+    if (altroStrumento || altraPagina) location.href = linkPasso(prossimo);
     else { disegna(); radice!.scrollIntoView({ behavior: "smooth", block: "start" }); }
   }
 
-  // L'aiuto aperto toglie 5 punti (una volta per passo)
-  function collegaAiuto(m: Missione) {
-    radice!.querySelectorAll<HTMLDetailsElement>("[data-aiuto], [data-mostra-passi]").forEach((d) => d.addEventListener("toggle", (e) => {
-      if (!(e.currentTarget as HTMLDetailsElement).open) return;
-      const st = leggiStato(); const cur = st.missioni[m.id];
-      if (!cur.aiuti.includes(cur.passo)) { cur.aiuti.push(cur.passo); salvaStato(st); }
-    }));
-  }
-
-  // "Ricomincia l'esercizio": torna al primo mini esercizio e riporta le pagine dell'esercizio com'erano
+  // "Ricomincia": torna al primo mini esercizio e riporta le pagine dell'esercizio com'erano (con conferma)
   radice?.addEventListener("click", (e) => {
     const b = (e.target as HTMLElement).closest("[data-ricomincia]");
     if (!b) return;
@@ -219,66 +266,66 @@ const { pagina } = Astro.props;
 </script>
 
 <style>
-  .gm { display: flex; flex-direction: column; gap: 14px; font-size: .9rem; }
+  .gm { display: flex; flex-direction: column; font-size: .9rem; min-height: 100%; }
+  .gm :global(.gm-testa) { display: flex; flex-direction: column; gap: 8px; padding-bottom: 14px; border-bottom: 1px solid #e3e1dc; }
+  .gm :global(.gm-corpo) { display: flex; flex-direction: column; gap: 14px; padding: 16px 0 20px; flex: 1; }
+  .gm :global(.gm-piede) { position: sticky; bottom: 0; z-index: 2; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px 0 16px; background: #fff; border-top: 1px solid #e3e1dc; box-shadow: 0 -10px 16px -12px rgba(42, 29, 24, .18); }
   .gm :global(.gm-missione) { margin: 0; font-weight: 700; color: #423e39; font-size: .85rem; }
-  .gm :global(.gm-barre) { display: flex; gap: 6px; }
-  .gm :global(.gm-barre span) { flex: 1; height: 6px; border-radius: 3px; background: #e9e8e4; }
+  .gm :global(.gm-barre) { display: flex; gap: 4px; }
+  .gm :global(.gm-barre span) { flex: 1; height: 5px; border-radius: 3px; background: #e9e8e4; }
   .gm :global(.gm-barre span.fatto) { background: #2f7a4f; } .gm :global(.gm-barre span.ora) { background: var(--arancio); }
   .gm :global(.gm-passo) { margin: 0; font-size: .8rem; color: #625e58; display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
   .gm :global(.gm-ricomincia) { font: inherit; font-size: .78rem; color: #55514c; background: none; border: 0; padding: 0; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
   .gm :global(.gm-ricomincia[data-conferma]) { color: #8a1f17; font-weight: 700; }
-  .gm :global(.gm-obiettivo) { margin: 0; font-size: .85rem; line-height: 1.55; color: #423e39; background: #f4f4f2; border-radius: 10px; padding: 10px 12px; }
   .gm :global(.gm-situazione) { border-left: 3px solid var(--arancio); padding: 2px 0 2px 12px; }
-  .gm :global(.gm-situazione p) { margin: 2px 0 0; line-height: 1.55; font-size: .88rem; }
+  .gm :global(.gm-situazione p) { margin: 2px 0 0; line-height: 1.5; font-size: .87rem; }
   .gm :global(.gm-da) { font-size: .76rem; font-weight: 700; color: #625e58; }
-  .gm :global(.gm-sblocco) { margin: 0; background: var(--inchiostro); color: #f1efeb; border-radius: 12px; padding: 12px 14px; line-height: 1.5; font-size: .86rem; display: flex; flex-direction: column; gap: 2px; }
-  .gm :global(.gm-sblocco strong) { color: #fff; font-size: .92rem; }
-  .gm :global(.gm-titolo) { margin: 0; font-family: var(--font-titoli); font-size: 1.35rem; line-height: 1.2; }
+  .gm :global(.gm-titolo) { margin: 0; font-family: var(--font-titoli); font-size: 1.4rem; line-height: 1.2; }
+  .gm :global(.gm-consegna) { margin: -4px 0 0; line-height: 1.55; color: #423e39; }
   .gm :global(.gm-testo) { margin: 0; line-height: 1.6; color: #423e39; }
-  .gm :global(.gm-spiega) { background: #f4f4f2; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; line-height: 1.6; font-size: .87rem; }
-  .gm :global(.gm-spiega h3) { margin: 0; font-size: .9rem; font-family: var(--font-testo); font-weight: 800; }
-  .gm :global(.gm-spiega p) { margin: 0; }
-  .gm :global(.gm-esempio) { background: #fff; border-radius: 10px; padding: 10px 12px; }
-  .gm :global(.gm-esempio strong) { display: block; font-size: .78rem; color: #625e58; }
-  .gm :global(.gm-compito) { margin: 0; line-height: 1.6; }
-  .gm :global(.gm-come) { border: 1.5px solid var(--inchiostro); border-radius: 14px; padding: 14px 16px; background: #fff; }
-  .gm :global(.gm-come h3) { margin: 0 0 10px; font-size: .9rem; font-family: var(--font-testo); font-weight: 800; }
-  .gm :global(.gm-come ol) { margin: 0; padding: 0; list-style: none; counter-reset: passo; display: flex; flex-direction: column; gap: 10px; }
-  .gm :global(.gm-come li) { counter-increment: passo; position: relative; padding-left: 34px; min-height: 24px; line-height: 1.5; font-size: .87rem; }
-  .gm :global(.gm-come li::before) { content: counter(passo); position: absolute; left: 0; top: 0; width: 24px; height: 24px; border-radius: 50%; background: var(--arancio); color: var(--inchiostro); font-weight: 800; font-size: .78rem; display: grid; place-items: center; }
-  .gm :global(.gm-come--chiuso) { border-style: dashed; border-color: #b9b5ae; }
-  .gm :global(.gm-come--chiuso summary) { cursor: pointer; font-weight: 800; font-size: .9rem; }
-  .gm :global(.gm-come--chiuso summary span) { font-weight: 600; color: #625e58; }
-  .gm :global(.gm-come--chiuso[open] ol) { margin-top: 10px; }
-  .gm :global(.gm-errore) { background: #fff; border-radius: 10px; padding: 10px 12px; border-left: 3px solid #b3261e; }
-  .gm :global(.gm-errore strong) { display: block; font-size: .78rem; color: #8a1f17; }
-  .gm :global(.gm-come a) { color: var(--inchiostro); font-weight: 700; text-decoration-color: var(--arancio); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+  .gm :global(.gm-elenco) { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; line-height: 1.55; }
   .gm :global(.gm-opzioni) { border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
-  .gm :global(.gm-opzioni legend) { font-weight: 700; margin-bottom: 8px; }
+  .gm :global(.gm-opzioni legend) { font-weight: 700; font-size: .82rem; color: #55514c; margin-bottom: 8px; }
   .gm :global(.gm-opzione) { display: flex; gap: 10px; align-items: flex-start; padding: 11px 13px; border: 1.5px solid #e3e1dc; border-radius: 12px; cursor: pointer; line-height: 1.45; background: #fff; }
   .gm :global(.gm-opzione:has(input:checked)) { border-color: var(--arancio); }
   .gm :global(.gm-opzione:has(input:focus-visible)) { outline: 3px solid var(--inchiostro); outline-offset: 2px; }
   .gm :global(.gm-opzione input) { margin-top: 2px; width: 18px; height: 18px; accent-color: var(--arancio); flex: none; }
-  .gm :global(.gm-bottoni) { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .gm :global(.gm-lavoro) { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+  .gm :global(.gm-nota) { margin: 0; font-size: .84rem; line-height: 1.5; color: #55514c; }
+  .gm :global(.gm-nota a) { color: var(--inchiostro); font-weight: 700; }
+  .gm :global(.gm-scrivi) { display: flex; flex-direction: column; gap: 6px; }
+  .gm :global(.gm-scrivi textarea) { font: inherit; font-size: .9rem; line-height: 1.55; padding: 12px; border: 1.5px solid #d1cec8; border-radius: 12px; resize: vertical; min-height: 160px; }
+  .gm :global(.gm-scrivi textarea:focus) { outline: 3px solid var(--arancio); outline-offset: 1px; border-color: transparent; }
+  .gm :global(.gm-conta) { font-size: .78rem; color: #625e58; } .gm :global(.gm-conta.fuori) { color: #8a1f17; font-weight: 700; }
   .gm :global(.gm-secondario) { font: inherit; font-weight: 700; padding: 11px 14px; border-radius: 10px; border: 1px solid #d1cec8; background: #fff; color: var(--inchiostro); cursor: pointer; text-decoration: none; }
+  .gm :global(.gm-schede) { display: flex; gap: 6px; border-top: 1px solid #e3e1dc; padding-top: 14px; }
+  .gm :global(.gm-schede button) { flex: 1; font: inherit; font-size: .8rem; font-weight: 700; padding: 8px 6px; border-radius: 10px; border: 1px solid #e3e1dc; background: #fff; color: var(--inchiostro); cursor: pointer; line-height: 1.25; }
+  .gm :global(.gm-schede button small) { display: block; font-weight: 500; font-size: .7rem; color: #625e58; }
+  .gm :global(.gm-schede button[aria-selected="true"]) { background: var(--inchiostro); border-color: var(--inchiostro); color: #fff; }
+  .gm :global(.gm-schede button[aria-selected="true"] small) { color: #dedad3; }
+  .gm :global(.gm-scheda-corpo) { background: #f4f4f2; border-radius: 12px; padding: 14px 16px; font-size: .86rem; line-height: 1.6; display: flex; flex-direction: column; gap: 8px; }
+  .gm :global(.gm-scheda-corpo h3) { margin: 0; font-size: .88rem; font-family: var(--font-testo); font-weight: 800; }
+  .gm :global(.gm-scheda-corpo p) { margin: 0; }
+  .gm :global(.gm-scheda-corpo ul) { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
+  .gm :global(.gm-scheda-corpo .gm-secondario) { align-self: flex-start; }
+  .gm :global(.gm-esempio) { background: #fff; border-radius: 10px; padding: 10px 12px; }
+  .gm :global(.gm-esempio strong) { display: block; font-size: .76rem; color: #625e58; }
+  .gm :global(.gm-errore) { background: #fff; border-radius: 10px; padding: 10px 12px; border-left: 3px solid #b3261e; }
+  .gm :global(.gm-errore strong) { display: block; font-size: .76rem; color: #8a1f17; }
   .gm :global(.gm-esito) { border-radius: 12px; padding: 12px 14px; line-height: 1.55; display: flex; flex-direction: column; gap: 6px; }
   .gm :global(.gm-esito p), .gm :global(.gm-esito ul) { margin: 0; }
   .gm :global(.gm-esito ul) { padding-left: 18px; display: flex; flex-direction: column; gap: 4px; }
   .gm :global(.gm-esito.ok) { background: #e3f3e8; color: #173f27; }
   .gm :global(.gm-esito.no) { background: #fde8e4; color: #6e1c11; }
-  .gm :global(.gm-esito .bottone-app) { align-self: flex-start; margin-top: 4px; }
-  .gm :global(.gm-aiuto) { border-top: 1px solid #e3e1dc; padding-top: 12px; }
-  .gm :global(.gm-aiuto summary) { cursor: pointer; font-weight: 700; }
-  .gm :global(.gm-aiuto summary span) { font-weight: 600; color: #625e58; }
-  .gm :global(.gm-aiuto p) { margin: 8px 0 0; line-height: 1.55; color: #423e39; }
-  .gm :global(.gm-vai) { align-self: flex-start; }
-  .gm :global(.gm-controlli) { list-style: none; margin: 4px 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+  .gm :global(.gm-controlli) { list-style: none; margin: 4px 0; padding: 0 !important; display: flex; flex-direction: column; gap: 6px; }
   .gm :global(.gm-controlli li) { display: flex; gap: 8px; align-items: flex-start; font-size: .85rem; line-height: 1.45; }
   .gm :global(.gm-controlli strong) { font-weight: 600; }
   .gm :global(.gm-segno) { flex: none; width: 16px; height: 16px; border-radius: 50%; margin-top: 2px; border: 2px solid #b3261e; }
   .gm :global(.gm-controlli li.ok .gm-segno) { background: #2f7a4f; border-color: #2f7a4f; }
   .gm :global(.sr) { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .gm :global(.gm-punti) { margin: 0; } .gm :global(.gm-punti strong) { font-family: var(--font-titoli); font-size: 2rem; }
+  .gm :global(.gm-sblocco) { margin: 0; background: var(--inchiostro); color: #f1efeb; border-radius: 12px; padding: 12px 14px; line-height: 1.5; font-size: .86rem; display: flex; flex-direction: column; gap: 2px; }
+  .gm :global(.gm-sblocco strong) { color: #fff; font-size: .92rem; }
   .gm :global(.gm-blocco h3) { margin: 0 0 4px; font-size: .9rem; }
   .gm :global(.gm-blocco ul) { margin: 0; padding-left: 18px; line-height: 1.6; }
   .gm :global(.gm-messaggio) { background: #f4f4f2; border-radius: 12px; padding: 12px 14px; }
