@@ -1,0 +1,448 @@
+{
+ "_nota": "Esercizio CRM 1. Clienti, numeri e indirizzi sono inventati.",
+ "id": "crm",
+ "ruolo": "CRM manager",
+ "titolo": "Exercise 1 · Recovering abandoned carts",
+ "minuti": 20,
+ "richiesta": {
+  "da": "LB",
+  "nome": "Luca",
+  "ruolo": "E-commerce",
+  "quando": "martedì alle 9:30",
+  "oggetto": "Lots of abandoned carts",
+  "testo": "Hi! Every month lots of people put tea in their cart and then don't buy. Can you help me split customers into groups, work out who we can email, prepare the emails and estimate how much we can recover?"
+ },
+ "scheda": {
+  "titolo": "Customer numbers",
+  "voci": [
+   [
+    "Newsletter subscribers",
+    "8,400, with their consent"
+   ],
+   [
+    "Abandoned carts",
+    "320 a month"
+   ],
+   [
+    "Average cart value",
+    "€24"
+   ],
+   [
+    "Carts usually recovered with emails",
+    "about 10 in 100"
+   ],
+   [
+    "Last newsletter",
+    "7,000 sent, 2,100 opened"
+   ],
+   [
+    "Rule",
+    "Every email has an unsubscribe link"
+   ]
+  ]
+ },
+ "consiglio": "CRM isn't sending more emails: it's sending the right email, to the right person, at the right time. And only to people who said yes.",
+ "parole": [
+  "segmentation",
+  "consent",
+  "automated email",
+  "open rate"
+ ],
+ "parti": [
+  {
+   "id": "segmenti",
+   "tipo": "classifica",
+   "titolo": "Split customers into groups",
+   "testo": "For each customer choose the right group.",
+   "colonne": [
+    {
+     "id": "nuovo",
+     "nome": "New"
+    },
+    {
+     "id": "fedele",
+     "nome": "Loyal"
+    },
+    {
+     "id": "inattivo",
+     "nome": "Inactive"
+    }
+   ],
+   "righe": [
+    {
+     "id": "c1",
+     "testo": "Giulia · 1 order, 5 days ago",
+     "giusti": [
+      "nuovo"
+     ]
+    },
+    {
+     "id": "c2",
+     "testo": "Paolo · 8 orders in a year, the last 2 weeks ago",
+     "giusti": [
+      "fedele"
+     ]
+    },
+    {
+     "id": "c3",
+     "testo": "Marco · 6 orders, the last 3 weeks ago",
+     "giusti": [
+      "fedele"
+     ]
+    },
+    {
+     "id": "c4",
+     "testo": "Anna · 2 orders, the last 14 months ago",
+     "giusti": [
+      "inattivo"
+     ]
+    },
+    {
+     "id": "c5",
+     "testo": "Sofia · 3 orders, the last 11 months ago",
+     "giusti": [
+      "inattivo"
+     ]
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "New customer recognised",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "c1"
+      ]
+     },
+     "suggerimento": "Just one order, recently placed: she's new."
+    },
+    {
+     "nome": "Loyal customers recognised",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "c2",
+       "c3"
+      ]
+     },
+     "suggerimento": "Lots of orders, and recent: they're loyal."
+    },
+    {
+     "nome": "Inactive customers recognised",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "c4",
+       "c5"
+      ]
+     },
+     "suggerimento": "They haven't ordered for almost a year or more."
+    }
+   ],
+   "perche": "Splitting customers into groups (segmentation) lets you send different messages: a welcome to new ones, thanks to loyal ones, \"we miss you\" to inactive ones.",
+   "soluzione": "New: Giulia. Loyal: Paolo and Marco. Inactive: Anna and Sofia.",
+   "spiega": {
+    "testo": "For each customer look at two things: how many orders they've placed and when the last one was. One recent order means new; lots of orders and the last one recent means loyal; no orders for many months means inactive, even if they bought in the past.",
+    "esempio": "Candles: Luca, 5 orders, the last 10 days ago: loyal. Marta, 4 orders, the last 13 months ago: inactive."
+   }
+  },
+  {
+   "id": "consenso",
+   "tipo": "spunte",
+   "titolo": "Who can we email?",
+   "testo": "We want to send emails about carts and new products. Who can we send them to? Choose all the right answers.",
+   "opzioni": [
+    {
+     "id": "a1",
+     "testo": "Newsletter subscribers who gave their consent"
+    },
+    {
+     "id": "a2",
+     "testo": "People who already bought from us, about similar products, if we informed them and they didn't object"
+    },
+    {
+     "id": "a3",
+     "testo": "A list of 5,000 emails bought from another company"
+    },
+    {
+     "id": "a4",
+     "testo": "Email addresses found on followers' Instagram profiles"
+    },
+    {
+     "id": "a5",
+     "testo": "People who unsubscribed, but just once \"to be safe\""
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "Subscribers with consent",
+     "regola": {
+      "tipo": "spunte-tutte",
+      "ids": [
+       "a1"
+      ]
+     },
+     "suggerimento": "Explicit consent is the basis."
+    },
+    {
+     "nome": "Customers, about similar products, if they didn't object",
+     "regola": {
+      "tipo": "spunte-tutte",
+      "ids": [
+       "a2"
+      ]
+     },
+     "suggerimento": "In Italy there's an exception for people who already bought from us (art. 130 of the Italian Privacy Code)."
+    },
+    {
+     "nome": "No bought lists or addresses taken from social media",
+     "regola": {
+      "tipo": "spunte-nessuna",
+      "ids": [
+       "a3",
+       "a4"
+      ]
+     },
+     "suggerimento": "These people never said yes to us."
+    },
+    {
+     "nome": "Respect for people who said no",
+     "regola": {
+      "tipo": "spunte-nessuna",
+      "ids": [
+       "a5"
+      ]
+     },
+     "suggerimento": "People who unsubscribe are never contacted again, not even once."
+    }
+   ],
+   "perche": "Under the GDPR and the Italian Privacy Code, promotional emails require consent. The exception: you can email customers about products similar to the ones they bought, if you informed them and they can say no at any time.",
+   "soluzione": "Yes to subscribers with consent and to customers about similar products (if informed and not objecting). No to bought lists, addresses taken from social media, people who unsubscribed.",
+   "spiega": {
+    "testo": "There can be more than one right answer. For each, ask yourself: did this person say yes to us, or are they already a customer who was informed? If the address comes from others, from social media or from someone who said no, you can't email them.",
+    "esempio": "A customer who bought candles can get an email about similar candles, if she was informed and didn't object. People who unsubscribed mustn't be contacted again, not even \"one last time\"."
+   }
+  },
+  {
+   "id": "email",
+   "tipo": "menu",
+   "titolo": "Prepare the cart emails",
+   "testo": "Choose how the automated emails for people who abandon their cart work.",
+   "campi": [
+    {
+     "id": "quando",
+     "etichetta": "When does the first email go out?",
+     "opzioni": [
+      "After 10 seconds",
+      "After 1-3 hours",
+      "After 2 weeks"
+     ]
+    },
+    {
+     "id": "quante",
+     "etichetta": "How many emails at most?",
+     "opzioni": [
+      "1",
+      "2-3",
+      "10"
+     ]
+    },
+    {
+     "id": "prima",
+     "etichetta": "What's in the first email?",
+     "opzioni": [
+      "A 50% discount straight away",
+      "A reminder with the products in the cart",
+      "The full catalogue"
+     ]
+    },
+    {
+     "id": "sempre",
+     "etichetta": "What must every email contain?",
+     "opzioni": [
+      "The unsubscribe link",
+      "A fake countdown",
+      "Nothing is required"
+     ]
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "The right moment: after 1-3 hours",
+     "regola": {
+      "tipo": "menu",
+      "campo": "quando",
+      "valore": "After 1-3 hours"
+     },
+     "suggerimento": "Straight away is pushy, after weeks the person has forgotten."
+    },
+    {
+     "nome": "Few emails: 2-3",
+     "regola": {
+      "tipo": "menu",
+      "campo": "quante",
+      "valore": "2-3"
+     },
+     "suggerimento": "Too many emails make people unsubscribe."
+    },
+    {
+     "nome": "A reminder first, not a discount",
+     "regola": {
+      "tipo": "menu",
+      "campo": "prima",
+      "valore": "A reminder with the products in the cart"
+     },
+     "suggerimento": "An immediate discount teaches customers to abandon their cart on purpose."
+    },
+    {
+     "nome": "Always the unsubscribe link",
+     "regola": {
+      "tipo": "menu",
+      "campo": "sempre",
+      "valore": "The unsubscribe link"
+     },
+     "suggerimento": "It's required, and a fake countdown is an unfair practice."
+    }
+   ],
+   "perche": "Automated emails work when they're useful and respectful. Fake urgency, like countdowns that restart, is an unfair commercial practice.",
+   "soluzione": "First email after 1-3 hours with a reminder of the products, 2-3 emails at most, always the unsubscribe link.",
+   "spiega": {
+    "testo": "Think about the person who left the cart: a small oversight should be pointed out soon, before they forget completely. Too many emails become a nuisance. The unsubscribe link is required in every email, not just the last.",
+    "esempio": "After 2 hours: \"You left the vanilla candle in your cart\". After a day, if needed, a second reminder. That's it."
+   }
+  },
+  {
+   "id": "stima",
+   "tipo": "menu",
+   "titolo": "How much can we recover?",
+   "testo": "Using the data on the card, make an estimate.",
+   "campi": [
+    {
+     "id": "ordini",
+     "etichetta": "Carts recovered per month (10 in 100)",
+     "opzioni": [
+      "3",
+      "32",
+      "100",
+      "320"
+     ]
+    },
+    {
+     "id": "incasso",
+     "etichetta": "Revenue recovered per month (orders × €24)",
+     "opzioni": [
+      "€72",
+      "€320",
+      "€768",
+      "€7,680"
+     ]
+    },
+    {
+     "id": "apertura",
+     "etichetta": "Open rate of the last newsletter",
+     "opzioni": [
+      "3%",
+      "21%",
+      "30%",
+      "70%"
+     ]
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "Carts recovered: 32",
+     "regola": {
+      "tipo": "menu",
+      "campo": "ordini",
+      "valore": "32"
+     },
+     "suggerimento": "10 in 100: how many out of 320?"
+    },
+    {
+     "nome": "Revenue recovered: €768",
+     "regola": {
+      "tipo": "menu",
+      "campo": "incasso",
+      "valore": "€768"
+     },
+     "suggerimento": "32 × €24."
+    },
+    {
+     "nome": "Open rate: 30%",
+     "regola": {
+      "tipo": "menu",
+      "campo": "apertura",
+      "valore": "30%"
+     },
+     "suggerimento": "2,100 opened ÷ 7,000 sent × 100."
+    }
+   ],
+   "perche": "Making an estimate before starting helps decide whether an activity is worth the time. The open rate is approximate: some email apps inflate it or hide it.",
+   "soluzione": "32 carts recovered, €768 a month. Open rate 30%.",
+   "spiega": {
+    "testo": "Do the maths in order: carts recovered = abandoned carts ÷ 100 × how many are recovered per 100. Revenue = carts recovered × average value. The open rate is opened ÷ sent × 100.",
+    "esempio": "200 carts, 15 per 100: 200 ÷ 100 × 15 = 30. With an average value of €30: €900. 1,000 opened out of 5,000: 20%."
+   }
+  }
+ ],
+ "aiuti": [
+  {
+   "titolo": "How do I split customers?",
+   "testo": "Look at how often they've bought and how long ago. Few orders and recent: new. Lots and recent: loyal. Nothing for many months: inactive."
+  },
+  {
+   "titolo": "When can I email someone?",
+   "testo": "When they gave consent, or they're already a customer and you're writing about similar products, you informed them and they didn't object. Never to bought lists."
+  }
+ ],
+ "glossario": "Segmentation: splitting customers into groups. Consent: an explicit yes to receiving emails. Automated email: sent on its own after an action (e.g. an abandoned cart). Open rate: emails opened out of emails sent.",
+ "note": [
+  "Different groups get different messages.",
+  "Without consent (or the exception for customers) you email nobody.",
+  "Automated emails work if they're few, useful and well timed."
+ ],
+ "autovalutazione": [
+  "I could explain why customers are split into groups.",
+  "I understood who can and can't get a promotional email.",
+  "I could explain why the first email shouldn't include a discount.",
+  "I made the estimate on my own."
+ ],
+ "rispostaCollega": "Great, €768 a month isn't bad at all! I'll set up the two emails and delete that list someone wanted to buy.",
+ "imparato": [
+  "segmentation",
+  "consent and GDPR",
+  "automated emails",
+  "estimating results"
+ ],
+ "lezione": {
+  "intro": "CRM (Customer Relationship Management) is the work of managing the relationship with existing customers and subscribers: splitting people into groups, writing at the right time with the right message and measuring results. All with people's consent, as the GDPR requires.",
+  "concetti": [
+   {
+    "nome": "Segmentation",
+    "spiegazione": "It means splitting customers into similar groups, to send each one the right message. A simple way looks at how many orders the person has placed and how long it's been since the last: new, loyal, inactive.",
+    "esempio": "A candle shop: Elisa bought once yesterday (new); Tommaso buys every month (loyal); Rita hasn't bought for over a year (inactive)."
+   },
+   {
+    "nome": "Consent and rules",
+    "spiegazione": "To send promotional emails you need the person's consent. There's an exception: people who already bought can be offered similar products, if they were informed and didn't object. Never bought lists, never addresses taken from social media, never email people who unsubscribed.",
+    "esempio": "The candle shop can email people who signed up to the newsletter; it can't use emails collected by another company."
+   },
+   {
+    "nome": "Automated emails",
+    "spiegazione": "They go out on their own after something the person does, for example a cart left half-way. They work if they arrive soon, are few and remind people what was in the cart. Every email must have the unsubscribe link.",
+    "esempio": "Abandoned candle cart: a reminder after 2 hours, maybe a second after a day, then stop."
+   },
+   {
+    "nome": "CRM numbers",
+    "spiegazione": "The open rate is emails opened ÷ emails sent. To estimate how much you recover from carts: abandoned carts × percentage recovered, then × average cart value.",
+    "esempio": "5,000 emails sent, 1,000 opened: 20%. 200 carts, 15 in 100 recovered = 30, at €30 each = €900."
+   }
+  ],
+  "cosaFarai": [
+   "Split five customers into new, loyal and inactive",
+   "Decide who can be emailed under the rules",
+   "Set up the emails for abandoned carts",
+   "Estimate how much can be recovered in a month"
+  ]
+ }
+}

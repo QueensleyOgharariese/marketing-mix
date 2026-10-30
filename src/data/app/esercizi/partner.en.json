@@ -1,0 +1,466 @@
+{
+ "_nota": "Esercizio Partnerships 1. Aziende partner e numeri sono inventati; i partner non hanno nome per non richiamare aziende reali.",
+ "id": "partner",
+ "ruolo": "Partnerships",
+ "titolo": "Exercise 1 · A box made by two",
+ "minuti": 20,
+ "richiesta": {
+  "da": "LB",
+  "nome": "Luca",
+  "ruolo": "E-commerce",
+  "quando": "sabato alle 10:00",
+  "oggetto": "Shall we do something with another company?",
+  "testo": "Hi! For Christmas I'd like to team up with another small company and sell something together. Can you help me choose the partner and the right idea, do the maths and work out what to put in the agreement?"
+ },
+ "scheda": {
+  "titolo": "The idea and the numbers",
+  "voci": [
+   [
+    "Idea",
+    "A \"Slow breakfast\" box for Christmas"
+   ],
+   [
+    "Box price",
+    "€19.90"
+   ],
+   [
+    "Our tea (cost)",
+    "€2.60"
+   ],
+   [
+    "The partner's biscuits (cost)",
+    "€3.40"
+   ],
+   [
+    "Box and shipping",
+    "€4.00"
+   ],
+   [
+    "Split",
+    "The margin is split in half"
+   ],
+   [
+    "Goal",
+    "200 boxes sold"
+   ],
+   [
+    "Note",
+    "Prices excluding VAT, to keep it simple"
+   ]
+  ]
+ },
+ "consiglio": "A good partnership works when both companies gain and customers get something neither could have offered alone.",
+ "parole": [
+  "partner",
+  "co-marketing",
+  "margin",
+  "agreement",
+  "exclusivity"
+ ],
+ "parti": [
+  {
+   "id": "partner",
+   "tipo": "classifica",
+   "titolo": "Who do we team up with?",
+   "testo": "We've received or thought of five possible partners. Which are a good fit?",
+   "colonne": [
+    {
+     "id": "si",
+     "nome": "A good fit"
+    },
+    {
+     "id": "no",
+     "nome": "Not a fit"
+    }
+   ],
+   "righe": [
+    {
+     "id": "p1",
+     "testo": "An artisan bakery of organic biscuits, with customers similar to ours and 12,000 newsletter subscribers",
+     "giusti": [
+      "si"
+     ]
+    },
+    {
+     "id": "p2",
+     "testo": "An online shop of handmade ceramic mugs and teapots",
+     "giusti": [
+      "si"
+     ]
+    },
+    {
+     "id": "p3",
+     "testo": "Another online tea shop, with the same products we sell",
+     "giusti": [
+      "no"
+     ]
+    },
+    {
+     "id": "p4",
+     "testo": "A fast food chain with millions of customers",
+     "giusti": [
+      "no"
+     ]
+    },
+    {
+     "id": "p5",
+     "testo": "A \"fat burner\" supplements company",
+     "giusti": [
+      "no"
+     ]
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "Complementary partners chosen",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "p1",
+       "p2"
+      ]
+     },
+     "suggerimento": "They sell things that go well with tea, to people similar to our customers."
+    },
+    {
+     "nome": "The competitor excluded",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "p3"
+      ]
+     },
+     "suggerimento": "It sells the same things: we'd take each other's customers."
+    },
+    {
+     "nome": "Partners far from our values excluded",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "p4",
+       "p5"
+      ]
+     },
+     "suggerimento": "A different audience or risky health claims: their image becomes ours too."
+    }
+   ],
+   "perche": "The right partner is complementary (it sells something else, to a similar audience), shares our values and brings something we don't have, such as new customers or skills.",
+   "soluzione": "A good fit: the organic biscuit bakery and the ceramic mug shop. Not a fit: the competitor, the fast food chain, the \"fat burner\" supplements.",
+   "spiega": {
+    "testo": "For each company ask yourself: does its product complete ours or replace it? Do its customers resemble ours? Are its values compatible with ours? If any answer is no, it isn't a good partner.",
+    "esempio": "For the bookshop: a board game company is complementary; a chain selling discounted books online is a competitor."
+   }
+  },
+  {
+   "id": "idea",
+   "tipo": "scelta",
+   "titolo": "Choose the proposal",
+   "testo": "We choose the biscuit bakery. Which proposal do you send?",
+   "opzioni": [
+    {
+     "id": "o1",
+     "testo": "A \"Slow breakfast\" box with our Sencha and their biscuits, sold on both websites, with a different code for each so we know who sold what",
+     "ok": {
+      "entrambi": true,
+      "misurabile": true,
+      "regole": true
+     }
+    },
+    {
+     "id": "o2",
+     "testo": "We ask them to put our logo on their website, for free and with nothing in return",
+     "ok": {
+      "entrambi": false,
+      "misurabile": false,
+      "regole": true
+     }
+    },
+    {
+     "id": "o3",
+     "testo": "We swap customer lists: we give them our 8,400 subscribers and they give us their 12,000",
+     "ok": {
+      "entrambi": true,
+      "misurabile": true,
+      "regole": false
+     }
+    },
+    {
+     "id": "o4",
+     "testo": "A box together, without codes and without keeping track: at the end of the year we'll see how it went",
+     "ok": {
+      "entrambi": true,
+      "misurabile": false,
+      "regole": true
+     }
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "A benefit for both",
+     "regola": {
+      "tipo": "opzione",
+      "chiave": "entrambi"
+     },
+     "suggerimento": "A free logo with nothing in return only benefits us."
+    },
+    {
+     "nome": "Measurable results",
+     "regola": {
+      "tipo": "opzione",
+      "chiave": "misurabile"
+     },
+     "suggerimento": "Without codes or data we'll never know whether it worked."
+    },
+    {
+     "nome": "Respects customer data",
+     "regola": {
+      "tipo": "opzione",
+      "chiave": "regole"
+     },
+     "suggerimento": "Our subscribers said yes to us, not to the bakery: they can't be passed to another company."
+    }
+   ],
+   "perche": "Co-marketing works when the value is for both and can be measured. And each company speaks to its own customers: contact lists aren't swapped without people's consent (GDPR).",
+   "soluzione": "The first: a new product we wouldn't have alone, sold by both, with one code each to measure. Each company tells its own subscribers about it.",
+   "spiega": {
+    "testo": "A proposal works if it gives both a benefit, creates something for customers and can be measured. Discard the ones that ask for free favours, swap customer data or don't keep track.",
+    "esempio": "\"Put our logo on your website, for free\" benefits only one; \"A book + a coffee, with one code each\" benefits both."
+   }
+  },
+  {
+   "id": "conti",
+   "tipo": "menu",
+   "titolo": "Do the maths for the box",
+   "testo": "Using the numbers on the card, how much do we earn?",
+   "campi": [
+    {
+     "id": "costo",
+     "etichetta": "Cost of one box (tea + biscuits + box and shipping)",
+     "opzioni": [
+      "€6.00",
+      "€10.00",
+      "€19.90"
+     ]
+    },
+    {
+     "id": "margine",
+     "etichetta": "Margin per box (price − cost)",
+     "opzioni": [
+      "€9.90",
+      "€10.00",
+      "€13.90"
+     ]
+    },
+    {
+     "id": "quota",
+     "etichetta": "Cinque Foglie's share per box (half the margin)",
+     "opzioni": [
+      "€2.48",
+      "€4.95",
+      "€9.90"
+     ]
+    },
+    {
+     "id": "totale",
+     "etichetta": "Our earnings with 200 boxes",
+     "opzioni": [
+      "€495",
+      "€990",
+      "€1,980"
+     ]
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "Right cost: €10.00",
+     "regola": {
+      "tipo": "menu",
+      "campo": "costo",
+      "valore": "€10.00"
+     },
+     "suggerimento": "€2.60 + €3.40 + €4.00."
+    },
+    {
+     "nome": "Right margin: €9.90",
+     "regola": {
+      "tipo": "menu",
+      "campo": "margine",
+      "valore": "€9.90"
+     },
+     "suggerimento": "€19.90 − €10.00."
+    },
+    {
+     "nome": "Right share: €4.95",
+     "regola": {
+      "tipo": "menu",
+      "campo": "quota",
+      "valore": "€4.95"
+     },
+     "suggerimento": "Half of €9.90."
+    },
+    {
+     "nome": "Right earnings: €990",
+     "regola": {
+      "tipo": "menu",
+      "campo": "totale",
+      "valore": "€990"
+     },
+     "suggerimento": "€4.95 × 200 boxes."
+    }
+   ],
+   "perche": "Before signing, you do the maths together, with the same numbers: costs, margin and how it's split. That way nobody gets surprises at the end of the project.",
+   "soluzione": "Cost €10.00, margin €9.90, €4.95 each per box: with 200 boxes that's €990 for us (before other costs such as time and advertising).",
+   "spiega": {
+    "testo": "Do the maths in order, because each number is needed for the next: cost of one box (sum of all costs), margin (price − cost), our share (margin ÷ 2), total earnings (share × boxes sold).",
+    "esempio": "Costs 6 + 4 + 5 = €15. Price €25: margin €10. Half: €5. 100 boxes: €500."
+   }
+  },
+  {
+   "id": "accordo",
+   "tipo": "spunte",
+   "titolo": "What do we put in the agreement?",
+   "testo": "Before starting, everything is put in writing. Choose what to write, and only that.",
+   "opzioni": [
+    {
+     "id": "c1",
+     "testo": "Who does what: who prepares the boxes, who ships, who answers customers"
+    },
+    {
+     "id": "c2",
+     "testo": "How costs and earnings are split, and when payment is made"
+    },
+    {
+     "id": "c3",
+     "testo": "How long the partnership lasts and how it ends"
+    },
+    {
+     "id": "c4",
+     "testo": "How logos are used and who approves copy and photos"
+    },
+    {
+     "id": "c5",
+     "testo": "Each company can use the other's customer data as it likes"
+    },
+    {
+     "id": "c6",
+     "testo": "No paperwork: between people who trust each other a handshake is enough"
+    },
+    {
+     "id": "c7",
+     "testo": "Neither company can ever work with other companies again, forever"
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "Clear tasks and money",
+     "regola": {
+      "tipo": "spunte-tutte",
+      "ids": [
+       "c1",
+       "c2"
+      ]
+     },
+     "suggerimento": "Disputes almost always come from unclear tasks and payments."
+    },
+    {
+     "nome": "Duration and use of the trademark",
+     "regola": {
+      "tipo": "spunte-tutte",
+      "ids": [
+       "c3",
+       "c4"
+      ]
+     },
+     "suggerimento": "When it ends, and who can use the other's logo and how."
+    },
+    {
+     "nome": "Customer data protected",
+     "regola": {
+      "tipo": "spunte-nessuna",
+      "ids": [
+       "c5"
+      ]
+     },
+     "suggerimento": "If one ships for the other, the data is used only for that and a specific agreement is needed (art. 28 GDPR)."
+    },
+    {
+     "nome": "No verbal agreements or endless exclusivity",
+     "regola": {
+      "tipo": "spunte-nessuna",
+      "ids": [
+       "c6",
+       "c7"
+      ]
+     },
+     "suggerimento": "A written agreement also protects the friendship; exclusivity forever ties both down."
+    }
+   ],
+   "perche": "A clear written agreement (tasks, money, duration, trademarks, data) avoids misunderstandings. For a real agreement always ask a lawyer: here you only learn what mustn't be missing.",
+   "soluzione": "Who does what, costs and payments, duration and ending, use of logos. No customer data used freely, no verbal-only agreements, no exclusivity forever.",
+   "spiega": {
+    "testo": "There can be more than one right answer. Keep the items that make clear who does what, how payment works, how long it lasts and how trademarks and materials are used. Discard the ones that break the GDPR, leave everything verbal or tie the companies together forever.",
+    "esempio": "\"Each company uses only its own customers' data\" protects both; \"We can use your contacts however we like\" doesn't."
+   }
+  }
+ ],
+ "aiuti": [
+  {
+   "titolo": "How do I choose a partner?",
+   "testo": "Three questions: does it sell something that completes our product (and not the same thing)? Does it speak to people similar to our customers? Are its values close to ours?"
+  },
+  {
+   "titolo": "Why don't we swap customer lists?",
+   "testo": "People consented to receiving emails from us, not from another company. Each company tells its own subscribers about the box."
+  }
+ ],
+ "glossario": "Partner: a company we work with. Co-marketing: promoting a product or initiative together. Complementary: a product that goes well with ours. Exclusivity: a commitment not to work with others.",
+ "note": [
+  "The right partner is complementary and has values close to ours.",
+  "A proposal works if it benefits both and can be measured.",
+  "Everything in writing: tasks, money, duration, trademarks and data."
+ ],
+ "autovalutazione": [
+  "I could explain why a competitor isn't a good partner.",
+  "I understood why customer lists aren't swapped.",
+  "I did the maths for the box without help.",
+  "I could say what mustn't be missing from an agreement."
+ ],
+ "rispostaCollega": "Perfect, I'll send the proposal to the bakery today. And before signing we'll have our adviser read the agreement.",
+ "imparato": [
+  "choosing a partner",
+  "co-marketing",
+  "splitting the margin",
+  "what to put in an agreement"
+ ],
+ "lezione": {
+  "intro": "People in partnerships look for other companies to do something together that neither could do alone: a joint product, a promotion, an event. A good partnership benefits both, is measurable and is written in a clear agreement.",
+  "concetti": [
+   {
+    "nome": "The right partner",
+    "spiegazione": "The ideal partner sells something that goes well with our product (complementary), has customers similar to ours and compatible values. A direct competitor or a company with distant values isn't a good fit, even if it's big.",
+    "esempio": "An independent bookshop can team up with a neighbourhood café: people who read often drink coffee. Not with another bookshop: they sell the same thing."
+   },
+   {
+    "nome": "The proposal",
+    "spiegazione": "A good proposal creates something new for both companies' customers, splits the work and can be measured (for example with one code each). Customer lists are never swapped: under the GDPR their consent would be needed.",
+    "esempio": "Bookshop and café: \"a book + a coffee\" on sale in both places, with a different code to count who sells more."
+   },
+   {
+    "nome": "The maths",
+    "spiegazione": "You add up all the costs of one item, calculate the margin (price − costs) and split it as agreed. Then you multiply by the items you expect to sell. Hidden costs, like time, are left out.",
+    "esempio": "Box at €25; book €6, coffee €4, packaging €5: cost €15, margin €10, €5 each. With 100 boxes: €500 each."
+   },
+   {
+    "nome": "The written agreement",
+    "spiegazione": "Before starting you write down who does what, how costs and earnings are split, how long it lasts, how logos are used and who handles customer data. Exclusivity forever and verbal-only agreements cause problems. For contracts it's best to get help from a lawyer.",
+    "esempio": "The bookshop and the café write that the partnership lasts until January and that each uses only its own customers' data."
+   }
+  ],
+  "cosaFarai": [
+   "Choose which companies are good partners",
+   "Choose the proposal to send to the bakery",
+   "Do the maths for the box",
+   "Decide what to put in the agreement"
+  ]
+ }
+}

@@ -1,0 +1,142 @@
+1|Marketing analytics / martech
+2|Esercizio 1 · Da dove arrivano le vendite?
+3|Luca
+4|E-commerce
+5|Nei dati non si capisce niente
+6|Ciao! Guardo i dati del sito e non capisco da dove arrivano le vendite, né dove perdiamo i clienti. E qualcuno dice che il banner dei cookie non va bene. Mi aiuti a mettere ordine?
+7|I dati del mese
+8|Visite alla pagina delle Tisane della Sera
+9|Aggiunte al carrello
+10|800 (valore tipico: 6-10 su 100 visite)
+11|Pagamenti iniziati
+12|600 (valore tipico: 60-80 su 100 carrelli)
+13|Ordini conclusi
+14|150 (valore tipico: 50-70 su 100 pagamenti iniziati)
+15|Spedizione
+16|Il costo compare solo all'ultimo passaggio del pagamento
+17|Newsletter di ottobre
+18|Il link non ha i parametri UTM: le visite non si distinguono
+19|Banner cookie di oggi
+20|Solo il tasto "Accetta"; "Rifiuta" è in una seconda pagina
+21|I dati servono a decidere: prima si raccolgono bene (e in modo legale), poi si leggono passo per passo.
+22|canale
+23|UTM
+24|funnel
+25|tasso di conversione
+26|consenso ai cookie
+27|Da quale canale arriva?
+28|Ogni visita arriva da un canale. Scegli quello giusto per ognuna.
+29|Ricerca organica
+30|A pagamento
+31|Email
+32|Social
+33|Clicca un risultato normale su Google
+34|Clicca un annuncio su Google
+35|Clicca il link nella newsletter
+36|Clicca il link nella bio del nostro profilo Instagram
+37|Clicca un post sponsorizzato su Instagram
+38|Ricerca organica riconosciuta
+39|Un risultato normale di Google non si paga: è traffico organico (il lavoro della SEO).
+40|Traffico a pagamento riconosciuto
+41|Annunci e post sponsorizzati si pagano, anche se sono su Instagram.
+42|Email riconosciuta
+43|La newsletter è il canale email.
+44|Social riconosciuto
+45|Il link nella bio è social gratuito.
+46|Dividere le visite per canale permette di capire cosa funziona e dove investire. Attenzione: lo stesso posto (Instagram) può essere social gratuito o pubblicità a pagamento.
+47|Organica: il risultato normale di Google. A pagamento: l'annuncio su Google e il post sponsorizzato. Email: la newsletter. Social: il link nella bio.
+48|Per ogni visita chiediti due cose: da dove è partita (Google, una email, Instagram)? E c'è stato un pagamento per farla comparire (annuncio o post sponsorizzato)? Se sì, il canale è "a pagamento", anche se la piattaforma è Google o Instagram.
+49|Candele: un clic su un post sponsorizzato di Instagram è a pagamento; un clic sul link nella bio dello stesso profilo è social.
+50|Scegli il link giusto per la newsletter
+51|I parametri UTM sono etichette aggiunte a un link per far capire agli strumenti di analisi da dove arriva la visita. Quale link usi nella prossima newsletter?
+52|cinquefoglie.example/tisane-della-sera?utm_source=newsletter&utm_medium=email&utm_campaign=tisane-ottobre
+53|cinquefoglie.example/tisane-della-sera?utm_source=newsletter&utm_medium=social&utm_campaign=tisane-ottobre
+54|cinquefoglie.example/tisane-della-sera?utm_source=Newsletter Ottobre!!&utm_medium=email&utm_campaign=campagna
+55|cinquefoglie.example/tisane-della-sera
+56|Fonte chiara e scritta sempre uguale
+57|Minuscole, niente spazi né punti esclamativi: "newsletter" e "Newsletter Ottobre!!" diventano due fonti diverse.
+58|Mezzo giusto: email
+59|Una newsletter arriva per email, non dai social.
+60|Campagna con un nome che si capisce
+61|"campagna" non dice nulla: tra sei mesi nessuno saprà cos'era.
+62|Senza UTM le visite dalla newsletter si confondono con le altre. Con UTM scritti sempre allo stesso modo (minuscole, trattini, nomi chiari) i report diventano leggibili.
+63|Il primo: utm_source=newsletter, utm_medium=email, utm_campaign=tisane-ottobre. Tutto minuscolo, chiaro e coerente.
+64|Un link UTM buono ha i tre parametri principali (source, medium, campaign), tutti in minuscolo, con nomi chiari e coerenti con quelli già usati. Un link senza UTM o scritto ogni volta in modo diverso rende i dati confusi.
+65|utm_source=newsletter e utm_source=Newsletter per gli strumenti sono due fonti diverse: i dati si dividono in due.
+66|Dove perdiamo i clienti?
+67|Il funnel sono i passaggi dalla visita all'ordine. Con i dati della scheda, trova il punto debole.
+68|Tasso di conversione totale (ordini ÷ visite)
+69|Dai pagamenti iniziati agli ordini (150 ÷ 600)
+70|Quale passaggio va peggio del valore tipico?
+71|Dalla visita al carrello
+72|Dal carrello al pagamento
+73|Dal pagamento all'ordine
+74|Cosa controlli per primo?
+75|Il costo di spedizione che compare solo alla fine
+76|Il colore del logo
+77|Il numero di follower su Instagram
+78|Conversione totale: 1,5%
+79|150 ÷ 10.000 × 100.
+80|Dal pagamento all'ordine: 25%
+81|150 ÷ 600 × 100.
+82|Trovato il passaggio debole
+83|8% e 75% sono nella norma; 25% è molto sotto il 50-70% tipico.
+84|Controllo mirato
+85|Un costo che compare all'ultimo momento è un motivo comune di abbandono.
+86|Il funnel si legge passaggio per passaggio, confrontando ogni passaggio con i valori tipici. Così si trova dove intervenire, invece di comprare più visite che si perderanno nello stesso punto.
+87|Conversione totale 1,5%. Dal pagamento all'ordine solo il 25%, contro il 50-70% tipico: è il punto debole. Si controlla per primo il costo di spedizione mostrato solo alla fine.
+88|Calcola ogni passaggio dividendo chi arriva al passo dopo per chi era al passo prima. Confronta ogni risultato con il valore tipico della scheda: il punto debole è quello più sotto la media. Poi chiediti cosa succede proprio in quel passaggio.
+89|Candele: 80 ordini ÷ 300 pagamenti iniziati = 27%, ben sotto il 50-70% tipico. Cosa scopre la persona al momento di pagare? Spesso le spese di spedizione.
+90|Sistema gli strumenti
+91|Cosa fai per raccogliere i dati in modo corretto e ordinato? Scegli tutte le cose giuste, e solo quelle.
+92|Banner cookie con "Accetta" e "Rifiuta" visibili allo stesso modo
+93|Far partire gli strumenti di analisi e i pixel pubblicitari solo dopo il consenso
+94|Scrivere le regole degli UTM in un documento condiviso dal team
+95|Lasciare "Rifiuta" nascosto in una seconda pagina, così accettano di più
+96|Considerare un consenso il fatto che la persona scorre la pagina
+97|Mettere nomi ed email dei clienti in un foglio aperto a chiunque abbia il link, così tutti vedono i dati
+98|Consenso valido ai cookie
+99|Rifiutare deve essere facile come accettare, e gli strumenti non necessari partono solo dopo il sì.
+100|Regole comuni per i dati
+101|Se ognuno scrive gli UTM a modo suo, i report non tornano.
+102|Niente consensi forzati
+103|Per il Garante privacy scorrere la pagina non è un consenso, e "Rifiuta" non va nascosto.
+104|Dati dei clienti protetti
+105|I dati personali devono essere al sicuro e visibili solo a chi serve (GDPR, sicurezza dei dati).
+106|Il martech è l'insieme degli strumenti di marketing: analisi, CRM, email, pubblicità. Vanno configurati bene e nel rispetto delle regole: in Italia le linee guida del Garante sui cookie (2021) chiedono che rifiutare sia facile come accettare e che lo scorrimento non valga come consenso.
+107|Banner con Accetta e Rifiuta allo stesso livello, strumenti avviati solo dopo il consenso, regole UTM condivise. Niente Rifiuta nascosto, niente consenso per scorrimento, niente dati dei clienti in fogli aperti.
+108|Le risposte giuste possono essere più di una. Tieni le scelte che rispettano il consenso (bottoni uguali, strumenti avviati solo dopo il sì) e quelle che mettono ordine (regole UTM condivise). Scarta trucchi per far accettare e qualsiasi uso poco sicuro dei dati.
+109|Un banner con "Accetta" grande e arancione e "Rifiuta" in grigio piccolo spinge ad accettare: non è un consenso libero.
+110|Come leggo il funnel?
+111|Calcola ogni passaggio diviso il passaggio prima (carrelli ÷ visite, pagamenti ÷ carrelli, ordini ÷ pagamenti) e confrontalo con il valore tipico nella scheda.
+112|Come si scrive un UTM?
+113|Tre etichette: source (chi manda: newsletter), medium (il tipo di canale: email) e campaign (il nome della campagna). Sempre in minuscolo, con trattini al posto degli spazi.
+114|Canale: da dove arriva una visita. UTM: etichette aggiunte a un link per riconoscerne la provenienza. Funnel: i passaggi dalla visita all'ordine. Tasso di conversione: quanti fanno l'azione su quanti potevano farla. Martech: gli strumenti tecnologici del marketing.
+115|Lo stesso posto può essere un canale gratuito o a pagamento.
+116|UTM scritti sempre uguali rendono leggibili i report.
+117|Il funnel si legge passaggio per passaggio; i dati si raccolgono solo con un consenso valido.
+118|Saprei distinguere un post gratuito da uno sponsorizzato nei canali.
+119|Saprei scrivere un link con gli UTM giusti.
+120|Ho trovato da sola o da solo il passaggio debole del funnel.
+121|Ho capito cosa rende valido un banner dei cookie.
+122|Finalmente si capisce! Metto il costo di spedizione già nella pagina prodotto e sistemo il banner dei cookie oggi stesso.
+123|canali di traffico
+124|parametri UTM
+125|leggere un funnel
+126|Chi lavora in marketing analytics e martech mette ordine nei dati: capisce da dove arrivano le visite, dove si perdono i clienti e quali strumenti usare per misurare. Tutto partendo da una regola: nell'UE gli strumenti di misura che usano i cookie partono solo con il consenso.
+127|I canali
+128|Ogni visita arriva da un canale. Ricerca organica: un risultato normale di Google. A pagamento: un annuncio o un post sponsorizzato. Email: un link in una newsletter. Social: un link in un post o in un profilo non sponsorizzato.
+129|Un negozio di candele riceve visite da Google (organica), da un annuncio su Google (a pagamento) e dal link nella bio di Instagram (social).
+130|I link con UTM
+131|Gli UTM sono etichette aggiunte alla fine di un link (utm_source, utm_medium, utm_campaign) che dicono agli strumenti di analisi da dove arriva la visita. Vanno scritti sempre allo stesso modo, in minuscolo, altrimenti i dati si dividono.
+132|negozio.example/candele?utm_source=newsletter&utm_medium=email&utm_campaign=natale
+133|Il funnel
+134|È la serie di passaggi dalla visita all'ordine: visita, carrello, pagamento, ordine. Per ogni passaggio si calcola quanti passano al successivo e si confronta con i valori tipici: il passaggio molto sotto la media è il punto debole.
+135|4.000 visite, 400 carrelli (10%), 300 pagamenti (75%), 80 ordini: dal pagamento all'ordine solo 27%, contro un valore tipico del 50-70%.
+136|Consenso e strumenti
+137|Il banner dei cookie deve avere "Accetta" e "Rifiuta" visibili allo stesso modo, e gli strumenti di analisi e pubblicità devono partire solo dopo il sì. Scorrere la pagina non è un consenso. I dati dei clienti vanno tenuti al sicuro.
+138|Il negozio di candele mostra i due bottoni uguali; se la persona rifiuta, il pixel pubblicitario non parte.
+139|Riconosci il canale di ogni visita
+140|Scegli il link con UTM giusto per la newsletter
+141|Trovi il punto debole del funnel
+142|Sistemi banner dei cookie e regole degli strumenti

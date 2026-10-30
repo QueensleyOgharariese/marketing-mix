@@ -1,32 +1,35 @@
 ---
-import { LINGUE_APP, conLingue } from "../../../../i18n";
+import { linguaDa } from "../../../../i18n";
 // APP · CORREZIONE GENERICA (SEA, Brand, Social, Influencer, CRM)
 // Come per la SEO: controlli automatici (40 punti) + autovalutazione guardando la soluzione (60 punti),
 // meno 5 punti per ogni aiuto aperto. Le risposte vengono lette dal browser.
 import AppLayout from "../../../../layouts/AppLayout.astro";
 import Pesca from "../../../../components/Pesca.astro";
 import Passi from "../../../../components/PassiEsercizio.astro";
-import { ESERCIZI, type Esercizio } from "../../../../scripts/esercizi";
+import { ESERCIZI, ESERCIZI_EN, type Esercizio } from "../../../../scripts/esercizi";
 
-// Ogni pagina esiste in italiano (/app/...) e in inglese (/en/app/...): conLingue() raddoppia i percorsi
+// Ogni pagina esiste in italiano (/app/...) e in inglese (/en/app/...), ognuna con i dati della sua lingua
 export function getStaticPaths() {
-  return conLingue((() => {
-  return ESERCIZI.map((es) => ({ params: { ruolo: es.id }, props: { es } }));
-})());
+  return [
+    ...ESERCIZI.map((es) => ({ params: { lang: undefined, ruolo: es.id }, props: { es } })),
+    ...ESERCIZI_EN.map((es) => ({ params: { lang: "en", ruolo: es.id }, props: { es } })),
+  ];
 }
 const { es } = Astro.props as { es: Esercizio };
+const lang = linguaDa(Astro.url);
+const L = (it: string, en: string) => (lang === "en" ? en : it);
 const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + p.controlli.length, 0));
 ---
-<AppLayout title={`Correzione · ${es.ruolo}`} indietro={{ etichetta: "Teoria del ruolo", link: `/app/impara/${es.id}/` }} percorso={[{ etichetta: es.ruolo, link: `/app/impara/${es.id}/` }, { etichetta: "Correzione" }]}>
+<AppLayout title={`${L("Correzione", "Feedback")} · ${es.ruolo}`} indietro={{ etichetta: L("Teoria del ruolo", "Role theory"), link: `/app/impara/${es.id}/` }} percorso={[{ etichetta: es.ruolo, link: `/app/impara/${es.id}/` }, { etichetta: L("Correzione", "Feedback") }]}>
   <Passi slot="barra" attivo={3} />
 
   <main class="contenuto" data-vuoto hidden>
     <section class="pannello vuoto">
       <Pesca dimensione={80} occhiali />
       <div>
-        <h1 class="app-titolo">Non hai ancora consegnato</h1>
-        <p>Completa le parti dell'esercizio, poi torna qui per il confronto.</p>
-        <a class="bottone-app" href={`/app/${es.id}/esercizio/`}>Vai all'esercizio →</a>
+        <h1 class="app-titolo">{L("Non hai ancora consegnato", "You haven't submitted yet")}</h1>
+        <p>{L("Completa le parti dell'esercizio, poi torna qui per il confronto.", "Complete the parts of the exercise, then come back here to compare.")}</p>
+        <a class="bottone-app" href={`/app/${es.id}/esercizio/`}>{L("Vai all'esercizio →", "Go to the exercise →")}</a>
       </div>
     </section>
   </main>
@@ -34,22 +37,22 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
   <main class="contenuto" data-pieno data-esercizio={es.id} hidden>
     <section class="pannello risultato">
       <div class="risultato-testa">
-        <Pesca dimensione={72} class="festa" etichetta="Pesca che festeggia" />
+        <Pesca dimensione={72} class="festa" etichetta={L("Pesca che festeggia", "Pesca celebrating")} />
         <div>
-          <h1 class="app-titolo">Consegnato! Ora confronta il tuo lavoro</h1>
-          <p>Prima i controlli automatici, poi le tue scelte accanto alla soluzione, parte per parte.</p>
+          <h1 class="app-titolo">{L("Consegnato! Ora confronta il tuo lavoro", "Submitted! Now compare your work")}</h1>
+          <p>{L("Prima i controlli automatici, poi le tue scelte accanto alla soluzione, parte per parte.", "First the automatic checks, then your choices next to the solution, part by part.")}</p>
         </div>
       </div>
       <dl class="punti" aria-live="polite">
-        <div><dt>Controlli automatici</dt><dd><span data-p-auto>0</span> / 40</dd><span class="barra"><span data-b-auto></span></span></div>
-        <div><dt>Autovalutazione</dt><dd><span data-p-voto>0</span> / 60</dd><span class="barra"><span data-b-voto></span></span></div>
-        <div data-riga-aiuti><dt>Aiuti di Pesca</dt><dd>− <span data-p-aiuti>0</span></dd></div>
-        <div class="totale"><dt>Totale</dt><dd data-p-totale>0</dd></div>
+        <div><dt>{L("Controlli automatici", "Automatic checks")}</dt><dd><span data-p-auto>0</span> / 40</dd><span class="barra"><span data-b-auto></span></span></div>
+        <div><dt>{L("Autovalutazione", "Self-assessment")}</dt><dd><span data-p-voto>0</span> / 60</dd><span class="barra"><span data-b-voto></span></span></div>
+        <div data-riga-aiuti><dt>{L("Aiuti di Pesca", "Pesca's hints")}</dt><dd>− <span data-p-aiuti>0</span></dd></div>
+        <div class="totale"><dt>{L("Totale", "Total")}</dt><dd data-p-totale>0</dd></div>
       </dl>
     </section>
 
     <section class="pannello controlli" aria-labelledby="t-controlli">
-      <h2 id="t-controlli" class="sottotitolo">Controlli automatici, parte per parte</h2>
+      <h2 id="t-controlli" class="sottotitolo">{L("Controlli automatici, parte per parte", "Automatic checks, part by part")}</h2>
       <div class="gruppi">
         {es.parti.map((p, i) => (
           <div class="gruppo">
@@ -62,15 +65,15 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
       </div>
     </section>
 
-    <section class="confronto" aria-label="Confronto con la soluzione">
+    <section class="confronto" aria-label={L("Confronto con la soluzione", "Comparison with the solution")}>
       {es.parti.map((p, i) => (
         <div class="riga-confronto">
-          <div class="pannello lavoro"><span class="piccolo">{i + 1} · Le tue scelte</span><ul class="tue" data-tuo={p.id}></ul></div>
-          <div class="pannello lavoro lavoro--pro"><span class="piccolo">Soluzione</span><span>{p.soluzione}</span><span class="perche-breve">{p.perche}</span></div>
+          <div class="pannello lavoro"><span class="piccolo">{i + 1} · {L("Le tue scelte", "Your choices")}</span><ul class="tue" data-tuo={p.id}></ul></div>
+          <div class="pannello lavoro lavoro--pro"><span class="piccolo">{L("Soluzione", "Solution")}</span><span>{p.soluzione}</span><span class="perche-breve">{p.perche}</span></div>
         </div>
       ))}
       <div class="pannello note-pro">
-        <strong>Da ricordare</strong>
+        <strong>{L("Da ricordare", "To remember")}</strong>
         <ul class="perche">{es.note.map((x) => <li>{x}</li>)}</ul>
       </div>
     </section>
@@ -78,33 +81,33 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
     <section class="parte-finale">
       <form class="pannello autovalutazione" data-autovalutazione>
         <div>
-          <h2 class="sottotitolo">Autovalutazione</h2>
-          <p class="nota">Guarda la soluzione e segna onestamente cosa hai fatto anche tu. Ogni punto vale 15.</p>
+          <h2 class="sottotitolo">{L("Autovalutazione", "Self-assessment")}</h2>
+          <p class="nota">{L("Guarda la soluzione e segna onestamente cosa hai fatto anche tu. Ogni punto vale 15.", "Look at the solution and honestly tick what you did too. Each item is worth 15.")}</p>
         </div>
         {es.autovalutazione.map((frase, i) => (
           <label class="scelta"><input type="checkbox" data-voto={i} /><span>{frase}</span></label>
         ))}
         <fieldset class="gradimento">
-          <legend>Quanto ti è piaciuto questo ruolo?</legend>
+          <legend>{L("Quanto ti è piaciuto questo ruolo?", "How much did you like this role?")}</legend>
           <div class="stelle">
             {[1, 2, 3, 4, 5].map((n) => (<label><input type="radio" name="gradimento" value={n} /><span>{n}</span></label>))}
           </div>
-          <p class="nota">1 = per niente, 5 = moltissimo. Serve a consigliarti il percorso giusto.</p>
+          <p class="nota">{L("1 = per niente, 5 = moltissimo. Serve a consigliarti il percorso giusto.", "1 = not at all, 5 = very much. It helps us suggest the right path for you.")}</p>
         </fieldset>
       </form>
 
       <aside class="lato">
         <div class="pannello risposta">
-          <span class="mittente"><span class="avatar">{es.richiesta.da}</span><strong>Risposta di {es.richiesta.nome}</strong></span>
+          <span class="mittente"><span class="avatar">{es.richiesta.da}</span><strong>{L("Risposta di", "Reply from")} {es.richiesta.nome}</strong></span>
           <p>{es.rispostaCollega}</p>
         </div>
         <div class="pannello imparato">
-          <strong>Cosa hai imparato</strong>
+          <strong>{L("Cosa hai imparato", "What you learned")}</strong>
           <ul>{es.imparato.map((x) => <li>{x}</li>)}</ul>
         </div>
         <div class="azioni">
-          <button type="button" class="bottone-app" data-completa>Segna come completato →</button>
-          <a class="bottone-app bottone-app--chiaro" href={`/app/${es.id}/esercizio/`}>Riprova</a>
+          <button type="button" class="bottone-app" data-completa>{L("Segna come completato →", "Mark as completed →")}</button>
+          <a class="bottone-app bottone-app--chiaro" href={`/app/${es.id}/esercizio/`}>{L("Riprova", "Try again")}</a>
         </div>
       </aside>
     </section>
@@ -112,12 +115,12 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
 </AppLayout>
 
 <script>
-  import { conLingua } from "../../../../scripts/lingua";
+  import { conLingua, EN } from "../../../../scripts/lingua";
   import { leggi, aggiornaRuolo, punteggio } from "../../../../scripts/progressi";
   import { esercizio, riassunto } from "../../../../scripts/esercizi";
 
   const pieno = document.querySelector<HTMLElement>("[data-pieno]")!;
-  const es = esercizio(pieno.dataset.esercizio!)!;
+  const es = esercizio(pieno.dataset.esercizio!, EN)!;
   const id = es.id;
   const r = leggi().ruoli[id];
 
@@ -129,7 +132,7 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
     // Le tue scelte, in parole
     es.parti.forEach((p) => {
       const ul = document.querySelector(`[data-tuo="${p.id}"]`)!;
-      riassunto(p, c.lavoro[p.id]).forEach((frase) => { const li = document.createElement("li"); li.textContent = frase; ul.appendChild(li); });
+      riassunto(p, c.lavoro[p.id], EN).forEach((frase) => { const li = document.createElement("li"); li.textContent = frase; ul.appendChild(li); });
     });
     // Controlli
     c.controlli.forEach((ok, i) => document.querySelector(`[data-controllo="${i}"]`)?.classList.toggle("ok", ok));

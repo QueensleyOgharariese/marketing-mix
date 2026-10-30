@@ -1,10 +1,12 @@
 ---
 // I 3 passi di un esercizio nella barra in alto: Leggi → Lavora → Confronta
 interface Props { attivo: 1 | 2 | 3; }
+import { testiDa } from "../i18n";
 const { attivo } = Astro.props;
-const passi = ["Leggi", "Lavora", "Confronta"];
+const L = testiDa(Astro.url);
+const passi = [L("Leggi", "Read"), L("Lavora", "Work"), L("Confronta", "Compare")];
 ---
-<ol class="passi" aria-label="Passi dell'esercizio">
+<ol class="passi" aria-label={L("Passi dell'esercizio", "Exercise steps")}>
   {passi.map((p, i) => (
     <li aria-current={i + 1 === attivo ? "step" : undefined} class:list={{ fatto: i + 1 < attivo, attivo: i + 1 === attivo }}>
       <span class="n">{i + 1 < attivo ? "✓" : i + 1}</span>{p}

@@ -1,0 +1,140 @@
+1|Trade marketing
+2|Exercise 1 · Cinque Foglie in the supermarket
+3|Giorgio
+4|Sales and stores
+5|We've made it into the supermarket!
+6|Hi! For a month now our Sencha has been in 40 supermarkets of a chain in the Veneto region. Can you help me choose where to put it on the shelf, read the numbers, prepare a promotion and work out what to do in the stores where it doesn't sell?
+7|Store numbers
+8|Product
+9|Organic Sencha, 100 g
+10|Stores
+11|40 supermarkets of a chain in the Veneto region
+12|Shelf price
+13|€7.90 per pack
+14|Sell price to the store
+15|€5.50: what the supermarket pays us
+16|First delivery (sell-in)
+17|12 packs per store
+18|Sold to customers in the first month (sell-out)
+19|300 packs in total
+20|Warning
+21|In 10 stores sales are almost zero
+22|Note
+23|Prices excluding VAT, to keep it simple
+24|In trade marketing being on the shelf isn't enough: what counts is how much the product leaves the shelf and ends up in the trolley.
+25|shelf
+26|sell-in
+27|sell-out
+28|buyer
+29|display stand
+30|Where do we put it?
+31|The buyer (who buys products for the chain) offers us a few spots. Which do you choose and which do you avoid?
+32|Choose
+33|Avoid
+34|Eye-level shelf, in the tea and herbal tea aisle
+35|Next to other brands' organic teas, where organic shoppers look for them
+36|Bottom shelf, near the floor
+37|At the end of the detergent aisle, because there's free space
+38|A small display stand near the checkouts in October, with the Evening Herbal Teas
+39|At eye level, in the right aisle
+40|People look mostly at eye level, and look for tea where the other teas are.
+41|Bottom shelf avoided
+42|Down low the product hardly gets noticed.
+43|Wrong aisle avoided
+44|Nobody looks for tea among the detergents.
+45|Seasonal display stand used
+46|Near the checkouts people buy on impulse, and in October herbal teas are in season.
+47|Shelf position changes sales a lot: eye level, the aisle where people look, and extra space (display stands) at the right time. Space is negotiated with the buyer.
+48|Yes to eye level, next to the other organic teas, and to the display stand near the checkouts in October. No to the bottom shelf and the detergent aisle.
+49|For each spot imagine a person looking for tea: do they see it straight away? Is it in the aisle where they'd look? Is it the right time? A spot that's free but far from the aisle or hidden down low doesn't help sell.
+50|Jam next to the detergents: there's space, but nobody looks for breakfast there.
+51|Read the numbers
+52|Using the data on the card, do the maths for the first month.
+53|Sell-in: total packs delivered (stores × 12)
+54|Supermarket margin per pack (shelf − sell price)
+55|Sold to customers per store per month (sell-out ÷ stores)
+56|What counts most for staying on the shelf?
+57|Sell-out: how much customers really buy
+58|Sell-in: how much we delivered
+59|How nice the pack looks
+60|Right sell-in: 480
+61|40 stores × 12 packs.
+62|Supermarket margin: €2.40
+63|Sales per store: 7.5
+64|300 packs ÷ 40 stores.
+65|Sell-out counts
+66|The supermarket keeps the products customers buy.
+67|Sell-in is how much we sell to the supermarket, sell-out is how much the supermarket sells to customers. If sell-out is low, the buyer removes the product and gives the space to another.
+68|480 packs delivered, €2.40 margin for the supermarket, 7.5 sold per store per month. Sell-out counts.
+69|Follow the formulas written next to each field. Sell-in = stores × packs delivered. Store margin = shelf price − sell price. Sell-out per store = total sold ÷ number of stores.
+70|20 stores × 10 jars = 200. Shelf €4.50, sell price €3.00: €1.50. 150 sold ÷ 20 stores = 7.5.
+71|Choose the promotion
+72|The buyer asks us for a promotion for November. Which do you propose?
+73|For 2 weeks: 2 packs for €12 instead of €15.80, with a clear sign on the shelf
+74|70% off every pack all year round
+75|A sign saying "The lowest price in Italy", without checking it and without a discount
+76|A free mug for buyers who leave their phone number, with marketing consent already ticked
+77|A real, clear benefit
+78|"The lowest in Italy" without proof is a misleading claim.
+79|Limited duration
+80|A huge discount forever isn't a promo: it lowers the product's value and the margin.
+81|Follows the rules
+82|Marketing consent can't be pre-ticked: the person must choose it.
+83|A good promotion has a real benefit, a limited duration and a margin that holds up. Unverified claims are misleading practices (consumer protection law), and pre-ticked consent isn't valid under the GDPR.
+84|The first: 2 packs for €12 for 2 weeks, with a clear sign. It's true, time-limited and above board.
+85|Check each promotion with four questions: is it true? Does it have a limited duration? Is it sustainable for us and for the store? Does it follow the rules on claims and personal data? One no is enough to discard it.
+86|"60% off forever" makes us lose money; "The cheapest in Italy" without checking is misleading.
+87|What do you do in the 10 stores where it doesn't sell?
+88|Choose all the useful actions, and only those.
+89|Go and see whether the product is really on the shelf, and not stuck in the stockroom
+90|Look at sales store by store with the buyer
+91|Propose the display stand or the promo in those stores first
+92|Send another 500 packs to all stores straight away
+93|Lower the sell price to €3 forever
+94|Write fake positive reviews on the website to convince the buyer
+95|Shelf checked
+96|A product often doesn't sell because it isn't on display: you check in person.
+97|Data and actions store by store
+98|Every store is different: data first, then targeted actions.
+99|No forced sell-in or loss-making prices
+100|More packs don't make customers buy, and at €3 we lose money.
+101|No fake reviews
+102|Fake reviews are banned (Omnibus Directive).
+103|Trade marketing works in stores: it checks the display, reads the data with the buyer and invests where needed. Pushing more stock into stores without getting customers to buy only creates returns and unsold stock.
+104|Check the shelf, look at the data with the buyer, start with the display stand and promo in the weakest stores. No forced deliveries, no loss-making prices, no fake reviews.
+105|There can be more than one right answer. First you understand why it isn't selling (is the product really on the shelf? where?), then you act where needed. Sending more stock, selling off cheap or inventing reviews doesn't solve the problem and can be unfair.
+106|If jam doesn't sell in 5 stores, you go and look: often it's ended up in the back or on the wrong shelf.
+107|What's the difference between sell-in and sell-out?
+108|Sell-in: what we sell to the supermarket. Sell-out: what the supermarket sells to customers. The first fills the shelf, the second empties it.
+109|How do I recognise a good promotion?
+110|Three questions: is the benefit real? Is it short-lived? Does it follow the rules on advertising and personal data?
+111|Buyer: who chooses products for the chain. Sell-in: sales to the store. Sell-out: sales to customers. Sell price to the store: what the store pays us. Display stand: extra space off the shelf.
+112|On the shelf, height, aisle and timing count.
+113|Sell-out decides whether the product stays.
+114|Real, short, compliant promos; in weak stores you check first, then act.
+115|I could explain why the spot on the shelf changes sales.
+116|I understood the difference between sell-in and sell-out.
+117|I could say whether a promotion is above board or not.
+118|I chose the actions for the weak stores by looking at the data.
+119|Great! Tomorrow I'll visit the 10 stores to check the shelves and propose the 2 for €12 promo to the buyer.
+120|shelf and position
+121|sell-in and sell-out
+122|in-store promotions
+123|working with the buyer
+124|Trade marketing is about selling through other people's stores, like supermarkets. People in this role negotiate with the chain's buyer, choose where and how to sit on the shelf, prepare promotions and check store by store whether the product sells.
+125|The shelf
+126|In the store people decide in a few seconds. The best spot is at eye level, in the aisle where people look for that type of product. Extra display stands (near the checkouts, at the end of an aisle) help at the right moments.
+127|An artisan jam sells more at eye level, next to the other organic jams, than on the bottom shelf.
+128|Sell-in and sell-out
+129|Sell-in is how much we sell to the supermarket (the packs delivered). Sell-out is how much the supermarket sells to customers. To stay on the shelf sell-out counts: if products don't move, the buyer removes them.
+130|We deliver 10 jars of jam to 20 stores: sell-in 200. If customers buy 150 in a month, the average sell-out is 150 ÷ 20 = 7.5 per store.
+131|Store margin
+132|The supermarket pays us a sell price and resells at a higher price. The difference is its margin: the store needs to earn too, otherwise it won't keep us.
+133|Jam sold to the store at €3.00, sold on at €4.50: the supermarket earns €1.50 per jar.
+134|Compliant promotions
+135|A good promotion is simple, true and time-limited. You can't say "the lowest price" without checking it, and a free gift can't be exchanged for personal data without freely given consent.
+136|"2 jars for €8 instead of €9, from 1 to 15 March" is clear and verifiable.
+137|Choose the right spots on the shelf
+138|Calculate sell-in, store margin and sell-out
+139|Choose the promotion to propose to the buyer
+140|Decide what to do in the stores where the product doesn't sell

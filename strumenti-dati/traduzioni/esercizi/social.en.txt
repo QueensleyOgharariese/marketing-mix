@@ -1,0 +1,130 @@
+1|Social media manager
+2|Exercise 1 · A week of matcha posts
+3|Sara
+4|Social and community
+5|A week of matcha posts
+6|Hi! Next week we're talking about matcha on Instagram. Can you help me choose the right format for each idea, work out which post did best, choose the caption and reply to a delicate comment?
+7|The Instagram profile
+8|Followers
+9|Post A (matcha latte recipe)
+10|180 likes, 20 comments, 25 saves
+11|Post B (photo of the pack)
+12|80 likes, 4 comments, 6 saves
+13|Audience
+14|Mostly aged 25-40, in Italy
+15|Product
+16|Organic matcha, 30 g, €16.90
+17|Rule
+18|Never any health claims
+19|On social media what counts is how much people interact, not just how many see you.
+20|format
+21|engagement rate
+22|hook
+23|call to action
+24|community
+25|Choose the format for each idea
+26|For each idea choose the most suitable format.
+27|Reel (short video)
+28|Carousel
+29|Stories
+30|How to make matcha in 30 seconds
+31|5 mistakes to avoid with matcha
+32|Poll: matcha latte or traditional?
+33|Behind the scenes: unboxing the new arrival
+34|A tutorial in motion is a Reel
+35|A preparation is easier to understand in motion.
+36|A list of tips is a carousel
+37|One slide per mistake: people swipe through and save it.
+38|A poll goes in Stories
+39|Stories have the poll tool.
+40|Behind the scenes is spontaneous
+41|Behind the scenes is quick and spontaneous: Stories or Reel.
+42|Each format has a purpose: Reels get the profile discovered by new people, carousels get saved, Stories get the community that already follows you talking.
+43|Preparation: Reel. 5 mistakes: carousel. Poll: Stories. Behind the scenes: Stories (or Reel).
+44|For each idea ask yourself: is there an action to show in motion (Reel)? Is it a list or an explanation to save (carousel)? Is it something quick or a question to the audience (Stories)?
+45|"Setting up the new shop window" is a quick behind the scenes: Stories. "The 4 water temperatures for tea" is a list to save: carousel.
+46|Which post did best?
+47|Calculate post A's engagement rate using the data on the card.
+48|Post A interactions (likes + comments + saves)
+49|Post A engagement rate (interactions ÷ followers)
+50|Post A (recipe)
+51|Post B (pack)
+52|They're the same
+53|Right interactions: 225
+54|Add up likes, comments and saves.
+55|Right engagement rate: 4.5%
+56|225 ÷ 5,000, then times 100.
+57|Best post: the recipe
+58|Post B has 90 interactions: less than half.
+59|Engagement rate lets you compare different posts. Saves are valuable: they say a piece of content is useful.
+60|225 interactions, engagement rate 4.5%. The recipe did better than the photo of the pack (1.8%).
+61|First add up the post's interactions (likes + comments + saves), then divide by followers and multiply by 100. To compare two posts always use the same calculation.
+62|A post with 60 likes, 10 comments and 10 saves on 2,000 followers: 80 interactions, 80 ÷ 2,000 = 4%.
+63|Choose the caption for the Reel
+64|Which caption do you use for the Reel "How to make matcha in 30 seconds"?
+65|Perfect matcha in 30 seconds? You can. Water at 80 °C, whisk in a zigzag and no lumps. Save it for your next breakfast! #matcha #greentea
+66|The matcha that makes you lose weight and gives you energy all day! Try it now. #matcha #detox #diet #fitness
+67|New video. #matcha #tea #green #japan #food #instagood #love #photooftheday #happy #follow #like #beautiful
+68|Here's how to prepare our 30-gram organic matcha, available on our Cinque Foglie website for 16.90 euros.
+69|The first sentence sparks curiosity (hook)
+70|On social media people decide in a second: the first sentence must spark curiosity.
+71|A call to action (save, comment)
+72|Ask for something: save, comment, try.
+73|A few relevant hashtags
+74|A few hashtags linked to the content are better than lots at random.
+75|No health claims
+76|"Makes you lose weight" and "detox" are banned health claims.
+77|A good caption hooks, gives value and asks for an action. Health claims rules for food apply on social media too (Regulation EC 1924/2006).
+78|"Perfect matcha in 30 seconds? You can...": it sparks curiosity, gives a practical tip, asks people to save, has two relevant hashtags.
+79|Check four things: does the first line spark curiosity? Is there a useful tip? Is there a call to action? Are there health claims or random hashtags? Discard captions that look like a product listing or a list of hashtags.
+80|"New post #tea #love #instagood #photo" says nothing; "Do you know why green tea turns bitter? We'll explain in 3 photos" sparks curiosity.
+81|Reply to a delicate comment
+82|A user asks: "Is it true that matcha makes you lose weight?". Choose all the right things to do.
+83|Reply kindly, talking about taste and how it's prepared
+84|Suggest asking a doctor for health questions
+85|Reply "Yes, it helps you lose weight!" to sell more
+86|Delete the comment
+87|Don't reply at all
+88|A kind, useful reply
+89|You always reply, kindly.
+90|Refers health questions to a professional
+91|We're not the experts on health.
+92|Saying it makes you lose weight is a banned claim.
+93|Neither deleting nor ignoring
+94|An honest question deserves an answer: deleting it loses trust.
+95|Managing the community means answering awkward questions too, without promising what can't be promised.
+96|Reply kindly about taste and preparation and suggest a doctor for health questions.
+97|There can be more than one right answer. Think about what's honest and respectful: replying kindly is always better than ignoring or deleting; on health you promise nothing and refer people to a doctor.
+98|To "Does rooibos help you sleep better?": "It has a sweet taste and no caffeine, which is why many people drink it in the evening. For questions about sleep it's best to ask your doctor."
+99|How do I choose the format?
+100|Does it move? Reel. Is it a list or a guide to save? Carousel. Do you want a quick answer from the community? Stories.
+101|How do you calculate engagement rate?
+102|Add up the interactions (likes, comments, saves), divide by followers and multiply by 100.
+103|Engagement rate: how much people interact with a post. Hook: the first sentence that grabs attention. Call to action: the invitation to do something. Community: the people who follow and talk with the brand.
+104|The format is chosen based on the idea, not on habit.
+105|Engagement rate lets you compare different posts with the same yardstick.
+106|The rules on health claims apply in comments too.
+107|I could explain why an idea works better in a certain format.
+108|I calculated the engagement rate on my own.
+109|I understood what makes a good caption.
+110|I could answer a health question without making promises.
+111|Great! I'll prepare the Reel and the carousel. And I'll use the reply to the comment as an example for the whole team.
+112|social media formats
+113|captions that work
+114|managing the community
+115|A social media manager decides what to publish, in which format and when, replies to the community and looks at the numbers to understand what works. What counts isn't how many people follow you, but how many really interact with what you publish.
+116|Formats
+117|Each format has a job. The Reel (short video) shows an action and also reaches people who don't follow you. The carousel (several images to swipe) suits lists and explanations to save. Stories last 24 hours and are for quick things and getting people to take part with polls and questions.
+118|A teapot shop makes a Reel showing how to clean cast iron, a carousel "3 teapots for 3 types of tea" and a Story with the poll "Cast iron or glass?".
+119|Engagement rate
+120|It measures how much people interact. You add up the interactions (likes, comments, saves) and divide by followers, then multiply by 100. Saves count a lot: they mean "I need this, I'll look at it again".
+121|3,000 followers; a post gets 90 likes, 15 comments and 15 saves = 120 interactions. 120 ÷ 3,000 = 0.04, i.e. 4%.
+122|The caption
+123|The first line is the hook: it must spark curiosity, because the rest is hidden. Then useful information and an invitation to do something (call to action), like saving or commenting. A few relevant hashtags work better than thirty generic ones.
+124|"Is your cast iron teapot rusting? Here's how to avoid it. Save the post for next time. #teapot #tea"
+125|Rules and community
+126|Replying to comments is part of the job. For food in Europe you can't promise unauthorised health effects, not even in a comment. When faced with health questions you reply kindly and suggest a doctor.
+127|To "Does this herbal tea get rid of headaches?" you reply talking about the taste and suggesting asking a doctor, not with a yes.
+128|Choose the right format for each idea
+129|Calculate the engagement rate and compare two posts
+130|Decide how to reply to a delicate health comment

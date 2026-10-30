@@ -1,0 +1,471 @@
+{
+ "_nota": "Esercizio Product marketing 1. Prodotto, prezzi e concorrenti sono inventati.",
+ "id": "product",
+ "ruolo": "Product marketing",
+ "titolo": "Exercise 1 · Launching the Evening Herbal Teas",
+ "minuti": 20,
+ "richiesta": {
+  "da": "MR",
+  "nome": "Marta",
+  "ruolo": "Founder",
+  "quando": "mercoledì alle 11:00",
+  "oggetto": "Let's launch the Evening Herbal Teas",
+  "testo": "Hi! In October we're launching a new product: the Evening Herbal Teas. Can you help me work out what to say about it, write the positioning, choose price and launch, and check that everything is above board before we start?"
+ },
+ "scheda": {
+  "titolo": "The new product",
+  "voci": [
+   [
+    "Product",
+    "Evening Herbal Teas: 3 organic caffeine-free blends, 15 tea bags"
+   ],
+   [
+    "Ingredients",
+    "Chamomile, lemon balm, orange peel, linden"
+   ],
+   [
+    "Packaging",
+    "Compostable paper tea bags, recycled cardboard box"
+   ],
+   [
+    "Production cost",
+    "€2.60 per pack"
+   ],
+   [
+    "Supermarket competitor",
+    "€3.50 for 20 tea bags, not organic"
+   ],
+   [
+    "Organic online competitor",
+    "€7.90 for 15 tea bags"
+   ],
+   [
+    "What customers ask for",
+    "\"Do you have anything caffeine-free for the evening?\" (42 emails in a year)"
+   ],
+   [
+    "Note",
+    "Prices excluding VAT, to keep it simple"
+   ]
+  ]
+ },
+ "consiglio": "Product marketing turns a product into a reason to buy it: first understand who it's for and what it changes in their day.",
+ "parole": [
+  "feature",
+  "benefit",
+  "positioning",
+  "margin",
+  "launch"
+ ],
+ "parti": [
+  {
+   "id": "benefici",
+   "tipo": "classifica",
+   "titolo": "Feature or benefit?",
+   "testo": "A feature says what the product is like. A benefit says what changes for the person using it. Sort each sentence.",
+   "colonne": [
+    {
+     "id": "car",
+     "nome": "Feature"
+    },
+    {
+     "id": "ben",
+     "nome": "Benefit"
+    }
+   ],
+   "righe": [
+    {
+     "id": "r1",
+     "testo": "Caffeine-free",
+     "giusti": [
+      "car"
+     ]
+    },
+    {
+     "id": "r2",
+     "testo": "You can drink it even at ten in the evening, without a worry",
+     "giusti": [
+      "ben"
+     ]
+    },
+    {
+     "id": "r3",
+     "testo": "Compostable paper tea bags",
+     "giusti": [
+      "car"
+     ]
+    },
+    {
+     "id": "r4",
+     "testo": "It goes in the food waste: no plastic to separate",
+     "giusti": [
+      "ben"
+     ]
+    },
+    {
+     "id": "r5",
+     "testo": "Chamomile, lemon balm and orange peel",
+     "giusti": [
+      "car"
+     ]
+    },
+    {
+     "id": "r6",
+     "testo": "A small ritual to switch off from the day, ready in 5 minutes",
+     "giusti": [
+      "ben"
+     ]
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "Caffeine-free: feature and benefit",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "r1",
+       "r2"
+      ]
+     },
+     "suggerimento": "\"Caffeine-free\" is what the product is like; \"you can drink it in the evening\" is what you gain."
+    },
+    {
+     "nome": "Packaging: feature and benefit",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "r3",
+       "r4"
+      ]
+     },
+     "suggerimento": "The material is a feature; not having to separate plastic is a benefit."
+    },
+    {
+     "nome": "Ingredients: feature and benefit",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "r5",
+       "r6"
+      ]
+     },
+     "suggerimento": "The list of ingredients describes; the ritual to switch off tells what you experience."
+    }
+   ],
+   "perche": "People buy what the product does for them, not the list of its parts. Product marketing starts from the (true) features and translates them into benefits.",
+   "soluzione": "Features: caffeine-free, compostable tea bags, the ingredients. Benefits: drinking it in the evening without a worry, no plastic to separate, a ritual to switch off.",
+   "spiega": {
+    "testo": "For each sentence ask yourself: does it describe the object (how it's made, what it contains) or what happens to the person using it? If it's about the object it's a feature; if it's about the person and their day it's a benefit.",
+    "esempio": "Water bottle: \"screw cap with a seal\" is a feature; \"you can put it in your backpack without fear of soaking your laptop\" is a benefit."
+   }
+  },
+  {
+   "id": "posizionamento",
+   "tipo": "scelta",
+   "titolo": "Choose the positioning",
+   "testo": "Positioning is an internal sentence that says who the product is for and why it's different. Which do you choose?",
+   "opzioni": [
+    {
+     "id": "s1",
+     "testo": "For tea lovers who avoid caffeine in the evening, Evening Herbal Teas is Cinque Foglie's evening ritual: three organic caffeine-free blends, in compostable tea bags, ready in 5 minutes.",
+     "ok": {
+      "pubblico": true,
+      "diverso": true,
+      "vero": true
+     }
+    },
+    {
+     "id": "s2",
+     "testo": "For everyone: the best herbal tea on the market, with quality ingredients.",
+     "ok": {
+      "pubblico": false,
+      "diverso": false,
+      "vero": false
+     }
+    },
+    {
+     "id": "s3",
+     "testo": "For people who can't sleep: the organic herbal tea that cures insomnia in a week.",
+     "ok": {
+      "pubblico": true,
+      "diverso": true,
+      "vero": false
+     }
+    },
+    {
+     "id": "s4",
+     "testo": "For tea lovers who avoid caffeine in the evening: three nice herbal teas.",
+     "ok": {
+      "pubblico": true,
+      "diverso": false,
+      "vero": true
+     }
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "Says who it's for",
+     "regola": {
+      "tipo": "opzione",
+      "chiave": "pubblico"
+     },
+     "suggerimento": "\"For everyone\" isn't an audience: choose a sentence that names specific people."
+    },
+    {
+     "nome": "Says why it's different",
+     "regola": {
+      "tipo": "opzione",
+      "chiave": "diverso"
+     },
+     "suggerimento": "Everyone has \"three nice herbal teas\": what sets us apart from the competitors on the card?"
+    },
+    {
+     "nome": "Only true, permitted claims",
+     "regola": {
+      "tipo": "opzione",
+      "chiave": "vero"
+     },
+     "suggerimento": "\"The best\" can't be proven, and \"cures insomnia\" is a banned health claim."
+    }
+   ],
+   "perche": "Good positioning is specific (a precise audience), distinctive (what makes us different) and credible. The product page, ads and posts then grow from this sentence.",
+   "soluzione": "The first: it names the audience (people who avoid caffeine in the evening), the difference (organic, compostable, Cinque Foglie's ritual) and only says true things.",
+   "spiega": {
+    "testo": "Check three things: is there a precise audience (not \"everyone\")? Is there a real difference from the alternatives? Are there only provable claims, with no promise of a cure? Discard sentences that fail even one of these points.",
+    "esempio": "\"For everyone, the best water bottle in the world\" has no audience and can't be proven."
+   }
+  },
+  {
+   "id": "lancio",
+   "tipo": "menu",
+   "titolo": "Price and launch",
+   "testo": "Look at costs and competitors on the card and prepare the launch.",
+   "campi": [
+    {
+     "id": "prezzo",
+     "etichetta": "Selling price",
+     "opzioni": [
+      "€2.50",
+      "€6.90",
+      "€14.90"
+     ]
+    },
+    {
+     "id": "margine",
+     "etichetta": "Margin per pack (price − cost)",
+     "opzioni": [
+      "€1.30",
+      "€4.30",
+      "€6.90",
+      "€9.50"
+     ]
+    },
+    {
+     "id": "canale",
+     "etichetta": "Where do you launch it first?",
+     "opzioni": [
+      "To newsletter customers and on the website",
+      "In every supermarket in Italy straight away",
+      "Only on a flyer around town"
+     ]
+    },
+    {
+     "id": "momento",
+     "etichetta": "When?",
+     "opzioni": [
+      "July",
+      "October, when the evenings get cool",
+      "The day after Christmas"
+     ]
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "A sustainable price in line with organic: €6.90",
+     "regola": {
+      "tipo": "menu",
+      "campo": "prezzo",
+      "valore": "€6.90"
+     },
+     "suggerimento": "Below cost you lose on every sale; too far above competitors nobody buys."
+    },
+    {
+     "nome": "Right margin: €4.30",
+     "regola": {
+      "tipo": "menu",
+      "campo": "margine",
+      "valore": "€4.30"
+     },
+     "suggerimento": "The price you chose minus €2.60 of cost."
+    },
+    {
+     "nome": "Launch to people who already know us",
+     "regola": {
+      "tipo": "menu",
+      "campo": "canale",
+      "valore": "To newsletter customers and on the website"
+     },
+     "suggerimento": "We have 42 emails from customers asking for it: we start with people who know us."
+    },
+    {
+     "nome": "The right moment: October",
+     "regola": {
+      "tipo": "menu",
+      "campo": "momento",
+      "valore": "October, when the evenings get cool"
+     },
+     "suggerimento": "An evening herbal tea sells when it's cool."
+    }
+   ],
+   "perche": "The price must cover costs, leave a margin and make sense compared with competitors. Launching first to people who know us costs little and shows straight away whether people like the product.",
+   "soluzione": "€6.90: below the organic competitor, with a €4.30 margin. Launch to the newsletter and website, in October.",
+   "spiega": {
+    "testo": "The price must sit sensibly against competitors: an organic product can't cost the same as a mass-market one, but nor more than the organic competitor without a reason. Calculate the margin (price − cost). For the first launch choose people who already know you and the period when the product is most needed.",
+    "esempio": "Insulated bottle: launched at the end of September, when the cold returns, first to newsletter subscribers."
+   }
+  },
+  {
+   "id": "pronti",
+   "tipo": "spunte",
+   "titolo": "Ready to go?",
+   "testo": "Before the launch, what do you do? Choose all the right things, and only those.",
+   "opzioni": [
+    {
+     "id": "c1",
+     "testo": "Check the label: ingredients, allergens, quantity and best-before date"
+    },
+    {
+     "id": "c2",
+     "testo": "Prepare the product page with real photos and complete details"
+    },
+    {
+     "id": "c3",
+     "testo": "Let the people who asked for a caffeine-free herbal tea know, if they consented to receiving emails"
+    },
+    {
+     "id": "c4",
+     "testo": "Write \"helps you sleep\" on the pack"
+    },
+    {
+     "id": "c5",
+     "testo": "Show a crossed-out price \"was €9.90\", even though it was never sold at that price"
+    },
+    {
+     "id": "c6",
+     "testo": "Write \"zero impact\" because the tea bags are compostable"
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "A compliant label",
+     "regola": {
+      "tipo": "spunte-tutte",
+      "ids": [
+       "c1"
+      ]
+     },
+     "suggerimento": "For food, the label is required (EU Regulation 1169/2011)."
+    },
+    {
+     "nome": "Page and customers ready",
+     "regola": {
+      "tipo": "spunte-tutte",
+      "ids": [
+       "c2",
+       "c3"
+      ]
+     },
+     "suggerimento": "You need somewhere to buy and someone to tell."
+    },
+    {
+     "nome": "No health claims",
+     "regola": {
+      "tipo": "spunte-nessuna",
+      "ids": [
+       "c4"
+      ]
+     },
+     "suggerimento": "Health claims for food are regulated: without authorisation they can't be used."
+    },
+    {
+     "nome": "No fake discounts or generic green claims",
+     "regola": {
+      "tipo": "spunte-nessuna",
+      "ids": [
+       "c5",
+       "c6"
+      ]
+     },
+     "suggerimento": "A discount must start from a real price, and \"zero impact\" can't be proven."
+    }
+   ],
+   "perche": "A launch is also prepared on the rules. Unauthorised health claims are banned (Reg. EC 1924/2006; for herbs many claims are still awaiting EU assessment). The \"was\" price of a discount must be the lowest of the last 30 days (Omnibus Directive): a new product doesn't have one. And generic, unprovable environmental claims are banned (EU Directive 2024/825).",
+   "soluzione": "Label checked, product page ready, emails to people who consented. No \"helps you sleep\", no invented crossed-out price, no \"zero impact\".",
+   "spiega": {
+    "testo": "There can be more than one right answer. Keep the actions that make the product clear, complete and honest. Discard anything that promises health effects, invents a discount or makes environmental claims that can't be proven.",
+    "esempio": "For the water bottle: real photos and complete details, yes; \"was €39, now €24\" if it never cost €39, no."
+   }
+  }
+ ],
+ "aiuti": [
+  {
+   "titolo": "How do I tell a feature from a benefit?",
+   "testo": "Ask yourself \"so what?\". Caffeine-free... so what? You can drink it in the evening. The first sentence is the feature, the answer to \"so what\" is the benefit."
+  },
+  {
+   "titolo": "How do I choose the price?",
+   "testo": "Three questions: does it cover the cost? Does it leave a margin? Does it make sense against similar competitors (here: organic, online)?"
+  }
+ ],
+ "glossario": "Feature: what the product is like. Benefit: what changes for the person using it. Positioning: who it's for and why it's different. Margin: what's left after the cost.",
+ "note": [
+  "You sell the benefit, but starting from true features.",
+  "Positioning is specific, distinctive and credible.",
+  "Before the launch you also check the rules: health, discounts, environment."
+ ],
+ "autovalutazione": [
+  "I could turn a feature into a benefit.",
+  "I could explain why the chosen positioning is better than the others.",
+  "I thought about cost, margin and competitors before choosing the price.",
+  "I understood why an invented crossed-out price is banned."
+ ],
+ "rispostaCollega": "Perfect! We'll keep €6.90 and start with the newsletter in October. And I'll remove that \"helps you sleep\" from the box draft straight away.",
+ "imparato": [
+  "features and benefits",
+  "positioning",
+  "price and margin",
+  "preparing a launch",
+  "rules on discounts and claims"
+ ],
+ "lezione": {
+  "intro": "Product marketing is the bridge between the product and the people who buy it. People in this role understand who a product is for, what makes it different, what price to sell it at and how to launch it, and they check that everything said about it is true and above board.",
+  "concetti": [
+   {
+    "nome": "Features and benefits",
+    "spiegazione": "The feature says what the product is like. The benefit says what changes in the life of the person using it. People buy benefits, but benefits must rest on true features.",
+    "esempio": "An insulated bottle: \"double-wall steel\" is a feature; \"your coffee stays hot until evening\" is the benefit."
+   },
+   {
+    "nome": "Positioning",
+    "spiegazione": "It's an internal sentence, not a slogan: it says who the product is for, what need it meets and why it's different from the alternatives. Good positioning names a precise audience and only says provable things.",
+    "esempio": "\"For people who cycle to the office, the bottle that fits in the bottle cage and keeps drinks hot for 12 hours, unlike normal insulated bottles that are too wide.\""
+   },
+   {
+    "nome": "Price and margin",
+    "spiegazione": "The price is chosen by looking at three things: how much it costs to produce, how much similar competitors charge and how much value the customer perceives. The margin is what's left on each item: price minus cost.",
+    "esempio": "The bottle costs €9 to produce, competitors sit between €20 and €30: at €24 the margin is 24 − 9 = €15."
+   },
+   {
+    "nome": "A compliant launch",
+    "spiegazione": "Before launching you check the label and the product page. In the EU you can't make unauthorised health claims for a food, show a discount against a price never charged, or say \"green\" or \"zero impact\" without proof.",
+    "esempio": "On the bottle \"BPA-free, certified\" is fine if there's a certificate; \"saves the planet\" isn't, it's a vague claim."
+   }
+  ],
+  "cosaFarai": [
+   "Tell apart the features and benefits of the Evening Herbal Teas",
+   "Choose the positioning sentence",
+   "Decide price, margin, channel and launch period",
+   "Check what to do and what to avoid before starting"
+  ]
+ }
+}

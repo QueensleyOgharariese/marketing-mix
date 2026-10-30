@@ -109,3 +109,5 @@ export function conLingue<T extends { params: Record<string, any>; props?: any }
 export const appLink = (lang: Lingua, percorso: string) => (lang === "en" && percorso.startsWith("/app") ? `/en${percorso}` : percorso);
 // Lo stesso indirizzo nell'altra lingua (per il selettore IT / EN dell'app)
 export const altraLinguaApp = (url: URL) => (linguaDa(url) === "en" ? url.pathname.replace(/^\/en/, "") : `/en${url.pathname}`);
+// Nei componenti: const L = testiDa(Astro.url);  poi L("Ciao", "Hello") sceglie il testo della lingua della pagina
+export const testiDa = (url: URL) => { const en = linguaDa(url) === "en"; return (it: string, eng: string) => (en ? eng : it); };

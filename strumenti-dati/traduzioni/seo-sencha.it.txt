@@ -1,0 +1,110 @@
+1|Esercizio 1 · La pagina del Sencha
+2|Marta
+3|Fondatrice
+4|Il Sencha online non si trova
+5|Ciao! Il nostro tè verde Sencha bio vende bene in negozio, ma online nessuno lo trova. Puoi sistemare la pagina per Google? Capisci chi lo cerca, scegli titolo e descrizione, prepara i dati per Google e scegli una risposta breve su come si prepara. Grazie mille!
+6|Sencha | Cinque Foglie
+7|Tè verde. Acquista ora.
+8|Sencha biologico
+9|Cinque Foglie
+10|Giappone
+11|EUR
+12|Disponibile
+13|Acqua a 75 °C, infusione di 2 minuti. Ottimo anche freddo: 8 ore in frigo.
+14|Fresco ed erbaceo, leggermente dolce
+15|Spedizione in 24 ore
+16|Nessuna recensione verificata per ora
+17|Informarsi
+18|Vuole capire o imparare qualcosa
+19|Scegliere
+20|Sa cosa vuole e confronta prodotti
+21|Comprare
+22|È pronta o pronto a comprare
+23|tè verde
+24|tè verde benefici
+25|tè verde sencha
+26|come preparare il sencha
+27|sencha biologico
+28|tè freddo sencha
+29|comprare sencha online
+30|"Benefici" porta molte visite, ma nell'UE le promesse sulla salute degli alimenti sono regolate (Regolamento CE 1924/2006): su una pagina prodotto parla di gusto e qualità.
+31|Come si prepara il tè Sencha?
+32|Oggi Google prova a capire cosa vuole chi cerca. Per chi vuole informarsi mostra guide; per chi vuole scegliere o comprare mostra pagine prodotto. La pagina del Sencha deve puntare alle ricerche di chi vuole scegliere o comprare.
+33|Google misura il titolo in pixel, non in caratteri: oltre circa 580 pixel lo taglia. Se il titolo non descrive bene la pagina, Google può anche riscriverlo da solo.
+34|I dati strutturati Product dicono a Google prezzo e disponibilità, che possono comparire nei risultati e in Google Shopping. Le stelle delle recensioni si possono mostrare solo con recensioni vere: inventarle è vietato (Direttiva UE 2019/2161, "Omnibus").
+35|Una risposta breve, chiara e con dati verificabili è più facile da mostrare nei riquadri "Le persone chiedono anche" e da citare nelle panoramiche create con l'AI (AI Overviews).
+36|intento di ricerca
+37|keyword
+38|title
+39|meta description
+40|dati strutturati
+41|AI Overviews
+42|Prima di scrivere, capisci chi cerca cosa: l'intento di ricerca decide che pagina vuole vedere la persona.
+43|Come capisco l'intento?
+44|Guarda le parole: "come", "cos'è", "benefici" = informarsi. Il nome preciso del prodotto = scegliere. "Comprare", "prezzo", "online" = comprare.
+45|Quale keyword per una pagina prodotto?
+46|Non la più cercata, ma la più vicina al prodotto: chi scrive "tè verde" vuole informazioni generiche, chi scrive "tè verde sencha" sa già cosa vuole.
+47|Cosa metto nei dati strutturati?
+48|Solo informazioni vere e visibili sulla pagina: nome, marca, prezzo, valuta e disponibilità. Se non ci sono recensioni vere, niente stelle.
+49|Come scelgo la risposta breve?
+50|La migliore inizia subito con la risposta, usa i numeri della scheda prodotto (temperatura e tempo) e non fa promesse sulla salute.
+51|Title: il titolo blu nei risultati. Meta description: il testo grigio sotto, non cambia la posizione ma convince a cliccare. Dati strutturati: codice nascosto (JSON-LD) che descrive il prodotto a Google.
+52|Informarsi: tè verde, tè verde benefici, come preparare il sencha, tè freddo sencha. Scegliere: tè verde sencha, sencha biologico. Comprare: comprare sencha online. Keyword principale: "tè verde sencha".
+53|Tè verde Sencha biologico in foglie | Cinque Foglie
+54|Sencha bio giapponese a foglie intere, dal gusto fresco ed erbaceo. Ottimo anche freddo. Spedizione in 24 ore.
+55|Nome, marca, prezzo 12,90 EUR, disponibile. Nessuna valutazione a stelle, perché non ci sono ancora recensioni verificate.
+56|Per preparare il tè Sencha scalda l'acqua a 75 °C, senza farla bollire, e lascia in infusione le foglie per 2 minuti. Usa circa 3 grammi di foglie per una tazza. D'estate puoi prepararlo freddo: lascialo in frigo per 8 ore.
+57|La keyword è all'inizio del titolo, dove Google e le persone la notano subito.
+58|Il titolo descrive davvero la pagina: così Google ha meno motivi per riscriverlo.
+59|I dati strutturati contengono solo informazioni vere: niente stelle senza recensioni.
+60|La risposta breve inizia con la risposta e usa numeri presi dalla scheda prodotto.
+61|Ho capito perché la keyword più cercata non è quella giusta per una pagina prodotto.
+62|Saprei spiegare perché la descrizione scelta è migliore delle altre.
+63|Ho capito cosa rende una risposta adatta a "Le persone chiedono anche" e alle panoramiche AI.
+64|Ho controllato la scheda prodotto prima di scegliere i dati, senza tirare a indovinare.
+65|Grazie! Adesso la pagina parla come parlano le persone e Google sa prezzo e disponibilità. La prossima volta prepariamo anche una guida per chi cerca "come preparare il sencha": è un'altra pagina, per un altro intento.
+66|scegliere una keyword
+67|title in pixel
+68|dati strutturati Product
+69|risposte per le ricerche AI
+70|regole su salute e recensioni
+71|Tè verde Sencha
+72|biologico
+73|in foglie
+74|giapponese
+75|| Cinque Foglie
+76|Cinque Foglie |
+77|il migliore d'Italia
+78|che brucia i grassi
+79|Offerta imperdibile!
+80|con spedizione gratuita in 24 ore dal nostro negozio online
+81|Il tè verde Sencha che brucia i grassi e depura: il segreto per stare bene ogni giorno. Spedizione in 24 ore.
+82|Scopri il nostro Sencha biologico giapponese a foglie intere, raccolto a mano e selezionato con cura per offrirti un gusto fresco, erbaceo e leggermente dolce, perfetto in ogni momento della giornata. Spedizione in 24 ore.
+83|Porta l'acqua a ebollizione, a 100 °C, e lascia le foglie in infusione per 5 minuti, così il tè diventa più forte e corposo. Usa circa 3 grammi di foglie per una tazza e servilo subito, ben caldo.
+84|Il Sencha si prepara con acqua a 75 °C e un'infusione di 2 minuti. È perfetto per dimagrire e depurare l'organismo: bevine tre tazze al giorno per sentirti subito meglio e più leggera.
+85|Il tè Sencha è uno dei tè verdi più amati del Giappone e ha una storia lunga e affascinante, che risale a molti secoli fa. Ogni famiglia ha il suo modo di prepararlo e di servirlo, e ogni zona del Giappone ha le sue tradizioni. Per questo non esiste un solo modo giusto: dipende dai gusti, dalle abitudini e dal momento della giornata in cui lo bevi.
+86|La SEO (Search Engine Optimization) è il lavoro di far trovare un sito su Google senza pagare gli annunci. Chi la fa capisce cosa cercano le persone, sistema le pagine perché rispondano bene a quelle ricerche e aiuta Google a leggerle. È un lavoro lento: i risultati arrivano in settimane, non in ore.
+87|Keyword e intento di ricerca
+88|La keyword è la ricerca che una persona scrive su Google. Dietro ogni ricerca c'è un intento: informarsi, scegliere tra prodotti o comprare. Una pagina prodotto deve puntare a chi vuole scegliere o comprare; chi vuole informarsi cerca una guida.
+89|"come pulire una teiera in ghisa" è per informarsi (serve una guida); "teiera in ghisa 1 litro" è per scegliere (serve la pagina prodotto).
+90|Title e meta description
+91|Il title è il titolo blu nei risultati di Google; la meta description è il testo grigio sotto. Il title deve contenere la keyword e restare entro circa 580 pixel, altrimenti viene tagliato. Il nome del brand di solito va alla fine. La description invoglia a cliccare.
+92|"Teiera in ghisa 0,8 l, smaltata dentro | Casa del Tè" è chiaro; "Casa del Tè | Prodotti" non dice cosa c'è nella pagina.
+93|Dati strutturati
+94|Sono righe di codice (JSON-LD) che le persone non vedono, ma Google sì: dicono con precisione nome, marca, prezzo e disponibilità del prodotto. Devono essere uguali a quello che c'è scritto sulla pagina. Le stelle si possono mostrare solo con recensioni vere.
+95|Se la pagina dice 39 € e i dati strutturati dicono 29 €, Google lo nota e può non mostrare il prezzo.
+96|Risposte brevi
+97|Google mostra spesso risposte brevi alle domande, nel riquadro "Le persone chiedono anche" o nelle risposte generate dall'intelligenza artificiale. Una risposta di 30-70 parole, precisa e con i numeri giusti, ha più probabilità di essere scelta.
+98|"Come si pulisce una teiera in ghisa?" Risposta breve: "Sciacquala con acqua calda, senza sapone, e asciugala subito sul fuoco basso per evitare la ruggine."
+99|Capisci che intento c'è dietro ogni ricerca e scegli la keyword principale
+100|Componi il title e scegli la meta description
+101|Prepari i dati strutturati del prodotto
+102|Scegli la risposta breve su come si prepara il Sencha
+103|Leggi ogni ricerca come se l'avesse scritta una persona: vuole imparare qualcosa, confrontare prodotti o comprare subito? Alcune ricerche hanno due intenti. Come keyword principale scegli una ricerca di chi vuole scegliere o comprare, non quella con più ricerche in assoluto.
+104|Teiere: "teiera ghisa" ha tanti volumi ma è generica; "teiera ghisa smaltata" è di chi sa cosa vuole: ottima per la pagina prodotto.
+105|Componi il title mettendo prima la keyword, poi un dettaglio utile, poi il nome del brand. Guarda il contatore dei pixel: se diventa rosso, il title è troppo lungo. Per la description cerca una frase che descriva il prodotto e inviti a cliccare, senza promesse sulla salute.
+106|"Teiera in ghisa smaltata 0,8 l | Casa del Tè" con la description "Ghisa smaltata che tiene il calore a lungo, per 3-4 tazze. Spedizione in 24 ore."
+107|Ogni campo va copiato dalla scheda prodotto a sinistra, senza inventare. Il nome è il prodotto, non la categoria; la marca è chi lo vende, non il Paese d'origine. Le stelle si aggiungono solo se ci sono recensioni verificate: guarda cosa dice la scheda.
+108|Per la teiera: nome "Teiera in ghisa smaltata", marca "Casa del Tè", prezzo come sulla pagina. Nessuna stella se non ci sono recensioni.
+109|Una buona risposta breve ha tra 30 e 70 parole, dà i numeri giusti presi dalla scheda (temperatura, tempo) e non promette effetti sulla salute. Controlla ogni risposta con questi tre criteri prima di scegliere.
+110|"Per pulire la teiera in ghisa sciacquala con acqua calda senza sapone e asciugala subito sul fuoco basso": precisa e utile. "La ghisa fa bene al sangue": promessa sulla salute, da evitare.

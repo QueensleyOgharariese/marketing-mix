@@ -1,0 +1,453 @@
+{
+ "_nota": "Esercizio PR 1. Notizie, giornali e numeri sono inventati: i giornali non hanno nome per non richiamare testate reali.",
+ "id": "pr",
+ "ruolo": "PR and communications",
+ "titolo": "Exercise 1 · A piece of news and a problem",
+ "minuti": 20,
+ "richiesta": {
+  "da": "MR",
+  "nome": "Marta",
+  "ruolo": "Founder",
+  "quando": "venerdì alle 18:10",
+  "oggetto": "Good news and a bad Friday",
+  "testo": "Hi! I'd like the local papers to cover our arrival in supermarkets. Can you help me work out what counts as news, choose the opening of the press release and send it the right way? And then there's a problem: today lots of orders are late and an angry post is spreading fast."
+ },
+ "scheda": {
+  "titolo": "What's happening",
+  "voci": [
+   [
+    "News",
+    "From October, Sencha is in 40 supermarkets in the Veneto region"
+   ],
+   [
+    "People",
+    "3 new hires for the warehouse and shops"
+   ],
+   [
+    "Local project",
+    "With a school, 1,000 used tea bags collected for composting"
+   ],
+   [
+    "Journalists",
+    "3 local daily papers and 2 business websites in the Veneto region"
+   ],
+   [
+    "The problem",
+    "600 orders 3 days late because of a courier breakdown"
+   ],
+   [
+    "On social media",
+    "An angry post with 2,000 shares: \"Ordered a week ago, nobody answers\""
+   ]
+  ]
+ },
+ "consiglio": "In PR trust is everything: true news told well, and problems dealt with early and honestly.",
+ "parole": [
+  "press release",
+  "news",
+  "journalist",
+  "crisis",
+  "reputation"
+ ],
+ "parti": [
+  {
+   "id": "notizie",
+   "tipo": "classifica",
+   "titolo": "Is it news?",
+   "testo": "A local journalist gets dozens of press releases a day. Which of these interest them?",
+   "colonne": [
+    {
+     "id": "si",
+     "nome": "It's news"
+    },
+    {
+     "id": "no",
+     "nome": "It's not news"
+    }
+   ],
+   "righe": [
+    {
+     "id": "r1",
+     "testo": "Cinque Foglie arrives in 40 supermarkets in the Veneto region and hires 3 people",
+     "giusti": [
+      "si"
+     ]
+    },
+    {
+     "id": "r2",
+     "testo": "With a local school, 1,000 used tea bags collected for composting",
+     "giusti": [
+      "si"
+     ]
+    },
+    {
+     "id": "r3",
+     "testo": "We changed the green of the logo, it's lighter now",
+     "giusti": [
+      "no"
+     ]
+    },
+    {
+     "id": "r4",
+     "testo": "Our tea is the best in the Veneto region",
+     "giusti": [
+      "no"
+     ]
+    },
+    {
+     "id": "r5",
+     "testo": "New Instagram post with the iced tea recipe",
+     "giusti": [
+      "no"
+     ]
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "News recognised",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "r1",
+       "r2"
+      ]
+     },
+     "suggerimento": "Jobs, the local area, people: these interest local newspaper readers."
+    },
+    {
+     "nome": "Internal facts discarded",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "r3",
+       "r5"
+      ]
+     },
+     "suggerimento": "They interest us, not the paper's readers."
+    },
+    {
+     "nome": "Self-praise discarded",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "r4"
+      ]
+     },
+     "suggerimento": "An opinion about ourselves isn't news."
+    }
+   ],
+   "perche": "News is something new, true and interesting to readers: jobs, the local area, numbers, people. PR picks news through the journalist's eyes, not the company's.",
+   "soluzione": "News: the arrival in supermarkets with 3 hires, the school project. Not news: the logo colour, \"the best\", the recipe post.",
+   "spiega": {
+    "testo": "Put yourself in the shoes of a local paper reader: does this fact concern their area, jobs, the community? Is it new and verifiable? If it's an opinion, an internal matter or an ordinary post, it isn't news.",
+    "esempio": "A bakery: \"we changed the colour of our bags\" interests no paper; \"we donate leftover bread to a neighbourhood soup kitchen\" does."
+   }
+  },
+  {
+   "id": "comunicato",
+   "tipo": "scelta",
+   "titolo": "Choose the opening of the press release",
+   "testo": "The first lines of a press release are the most important. Which opening do you choose?",
+   "opzioni": [
+    {
+     "id": "o1",
+     "testo": "From 1 October the organic teas of Cinque Foglie, an online shop founded in the Veneto region, are on sale in 40 supermarkets in the region. With the new channel the company has hired 3 people.",
+     "ok": {
+      "notizia": true,
+      "fatti": true,
+      "tono": true
+     }
+    },
+    {
+     "id": "o2",
+     "testo": "Cinque Foglie, the absolute excellence of Italian tea, revolutionises the world of herbal teas forever!",
+     "ok": {
+      "notizia": false,
+      "fatti": false,
+      "tono": false
+     }
+    },
+    {
+     "id": "o3",
+     "testo": "We're over the moon! After so much work we made it: thanks everyone, see you at the supermarket!",
+     "ok": {
+      "notizia": false,
+      "fatti": false,
+      "tono": true
+     }
+    },
+    {
+     "id": "o4",
+     "testo": "The history of tea begins in China thousands of years ago. Since then this drink has conquered the world, including Marta, who years later founded Cinque Foglie...",
+     "ok": {
+      "notizia": false,
+      "fatti": true,
+      "tono": true
+     }
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "The news is in the first lines",
+     "regola": {
+      "tipo": "opzione",
+      "chiave": "notizia"
+     },
+     "suggerimento": "Who, what, where, when: straight away, not after the history of tea."
+    },
+    {
+     "nome": "Verifiable facts and numbers",
+     "regola": {
+      "tipo": "opzione",
+      "chiave": "fatti"
+     },
+     "suggerimento": "\"Absolute excellence\" can't be verified; 40 supermarkets and 3 hires can."
+    },
+    {
+     "nome": "Sober tone, no superlatives",
+     "regola": {
+      "tipo": "opzione",
+      "chiave": "tono"
+     },
+     "suggerimento": "A press release informs: no \"revolutionises forever\"."
+    }
+   ],
+   "perche": "The journalist decides in a few seconds. That's why the release puts the news at the start (who, what, where, when, why), uses verifiable facts and a newspaper tone, not an advertising one.",
+   "soluzione": "The first: it says straight away who, what, where and when, with two verifiable numbers, without superlatives.",
+   "spiega": {
+    "testo": "Choose the opening a journalist could use as it is: facts first, checkable numbers, no superlatives, no emotion in place of information, no long preamble.",
+    "esempio": "\"The best bread in the world revolutionises the city\" doesn't say what happened; \"From 3 March ... opens in Via Roma\" does."
+   }
+  },
+  {
+   "id": "invio",
+   "tipo": "menu",
+   "titolo": "Send the press release",
+   "testo": "Choose how to send the press release to journalists.",
+   "campi": [
+    {
+     "id": "chi",
+     "etichetta": "Who do you send it to?",
+     "opzioni": [
+      "Local journalists who cover business and consumer topics",
+      "5,000 journalists' addresses bought online",
+      "A private message to all your Instagram followers"
+     ]
+    },
+    {
+     "id": "quando",
+     "etichetta": "When?",
+     "opzioni": [
+      "A working day, in the morning",
+      "Sunday at 11 pm",
+      "After the news is already out"
+     ]
+    },
+    {
+     "id": "allegati",
+     "etichetta": "What do you attach?",
+     "opzioni": [
+      "Real photos and a contact for questions",
+      "A 200 MB file with all the photos",
+      "Nothing"
+     ]
+    },
+    {
+     "id": "richiamo",
+     "etichetta": "What if the journalist doesn't reply?",
+     "opzioni": [
+      "One polite follow-up after a few days",
+      "You call them every day until they publish",
+      "You offer them a gift in exchange for the article"
+     ]
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "The right journalists, chosen one by one",
+     "regola": {
+      "tipo": "menu",
+      "campo": "chi",
+      "valore": "Local journalists who cover business and consumer topics"
+     },
+     "suggerimento": "A bought list doesn't respect the GDPR and ends up in spam."
+    },
+    {
+     "nome": "The right moment",
+     "regola": {
+      "tipo": "menu",
+      "campo": "quando",
+      "valore": "A working day, in the morning"
+     },
+     "suggerimento": "Newsrooms decide on articles on working days, usually in the morning."
+    },
+    {
+     "nome": "Useful, lightweight materials",
+     "regola": {
+      "tipo": "menu",
+      "campo": "allegati",
+      "valore": "Real photos and a contact for questions"
+     },
+     "suggerimento": "The journalist must be able to use a photo and call someone."
+    },
+    {
+     "nome": "One follow-up, without pressure",
+     "regola": {
+      "tipo": "menu",
+      "campo": "richiamo",
+      "valore": "One polite follow-up after a few days"
+     },
+     "suggerimento": "Insisting or giving gifts ruins the relationship with the journalist."
+    }
+   ],
+   "perche": "PR is about relationships: a few of the right journalists, contacted at the right time, with useful materials. And you can't buy an article: if it's paid for it's advertising, and must be disclosed as such.",
+   "soluzione": "To local business and consumer journalists, on a working day in the morning, with real photos and a contact. If they don't reply, one polite follow-up.",
+   "spiega": {
+    "testo": "For each choice think about the journalist: they get dozens of emails a day. They need news on their topic, at the time they work, with material ready to use. Insisting too much or sending to everyone sends the email to the bin.",
+    "esempio": "The bakery sends the release on Tuesday morning with 3 photos of the shop and the number of the person who answers questions."
+   }
+  },
+  {
+   "id": "crisi",
+   "tipo": "spunte",
+   "titolo": "Handle the problem on social media",
+   "testo": "600 orders are late and the angry post is spreading. What do you do? Choose all the right things, and only those.",
+   "opzioni": [
+    {
+     "id": "c1",
+     "testo": "Reply within a few hours, publicly, acknowledging the delay"
+    },
+    {
+     "id": "c2",
+     "testo": "Explain what happened and when the orders will arrive"
+    },
+    {
+     "id": "c3",
+     "testo": "Write to the people who ordered and offer something concrete, like a refund of the shipping"
+    },
+    {
+     "id": "c4",
+     "testo": "Delete the post and the negative comments"
+    },
+    {
+     "id": "c5",
+     "testo": "Blame it all on the courier, without apologising"
+    },
+    {
+     "id": "c6",
+     "testo": "Reply by publishing the customer's name and order, to show she's wrong"
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "A quick, honest reply",
+     "regola": {
+      "tipo": "spunte-tutte",
+      "ids": [
+       "c1"
+      ]
+     },
+     "suggerimento": "Silence makes the crisis grow."
+    },
+    {
+     "nome": "Information and a concrete solution",
+     "regola": {
+      "tipo": "spunte-tutte",
+      "ids": [
+       "c2",
+       "c3"
+      ]
+     },
+     "suggerimento": "People want to know what's happening and what you're doing for them."
+    },
+    {
+     "nome": "No deleting and no passing the buck",
+     "regola": {
+      "tipo": "spunte-nessuna",
+      "ids": [
+       "c4",
+       "c5"
+      ]
+     },
+     "suggerimento": "Deleting looks like hiding; shifting the blame looks like you don't care."
+    },
+    {
+     "nome": "Respect for personal data",
+     "regola": {
+      "tipo": "spunte-nessuna",
+      "ids": [
+       "c6"
+      ]
+     },
+     "suggerimento": "Publishing a customer's data breaks the GDPR and makes everything worse."
+    }
+   ],
+   "perche": "In a crisis time, honesty and solutions count: acknowledge the problem, explain, make it right. Customer data stays private even when they're wrong.",
+   "soluzione": "A public reply within a few hours, an explanation with delivery times, a message to the people who ordered with a concrete remedy. No deleting, no blaming only the courier, never personal data in public.",
+   "spiega": {
+    "testo": "There can be more than one right answer. Choose the actions that acknowledge the problem, inform people and make it right. Discard the ones that hide, shift the blame or expose customers' data.",
+    "esempio": "Replying \"It's not our fault\" to an angry customer makes things worse; explaining and offering a remedy calms things down."
+   }
+  }
+ ],
+ "aiuti": [
+  {
+   "titolo": "How do I tell whether it's news?",
+   "testo": "Ask yourself: would a local paper reader tell someone about it? Jobs, the local area and people, yes; the logo colour, no."
+  },
+  {
+   "titolo": "What do you do first in a crisis?",
+   "testo": "You reply early and acknowledge the problem. Then you explain and offer a remedy. You don't delete and you don't attack."
+  }
+ ],
+ "glossario": "Press release: a text a company sends to journalists with a piece of news. Lead: the first lines with who, what, where, when. Crisis: a problem that puts trust at risk. Reputation: what people think of the company.",
+ "note": [
+  "News is new, true and interesting to readers.",
+  "In the press release the news goes at the start, with verifiable facts.",
+  "In a crisis: early, honest, with a remedy, without deleting."
+ ],
+ "autovalutazione": [
+  "I could say why the logo colour isn't news.",
+  "I could explain what must be in the first lines of a press release.",
+  "I understood why you can't buy an article with a gift.",
+  "I could reply to an angry post without making things worse."
+ ],
+ "rispostaCollega": "Thanks! I replied to the post and wrote to the 600 customers with the shipping refunded. On Monday morning we'll send the release to the papers.",
+ "imparato": [
+  "recognising news",
+  "writing a press release",
+  "relationships with journalists",
+  "handling a crisis"
+ ],
+ "lezione": {
+  "intro": "People in PR (public relations) look after the company's reputation: they make true news known to journalists and the public and, when something goes wrong, respond quickly and honestly. You don't buy articles: you give journalists news that interests their readers.",
+  "concetti": [
+   {
+    "nome": "What news is",
+    "spiegazione": "For a journalist, news is a fact that's new, true and interesting to their readers: it touches the local area, people, numbers. Opinions, self-praise and small internal changes aren't news.",
+    "esempio": "A bakery that opens a second shop and hires 4 people is news for the city paper; \"our bread is the best\" isn't."
+   },
+   {
+    "nome": "The press release",
+    "spiegazione": "It's the text you send to journalists. The first lines (the lead) say straight away who, what, where and when, with verifiable data. The rest adds details, a quote from someone in charge and the contacts.",
+    "esempio": "\"From 3 March, Panificio Grano Vivo opens its second shop at Via Roma 12 in Padua and hires 4 people.\""
+   },
+   {
+    "nome": "Sending it well",
+    "spiegazione": "You send it to a few journalists who follow that topic, on a working day, with real photos and a contact. If they don't reply you make one polite follow-up at most. Bought address lists and gifts in exchange for articles aren't used.",
+    "esempio": "The bakery writes to Padua's local news and business journalists, not to every newspaper in Italy."
+   },
+   {
+    "nome": "Handling a crisis",
+    "spiegazione": "When something goes wrong you reply early, publicly, acknowledging the problem; you explain what happened and what you're doing to fix it. You don't delete criticism and you never publish customers' personal data.",
+    "esempio": "\"Today our oven broke down and some deliveries will arrive tomorrow: we apologise, everyone who ordered will get a voucher.\""
+   }
+  ],
+  "cosaFarai": [
+   "Recognise what counts as news for a local paper",
+   "Choose the opening of the press release",
+   "Decide who to send it to, when and how",
+   "Handle a problem that's spreading on social media"
+  ]
+ }
+}

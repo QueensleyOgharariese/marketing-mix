@@ -20,8 +20,25 @@ SALTA = {"id", "slug", "link", "url", "tipo", "icona", "strumento", "dove", "ver
          "settimana", "pagina", "campagna", "gruppo", "corrispondenza", "stato", "formato", "permesso", "categoria",
          "post", "quando", "autore", "fonte_id", "ruoloId", "strumentoId", "colore", "sim", "_nota",
          "pilastro", "giornalista", "fine", "canale_id", "selettore", "chiave"}
+SALTA |= {"giusti", "ids", "campo", "da"}  # esercizi: id delle colonne, delle spunte, dei campi; iniziali dell'avatar
+# Chiavi saltate solo quando contengono un elenco di codici (es. "righe" nelle regole: ["r1","r2"]);
+# se invece contengono oggetti (le righe di una tabella con il loro testo) si traducono normalmente.
+SALTA_SE_CODICI = {"righe"}
 # Chiavi da saltare solo in alcuni file (aggiunte quando serve)
 SALTA_FILE = {}
+# File in cui anche i numeri senza lettere passano al formato inglese: "1.300" -> "1,300", "1,5%" -> "1.5%"
+NUMERI_EN = ("esercizi/", "seo-sencha.json")
+
+
+def salta_qui(k, v, salta):
+    return k in salta or (k in SALTA_SE_CODICI and isinstance(v, list) and all(isinstance(e, str) for e in v))
+
+
+def numero_en(s):
+    # scambia punto e virgola solo tra cifre: 1.300,50 -> 1,300.50
+    s = re.sub(r"(?<=\d)[.,](?=\d)", lambda m: "," if m.group(0) == "." else ".", s)
+    # "768 €" -> "€768": in inglese il simbolo dell'euro va prima del numero
+    return re.sub(r"([\d.,]+) €", r"€\1", s)
 
 
 def lettere(s):
@@ -32,7 +49,7 @@ def stringhe(x, salta, chiave=None, out=None):
     out = [] if out is None else out
     if isinstance(x, dict):
         for k, v in x.items():
-            if k in salta: continue
+            if salta_qui(k, v, salta): continue
             stringhe(v, salta, k, out)
     elif isinstance(x, list):
         for v in x: stringhe(v, salta, chiave, out)
@@ -41,13 +58,15 @@ def stringhe(x, salta, chiave=None, out=None):
     return out
 
 
-def sostituisci(x, salta, mappa, chiave=None):
+def sostituisci(x, salta, mappa, chiave=None, numeri=False):
     if isinstance(x, dict):
-        return {k: (v if k in salta else sostituisci(v, salta, mappa, k)) for k, v in x.items()}
+        return {k: (v if salta_qui(k, v, salta) else sostituisci(v, salta, mappa, k, numeri)) for k, v in x.items()}
     if isinstance(x, list):
-        return [sostituisci(v, salta, mappa, chiave) for v in x]
+        return [sostituisci(v, salta, mappa, chiave, numeri) for v in x]
     if isinstance(x, str) and lettere(x):
         return mappa[x]
+    if isinstance(x, str) and numeri:
+        return numero_en(x)
     return x
 
 
@@ -95,7 +114,8 @@ def applica(nome):
         a, b = sorted(re.findall(r"\d+", s)), sorted(re.findall(r"\d+", tr[i]))
         if a != b: print(f"  attenzione riga {i}: numeri diversi {a} -> {b}")
     mappa = {s: tr[i] for i, s in enumerate(righe, 1)}
-    json.dump(sostituisci(dati, salta, mappa), open(out, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    numeri = nome.startswith(NUMERI_EN)
+    json.dump(sostituisci(dati, salta, mappa, numeri=numeri), open(out, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(f"{nome}: scritto {out}")
 
 

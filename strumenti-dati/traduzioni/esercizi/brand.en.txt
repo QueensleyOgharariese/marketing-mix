@@ -1,0 +1,132 @@
+1|Brand manager
+2|Exercise 1 · Cinque Foglie's tone of voice
+3|Marta
+4|Founder
+5|Our tone of voice
+6|Hi! Each of us writes differently on the website, social media and newsletter. Can you help me work out which sentences are "very Cinque Foglie", choose our values and fix a couple of style rules?
+7|Who Cinque Foglie is
+8|Mission
+9|Helping people discover quality tea, calmly and kindly
+10|Customers
+11|People aged 25-45 who love small rituals
+12|Facts
+13|Whole leaves, compostable packaging, 24-hour shipping
+14|Personality
+15|Kind, clear, expert, never pushy
+16|Main colour
+17|Orange #ff7a1a
+18|Text
+19|Dark brown #2a1d18
+20|A tone of voice is recognisable even without a logo: ask yourself whether each sentence "sounds" like Cinque Foglie.
+21|tone of voice
+22|brand values
+23|consistency
+24|contrast
+25|Is it a Cinque Foglie sentence?
+26|For each sentence choose whether it fits the brand's personality.
+27|On brand
+28|Off tone
+29|Take a break: your Sencha is waiting for you.
+30|We'll show you how to brew it, step by step.
+31|LAST HOURS!!! Buy now or you'll regret it
+32|The tea that will change your life
+33|We're number one, the others copy us
+34|Kind, clear sentences recognised
+35|Calm, useful sentences are exactly Cinque Foglie.
+36|Pressure and urgency recognised
+37|Capitals, exclamation marks and threats aren't "never pushy".
+38|Exaggerated promises recognised
+39|A tea doesn't change your life: it's an exaggeration.
+40|Attacks on competitors recognised
+41|Boasting at others' expense isn't kind.
+42|A consistent tone of voice makes the brand recognisable everywhere. False urgency or exaggeration loses trust, and some aggressive practices are banned by consumer protection law.
+43|On brand: "Take a break...", "We'll show you how to brew it...". Off tone: the other three.
+44|Reread the personality on the card (kind, clear, expert, never pushy). For each sentence ask yourself: would a person like that say it? Shouting, rushing people, exaggerating or boasting are signs of an off-tone sentence.
+45|For the friendly bookshop: "Come by for a chat about books" is on brand; "TODAY ONLY OR NEVER AGAIN!" rushes people and is off tone.
+46|Choose the three brand values
+47|Which group of values best describes Cinque Foglie, looking at the card?
+48|Calm, quality, respect for the environment
+49|Speed, value for money, constant deals
+50|Innovation, technology, the future
+51|Quality, passion, excellence
+52|Consistent with the mission
+53|Reread the mission: calm and kindness.
+54|Proven by real facts
+55|A value is credible if a fact proves it (e.g. the compostable packaging).
+56|Distinctive, not generic
+57|Everyone says "quality and passion": what makes us different?
+58|A brand's values must be true and provable. Claiming to be "green" without proof is greenwashing, and EU Directive 2024/825 bans generic environmental claims without proof.
+59|Calm, quality, respect for the environment: they come from the mission and are proven by whole leaves and compostable packaging.
+60|A good value comes from the mission and can be proven with a fact from the card. Discard the groups about something else (speed, technology) and the ones too generic, which would suit any company.
+61|"Quality, passion, excellence" could be said by a garage or a bank: it says nothing specific.
+62|Fix the style rules
+63|Choose the right rules for the brand guidelines.
+64|Text colour on the orange button
+65|White
+66|Light orange
+67|Minimum text size on the website
+68|10 px
+69|12 px
+70|16 px
+71|Logo over a busy photo
+72|Directly on the photo
+73|On a light box
+74|Stretched to fill the space
+75|Readable text on the button (contrast 4.5:1)
+76|White on orange has a contrast of 2.6:1: too low. Dark brown reaches about 6:1.
+77|Text large enough
+78|Below 16 px, paragraph text is hard to read, especially on a phone.
+79|Logo always readable and never distorted
+80|The logo is never distorted and needs a calm background.
+81|A consistent brand is also accessible: the WCAG guidelines ask for a contrast of at least 4.5:1 for normal text. Since 2025, with the European Accessibility Act, many online shops in the EU must be accessible.
+82|Dark brown text on the orange button, text at least 16 px, logo on a light box and never distorted.
+83|For each rule think about the reader: the text on the button must be easy to read (high contrast), the website text mustn't be too small, the logo must stay recognisable, so never distorted and never on a busy background.
+84|A yellow button with white text has little contrast; with dark text it's much easier to read.
+85|Reply to an angry customer
+86|Under a post a customer writes: "The parcel arrived 3 days late, I'm never ordering again!". Which reply do you publish?
+87|Hi Giulia, you're right and we're really sorry. We'll message you privately to find out what happened and make it right.
+88|The delay isn't our fault, it's the courier's. We always ship within 24 hours.
+89|Oops! The tea was so good the courier drank it on the way, haha!
+90|Dear customer, your report has been received. Kind regards.
+91|Kind and without convenient excuses
+92|First you acknowledge the problem, without blaming others.
+93|Offers a concrete solution
+94|What will you do to make it right?
+95|In Cinque Foglie's tone
+96|Neither jokes nor form-letter phrases: warm and clear.
+97|Replies to comments are public: everyone reads them. A kind, concrete reply can turn criticism into trust.
+98|The first: it acknowledges the problem, apologises and offers to make it right privately.
+99|A good public reply does three things: it admits what went wrong, apologises plainly and moves the conversation to private messages to solve it. Avoid replies that shift the blame, ones that joke and cold form-letter ones.
+100|"Hi Marco, you're right, we're sorry. We'll message you privately to sort it out straight away" is warm and concrete; "Your request has been forwarded" sounds like a robot.
+101|How do I recognise an off-tone sentence?
+102|Compare it with the personality on the card: kind, clear, expert, never pushy. If it rushes people, exaggerates or attacks someone, it's off tone.
+103|What is contrast?
+104|The difference in brightness between text and background. The higher it is, the easier it is to read. Normal text needs at least 4.5:1.
+105|Tone of voice: the way a brand speaks. Values: the things it believes in, proven by facts. Contrast: how much the text stands out from the background.
+106|The tone of voice comes from the brand's personality, not from the writer's taste.
+107|Values must be true, provable and distinctive.
+108|Style rules also make the brand accessible to everyone.
+109|I could explain why a sentence is off tone.
+110|I understood why values must be proven by facts.
+111|I understood what contrast between text and background is for.
+112|I could reply to criticism while staying in the brand's tone.
+113|Perfect, now we have common ground. I'll put the rules in the brand guidelines and send them to the whole team.
+114|provable values
+115|contrast and accessibility
+116|replying to criticism
+117|A brand is the idea people form of a company: not just the logo, but how it speaks, what it believes in and how it behaves. A brand manager writes the rules that keep everything consistent, so that a post, an email or a reply to a customer seem written by the same person.
+118|Tone of voice
+119|It's the way the brand speaks: formal or friendly, calm or shouted, technical or simple. It comes from the brand's personality and is used everywhere, from the website to comments.
+120|A kind, passionate neighbourhood bookshop writes "We recommend a mystery for tonight's rain", not "MEGA BOOK DEAL!!!".
+121|Values
+122|They're the things the brand believes in. They only count if the facts prove them: saying "sustainable" without being so is misleading. Generic words like "excellence" or "passion" are used by everyone and set nobody apart.
+123|The bookshop that runs free readings for children can say it believes in culture for everyone: there's a fact that proves it.
+124|Visual rules
+125|Colours, typefaces and logo have precise rules. An important one is contrast: text must stand out clearly from the background, otherwise many people can't read it (accessibility guidelines ask for at least 4.5 to 1 for normal text).
+126|Light grey text on a white background is elegant but hard to read; almost-black text on white is always readable.
+127|The brand in difficult moments
+128|Tone shows most when something goes wrong. A good reply acknowledges the problem, genuinely apologises and offers a solution, without shifting the blame and without joking about an inconvenience.
+129|A book arrives damaged: "We're sorry, we'll send you a new copy today" works; "It must be the courier's fault" doesn't.
+130|Recognise which sentences sound like Cinque Foglie
+131|Fix some visual rules in the guidelines
+132|Reply to an angry customer in the right tone

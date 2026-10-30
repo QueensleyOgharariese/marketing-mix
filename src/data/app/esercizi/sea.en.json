@@ -1,0 +1,485 @@
+{
+ "_nota": "Esercizio SEA 1. Dati inventati: budget, costi e conversioni sono simulati.",
+ "id": "sea",
+ "ruolo": "SEA specialist",
+ "titolo": "Exercise 1 · Ads for the iced teas",
+ "minuti": 20,
+ "richiesta": {
+  "da": "LB",
+  "nome": "Luca",
+  "ruolo": "E-commerce",
+  "quando": "ieri alle 17:40",
+  "oggetto": "Ads for the iced teas",
+  "testo": "Hi! For the summer I'd like to run Google ads for the iced tea kit. We have €300 a month. Can you help me choose the right searches and the best ad, and work out whether it pays off?"
+ },
+ "scheda": {
+  "titolo": "Campaign data",
+  "voci": [
+   [
+    "Product",
+    "Sencha iced tea kit (tea bags + bottle)"
+   ],
+   [
+    "Price",
+    "€14.90"
+   ],
+   [
+    "Budget",
+    "€300 a month"
+   ],
+   [
+    "Estimated cost per click",
+    "€0.40"
+   ],
+   [
+    "Website conversion",
+    "2 in 100 visits buy"
+   ],
+   [
+    "Ad landing page",
+    "cinquefoglie.example/iced-teas"
+   ],
+   [
+    "We don't sell",
+    "Tea makers, canned tea"
+   ]
+  ]
+ },
+ "consiglio": "Every click costs money: first of all, choose the searches of people who really want to buy what we sell.",
+ "parole": [
+  "CPC",
+  "negative keyword",
+  "conversion",
+  "CPA",
+  "ROAS"
+ ],
+ "parti": [
+  {
+   "id": "ricerche",
+   "tipo": "classifica",
+   "titolo": "Choose which searches to appear for",
+   "testo": "For each search decide whether to add it as a keyword or exclude it (negative keyword).",
+   "colonne": [
+    {
+     "id": "si",
+     "nome": "Add"
+    },
+    {
+     "id": "no",
+     "nome": "Exclude"
+    }
+   ],
+   "righe": [
+    {
+     "id": "r1",
+     "testo": "iced tea kit",
+     "giusti": [
+      "si"
+     ]
+    },
+    {
+     "id": "r2",
+     "testo": "sencha iced tea",
+     "giusti": [
+      "si"
+     ]
+    },
+    {
+     "id": "r3",
+     "testo": "buy iced tea online",
+     "giusti": [
+      "si"
+     ]
+    },
+    {
+     "id": "r4",
+     "testo": "homemade iced tea recipe",
+     "giusti": [
+      "no"
+     ]
+    },
+    {
+     "id": "r5",
+     "testo": "free iced tea",
+     "giusti": [
+      "no"
+     ]
+    },
+    {
+     "id": "r6",
+     "testo": "iced tea maker",
+     "giusti": [
+      "no"
+     ]
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "Buyers' searches added",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "r1",
+       "r2",
+       "r3"
+      ]
+     },
+     "suggerimento": "Add the searches of people who want to buy a kit like ours."
+    },
+    {
+     "nome": "Recipe search excluded",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "r4"
+      ]
+     },
+     "suggerimento": "People looking for a recipe want to make it themselves: exclude it."
+    },
+    {
+     "nome": "\"Free\" search excluded",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "r5"
+      ]
+     },
+     "suggerimento": "People searching \"free\" don't want to pay: exclude."
+    },
+    {
+     "nome": "Products we don't sell excluded",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "r6"
+      ]
+     },
+     "suggerimento": "Look at the card: we don't sell tea makers."
+    }
+   ],
+   "perche": "With paid ads you pay for every click. Negative keywords stop you paying for people who will never buy.",
+   "soluzione": "Add: iced tea kit, sencha iced tea, buy iced tea online. Exclude: recipe, free, maker.",
+   "spiega": {
+    "testo": "For each search ask yourself: could the person typing it buy our product today? If yes, it's a keyword. If they want free information, things we don't sell, or to make it themselves, exclude it.",
+    "esempio": "For teapots: \"buy cast iron teapot\", yes; \"DIY cast iron teapot\", no; \"electric kettle\", no, because we don't sell it."
+   }
+  },
+  {
+   "id": "annuncio",
+   "tipo": "scelta",
+   "titolo": "Choose the ad",
+   "testo": "Which ad would you publish?",
+   "opzioni": [
+    {
+     "id": "a1",
+     "testo": "Organic Sencha Iced Tea Kit | Ready in 8 hours in the fridge | 24-hour shipping. Order now.",
+     "ok": {
+      "pertinente": true,
+      "azione": true,
+      "salute": true,
+      "vero": true
+     }
+    },
+    {
+     "id": "a2",
+     "testo": "Slimming Iced Tea | Burns fat in summer | Order now from Cinque Foglie.",
+     "ok": {
+      "pertinente": true,
+      "azione": true,
+      "salute": false,
+      "vero": false
+     }
+    },
+    {
+     "id": "a3",
+     "testo": "The best tea in the world | Lowest prices in Italy | Cinque Foglie.",
+     "ok": {
+      "pertinente": false,
+      "azione": false,
+      "salute": true,
+      "vero": false
+     }
+    },
+    {
+     "id": "a4",
+     "testo": "Cinque Foglie | Teas and herbal teas | Discover our whole catalogue.",
+     "ok": {
+      "pertinente": false,
+      "azione": true,
+      "salute": true,
+      "vero": true
+     }
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "It's about iced tea specifically",
+     "regola": {
+      "tipo": "opzione",
+      "chiave": "pertinente"
+     },
+     "suggerimento": "The ad must be about what the person searched for."
+    },
+    {
+     "nome": "A clear call to action",
+     "regola": {
+      "tipo": "opzione",
+      "chiave": "azione"
+     },
+     "suggerimento": "You need a clear call to action: order, discover, try."
+    },
+    {
+     "nome": "No health claims",
+     "regola": {
+      "tipo": "opzione",
+      "chiave": "salute"
+     },
+     "suggerimento": "Health claims for food are banned."
+    },
+    {
+     "nome": "Only provable claims",
+     "regola": {
+      "tipo": "opzione",
+      "chiave": "vero"
+     },
+     "suggerimento": "\"The best in the world\" or \"the lowest prices\" must be proven."
+    }
+   ],
+   "perche": "A relevant ad gets more clicks and Google rewards it with a lower cost per click. Health claims and claims that can't be proven can be misleading advertising.",
+   "soluzione": "Organic Sencha Iced Tea Kit | Ready in 8 hours in the fridge | 24-hour shipping. Order now.",
+   "spiega": {
+    "testo": "Read each ad and check four things: is it about the product searched for? Does it have a call to action? Does it avoid health claims? Does it only say things that can be proven? One no is enough to discard it.",
+    "esempio": "\"Magic teapot that helps you lose weight\" makes a health claim: banned. \"The most beautiful teapots in Italy\" can't be proven."
+   }
+  },
+  {
+   "id": "conti",
+   "tipo": "menu",
+   "titolo": "Do the maths",
+   "testo": "Using the data on the card, how much does a month of ads bring in?",
+   "campi": [
+    {
+     "id": "clic",
+     "etichetta": "Clicks per month (budget ÷ cost per click)",
+     "opzioni": [
+      "120",
+      "300",
+      "750",
+      "1,200"
+     ]
+    },
+    {
+     "id": "ordini",
+     "etichetta": "Orders per month (2 per 100 clicks)",
+     "opzioni": [
+      "2",
+      "15",
+      "75",
+      "150"
+     ]
+    },
+    {
+     "id": "cpa",
+     "etichetta": "Cost per order, CPA (budget ÷ orders)",
+     "opzioni": [
+      "€2",
+      "€14.90",
+      "€20",
+      "€40"
+     ]
+    },
+    {
+     "id": "roas",
+     "etichetta": "ROAS (revenue ÷ spend)",
+     "opzioni": [
+      "0.75",
+      "1.5",
+      "3",
+      "7.5"
+     ]
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "Right clicks: 750",
+     "regola": {
+      "tipo": "menu",
+      "campo": "clic",
+      "valore": "750"
+     },
+     "suggerimento": "€300 ÷ €0.40 per click."
+    },
+    {
+     "nome": "Right orders: 15",
+     "regola": {
+      "tipo": "menu",
+      "campo": "ordini",
+      "valore": "15"
+     },
+     "suggerimento": "2 orders per 100 clicks: how many out of 750?"
+    },
+    {
+     "nome": "Right CPA: €20",
+     "regola": {
+      "tipo": "menu",
+      "campo": "cpa",
+      "valore": "€20"
+     },
+     "suggerimento": "CPA is how much you spend for each order: €300 ÷ orders."
+    },
+    {
+     "nome": "Right ROAS: 0.75",
+     "regola": {
+      "tipo": "menu",
+      "campo": "roas",
+      "valore": "0.75"
+     },
+     "suggerimento": "Revenue = orders × €14.90. Then divide by €300."
+    }
+   ],
+   "perche": "ROAS says how many euros you take in for every euro spent. Below 1 means you spend more than you take in: the campaign as it stands doesn't pay off.",
+   "soluzione": "750 clicks, 15 orders, CPA €20, ROAS 0.75 (revenue €223.50 on €300 spent).",
+   "spiega": {
+    "testo": "You go in order, because each number is needed for the next. 1) Clicks = budget ÷ cost per click. 2) Orders = clicks × conversion (2 in 100 means clicks ÷ 100 × 2). 3) CPA = budget ÷ orders. 4) ROAS = (orders × price) ÷ budget.",
+    "esempio": "Budget €100, clicks at €0.50: 200 clicks. Conversion 3 in 100: 6 orders. CPA = 100 ÷ 6 ≈ €16.67. If the product costs €20: revenue €120, ROAS 1.2."
+   }
+  },
+  {
+   "id": "proposte",
+   "tipo": "spunte",
+   "titolo": "What do you suggest to Luca?",
+   "testo": "ROAS is below 1. Choose all the useful actions (and only those).",
+   "opzioni": [
+    {
+     "id": "p1",
+     "testo": "Improve the iced tea page, so more visits become orders"
+    },
+    {
+     "id": "p2",
+     "testo": "Keep only the searches of people who want to buy and exclude the others"
+    },
+    {
+     "id": "p3",
+     "testo": "Measure conversions properly (with cookie consent) before deciding"
+    },
+    {
+     "id": "p4",
+     "testo": "Double the budget straight away to get more orders"
+    },
+    {
+     "id": "p5",
+     "testo": "Add the keyword \"tea\" to get many more clicks"
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "Improve the landing page",
+     "regola": {
+      "tipo": "spunte-tutte",
+      "ids": [
+       "p1"
+      ]
+     },
+     "suggerimento": "If the page converts better, every click brings in more."
+    },
+    {
+     "nome": "Stick to buying searches",
+     "regola": {
+      "tipo": "spunte-tutte",
+      "ids": [
+       "p2"
+      ]
+     },
+     "suggerimento": "The right searches cost the same but buy more."
+    },
+    {
+     "nome": "Measure before deciding",
+     "regola": {
+      "tipo": "spunte-tutte",
+      "ids": [
+       "p3"
+      ]
+     },
+     "suggerimento": "Without reliable measurement you don't know what works."
+    },
+    {
+     "nome": "No actions that make the numbers worse",
+     "regola": {
+      "tipo": "spunte-nessuna",
+      "ids": [
+       "p4",
+       "p5"
+      ]
+     },
+     "suggerimento": "More budget or generic keywords, with ROAS below 1, only lose more."
+    }
+   ],
+   "perche": "First you fix what turns a click into an order, then you increase the budget. In the EU, conversion tracking with cookies requires consent.",
+   "soluzione": "Improve the page, keep only buying searches, measure conversions properly. Don't increase the budget or add generic keywords.",
+   "spiega": {
+    "testo": "If a campaign is losing money (ROAS below 1), increasing the budget only loses more. First fix what turns a click into an order: the product page, the chosen searches and the measurement of results. Remember that in the EU conversion tracking with cookies requires consent.",
+    "esempio": "If the teapot page doesn't show shipping costs, many people leave without buying: fixing it raises conversion without spending a single extra euro on ads."
+   }
+  }
+ ],
+ "aiuti": [
+  {
+   "titolo": "How do I tell whether a search is worth it?",
+   "testo": "Ask yourself: could this person buy our kit today? If they're looking for recipes, free things or products we don't sell, no."
+  },
+  {
+   "titolo": "How do you calculate ROAS?",
+   "testo": "Revenue divided by spend. If you take in €600 spending €300, ROAS is 2."
+  }
+ ],
+ "glossario": "CPC: cost per click. Negative keyword: a search the ad must not appear for. CPA: cost per order. ROAS: revenue divided by ad spend.",
+ "note": [
+  "Negative keywords save as much as the right keywords earn.",
+  "The best ad is about the product searched for, has a clear call to action and doesn't promise things it can't prove.",
+  "With ROAS below 1 you don't increase the budget: you improve conversion first."
+ ],
+ "autovalutazione": [
+  "I could explain what a negative keyword is for.",
+  "I understood why the chosen ad is better than the others.",
+  "I did the maths on my own, without guessing.",
+  "I could explain to Luca why increasing the budget doesn't pay off."
+ ],
+ "rispostaCollega": "Thanks! I'd never have thought of excluding recipes. I'll fix the iced tea page and in a month we'll look at the numbers together again.",
+ "imparato": [
+  "negative keywords",
+  "relevant ads",
+  "CPC, CPA and ROAS",
+  "deciding with data"
+ ],
+ "lezione": {
+  "intro": "SEA (Search Engine Advertising) is the paid ads that appear on Google above or below the normal results, labelled \"Sponsored\". People in this role decide which searches the ads appear for, what to write in them and how much to spend, and then check with the numbers whether the spend brings in more than it costs.",
+  "concetti": [
+   {
+    "nome": "You pay per click",
+    "spiegazione": "The ad can appear a thousand times for free: you only pay when someone clicks it. The price of a click is called CPC (cost per click) and it's decided by an auction between everyone who wants to appear for the same search.",
+    "esempio": "If a click costs €0.50 and you get 200 clicks in a month, you spend €100."
+   },
+   {
+    "nome": "Keywords and negative keywords",
+    "spiegazione": "Keywords are the searches you want to appear for. Negative keywords are the ones you DON'T want to appear for, because the people searching them won't buy. They stop you wasting money.",
+    "esempio": "A teapot shop wants to appear for \"cast iron teapot\", but excludes \"used cast iron teapot\" and \"how to clean a teapot\": the people searching those don't want to buy a new one."
+   },
+   {
+    "nome": "The ad",
+    "spiegazione": "A good ad repeats what the person searched for, states a concrete benefit and has a call to action (order, discover, try). In Europe you can't promise a health effect for a food, or say \"the best\" without being able to prove it.",
+    "esempio": "\"Cast iron teapot 0.8 l | Keeps the heat for a long time | 24-hour shipping. Discover.\""
+   },
+   {
+    "nome": "The numbers: CPA and ROAS",
+    "spiegazione": "CPA is how much you spend to get one order (spend ÷ orders). ROAS is how much you take in for every euro spent (revenue ÷ spend). With ROAS below 1 you spend more than you take in.",
+    "esempio": "You spend €100 and get 4 orders of €40: CPA = 100 ÷ 4 = €25; revenue = €160; ROAS = 160 ÷ 100 = 1.6."
+   }
+  ],
+  "cosaFarai": [
+   "Choose which searches the ads appear for and which to exclude",
+   "Choose the best ad out of four",
+   "Calculate the month's clicks, orders, CPA and ROAS",
+   "Decide what to advise Luca based on the numbers"
+  ]
+ }
+}

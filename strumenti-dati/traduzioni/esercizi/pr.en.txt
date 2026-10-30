@@ -1,0 +1,144 @@
+1|PR and communications
+2|Exercise 1 · A piece of news and a problem
+3|Marta
+4|Founder
+5|Good news and a bad Friday
+6|Hi! I'd like the local papers to cover our arrival in supermarkets. Can you help me work out what counts as news, choose the opening of the press release and send it the right way? And then there's a problem: today lots of orders are late and an angry post is spreading fast.
+7|What's happening
+8|News
+9|From October, Sencha is in 40 supermarkets in the Veneto region
+10|People
+11|3 new hires for the warehouse and shops
+12|Local project
+13|With a school, 1,000 used tea bags collected for composting
+14|Journalists
+15|3 local daily papers and 2 business websites in the Veneto region
+16|The problem
+17|600 orders 3 days late because of a courier breakdown
+18|On social media
+19|An angry post with 2,000 shares: "Ordered a week ago, nobody answers"
+20|In PR trust is everything: true news told well, and problems dealt with early and honestly.
+21|press release
+22|news
+23|journalist
+24|crisis
+25|reputation
+26|Is it news?
+27|A local journalist gets dozens of press releases a day. Which of these interest them?
+28|It's news
+29|It's not news
+30|Cinque Foglie arrives in 40 supermarkets in the Veneto region and hires 3 people
+31|With a local school, 1,000 used tea bags collected for composting
+32|We changed the green of the logo, it's lighter now
+33|Our tea is the best in the Veneto region
+34|New Instagram post with the iced tea recipe
+35|News recognised
+36|Jobs, the local area, people: these interest local newspaper readers.
+37|Internal facts discarded
+38|They interest us, not the paper's readers.
+39|Self-praise discarded
+40|An opinion about ourselves isn't news.
+41|News is something new, true and interesting to readers: jobs, the local area, numbers, people. PR picks news through the journalist's eyes, not the company's.
+42|News: the arrival in supermarkets with 3 hires, the school project. Not news: the logo colour, "the best", the recipe post.
+43|Put yourself in the shoes of a local paper reader: does this fact concern their area, jobs, the community? Is it new and verifiable? If it's an opinion, an internal matter or an ordinary post, it isn't news.
+44|A bakery: "we changed the colour of our bags" interests no paper; "we donate leftover bread to a neighbourhood soup kitchen" does.
+45|Choose the opening of the press release
+46|The first lines of a press release are the most important. Which opening do you choose?
+47|From 1 October the organic teas of Cinque Foglie, an online shop founded in the Veneto region, are on sale in 40 supermarkets in the region. With the new channel the company has hired 3 people.
+48|Cinque Foglie, the absolute excellence of Italian tea, revolutionises the world of herbal teas forever!
+49|We're over the moon! After so much work we made it: thanks everyone, see you at the supermarket!
+50|The history of tea begins in China thousands of years ago. Since then this drink has conquered the world, including Marta, who years later founded Cinque Foglie...
+51|The news is in the first lines
+52|Who, what, where, when: straight away, not after the history of tea.
+53|Verifiable facts and numbers
+54|"Absolute excellence" can't be verified; 40 supermarkets and 3 hires can.
+55|Sober tone, no superlatives
+56|A press release informs: no "revolutionises forever".
+57|The journalist decides in a few seconds. That's why the release puts the news at the start (who, what, where, when, why), uses verifiable facts and a newspaper tone, not an advertising one.
+58|The first: it says straight away who, what, where and when, with two verifiable numbers, without superlatives.
+59|Choose the opening a journalist could use as it is: facts first, checkable numbers, no superlatives, no emotion in place of information, no long preamble.
+60|"The best bread in the world revolutionises the city" doesn't say what happened; "From 3 March ... opens in Via Roma" does.
+61|Send the press release
+62|Choose how to send the press release to journalists.
+63|Who do you send it to?
+64|Local journalists who cover business and consumer topics
+65|5,000 journalists' addresses bought online
+66|A private message to all your Instagram followers
+67|When?
+68|A working day, in the morning
+69|Sunday at 11 pm
+70|After the news is already out
+71|What do you attach?
+72|Real photos and a contact for questions
+73|A 200 MB file with all the photos
+74|Nothing
+75|What if the journalist doesn't reply?
+76|One polite follow-up after a few days
+77|You call them every day until they publish
+78|You offer them a gift in exchange for the article
+79|The right journalists, chosen one by one
+80|A bought list doesn't respect the GDPR and ends up in spam.
+81|The right moment
+82|Newsrooms decide on articles on working days, usually in the morning.
+83|Useful, lightweight materials
+84|The journalist must be able to use a photo and call someone.
+85|One follow-up, without pressure
+86|Insisting or giving gifts ruins the relationship with the journalist.
+87|PR is about relationships: a few of the right journalists, contacted at the right time, with useful materials. And you can't buy an article: if it's paid for it's advertising, and must be disclosed as such.
+88|To local business and consumer journalists, on a working day in the morning, with real photos and a contact. If they don't reply, one polite follow-up.
+89|For each choice think about the journalist: they get dozens of emails a day. They need news on their topic, at the time they work, with material ready to use. Insisting too much or sending to everyone sends the email to the bin.
+90|The bakery sends the release on Tuesday morning with 3 photos of the shop and the number of the person who answers questions.
+91|Handle the problem on social media
+92|600 orders are late and the angry post is spreading. What do you do? Choose all the right things, and only those.
+93|Reply within a few hours, publicly, acknowledging the delay
+94|Explain what happened and when the orders will arrive
+95|Write to the people who ordered and offer something concrete, like a refund of the shipping
+96|Delete the post and the negative comments
+97|Blame it all on the courier, without apologising
+98|Reply by publishing the customer's name and order, to show she's wrong
+99|A quick, honest reply
+100|Silence makes the crisis grow.
+101|Information and a concrete solution
+102|People want to know what's happening and what you're doing for them.
+103|No deleting and no passing the buck
+104|Deleting looks like hiding; shifting the blame looks like you don't care.
+105|Respect for personal data
+106|Publishing a customer's data breaks the GDPR and makes everything worse.
+107|In a crisis time, honesty and solutions count: acknowledge the problem, explain, make it right. Customer data stays private even when they're wrong.
+108|A public reply within a few hours, an explanation with delivery times, a message to the people who ordered with a concrete remedy. No deleting, no blaming only the courier, never personal data in public.
+109|There can be more than one right answer. Choose the actions that acknowledge the problem, inform people and make it right. Discard the ones that hide, shift the blame or expose customers' data.
+110|Replying "It's not our fault" to an angry customer makes things worse; explaining and offering a remedy calms things down.
+111|How do I tell whether it's news?
+112|Ask yourself: would a local paper reader tell someone about it? Jobs, the local area and people, yes; the logo colour, no.
+113|What do you do first in a crisis?
+114|You reply early and acknowledge the problem. Then you explain and offer a remedy. You don't delete and you don't attack.
+115|Press release: a text a company sends to journalists with a piece of news. Lead: the first lines with who, what, where, when. Crisis: a problem that puts trust at risk. Reputation: what people think of the company.
+116|News is new, true and interesting to readers.
+117|In the press release the news goes at the start, with verifiable facts.
+118|In a crisis: early, honest, with a remedy, without deleting.
+119|I could say why the logo colour isn't news.
+120|I could explain what must be in the first lines of a press release.
+121|I understood why you can't buy an article with a gift.
+122|I could reply to an angry post without making things worse.
+123|Thanks! I replied to the post and wrote to the 600 customers with the shipping refunded. On Monday morning we'll send the release to the papers.
+124|recognising news
+125|writing a press release
+126|relationships with journalists
+127|handling a crisis
+128|People in PR (public relations) look after the company's reputation: they make true news known to journalists and the public and, when something goes wrong, respond quickly and honestly. You don't buy articles: you give journalists news that interests their readers.
+129|What news is
+130|For a journalist, news is a fact that's new, true and interesting to their readers: it touches the local area, people, numbers. Opinions, self-praise and small internal changes aren't news.
+131|A bakery that opens a second shop and hires 4 people is news for the city paper; "our bread is the best" isn't.
+132|The press release
+133|It's the text you send to journalists. The first lines (the lead) say straight away who, what, where and when, with verifiable data. The rest adds details, a quote from someone in charge and the contacts.
+134|"From 3 March, Panificio Grano Vivo opens its second shop at Via Roma 12 in Padua and hires 4 people."
+135|Sending it well
+136|You send it to a few journalists who follow that topic, on a working day, with real photos and a contact. If they don't reply you make one polite follow-up at most. Bought address lists and gifts in exchange for articles aren't used.
+137|The bakery writes to Padua's local news and business journalists, not to every newspaper in Italy.
+138|Handling a crisis
+139|When something goes wrong you reply early, publicly, acknowledging the problem; you explain what happened and what you're doing to fix it. You don't delete criticism and you never publish customers' personal data.
+140|"Today our oven broke down and some deliveries will arrive tomorrow: we apologise, everyone who ordered will get a voucher."
+141|Recognise what counts as news for a local paper
+142|Choose the opening of the press release
+143|Decide who to send it to, when and how
+144|Handle a problem that's spreading on social media

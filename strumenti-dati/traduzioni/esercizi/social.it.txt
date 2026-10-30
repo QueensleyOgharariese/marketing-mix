@@ -1,0 +1,130 @@
+1|Social media manager
+2|Esercizio 1 · Una settimana di post sul matcha
+3|Sara
+4|Social e community
+5|Una settimana di post sul matcha
+6|Ciao! La prossima settimana parliamo del matcha su Instagram. Mi aiuti a scegliere il formato giusto per ogni idea, a capire quale post è andato meglio, a scegliere la didascalia e a rispondere a un commento delicato?
+7|Il profilo Instagram
+8|Follower
+9|Post A (ricetta matcha latte)
+10|180 mi piace, 20 commenti, 25 salvataggi
+11|Post B (foto della confezione)
+12|80 mi piace, 4 commenti, 6 salvataggi
+13|Pubblico
+14|Soprattutto 25-40 anni, in Italia
+15|Prodotto
+16|Matcha biologico, 30 g, 16,90 €
+17|Regola
+18|Mai promesse sulla salute
+19|Sui social conta quanto le persone interagiscono, non solo quante ti vedono.
+20|formato
+21|engagement rate
+22|hook
+23|call to action
+24|community
+25|Scegli il formato per ogni idea
+26|Per ogni idea scegli il formato più adatto.
+27|Reel (video breve)
+28|Carosello
+29|Storie
+30|Come si prepara il matcha in 30 secondi
+31|5 errori da evitare con il matcha
+32|Sondaggio: matcha latte o tradizionale?
+33|Dietro le quinte: apriamo il nuovo arrivo
+34|Un tutorial in movimento è un Reel
+35|Una preparazione si capisce meglio in movimento.
+36|Una lista di consigli è un carosello
+37|Una scheda per ogni errore: si sfoglia e si salva.
+38|Un sondaggio va nelle Storie
+39|Le Storie hanno lo strumento sondaggio.
+40|Il dietro le quinte è spontaneo
+41|Il dietro le quinte è veloce e spontaneo: Storie o Reel.
+42|Ogni formato ha uno scopo: i Reel fanno scoprire il profilo a persone nuove, i caroselli vengono salvati, le Storie fanno parlare la community che ti segue già.
+43|Preparazione: Reel. 5 errori: carosello. Sondaggio: Storie. Dietro le quinte: Storie (o Reel).
+44|Per ogni idea chiediti: c'è un'azione da mostrare in movimento (Reel)? È una lista o una spiegazione da salvare (carosello)? È una cosa veloce o una domanda al pubblico (Storie)?
+45|"Montiamo la nuova vetrina" è un dietro le quinte veloce: Storie. "Le 4 temperature dell'acqua per il tè" è una lista da salvare: carosello.
+46|Quale post è andato meglio?
+47|Calcola l'engagement rate del post A con i dati della scheda.
+48|Interazioni del post A (mi piace + commenti + salvataggi)
+49|Engagement rate del post A (interazioni ÷ follower)
+50|Post A (ricetta)
+51|Post B (confezione)
+52|Sono uguali
+53|Interazioni giuste: 225
+54|Somma mi piace, commenti e salvataggi.
+55|Engagement rate giusto: 4,5%
+56|225 ÷ 5.000, poi per 100.
+57|Post migliore: la ricetta
+58|Il post B ha 90 interazioni: meno della metà.
+59|L'engagement rate permette di confrontare post diversi. I salvataggi sono preziosi: dicono che un contenuto è utile.
+60|225 interazioni, engagement rate 4,5%. La ricetta è andata meglio della foto della confezione (1,8%).
+61|Prima somma le interazioni del post (mi piace + commenti + salvataggi), poi dividile per i follower e moltiplica per 100. Per confrontare due post usa sempre lo stesso calcolo.
+62|Post con 60 mi piace, 10 commenti e 10 salvataggi su 2.000 follower: 80 interazioni, 80 ÷ 2.000 = 4%.
+63|Scegli la didascalia del Reel
+64|Quale didascalia usi per il Reel "Come si prepara il matcha in 30 secondi"?
+65|Matcha perfetto in 30 secondi? Si può. Acqua a 80 °C, frusta a zig zag e niente grumi. Salvalo per la prossima colazione! #matcha #tèverde
+66|Il matcha che ti fa dimagrire e ti dà energia tutto il giorno! Provalo subito. #matcha #detox #dieta #fitness
+67|Nuovo video. #matcha #tea #green #japan #food #instagood #love #photooftheday #happy #follow #like #beautiful
+68|Ecco come preparare il nostro matcha biologico da 30 grammi, disponibile sul nostro sito Cinque Foglie a 16,90 euro.
+69|La prima frase incuriosisce (hook)
+70|Sui social si decide in un secondo: la prima frase deve incuriosire.
+71|Invito all'azione (salva, commenta)
+72|Chiedi qualcosa: salvare, commentare, provare.
+73|Pochi hashtag e pertinenti
+74|Meglio pochi hashtag legati al contenuto che tanti a caso.
+75|Nessuna promessa sulla salute
+76|"Fa dimagrire" e "detox" sono promesse sulla salute vietate.
+77|Una buona didascalia aggancia, dà valore e chiede un'azione. Le promesse sulla salute degli alimenti valgono anche sui social (Regolamento CE 1924/2006).
+78|"Matcha perfetto in 30 secondi? Si può...": incuriosisce, dà un consiglio pratico, chiede di salvare, ha due hashtag pertinenti.
+79|Controlla quattro cose: la prima riga incuriosisce? C'è un consiglio utile? C'è un invito ad agire? Ci sono promesse sulla salute o hashtag a caso? Scarta le didascalie che sembrano un elenco di prodotto o una lista di hashtag.
+80|"Nuovo post #tè #love #instagood #foto" non dice niente; "Sai perché il tè verde diventa amaro? Te lo spieghiamo in 3 foto" incuriosisce.
+81|Rispondi a un commento delicato
+82|Un utente chiede: "Ma è vero che il matcha fa dimagrire?". Scegli tutte le cose giuste da fare.
+83|Rispondere con gentilezza parlando di gusto e di come si prepara
+84|Consigliare di chiedere a un medico per le domande sulla salute
+85|Rispondere "Sì, aiuta a perdere peso!" per vendere di più
+86|Cancellare il commento
+87|Non rispondere per niente
+88|Risposta gentile e utile
+89|Si risponde sempre, con gentilezza.
+90|Rimanda a un professionista per la salute
+91|Sulla salute non siamo noi gli esperti.
+92|Dire che fa dimagrire è una promessa vietata.
+93|Né cancellare né ignorare
+94|Una domanda onesta merita una risposta: cancellarla fa perdere fiducia.
+95|Gestire la community vuol dire rispondere anche alle domande scomode, senza promettere quello che non si può promettere.
+96|Rispondere con gentilezza su gusto e preparazione e consigliare un medico per le domande di salute.
+97|Le risposte giuste possono essere più di una. Pensa a cosa è onesto e rispettoso: rispondere con gentilezza è sempre meglio che ignorare o cancellare; sulla salute non si promette niente e si rimanda a un medico.
+98|A "Il rooibos fa dormire meglio?": "Ha un gusto dolce e non ha teina, per questo molti lo bevono la sera. Per i dubbi sul sonno meglio chiedere al medico."
+99|Come scelgo il formato?
+100|Si muove? Reel. È una lista o una guida da salvare? Carosello. Vuoi una risposta veloce dalla community? Storie.
+101|Come si calcola l'engagement rate?
+102|Somma le interazioni (mi piace, commenti, salvataggi), dividi per i follower e moltiplica per 100.
+103|Engagement rate: quanto le persone interagiscono con un post. Hook: la prima frase che aggancia. Call to action: l'invito a fare qualcosa. Community: le persone che seguono e parlano con il brand.
+104|Il formato si sceglie in base all'idea, non all'abitudine.
+105|L'engagement rate permette di confrontare post diversi con lo stesso metro.
+106|Anche nei commenti valgono le regole sulle promesse di salute.
+107|Saprei spiegare perché un'idea funziona meglio in un certo formato.
+108|Ho calcolato l'engagement rate da sola o da solo.
+109|Ho capito cosa rende buona una didascalia.
+110|Saprei rispondere a una domanda sulla salute senza fare promesse.
+111|Grande! Preparo il Reel e il carosello. E la risposta al commento la uso come esempio per tutto il team.
+112|formati dei social
+113|didascalie che funzionano
+114|gestire la community
+115|Il social media manager decide cosa pubblicare, in che formato e quando, risponde alla community e guarda i numeri per capire cosa funziona. Non conta quante persone ti seguono, ma quante interagiscono davvero con quello che pubblichi.
+116|I formati
+117|Ogni formato ha un compito. Il Reel (video breve) mostra un'azione e raggiunge anche chi non ti segue. Il carosello (più immagini da scorrere) è adatto a liste e spiegazioni da salvare. Le Storie durano 24 ore e servono per cose veloci e per far partecipare con sondaggi e domande.
+118|Un negozio di teiere fa un Reel per mostrare come si pulisce la ghisa, un carosello "3 teiere per 3 tipi di tè" e una Storia con il sondaggio "Ghisa o vetro?".
+119|Engagement rate
+120|Misura quanto le persone interagiscono. Si sommano le interazioni (mi piace, commenti, salvataggi) e si dividono per i follower, poi si moltiplica per 100. I salvataggi contano molto: vogliono dire "mi serve, lo riguardo".
+121|3.000 follower; un post fa 90 mi piace, 15 commenti e 15 salvataggi = 120 interazioni. 120 ÷ 3.000 = 0,04, cioè 4%.
+122|La didascalia
+123|La prima riga è l'hook: deve incuriosire, perché il resto è nascosto. Poi un'informazione utile e un invito a fare qualcosa (call to action), come salvare o commentare. Pochi hashtag pertinenti funzionano meglio di trenta generici.
+124|"La tua teiera in ghisa fa la ruggine? Ecco come evitarlo. Salva il post per la prossima volta. #teiera #tè"
+125|Regole e community
+126|Rispondere ai commenti fa parte del lavoro. Per gli alimenti in Europa non si possono promettere effetti sulla salute non autorizzati, nemmeno in un commento. Davanti a domande di salute si risponde con gentilezza e si consiglia un medico.
+127|A "Questa tisana fa passare il mal di testa?" si risponde parlando del gusto e consigliando di chiedere al medico, non con un sì.
+128|Scegli il formato giusto per ogni idea
+129|Calcoli l'engagement rate e confronti due post
+130|Decidi come rispondere a un commento delicato sulla salute

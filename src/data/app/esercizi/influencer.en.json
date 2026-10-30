@@ -1,0 +1,447 @@
+{
+ "_nota": "Esercizio Influencer 1. Creator, numeri e codici sono inventati.",
+ "id": "influencer",
+ "ruolo": "Influencer marketing",
+ "titolo": "Exercise 1 · A partnership for matcha",
+ "minuti": 20,
+ "richiesta": {
+  "da": "SC",
+  "nome": "Sara",
+  "ruolo": "Social and community",
+  "quando": "lunedì alle 10:15",
+  "oggetto": "A creator for matcha",
+  "testo": "Hi! For the matcha launch we'd like to work with a creator. Can you help me choose the right profiles, prepare the instructions, check the post and work out whether it went well?"
+ },
+ "scheda": {
+  "titolo": "The partnership",
+  "voci": [
+   [
+    "Product",
+    "Organic matcha, 30 g, €16.90"
+   ],
+   [
+    "Customers",
+    "Aged 25-40, in Italy, love rituals and cooking"
+   ],
+   [
+    "Fee offered",
+    "€400 for one Reel and 3 Stories"
+   ],
+   [
+    "Discount code",
+    "TAZZA10 (10% off)"
+   ],
+   [
+    "Orders with the code",
+    "60 in a month"
+   ],
+   [
+    "Average order value (already discounted)",
+    "€20"
+   ]
+  ]
+ },
+ "consiglio": "The right creator isn't the one with the most followers, but the one who really speaks to our people.",
+ "parole": [
+  "creator",
+  "engagement",
+  "brief",
+  "#ad",
+  "discount code"
+ ],
+ "parti": [
+  {
+   "id": "profili",
+   "tipo": "classifica",
+   "titolo": "Which creators are a good fit?",
+   "testo": "Look at the profiles and choose whether they're right for the partnership.",
+   "colonne": [
+    {
+     "id": "si",
+     "nome": "A good fit"
+    },
+    {
+     "id": "no",
+     "nome": "Not a fit"
+    }
+   ],
+   "righe": [
+    {
+     "id": "p1",
+     "testo": "@tazzaditè · 18k followers · engagement 6% · 85% in Italy · tea and recipes",
+     "giusti": [
+      "si"
+     ]
+    },
+    {
+     "id": "p2",
+     "testo": "@slowmornings · 42k · engagement 4% · 78% in Italy · morning rituals",
+     "giusti": [
+      "si"
+     ]
+    },
+    {
+     "id": "p3",
+     "testo": "@fitqueen · 900k · engagement 0.4% · 30% in Italy · diets and supplements",
+     "giusti": [
+      "no"
+     ]
+    },
+    {
+     "id": "p4",
+     "testo": "@giroilmondo · 120k · engagement 1.2% · 20% in Italy · travel",
+     "giusti": [
+      "no"
+     ]
+    },
+    {
+     "id": "p5",
+     "testo": "@lollo_gaming · 300k · engagement 8% · 90% in Italy · video games",
+     "giusti": [
+      "no"
+     ]
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "Creators matching the customers chosen",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "p1",
+       "p2"
+      ]
+     },
+     "suggerimento": "Topics close to tea, Italian audience, good engagement."
+    },
+    {
+     "nome": "The diet creator excluded",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "p3"
+      ]
+     },
+     "suggerimento": "Lots of followers but very little engagement, and health topics: risky."
+    },
+    {
+     "nome": "The audience outside Italy excluded",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "p4"
+      ]
+     },
+     "suggerimento": "We ship within Italy: 80% of her audience can't buy."
+    },
+    {
+     "nome": "The topic far from the product excluded",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "p5"
+      ]
+     },
+     "suggerimento": "Very high engagement, but the audience wants video games, not tea."
+    }
+   ],
+   "perche": "Relevance, audience and trust count more than the number of followers. Smaller creators (micro-influencers) often have a more attentive community.",
+   "soluzione": "A good fit: @tazzaditè and @slowmornings. Not a fit: @fitqueen (diets, low engagement), @giroilmondo (audience abroad), @lollo_gaming (unrelated topic).",
+   "spiega": {
+    "testo": "For each profile look at three things: what it's about (is it close to tea and rituals?), how much of the audience is in Italy, and how high engagement is. If one of the three is far from our customer, the profile isn't a fit.",
+    "esempio": "For ceramic mugs: a food blogger with 10k followers, 80% in Italy and 5% engagement is a good fit; a sports car profile with 2 million followers isn't."
+   }
+  },
+  {
+   "id": "brief",
+   "tipo": "spunte",
+   "titolo": "Prepare the instructions (brief)",
+   "testo": "What do you write in the creator's instructions? Choose all the right things, and only those.",
+   "opzioni": [
+    {
+     "id": "b1",
+     "testo": "The goal: introduce matcha to people who love morning rituals"
+    },
+    {
+     "id": "b2",
+     "testo": "Always disclose the partnership, clearly and visible straight away (#ad)"
+    },
+    {
+     "id": "b3",
+     "testo": "Make no health claims (no \"helps you lose weight\" or \"detox\")"
+    },
+    {
+     "id": "b4",
+     "testo": "Say it's a gift, so it doesn't look like advertising"
+    },
+    {
+     "id": "b5",
+     "testo": "Say it's \"the best matcha in the world\""
+    },
+    {
+     "id": "b6",
+     "testo": "Delete negative comments under the post"
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "Clear goal",
+     "regola": {
+      "tipo": "spunte-tutte",
+      "ids": [
+       "b1"
+      ]
+     },
+     "suggerimento": "The creator needs to know what we want to achieve."
+    },
+    {
+     "nome": "Advertising must be disclosed",
+     "regola": {
+      "tipo": "spunte-tutte",
+      "ids": [
+       "b2"
+      ]
+     },
+     "suggerimento": "Advertising must always be recognisable."
+    },
+    {
+     "nome": "No health claims",
+     "regola": {
+      "tipo": "spunte-tutte",
+      "ids": [
+       "b3"
+      ]
+     },
+     "suggerimento": "Food rules apply to creators too."
+    },
+    {
+     "nome": "No unfair requests",
+     "regola": {
+      "tipo": "spunte-nessuna",
+      "ids": [
+       "b4",
+       "b5",
+       "b6"
+      ]
+     },
+     "suggerimento": "Hiding advertising, unprovable claims and deleting criticism aren't fair."
+    }
+   ],
+   "perche": "In Italy advertising must always be recognisable: the IAP self-regulation code (Digital Chart) requires it, and the AGCOM guidelines add rules for larger creators. The brand is also responsible for what it asks creators to say.",
+   "soluzione": "Goal, obligation to disclose the partnership, no health claims. No \"it's a gift\", no false superlatives, no deleted comments.",
+   "spiega": {
+    "testo": "The brief contains the goal and the rules that protect the brand and the viewers: disclosing advertising and not making banned claims. It doesn't contain requests that mislead the audience, like hiding the partnership or deleting criticism.",
+    "esempio": "In the mugs brief: \"Goal: introduce them to people who love a slow breakfast\" and \"Write Ad at the start\", yes; \"Say they were given to you as a gift\", no."
+   }
+  },
+  {
+   "id": "post",
+   "tipo": "scelta",
+   "titolo": "Check the post before it goes out",
+   "testo": "The creator sends you four versions of the caption. Which do you approve?",
+   "opzioni": [
+    {
+     "id": "s1",
+     "testo": "#ad Advertising · In partnership with @cinquefoglie: my new morning ritual is matcha. With TAZZA10 you get 10% off.",
+     "ok": {
+      "chiara": true,
+      "visibile": true,
+      "italiano": true
+     }
+    },
+    {
+     "id": "s2",
+     "testo": "My new morning ritual is matcha from @cinquefoglie! With TAZZA10 you get 10% off. #matcha #breakfast #tea #morning #relax #ad",
+     "ok": {
+      "chiara": true,
+      "visibile": false,
+      "italiano": true
+     }
+    },
+    {
+     "id": "s3",
+     "testo": "Thanks to @cinquefoglie for this gift! My new morning ritual is matcha.",
+     "ok": {
+      "chiara": false,
+      "visibile": false,
+      "italiano": true
+     }
+    },
+    {
+     "id": "s4",
+     "testo": "#sp #collab My new morning ritual is matcha from @cinquefoglie. Code TAZZA10.",
+     "ok": {
+      "chiara": false,
+      "visibile": true,
+      "italiano": false
+     }
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "Clearly says it's advertising",
+     "regola": {
+      "tipo": "opzione",
+      "chiave": "chiara"
+     },
+     "suggerimento": "\"Thanks for the gift\" isn't enough: it must be clear it's a paid partnership."
+    },
+    {
+     "nome": "Visible straight away, at the start",
+     "regola": {
+      "tipo": "opzione",
+      "chiave": "visibile"
+     },
+     "suggerimento": "An #ad hidden at the end among the hashtags goes unnoticed."
+    },
+    {
+     "nome": "Understandable to everyone",
+     "regola": {
+      "tipo": "opzione",
+      "chiave": "italiano"
+     },
+     "suggerimento": "Not everyone understands abbreviations like #sp or #collab: #ad or #advertising is better."
+    }
+   ],
+   "perche": "The advertising disclosure must be clear, understandable and visible straight away, before \"more\". If it's hidden, it's covert advertising.",
+   "soluzione": "The first: \"#ad Advertising · In partnership with @cinquefoglie\" is at the start, clear and understandable.",
+   "spiega": {
+    "testo": "Check where and how the advertising is disclosed: it must be at the start, written so everyone understands it. Unclear abbreviations, ones hidden among hashtags, and the word \"gift\" aren't enough.",
+    "esempio": "Hardly anyone understands \"#sp\" at the end of the text; \"Advertising\" in the first line, yes."
+   }
+  },
+  {
+   "id": "risultati",
+   "tipo": "menu",
+   "titolo": "Did it go well?",
+   "testo": "Using the data on the card, calculate the month's results.",
+   "campi": [
+    {
+     "id": "incasso",
+     "etichetta": "Revenue from the code (orders × average value)",
+     "opzioni": [
+      "€400",
+      "€600",
+      "€1,200",
+      "€6,000"
+     ]
+    },
+    {
+     "id": "costo",
+     "etichetta": "Cost per order (fee ÷ orders)",
+     "opzioni": [
+      "€0.15",
+      "€6.67",
+      "€20",
+      "€40"
+     ]
+    },
+    {
+     "id": "roas",
+     "etichetta": "ROAS (revenue ÷ fee)",
+     "opzioni": [
+      "0.3",
+      "1",
+      "3",
+      "30"
+     ]
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "Right revenue: €1,200",
+     "regola": {
+      "tipo": "menu",
+      "campo": "incasso",
+      "valore": "€1,200"
+     },
+     "suggerimento": "60 orders × €20."
+    },
+    {
+     "nome": "Right cost per order: €6.67",
+     "regola": {
+      "tipo": "menu",
+      "campo": "costo",
+      "valore": "€6.67"
+     },
+     "suggerimento": "€400 ÷ 60 orders."
+    },
+    {
+     "nome": "Right ROAS: 3",
+     "regola": {
+      "tipo": "menu",
+      "campo": "roas",
+      "valore": "3"
+     },
+     "suggerimento": "€1,200 ÷ €400."
+    }
+   ],
+   "perche": "A personal discount code lets you measure how many sales come from the creator. But it doesn't count everything: many people discover the product and buy later, without the code.",
+   "soluzione": "Revenue €1,200, €6.67 per order, ROAS 3: for every euro given to the creator, three came back.",
+   "spiega": {
+    "testo": "Follow the order: first revenue (orders with the code × average order value), then cost per order (fee ÷ orders), finally ROAS (revenue ÷ fee). If ROAS is above 1, the partnership earned more than it cost.",
+    "esempio": "Fee €300, 40 orders of €25: 40 × 25 = €1,000; 300 ÷ 40 = €7.50 per order; 1,000 ÷ 300 ≈ 3.3."
+   }
+  }
+ ],
+ "aiuti": [
+  {
+   "titolo": "How do I choose a creator?",
+   "testo": "Three questions: do they talk about topics close to our product? Can their audience buy from us? Do people really interact (engagement)?"
+  },
+  {
+   "titolo": "How do you disclose a partnership?",
+   "testo": "At the start, with clear words like \"#ad\", \"Advertising\" or \"In partnership with\". Not at the end among lots of hashtags."
+  }
+ ],
+ "glossario": "Creator: someone who makes content on social media. Engagement: how much the audience interacts. Brief: the instructions for the partnership. #ad: the tag that discloses advertising.",
+ "note": [
+  "Relevance and trust count more than the number of followers.",
+  "The brief protects brand and creator: it says what to do and what not to say.",
+  "Advertising must be disclosed straight away and in clear words."
+ ],
+ "autovalutazione": [
+  "I could explain why a creator with fewer followers can be better.",
+  "I understood what you can't ask a creator.",
+  "I could spot a post with hidden advertising.",
+  "I calculated the results on my own."
+ ],
+ "rispostaCollega": "Perfect! I'll write to @tazzaditè with your brief. And from now on we always check the caption before it goes out.",
+ "imparato": [
+  "choosing a creator",
+  "writing a brief",
+  "#ad transparency",
+  "measuring with a discount code"
+ ],
+ "lezione": {
+  "intro": "People in influencer marketing choose the creators to work with, write the instructions (the brief), check that content follows the rules and measure whether the partnership earned more than it cost.",
+  "concetti": [
+   {
+    "nome": "Choosing the right creator",
+    "spiegazione": "Three things count before followers: that the audience resembles our customers, lives where we sell and really interacts (high engagement). A huge profile with a distant audience brings in less than a small, loyal one.",
+    "esempio": "To sell ceramic mugs in Milan, a ceramicist with 15k Italian followers and 5% engagement is worth more than a comedian with a million followers abroad."
+   },
+   {
+    "nome": "The brief",
+    "spiegazione": "It's the written instructions for the creator: goal, message, what to show, dates and rules to follow. The clearer it is, the fewer the surprises. But the creator must stay free to speak in their own voice.",
+    "esempio": "\"Goal: introduce the handmade mugs. Show how you use them at breakfast. Disclose the partnership. Publish by the 15th.\""
+   },
+   {
+    "nome": "Disclosing advertising",
+    "spiegazione": "In Italy and the European Union viewers must understand straight away that content is advertising. It's written clearly and at the start, for example \"#ad\" or \"Advertising\". Hiding the partnership or calling it a \"gift\" is covert advertising, which is banned.",
+    "esempio": "Right: \"Advertising · In partnership with @tazzefattemano\" in the first line. Wrong: \"#collab\" among twenty hashtags."
+   },
+   {
+    "nome": "Measuring the result",
+    "spiegazione": "With a personal discount code you count the orders the creator brought. From there you calculate revenue (orders × average value), cost per order (fee ÷ orders) and ROAS (revenue ÷ fee).",
+    "esempio": "Fee €300, 40 orders of €25: revenue €1,000, cost per order €7.50, ROAS = 1,000 ÷ 300 ≈ 3.3."
+   }
+  ],
+  "cosaFarai": [
+   "Choose which creators fit matcha",
+   "Write the right instructions in the brief",
+   "Check the caption before it goes out",
+   "Calculate whether the partnership paid off"
+  ]
+ }
+}

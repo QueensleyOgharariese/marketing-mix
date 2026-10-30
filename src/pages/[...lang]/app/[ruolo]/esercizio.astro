@@ -1,5 +1,5 @@
 ---
-import { LINGUE_APP, conLingue } from "../../../../i18n";
+import { linguaDa } from "../../../../i18n";
 // APP · ESERCIZIO GENERICO (SEA, Brand, Social, Influencer, CRM)
 // Una sola pagina per tutti i ruoli: Astro crea /app/sea/esercizio/, /app/brand/esercizio/ ecc.
 // partendo dai file JSON in src/data/app/esercizi/. La SEO ha una pagina sua (src/pages/app/seo/).
@@ -11,40 +11,43 @@ import Passi from "../../../../components/PassiEsercizio.astro";
 import Guida from "../../../../components/Guida.astro";
 import Lezione from "../../../../components/esercizio/Lezione.astro";
 import Spiega from "../../../../components/esercizio/Spiega.astro";
-import { ESERCIZI, type Esercizio } from "../../../../scripts/esercizi";
+import { ESERCIZI, ESERCIZI_EN, type Esercizio } from "../../../../scripts/esercizi";
 
-// Ogni pagina esiste in italiano (/app/...) e in inglese (/en/app/...): conLingue() raddoppia i percorsi
+// Ogni pagina esiste in italiano (/app/...) e in inglese (/en/app/...), ognuna con i dati della sua lingua
 export function getStaticPaths() {
-  return conLingue((() => {
-  return ESERCIZI.map((es) => ({ params: { ruolo: es.id }, props: { es } }));
-})());
+  return [
+    ...ESERCIZI.map((es) => ({ params: { lang: undefined, ruolo: es.id }, props: { es } })),
+    ...ESERCIZI_EN.map((es) => ({ params: { lang: "en", ruolo: es.id }, props: { es } })),
+  ];
 }
 const { es } = Astro.props as { es: Esercizio };
+const lang = linguaDa(Astro.url);
+const L = (it: string, en: string) => (lang === "en" ? en : it);
 const n = es.parti.length;
 
 // Guida iniziale: si apre da sola la prima volta che si entra in questo esercizio
 const guida = [
-  { zona: "tutto", titolo: `Il tuo esercizio da ${es.ruolo}`, testo: `${es.richiesta.nome} ti ha scritto: <strong>${es.richiesta.oggetto}</strong>. Lo risolvi in <strong>${n} parti</strong>, in circa ${es.minuti} minuti.` },
-  { zona: "sinistra", titolo: "A sinistra: la richiesta e i dati", testo: "Qui trovi la richiesta e una <strong>scheda con i numeri</strong>. Usali per rispondere: le risposte giuste si trovano lì." },
-  { zona: "centro", titolo: "Al centro: il tuo lavoro", testo: "Le parti una sotto l'altra. <strong>Non devi scrivere nulla</strong>: scegli nelle tabelle, tra le proposte e nei menu. Attenzione alle trappole!" },
-  { zona: "destra", titolo: "A destra: Pesca e i controlli", testo: "I controlli diventano <strong>verdi</strong> quando una cosa è giusta, e io ti dico cosa sistemare. Ogni aiuto aperto toglie 5 punti." },
-  { zona: "tutto", titolo: "Si salva da solo", testo: "Il lavoro resta salvato in questo browser. Alla fine clicca <strong>Consegna e confronta</strong> per vedere punti e soluzione." },
+  { zona: "tutto", titolo: L(`Il tuo esercizio da ${es.ruolo}`, `Your ${es.ruolo} exercise`), testo: L(`${es.richiesta.nome} ti ha scritto: <strong>${es.richiesta.oggetto}</strong>. Lo risolvi in <strong>${n} parti</strong>, in circa ${es.minuti} minuti.`, `${es.richiesta.nome} has written to you: <strong>${es.richiesta.oggetto}</strong>. You'll solve it in <strong>${n} parts</strong>, in about ${es.minuti} minutes.`) },
+  { zona: "sinistra", titolo: L("A sinistra: la richiesta e i dati", "On the left: the request and the data"), testo: L("Qui trovi la richiesta e una <strong>scheda con i numeri</strong>. Usali per rispondere: le risposte giuste si trovano lì.", "Here you'll find the request and a <strong>card with the numbers</strong>. Use them to answer: that's where the right answers are.") },
+  { zona: "centro", titolo: L("Al centro: il tuo lavoro", "In the middle: your work"), testo: L("Le parti una sotto l'altra. <strong>Non devi scrivere nulla</strong>: scegli nelle tabelle, tra le proposte e nei menu. Attenzione alle trappole!", "The parts one below the other. <strong>You don't need to write anything</strong>: choose in the tables, among the proposals and in the menus. Watch out for traps!") },
+  { zona: "destra", titolo: L("A destra: Pesca e i controlli", "On the right: Pesca and the checks"), testo: L("I controlli diventano <strong>verdi</strong> quando una cosa è giusta, e io ti dico cosa sistemare. Ogni aiuto aperto toglie 5 punti.", "Checks turn <strong>green</strong> when something is right, and I tell you what to fix. Each hint you open costs 5 points.") },
+  { zona: "tutto", titolo: L("Si salva da solo", "It saves itself"), testo: L("Il lavoro resta salvato in questo browser. Alla fine clicca <strong>Consegna e confronta</strong> per vedere punti e soluzione.", "Your work stays saved in this browser. At the end click <strong>Submit and compare</strong> to see your points and the solution.") },
 ] as const;
 
 // Numero del primo controllo di ogni parte (serve per collegare i controlli a destra)
 const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + p.controlli.length, 0));
 ---
-<AppLayout title={`${es.titolo} · ${es.ruolo}`} indietro={{ etichetta: "Teoria del ruolo", link: `/app/impara/${es.id}/` }} percorso={[{ etichetta: es.ruolo, link: `/app/impara/${es.id}/` }, { etichetta: es.titolo }]}>
+<AppLayout title={`${es.titolo} · ${es.ruolo}`} indietro={{ etichetta: L("Teoria del ruolo", "Role theory"), link: `/app/impara/${es.id}/` }} percorso={[{ etichetta: es.ruolo, link: `/app/impara/${es.id}/` }, { etichetta: es.titolo }]}>
   <Passi slot="barra" attivo={2} />
   <div class="layout" data-esercizio={es.id}>
     <!-- ====== SINISTRA: richiesta e scheda ====== -->
-    <aside class="sinistra" data-barra="esercizio-dati" data-etichetta="richiesta e dati">
+    <aside class="sinistra" data-barra="esercizio-dati" data-etichetta={L("richiesta e dati", "request and data")}>
       <section class="pannello blocco">
-        <span class="mittente"><span class="avatar">{es.richiesta.da}</span><strong>La richiesta di {es.richiesta.nome}</strong></span>
+        <span class="mittente"><span class="avatar">{es.richiesta.da}</span><strong>{L("La richiesta di", "Request from")} {es.richiesta.nome}</strong></span>
         <p>{es.richiesta.testo}</p>
       </section>
       <section class="pannello blocco" aria-labelledby="t-scheda">
-        <div class="riga"><h2 id="t-scheda" class="sottotitolo">{es.scheda.titolo}</h2><span class="simulati">dati simulati</span></div>
+        <div class="riga"><h2 id="t-scheda" class="sottotitolo">{es.scheda.titolo}</h2><span class="simulati">{L("dati simulati", "simulated data")}</span></div>
         <dl class="scheda-prodotto">
           {es.scheda.voci.map(([k, v]) => (<div><dt>{k}</dt><dd>{v}</dd></div>))}
         </dl>
@@ -55,7 +58,7 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
     <form id="lavoro" class="centro" novalidate>
       <header class="intro">
         <h1 class="app-titolo">{es.richiesta.oggetto}</h1>
-        <p class="nota">{n} parti, circa {es.minuti} minuti. Il lavoro si salva da solo in questo browser. <button type="button" class="link-guida" data-apri-guida>Rivedi la guida</button></p>
+        <p class="nota">{L(`${n} parti, circa ${es.minuti} minuti. Il lavoro si salva da solo in questo browser.`, `${n} parts, about ${es.minuti} minutes. Your work saves itself in this browser.`)} <button type="button" class="link-guida" data-apri-guida>{L("Rivedi la guida", "See the guide again")}</button></p>
       </header>
 
       {es.lezione && <Lezione lezione={es.lezione} parti={es.parti.map((p) => p.id)} />}
@@ -69,7 +72,7 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
           {p.tipo === "classifica" && (
             <div class="scorri">
               <table class="classifica">
-                <thead><tr><th scope="col">Voce</th>{p.colonne.map((c) => <th scope="col">{c.nome}</th>)}</tr></thead>
+                <thead><tr><th scope="col">{L("Voce", "Item")}</th>{p.colonne.map((c) => <th scope="col">{c.nome}</th>)}</tr></thead>
                 <tbody>
                   {p.righe.map((r) => (
                     <tr>
@@ -107,7 +110,7 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
               {p.campi.map((c) => (
                 <label class="campo">{c.etichetta}
                   <select data-parte={p.id} data-campo={c.id}>
-                    <option value="">Scegli…</option>
+                    <option value="">{L("Scegli…", "Choose…")}</option>
                     {c.opzioni.map((o) => <option>{o}</option>)}
                   </select>
                 </label>
@@ -115,31 +118,31 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
             </div>
           )}
 
-          <p class="perche"><strong>Perché conta.</strong> {p.perche}</p>
+          <p class="perche"><strong>{L("Perché conta.", "Why it matters.")}</strong> {p.perche}</p>
         </section>
       ))}
 
       <div class="consegna">
         <span class="salvato" data-salvato aria-live="polite"></span>
-        <button type="submit" class="bottone-app">Consegna e confronta →</button>
+        <button type="submit" class="bottone-app">{L("Consegna e confronta →", "Submit and compare →")}</button>
       </div>
     </form>
 
     <!-- ====== DESTRA: Pesca, controlli, aiuti ====== -->
-    <aside class="destra" data-barra="esercizio-controlli" data-lato="destra" data-etichetta="Pesca e controlli">
+    <aside class="destra" data-barra="esercizio-controlli" data-lato="destra" data-etichetta={L("Pesca e controlli", "Pesca and checks")}>
       <div class="pannello blocco">
-        <div class="mittente"><Pesca dimensione={46} occhiali animata={false} /><span><strong>Pesca</strong><span class="nota">Ti do un suggerimento alla volta</span></span></div>
+        <div class="mittente"><Pesca dimensione={46} occhiali animata={false} /><span><strong>Pesca</strong><span class="nota">{L("Ti do un suggerimento alla volta", "I give you one hint at a time")}</span></span></div>
         <p class="pesca-dice" data-pesca aria-live="polite">{es.consiglio}</p>
       </div>
       <div class="pannello blocco">
-        <strong>Controlli automatici</strong>
-        <p class="nota">Ogni controllo mostra cosa hai fatto bene solo quando lo superi.</p>
+        <strong>{L("Controlli automatici", "Automatic checks")}</strong>
+        <p class="nota">{L("Ogni controllo mostra cosa hai fatto bene solo quando lo superi.", "Each check shows what you did right only once you pass it.")}</p>
         <ul class="parti">
           {es.parti.map((p, i) => (
             <li>
               <a href={`#parte-${p.id}`} class="parte-link"><span>{i + 1}. {p.titolo}</span><span class="conteggio" data-conteggio={i}>0/{p.controlli.length}</span></a>
               <ul class="controlli">
-                {p.controlli.map((c, k) => (<li data-controllo={inizio[i] + k}><span class="segno" aria-hidden="true"></span><span class="nome-controllo">{c.nome}</span><span class="attesa">Da superare</span><span class="sr" data-esito>non ancora</span></li>))}
+                {p.controlli.map((c, k) => (<li data-controllo={inizio[i] + k}><span class="segno" aria-hidden="true"></span><span class="nome-controllo">{c.nome}</span><span class="attesa">{L("Da superare", "To pass")}</span><span class="sr" data-esito>{L("non ancora", "not yet")}</span></li>))}
               </ul>
             </li>
           ))}
@@ -147,12 +150,12 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
       </div>
       {es.aiuti.map((a, i) => (
         <details class="pannello aiuto" data-aiuto={i}>
-          <summary>Aiuto {i + 1}: {a.titolo} <span class="costo">−5 punti</span></summary>
+          <summary>{L("Aiuto", "Hint")} {i + 1}: {a.titolo} <span class="costo">{L("−5 punti", "−5 points")}</span></summary>
           <p>{a.testo}</p>
         </details>
       ))}
       <details class="pannello aiuto">
-        <summary>Glossario</summary>
+        <summary>{L("Glossario", "Glossary")}</summary>
         <p>{es.glossario}</p>
       </details>
     </aside>
@@ -161,12 +164,12 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
 </AppLayout>
 
 <script>
-  import { conLingua } from "../../../../scripts/lingua";
+  import { conLingua, t, EN } from "../../../../scripts/lingua";
   import { esercizio, controlla, completa, type Risposte } from "../../../../scripts/esercizi";
   import { leggi, aggiornaRuolo } from "../../../../scripts/progressi";
 
   const radice = document.querySelector<HTMLElement>("[data-esercizio]")!;
-  const es = esercizio(radice.dataset.esercizio!)!;
+  const es = esercizio(radice.dataset.esercizio!, EN)!;
   const id = es.id;
   const $ = <T extends HTMLElement>(sel: string) => document.querySelector<T>(sel)!;
   const tutti = (sel: string) => [...document.querySelectorAll<HTMLInputElement & HTMLSelectElement>(sel)];
@@ -214,7 +217,7 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
   });
 
   // Suggerimenti di Pesca: uno per controllo, nell'ordine dei controlli
-  const suggerimenti = es.parti.flatMap((p, i) => p.controlli.map((c) => `Parte ${i + 1}: ${c.suggerimento}`));
+  const suggerimenti = es.parti.flatMap((p, i) => p.controlli.map((c) => `${t("Parte", "Part")} ${i + 1}: ${c.suggerimento}`));
 
   function aggiorna() {
     const r = risposte();
@@ -222,7 +225,7 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
     esiti.forEach((ok, i) => {
       const li = $(`[data-controllo="${i}"]`);
       li.classList.toggle("ok", ok);
-      li.querySelector("[data-esito]")!.textContent = ok ? "superato" : "non ancora";
+      li.querySelector("[data-esito]")!.textContent = ok ? t("superato", "passed") : t("non ancora", "not yet");
     });
     let k = 0;
     es.parti.forEach((p, i) => {
@@ -231,14 +234,14 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
       k += p.controlli.length;
     });
     const primo = esiti.findIndex((ok) => !ok);
-    pesca.textContent = primo === -1 ? "Tutti i controlli sono verdi! Rileggi le tue scelte, poi consegna." : suggerimenti[primo];
+    pesca.textContent = primo === -1 ? t("Tutti i controlli sono verdi! Rileggi le tue scelte, poi consegna.", "All the checks are green! Reread your choices, then submit.") : suggerimenti[primo];
     return { r, esiti };
   }
 
   function salva() {
     const { r } = aggiorna();
     aggiornaRuolo(id, { stato: leggi().ruoli[id]?.stato === "completato" ? "completato" : "in-corso", bozza: r });
-    $("[data-salvato]").textContent = "Salvato in questo browser";
+    $("[data-salvato]").textContent = t("Salvato in questo browser", "Saved in this browser");
   }
 
   const form = $<HTMLFormElement>("#lavoro");
@@ -250,7 +253,7 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
     const { r, esiti } = aggiorna();
     const mancante = es.parti.find((p) => !completa(p, r[p.id]));
     if (mancante) {
-      pesca.textContent = `Prima di consegnare completa la parte "${mancante.titolo}".`;
+      pesca.textContent = t(`Prima di consegnare completa la parte "${mancante.titolo}".`, `Before submitting, complete the part "${mancante.titolo}".`);
       document.getElementById(`parte-${mancante.id}`)!.scrollIntoView({ behavior: "smooth" });
       return;
     }

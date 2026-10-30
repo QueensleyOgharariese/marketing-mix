@@ -3,11 +3,13 @@
 // Si legge come una pagina: cosa fa il ruolo, i concetti (spiegazione a sinistra, esempio a destra),
 // cosa farai (ogni voce porta alla parte corrispondente). Usata dagli esercizi generici e da quello SEO.
 import type { Lezione } from "../../scripts/esercizi";
+import { testiDa } from "../../i18n";
+const L = testiDa(Astro.url);
 interface Props { lezione: Lezione; parti: string[] } // parti: gli id delle parti, nell'ordine
 const { lezione, parti } = Astro.props;
 ---
 <section class="pannello lezione" id="lezione" aria-labelledby="t-lezione">
-  <h2 id="t-lezione" class="lezione-titolo">Prima di iniziare: cosa devi sapere</h2>
+  <h2 id="t-lezione" class="lezione-titolo">{L("Prima di iniziare: cosa devi sapere", "Before you start: what you need to know")}</h2>
   <p class="lezione-intro">{lezione.intro}</p>
   <ol class="concetti">
     {lezione.concetti.map((c) => (
@@ -16,15 +18,15 @@ const { lezione, parti } = Astro.props;
           <h3>{c.nome}</h3>
           <p>{c.spiegazione}</p>
         </div>
-        {c.esempio && <p class="esempio"><strong>Per esempio</strong>{c.esempio}</p>}
+        {c.esempio && <p class="esempio"><strong>{L("Per esempio", "For example")}</strong>{c.esempio}</p>}
       </li>
     ))}
   </ol>
   <div class="cosa-farai">
-    <h3>Cosa farai</h3>
+    <h3>{L("Cosa farai", "What you'll do")}</h3>
     <ol>{lezione.cosaFarai.map((f, i) => <li>{parti[i] ? <a href={`#parte-${parti[i]}`}>{f}</a> : f}</li>)}</ol>
   </div>
-  <a class="bottone-app inizia" href={`#parte-${parti[0]}`}>Ho letto, inizia la parte 1</a>
+  <a class="bottone-app inizia" href={`#parte-${parti[0]}`}>{L("Ho letto, inizia la parte 1", "Done reading, start part 1")}</a>
 </section>
 
 <style>

@@ -1,0 +1,129 @@
+1|Partnerships
+2|Exercise 1 · A box made by two
+3|Luca
+4|E-commerce
+5|Shall we do something with another company?
+6|Hi! For Christmas I'd like to team up with another small company and sell something together. Can you help me choose the partner and the right idea, do the maths and work out what to put in the agreement?
+7|The idea and the numbers
+8|Idea
+9|A "Slow breakfast" box for Christmas
+10|Box price
+11|Our tea (cost)
+12|The partner's biscuits (cost)
+13|Box and shipping
+14|Split
+15|The margin is split in half
+16|Goal
+17|200 boxes sold
+18|Note
+19|Prices excluding VAT, to keep it simple
+20|A good partnership works when both companies gain and customers get something neither could have offered alone.
+21|partner
+22|co-marketing
+23|margin
+24|agreement
+25|exclusivity
+26|Who do we team up with?
+27|We've received or thought of five possible partners. Which are a good fit?
+28|A good fit
+29|Not a fit
+30|An artisan bakery of organic biscuits, with customers similar to ours and 12,000 newsletter subscribers
+31|An online shop of handmade ceramic mugs and teapots
+32|Another online tea shop, with the same products we sell
+33|A fast food chain with millions of customers
+34|A "fat burner" supplements company
+35|Complementary partners chosen
+36|They sell things that go well with tea, to people similar to our customers.
+37|The competitor excluded
+38|It sells the same things: we'd take each other's customers.
+39|Partners far from our values excluded
+40|A different audience or risky health claims: their image becomes ours too.
+41|The right partner is complementary (it sells something else, to a similar audience), shares our values and brings something we don't have, such as new customers or skills.
+42|A good fit: the organic biscuit bakery and the ceramic mug shop. Not a fit: the competitor, the fast food chain, the "fat burner" supplements.
+43|For each company ask yourself: does its product complete ours or replace it? Do its customers resemble ours? Are its values compatible with ours? If any answer is no, it isn't a good partner.
+44|For the bookshop: a board game company is complementary; a chain selling discounted books online is a competitor.
+45|Choose the proposal
+46|We choose the biscuit bakery. Which proposal do you send?
+47|A "Slow breakfast" box with our Sencha and their biscuits, sold on both websites, with a different code for each so we know who sold what
+48|We ask them to put our logo on their website, for free and with nothing in return
+49|We swap customer lists: we give them our 8,400 subscribers and they give us their 12,000
+50|A box together, without codes and without keeping track: at the end of the year we'll see how it went
+51|A benefit for both
+52|A free logo with nothing in return only benefits us.
+53|Measurable results
+54|Without codes or data we'll never know whether it worked.
+55|Respects customer data
+56|Our subscribers said yes to us, not to the bakery: they can't be passed to another company.
+57|Co-marketing works when the value is for both and can be measured. And each company speaks to its own customers: contact lists aren't swapped without people's consent (GDPR).
+58|The first: a new product we wouldn't have alone, sold by both, with one code each to measure. Each company tells its own subscribers about it.
+59|A proposal works if it gives both a benefit, creates something for customers and can be measured. Discard the ones that ask for free favours, swap customer data or don't keep track.
+60|"Put our logo on your website, for free" benefits only one; "A book + a coffee, with one code each" benefits both.
+61|Do the maths for the box
+62|Using the numbers on the card, how much do we earn?
+63|Cost of one box (tea + biscuits + box and shipping)
+64|Margin per box (price − cost)
+65|Cinque Foglie's share per box (half the margin)
+66|Our earnings with 200 boxes
+67|Right cost: €10.00
+68|Right margin: €9.90
+69|Right share: €4.95
+70|Half of €9.90.
+71|Right earnings: €990
+72|€4.95 × 200 boxes.
+73|Before signing, you do the maths together, with the same numbers: costs, margin and how it's split. That way nobody gets surprises at the end of the project.
+74|Cost €10.00, margin €9.90, €4.95 each per box: with 200 boxes that's €990 for us (before other costs such as time and advertising).
+75|Do the maths in order, because each number is needed for the next: cost of one box (sum of all costs), margin (price − cost), our share (margin ÷ 2), total earnings (share × boxes sold).
+76|Costs 6 + 4 + 5 = €15. Price €25: margin €10. Half: €5. 100 boxes: €500.
+77|What do we put in the agreement?
+78|Before starting, everything is put in writing. Choose what to write, and only that.
+79|Who does what: who prepares the boxes, who ships, who answers customers
+80|How costs and earnings are split, and when payment is made
+81|How long the partnership lasts and how it ends
+82|How logos are used and who approves copy and photos
+83|Each company can use the other's customer data as it likes
+84|No paperwork: between people who trust each other a handshake is enough
+85|Neither company can ever work with other companies again, forever
+86|Clear tasks and money
+87|Disputes almost always come from unclear tasks and payments.
+88|Duration and use of the trademark
+89|When it ends, and who can use the other's logo and how.
+90|Customer data protected
+91|If one ships for the other, the data is used only for that and a specific agreement is needed (art. 28 GDPR).
+92|No verbal agreements or endless exclusivity
+93|A written agreement also protects the friendship; exclusivity forever ties both down.
+94|A clear written agreement (tasks, money, duration, trademarks, data) avoids misunderstandings. For a real agreement always ask a lawyer: here you only learn what mustn't be missing.
+95|Who does what, costs and payments, duration and ending, use of logos. No customer data used freely, no verbal-only agreements, no exclusivity forever.
+96|There can be more than one right answer. Keep the items that make clear who does what, how payment works, how long it lasts and how trademarks and materials are used. Discard the ones that break the GDPR, leave everything verbal or tie the companies together forever.
+97|"Each company uses only its own customers' data" protects both; "We can use your contacts however we like" doesn't.
+98|How do I choose a partner?
+99|Three questions: does it sell something that completes our product (and not the same thing)? Does it speak to people similar to our customers? Are its values close to ours?
+100|Why don't we swap customer lists?
+101|People consented to receiving emails from us, not from another company. Each company tells its own subscribers about the box.
+102|Partner: a company we work with. Co-marketing: promoting a product or initiative together. Complementary: a product that goes well with ours. Exclusivity: a commitment not to work with others.
+103|The right partner is complementary and has values close to ours.
+104|A proposal works if it benefits both and can be measured.
+105|Everything in writing: tasks, money, duration, trademarks and data.
+106|I could explain why a competitor isn't a good partner.
+107|I understood why customer lists aren't swapped.
+108|I did the maths for the box without help.
+109|I could say what mustn't be missing from an agreement.
+110|Perfect, I'll send the proposal to the bakery today. And before signing we'll have our adviser read the agreement.
+111|choosing a partner
+112|splitting the margin
+113|what to put in an agreement
+114|People in partnerships look for other companies to do something together that neither could do alone: a joint product, a promotion, an event. A good partnership benefits both, is measurable and is written in a clear agreement.
+115|The right partner
+116|The ideal partner sells something that goes well with our product (complementary), has customers similar to ours and compatible values. A direct competitor or a company with distant values isn't a good fit, even if it's big.
+117|An independent bookshop can team up with a neighbourhood café: people who read often drink coffee. Not with another bookshop: they sell the same thing.
+118|The proposal
+119|A good proposal creates something new for both companies' customers, splits the work and can be measured (for example with one code each). Customer lists are never swapped: under the GDPR their consent would be needed.
+120|Bookshop and café: "a book + a coffee" on sale in both places, with a different code to count who sells more.
+121|The maths
+122|You add up all the costs of one item, calculate the margin (price − costs) and split it as agreed. Then you multiply by the items you expect to sell. Hidden costs, like time, are left out.
+123|Box at €25; book €6, coffee €4, packaging €5: cost €15, margin €10, €5 each. With 100 boxes: €500 each.
+124|The written agreement
+125|Before starting you write down who does what, how costs and earnings are split, how long it lasts, how logos are used and who handles customer data. Exclusivity forever and verbal-only agreements cause problems. For contracts it's best to get help from a lawyer.
+126|The bookshop and the café write that the partnership lasts until January and that each uses only its own customers' data.
+127|Choose which companies are good partners
+128|Choose the proposal to send to the bakery
+129|Decide what to put in the agreement

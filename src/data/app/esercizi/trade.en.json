@@ -1,0 +1,470 @@
+{
+ "_nota": "Esercizio Trade marketing 1. Catena, negozi e numeri sono inventati: la catena non ha un nome per non richiamare aziende reali.",
+ "id": "trade",
+ "ruolo": "Trade marketing",
+ "titolo": "Exercise 1 · Cinque Foglie in the supermarket",
+ "minuti": 20,
+ "richiesta": {
+  "da": "GR",
+  "nome": "Giorgio",
+  "ruolo": "Sales and stores",
+  "quando": "giovedì alle 8:45",
+  "oggetto": "We've made it into the supermarket!",
+  "testo": "Hi! For a month now our Sencha has been in 40 supermarkets of a chain in the Veneto region. Can you help me choose where to put it on the shelf, read the numbers, prepare a promotion and work out what to do in the stores where it doesn't sell?"
+ },
+ "scheda": {
+  "titolo": "Store numbers",
+  "voci": [
+   [
+    "Product",
+    "Organic Sencha, 100 g"
+   ],
+   [
+    "Stores",
+    "40 supermarkets of a chain in the Veneto region"
+   ],
+   [
+    "Shelf price",
+    "€7.90 per pack"
+   ],
+   [
+    "Sell price to the store",
+    "€5.50: what the supermarket pays us"
+   ],
+   [
+    "First delivery (sell-in)",
+    "12 packs per store"
+   ],
+   [
+    "Sold to customers in the first month (sell-out)",
+    "300 packs in total"
+   ],
+   [
+    "Warning",
+    "In 10 stores sales are almost zero"
+   ],
+   [
+    "Note",
+    "Prices excluding VAT, to keep it simple"
+   ]
+  ]
+ },
+ "consiglio": "In trade marketing being on the shelf isn't enough: what counts is how much the product leaves the shelf and ends up in the trolley.",
+ "parole": [
+  "shelf",
+  "sell-in",
+  "sell-out",
+  "buyer",
+  "display stand"
+ ],
+ "parti": [
+  {
+   "id": "scaffale",
+   "tipo": "classifica",
+   "titolo": "Where do we put it?",
+   "testo": "The buyer (who buys products for the chain) offers us a few spots. Which do you choose and which do you avoid?",
+   "colonne": [
+    {
+     "id": "si",
+     "nome": "Choose"
+    },
+    {
+     "id": "no",
+     "nome": "Avoid"
+    }
+   ],
+   "righe": [
+    {
+     "id": "r1",
+     "testo": "Eye-level shelf, in the tea and herbal tea aisle",
+     "giusti": [
+      "si"
+     ]
+    },
+    {
+     "id": "r2",
+     "testo": "Next to other brands' organic teas, where organic shoppers look for them",
+     "giusti": [
+      "si"
+     ]
+    },
+    {
+     "id": "r3",
+     "testo": "Bottom shelf, near the floor",
+     "giusti": [
+      "no"
+     ]
+    },
+    {
+     "id": "r4",
+     "testo": "At the end of the detergent aisle, because there's free space",
+     "giusti": [
+      "no"
+     ]
+    },
+    {
+     "id": "r5",
+     "testo": "A small display stand near the checkouts in October, with the Evening Herbal Teas",
+     "giusti": [
+      "si"
+     ]
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "At eye level, in the right aisle",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "r1",
+       "r2"
+      ]
+     },
+     "suggerimento": "People look mostly at eye level, and look for tea where the other teas are."
+    },
+    {
+     "nome": "Bottom shelf avoided",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "r3"
+      ]
+     },
+     "suggerimento": "Down low the product hardly gets noticed."
+    },
+    {
+     "nome": "Wrong aisle avoided",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "r4"
+      ]
+     },
+     "suggerimento": "Nobody looks for tea among the detergents."
+    },
+    {
+     "nome": "Seasonal display stand used",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "r5"
+      ]
+     },
+     "suggerimento": "Near the checkouts people buy on impulse, and in October herbal teas are in season."
+    }
+   ],
+   "perche": "Shelf position changes sales a lot: eye level, the aisle where people look, and extra space (display stands) at the right time. Space is negotiated with the buyer.",
+   "soluzione": "Yes to eye level, next to the other organic teas, and to the display stand near the checkouts in October. No to the bottom shelf and the detergent aisle.",
+   "spiega": {
+    "testo": "For each spot imagine a person looking for tea: do they see it straight away? Is it in the aisle where they'd look? Is it the right time? A spot that's free but far from the aisle or hidden down low doesn't help sell.",
+    "esempio": "Jam next to the detergents: there's space, but nobody looks for breakfast there."
+   }
+  },
+  {
+   "id": "numeri",
+   "tipo": "menu",
+   "titolo": "Read the numbers",
+   "testo": "Using the data on the card, do the maths for the first month.",
+   "campi": [
+    {
+     "id": "sellin",
+     "etichetta": "Sell-in: total packs delivered (stores × 12)",
+     "opzioni": [
+      "48",
+      "480",
+      "4,800"
+     ]
+    },
+    {
+     "id": "margine",
+     "etichetta": "Supermarket margin per pack (shelf − sell price)",
+     "opzioni": [
+      "€2.40",
+      "€5.50",
+      "€7.90"
+     ]
+    },
+    {
+     "id": "rotazione",
+     "etichetta": "Sold to customers per store per month (sell-out ÷ stores)",
+     "opzioni": [
+      "0.75",
+      "7.5",
+      "12"
+     ]
+    },
+    {
+     "id": "conta",
+     "etichetta": "What counts most for staying on the shelf?",
+     "opzioni": [
+      "Sell-out: how much customers really buy",
+      "Sell-in: how much we delivered",
+      "How nice the pack looks"
+     ]
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "Right sell-in: 480",
+     "regola": {
+      "tipo": "menu",
+      "campo": "sellin",
+      "valore": "480"
+     },
+     "suggerimento": "40 stores × 12 packs."
+    },
+    {
+     "nome": "Supermarket margin: €2.40",
+     "regola": {
+      "tipo": "menu",
+      "campo": "margine",
+      "valore": "€2.40"
+     },
+     "suggerimento": "€7.90 − €5.50."
+    },
+    {
+     "nome": "Sales per store: 7.5",
+     "regola": {
+      "tipo": "menu",
+      "campo": "rotazione",
+      "valore": "7.5"
+     },
+     "suggerimento": "300 packs ÷ 40 stores."
+    },
+    {
+     "nome": "Sell-out counts",
+     "regola": {
+      "tipo": "menu",
+      "campo": "conta",
+      "valore": "Sell-out: how much customers really buy"
+     },
+     "suggerimento": "The supermarket keeps the products customers buy."
+    }
+   ],
+   "perche": "Sell-in is how much we sell to the supermarket, sell-out is how much the supermarket sells to customers. If sell-out is low, the buyer removes the product and gives the space to another.",
+   "soluzione": "480 packs delivered, €2.40 margin for the supermarket, 7.5 sold per store per month. Sell-out counts.",
+   "spiega": {
+    "testo": "Follow the formulas written next to each field. Sell-in = stores × packs delivered. Store margin = shelf price − sell price. Sell-out per store = total sold ÷ number of stores.",
+    "esempio": "20 stores × 10 jars = 200. Shelf €4.50, sell price €3.00: €1.50. 150 sold ÷ 20 stores = 7.5."
+   }
+  },
+  {
+   "id": "promo",
+   "tipo": "scelta",
+   "titolo": "Choose the promotion",
+   "testo": "The buyer asks us for a promotion for November. Which do you propose?",
+   "opzioni": [
+    {
+     "id": "o1",
+     "testo": "For 2 weeks: 2 packs for €12 instead of €15.80, with a clear sign on the shelf",
+     "ok": {
+      "vera": true,
+      "limitata": true,
+      "regole": true
+     }
+    },
+    {
+     "id": "o2",
+     "testo": "70% off every pack all year round",
+     "ok": {
+      "vera": true,
+      "limitata": false,
+      "regole": true
+     }
+    },
+    {
+     "id": "o3",
+     "testo": "A sign saying \"The lowest price in Italy\", without checking it and without a discount",
+     "ok": {
+      "vera": false,
+      "limitata": true,
+      "regole": false
+     }
+    },
+    {
+     "id": "o4",
+     "testo": "A free mug for buyers who leave their phone number, with marketing consent already ticked",
+     "ok": {
+      "vera": true,
+      "limitata": true,
+      "regole": false
+     }
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "A real, clear benefit",
+     "regola": {
+      "tipo": "opzione",
+      "chiave": "vera"
+     },
+     "suggerimento": "\"The lowest in Italy\" without proof is a misleading claim."
+    },
+    {
+     "nome": "Limited duration",
+     "regola": {
+      "tipo": "opzione",
+      "chiave": "limitata"
+     },
+     "suggerimento": "A huge discount forever isn't a promo: it lowers the product's value and the margin."
+    },
+    {
+     "nome": "Follows the rules",
+     "regola": {
+      "tipo": "opzione",
+      "chiave": "regole"
+     },
+     "suggerimento": "Marketing consent can't be pre-ticked: the person must choose it."
+    }
+   ],
+   "perche": "A good promotion has a real benefit, a limited duration and a margin that holds up. Unverified claims are misleading practices (consumer protection law), and pre-ticked consent isn't valid under the GDPR.",
+   "soluzione": "The first: 2 packs for €12 for 2 weeks, with a clear sign. It's true, time-limited and above board.",
+   "spiega": {
+    "testo": "Check each promotion with four questions: is it true? Does it have a limited duration? Is it sustainable for us and for the store? Does it follow the rules on claims and personal data? One no is enough to discard it.",
+    "esempio": "\"60% off forever\" makes us lose money; \"The cheapest in Italy\" without checking is misleading."
+   }
+  },
+  {
+   "id": "negozi",
+   "tipo": "spunte",
+   "titolo": "What do you do in the 10 stores where it doesn't sell?",
+   "testo": "Choose all the useful actions, and only those.",
+   "opzioni": [
+    {
+     "id": "c1",
+     "testo": "Go and see whether the product is really on the shelf, and not stuck in the stockroom"
+    },
+    {
+     "id": "c2",
+     "testo": "Look at sales store by store with the buyer"
+    },
+    {
+     "id": "c3",
+     "testo": "Propose the display stand or the promo in those stores first"
+    },
+    {
+     "id": "c4",
+     "testo": "Send another 500 packs to all stores straight away"
+    },
+    {
+     "id": "c5",
+     "testo": "Lower the sell price to €3 forever"
+    },
+    {
+     "id": "c6",
+     "testo": "Write fake positive reviews on the website to convince the buyer"
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "Shelf checked",
+     "regola": {
+      "tipo": "spunte-tutte",
+      "ids": [
+       "c1"
+      ]
+     },
+     "suggerimento": "A product often doesn't sell because it isn't on display: you check in person."
+    },
+    {
+     "nome": "Data and actions store by store",
+     "regola": {
+      "tipo": "spunte-tutte",
+      "ids": [
+       "c2",
+       "c3"
+      ]
+     },
+     "suggerimento": "Every store is different: data first, then targeted actions."
+    },
+    {
+     "nome": "No forced sell-in or loss-making prices",
+     "regola": {
+      "tipo": "spunte-nessuna",
+      "ids": [
+       "c4",
+       "c5"
+      ]
+     },
+     "suggerimento": "More packs don't make customers buy, and at €3 we lose money."
+    },
+    {
+     "nome": "No fake reviews",
+     "regola": {
+      "tipo": "spunte-nessuna",
+      "ids": [
+       "c6"
+      ]
+     },
+     "suggerimento": "Fake reviews are banned (Omnibus Directive)."
+    }
+   ],
+   "perche": "Trade marketing works in stores: it checks the display, reads the data with the buyer and invests where needed. Pushing more stock into stores without getting customers to buy only creates returns and unsold stock.",
+   "soluzione": "Check the shelf, look at the data with the buyer, start with the display stand and promo in the weakest stores. No forced deliveries, no loss-making prices, no fake reviews.",
+   "spiega": {
+    "testo": "There can be more than one right answer. First you understand why it isn't selling (is the product really on the shelf? where?), then you act where needed. Sending more stock, selling off cheap or inventing reviews doesn't solve the problem and can be unfair.",
+    "esempio": "If jam doesn't sell in 5 stores, you go and look: often it's ended up in the back or on the wrong shelf."
+   }
+  }
+ ],
+ "aiuti": [
+  {
+   "titolo": "What's the difference between sell-in and sell-out?",
+   "testo": "Sell-in: what we sell to the supermarket. Sell-out: what the supermarket sells to customers. The first fills the shelf, the second empties it."
+  },
+  {
+   "titolo": "How do I recognise a good promotion?",
+   "testo": "Three questions: is the benefit real? Is it short-lived? Does it follow the rules on advertising and personal data?"
+  }
+ ],
+ "glossario": "Buyer: who chooses products for the chain. Sell-in: sales to the store. Sell-out: sales to customers. Sell price to the store: what the store pays us. Display stand: extra space off the shelf.",
+ "note": [
+  "On the shelf, height, aisle and timing count.",
+  "Sell-out decides whether the product stays.",
+  "Real, short, compliant promos; in weak stores you check first, then act."
+ ],
+ "autovalutazione": [
+  "I could explain why the spot on the shelf changes sales.",
+  "I understood the difference between sell-in and sell-out.",
+  "I could say whether a promotion is above board or not.",
+  "I chose the actions for the weak stores by looking at the data."
+ ],
+ "rispostaCollega": "Great! Tomorrow I'll visit the 10 stores to check the shelves and propose the 2 for €12 promo to the buyer.",
+ "imparato": [
+  "shelf and position",
+  "sell-in and sell-out",
+  "in-store promotions",
+  "working with the buyer"
+ ],
+ "lezione": {
+  "intro": "Trade marketing is about selling through other people's stores, like supermarkets. People in this role negotiate with the chain's buyer, choose where and how to sit on the shelf, prepare promotions and check store by store whether the product sells.",
+  "concetti": [
+   {
+    "nome": "The shelf",
+    "spiegazione": "In the store people decide in a few seconds. The best spot is at eye level, in the aisle where people look for that type of product. Extra display stands (near the checkouts, at the end of an aisle) help at the right moments.",
+    "esempio": "An artisan jam sells more at eye level, next to the other organic jams, than on the bottom shelf."
+   },
+   {
+    "nome": "Sell-in and sell-out",
+    "spiegazione": "Sell-in is how much we sell to the supermarket (the packs delivered). Sell-out is how much the supermarket sells to customers. To stay on the shelf sell-out counts: if products don't move, the buyer removes them.",
+    "esempio": "We deliver 10 jars of jam to 20 stores: sell-in 200. If customers buy 150 in a month, the average sell-out is 150 ÷ 20 = 7.5 per store."
+   },
+   {
+    "nome": "Store margin",
+    "spiegazione": "The supermarket pays us a sell price and resells at a higher price. The difference is its margin: the store needs to earn too, otherwise it won't keep us.",
+    "esempio": "Jam sold to the store at €3.00, sold on at €4.50: the supermarket earns €1.50 per jar."
+   },
+   {
+    "nome": "Compliant promotions",
+    "spiegazione": "A good promotion is simple, true and time-limited. You can't say \"the lowest price\" without checking it, and a free gift can't be exchanged for personal data without freely given consent.",
+    "esempio": "\"2 jars for €8 instead of €9, from 1 to 15 March\" is clear and verifiable."
+   }
+  ],
+  "cosaFarai": [
+   "Choose the right spots on the shelf",
+   "Calculate sell-in, store margin and sell-out",
+   "Choose the promotion to propose to the buyer",
+   "Decide what to do in the stores where the product doesn't sell"
+  ]
+ }
+}

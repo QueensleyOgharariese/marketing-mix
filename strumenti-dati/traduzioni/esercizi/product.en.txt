@@ -1,0 +1,143 @@
+1|Product marketing
+2|Exercise 1 · Launching the Evening Herbal Teas
+3|Marta
+4|Founder
+5|Let's launch the Evening Herbal Teas
+6|Hi! In October we're launching a new product: the Evening Herbal Teas. Can you help me work out what to say about it, write the positioning, choose price and launch, and check that everything is above board before we start?
+7|The new product
+8|Product
+9|Evening Herbal Teas: 3 organic caffeine-free blends, 15 tea bags
+10|Ingredients
+11|Chamomile, lemon balm, orange peel, linden
+12|Packaging
+13|Compostable paper tea bags, recycled cardboard box
+14|Production cost
+15|€2.60 per pack
+16|Supermarket competitor
+17|€3.50 for 20 tea bags, not organic
+18|Organic online competitor
+19|€7.90 for 15 tea bags
+20|What customers ask for
+21|"Do you have anything caffeine-free for the evening?" (42 emails in a year)
+22|Note
+23|Prices excluding VAT, to keep it simple
+24|Product marketing turns a product into a reason to buy it: first understand who it's for and what it changes in their day.
+25|feature
+26|benefit
+27|positioning
+28|margin
+29|launch
+30|Feature or benefit?
+31|A feature says what the product is like. A benefit says what changes for the person using it. Sort each sentence.
+32|Feature
+33|Benefit
+34|Caffeine-free
+35|You can drink it even at ten in the evening, without a worry
+36|Compostable paper tea bags
+37|It goes in the food waste: no plastic to separate
+38|Chamomile, lemon balm and orange peel
+39|A small ritual to switch off from the day, ready in 5 minutes
+40|Caffeine-free: feature and benefit
+41|"Caffeine-free" is what the product is like; "you can drink it in the evening" is what you gain.
+42|Packaging: feature and benefit
+43|The material is a feature; not having to separate plastic is a benefit.
+44|Ingredients: feature and benefit
+45|The list of ingredients describes; the ritual to switch off tells what you experience.
+46|People buy what the product does for them, not the list of its parts. Product marketing starts from the (true) features and translates them into benefits.
+47|Features: caffeine-free, compostable tea bags, the ingredients. Benefits: drinking it in the evening without a worry, no plastic to separate, a ritual to switch off.
+48|For each sentence ask yourself: does it describe the object (how it's made, what it contains) or what happens to the person using it? If it's about the object it's a feature; if it's about the person and their day it's a benefit.
+49|Water bottle: "screw cap with a seal" is a feature; "you can put it in your backpack without fear of soaking your laptop" is a benefit.
+50|Choose the positioning
+51|Positioning is an internal sentence that says who the product is for and why it's different. Which do you choose?
+52|For tea lovers who avoid caffeine in the evening, Evening Herbal Teas is Cinque Foglie's evening ritual: three organic caffeine-free blends, in compostable tea bags, ready in 5 minutes.
+53|For everyone: the best herbal tea on the market, with quality ingredients.
+54|For people who can't sleep: the organic herbal tea that cures insomnia in a week.
+55|For tea lovers who avoid caffeine in the evening: three nice herbal teas.
+56|Says who it's for
+57|"For everyone" isn't an audience: choose a sentence that names specific people.
+58|Says why it's different
+59|Everyone has "three nice herbal teas": what sets us apart from the competitors on the card?
+60|Only true, permitted claims
+61|"The best" can't be proven, and "cures insomnia" is a banned health claim.
+62|Good positioning is specific (a precise audience), distinctive (what makes us different) and credible. The product page, ads and posts then grow from this sentence.
+63|The first: it names the audience (people who avoid caffeine in the evening), the difference (organic, compostable, Cinque Foglie's ritual) and only says true things.
+64|Check three things: is there a precise audience (not "everyone")? Is there a real difference from the alternatives? Are there only provable claims, with no promise of a cure? Discard sentences that fail even one of these points.
+65|"For everyone, the best water bottle in the world" has no audience and can't be proven.
+66|Price and launch
+67|Look at costs and competitors on the card and prepare the launch.
+68|Selling price
+69|Margin per pack (price − cost)
+70|Where do you launch it first?
+71|To newsletter customers and on the website
+72|In every supermarket in Italy straight away
+73|Only on a flyer around town
+74|When?
+75|July
+76|October, when the evenings get cool
+77|The day after Christmas
+78|A sustainable price in line with organic: €6.90
+79|Below cost you lose on every sale; too far above competitors nobody buys.
+80|Right margin: €4.30
+81|The price you chose minus €2.60 of cost.
+82|Launch to people who already know us
+83|We have 42 emails from customers asking for it: we start with people who know us.
+84|The right moment: October
+85|An evening herbal tea sells when it's cool.
+86|The price must cover costs, leave a margin and make sense compared with competitors. Launching first to people who know us costs little and shows straight away whether people like the product.
+87|€6.90: below the organic competitor, with a €4.30 margin. Launch to the newsletter and website, in October.
+88|The price must sit sensibly against competitors: an organic product can't cost the same as a mass-market one, but nor more than the organic competitor without a reason. Calculate the margin (price − cost). For the first launch choose people who already know you and the period when the product is most needed.
+89|Insulated bottle: launched at the end of September, when the cold returns, first to newsletter subscribers.
+90|Ready to go?
+91|Before the launch, what do you do? Choose all the right things, and only those.
+92|Check the label: ingredients, allergens, quantity and best-before date
+93|Prepare the product page with real photos and complete details
+94|Let the people who asked for a caffeine-free herbal tea know, if they consented to receiving emails
+95|Write "helps you sleep" on the pack
+96|Show a crossed-out price "was €9.90", even though it was never sold at that price
+97|Write "zero impact" because the tea bags are compostable
+98|A compliant label
+99|For food, the label is required (EU Regulation 1169/2011).
+100|Page and customers ready
+101|You need somewhere to buy and someone to tell.
+102|No health claims
+103|Health claims for food are regulated: without authorisation they can't be used.
+104|No fake discounts or generic green claims
+105|A discount must start from a real price, and "zero impact" can't be proven.
+106|A launch is also prepared on the rules. Unauthorised health claims are banned (Reg. EC 1924/2006; for herbs many claims are still awaiting EU assessment). The "was" price of a discount must be the lowest of the last 30 days (Omnibus Directive): a new product doesn't have one. And generic, unprovable environmental claims are banned (EU Directive 2024/825).
+107|Label checked, product page ready, emails to people who consented. No "helps you sleep", no invented crossed-out price, no "zero impact".
+108|There can be more than one right answer. Keep the actions that make the product clear, complete and honest. Discard anything that promises health effects, invents a discount or makes environmental claims that can't be proven.
+109|For the water bottle: real photos and complete details, yes; "was €39, now €24" if it never cost €39, no.
+110|How do I tell a feature from a benefit?
+111|Ask yourself "so what?". Caffeine-free... so what? You can drink it in the evening. The first sentence is the feature, the answer to "so what" is the benefit.
+112|How do I choose the price?
+113|Three questions: does it cover the cost? Does it leave a margin? Does it make sense against similar competitors (here: organic, online)?
+114|Feature: what the product is like. Benefit: what changes for the person using it. Positioning: who it's for and why it's different. Margin: what's left after the cost.
+115|You sell the benefit, but starting from true features.
+116|Positioning is specific, distinctive and credible.
+117|Before the launch you also check the rules: health, discounts, environment.
+118|I could turn a feature into a benefit.
+119|I could explain why the chosen positioning is better than the others.
+120|I thought about cost, margin and competitors before choosing the price.
+121|I understood why an invented crossed-out price is banned.
+122|Perfect! We'll keep €6.90 and start with the newsletter in October. And I'll remove that "helps you sleep" from the box draft straight away.
+123|features and benefits
+124|price and margin
+125|preparing a launch
+126|rules on discounts and claims
+127|Product marketing is the bridge between the product and the people who buy it. People in this role understand who a product is for, what makes it different, what price to sell it at and how to launch it, and they check that everything said about it is true and above board.
+128|Features and benefits
+129|The feature says what the product is like. The benefit says what changes in the life of the person using it. People buy benefits, but benefits must rest on true features.
+130|An insulated bottle: "double-wall steel" is a feature; "your coffee stays hot until evening" is the benefit.
+131|Positioning
+132|It's an internal sentence, not a slogan: it says who the product is for, what need it meets and why it's different from the alternatives. Good positioning names a precise audience and only says provable things.
+133|"For people who cycle to the office, the bottle that fits in the bottle cage and keeps drinks hot for 12 hours, unlike normal insulated bottles that are too wide."
+134|Price and margin
+135|The price is chosen by looking at three things: how much it costs to produce, how much similar competitors charge and how much value the customer perceives. The margin is what's left on each item: price minus cost.
+136|The bottle costs €9 to produce, competitors sit between €20 and €30: at €24 the margin is 24 − 9 = €15.
+137|A compliant launch
+138|Before launching you check the label and the product page. In the EU you can't make unauthorised health claims for a food, show a discount against a price never charged, or say "green" or "zero impact" without proof.
+139|On the bottle "BPA-free, certified" is fine if there's a certificate; "saves the planet" isn't, it's a vague claim.
+140|Tell apart the features and benefits of the Evening Herbal Teas
+141|Choose the positioning sentence
+142|Decide price, margin, channel and launch period
+143|Check what to do and what to avoid before starting

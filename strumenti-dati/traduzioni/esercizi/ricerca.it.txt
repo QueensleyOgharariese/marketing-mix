@@ -1,0 +1,138 @@
+1|Ricerca di mercato
+2|Esercizio 1 · Il tè freddo in bottiglia piacerebbe?
+3|Marta
+4|Fondatrice
+5|Facciamo il tè freddo in bottiglia?
+6|Ciao! Penso di lanciare un tè freddo Sencha in bottiglia per l'estate, ma non voglio decidere a sensazione. Mi aiuti a fare un questionario fatto bene, a scegliere a chi chiederlo, a leggere i risultati e a capire cosa fare dopo?
+7|I risultati del questionario
+8|Idea
+9|Tè freddo Sencha bio in bottiglia di vetro da 500 ml
+10|Risposte
+11|400 persone che bevono tè, tra 25 e 45 anni
+12|Bevono tè freddo ogni settimana d'estate
+13|260 su 400
+14|Lo comprerebbero (sicuramente o probabilmente)
+15|120 su 400
+16|Prezzo massimo indicato
+17|Motivo più citato da chi dice no
+18|"I tè freddi sono troppo zuccherati"
+19|Email
+20|Lasciate per ricevere un buono di ringraziamento
+21|Una ricerca vale quanto le sue domande e le persone a cui le fai: domande neutre, persone giuste, e conclusioni prudenti.
+22|questionario
+23|campione
+24|bias
+25|intenzione d'acquisto
+26|test
+27|Le domande sono fatte bene?
+28|Ecco la bozza del questionario. Quali domande vanno bene e quali vanno rifatte?
+29|Va bene
+30|Da rifare
+31|Quante volte a settimana bevi tè freddo d'estate?
+32|Quanto pagheresti al massimo una bottiglia da 500 ml? (scegli una fascia)
+33|Non pensi anche tu che il nostro tè freddo sarebbe fantastico?
+34|Ti piacciono il gusto e il prezzo dei tè freddi in commercio?
+35|Qual è il tuo stipendio esatto e il tuo indirizzo di casa?
+36|Domande neutre e chiare riconosciute
+37|Chiedono un fatto o una scelta precisa, senza suggerire la risposta.
+38|Scartata la domanda che suggerisce la risposta
+39|"Non pensi anche tu..." spinge le persone a dire sì.
+40|Scartata la domanda doppia
+41|Gusto e prezzo sono due domande: se rispondo no, a cosa sto dicendo no?
+42|Scartati i dati che non servono
+43|Si chiedono solo i dati necessari (GDPR, minimizzazione dei dati).
+44|Le domande cambiano le risposte. Una buona domanda è neutra, chiede una cosa sola e raccoglie solo i dati che servono davvero: per il GDPR i dati personali vanno ridotti al minimo.
+45|Vanno bene: quante volte a settimana, prezzo massimo per fasce. Da rifare: "non pensi anche tu" (suggerisce), gusto e prezzo insieme (doppia), stipendio e indirizzo (non servono).
+46|Per ogni domanda controlla tre cose: è neutra o spinge verso una risposta? Chiede una cosa sola o due insieme? Il dato che chiede serve davvero alla ricerca? Se uno dei tre controlli fallisce, la domanda va rifatta.
+47|"Ti piacciono il gusto e il prezzo del nostro gelato?" chiede due cose insieme: se uno risponde no, non sai a cosa si riferisce.
+48|A chi lo chiediamo?
+49|Scegli il campione, cioè le persone a cui fare il questionario.
+50|400 persone tra 25 e 45 anni che bevono tè: metà iscritte alla newsletter, metà che non ci conoscono, che hanno accettato di partecipare
+51|I 10 colleghi e amici di Marta
+52|5.000 persone qualsiasi, anche chi non beve mai tè
+53|400 fan che hanno messo "mi piace" al nostro post sul tè freddo
+54|Le persone giuste
+55|Serve il parere di chi potrebbe comprarlo: persone che bevono tè.
+56|Abbastanza persone
+57|Con 10 persone il risultato cambia moltissimo per caso.
+58|Non solo chi ci ama già
+59|Amici e fan sono troppo gentili con noi: il risultato sarebbe troppo positivo (bias).
+60|Il campione deve somigliare ai possibili clienti, essere abbastanza grande e non fatto solo di persone già affezionate. Altrimenti i risultati sembrano buoni ma non dicono la verità (bias).
+61|La prima: 400 persone del pubblico giusto, metà che ci conoscono e metà no, tutte d'accordo a partecipare.
+62|Il campione giusto è composto da persone simili ai clienti che vuoi raggiungere, sono abbastanza numerose e hanno accettato di partecipare. Troppo piccolo, troppo amico o troppo diverso dal pubblico dà risultati sbagliati.
+63|Chiedere a 10 amici se il gelato è buono dà quasi sempre un sì: è un bias.
+64|Leggi i risultati
+65|Con i risultati nella scheda, rispondi a Marta.
+66|Quanti bevono tè freddo ogni settimana? (260 su 400)
+67|Quanti dicono che lo comprerebbero? (120 su 400)
+68|Il prezzo più alto che va bene per almeno 3 persone su 4
+69|Cosa vuol dire quel 30%?
+70|È un'intenzione: di solito compra meno gente di quella che dice sì
+71|Che 120 persone su 400 lo compreranno di sicuro
+72|Niente: i questionari non servono
+73|Bevitori settimanali: 65%
+74|260 ÷ 400 × 100.
+75|Intenzione d'acquisto: 30%
+76|120 ÷ 400 × 100.
+77|Prezzo giusto: 2,00 €
+78|Chi accetta 2,00 € è chi ha scelto 2,00, 2,50 o 3,00 €: 50 + 20 + 5 = 75%. A 2,50 € resta solo il 25%.
+79|Letta con prudenza
+80|Dire "lo comprerei" non costa niente: comprare sì.
+81|I numeri di un questionario si leggono con prudenza: sono intenzioni, non vendite. Servono a capire se vale la pena provare, e a che prezzo, non a promettere un risultato.
+82|65% beve tè freddo ogni settimana, 30% dice che lo comprerebbe, 2,00 € va bene per 3 persone su 4. Il 30% è un'intenzione: le vendite vere saranno più basse.
+83|Per le percentuali dividi per il totale e moltiplica per 100. Per il prezzo, somma le fasce dall'alto: una persona che pagherebbe 2,50 € va bene anche per 2,00 €. Cerca il prezzo più alto che va bene per almeno 75 persone su 100.
+84|Gelato, prezzo massimo: 4 € 10%, 5 € 40%, 6 € 35%, 7 € 15%. A 5 € va bene per 40 + 35 + 15 = 90%; a 6 € solo per 50%. Il prezzo cercato è 5 €.
+85|E adesso?
+86|Cosa consigli a Marta? Scegli tutte le cose giuste, e solo quelle.
+87|Fare prima un piccolo test: 500 bottiglie in 5 negozi per un mese
+88|Fare una versione con poco zucchero, perché è il motivo più citato da chi dice no
+89|Nel questionario dire chi raccoglie i dati e perché, e tenerli solo per il tempo necessario
+90|Scrivere sulla bottiglia "Il 95% degli italiani lo adora"
+91|Usare le email dei partecipanti per mandare pubblicità, anche se le avevano lasciate solo per il buono
+92|Tenere solo le risposte positive e togliere le altre, così il risultato è migliore
+93|Test piccolo e prodotto migliorato
+94|Prima si prova in piccolo, e si ascolta chi dice no.
+95|Trasparenza sui dati
+96|Chi risponde deve sapere chi usa i suoi dati e perché (informativa GDPR).
+97|Niente numeri inventati o ritoccati
+98|Il 95% non esiste nei dati, e togliere le risposte negative falsa la ricerca.
+99|Email usate solo per lo scopo dichiarato
+100|Le email erano per il buono: usarle per pubblicità serve un consenso apposito.
+101|La ricerca serve a decidere meglio, non a confermare quello che volevamo sentire. I dati raccolti si usano solo per lo scopo dichiarato (GDPR, limitazione della finalità), e i risultati non diventano slogan esagerati.
+102|Un test piccolo in 5 negozi, una versione con poco zucchero, un'informativa chiara sui dati. Niente "95% degli italiani", niente email usate per pubblicità, niente risposte tolte.
+103|Le risposte giuste possono essere più di una. Tieni le azioni prudenti (provare in piccolo), quelle che rispondono alle obiezioni emerse e quelle che rispettano la privacy. Scarta le affermazioni gonfiate, l'uso dei dati per altri scopi e i risultati ritoccati.
+104|Se molti dicono "troppo dolce", la gelateria prova una versione meno zuccherata, invece di ignorare il dato.
+105|Come riconosco una domanda fatta male?
+106|Tre segnali: suggerisce la risposta ("non pensi anche tu..."), chiede due cose insieme, oppure chiede dati che non servono.
+107|Come trovo il prezzo per 3 persone su 4?
+108|Chi accetta un prezzo accetta anche quelli più bassi. Somma le percentuali dal prezzo che stai provando in su, e cerca il prezzo più alto che arriva almeno al 75%.
+109|Questionario: le domande della ricerca. Campione: le persone a cui le fai. Bias: un errore che sposta i risultati sempre dalla stessa parte. Intenzione d'acquisto: quanti dicono che comprerebbero.
+110|Domande neutre, una cosa per volta, solo i dati necessari.
+111|Il campione giusto somiglia ai possibili clienti, non solo ai fan.
+112|Le intenzioni non sono vendite: prima un test piccolo.
+113|Saprei riscrivere una domanda che suggerisce la risposta.
+114|Saprei spiegare perché amici e fan non sono un buon campione.
+115|Ho capito come si trova il prezzo che va bene per 3 persone su 4.
+116|Ho capito perché non si usano le email dei partecipanti per pubblicità.
+117|Grazie, mi hai salvato da un grande ordine di bottiglie! Facciamo il test in 5 negozi con la versione poco zuccherata, a 2,00 €.
+118|scrivere un questionario
+119|scegliere il campione
+120|leggere i risultati
+121|usare i dati in modo corretto
+122|La ricerca di mercato serve a decidere con i dati invece che a sensazione. Chi la fa prepara domande che non influenzano le risposte, sceglie le persone giuste a cui farle, legge i risultati con prudenza e rispetta la privacy di chi partecipa.
+123|Domande fatte bene
+124|Una buona domanda è neutra (non suggerisce la risposta), chiede una cosa sola e raccoglie solo i dati che servono davvero: per il GDPR i dati personali vanno ridotti al minimo.
+125|Una gelateria chiede "Quanto spesso mangi il gelato d'inverno?", non "Non pensi anche tu che il gelato d'inverno sia fantastico?".
+126|Il campione
+127|È il gruppo di persone a cui fai le domande. Deve somigliare ai clienti che vuoi raggiungere ed essere abbastanza grande. Chiedere solo ad amici o solo ai fan crea un bias: i risultati escono più positivi della realtà.
+128|Per un gelato nuovo, 300 persone che mangiano gelato almeno una volta al mese, metà clienti e metà no.
+129|Leggere i risultati
+130|Si trasformano le risposte in percentuali (risposte ÷ totale × 100). Attenzione: "lo comprerei" è un'intenzione, non un acquisto. Le vendite vere di solito sono più basse di quello che le persone dicono.
+131|90 persone su 300 dicono che proverebbero il gusto nuovo: 90 ÷ 300 = 30%. Non vuol dire che il 30% lo comprerà davvero.
+132|Dopo la ricerca
+133|Prima di investire tanto si fa un test piccolo e si ascoltano le obiezioni. I dati raccolti si usano solo per lo scopo dichiarato, e i risultati non si ritoccano per farli sembrare migliori.
+134|La gelateria prova il gusto nuovo per due settimane in un solo negozio prima di metterlo ovunque.
+135|Controlli quali domande del questionario vanno rifatte
+136|Scegli a chi fare il questionario
+137|Leggi i risultati e calcoli le percentuali
+138|Consigli a Marta cosa fare dopo

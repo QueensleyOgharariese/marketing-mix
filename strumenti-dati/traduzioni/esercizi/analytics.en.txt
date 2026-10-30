@@ -1,0 +1,142 @@
+1|Marketing analytics / martech
+2|Exercise 1 · Where do sales come from?
+3|Luca
+4|E-commerce
+5|The data makes no sense
+6|Hi! I'm looking at the website data and I can't tell where sales come from, or where we lose customers. And someone says the cookie banner isn't right. Can you help me sort it out?
+7|This month's data
+8|Visits to the Evening Herbal Teas page
+9|Added to cart
+10|800 (typical: 6-10 per 100 visits)
+11|Checkouts started
+12|600 (typical: 60-80 per 100 carts)
+13|Orders completed
+14|150 (typical: 50-70 per 100 checkouts started)
+15|Shipping
+16|The cost only appears at the last step of checkout
+17|October newsletter
+18|The link has no UTM parameters: the visits can't be told apart
+19|Today's cookie banner
+20|Only the "Accept" button; "Reject" is on a second page
+21|Data is for making decisions: first you collect it properly (and legally), then you read it step by step.
+22|channel
+23|UTM
+24|funnel
+25|conversion rate
+26|cookie consent
+27|Which channel does it come from?
+28|Every visit comes from a channel. Choose the right one for each.
+29|Organic search
+30|Paid
+31|Email
+32|Social
+33|Clicks a normal result on Google
+34|Clicks an ad on Google
+35|Clicks the link in the newsletter
+36|Clicks the link in the bio of our Instagram profile
+37|Clicks a sponsored post on Instagram
+38|Organic search recognised
+39|A normal Google result isn't paid for: it's organic traffic (SEO's work).
+40|Paid traffic recognised
+41|Ads and sponsored posts are paid for, even when they're on Instagram.
+42|Email recognised
+43|The newsletter is the email channel.
+44|Social recognised
+45|The link in the bio is free social.
+46|Splitting visits by channel shows what works and where to invest. Careful: the same place (Instagram) can be free social or paid advertising.
+47|Organic: the normal Google result. Paid: the Google ad and the sponsored post. Email: the newsletter. Social: the link in the bio.
+48|For each visit ask yourself two things: where did it start (Google, an email, Instagram)? And was something paid to make it appear (an ad or a sponsored post)? If so, the channel is "paid", even if the platform is Google or Instagram.
+49|Candles: a click on a sponsored Instagram post is paid; a click on the bio link of the same profile is social.
+50|Choose the right link for the newsletter
+51|UTM parameters are labels added to a link so analytics tools can tell where a visit comes from. Which link do you use in the next newsletter?
+52|cinquefoglie.example/evening-herbal-teas?utm_source=newsletter&utm_medium=email&utm_campaign=herbal-teas-october
+53|cinquefoglie.example/evening-herbal-teas?utm_source=newsletter&utm_medium=social&utm_campaign=herbal-teas-october
+54|cinquefoglie.example/evening-herbal-teas?utm_source=October Newsletter!!&utm_medium=email&utm_campaign=campaign
+55|cinquefoglie.example/evening-herbal-teas
+56|Clear source, always written the same way
+57|Lowercase, no spaces or exclamation marks: "newsletter" and "October Newsletter!!" become two different sources.
+58|Right medium: email
+59|A newsletter arrives by email, not from social media.
+60|A campaign name that makes sense
+61|"campaign" says nothing: in six months nobody will know what it was.
+62|Without UTMs, newsletter visits get mixed up with the others. With UTMs always written the same way (lowercase, hyphens, clear names) reports become readable.
+63|The first: utm_source=newsletter, utm_medium=email, utm_campaign=herbal-teas-october. All lowercase, clear and consistent.
+64|A good UTM link has the three main parameters (source, medium, campaign), all lowercase, with clear names that match the ones already used. A link without UTMs, or written differently each time, makes the data confusing.
+65|To the tools, utm_source=newsletter and utm_source=Newsletter are two different sources: the data splits in two.
+66|Where do we lose customers?
+67|The funnel is the steps from visit to order. Using the data card, find the weak point.
+68|Overall conversion rate (orders ÷ visits)
+69|From checkouts started to orders (150 ÷ 600)
+70|Which step is worse than typical?
+71|From visit to cart
+72|From cart to checkout
+73|From checkout to order
+74|What do you check first?
+75|The shipping cost that only appears at the end
+76|The colour of the logo
+77|The number of Instagram followers
+78|Overall conversion: 1.5%
+79|150 ÷ 10,000 × 100.
+80|From checkout to order: 25%
+81|150 ÷ 600 × 100.
+82|Weak step found
+83|8% and 75% are normal; 25% is well below the typical 50-70%.
+84|Targeted check
+85|A cost that appears at the last moment is a common reason for abandoning.
+86|The funnel is read step by step, comparing each step with typical values. That's how you find where to act, instead of buying more visits that will be lost at the same point.
+87|Overall conversion 1.5%. From checkout to order only 25%, against a typical 50-70%: that's the weak point. The first thing to check is the shipping cost shown only at the end.
+88|Calculate each step by dividing the people who reach the next step by the people at the step before. Compare each result with the typical value on the card: the weak point is the one furthest below average. Then ask yourself what happens at exactly that step.
+89|Candles: 80 orders ÷ 300 checkouts started = 27%, well below the typical 50-70%. What does the person find out when paying? Often the shipping costs.
+90|Fix the tools
+91|What do you do to collect data correctly and tidily? Choose all the right things, and only those.
+92|A cookie banner with "Accept" and "Reject" equally visible
+93|Start analytics tools and ad pixels only after consent
+94|Write the UTM rules in a document shared with the team
+95|Leave "Reject" hidden on a second page, so more people accept
+96|Count scrolling down the page as consent
+97|Put customers' names and emails in a sheet open to anyone with the link, so everyone can see the data
+98|Valid cookie consent
+99|Rejecting must be as easy as accepting, and non-essential tools only start after a yes.
+100|Shared rules for data
+101|If everyone writes UTMs their own way, reports don't add up.
+102|No forced consent
+103|For the Italian data protection authority, scrolling isn't consent, and "Reject" mustn't be hidden.
+104|Customer data protected
+105|Personal data must be secure and visible only to those who need it (GDPR, data security).
+106|Martech is the set of marketing tools: analytics, CRM, email, advertising. They need to be set up properly and within the rules: in Italy the data protection authority's cookie guidelines (2021) require rejecting to be as easy as accepting, and scrolling not to count as consent.
+107|A banner with Accept and Reject at the same level, tools started only after consent, shared UTM rules. No hidden Reject, no consent by scrolling, no customer data in open sheets.
+108|There can be more than one right answer. Keep the choices that respect consent (equal buttons, tools started only after a yes) and the ones that bring order (shared UTM rules). Discard tricks to make people accept and any unsafe use of data.
+109|A banner with a big orange "Accept" and a small grey "Reject" pushes people to accept: it's not freely given consent.
+110|How do I read the funnel?
+111|Divide each step by the step before (carts ÷ visits, checkouts ÷ carts, orders ÷ checkouts) and compare it with the typical value on the card.
+112|How do you write a UTM?
+113|Three labels: source (who sends it: newsletter), medium (the type of channel: email) and campaign (the campaign name). Always lowercase, with hyphens instead of spaces.
+114|Channel: where a visit comes from. UTM: labels added to a link to recognise where it comes from. Funnel: the steps from visit to order. Conversion rate: how many take the action out of how many could. Martech: marketing's technology tools.
+115|The same place can be a free or a paid channel.
+116|UTMs always written the same way make reports readable.
+117|The funnel is read step by step; data is collected only with valid consent.
+118|I could tell a free post from a sponsored one among the channels.
+119|I could write a link with the right UTMs.
+120|I found the weak step of the funnel on my own.
+121|I understood what makes a cookie banner valid.
+122|Finally it makes sense! I'll put the shipping cost on the product page and fix the cookie banner today.
+123|traffic channels
+124|UTM parameters
+125|reading a funnel
+126|People in marketing analytics and martech bring order to data: they understand where visits come from, where customers are lost and which tools to use to measure. All starting from one rule: in the EU, measuring tools that use cookies only start with consent.
+127|Channels
+128|Every visit comes from a channel. Organic search: a normal Google result. Paid: an ad or a sponsored post. Email: a link in a newsletter. Social: a link in a post or profile that isn't sponsored.
+129|A candle shop gets visits from Google (organic), from a Google ad (paid) and from the bio link on Instagram (social).
+130|Links with UTMs
+131|UTMs are labels added to the end of a link (utm_source, utm_medium, utm_campaign) that tell analytics tools where a visit comes from. They must always be written the same way, in lowercase, otherwise the data splits.
+132|shop.example/candles?utm_source=newsletter&utm_medium=email&utm_campaign=christmas
+133|The funnel
+134|It's the series of steps from visit to order: visit, cart, checkout, order. For each step you calculate how many move on to the next and compare with typical values: the step well below average is the weak point.
+135|4,000 visits, 400 carts (10%), 300 checkouts (75%), 80 orders: from checkout to order only 27%, against a typical 50-70%.
+136|Consent and tools
+137|The cookie banner must show "Accept" and "Reject" equally, and analytics and advertising tools must only start after a yes. Scrolling the page isn't consent. Customer data must be kept secure.
+138|The candle shop shows both buttons the same; if the person rejects, the ad pixel doesn't start.
+139|Recognise the channel of each visit
+140|Choose the right UTM link for the newsletter
+141|Find the weak point of the funnel
+142|Fix the cookie banner and the rules for the tools

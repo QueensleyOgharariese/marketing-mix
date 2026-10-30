@@ -1,0 +1,138 @@
+1|Market research
+2|Exercise 1 · Would bottled iced tea sell?
+3|Marta
+4|Founder
+5|Shall we make bottled iced tea?
+6|Hi! I'm thinking of launching a bottled Sencha iced tea for the summer, but I don't want to decide on a hunch. Can you help me make a well-designed questionnaire, choose who to ask, read the results and work out what to do next?
+7|The questionnaire results
+8|Idea
+9|Organic Sencha iced tea in a 500 ml glass bottle
+10|Responses
+11|400 tea drinkers aged 25 to 45
+12|Drink iced tea every week in summer
+13|260 out of 400
+14|Would buy it (definitely or probably)
+15|120 out of 400
+16|Maximum price given
+17|Most common reason among those saying no
+18|"Iced teas are too sugary"
+19|Email
+20|Left to receive a thank-you voucher
+21|Research is only as good as its questions and the people you ask: neutral questions, the right people and careful conclusions.
+22|questionnaire
+23|sample
+24|bias
+25|purchase intention
+26|test
+27|Are the questions well designed?
+28|Here's the draft questionnaire. Which questions are fine and which need redoing?
+29|Fine
+30|Needs redoing
+31|How many times a week do you drink iced tea in summer?
+32|What's the most you'd pay for a 500 ml bottle? (choose a range)
+33|Don't you think our iced tea would be fantastic too?
+34|Do you like the taste and price of the iced teas on sale?
+35|What's your exact salary and your home address?
+36|Neutral, clear questions recognised
+37|They ask for a fact or a specific choice, without suggesting the answer.
+38|The leading question discarded
+39|"Don't you think... too" pushes people to say yes.
+40|The double question discarded
+41|Taste and price are two questions: if I answer no, what am I saying no to?
+42|Unneeded data discarded
+43|You only ask for the data you need (GDPR, data minimisation).
+44|Questions change the answers. A good question is neutral, asks one thing and collects only the data really needed: under the GDPR personal data must be kept to a minimum.
+45|Fine: how many times a week, maximum price in ranges. Needs redoing: "don't you think... too" (leading), taste and price together (double), salary and address (not needed).
+46|For each question check three things: is it neutral or does it push towards an answer? Does it ask one thing or two at once? Is the data it asks for really needed for the research? If any of the three checks fails, the question needs redoing.
+47|"Do you like the taste and price of our ice cream?" asks two things at once: if someone says no, you don't know which they mean.
+48|Who do we ask?
+49|Choose the sample, meaning the people who'll answer the questionnaire.
+50|400 tea drinkers aged 25 to 45: half newsletter subscribers, half who don't know us, all of whom agreed to take part
+51|Marta's 10 colleagues and friends
+52|5,000 random people, including people who never drink tea
+53|400 fans who liked our iced tea post
+54|The right people
+55|You need the opinion of people who might buy it: tea drinkers.
+56|Enough people
+57|With 10 people the result changes a lot by chance.
+58|Not just people who already love us
+59|Friends and fans are too kind to us: the result would be too positive (bias).
+60|The sample must resemble potential customers, be large enough and not be made up only of people who are already fond of us. Otherwise the results look good but don't tell the truth (bias).
+61|The first: 400 people from the right audience, half who know us and half who don't, all agreeing to take part.
+62|The right sample is made of people similar to the customers you want to reach, numerous enough, who agreed to take part. Too small, too friendly or too different from the audience gives wrong results.
+63|Asking 10 friends whether the ice cream is good almost always gets a yes: it's a bias.
+64|Read the results
+65|Using the results on the card, answer Marta.
+66|How many drink iced tea every week? (260 out of 400)
+67|How many say they'd buy it? (120 out of 400)
+68|The highest price that works for at least 3 people in 4
+69|What does that 30% mean?
+70|It's an intention: usually fewer people buy than say yes
+71|That 120 people out of 400 will definitely buy it
+72|Nothing: questionnaires are useless
+73|Weekly drinkers: 65%
+74|260 ÷ 400 × 100.
+75|Purchase intention: 30%
+76|120 ÷ 400 × 100.
+77|Right price: €2.00
+78|People who accept €2.00 are those who chose €2.00, €2.50 or €3.00: 50 + 20 + 5 = 75%. At €2.50 only 25% remain.
+79|Read with caution
+80|Saying "I'd buy it" costs nothing: buying does.
+81|Questionnaire numbers are read with caution: they're intentions, not sales. They help you understand whether it's worth trying, and at what price, not promise a result.
+82|65% drink iced tea every week, 30% say they'd buy it, €2.00 works for 3 people in 4. The 30% is an intention: real sales will be lower.
+83|For percentages divide by the total and multiply by 100. For the price, add up the ranges from the top: a person who'd pay €2.50 is also fine with €2.00. Look for the highest price that works for at least 75 people in 100.
+84|Ice cream, maximum price: €4 10%, €5 40%, €6 35%, €7 15%. €5 works for 40 + 35 + 15 = 90%; €6 only for 50%. The price you're looking for is €5.
+85|What now?
+86|What do you advise Marta? Choose all the right things, and only those.
+87|Run a small test first: 500 bottles in 5 shops for a month
+88|Make a low-sugar version, because that's the most common reason among those saying no
+89|In the questionnaire, say who collects the data and why, and keep it only as long as needed
+90|Write on the bottle "95% of Italians love it"
+91|Use participants' emails to send advertising, even though they left them only for the voucher
+92|Keep only the positive answers and remove the others, so the result looks better
+93|Small test and improved product
+94|First you try on a small scale, and you listen to the people who say no.
+95|Transparency about data
+96|Respondents must know who uses their data and why (GDPR privacy notice).
+97|No invented or touched-up numbers
+98|The 95% doesn't exist in the data, and removing negative answers falsifies the research.
+99|Emails used only for the stated purpose
+100|The emails were for the voucher: using them for advertising needs specific consent.
+101|Research is for deciding better, not for confirming what we wanted to hear. The data collected is used only for the stated purpose (GDPR, purpose limitation), and results don't become exaggerated slogans.
+102|A small test in 5 shops, a low-sugar version, a clear privacy notice. No "95% of Italians", no emails used for advertising, no answers removed.
+103|There can be more than one right answer. Keep the careful actions (trying on a small scale), the ones that respond to the objections raised and the ones that respect privacy. Discard inflated claims, using data for other purposes and touched-up results.
+104|If many people say "too sweet", the ice cream shop tries a less sugary version instead of ignoring the data.
+105|How do I spot a badly designed question?
+106|Three signs: it suggests the answer ("don't you think... too"), asks two things at once, or asks for data that isn't needed.
+107|How do I find the price for 3 people in 4?
+108|People who accept a price also accept the lower ones. Add up the percentages from the price you're testing upwards, and look for the highest price that reaches at least 75%.
+109|Questionnaire: the research questions. Sample: the people you ask. Bias: an error that always pushes the results the same way. Purchase intention: how many say they would buy.
+110|Neutral questions, one thing at a time, only the data needed.
+111|The right sample resembles potential customers, not just fans.
+112|Intentions aren't sales: a small test first.
+113|I could rewrite a question that suggests the answer.
+114|I could explain why friends and fans aren't a good sample.
+115|I understood how to find the price that works for 3 people in 4.
+116|I understood why participants' emails aren't used for advertising.
+117|Thanks, you saved me from a huge bottle order! We'll run the test in 5 shops with the low-sugar version, at €2.00.
+118|writing a questionnaire
+119|choosing the sample
+120|reading the results
+121|using data correctly
+122|Market research is for deciding with data instead of hunches. People who do it prepare questions that don't influence the answers, choose the right people to ask, read the results carefully and respect participants' privacy.
+123|Well-designed questions
+124|A good question is neutral (it doesn't suggest the answer), asks one thing and collects only the data really needed: under the GDPR personal data must be kept to a minimum.
+125|An ice cream shop asks "How often do you eat ice cream in winter?", not "Don't you think ice cream in winter is fantastic too?".
+126|The sample
+127|It's the group of people you ask. It must resemble the customers you want to reach and be large enough. Asking only friends or only fans creates a bias: the results come out more positive than reality.
+128|For a new ice cream, 300 people who eat ice cream at least once a month, half customers and half not.
+129|Reading the results
+130|Answers are turned into percentages (answers ÷ total × 100). Careful: "I'd buy it" is an intention, not a purchase. Real sales are usually lower than what people say.
+131|90 people out of 300 say they'd try the new flavour: 90 ÷ 300 = 30%. It doesn't mean 30% will really buy it.
+132|After the research
+133|Before investing a lot you run a small test and listen to the objections. The data collected is used only for the stated purpose, and results aren't touched up to look better.
+134|The ice cream shop tries the new flavour for two weeks in a single shop before putting it everywhere.
+135|Check which questionnaire questions need redoing
+136|Choose who to give the questionnaire to
+137|Read the results and calculate the percentages
+138|Advise Marta on what to do next

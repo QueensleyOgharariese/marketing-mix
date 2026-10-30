@@ -1,0 +1,130 @@
+1|Influencer marketing
+2|Exercise 1 · A partnership for matcha
+3|Sara
+4|Social and community
+5|A creator for matcha
+6|Hi! For the matcha launch we'd like to work with a creator. Can you help me choose the right profiles, prepare the instructions, check the post and work out whether it went well?
+7|The partnership
+8|Product
+9|Organic matcha, 30 g, €16.90
+10|Customers
+11|Aged 25-40, in Italy, love rituals and cooking
+12|Fee offered
+13|€400 for one Reel and 3 Stories
+14|Discount code
+15|TAZZA10 (10% off)
+16|Orders with the code
+17|60 in a month
+18|Average order value (already discounted)
+19|The right creator isn't the one with the most followers, but the one who really speaks to our people.
+20|creator
+21|engagement
+22|brief
+23|#ad
+24|discount code
+25|Which creators are a good fit?
+26|Look at the profiles and choose whether they're right for the partnership.
+27|A good fit
+28|Not a fit
+29|@tazzaditè · 18k followers · engagement 6% · 85% in Italy · tea and recipes
+30|@slowmornings · 42k · engagement 4% · 78% in Italy · morning rituals
+31|@fitqueen · 900k · engagement 0.4% · 30% in Italy · diets and supplements
+32|@giroilmondo · 120k · engagement 1.2% · 20% in Italy · travel
+33|@lollo_gaming · 300k · engagement 8% · 90% in Italy · video games
+34|Creators matching the customers chosen
+35|Topics close to tea, Italian audience, good engagement.
+36|The diet creator excluded
+37|Lots of followers but very little engagement, and health topics: risky.
+38|The audience outside Italy excluded
+39|We ship within Italy: 80% of her audience can't buy.
+40|The topic far from the product excluded
+41|Very high engagement, but the audience wants video games, not tea.
+42|Relevance, audience and trust count more than the number of followers. Smaller creators (micro-influencers) often have a more attentive community.
+43|A good fit: @tazzaditè and @slowmornings. Not a fit: @fitqueen (diets, low engagement), @giroilmondo (audience abroad), @lollo_gaming (unrelated topic).
+44|For each profile look at three things: what it's about (is it close to tea and rituals?), how much of the audience is in Italy, and how high engagement is. If one of the three is far from our customer, the profile isn't a fit.
+45|For ceramic mugs: a food blogger with 10k followers, 80% in Italy and 5% engagement is a good fit; a sports car profile with 2 million followers isn't.
+46|Prepare the instructions (brief)
+47|What do you write in the creator's instructions? Choose all the right things, and only those.
+48|The goal: introduce matcha to people who love morning rituals
+49|Always disclose the partnership, clearly and visible straight away (#ad)
+50|Make no health claims (no "helps you lose weight" or "detox")
+51|Say it's a gift, so it doesn't look like advertising
+52|Say it's "the best matcha in the world"
+53|Delete negative comments under the post
+54|Clear goal
+55|The creator needs to know what we want to achieve.
+56|Advertising must be disclosed
+57|Advertising must always be recognisable.
+58|No health claims
+59|Food rules apply to creators too.
+60|No unfair requests
+61|Hiding advertising, unprovable claims and deleting criticism aren't fair.
+62|In Italy advertising must always be recognisable: the IAP self-regulation code (Digital Chart) requires it, and the AGCOM guidelines add rules for larger creators. The brand is also responsible for what it asks creators to say.
+63|Goal, obligation to disclose the partnership, no health claims. No "it's a gift", no false superlatives, no deleted comments.
+64|The brief contains the goal and the rules that protect the brand and the viewers: disclosing advertising and not making banned claims. It doesn't contain requests that mislead the audience, like hiding the partnership or deleting criticism.
+65|In the mugs brief: "Goal: introduce them to people who love a slow breakfast" and "Write Ad at the start", yes; "Say they were given to you as a gift", no.
+66|Check the post before it goes out
+67|The creator sends you four versions of the caption. Which do you approve?
+68|#ad Advertising · In partnership with @cinquefoglie: my new morning ritual is matcha. With TAZZA10 you get 10% off.
+69|My new morning ritual is matcha from @cinquefoglie! With TAZZA10 you get 10% off. #matcha #breakfast #tea #morning #relax #ad
+70|Thanks to @cinquefoglie for this gift! My new morning ritual is matcha.
+71|#sp #collab My new morning ritual is matcha from @cinquefoglie. Code TAZZA10.
+72|Clearly says it's advertising
+73|"Thanks for the gift" isn't enough: it must be clear it's a paid partnership.
+74|Visible straight away, at the start
+75|An #ad hidden at the end among the hashtags goes unnoticed.
+76|Understandable to everyone
+77|Not everyone understands abbreviations like #sp or #collab: #ad or #advertising is better.
+78|The advertising disclosure must be clear, understandable and visible straight away, before "more". If it's hidden, it's covert advertising.
+79|The first: "#ad Advertising · In partnership with @cinquefoglie" is at the start, clear and understandable.
+80|Check where and how the advertising is disclosed: it must be at the start, written so everyone understands it. Unclear abbreviations, ones hidden among hashtags, and the word "gift" aren't enough.
+81|Hardly anyone understands "#sp" at the end of the text; "Advertising" in the first line, yes.
+82|Did it go well?
+83|Using the data on the card, calculate the month's results.
+84|Revenue from the code (orders × average value)
+85|Cost per order (fee ÷ orders)
+86|ROAS (revenue ÷ fee)
+87|Right revenue: €1,200
+88|60 orders × €20.
+89|Right cost per order: €6.67
+90|€400 ÷ 60 orders.
+91|Right ROAS: 3
+92|€1,200 ÷ €400.
+93|A personal discount code lets you measure how many sales come from the creator. But it doesn't count everything: many people discover the product and buy later, without the code.
+94|Revenue €1,200, €6.67 per order, ROAS 3: for every euro given to the creator, three came back.
+95|Follow the order: first revenue (orders with the code × average order value), then cost per order (fee ÷ orders), finally ROAS (revenue ÷ fee). If ROAS is above 1, the partnership earned more than it cost.
+96|Fee €300, 40 orders of €25: 40 × 25 = €1,000; 300 ÷ 40 = €7.50 per order; 1,000 ÷ 300 ≈ 3.3.
+97|How do I choose a creator?
+98|Three questions: do they talk about topics close to our product? Can their audience buy from us? Do people really interact (engagement)?
+99|How do you disclose a partnership?
+100|At the start, with clear words like "#ad", "Advertising" or "In partnership with". Not at the end among lots of hashtags.
+101|Creator: someone who makes content on social media. Engagement: how much the audience interacts. Brief: the instructions for the partnership. #ad: the tag that discloses advertising.
+102|Relevance and trust count more than the number of followers.
+103|The brief protects brand and creator: it says what to do and what not to say.
+104|Advertising must be disclosed straight away and in clear words.
+105|I could explain why a creator with fewer followers can be better.
+106|I understood what you can't ask a creator.
+107|I could spot a post with hidden advertising.
+108|I calculated the results on my own.
+109|Perfect! I'll write to @tazzaditè with your brief. And from now on we always check the caption before it goes out.
+110|choosing a creator
+111|writing a brief
+112|#ad transparency
+113|measuring with a discount code
+114|People in influencer marketing choose the creators to work with, write the instructions (the brief), check that content follows the rules and measure whether the partnership earned more than it cost.
+115|Choosing the right creator
+116|Three things count before followers: that the audience resembles our customers, lives where we sell and really interacts (high engagement). A huge profile with a distant audience brings in less than a small, loyal one.
+117|To sell ceramic mugs in Milan, a ceramicist with 15k Italian followers and 5% engagement is worth more than a comedian with a million followers abroad.
+118|The brief
+119|It's the written instructions for the creator: goal, message, what to show, dates and rules to follow. The clearer it is, the fewer the surprises. But the creator must stay free to speak in their own voice.
+120|"Goal: introduce the handmade mugs. Show how you use them at breakfast. Disclose the partnership. Publish by the 15th."
+121|Disclosing advertising
+122|In Italy and the European Union viewers must understand straight away that content is advertising. It's written clearly and at the start, for example "#ad" or "Advertising". Hiding the partnership or calling it a "gift" is covert advertising, which is banned.
+123|Right: "Advertising · In partnership with @tazzefattemano" in the first line. Wrong: "#collab" among twenty hashtags.
+124|Measuring the result
+125|With a personal discount code you count the orders the creator brought. From there you calculate revenue (orders × average value), cost per order (fee ÷ orders) and ROAS (revenue ÷ fee).
+126|Fee €300, 40 orders of €25: revenue €1,000, cost per order €7.50, ROAS = 1,000 ÷ 300 ≈ 3.3.
+127|Choose which creators fit matcha
+128|Write the right instructions in the brief
+129|Check the caption before it goes out
+130|Calculate whether the partnership paid off

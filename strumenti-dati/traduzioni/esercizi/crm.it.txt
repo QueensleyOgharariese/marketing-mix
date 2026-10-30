@@ -1,0 +1,137 @@
+1|CRM manager
+2|Esercizio 1 · Recuperare i carrelli abbandonati
+3|Luca
+4|E-commerce
+5|Tanti carrelli abbandonati
+6|Ciao! Ogni mese tante persone mettono il tè nel carrello e poi non comprano. Mi aiuti a dividere i clienti in gruppi, a capire a chi possiamo scrivere, a preparare le email e a stimare quanto possiamo recuperare?
+7|I numeri dei clienti
+8|Iscritti alla newsletter
+9|8.400, con il loro consenso
+10|Carrelli abbandonati
+11|320 al mese
+12|Valore medio di un carrello
+13|Carrelli recuperati di solito con le email
+14|circa 10 su 100
+15|Ultima newsletter
+16|7.000 inviate, 2.100 aperte
+17|Regola
+18|Ogni email ha il link per disiscriversi
+19|Il CRM non è mandare più email: è mandare l'email giusta, alla persona giusta, nel momento giusto. E solo a chi ha detto sì.
+20|segmentazione
+21|consenso
+22|email automatica
+23|tasso di apertura
+24|Dividi i clienti in gruppi
+25|Per ogni cliente scegli il gruppo giusto.
+26|Nuovo
+27|Fedele
+28|Inattivo
+29|Giulia · 1 ordine, 5 giorni fa
+30|Paolo · 8 ordini in un anno, l'ultimo 2 settimane fa
+31|Marco · 6 ordini, l'ultimo 3 settimane fa
+32|Anna · 2 ordini, l'ultimo 14 mesi fa
+33|Sofia · 3 ordini, l'ultimo 11 mesi fa
+34|Nuova cliente riconosciuta
+35|Un solo ordine, appena fatto: è nuova.
+36|Clienti fedeli riconosciuti
+37|Tanti ordini e recenti: sono fedeli.
+38|Clienti inattivi riconosciuti
+39|Non ordinano da quasi un anno o più.
+40|Dividere i clienti in gruppi (segmentazione) permette di mandare messaggi diversi: benvenuto ai nuovi, grazie ai fedeli, "ci manchi" agli inattivi.
+41|Nuova: Giulia. Fedeli: Paolo e Marco. Inattivi: Anna e Sofia.
+42|Per ogni cliente guarda due cose: quanti ordini ha fatto e quando è stato l'ultimo. Un solo ordine recente vuol dire nuovo; tanti ordini e l'ultimo da poco vuol dire fedele; nessun ordine da molti mesi vuol dire inattivo, anche se in passato ha comprato.
+43|Candele: Luca, 5 ordini, l'ultimo 10 giorni fa: fedele. Marta, 4 ordini, l'ultimo 13 mesi fa: inattiva.
+44|A chi possiamo scrivere?
+45|Vogliamo mandare email sul carrello e sulle novità. A chi possiamo scriverle? Scegli tutte le risposte giuste.
+46|Agli iscritti alla newsletter che hanno dato il consenso
+47|A chi ha già comprato da noi, per prodotti simili, se l'abbiamo informato e non si è opposto
+48|A una lista di 5.000 email comprata da un'altra azienda
+49|Agli indirizzi email trovati nei profili Instagram dei follower
+50|A chi si è disiscritto, ma solo una volta "per sicurezza"
+51|Iscritti con il consenso
+52|Il consenso esplicito è la base.
+53|Clienti, per prodotti simili, se non si sono opposti
+54|In Italia c'è un'eccezione per chi ha già comprato da noi (art. 130 del Codice privacy).
+55|Niente liste comprate o indirizzi presi dai social
+56|Queste persone non hanno mai detto sì a noi.
+57|Rispetto per chi ha detto no
+58|Chi si disiscrive non si contatta più, nemmeno una volta.
+59|Per il GDPR e il Codice privacy le email promozionali richiedono il consenso. L'eccezione: ai clienti puoi scrivere per prodotti simili a quelli comprati, se li hai informati e possono dire no in ogni momento.
+60|Sì agli iscritti con consenso e ai clienti per prodotti simili (se informati e senza opposizione). No a liste comprate, indirizzi presi dai social, persone disiscritte.
+61|Le risposte giuste possono essere più di una. Per ognuna chiediti: questa persona ci ha detto di sì, oppure è già nostra cliente ed è stata informata? Se l'indirizzo arriva da altri, da un social o da qualcuno che ha detto di no, non si può scrivere.
+62|Una cliente che ha comprato candele può ricevere un'email su candele simili, se era stata informata e non si è opposta. Chi si è disiscritto non va ricontattato, nemmeno "un'ultima volta".
+63|Prepara le email del carrello
+64|Scegli come funzionano le email automatiche per chi abbandona il carrello.
+65|Quando parte la prima email?
+66|Dopo 10 secondi
+67|Dopo 1-3 ore
+68|Dopo 2 settimane
+69|Quante email al massimo?
+70|Cosa c'è nella prima email?
+71|Uno sconto del 50% subito
+72|Un promemoria con i prodotti nel carrello
+73|Il catalogo completo
+74|Cosa deve esserci in ogni email?
+75|Il link per disiscriversi
+76|Un conto alla rovescia finto
+77|Niente di obbligatorio
+78|Il momento giusto: dopo 1-3 ore
+79|Subito è invadente, dopo settimane la persona se n'è dimenticata.
+80|Poche email: 2-3
+81|Troppe email fanno disiscrivere.
+82|Prima un promemoria, non uno sconto
+83|Uno sconto subito insegna ai clienti ad abbandonare il carrello apposta.
+84|Sempre il link per disiscriversi
+85|È obbligatorio, e un finto conto alla rovescia è una pratica scorretta.
+86|Le email automatiche funzionano quando sono utili e rispettose. Urgenze finte, come i conti alla rovescia che ripartono, sono pratiche commerciali scorrette.
+87|Prima email dopo 1-3 ore con un promemoria dei prodotti, massimo 2-3 email, sempre il link per disiscriversi.
+88|Pensa a chi ha lasciato il carrello: una piccola dimenticanza va ricordata presto, prima che la persona si dimentichi del tutto. Troppe email diventano fastidio. Il link per disiscriversi è obbligatorio in ogni email, non solo nell'ultima.
+89|Dopo 2 ore: "Hai lasciato la candela alla vaniglia nel carrello". Dopo un giorno, se serve, un secondo promemoria. Basta così.
+90|Quanto possiamo recuperare?
+91|Con i dati della scheda, fai una stima.
+92|Carrelli recuperati al mese (10 su 100)
+93|Incasso recuperato al mese (ordini × 24 €)
+94|Tasso di apertura dell'ultima newsletter
+95|Carrelli recuperati: 32
+96|10 su 100: quanti su 320?
+97|Incasso recuperato: 768 €
+98|32 × 24 €.
+99|Tasso di apertura: 30%
+100|2.100 aperte ÷ 7.000 inviate × 100.
+101|Fare una stima prima di iniziare aiuta a decidere se un'attività vale il tempo. Il tasso di apertura è indicativo: alcuni programmi di posta lo gonfiano o lo nascondono.
+102|32 carrelli recuperati, 768 € al mese. Tasso di apertura 30%.
+103|Fai i conti in ordine: carrelli recuperati = carrelli abbandonati ÷ 100 × quanti se ne recuperano ogni 100. Incasso = carrelli recuperati × valore medio. Il tasso di apertura è aperte ÷ inviate × 100.
+104|200 carrelli, 15 ogni 100: 200 ÷ 100 × 15 = 30. Con un valore medio di 30 €: 900 €. 1.000 aperte su 5.000: 20%.
+105|Come divido i clienti?
+106|Guarda quante volte hanno comprato e quanto tempo fa. Pochi ordini e recenti: nuovi. Tanti e recenti: fedeli. Fermi da molti mesi: inattivi.
+107|Quando posso scrivere a qualcuno?
+108|Quando ha dato il consenso, oppure è già cliente e scrivi per prodotti simili, l'hai informato e non si è opposto. Mai a liste comprate.
+109|Segmentazione: dividere i clienti in gruppi. Consenso: il sì esplicito a ricevere email. Email automatica: parte da sola dopo un'azione (es. carrello abbandonato). Tasso di apertura: email aperte su email inviate.
+110|Gruppi diversi ricevono messaggi diversi.
+111|Senza consenso (o l'eccezione per i clienti) non si scrive a nessuno.
+112|Le email automatiche funzionano se sono poche, utili e al momento giusto.
+113|Saprei spiegare perché si dividono i clienti in gruppi.
+114|Ho capito a chi si può mandare un'email promozionale e a chi no.
+115|Saprei spiegare perché la prima email non deve avere uno sconto.
+116|Ho fatto la stima da sola o da solo.
+117|Ottimo, 768 € al mese non sono pochi! Imposto le due email e cancello quella lista che qualcuno voleva comprare.
+118|consenso e GDPR
+119|email automatiche
+120|stimare i risultati
+121|Il CRM (Customer Relationship Management) è il lavoro di gestire il rapporto con chi è già cliente o iscritto: dividere le persone in gruppi, scrivere al momento giusto con il messaggio giusto e misurare i risultati. Tutto con il consenso delle persone, come chiede il GDPR.
+122|Segmentazione
+123|Vuol dire dividere i clienti in gruppi simili, per scrivere a ognuno il messaggio adatto. Un modo semplice guarda quanti ordini ha fatto la persona e quanto tempo è passato dall'ultimo: nuovi, fedeli, inattivi.
+124|Un negozio di candele: Elisa ha comprato una volta ieri (nuova); Tommaso compra ogni mese (fedele); Rita non compra da più di un anno (inattiva).
+125|Consenso e regole
+126|Per mandare email promozionali serve il consenso della persona. C'è un'eccezione: a chi ha già comprato si possono proporre prodotti simili, se è stato informato e non si è opposto. Mai liste comprate, mai indirizzi presi dai social, mai scrivere a chi si è disiscritto.
+127|Il negozio di candele può scrivere a chi si è iscritto alla newsletter; non può usare le email lasciate da un'altra azienda.
+128|Email automatiche
+129|Partono da sole dopo un'azione della persona, per esempio un carrello lasciato a metà. Funzionano se arrivano presto, sono poche e ricordano cosa c'era nel carrello. Ogni email deve avere il link per disiscriversi.
+130|Carrello di candele abbandonato: promemoria dopo 2 ore, eventualmente un secondo dopo un giorno, poi basta.
+131|I numeri del CRM
+132|Il tasso di apertura è email aperte ÷ email inviate. Per stimare quanto si recupera dai carrelli: carrelli abbandonati × percentuale recuperata, poi × valore medio del carrello.
+133|5.000 email inviate, 1.000 aperte: 20%. 200 carrelli, 15 su 100 recuperati = 30, da 30 € l'uno = 900 €.
+134|Dividi cinque clienti in nuovi, fedeli e inattivi
+135|Decidi a chi si può scrivere secondo le regole
+136|Imposti le email per i carrelli abbandonati
+137|Stimi quanto si può recuperare in un mese

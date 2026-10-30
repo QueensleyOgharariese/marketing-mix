@@ -1,13 +1,15 @@
 ---
 // "PRIMA DI RISPONDERE": la spiegazione che sta sopra ogni domanda (come si ragiona + un esempio diverso dall'esercizio)
 import type { Spiega } from "../../scripts/esercizi";
+import { testiDa } from "../../i18n";
+const L = testiDa(Astro.url);
 interface Props { spiega: Spiega }
 const { spiega } = Astro.props;
 ---
 <div class="spiega">
-  <h3>Prima di rispondere</h3>
+  <h3>{L("Prima di rispondere", "Before you answer")}</h3>
   <p>{spiega.testo}</p>
-  {spiega.esempio && <p class="esempio"><strong>Per esempio</strong>{spiega.esempio}</p>}
+  {spiega.esempio && <p class="esempio"><strong>{L("Per esempio", "For example")}</strong>{spiega.esempio}</p>}
 </div>
 
 <style>

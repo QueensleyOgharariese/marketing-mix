@@ -4,6 +4,8 @@
 // Usa l'elemento <dialog> del browser: tiene il focus dentro la finestra e si chiude con Esc.
 // "zona" evidenzia una parte dello schema: "sinistra", "centro", "destra" oppure "tutto".
 import Pesca from "./Pesca.astro";
+import { testiDa } from "../i18n";
+const L = testiDa(Astro.url);
 
 interface Passo { titolo: string; testo: string; zona: "sinistra" | "centro" | "destra" | "tutto"; }
 interface Props { chiave: string; passi: Passo[]; }
@@ -13,7 +15,7 @@ const { chiave, passi } = Astro.props;
   <div class="guida-corpo">
     <div class="guida-testa">
       <Pesca dimensione={56} occhiali />
-      <span class="guida-conta" data-guida-conta aria-live="polite">1 di {passi.length}</span>
+      <span class="guida-conta" data-guida-conta aria-live="polite">{L("1 di", "1 of")} {passi.length}</span>
     </div>
     {passi.map((p, i) => (
       <section class="passo" data-passo={i} hidden={i !== 0}>
@@ -27,16 +29,17 @@ const { chiave, passi } = Astro.props;
       </section>
     ))}
     <div class="guida-piede">
-      <button type="button" class="salta" data-guida-salta>Salta la guida</button>
+      <button type="button" class="salta" data-guida-salta>{L("Salta la guida", "Skip the guide")}</button>
       <div class="frecce">
-        <button type="button" class="bottone-app bottone-app--chiaro" data-guida-indietro disabled>Indietro</button>
-        <button type="button" class="bottone-app" data-guida-avanti>Avanti</button>
+        <button type="button" class="bottone-app bottone-app--chiaro" data-guida-indietro disabled>{L("Indietro", "Back")}</button>
+        <button type="button" class="bottone-app" data-guida-avanti>{L("Avanti", "Next")}</button>
       </div>
     </div>
   </div>
 </dialog>
 
 <script>
+  import { t } from "../scripts/lingua";
   document.querySelectorAll<HTMLDialogElement>("dialog[data-guida]").forEach((d) => {
     const chiave = `marketing-mix-guida-${d.dataset.guida}`;
     const passi = [...d.querySelectorAll<HTMLElement>("[data-passo]")];
@@ -48,9 +51,9 @@ const { chiave, passi } = Astro.props;
     function mostra(n: number) {
       ora = n;
       passi.forEach((p, i) => (p.hidden = i !== n));
-      conta.textContent = `${n + 1} di ${passi.length}`;
+      conta.textContent = `${n + 1} ${t("di", "of")} ${passi.length}`;
       indietro.disabled = n === 0;
-      avanti.textContent = n === passi.length - 1 ? "Inizia l'esercizio" : "Avanti";
+      avanti.textContent = n === passi.length - 1 ? t("Inizia l'esercizio", "Start the exercise") : t("Avanti", "Next");
     }
     function chiudi() {
       try { localStorage.setItem(chiave, "vista"); } catch (e) { /* non disponibile */ }

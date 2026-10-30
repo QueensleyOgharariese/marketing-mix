@@ -1,0 +1,132 @@
+1|Brand manager
+2|Esercizio 1 · Il tono di voce di Cinque Foglie
+3|Marta
+4|Fondatrice
+5|Il nostro tono di voce
+6|Ciao! Ognuno di noi scrive in modo diverso su sito, social e newsletter. Mi aiuti a capire quali frasi sono "da Cinque Foglie", a scegliere i nostri valori e a sistemare un paio di regole di stile?
+7|Chi è Cinque Foglie
+8|Missione
+9|Far scoprire il tè di qualità, con calma e gentilezza
+10|Clienti
+11|Persone di 25-45 anni che amano i piccoli rituali
+12|Fatti
+13|Foglie intere, confezioni compostabili, spedizione in 24 ore
+14|Personalità
+15|Gentile, chiara, competente, mai invadente
+16|Colore principale
+17|Arancione #ff7a1a
+18|Testo
+19|Marrone scuro #2a1d18
+20|Un tono di voce si riconosce anche senza logo: chiediti se ogni frase "suona" come Cinque Foglie.
+21|tono di voce
+22|valori del brand
+23|coerenza
+24|contrasto
+25|È una frase da Cinque Foglie?
+26|Per ogni frase scegli se è in linea con la personalità del brand.
+27|In linea
+28|Fuori tono
+29|Prenditi una pausa: il tuo Sencha ti aspetta.
+30|Ti spieghiamo come prepararlo, passo per passo.
+31|ULTIME ORE!!! Compra subito o te ne pentirai
+32|Il tè che ti cambia la vita
+33|Siamo i numeri uno, gli altri ci copiano
+34|Frasi gentili e chiare riconosciute
+35|Le frasi calme e utili sono proprio da Cinque Foglie.
+36|Pressione e urgenza riconosciute
+37|Maiuscole, punti esclamativi e minacce non sono "mai invadenti".
+38|Promesse esagerate riconosciute
+39|Un tè non cambia la vita: è un'esagerazione.
+40|Attacchi ai concorrenti riconosciuti
+41|Vantarsi a spese degli altri non è gentile.
+42|Un tono di voce coerente rende il brand riconoscibile ovunque. Le scritte urgenti false o le esagerazioni fanno perdere fiducia, e alcune pratiche aggressive sono vietate dal Codice del consumo.
+43|In linea: "Prenditi una pausa...", "Ti spieghiamo come prepararlo...". Fuori tono: le altre tre.
+44|Rileggi la personalità nella scheda (gentile, chiara, competente, mai invadente). Per ogni frase chiediti: la direbbe una persona così? Urlare, mettere fretta, esagerare o vantarsi sono segnali di una frase fuori tono.
+45|Per la libreria gentile: "Ti aspettiamo per due chiacchiere sui libri" è in linea; "SOLO OGGI O MAI PIÙ!" mette fretta ed è fuori tono.
+46|Scegli i tre valori del brand
+47|Quale gruppo di valori descrive meglio Cinque Foglie, guardando la scheda?
+48|Calma, qualità, rispetto per l'ambiente
+49|Velocità, convenienza, offerte continue
+50|Innovazione, tecnologia, futuro
+51|Qualità, passione, eccellenza
+52|Coerenti con la missione
+53|Rileggi la missione: calma e gentilezza.
+54|Dimostrati da fatti veri
+55|Un valore è credibile se un fatto lo dimostra (es. le confezioni compostabili).
+56|Distintivi, non generici
+57|"Qualità e passione" li dicono tutti: cosa ci rende diversi?
+58|I valori di un brand devono essere veri e dimostrabili. Dire di essere "green" senza prove è greenwashing, e la Direttiva UE 2024/825 vieta le dichiarazioni ambientali generiche senza prove.
+59|Calma, qualità, rispetto per l'ambiente: nascono dalla missione e sono dimostrati da foglie intere e confezioni compostabili.
+60|Un valore buono nasce dalla missione e si può dimostrare con un fatto della scheda. Scarta i gruppi che parlano d'altro (velocità, tecnologia) e quelli troppo generici, che andrebbero bene per qualsiasi azienda.
+61|"Qualità, passione, eccellenza" potrebbe dirlo anche un'officina o una banca: non racconta niente di specifico.
+62|Sistema le regole di stile
+63|Scegli le regole giuste per la guida del brand.
+64|Colore del testo sul bottone arancione
+65|Bianco
+66|Arancione chiaro
+67|Misura minima del testo sul sito
+68|10 px
+69|12 px
+70|16 px
+71|Logo sopra una foto piena di dettagli
+72|Direttamente sulla foto
+73|Su un riquadro chiaro
+74|Allungato per riempire lo spazio
+75|Testo leggibile sul bottone (contrasto 4,5:1)
+76|Il bianco sull'arancione ha contrasto 2,6:1: troppo poco. Il marrone scuro arriva a circa 6:1.
+77|Testo abbastanza grande
+78|Sotto i 16 px il testo dei paragrafi si legge male, soprattutto su telefono.
+79|Logo sempre leggibile e non deformato
+80|Il logo non si deforma mai e ha bisogno di uno sfondo calmo.
+81|Un brand coerente è anche accessibile: le linee guida WCAG chiedono un contrasto di almeno 4,5:1 per il testo normale. Dal 2025, con l'European Accessibility Act, molti negozi online nell'UE devono essere accessibili.
+82|Testo marrone scuro sul bottone arancione, testo di almeno 16 px, logo su un riquadro chiaro e mai deformato.
+83|Per ogni regola pensa a chi legge: il testo sul bottone si deve leggere bene (contrasto alto), il testo del sito non deve essere troppo piccolo, il logo deve restare riconoscibile, quindi mai deformato e mai su uno sfondo confuso.
+84|Un bottone giallo con il testo bianco ha poco contrasto; con il testo scuro si legge molto meglio.
+85|Rispondi a una cliente arrabbiata
+86|Sotto un post una cliente scrive: "Il pacco è arrivato con 3 giorni di ritardo, non ordino più!". Quale risposta pubblichi?
+87|Ciao Giulia, hai ragione e ci dispiace davvero. Ti scriviamo in privato per capire cos'è successo e rimediare.
+88|Il ritardo non dipende da noi ma dal corriere. Spediamo sempre in 24 ore.
+89|Ops! Il tè era così buono che il corriere se l'è bevuto per strada, ahah!
+90|Gentile cliente, la sua segnalazione è stata presa in carico. Cordiali saluti.
+91|Gentile e senza scuse di comodo
+92|Prima si riconosce il problema, senza dare la colpa ad altri.
+93|Propone una soluzione concreta
+94|Cosa farete per rimediare?
+95|Nel tono di Cinque Foglie
+96|Né battute né frasi da modulo: calda e chiara.
+97|Le risposte ai commenti sono pubbliche: le leggono tutti. Una risposta gentile e concreta può trasformare una critica in fiducia.
+98|La prima: riconosce il problema, si scusa e propone di rimediare in privato.
+99|Una buona risposta pubblica fa tre cose: dà ragione su ciò che è andato storto, si scusa senza giri di parole e porta la conversazione in privato per risolvere. Evita le risposte che scaricano la colpa, quelle che scherzano e quelle fredde da modulo.
+100|"Ciao Marco, hai ragione, ci dispiace. Ti scriviamo in privato per sistemare subito" è calda e concreta; "La sua richiesta è stata inoltrata" sembra un robot.
+101|Come riconosco una frase fuori tono?
+102|Confrontala con la personalità nella scheda: gentile, chiara, competente, mai invadente. Se mette fretta, esagera o attacca qualcuno, è fuori tono.
+103|Cos'è il contrasto?
+104|La differenza di luminosità tra testo e sfondo. Più è alta, più si legge bene. Per il testo normale serve almeno 4,5:1.
+105|Tono di voce: il modo in cui un brand parla. Valori: le cose in cui crede, dimostrate dai fatti. Contrasto: quanto il testo si distingue dallo sfondo.
+106|Il tono di voce nasce dalla personalità del brand, non dai gusti di chi scrive.
+107|I valori devono essere veri, dimostrabili e distintivi.
+108|Le regole di stile servono anche a rendere il brand accessibile a tutte le persone.
+109|Saprei spiegare perché una frase è fuori tono.
+110|Ho capito perché i valori devono essere dimostrati dai fatti.
+111|Ho capito a cosa serve il contrasto tra testo e sfondo.
+112|Saprei rispondere a una critica restando nel tono del brand.
+113|Perfetto, ora abbiamo una base comune. Metto le regole nella guida del brand e la mando a tutto il team.
+114|valori dimostrabili
+115|contrasto e accessibilità
+116|risposte alle critiche
+117|Il brand è l'idea che le persone si fanno di un'azienda: non solo il logo, ma come parla, in cosa crede e come si comporta. Chi fa il brand manager scrive le regole per tenere tutto coerente, così che un post, una email o una risposta a un cliente sembrino scritti dalla stessa persona.
+118|Tono di voce
+119|È il modo in cui il brand parla: formale o amichevole, calmo o urlato, tecnico o semplice. Si ricava dalla personalità del brand e va usato ovunque, dal sito ai commenti.
+120|Una libreria di quartiere gentile e appassionata scrive "Ti consigliamo un giallo per la pioggia di stasera", non "OFFERTA BOMBA SUI LIBRI!!!".
+121|Valori
+122|Sono le cose in cui il brand crede. Valgono solo se i fatti li dimostrano: dire "sostenibili" senza esserlo è ingannevole. Parole generiche come "eccellenza" o "passione" le usano tutti e non distinguono nessuno.
+123|La libreria che organizza letture gratuite per bambini può dire che crede nella cultura per tutti: c'è un fatto che lo dimostra.
+124|Regole visive
+125|Colori, caratteri e logo hanno regole precise. Una regola importante è il contrasto: il testo deve staccarsi bene dallo sfondo, altrimenti molte persone non riescono a leggerlo (le linee guida di accessibilità chiedono almeno 4,5 a 1 per il testo normale).
+126|Testo grigio chiaro su fondo bianco è elegante ma si legge male; testo quasi nero su bianco si legge sempre.
+127|Il brand nei momenti difficili
+128|Il tono si vede soprattutto quando qualcosa va storto. Una buona risposta riconosce il problema, si scusa davvero e propone una soluzione, senza scaricare la colpa e senza scherzare su un disagio.
+129|Un libro arriva rovinato: "Ci dispiace, ti mandiamo una copia nuova oggi stesso" funziona; "Sarà colpa del corriere" no.
+130|Riconosci quali frasi suonano come Cinque Foglie
+131|Sistemi alcune regole visive della guida
+132|Rispondi a una cliente arrabbiata con il tono giusto

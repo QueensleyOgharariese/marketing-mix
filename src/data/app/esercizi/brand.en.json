@@ -1,0 +1,437 @@
+{
+ "_nota": "Esercizio Brand 1. La guida del brand e i commenti sono inventati.",
+ "id": "brand",
+ "ruolo": "Brand manager",
+ "titolo": "Exercise 1 · Cinque Foglie's tone of voice",
+ "minuti": 20,
+ "richiesta": {
+  "da": "MR",
+  "nome": "Marta",
+  "ruolo": "Founder",
+  "quando": "ieri alle 11:05",
+  "oggetto": "Our tone of voice",
+  "testo": "Hi! Each of us writes differently on the website, social media and newsletter. Can you help me work out which sentences are \"very Cinque Foglie\", choose our values and fix a couple of style rules?"
+ },
+ "scheda": {
+  "titolo": "Who Cinque Foglie is",
+  "voci": [
+   [
+    "Mission",
+    "Helping people discover quality tea, calmly and kindly"
+   ],
+   [
+    "Customers",
+    "People aged 25-45 who love small rituals"
+   ],
+   [
+    "Facts",
+    "Whole leaves, compostable packaging, 24-hour shipping"
+   ],
+   [
+    "Personality",
+    "Kind, clear, expert, never pushy"
+   ],
+   [
+    "Main colour",
+    "Orange #ff7a1a"
+   ],
+   [
+    "Text",
+    "Dark brown #2a1d18"
+   ]
+  ]
+ },
+ "consiglio": "A tone of voice is recognisable even without a logo: ask yourself whether each sentence \"sounds\" like Cinque Foglie.",
+ "parole": [
+  "tone of voice",
+  "brand values",
+  "consistency",
+  "contrast"
+ ],
+ "parti": [
+  {
+   "id": "frasi",
+   "tipo": "classifica",
+   "titolo": "Is it a Cinque Foglie sentence?",
+   "testo": "For each sentence choose whether it fits the brand's personality.",
+   "colonne": [
+    {
+     "id": "si",
+     "nome": "On brand"
+    },
+    {
+     "id": "no",
+     "nome": "Off tone"
+    }
+   ],
+   "righe": [
+    {
+     "id": "f1",
+     "testo": "Take a break: your Sencha is waiting for you.",
+     "giusti": [
+      "si"
+     ]
+    },
+    {
+     "id": "f2",
+     "testo": "We'll show you how to brew it, step by step.",
+     "giusti": [
+      "si"
+     ]
+    },
+    {
+     "id": "f3",
+     "testo": "LAST HOURS!!! Buy now or you'll regret it",
+     "giusti": [
+      "no"
+     ]
+    },
+    {
+     "id": "f4",
+     "testo": "The tea that will change your life",
+     "giusti": [
+      "no"
+     ]
+    },
+    {
+     "id": "f5",
+     "testo": "We're number one, the others copy us",
+     "giusti": [
+      "no"
+     ]
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "Kind, clear sentences recognised",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "f1",
+       "f2"
+      ]
+     },
+     "suggerimento": "Calm, useful sentences are exactly Cinque Foglie."
+    },
+    {
+     "nome": "Pressure and urgency recognised",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "f3"
+      ]
+     },
+     "suggerimento": "Capitals, exclamation marks and threats aren't \"never pushy\"."
+    },
+    {
+     "nome": "Exaggerated promises recognised",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "f4"
+      ]
+     },
+     "suggerimento": "A tea doesn't change your life: it's an exaggeration."
+    },
+    {
+     "nome": "Attacks on competitors recognised",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "f5"
+      ]
+     },
+     "suggerimento": "Boasting at others' expense isn't kind."
+    }
+   ],
+   "perche": "A consistent tone of voice makes the brand recognisable everywhere. False urgency or exaggeration loses trust, and some aggressive practices are banned by consumer protection law.",
+   "soluzione": "On brand: \"Take a break...\", \"We'll show you how to brew it...\". Off tone: the other three.",
+   "spiega": {
+    "testo": "Reread the personality on the card (kind, clear, expert, never pushy). For each sentence ask yourself: would a person like that say it? Shouting, rushing people, exaggerating or boasting are signs of an off-tone sentence.",
+    "esempio": "For the friendly bookshop: \"Come by for a chat about books\" is on brand; \"TODAY ONLY OR NEVER AGAIN!\" rushes people and is off tone."
+   }
+  },
+  {
+   "id": "valori",
+   "tipo": "scelta",
+   "titolo": "Choose the three brand values",
+   "testo": "Which group of values best describes Cinque Foglie, looking at the card?",
+   "opzioni": [
+    {
+     "id": "v1",
+     "testo": "Calm, quality, respect for the environment",
+     "ok": {
+      "missione": true,
+      "fatti": true,
+      "distintivo": true
+     }
+    },
+    {
+     "id": "v2",
+     "testo": "Speed, value for money, constant deals",
+     "ok": {
+      "missione": false,
+      "fatti": false,
+      "distintivo": false
+     }
+    },
+    {
+     "id": "v3",
+     "testo": "Innovation, technology, the future",
+     "ok": {
+      "missione": false,
+      "fatti": false,
+      "distintivo": true
+     }
+    },
+    {
+     "id": "v4",
+     "testo": "Quality, passion, excellence",
+     "ok": {
+      "missione": true,
+      "fatti": false,
+      "distintivo": false
+     }
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "Consistent with the mission",
+     "regola": {
+      "tipo": "opzione",
+      "chiave": "missione"
+     },
+     "suggerimento": "Reread the mission: calm and kindness."
+    },
+    {
+     "nome": "Proven by real facts",
+     "regola": {
+      "tipo": "opzione",
+      "chiave": "fatti"
+     },
+     "suggerimento": "A value is credible if a fact proves it (e.g. the compostable packaging)."
+    },
+    {
+     "nome": "Distinctive, not generic",
+     "regola": {
+      "tipo": "opzione",
+      "chiave": "distintivo"
+     },
+     "suggerimento": "Everyone says \"quality and passion\": what makes us different?"
+    }
+   ],
+   "perche": "A brand's values must be true and provable. Claiming to be \"green\" without proof is greenwashing, and EU Directive 2024/825 bans generic environmental claims without proof.",
+   "soluzione": "Calm, quality, respect for the environment: they come from the mission and are proven by whole leaves and compostable packaging.",
+   "spiega": {
+    "testo": "A good value comes from the mission and can be proven with a fact from the card. Discard the groups about something else (speed, technology) and the ones too generic, which would suit any company.",
+    "esempio": "\"Quality, passion, excellence\" could be said by a garage or a bank: it says nothing specific."
+   }
+  },
+  {
+   "id": "stile",
+   "tipo": "menu",
+   "titolo": "Fix the style rules",
+   "testo": "Choose the right rules for the brand guidelines.",
+   "campi": [
+    {
+     "id": "testo-bottone",
+     "etichetta": "Text colour on the orange button",
+     "opzioni": [
+      "White",
+      "Dark brown #2a1d18",
+      "Light orange"
+     ]
+    },
+    {
+     "id": "misura",
+     "etichetta": "Minimum text size on the website",
+     "opzioni": [
+      "10 px",
+      "12 px",
+      "16 px"
+     ]
+    },
+    {
+     "id": "logo",
+     "etichetta": "Logo over a busy photo",
+     "opzioni": [
+      "Directly on the photo",
+      "On a light box",
+      "Stretched to fill the space"
+     ]
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "Readable text on the button (contrast 4.5:1)",
+     "regola": {
+      "tipo": "menu",
+      "campo": "testo-bottone",
+      "valore": "Dark brown #2a1d18"
+     },
+     "suggerimento": "White on orange has a contrast of 2.6:1: too low. Dark brown reaches about 6:1."
+    },
+    {
+     "nome": "Text large enough",
+     "regola": {
+      "tipo": "menu",
+      "campo": "misura",
+      "valore": "16 px"
+     },
+     "suggerimento": "Below 16 px, paragraph text is hard to read, especially on a phone."
+    },
+    {
+     "nome": "Logo always readable and never distorted",
+     "regola": {
+      "tipo": "menu",
+      "campo": "logo",
+      "valore": "On a light box"
+     },
+     "suggerimento": "The logo is never distorted and needs a calm background."
+    }
+   ],
+   "perche": "A consistent brand is also accessible: the WCAG guidelines ask for a contrast of at least 4.5:1 for normal text. Since 2025, with the European Accessibility Act, many online shops in the EU must be accessible.",
+   "soluzione": "Dark brown text on the orange button, text at least 16 px, logo on a light box and never distorted.",
+   "spiega": {
+    "testo": "For each rule think about the reader: the text on the button must be easy to read (high contrast), the website text mustn't be too small, the logo must stay recognisable, so never distorted and never on a busy background.",
+    "esempio": "A yellow button with white text has little contrast; with dark text it's much easier to read."
+   }
+  },
+  {
+   "id": "commento",
+   "tipo": "scelta",
+   "titolo": "Reply to an angry customer",
+   "testo": "Under a post a customer writes: \"The parcel arrived 3 days late, I'm never ordering again!\". Which reply do you publish?",
+   "opzioni": [
+    {
+     "id": "c1",
+     "testo": "Hi Giulia, you're right and we're really sorry. We'll message you privately to find out what happened and make it right.",
+     "ok": {
+      "gentile": true,
+      "concreta": true,
+      "tono": true
+     }
+    },
+    {
+     "id": "c2",
+     "testo": "The delay isn't our fault, it's the courier's. We always ship within 24 hours.",
+     "ok": {
+      "gentile": false,
+      "concreta": false,
+      "tono": false
+     }
+    },
+    {
+     "id": "c3",
+     "testo": "Oops! The tea was so good the courier drank it on the way, haha!",
+     "ok": {
+      "gentile": false,
+      "concreta": false,
+      "tono": false
+     }
+    },
+    {
+     "id": "c4",
+     "testo": "Dear customer, your report has been received. Kind regards.",
+     "ok": {
+      "gentile": true,
+      "concreta": false,
+      "tono": false
+     }
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "Kind and without convenient excuses",
+     "regola": {
+      "tipo": "opzione",
+      "chiave": "gentile"
+     },
+     "suggerimento": "First you acknowledge the problem, without blaming others."
+    },
+    {
+     "nome": "Offers a concrete solution",
+     "regola": {
+      "tipo": "opzione",
+      "chiave": "concreta"
+     },
+     "suggerimento": "What will you do to make it right?"
+    },
+    {
+     "nome": "In Cinque Foglie's tone",
+     "regola": {
+      "tipo": "opzione",
+      "chiave": "tono"
+     },
+     "suggerimento": "Neither jokes nor form-letter phrases: warm and clear."
+    }
+   ],
+   "perche": "Replies to comments are public: everyone reads them. A kind, concrete reply can turn criticism into trust.",
+   "soluzione": "The first: it acknowledges the problem, apologises and offers to make it right privately.",
+   "spiega": {
+    "testo": "A good public reply does three things: it admits what went wrong, apologises plainly and moves the conversation to private messages to solve it. Avoid replies that shift the blame, ones that joke and cold form-letter ones.",
+    "esempio": "\"Hi Marco, you're right, we're sorry. We'll message you privately to sort it out straight away\" is warm and concrete; \"Your request has been forwarded\" sounds like a robot."
+   }
+  }
+ ],
+ "aiuti": [
+  {
+   "titolo": "How do I recognise an off-tone sentence?",
+   "testo": "Compare it with the personality on the card: kind, clear, expert, never pushy. If it rushes people, exaggerates or attacks someone, it's off tone."
+  },
+  {
+   "titolo": "What is contrast?",
+   "testo": "The difference in brightness between text and background. The higher it is, the easier it is to read. Normal text needs at least 4.5:1."
+  }
+ ],
+ "glossario": "Tone of voice: the way a brand speaks. Values: the things it believes in, proven by facts. Contrast: how much the text stands out from the background.",
+ "note": [
+  "The tone of voice comes from the brand's personality, not from the writer's taste.",
+  "Values must be true, provable and distinctive.",
+  "Style rules also make the brand accessible to everyone."
+ ],
+ "autovalutazione": [
+  "I could explain why a sentence is off tone.",
+  "I understood why values must be proven by facts.",
+  "I understood what contrast between text and background is for.",
+  "I could reply to criticism while staying in the brand's tone."
+ ],
+ "rispostaCollega": "Perfect, now we have common ground. I'll put the rules in the brand guidelines and send them to the whole team.",
+ "imparato": [
+  "tone of voice",
+  "provable values",
+  "contrast and accessibility",
+  "replying to criticism"
+ ],
+ "lezione": {
+  "intro": "A brand is the idea people form of a company: not just the logo, but how it speaks, what it believes in and how it behaves. A brand manager writes the rules that keep everything consistent, so that a post, an email or a reply to a customer seem written by the same person.",
+  "concetti": [
+   {
+    "nome": "Tone of voice",
+    "spiegazione": "It's the way the brand speaks: formal or friendly, calm or shouted, technical or simple. It comes from the brand's personality and is used everywhere, from the website to comments.",
+    "esempio": "A kind, passionate neighbourhood bookshop writes \"We recommend a mystery for tonight's rain\", not \"MEGA BOOK DEAL!!!\"."
+   },
+   {
+    "nome": "Values",
+    "spiegazione": "They're the things the brand believes in. They only count if the facts prove them: saying \"sustainable\" without being so is misleading. Generic words like \"excellence\" or \"passion\" are used by everyone and set nobody apart.",
+    "esempio": "The bookshop that runs free readings for children can say it believes in culture for everyone: there's a fact that proves it."
+   },
+   {
+    "nome": "Visual rules",
+    "spiegazione": "Colours, typefaces and logo have precise rules. An important one is contrast: text must stand out clearly from the background, otherwise many people can't read it (accessibility guidelines ask for at least 4.5 to 1 for normal text).",
+    "esempio": "Light grey text on a white background is elegant but hard to read; almost-black text on white is always readable."
+   },
+   {
+    "nome": "The brand in difficult moments",
+    "spiegazione": "Tone shows most when something goes wrong. A good reply acknowledges the problem, genuinely apologises and offers a solution, without shifting the blame and without joking about an inconvenience.",
+    "esempio": "A book arrives damaged: \"We're sorry, we'll send you a new copy today\" works; \"It must be the courier's fault\" doesn't."
+   }
+  ],
+  "cosaFarai": [
+   "Recognise which sentences sound like Cinque Foglie",
+   "Choose the three brand values",
+   "Fix some visual rules in the guidelines",
+   "Reply to an angry customer in the right tone"
+  ]
+ }
+}

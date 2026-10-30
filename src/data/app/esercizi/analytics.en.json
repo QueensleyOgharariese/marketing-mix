@@ -1,0 +1,474 @@
+{
+ "_nota": "Esercizio Marketing analytics / martech 1. Visite, ordini e valori tipici sono inventati.",
+ "id": "analytics",
+ "ruolo": "Marketing analytics / martech",
+ "titolo": "Exercise 1 · Where do sales come from?",
+ "minuti": 20,
+ "richiesta": {
+  "da": "LB",
+  "nome": "Luca",
+  "ruolo": "E-commerce",
+  "quando": "lunedì alle 9:05",
+  "oggetto": "The data makes no sense",
+  "testo": "Hi! I'm looking at the website data and I can't tell where sales come from, or where we lose customers. And someone says the cookie banner isn't right. Can you help me sort it out?"
+ },
+ "scheda": {
+  "titolo": "This month's data",
+  "voci": [
+   [
+    "Visits to the Evening Herbal Teas page",
+    "10,000"
+   ],
+   [
+    "Added to cart",
+    "800 (typical: 6-10 per 100 visits)"
+   ],
+   [
+    "Checkouts started",
+    "600 (typical: 60-80 per 100 carts)"
+   ],
+   [
+    "Orders completed",
+    "150 (typical: 50-70 per 100 checkouts started)"
+   ],
+   [
+    "Shipping",
+    "The cost only appears at the last step of checkout"
+   ],
+   [
+    "October newsletter",
+    "The link has no UTM parameters: the visits can't be told apart"
+   ],
+   [
+    "Today's cookie banner",
+    "Only the \"Accept\" button; \"Reject\" is on a second page"
+   ]
+  ]
+ },
+ "consiglio": "Data is for making decisions: first you collect it properly (and legally), then you read it step by step.",
+ "parole": [
+  "channel",
+  "UTM",
+  "funnel",
+  "conversion rate",
+  "cookie consent"
+ ],
+ "parti": [
+  {
+   "id": "canali",
+   "tipo": "classifica",
+   "titolo": "Which channel does it come from?",
+   "testo": "Every visit comes from a channel. Choose the right one for each.",
+   "colonne": [
+    {
+     "id": "org",
+     "nome": "Organic search"
+    },
+    {
+     "id": "paid",
+     "nome": "Paid"
+    },
+    {
+     "id": "email",
+     "nome": "Email"
+    },
+    {
+     "id": "social",
+     "nome": "Social"
+    }
+   ],
+   "righe": [
+    {
+     "id": "r1",
+     "testo": "Clicks a normal result on Google",
+     "giusti": [
+      "org"
+     ]
+    },
+    {
+     "id": "r2",
+     "testo": "Clicks an ad on Google",
+     "giusti": [
+      "paid"
+     ]
+    },
+    {
+     "id": "r3",
+     "testo": "Clicks the link in the newsletter",
+     "giusti": [
+      "email"
+     ]
+    },
+    {
+     "id": "r4",
+     "testo": "Clicks the link in the bio of our Instagram profile",
+     "giusti": [
+      "social"
+     ]
+    },
+    {
+     "id": "r5",
+     "testo": "Clicks a sponsored post on Instagram",
+     "giusti": [
+      "paid"
+     ]
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "Organic search recognised",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "r1"
+      ]
+     },
+     "suggerimento": "A normal Google result isn't paid for: it's organic traffic (SEO's work)."
+    },
+    {
+     "nome": "Paid traffic recognised",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "r2",
+       "r5"
+      ]
+     },
+     "suggerimento": "Ads and sponsored posts are paid for, even when they're on Instagram."
+    },
+    {
+     "nome": "Email recognised",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "r3"
+      ]
+     },
+     "suggerimento": "The newsletter is the email channel."
+    },
+    {
+     "nome": "Social recognised",
+     "regola": {
+      "tipo": "righe",
+      "righe": [
+       "r4"
+      ]
+     },
+     "suggerimento": "The link in the bio is free social."
+    }
+   ],
+   "perche": "Splitting visits by channel shows what works and where to invest. Careful: the same place (Instagram) can be free social or paid advertising.",
+   "soluzione": "Organic: the normal Google result. Paid: the Google ad and the sponsored post. Email: the newsletter. Social: the link in the bio.",
+   "spiega": {
+    "testo": "For each visit ask yourself two things: where did it start (Google, an email, Instagram)? And was something paid to make it appear (an ad or a sponsored post)? If so, the channel is \"paid\", even if the platform is Google or Instagram.",
+    "esempio": "Candles: a click on a sponsored Instagram post is paid; a click on the bio link of the same profile is social."
+   }
+  },
+  {
+   "id": "utm",
+   "tipo": "scelta",
+   "titolo": "Choose the right link for the newsletter",
+   "testo": "UTM parameters are labels added to a link so analytics tools can tell where a visit comes from. Which link do you use in the next newsletter?",
+   "opzioni": [
+    {
+     "id": "o1",
+     "testo": "cinquefoglie.example/evening-herbal-teas?utm_source=newsletter&utm_medium=email&utm_campaign=herbal-teas-october",
+     "ok": {
+      "fonte": true,
+      "mezzo": true,
+      "campagna": true
+     }
+    },
+    {
+     "id": "o2",
+     "testo": "cinquefoglie.example/evening-herbal-teas?utm_source=newsletter&utm_medium=social&utm_campaign=herbal-teas-october",
+     "ok": {
+      "fonte": true,
+      "mezzo": false,
+      "campagna": true
+     }
+    },
+    {
+     "id": "o3",
+     "testo": "cinquefoglie.example/evening-herbal-teas?utm_source=October Newsletter!!&utm_medium=email&utm_campaign=campaign",
+     "ok": {
+      "fonte": false,
+      "mezzo": true,
+      "campagna": false
+     }
+    },
+    {
+     "id": "o4",
+     "testo": "cinquefoglie.example/evening-herbal-teas",
+     "ok": {
+      "fonte": false,
+      "mezzo": false,
+      "campagna": false
+     }
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "Clear source, always written the same way",
+     "regola": {
+      "tipo": "opzione",
+      "chiave": "fonte"
+     },
+     "suggerimento": "Lowercase, no spaces or exclamation marks: \"newsletter\" and \"October Newsletter!!\" become two different sources."
+    },
+    {
+     "nome": "Right medium: email",
+     "regola": {
+      "tipo": "opzione",
+      "chiave": "mezzo"
+     },
+     "suggerimento": "A newsletter arrives by email, not from social media."
+    },
+    {
+     "nome": "A campaign name that makes sense",
+     "regola": {
+      "tipo": "opzione",
+      "chiave": "campagna"
+     },
+     "suggerimento": "\"campaign\" says nothing: in six months nobody will know what it was."
+    }
+   ],
+   "perche": "Without UTMs, newsletter visits get mixed up with the others. With UTMs always written the same way (lowercase, hyphens, clear names) reports become readable.",
+   "soluzione": "The first: utm_source=newsletter, utm_medium=email, utm_campaign=herbal-teas-october. All lowercase, clear and consistent.",
+   "spiega": {
+    "testo": "A good UTM link has the three main parameters (source, medium, campaign), all lowercase, with clear names that match the ones already used. A link without UTMs, or written differently each time, makes the data confusing.",
+    "esempio": "To the tools, utm_source=newsletter and utm_source=Newsletter are two different sources: the data splits in two."
+   }
+  },
+  {
+   "id": "funnel",
+   "tipo": "menu",
+   "titolo": "Where do we lose customers?",
+   "testo": "The funnel is the steps from visit to order. Using the data card, find the weak point.",
+   "campi": [
+    {
+     "id": "totale",
+     "etichetta": "Overall conversion rate (orders ÷ visits)",
+     "opzioni": [
+      "0.15%",
+      "1.5%",
+      "15%"
+     ]
+    },
+    {
+     "id": "pagamento",
+     "etichetta": "From checkouts started to orders (150 ÷ 600)",
+     "opzioni": [
+      "8%",
+      "25%",
+      "75%"
+     ]
+    },
+    {
+     "id": "debole",
+     "etichetta": "Which step is worse than typical?",
+     "opzioni": [
+      "From visit to cart",
+      "From cart to checkout",
+      "From checkout to order"
+     ]
+    },
+    {
+     "id": "prima",
+     "etichetta": "What do you check first?",
+     "opzioni": [
+      "The shipping cost that only appears at the end",
+      "The colour of the logo",
+      "The number of Instagram followers"
+     ]
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "Overall conversion: 1.5%",
+     "regola": {
+      "tipo": "menu",
+      "campo": "totale",
+      "valore": "1.5%"
+     },
+     "suggerimento": "150 ÷ 10,000 × 100."
+    },
+    {
+     "nome": "From checkout to order: 25%",
+     "regola": {
+      "tipo": "menu",
+      "campo": "pagamento",
+      "valore": "25%"
+     },
+     "suggerimento": "150 ÷ 600 × 100."
+    },
+    {
+     "nome": "Weak step found",
+     "regola": {
+      "tipo": "menu",
+      "campo": "debole",
+      "valore": "From checkout to order"
+     },
+     "suggerimento": "8% and 75% are normal; 25% is well below the typical 50-70%."
+    },
+    {
+     "nome": "Targeted check",
+     "regola": {
+      "tipo": "menu",
+      "campo": "prima",
+      "valore": "The shipping cost that only appears at the end"
+     },
+     "suggerimento": "A cost that appears at the last moment is a common reason for abandoning."
+    }
+   ],
+   "perche": "The funnel is read step by step, comparing each step with typical values. That's how you find where to act, instead of buying more visits that will be lost at the same point.",
+   "soluzione": "Overall conversion 1.5%. From checkout to order only 25%, against a typical 50-70%: that's the weak point. The first thing to check is the shipping cost shown only at the end.",
+   "spiega": {
+    "testo": "Calculate each step by dividing the people who reach the next step by the people at the step before. Compare each result with the typical value on the card: the weak point is the one furthest below average. Then ask yourself what happens at exactly that step.",
+    "esempio": "Candles: 80 orders ÷ 300 checkouts started = 27%, well below the typical 50-70%. What does the person find out when paying? Often the shipping costs."
+   }
+  },
+  {
+   "id": "strumenti",
+   "tipo": "spunte",
+   "titolo": "Fix the tools",
+   "testo": "What do you do to collect data correctly and tidily? Choose all the right things, and only those.",
+   "opzioni": [
+    {
+     "id": "c1",
+     "testo": "A cookie banner with \"Accept\" and \"Reject\" equally visible"
+    },
+    {
+     "id": "c2",
+     "testo": "Start analytics tools and ad pixels only after consent"
+    },
+    {
+     "id": "c3",
+     "testo": "Write the UTM rules in a document shared with the team"
+    },
+    {
+     "id": "c4",
+     "testo": "Leave \"Reject\" hidden on a second page, so more people accept"
+    },
+    {
+     "id": "c5",
+     "testo": "Count scrolling down the page as consent"
+    },
+    {
+     "id": "c6",
+     "testo": "Put customers' names and emails in a sheet open to anyone with the link, so everyone can see the data"
+    }
+   ],
+   "controlli": [
+    {
+     "nome": "Valid cookie consent",
+     "regola": {
+      "tipo": "spunte-tutte",
+      "ids": [
+       "c1",
+       "c2"
+      ]
+     },
+     "suggerimento": "Rejecting must be as easy as accepting, and non-essential tools only start after a yes."
+    },
+    {
+     "nome": "Shared rules for data",
+     "regola": {
+      "tipo": "spunte-tutte",
+      "ids": [
+       "c3"
+      ]
+     },
+     "suggerimento": "If everyone writes UTMs their own way, reports don't add up."
+    },
+    {
+     "nome": "No forced consent",
+     "regola": {
+      "tipo": "spunte-nessuna",
+      "ids": [
+       "c4",
+       "c5"
+      ]
+     },
+     "suggerimento": "For the Italian data protection authority, scrolling isn't consent, and \"Reject\" mustn't be hidden."
+    },
+    {
+     "nome": "Customer data protected",
+     "regola": {
+      "tipo": "spunte-nessuna",
+      "ids": [
+       "c6"
+      ]
+     },
+     "suggerimento": "Personal data must be secure and visible only to those who need it (GDPR, data security)."
+    }
+   ],
+   "perche": "Martech is the set of marketing tools: analytics, CRM, email, advertising. They need to be set up properly and within the rules: in Italy the data protection authority's cookie guidelines (2021) require rejecting to be as easy as accepting, and scrolling not to count as consent.",
+   "soluzione": "A banner with Accept and Reject at the same level, tools started only after consent, shared UTM rules. No hidden Reject, no consent by scrolling, no customer data in open sheets.",
+   "spiega": {
+    "testo": "There can be more than one right answer. Keep the choices that respect consent (equal buttons, tools started only after a yes) and the ones that bring order (shared UTM rules). Discard tricks to make people accept and any unsafe use of data.",
+    "esempio": "A banner with a big orange \"Accept\" and a small grey \"Reject\" pushes people to accept: it's not freely given consent."
+   }
+  }
+ ],
+ "aiuti": [
+  {
+   "titolo": "How do I read the funnel?",
+   "testo": "Divide each step by the step before (carts ÷ visits, checkouts ÷ carts, orders ÷ checkouts) and compare it with the typical value on the card."
+  },
+  {
+   "titolo": "How do you write a UTM?",
+   "testo": "Three labels: source (who sends it: newsletter), medium (the type of channel: email) and campaign (the campaign name). Always lowercase, with hyphens instead of spaces."
+  }
+ ],
+ "glossario": "Channel: where a visit comes from. UTM: labels added to a link to recognise where it comes from. Funnel: the steps from visit to order. Conversion rate: how many take the action out of how many could. Martech: marketing's technology tools.",
+ "note": [
+  "The same place can be a free or a paid channel.",
+  "UTMs always written the same way make reports readable.",
+  "The funnel is read step by step; data is collected only with valid consent."
+ ],
+ "autovalutazione": [
+  "I could tell a free post from a sponsored one among the channels.",
+  "I could write a link with the right UTMs.",
+  "I found the weak step of the funnel on my own.",
+  "I understood what makes a cookie banner valid."
+ ],
+ "rispostaCollega": "Finally it makes sense! I'll put the shipping cost on the product page and fix the cookie banner today.",
+ "imparato": [
+  "traffic channels",
+  "UTM parameters",
+  "reading a funnel",
+  "cookie consent"
+ ],
+ "lezione": {
+  "intro": "People in marketing analytics and martech bring order to data: they understand where visits come from, where customers are lost and which tools to use to measure. All starting from one rule: in the EU, measuring tools that use cookies only start with consent.",
+  "concetti": [
+   {
+    "nome": "Channels",
+    "spiegazione": "Every visit comes from a channel. Organic search: a normal Google result. Paid: an ad or a sponsored post. Email: a link in a newsletter. Social: a link in a post or profile that isn't sponsored.",
+    "esempio": "A candle shop gets visits from Google (organic), from a Google ad (paid) and from the bio link on Instagram (social)."
+   },
+   {
+    "nome": "Links with UTMs",
+    "spiegazione": "UTMs are labels added to the end of a link (utm_source, utm_medium, utm_campaign) that tell analytics tools where a visit comes from. They must always be written the same way, in lowercase, otherwise the data splits.",
+    "esempio": "shop.example/candles?utm_source=newsletter&utm_medium=email&utm_campaign=christmas"
+   },
+   {
+    "nome": "The funnel",
+    "spiegazione": "It's the series of steps from visit to order: visit, cart, checkout, order. For each step you calculate how many move on to the next and compare with typical values: the step well below average is the weak point.",
+    "esempio": "4,000 visits, 400 carts (10%), 300 checkouts (75%), 80 orders: from checkout to order only 27%, against a typical 50-70%."
+   },
+   {
+    "nome": "Consent and tools",
+    "spiegazione": "The cookie banner must show \"Accept\" and \"Reject\" equally, and analytics and advertising tools must only start after a yes. Scrolling the page isn't consent. Customer data must be kept secure.",
+    "esempio": "The candle shop shows both buttons the same; if the person rejects, the ad pixel doesn't start."
+   }
+  ],
+  "cosaFarai": [
+   "Recognise the channel of each visit",
+   "Choose the right UTM link for the newsletter",
+   "Find the weak point of the funnel",
+   "Fix the cookie banner and the rules for the tools"
+  ]
+ }
+}

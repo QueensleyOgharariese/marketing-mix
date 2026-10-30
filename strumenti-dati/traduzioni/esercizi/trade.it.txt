@@ -1,0 +1,140 @@
+1|Trade marketing
+2|Esercizio 1 · Cinque Foglie al supermercato
+3|Giorgio
+4|Vendite e negozi
+5|Siamo arrivati al supermercato!
+6|Ciao! Da un mese il nostro Sencha è in 40 supermercati di una catena del Veneto. Mi aiuti a scegliere dove metterlo sullo scaffale, a leggere i numeri, a preparare una promozione e a capire cosa fare nei negozi dove non vende?
+7|I numeri dei negozi
+8|Prodotto
+9|Sencha biologico, 100 g
+10|Negozi
+11|40 supermercati di una catena del Veneto
+12|Prezzo a scaffale
+13|7,90 € a confezione
+14|Prezzo di cessione
+15|5,50 €: quanto ci paga il supermercato
+16|Prima consegna (sell-in)
+17|12 confezioni per negozio
+18|Vendute ai clienti nel primo mese (sell-out)
+19|300 confezioni in tutto
+20|Attenzione
+21|In 10 negozi le vendite sono quasi zero
+22|Nota
+23|Prezzi senza IVA, per semplicità
+24|Nel trade marketing non basta essere sullo scaffale: conta quanto il prodotto esce dallo scaffale e finisce nel carrello.
+25|scaffale
+26|sell-in
+27|sell-out
+28|buyer
+29|espositore
+30|Dove lo mettiamo?
+31|Il buyer (chi compra i prodotti per la catena) ci propone alcuni posti. Quali scegli e quali eviti?
+32|Da scegliere
+33|Da evitare
+34|Ripiano all'altezza degli occhi, nel reparto tè e tisane
+35|Accanto ai tè bio di altre marche, dove li cerca chi compra bio
+36|Ripiano più basso, vicino al pavimento
+37|In fondo al reparto detersivi, perché c'è spazio libero
+38|Un piccolo espositore vicino alle casse in ottobre, con le Tisane della Sera
+39|Ad altezza occhi, nel reparto giusto
+40|Le persone guardano soprattutto all'altezza degli occhi, e cercano il tè dove ci sono gli altri tè.
+41|Evitato il ripiano più basso
+42|In basso il prodotto si nota poco.
+43|Evitato il reparto sbagliato
+44|Nessuno cerca il tè tra i detersivi.
+45|Usato l'espositore stagionale
+46|Vicino alle casse si compra d'impulso, e a ottobre le tisane sono di stagione.
+47|La posizione sullo scaffale cambia molto le vendite: altezza degli occhi, reparto in cui le persone cercano e spazi extra (espositori) nel momento giusto. Lo spazio si negozia con il buyer.
+48|Sì all'altezza degli occhi, accanto agli altri tè bio, e all'espositore vicino alle casse in ottobre. No al ripiano basso e al reparto detersivi.
+49|Per ogni posto immagina una persona che cerca un tè: lo vede subito? È nel reparto dove lo cercherebbe? È il periodo giusto? Un posto libero ma lontano dal reparto o nascosto in basso non aiuta a vendere.
+50|Marmellata vicino ai detersivi: c'è spazio, ma nessuno ci cerca la colazione.
+51|Leggi i numeri
+52|Con i dati della scheda, fai i conti del primo mese.
+53|Sell-in: confezioni consegnate in tutto (negozi × 12)
+54|Margine del supermercato per confezione (scaffale − cessione)
+55|Vendute ai clienti per negozio al mese (sell-out ÷ negozi)
+56|Cosa conta di più per restare sullo scaffale?
+57|Il sell-out: quanto comprano davvero i clienti
+58|Il sell-in: quanto abbiamo consegnato
+59|Quanto è bella la confezione
+60|Sell-in giusto: 480
+61|40 negozi × 12 confezioni.
+62|Margine del supermercato: 2,40 €
+63|Vendite per negozio: 7,5
+64|300 confezioni ÷ 40 negozi.
+65|Conta il sell-out
+66|Il supermercato tiene i prodotti che i clienti comprano.
+67|Il sell-in è quanto vendiamo al supermercato, il sell-out è quanto il supermercato vende ai clienti. Se il sell-out è basso, il buyer toglie il prodotto e dà lo spazio a un altro.
+68|480 confezioni consegnate, 2,40 € di margine per il supermercato, 7,5 vendute per negozio al mese. Conta il sell-out.
+69|Segui le formule scritte accanto a ogni campo. Sell-in = negozi × confezioni consegnate. Margine del negozio = prezzo a scaffale − prezzo di cessione. Sell-out per negozio = vendute in tutto ÷ numero di negozi.
+70|20 negozi × 10 vasetti = 200. Scaffale 4,50 €, cessione 3,00 €: 1,50 €. 150 venduti ÷ 20 negozi = 7,5.
+71|Scegli la promozione
+72|Il buyer ci chiede una promozione per novembre. Quale proponi?
+73|Per 2 settimane: 2 confezioni a 12 € invece di 15,80 €, con un cartello chiaro a scaffale
+74|Sconto del 70% su ogni confezione per tutto l'anno
+75|Un cartello "Il prezzo più basso d'Italia", senza averlo verificato e senza sconto
+76|Una tazza in regalo a chi compra, lasciando il numero di telefono con il consenso al marketing già spuntato
+77|Vantaggio vero e chiaro
+78|"Il più basso d'Italia" senza prove è un'affermazione ingannevole.
+79|Durata limitata
+80|Uno sconto enorme per sempre non è una promo: abbassa il valore del prodotto e il margine.
+81|Rispetta le regole
+82|Il consenso al marketing non può essere già spuntato: deve sceglierlo la persona.
+83|Una buona promozione ha un vantaggio vero, una durata limitata e un margine che regge. Le affermazioni non verificate sono pratiche ingannevoli (Codice del consumo), e il consenso già spuntato non è valido per il GDPR.
+84|La prima: 2 confezioni a 12 € per 2 settimane, con un cartello chiaro. È vera, limitata nel tempo e in regola.
+85|Controlla ogni promozione con quattro domande: è vera? Ha una durata limitata? È sostenibile per noi e per il negozio? Rispetta le regole su affermazioni e dati personali? Basta un no per scartarla.
+86|"Sconto del 60% per sempre" ci fa perdere soldi; "Il più economico d'Italia" senza verifica è ingannevole.
+87|Cosa fai nei 10 negozi dove non vende?
+88|Scegli tutte le azioni utili, e solo quelle.
+89|Andare a vedere se il prodotto è davvero sullo scaffale, e non fermo in magazzino
+90|Guardare con il buyer le vendite negozio per negozio
+91|Proporre l'espositore o la promo prima di tutto in quei negozi
+92|Mandare subito altre 500 confezioni a tutti i negozi
+93|Abbassare il prezzo di cessione a 3 € per sempre
+94|Scrivere recensioni positive finte sul sito per convincere il buyer
+95|Controllato lo scaffale
+96|Spesso un prodotto non vende perché non è esposto: si controlla di persona.
+97|Dati e azioni negozio per negozio
+98|Ogni negozio è diverso: prima i dati, poi le azioni mirate.
+99|Niente sell-in forzato né prezzi in perdita
+100|Altre confezioni non fanno comprare i clienti, e a 3 € perdiamo soldi.
+101|Niente recensioni finte
+102|Le recensioni false sono vietate (Direttiva Omnibus).
+103|Il trade marketing lavora nei negozi: controlla l'esposizione, legge i dati con il buyer e investe dove serve. Spingere più merce nei negozi senza far comprare i clienti crea solo resi e magazzino.
+104|Controllare lo scaffale, guardare i dati con il buyer, partire con espositore e promo nei negozi più deboli. Niente consegne forzate, niente prezzi in perdita, niente recensioni finte.
+105|Le risposte giuste possono essere più di una. Prima si capisce perché non vende (il prodotto è davvero sullo scaffale? dove?), poi si agisce dove serve. Mandare più merce, svendere o inventare recensioni non risolve il problema e può essere scorretto.
+106|Se in 5 negozi la marmellata non vende, si va a vedere: spesso è finita nel retro o sul ripiano sbagliato.
+107|Che differenza c'è tra sell-in e sell-out?
+108|Sell-in: quello che noi vendiamo al supermercato. Sell-out: quello che il supermercato vende ai clienti. Il primo riempie lo scaffale, il secondo lo svuota.
+109|Come riconosco una buona promozione?
+110|Tre domande: il vantaggio è vero? Dura poco? Rispetta le regole su pubblicità e dati personali?
+111|Buyer: chi sceglie i prodotti per la catena. Sell-in: vendite al negozio. Sell-out: vendite ai clienti. Prezzo di cessione: quanto ci paga il negozio. Espositore: spazio extra fuori dallo scaffale.
+112|Sullo scaffale contano altezza, reparto e momento.
+113|Il sell-out decide se il prodotto resta.
+114|Promo vere, brevi e in regola; nei negozi deboli prima si controlla, poi si agisce.
+115|Saprei spiegare perché il posto sullo scaffale cambia le vendite.
+116|Ho capito la differenza tra sell-in e sell-out.
+117|Saprei dire perché una promozione è in regola o no.
+118|Ho scelto le azioni per i negozi deboli guardando i dati.
+119|Grande! Domani vado nei 10 negozi a controllare gli scaffali e propongo al buyer la promo 2 per 12 €.
+120|scaffale e posizione
+121|sell-in e sell-out
+122|promozioni in negozio
+123|lavorare con il buyer
+124|Il trade marketing si occupa di vendere attraverso i negozi degli altri, come i supermercati. Chi fa questo lavoro tratta con il buyer della catena, sceglie dove e come stare sullo scaffale, prepara promozioni e controlla negozio per negozio se il prodotto vende.
+125|Lo scaffale
+126|Nel negozio si decide in pochi secondi. Il posto migliore è all'altezza degli occhi, nel reparto dove le persone cercano quel tipo di prodotto. Gli espositori extra (vicino alle casse, a fine corsia) aiutano nei momenti giusti.
+127|Una marmellata artigianale vende di più all'altezza degli occhi, accanto alle altre marmellate bio, che sul ripiano più basso.
+128|Sell-in e sell-out
+129|Il sell-in è quanto vendiamo al supermercato (le confezioni consegnate). Il sell-out è quanto il supermercato vende ai clienti. Per restare sullo scaffale conta il sell-out: se i prodotti restano fermi, il buyer li toglie.
+130|Consegniamo 10 vasetti di marmellata in 20 negozi: sell-in 200. Se in un mese i clienti ne comprano 150, il sell-out medio è 150 ÷ 20 = 7,5 per negozio.
+131|Margine del negozio
+132|Il supermercato ci paga un prezzo di cessione e rivende a un prezzo più alto. La differenza è il suo margine: anche il negozio deve guadagnare, altrimenti non ci tiene.
+133|Marmellata ceduta a 3,00 €, venduta a 4,50 €: il supermercato guadagna 1,50 € a vasetto.
+134|Promozioni in regola
+135|Una buona promozione è semplice, vera e limitata nel tempo. Non si può dire "il prezzo più basso" senza verificarlo, e un omaggio non può essere scambiato con dati personali senza un consenso libero.
+136|"2 vasetti a 8 € invece di 9 €, dal 1 al 15 marzo" è chiara e verificabile.
+137|Scegli i posti giusti sullo scaffale
+138|Calcoli sell-in, margine del negozio e sell-out
+139|Scegli la promozione da proporre al buyer
+140|Decidi cosa fare nei negozi dove il prodotto non vende

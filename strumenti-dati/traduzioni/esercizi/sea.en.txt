@@ -1,0 +1,135 @@
+1|SEA specialist
+2|Exercise 1 · Ads for the iced teas
+3|Luca
+4|E-commerce
+5|Ads for the iced teas
+6|Hi! For the summer I'd like to run Google ads for the iced tea kit. We have €300 a month. Can you help me choose the right searches and the best ad, and work out whether it pays off?
+7|Campaign data
+8|Product
+9|Sencha iced tea kit (tea bags + bottle)
+10|Price
+11|Budget
+12|€300 a month
+13|Estimated cost per click
+14|Website conversion
+15|2 in 100 visits buy
+16|Ad landing page
+17|cinquefoglie.example/iced-teas
+18|We don't sell
+19|Tea makers, canned tea
+20|Every click costs money: first of all, choose the searches of people who really want to buy what we sell.
+21|CPC
+22|negative keyword
+23|conversion
+24|CPA
+25|ROAS
+26|Choose which searches to appear for
+27|For each search decide whether to add it as a keyword or exclude it (negative keyword).
+28|Add
+29|Exclude
+30|iced tea kit
+31|sencha iced tea
+32|buy iced tea online
+33|homemade iced tea recipe
+34|free iced tea
+35|iced tea maker
+36|Buyers' searches added
+37|Add the searches of people who want to buy a kit like ours.
+38|Recipe search excluded
+39|People looking for a recipe want to make it themselves: exclude it.
+40|"Free" search excluded
+41|People searching "free" don't want to pay: exclude.
+42|Products we don't sell excluded
+43|Look at the card: we don't sell tea makers.
+44|With paid ads you pay for every click. Negative keywords stop you paying for people who will never buy.
+45|Add: iced tea kit, sencha iced tea, buy iced tea online. Exclude: recipe, free, maker.
+46|For each search ask yourself: could the person typing it buy our product today? If yes, it's a keyword. If they want free information, things we don't sell, or to make it themselves, exclude it.
+47|For teapots: "buy cast iron teapot", yes; "DIY cast iron teapot", no; "electric kettle", no, because we don't sell it.
+48|Choose the ad
+49|Which ad would you publish?
+50|Organic Sencha Iced Tea Kit | Ready in 8 hours in the fridge | 24-hour shipping. Order now.
+51|Slimming Iced Tea | Burns fat in summer | Order now from Cinque Foglie.
+52|The best tea in the world | Lowest prices in Italy | Cinque Foglie.
+53|Cinque Foglie | Teas and herbal teas | Discover our whole catalogue.
+54|It's about iced tea specifically
+55|The ad must be about what the person searched for.
+56|A clear call to action
+57|You need a clear call to action: order, discover, try.
+58|No health claims
+59|Health claims for food are banned.
+60|Only provable claims
+61|"The best in the world" or "the lowest prices" must be proven.
+62|A relevant ad gets more clicks and Google rewards it with a lower cost per click. Health claims and claims that can't be proven can be misleading advertising.
+63|Read each ad and check four things: is it about the product searched for? Does it have a call to action? Does it avoid health claims? Does it only say things that can be proven? One no is enough to discard it.
+64|"Magic teapot that helps you lose weight" makes a health claim: banned. "The most beautiful teapots in Italy" can't be proven.
+65|Do the maths
+66|Using the data on the card, how much does a month of ads bring in?
+67|Clicks per month (budget ÷ cost per click)
+68|Orders per month (2 per 100 clicks)
+69|Cost per order, CPA (budget ÷ orders)
+70|ROAS (revenue ÷ spend)
+71|Right clicks: 750
+72|€300 ÷ €0.40 per click.
+73|Right orders: 15
+74|2 orders per 100 clicks: how many out of 750?
+75|Right CPA: €20
+76|CPA is how much you spend for each order: €300 ÷ orders.
+77|Right ROAS: 0.75
+78|Revenue = orders × €14.90. Then divide by €300.
+79|ROAS says how many euros you take in for every euro spent. Below 1 means you spend more than you take in: the campaign as it stands doesn't pay off.
+80|750 clicks, 15 orders, CPA €20, ROAS 0.75 (revenue €223.50 on €300 spent).
+81|You go in order, because each number is needed for the next. 1) Clicks = budget ÷ cost per click. 2) Orders = clicks × conversion (2 in 100 means clicks ÷ 100 × 2). 3) CPA = budget ÷ orders. 4) ROAS = (orders × price) ÷ budget.
+82|Budget €100, clicks at €0.50: 200 clicks. Conversion 3 in 100: 6 orders. CPA = 100 ÷ 6 ≈ €16.67. If the product costs €20: revenue €120, ROAS 1.2.
+83|What do you suggest to Luca?
+84|ROAS is below 1. Choose all the useful actions (and only those).
+85|Improve the iced tea page, so more visits become orders
+86|Keep only the searches of people who want to buy and exclude the others
+87|Measure conversions properly (with cookie consent) before deciding
+88|Double the budget straight away to get more orders
+89|Add the keyword "tea" to get many more clicks
+90|Improve the landing page
+91|If the page converts better, every click brings in more.
+92|Stick to buying searches
+93|The right searches cost the same but buy more.
+94|Measure before deciding
+95|Without reliable measurement you don't know what works.
+96|No actions that make the numbers worse
+97|More budget or generic keywords, with ROAS below 1, only lose more.
+98|First you fix what turns a click into an order, then you increase the budget. In the EU, conversion tracking with cookies requires consent.
+99|Improve the page, keep only buying searches, measure conversions properly. Don't increase the budget or add generic keywords.
+100|If a campaign is losing money (ROAS below 1), increasing the budget only loses more. First fix what turns a click into an order: the product page, the chosen searches and the measurement of results. Remember that in the EU conversion tracking with cookies requires consent.
+101|If the teapot page doesn't show shipping costs, many people leave without buying: fixing it raises conversion without spending a single extra euro on ads.
+102|How do I tell whether a search is worth it?
+103|Ask yourself: could this person buy our kit today? If they're looking for recipes, free things or products we don't sell, no.
+104|How do you calculate ROAS?
+105|Revenue divided by spend. If you take in €600 spending €300, ROAS is 2.
+106|CPC: cost per click. Negative keyword: a search the ad must not appear for. CPA: cost per order. ROAS: revenue divided by ad spend.
+107|Negative keywords save as much as the right keywords earn.
+108|The best ad is about the product searched for, has a clear call to action and doesn't promise things it can't prove.
+109|With ROAS below 1 you don't increase the budget: you improve conversion first.
+110|I could explain what a negative keyword is for.
+111|I understood why the chosen ad is better than the others.
+112|I did the maths on my own, without guessing.
+113|I could explain to Luca why increasing the budget doesn't pay off.
+114|Thanks! I'd never have thought of excluding recipes. I'll fix the iced tea page and in a month we'll look at the numbers together again.
+115|negative keywords
+116|relevant ads
+117|CPC, CPA and ROAS
+118|deciding with data
+119|SEA (Search Engine Advertising) is the paid ads that appear on Google above or below the normal results, labelled "Sponsored". People in this role decide which searches the ads appear for, what to write in them and how much to spend, and then check with the numbers whether the spend brings in more than it costs.
+120|You pay per click
+121|The ad can appear a thousand times for free: you only pay when someone clicks it. The price of a click is called CPC (cost per click) and it's decided by an auction between everyone who wants to appear for the same search.
+122|If a click costs €0.50 and you get 200 clicks in a month, you spend €100.
+123|Keywords and negative keywords
+124|Keywords are the searches you want to appear for. Negative keywords are the ones you DON'T want to appear for, because the people searching them won't buy. They stop you wasting money.
+125|A teapot shop wants to appear for "cast iron teapot", but excludes "used cast iron teapot" and "how to clean a teapot": the people searching those don't want to buy a new one.
+126|The ad
+127|A good ad repeats what the person searched for, states a concrete benefit and has a call to action (order, discover, try). In Europe you can't promise a health effect for a food, or say "the best" without being able to prove it.
+128|"Cast iron teapot 0.8 l | Keeps the heat for a long time | 24-hour shipping. Discover."
+129|The numbers: CPA and ROAS
+130|CPA is how much you spend to get one order (spend ÷ orders). ROAS is how much you take in for every euro spent (revenue ÷ spend). With ROAS below 1 you spend more than you take in.
+131|You spend €100 and get 4 orders of €40: CPA = 100 ÷ 4 = €25; revenue = €160; ROAS = 160 ÷ 100 = 1.6.
+132|Choose which searches the ads appear for and which to exclude
+133|Choose the best ad out of four
+134|Calculate the month's clicks, orders, CPA and ROAS
+135|Decide what to advise Luca based on the numbers

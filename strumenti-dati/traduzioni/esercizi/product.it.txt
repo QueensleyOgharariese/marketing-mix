@@ -1,0 +1,143 @@
+1|Product marketing
+2|Esercizio 1 · Il lancio delle Tisane della Sera
+3|Marta
+4|Fondatrice
+5|Lanciamo le Tisane della Sera
+6|Ciao! Ad ottobre lanciamo un prodotto nuovo: le Tisane della Sera. Mi aiuti a capire cosa raccontare, a scrivere il posizionamento, a scegliere prezzo e lancio e a controllare che sia tutto in regola prima di partire?
+7|Il nuovo prodotto
+8|Prodotto
+9|Tisane della Sera: 3 miscele bio senza teina, 15 bustine
+10|Ingredienti
+11|Camomilla, melissa, scorza d'arancia, tiglio
+12|Confezione
+13|Bustine in carta compostabile, scatola in cartone riciclato
+14|Costo di produzione
+15|2,60 € a confezione
+16|Concorrente al supermercato
+17|3,50 € per 20 bustine, non bio
+18|Concorrente bio online
+19|7,90 € per 15 bustine
+20|Cosa chiedono i clienti
+21|"Avete qualcosa senza teina per la sera?" (42 email in un anno)
+22|Nota
+23|Prezzi senza IVA, per semplicità
+24|Il product marketing traduce un prodotto in un motivo per comprarlo: prima capisci per chi è e cosa cambia nella sua giornata.
+25|caratteristica
+26|beneficio
+27|posizionamento
+28|margine
+29|lancio
+30|Caratteristica o beneficio?
+31|Una caratteristica dice com'è il prodotto. Un beneficio dice cosa cambia per chi lo usa. Classifica ogni frase.
+32|Caratteristica
+33|Beneficio
+34|Senza teina
+35|Puoi berla anche alle dieci di sera, senza pensieri
+36|Bustine in carta compostabile
+37|La butti nell'umido: niente plastica da separare
+38|Camomilla, melissa e scorza d'arancia
+39|Un piccolo rito per staccare dalla giornata, pronto in 5 minuti
+40|Senza teina: caratteristica e beneficio
+41|"Senza teina" è com'è il prodotto; "puoi berla la sera" è cosa ci guadagni.
+42|Confezione: caratteristica e beneficio
+43|Il materiale è una caratteristica; non dover separare la plastica è un beneficio.
+44|Ingredienti: caratteristica e beneficio
+45|L'elenco degli ingredienti descrive; il rito per staccare racconta cosa vivi.
+46|Le persone comprano quello che il prodotto fa per loro, non l'elenco delle sue parti. Il product marketing parte dalle caratteristiche (vere) e le traduce in benefici.
+47|Caratteristiche: senza teina, bustine compostabili, gli ingredienti. Benefici: berla la sera senza pensieri, niente plastica da separare, un rito per staccare.
+48|Per ogni frase chiediti: descrive l'oggetto (com'è fatto, cosa contiene) o descrive cosa succede a chi lo usa? Se parla dell'oggetto è una caratteristica; se parla della persona e della sua giornata è un beneficio.
+49|Borraccia: "tappo a vite con guarnizione" è una caratteristica; "la metti nello zaino senza paura di bagnare il computer" è un beneficio.
+50|Scegli il posizionamento
+51|Il posizionamento è una frase interna che dice per chi è il prodotto e perché è diverso. Quale scegli?
+52|Per chi ama il tè ma la sera evita la teina, Tisane della Sera è il rito serale di Cinque Foglie: tre miscele bio senza teina, in bustine compostabili, pronte in 5 minuti.
+53|Per tutti: la tisana migliore del mercato, con ingredienti di qualità.
+54|Per chi non riesce a dormire: la tisana bio che cura l'insonnia in una settimana.
+55|Per chi ama il tè ma la sera evita la teina: tre tisane buone.
+56|Dice per chi è
+57|"Per tutti" non è un pubblico: scegli una frase che nomina persone precise.
+58|Dice perché è diverso
+59|"Tre tisane buone" le hanno tutti: cosa ci rende diversi dai concorrenti in scheda?
+60|Solo cose vere e permesse
+61|"La migliore" non si può dimostrare, e "cura l'insonnia" è una promessa sulla salute vietata.
+62|Un buon posizionamento è specifico (un pubblico preciso), distintivo (cosa ci rende diversi) e credibile. Da questa frase nascono poi la pagina prodotto, gli annunci e i post.
+63|La prima: nomina il pubblico (chi evita la teina la sera), la differenza (bio, compostabile, rito di Cinque Foglie) e dice solo cose vere.
+64|Controlla tre cose: c'è un pubblico preciso (non "tutti")? C'è una differenza vera rispetto alle alternative? Ci sono solo affermazioni dimostrabili, senza promesse di cura? Scarta le frasi che falliscono anche uno solo di questi punti.
+65|"Per tutti, la borraccia migliore del mondo" non ha un pubblico e non si può dimostrare.
+66|Prezzo e lancio
+67|Guarda costi e concorrenti nella scheda e prepara il lancio.
+68|Prezzo di vendita
+69|Margine per confezione (prezzo − costo)
+70|Dove lanciarlo per primo?
+71|Ai clienti della newsletter e sul sito
+72|Subito in tutti i supermercati d'Italia
+73|Solo su un volantino in città
+74|Quando?
+75|Luglio
+76|Ottobre, quando le serate si fanno fresche
+77|Il giorno dopo Natale
+78|Prezzo sostenibile e in linea con il bio: 6,90 €
+79|Sotto il costo si perde a ogni vendita; troppo sopra i concorrenti nessuno compra.
+80|Margine giusto: 4,30 €
+81|Prezzo che hai scelto meno 2,60 € di costo.
+82|Lancio a chi ci conosce già
+83|Abbiamo 42 email di clienti che lo chiedevano: partiamo da chi ci conosce.
+84|Il momento giusto: ottobre
+85|Una tisana per la sera si vende quando fa fresco.
+86|Il prezzo deve coprire i costi, lasciare un margine e avere senso rispetto ai concorrenti. Lanciare prima a chi ci conosce costa poco e fa capire subito se il prodotto piace.
+87|6,90 €: sotto il concorrente bio, con 4,30 € di margine. Lancio a newsletter e sito, a ottobre.
+88|Il prezzo deve stare in modo sensato rispetto ai concorrenti: un prodotto bio non può costare come uno industriale, ma nemmeno di più del concorrente bio senza un motivo. Calcola il margine (prezzo − costo). Per il primo lancio scegli chi ti conosce già e il periodo in cui il prodotto serve di più.
+89|Borraccia termica: si lancia a fine settembre, quando torna il freddo, prima a chi è già iscritto alla newsletter.
+90|Pronti a partire?
+91|Prima del lancio, cosa fai? Scegli tutte le cose giuste, e solo quelle.
+92|Controllare l'etichetta: ingredienti, allergeni, quantità e scadenza
+93|Preparare la pagina prodotto con foto vere e la scheda completa
+94|Avvisare chi ci aveva chiesto una tisana senza teina, se ha dato il consenso a ricevere email
+95|Scrivere sulla confezione "ti aiuta a dormire"
+96|Mostrare un prezzo barrato "prima 9,90 €", anche se non è mai stato venduto a quel prezzo
+97|Scrivere "a impatto zero" perché le bustine sono compostabili
+98|Etichetta a norma
+99|Per gli alimenti l'etichetta è obbligatoria (Regolamento UE 1169/2011).
+100|Pagina e clienti pronti
+101|Serve dove comprare e qualcuno da avvisare.
+102|Nessuna promessa sulla salute
+103|Le promesse sulla salute degli alimenti sono regolate: senza autorizzazione non si usano.
+104|Niente sconti finti né green claim generici
+105|Uno sconto deve partire da un prezzo vero, e "impatto zero" non si può dimostrare.
+106|Un lancio si prepara anche sulle regole. Promesse sulla salute non autorizzate sono vietate (Reg. CE 1924/2006; per le erbe molte indicazioni sono ancora in attesa di valutazione UE). Il prezzo "prima" di uno sconto deve essere il più basso degli ultimi 30 giorni (Direttiva Omnibus): un prodotto nuovo non ce l'ha. E le affermazioni ambientali generiche non dimostrabili sono vietate (Direttiva UE 2024/825).
+107|Etichetta controllata, pagina prodotto pronta, email a chi ha dato il consenso. Niente "ti aiuta a dormire", niente prezzo barrato inventato, niente "impatto zero".
+108|Le risposte giuste possono essere più di una. Tieni le azioni che rendono il prodotto chiaro, completo e onesto. Scarta tutto ciò che promette effetti sulla salute, inventa uno sconto o fa affermazioni ambientali che non si possono dimostrare.
+109|Per la borraccia: foto vere e scheda completa sì; "prima 39 €, ora 24 €" se non è mai costata 39 € no.
+110|Come distinguo caratteristica e beneficio?
+111|Chiediti "e quindi?". Senza teina... e quindi? La puoi bere la sera. La prima frase è la caratteristica, la risposta al "e quindi" è il beneficio.
+112|Come scelgo il prezzo?
+113|Tre domande: copre il costo? Lascia un margine? Ha senso rispetto a concorrenti simili (qui: bio, online)?
+114|Caratteristica: com'è il prodotto. Beneficio: cosa cambia per chi lo usa. Posizionamento: per chi è e perché è diverso. Margine: quanto resta dopo il costo.
+115|Si vende il beneficio, ma partendo da caratteristiche vere.
+116|Il posizionamento è specifico, distintivo e credibile.
+117|Prima del lancio si controllano anche le regole: salute, sconti, ambiente.
+118|Saprei trasformare una caratteristica in un beneficio.
+119|Saprei spiegare perché il posizionamento scelto è migliore degli altri.
+120|Ho ragionato su costo, margine e concorrenti prima di scegliere il prezzo.
+121|Ho capito perché un prezzo barrato inventato è vietato.
+122|Perfetto! Teniamo 6,90 € e partiamo con la newsletter a ottobre. E tolgo subito quel "ti aiuta a dormire" dalla bozza della scatola.
+123|caratteristiche e benefici
+124|prezzo e margine
+125|preparare un lancio
+126|regole su sconti e claim
+127|Il product marketing fa da ponte tra il prodotto e chi lo compra. Chi fa questo lavoro capisce per chi è un prodotto, cosa lo rende diverso, a che prezzo venderlo e come lanciarlo, e controlla che tutto quello che si dice sia vero e in regola.
+128|Caratteristiche e benefici
+129|La caratteristica dice com'è il prodotto. Il beneficio dice cosa cambia nella vita di chi lo usa. Le persone comprano i benefici, ma i benefici devono poggiare su caratteristiche vere.
+130|Una borraccia termica: "acciaio a doppia parete" è una caratteristica; "il caffè resta caldo fino a sera" è il beneficio.
+131|Posizionamento
+132|È una frase interna, non uno slogan: dice per chi è il prodotto, che bisogno risolve e perché è diverso dalle alternative. Un buon posizionamento nomina un pubblico preciso e dice solo cose dimostrabili.
+133|"Per chi va in ufficio in bici, la borraccia che entra nel portaborraccia e tiene caldo 12 ore, a differenza delle termiche normali troppo larghe."
+134|Prezzo e margine
+135|Il prezzo si sceglie guardando tre cose: quanto costa produrre, quanto chiedono i concorrenti simili e quanto valore percepisce il cliente. Il margine è quanto resta per ogni pezzo: prezzo meno costo.
+136|La borraccia costa 9 € da produrre, le concorrenti stanno tra 20 e 30 €: a 24 € il margine è 24 − 9 = 15 €.
+137|Lancio in regola
+138|Prima di lanciare si controllano etichetta e pagina prodotto. Nell'UE non si possono fare promesse sulla salute non autorizzate per un alimento, né mostrare uno sconto rispetto a un prezzo mai praticato, né dire "green" o "a impatto zero" senza prove.
+139|Sulla borraccia "senza BPA, certificato" va bene se c'è il certificato; "salva il pianeta" no, è un'affermazione vaga.
+140|Distingui caratteristiche e benefici delle Tisane della Sera
+141|Scegli la frase di posizionamento
+142|Decidi prezzo, margine, canale e periodo del lancio
+143|Controlli cosa fare e cosa evitare prima di partire

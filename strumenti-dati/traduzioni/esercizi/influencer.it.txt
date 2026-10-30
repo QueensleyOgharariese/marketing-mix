@@ -1,0 +1,130 @@
+1|Influencer marketing
+2|Esercizio 1 · Una collaborazione per il matcha
+3|Sara
+4|Social e community
+5|Una creator per il matcha
+6|Ciao! Per il lancio del matcha vorremmo collaborare con una creator. Mi aiuti a scegliere i profili giusti, a preparare le istruzioni, a controllare il post e a capire se è andata bene?
+7|La collaborazione
+8|Prodotto
+9|Matcha biologico, 30 g, 16,90 €
+10|Clienti
+11|25-40 anni, in Italia, amano i rituali e la cucina
+12|Compenso offerto
+13|400 € per un Reel e 3 Storie
+14|Codice sconto
+15|TAZZA10 (10% di sconto)
+16|Ordini con il codice
+17|60 in un mese
+18|Valore medio di un ordine (già scontato)
+19|Una creator giusta non è quella con più follower, ma quella che parla davvero alle nostre persone.
+20|creator
+21|engagement
+22|brief
+23|#adv
+24|codice sconto
+25|Quali creator sono adatte?
+26|Guarda i profili e scegli se sono adatti alla collaborazione.
+27|Adatta
+28|Non adatta
+29|@tazzaditè · 18 mila follower · engagement 6% · 85% in Italia · tè e ricette
+30|@slowmornings · 42 mila · engagement 4% · 78% in Italia · rituali del mattino
+31|@fitqueen · 900 mila · engagement 0,4% · 30% in Italia · diete e integratori
+32|@giroilmondo · 120 mila · engagement 1,2% · 20% in Italia · viaggi
+33|@lollo_gaming · 300 mila · engagement 8% · 90% in Italia · videogiochi
+34|Creator in linea con i clienti scelte
+35|Temi vicini al tè, pubblico italiano, buon engagement.
+36|Esclusa chi parla di diete
+37|Tanti follower ma pochissimo engagement, e temi di salute: rischioso.
+38|Escluso il pubblico fuori dall'Italia
+39|Spediamo in Italia: l'80% del suo pubblico non può comprare.
+40|Escluso il tema lontano dal prodotto
+41|Engagement altissimo, ma il pubblico cerca videogiochi, non tè.
+42|Contano pertinenza, pubblico e fiducia più del numero di follower. Spesso le creator piccole (micro-influencer) hanno una community più attenta.
+43|Adatte: @tazzaditè e @slowmornings. Non adatte: @fitqueen (diete, poco engagement), @giroilmondo (pubblico estero), @lollo_gaming (tema lontano).
+44|Per ogni profilo guarda tre dati: di cosa parla (è vicino al tè e ai rituali?), quanta parte del pubblico è in Italia e quanto è alto l'engagement. Se uno dei tre è molto lontano dal nostro cliente, il profilo non è adatto.
+45|Per le tazze in ceramica: una food blogger con 10 mila follower, 80% in Italia e 5% di engagement è adatta; un profilo di auto sportive con 2 milioni di follower no.
+46|Prepara le istruzioni (brief)
+47|Cosa scrivi nelle istruzioni per la creator? Scegli tutte le cose giuste, e solo quelle.
+48|L'obiettivo: far conoscere il matcha a chi ama i rituali del mattino
+49|Dichiarare sempre la collaborazione, in modo chiaro e subito visibile (#adv)
+50|Non fare promesse sulla salute (niente "fa dimagrire" o "detox")
+51|Scrivere che è un regalo, così non sembra pubblicità
+52|Dire che è "il miglior matcha del mondo"
+53|Cancellare i commenti negativi sotto il post
+54|Obiettivo chiaro
+55|La creator deve sapere cosa vogliamo ottenere.
+56|Obbligo di dichiarare la pubblicità
+57|La pubblicità deve essere sempre riconoscibile.
+58|Divieto di promesse sulla salute
+59|Le regole sugli alimenti valgono anche per le creator.
+60|Nessuna richiesta scorretta
+61|Nascondere la pubblicità, affermazioni non dimostrabili e cancellare critiche non sono corretti.
+62|In Italia la pubblicità deve essere sempre riconoscibile: lo chiede il Codice di autodisciplina IAP (Digital Chart), e le linee guida AGCOM aggiungono regole per le creator più grandi. Il brand è responsabile anche di cosa chiede di dire.
+63|Obiettivo, obbligo di dichiarare la collaborazione, divieto di promesse sulla salute. Niente "è un regalo", niente superlativi falsi, niente commenti cancellati.
+64|Nel brief vanno l'obiettivo e le regole che proteggono il brand e chi guarda: dichiarare la pubblicità e non fare promesse vietate. Non vanno le richieste che ingannano il pubblico, come nascondere la collaborazione o cancellare le critiche.
+65|Nel brief delle tazze: "Obiettivo: farle conoscere a chi ama la colazione lenta" e "Scrivi Pubblicità all'inizio" sì; "Dì che te le hanno regalate" no.
+66|Controlla il post prima che esca
+67|La creator ti manda quattro versioni della didascalia. Quale approvi?
+68|#adv Pubblicità · In collaborazione con @cinquefoglie: il mio nuovo rituale del mattino è il matcha. Con TAZZA10 hai il 10% di sconto.
+69|Il mio nuovo rituale del mattino è il matcha di @cinquefoglie! Con TAZZA10 hai il 10% di sconto. #matcha #colazione #tè #mattino #relax #adv
+70|Grazie a @cinquefoglie per questo regalo! Il mio nuovo rituale del mattino è il matcha.
+71|#sp #collab Il mio nuovo rituale del mattino è il matcha di @cinquefoglie. Codice TAZZA10.
+72|Dice chiaramente che è pubblicità
+73|"Grazie per il regalo" non basta: deve essere chiaro che è una collaborazione pagata.
+74|Si vede subito, all'inizio
+75|Un #adv nascosto in fondo tra gli hashtag non si nota.
+76|Comprensibile a tutti
+77|Sigle come #sp o #collab non tutti le capiscono: meglio #adv o #pubblicità.
+78|La dichiarazione di pubblicità deve essere chiara, comprensibile e visibile subito, prima di "altro". Se è nascosta, è pubblicità occulta.
+79|La prima: "#adv Pubblicità · In collaborazione con @cinquefoglie" è all'inizio, chiara e comprensibile.
+80|Controlla dove e come è dichiarata la pubblicità: deve essere all'inizio, scritta in modo che tutti la capiscano. Sigle poco chiare o nascoste tra gli hashtag e la parola "regalo" non bastano.
+81|"#sp" a fine testo non lo capisce quasi nessuno; "Pubblicità" nella prima riga sì.
+82|È andata bene?
+83|Con i dati della scheda, calcola i risultati del mese.
+84|Incasso con il codice (ordini × valore medio)
+85|Costo per ordine (compenso ÷ ordini)
+86|ROAS (incasso ÷ compenso)
+87|Incasso giusto: 1.200 €
+88|60 ordini × 20 €.
+89|Costo per ordine giusto: 6,67 €
+90|400 € ÷ 60 ordini.
+91|ROAS giusto: 3
+92|1.200 € ÷ 400 €.
+93|Il codice sconto personale permette di misurare quante vendite arrivano dalla creator. Ma non conta tutto: molte persone la scoprono e comprano dopo, senza codice.
+94|Incasso 1.200 €, 6,67 € per ordine, ROAS 3: per ogni euro dato alla creator ne sono tornati tre.
+95|Segui l'ordine: prima l'incasso (ordini con il codice × valore medio dell'ordine), poi il costo per ordine (compenso ÷ ordini), infine il ROAS (incasso ÷ compenso). Se il ROAS è sopra 1, la collaborazione ha incassato più di quanto è costata.
+96|Compenso 300 €, 40 ordini da 25 €: 40 × 25 = 1.000 €; 300 ÷ 40 = 7,50 € a ordine; 1.000 ÷ 300 ≈ 3,3.
+97|Come scelgo una creator?
+98|Tre domande: parla di temi vicini al nostro prodotto? Il suo pubblico può comprare da noi? Le persone interagiscono davvero (engagement)?
+99|Come si dichiara una collaborazione?
+100|All'inizio, con parole chiare come "#adv", "Pubblicità" o "In collaborazione con". Non in fondo tra tanti hashtag.
+101|Creator: chi crea contenuti sui social. Engagement: quanto il pubblico interagisce. Brief: le istruzioni per la collaborazione. #adv: la sigla che dichiara la pubblicità.
+102|Pertinenza e fiducia contano più del numero di follower.
+103|Il brief protegge brand e creator: dice cosa fare e cosa non dire.
+104|La pubblicità va dichiarata subito e con parole chiare.
+105|Saprei spiegare perché una creator con meno follower può essere migliore.
+106|Ho capito cosa non si può chiedere a una creator.
+107|Saprei riconoscere un post con la pubblicità nascosta.
+108|Ho calcolato i risultati da sola o da solo.
+109|Perfetto! Scrivo a @tazzaditè con il tuo brief. E da ora controlliamo sempre la didascalia prima che esca.
+110|scegliere una creator
+111|scrivere un brief
+112|trasparenza #adv
+113|misurare con un codice sconto
+114|Chi si occupa di influencer marketing sceglie i creator con cui collaborare, scrive le istruzioni (il brief), controlla che i contenuti rispettino le regole e misura se la collaborazione ha reso più di quanto è costata.
+115|Scegliere il creator giusto
+116|Contano tre cose prima dei follower: che il pubblico somigli ai nostri clienti, che viva dove vendiamo e che interagisca davvero (engagement alto). Un profilo enorme con pubblico lontano rende meno di uno piccolo e affezionato.
+117|Per vendere tazze in ceramica a Milano, una ceramista con 15 mila follower italiani e il 5% di engagement vale più di un comico con un milione di follower all'estero.
+118|Il brief
+119|Sono le istruzioni scritte per il creator: obiettivo, messaggio, cosa mostrare, date e regole da rispettare. Più è chiaro, meno ci sono sorprese. Il creator però deve restare libero di parlare con la sua voce.
+120|"Obiettivo: far conoscere le tazze fatte a mano. Mostra come le usi a colazione. Dichiara la collaborazione. Pubblicazione entro il 15."
+121|Dichiarare la pubblicità
+122|In Italia e nell'Unione Europea chi guarda deve capire subito che un contenuto è pubblicità. Si scrive in modo chiaro e all'inizio, per esempio "#adv" o "Pubblicità". Nascondere la collaborazione o chiamarla "regalo" è pubblicità occulta, vietata.
+123|Giusto: "Pubblicità · In collaborazione con @tazzefattemano" nella prima riga. Sbagliato: "#collab" in mezzo a venti hashtag.
+124|Misurare il risultato
+125|Con un codice sconto personale si contano gli ordini portati dal creator. Da lì si calcolano l'incasso (ordini × valore medio), il costo per ordine (compenso ÷ ordini) e il ROAS (incasso ÷ compenso).
+126|Compenso 300 €, 40 ordini da 25 €: incasso 1.000 €, costo per ordine 7,50 €, ROAS = 1.000 ÷ 300 ≈ 3,3.
+127|Scegli quali creator sono adatte al matcha
+128|Scrivi le istruzioni giuste nel brief
+129|Controlli la didascalia prima che esca
+130|Calcoli se la collaborazione ha reso

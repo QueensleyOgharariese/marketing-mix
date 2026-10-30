@@ -1,0 +1,135 @@
+1|SEA specialist
+2|Esercizio 1 · Annunci per i tè freddi
+3|Luca
+4|E-commerce
+5|Annunci per i tè freddi
+6|Ciao! Per l'estate vorrei fare annunci su Google per il kit tè freddo. Abbiamo 300 € al mese. Mi aiuti a scegliere le ricerche giuste, l'annuncio migliore e a capire se ci conviene?
+7|Dati della campagna
+8|Prodotto
+9|Kit tè freddo Sencha (bustine + bottiglia)
+10|Prezzo
+11|Budget
+12|300 € al mese
+13|Costo per clic stimato
+14|Conversione del sito
+15|2 visite su 100 comprano
+16|Pagina dell'annuncio
+17|cinquefoglie.example/te-freddi
+18|Non vendiamo
+19|Macchine per tè, tè in lattina
+20|Ogni clic costa: prima di tutto scegli le ricerche di chi vuole davvero comprare quello che vendiamo.
+21|CPC
+22|keyword negativa
+23|conversione
+24|CPA
+25|ROAS
+26|Scegli su quali ricerche comparire
+27|Per ogni ricerca decidi se aggiungerla come keyword o escluderla (keyword negativa).
+28|Aggiungi
+29|Escludi
+30|kit tè freddo
+31|tè freddo sencha
+32|comprare tè freddo online
+33|tè freddo fatto in casa ricetta
+34|tè freddo gratis
+35|macchina per tè freddo
+36|Ricerche di chi vuole comprare aggiunte
+37|Aggiungi le ricerche di chi vuole comprare un kit come il nostro.
+38|Ricerca di ricette esclusa
+39|Chi cerca una ricetta vuole farlo da sé: escludilo.
+40|Ricerca "gratis" esclusa
+41|Chi cerca "gratis" non vuole pagare: escludi.
+42|Prodotti che non vendiamo esclusi
+43|Guarda la scheda: le macchine per tè non le vendiamo.
+44|Negli annunci a pagamento paghi ogni clic. Le keyword negative evitano di pagare per persone che non compreranno mai.
+45|Aggiungi: kit tè freddo, tè freddo sencha, comprare tè freddo online. Escludi: ricetta, gratis, macchina.
+46|Per ogni ricerca chiediti: chi la scrive potrebbe comprare oggi proprio il nostro prodotto? Se la risposta è sì, è una keyword. Se cerca informazioni gratuite, cose che non vendiamo o vuole farlo da sé, va esclusa.
+47|Per le teiere: "comprare teiera ghisa" sì; "teiera ghisa fai da te" no; "bollitore elettrico" no, perché non lo vendiamo.
+48|Scegli l'annuncio
+49|Quale annuncio pubblicheresti?
+50|Kit Tè Freddo Sencha Bio | Pronto in 8 ore in frigo | Spedizione in 24 ore. Ordina ora.
+51|Tè Freddo Dimagrante | Brucia i grassi in estate | Ordina ora su Cinque Foglie.
+52|Il miglior tè del mondo | Prezzi più bassi d'Italia | Cinque Foglie.
+53|Cinque Foglie | Tè e tisane | Scopri tutto il nostro catalogo.
+54|Parla proprio del tè freddo
+55|L'annuncio deve parlare di quello che la persona ha cercato.
+56|Invito chiaro all'azione
+57|Serve un invito chiaro: ordina, scopri, prova.
+58|Nessuna promessa sulla salute
+59|Le promesse sulla salute degli alimenti sono vietate.
+60|Solo affermazioni dimostrabili
+61|"Il migliore del mondo" o "i prezzi più bassi" vanno dimostrati.
+62|Un annuncio pertinente riceve più clic e Google lo premia con un costo per clic più basso. Promesse sulla salute e affermazioni che non si possono dimostrare possono essere pubblicità ingannevole.
+63|Leggi ogni annuncio e controlla quattro cose: parla del prodotto cercato? Ha un invito all'azione? Evita promesse sulla salute? Dice solo cose che si possono dimostrare? Basta un no per scartarlo.
+64|"Teiera magica che fa dimagrire" ha una promessa sulla salute: vietata. "Le teiere più belle d'Italia" non si può dimostrare.
+65|Fai i conti
+66|Con i dati della scheda, quanto rende un mese di annunci?
+67|Clic al mese (budget ÷ costo per clic)
+68|Ordini al mese (2 su 100 clic)
+69|Costo per ordine, CPA (budget ÷ ordini)
+70|ROAS (incasso ÷ spesa)
+71|Clic giusti: 750
+72|300 € ÷ 0,40 € a clic.
+73|Ordini giusti: 15
+74|2 ordini ogni 100 clic: quanti su 750?
+75|CPA giusto: 20 €
+76|Il CPA è quanto spendi per ogni ordine: 300 € ÷ ordini.
+77|ROAS giusto: 0,75
+78|Incasso = ordini × 14,90 €. Poi dividi per 300 €.
+79|Il ROAS dice quanti euro incassi per ogni euro speso. Sotto 1 vuol dire che spendi più di quanto incassi: la campagna così com'è non conviene.
+80|750 clic, 15 ordini, CPA 20 €, ROAS 0,75 (incasso 223,50 € su 300 € spesi).
+81|Si procede in ordine, perché ogni numero serve per il successivo. 1) Clic = budget ÷ costo per clic. 2) Ordini = clic × conversione (2 su 100 vuol dire clic ÷ 100 × 2). 3) CPA = budget ÷ ordini. 4) ROAS = (ordini × prezzo) ÷ budget.
+82|Budget 100 €, clic a 0,50 €: 200 clic. Conversione 3 su 100: 6 ordini. CPA = 100 ÷ 6 ≈ 16,67 €. Se il prodotto costa 20 €: incasso 120 €, ROAS 1,2.
+83|Cosa proponi a Luca?
+84|Il ROAS è sotto 1. Scegli tutte le azioni utili (e solo quelle).
+85|Migliorare la pagina del tè freddo, così più visite diventano ordini
+86|Tenere solo le ricerche di chi vuole comprare ed escludere le altre
+87|Misurare bene le conversioni (con il consenso ai cookie) prima di decidere
+88|Raddoppiare subito il budget per avere più ordini
+89|Aggiungere la keyword "tè" per avere molti più clic
+90|Migliorare la pagina di destinazione
+91|Se la pagina converte di più, ogni clic rende di più.
+92|Restare sulle ricerche d'acquisto
+93|Le ricerche giuste costano uguale ma comprano di più.
+94|Misurare prima di decidere
+95|Senza misure affidabili non sai cosa funziona.
+96|Nessuna azione che peggiora i conti
+97|Più budget o keyword generiche, con un ROAS sotto 1, fanno solo perdere di più.
+98|Prima si sistema ciò che fa diventare un clic un ordine, poi si aumenta il budget. Nell'UE il tracciamento delle conversioni con i cookie richiede il consenso.
+99|Migliorare la pagina, tenere solo le ricerche d'acquisto, misurare bene le conversioni. Non aumentare budget né aggiungere keyword generiche.
+100|Se una campagna perde soldi (ROAS sotto 1), aumentare il budget fa solo perdere di più. Prima si sistema quello che trasforma un clic in un ordine: la pagina del prodotto, le ricerche scelte e la misura dei risultati. Ricorda che nell'UE il tracciamento delle conversioni con i cookie richiede il consenso.
+101|Se la pagina delle teiere non mostra le spese di spedizione, molti escono senza comprare: sistemarla alza la conversione senza spendere un euro in più di annunci.
+102|Come capisco se una ricerca conviene?
+103|Chiediti: questa persona potrebbe comprare il nostro kit oggi? Se cerca ricette, cose gratis o prodotti che non vendiamo, no.
+104|Come si calcola il ROAS?
+105|Incasso diviso spesa. Se incassi 600 € spendendo 300 €, il ROAS è 2.
+106|CPC: costo per clic. Keyword negativa: una ricerca per cui l'annuncio non deve comparire. CPA: costo per ogni ordine. ROAS: incasso diviso spesa pubblicitaria.
+107|Le keyword negative fanno risparmiare quanto le keyword giuste fanno guadagnare.
+108|L'annuncio migliore parla del prodotto cercato, ha un invito chiaro e non promette cose che non può dimostrare.
+109|Con un ROAS sotto 1 non si aumenta il budget: si migliora prima la conversione.
+110|Saprei spiegare a cosa serve una keyword negativa.
+111|Ho capito perché l'annuncio scelto è migliore degli altri.
+112|Ho fatto i conti da sola o da solo, senza tirare a indovinare.
+113|Saprei spiegare a Luca perché non conviene aumentare il budget.
+114|Grazie! Non avrei mai pensato di escludere le ricette. Sistemo la pagina del tè freddo e tra un mese guardiamo di nuovo i numeri insieme.
+115|keyword negative
+116|annunci pertinenti
+117|CPC, CPA e ROAS
+118|decidere con i dati
+119|La SEA (Search Engine Advertising) sono gli annunci a pagamento che compaiono su Google sopra o sotto i risultati normali, con la scritta "Sponsorizzato". Chi fa questo lavoro decide per quali ricerche far comparire gli annunci, cosa scriverci e quanto spendere, e poi controlla con i numeri se la spesa rende più di quanto costa.
+120|Si paga a clic
+121|L'annuncio può comparire mille volte gratis: paghi solo quando qualcuno ci clicca. Il prezzo di un clic si chiama CPC (costo per clic) e lo decide un'asta tra chi vuole comparire per la stessa ricerca.
+122|Se un clic costa 0,50 € e in un mese ricevi 200 clic, spendi 100 €.
+123|Keyword e keyword negative
+124|Le keyword sono le ricerche per cui vuoi comparire. Le keyword negative sono quelle per cui NON vuoi comparire, perché chi le cerca non comprerà. Servono a non buttare soldi.
+125|Un negozio di teiere vuole comparire per "teiera in ghisa", ma esclude "teiera in ghisa usata" e "come pulire una teiera": chi le cerca non vuole comprarne una nuova.
+126|L'annuncio
+127|Un buon annuncio ripete quello che la persona ha cercato, dice un vantaggio concreto e ha un invito all'azione (ordina, scopri, prova). In Europa non si può promettere un effetto sulla salute per un alimento, né dire "il migliore" senza poterlo dimostrare.
+128|"Teiera in ghisa 0,8 l | Mantiene il calore a lungo | Spedizione in 24 ore. Scopri."
+129|I numeri: CPA e ROAS
+130|Il CPA è quanto spendi per ottenere un ordine (spesa ÷ ordini). Il ROAS è quanto incassi per ogni euro speso (incasso ÷ spesa). Con un ROAS sotto 1 spendi più di quanto incassi.
+131|Spendi 100 € e ottieni 4 ordini da 40 €: CPA = 100 ÷ 4 = 25 €; incasso = 160 €; ROAS = 160 ÷ 100 = 1,6.
+132|Scegli per quali ricerche far comparire gli annunci e quali escludere
+133|Scegli l'annuncio migliore tra quattro
+134|Calcoli clic, ordini, CPA e ROAS del mese
+135|Decidi cosa consigliare a Luca guardando i numeri

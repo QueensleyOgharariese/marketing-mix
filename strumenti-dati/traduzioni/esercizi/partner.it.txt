@@ -1,0 +1,129 @@
+1|Partnerships
+2|Esercizio 1 · Una box fatta in due
+3|Luca
+4|E-commerce
+5|Facciamo qualcosa con un'altra azienda?
+6|Ciao! Per Natale vorrei collaborare con un'altra piccola azienda e vendere qualcosa insieme. Mi aiuti a scegliere il partner, l'idea giusta, a fare i conti e a capire cosa scrivere nell'accordo?
+7|L'idea e i numeri
+8|Idea
+9|Una box "Colazione lenta" per Natale
+10|Prezzo della box
+11|Il nostro tè (costo)
+12|I biscotti del partner (costo)
+13|Scatola e spedizione
+14|Divisione
+15|Il margine si divide a metà
+16|Obiettivo
+17|200 box vendute
+18|Nota
+19|Prezzi senza IVA, per semplicità
+20|Una buona partnership funziona quando entrambe le aziende ci guadagnano e i clienti trovano qualcosa che da sole non avrebbero potuto offrire.
+21|partner
+22|co-marketing
+23|margine
+24|accordo
+25|esclusiva
+26|Con chi collaboriamo?
+27|Abbiamo ricevuto o pensato a cinque possibili partner. Quali sono adatti?
+28|Adatto
+29|Non adatto
+30|Forno artigianale di biscotti bio, con clienti simili ai nostri e 12.000 iscritti alla newsletter
+31|Negozio online di tazze e teiere in ceramica fatte a mano
+32|Un altro negozio online di tè, con gli stessi prodotti che vendiamo noi
+33|Una catena di fast food con milioni di clienti
+34|Un'azienda di integratori "brucia grassi"
+35|Partner complementari scelti
+36|Vendono cose che vanno bene con il tè, a persone simili ai nostri clienti.
+37|Escluso il concorrente
+38|Vende le stesse cose: ci porteremmo via i clienti a vicenda.
+39|Esclusi i partner lontani dai nostri valori
+40|Pubblico diverso o promesse sulla salute rischiose: la loro immagine diventa anche la nostra.
+41|Il partner giusto è complementare (vende altro, a un pubblico simile), condivide i nostri valori e porta qualcosa che noi non abbiamo, come nuovi clienti o competenze.
+42|Adatti: il forno di biscotti bio e il negozio di tazze in ceramica. Non adatti: il concorrente, il fast food, gli integratori "brucia grassi".
+43|Per ogni azienda chiediti: il suo prodotto completa il nostro o lo sostituisce? I suoi clienti somigliano ai nostri? I suoi valori sono compatibili con i nostri? Se una risposta è no, non è un partner adatto.
+44|Per la libreria: un'azienda di giochi da tavolo è complementare; una catena che vende libri scontati online è un concorrente.
+45|Scegli la proposta
+46|Scegliamo il forno di biscotti. Quale proposta gli mandi?
+47|Una box "Colazione lenta" con il nostro Sencha e i loro biscotti, venduta su entrambi i siti, con un codice diverso per ognuno così sappiamo chi ha venduto cosa
+48|Chiediamo che mettano il nostro logo sul loro sito, gratis e senza nulla in cambio
+49|Ci scambiamo le liste dei clienti: diamo loro i nostri 8.400 iscritti e loro ci danno i loro 12.000
+50|Una box insieme, senza codici e senza tenere i conti: a fine anno vediamo com'è andata
+51|Vantaggio per entrambi
+52|Un logo gratis senza nulla in cambio conviene solo a noi.
+53|Risultati misurabili
+54|Senza codici o dati non sapremo mai se ha funzionato.
+55|Rispetta i dati dei clienti
+56|I nostri iscritti hanno detto sì a noi, non al forno: non si possono passare a un'altra azienda.
+57|Il co-marketing funziona quando il valore è per tutti e due e si può misurare. E ognuno parla ai propri clienti: le liste di contatti non si scambiano senza il consenso delle persone (GDPR).
+58|La prima: un prodotto nuovo che da soli non avremmo, venduto da entrambi, con un codice a testa per misurare. Ognuno lo comunica ai propri iscritti.
+59|Una proposta funziona se dà a entrambi un vantaggio, crea qualcosa per i clienti e si può misurare. Scarta quelle che chiedono favori gratis, scambiano dati dei clienti o non tengono i conti.
+60|"Mettete il nostro logo sul vostro sito, gratis" conviene solo a uno; "Un libro + un caffè, con un codice ciascuno" conviene a entrambi.
+61|Fai i conti della box
+62|Con i numeri della scheda, quanto ci guadagniamo?
+63|Costo di una box (tè + biscotti + scatola e spedizione)
+64|Margine di una box (prezzo − costo)
+65|Quota di Cinque Foglie per box (metà del margine)
+66|Il nostro guadagno con 200 box
+67|Costo giusto: 10,00 €
+68|Margine giusto: 9,90 €
+69|Quota giusta: 4,95 €
+70|Metà di 9,90 €.
+71|Guadagno giusto: 990 €
+72|4,95 € × 200 box.
+73|Prima di firmare si fanno i conti insieme, con gli stessi numeri: costi, margine e come si divide. Così nessuno ha sorprese a fine progetto.
+74|Costo 10,00 €, margine 9,90 €, 4,95 € a testa per box: con 200 box sono 990 € per noi (prima di altri costi come il tempo e la pubblicità).
+75|Fai i conti in ordine, perché ogni numero serve per il successivo: costo di una box (somma di tutti i costi), margine (prezzo − costo), la nostra quota (margine ÷ 2), il guadagno totale (quota × box vendute).
+76|Costi 6 + 4 + 5 = 15 €. Prezzo 25 €: margine 10 €. Metà: 5 €. 100 box: 500 €.
+77|Cosa scriviamo nell'accordo?
+78|Prima di partire si mette tutto per iscritto. Scegli cosa scrivere, e solo quello.
+79|Chi fa cosa: chi prepara le box, chi spedisce, chi risponde ai clienti
+80|Come si dividono costi e guadagni, e quando si paga
+81|Quanto dura la collaborazione e come si chiude
+82|Come si usano i loghi e chi approva i testi e le foto
+83|Ognuno può usare i dati dei clienti dell'altro come vuole
+84|Niente carte: tra persone che si fidano basta una stretta di mano
+85|Nessuno dei due potrà mai più collaborare con altre aziende, per sempre
+86|Compiti e soldi chiari
+87|Le liti nascono quasi sempre da compiti e pagamenti non chiari.
+88|Durata e uso del marchio
+89|Quando finisce, e chi può usare il logo dell'altro e come.
+90|Dati dei clienti protetti
+91|Se uno spedisce per l'altro, i dati si usano solo per quello e serve un accordo apposito (art. 28 GDPR).
+92|Niente accordi a voce né esclusive senza fine
+93|Un accordo scritto protegge anche l'amicizia; un'esclusiva per sempre blocca entrambi.
+94|Un accordo scritto chiaro (compiti, soldi, durata, marchi, dati) evita malintesi. Per un accordo vero si chiede sempre a un legale: qui impari solo cosa non deve mancare.
+95|Chi fa cosa, costi e pagamenti, durata e chiusura, uso dei loghi. Niente dati dei clienti usati liberamente, niente accordi solo a voce, niente esclusive per sempre.
+96|Le risposte giuste possono essere più di una. Tieni le voci che rendono chiaro chi fa cosa, come si paga, quanto dura e come si usano marchi e materiali. Scarta quelle che violano il GDPR, lasciano tutto a voce o legano le aziende per sempre.
+97|"Ognuna usa solo i dati dei propri clienti" protegge entrambe; "Possiamo usare i vostri contatti come vogliamo" no.
+98|Come scelgo un partner?
+99|Tre domande: vende qualcosa che completa il nostro prodotto (e non lo stesso)? Parla a persone simili ai nostri clienti? Ha valori vicini ai nostri?
+100|Perché non ci scambiamo le liste clienti?
+101|Le persone hanno dato il consenso a ricevere email da noi, non da un'altra azienda. Ognuno parla ai propri iscritti della box.
+102|Partner: azienda con cui collaboriamo. Co-marketing: promuovere insieme un prodotto o un'iniziativa. Complementare: un prodotto che va bene insieme al nostro. Esclusiva: l'impegno a non lavorare con altri.
+103|Il partner giusto è complementare e ha valori vicini ai nostri.
+104|Una proposta funziona se conviene a entrambi e si può misurare.
+105|Tutto per iscritto: compiti, soldi, durata, marchi e dati.
+106|Saprei spiegare perché un concorrente non è un buon partner.
+107|Ho capito perché non ci si scambia le liste dei clienti.
+108|Ho fatto i conti della box senza aiuti.
+109|Saprei dire cosa non deve mancare in un accordo.
+110|Perfetto, mando la proposta al forno oggi stesso. E prima di firmare facciamo leggere l'accordo al nostro consulente.
+111|scegliere un partner
+112|dividere il margine
+113|cosa scrivere in un accordo
+114|Chi si occupa di partnership cerca altre aziende con cui fare qualcosa insieme che da sole non riuscirebbero a fare: un prodotto comune, una promozione, un evento. Una buona partnership conviene a tutti e due, è misurabile ed è scritta in un accordo chiaro.
+115|Il partner giusto
+116|Il partner ideale vende qualcosa che va bene insieme al nostro prodotto (complementare), ha clienti simili ai nostri e valori compatibili. Un concorrente diretto o un'azienda con valori lontani non è adatta, anche se è grande.
+117|Una libreria indipendente può collaborare con una caffetteria del quartiere: chi legge spesso beve un caffè. Con un'altra libreria no: vendono la stessa cosa.
+118|La proposta
+119|Una buona proposta crea qualcosa di nuovo per i clienti di entrambi, divide il lavoro e si può misurare (per esempio con un codice a testa). Non si scambiano mai le liste dei clienti: per il GDPR servirebbe il loro consenso.
+120|Libreria e caffetteria: "un libro + un caffè" in vendita in tutti e due i posti, con un codice diverso per contare chi vende di più.
+121|I conti
+122|Si sommano tutti i costi di un pezzo, si calcola il margine (prezzo − costi) e si divide come concordato. Poi si moltiplica per i pezzi che si pensa di vendere. Restano fuori i costi nascosti, come il tempo.
+123|Box a 25 €; libro 6 €, caffè 4 €, confezione 5 €: costo 15 €, margine 10 €, 5 € a testa. Con 100 box: 500 € ciascuno.
+124|L'accordo scritto
+125|Prima di partire si scrive chi fa cosa, come si dividono costi e guadagni, quanto dura, come si usano i loghi e chi tratta i dati dei clienti. Le esclusive per sempre e gli accordi solo a voce creano problemi. Per i contratti è meglio farsi aiutare da un legale.
+126|La libreria e la caffetteria scrivono che la collaborazione dura fino a gennaio e che ognuna usa solo i dati dei propri clienti.
+127|Scegli quali aziende sono partner adatti
+128|Scegli la proposta da mandare al forno
+129|Decidi cosa scrivere nell'accordo
