@@ -1,0 +1,26 @@
+/* DOMANDE DELLE LEZIONI DI TEORIA (le crea src/scripts/quiz.ts dentro la pagina, per questo gli stili sono globali) */
+.q { border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.q-testo { font-weight: 800; font-size: 1rem; line-height: 1.4; margin-bottom: 6px; padding: 0; }
+.q-nota { margin: -4px 0 4px; font-size: .82rem; color: #625e58; }
+.q-opz { display: flex; gap: 10px; align-items: flex-start; padding: 11px 13px; border: 1.5px solid #e3e1dc; border-radius: 12px; cursor: pointer; line-height: 1.45; background: #fff; font-size: .93rem; }
+.q-opz:has(input:checked) { border-color: var(--arancio); }
+.q-opz:has(input:focus-visible) { outline: 3px solid var(--inchiostro); outline-offset: 2px; }
+.q-opz input { margin-top: 2px; width: 18px; height: 18px; accent-color: var(--arancio); flex: none; }
+.q-vf { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.q-lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.q-ord { display: grid; grid-template-columns: 28px 1fr auto; gap: 10px; align-items: center; padding: 9px 10px 9px 12px; border: 1.5px solid #e3e1dc; border-radius: 12px; background: #fff; font-size: .93rem; line-height: 1.4; }
+.q-num { width: 26px; height: 26px; border-radius: 50%; background: #e9e8e4; display: grid; place-items: center; font-weight: 800; font-size: .8rem; }
+.q-frecce { display: flex; gap: 4px; }
+.q-frecce button { width: 34px; height: 34px; border-radius: 8px; border: 1px solid #d1cec8; background: #fff; font: inherit; font-weight: 800; cursor: pointer; color: var(--inchiostro); }
+.q-frecce button:disabled { opacity: .35; cursor: default; }
+.q-abbina { display: flex; flex-direction: column; gap: 8px; }
+.q-coppia { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px; align-items: center; padding: 10px 12px; border: 1.5px solid #e3e1dc; border-radius: 12px; background: #fff; font-size: .92rem; line-height: 1.4; }
+.q-coppia select { font: inherit; font-size: .88rem; padding: 8px 10px; border-radius: 8px; border: 1.5px solid #d1cec8; background: #fff; color: var(--inchiostro); min-width: 0; width: 100%; }
+.q-coppia:has(select:focus-visible) { outline: 3px solid var(--inchiostro); outline-offset: 2px; }
+.q-esito { border-radius: 12px; padding: 12px 14px; line-height: 1.55; font-size: .9rem; display: flex; flex-direction: column; gap: 4px; }
+.q-esito p { margin: 0; }
+.q-esito.ok { background: #e3f3e8; color: #173f27; }
+.q-esito.no { background: #fde8e4; color: #6e1c11; }
+.q-esito.vuoto { background: #f4f4f2; color: #423e39; }
+.q-blocco[data-risolta] .q-opz, .q-blocco[data-risolta] .q-ord, .q-blocco[data-risolta] .q-coppia { opacity: .85; }
+@media (max-width: 560px) { .q-coppia { grid-template-columns: 1fr; gap: 6px; } }

@@ -1,0 +1,210 @@
+---
+// HUB · PAGINA DI UN RUOLO (teoria)
+// Ordine: scheda del ruolo → 3 lezioni → verifica → prova veloce → pratica.
+// Il contenuto arriva da src/data/app/teoria/<ruolo>.json. I ruoli senza file mostrano "teoria in arrivo"
+// e la prova veloce che c'è già. Lo stato (lezioni finite, verifica) è letto dal browser con lo script in fondo.
+import AppLayout from "../../../../layouts/AppLayout.astro";
+import Progresso from "../../../../components/Progresso.astro";
+import Pesca from "../../../../components/Pesca.astro";
+import Icona from "../../../../components/Icona.astro";
+import azienda from "../../../../data/app/cinque-foglie.json";
+
+const TEORIE = import.meta.glob("../../../../data/app/teoria/*.json", { eager: true }) as Record<string, { default: any }>;
+const teoriaDi = (id: string) => Object.entries(TEORIE).find(([k]) => k.endsWith(`/${id}.json`))?.[1].default;
+
+export function getStaticPaths() {
+  return azienda.ruoli.map((r) => ({ params: { ruolo: r.id }, props: { ruolo: r } }));
+}
+const { ruolo } = Astro.props;
+const t = teoriaDi(ruolo.id);
+const hub = ["seo", "sea", "brand", "social", "influencer", "crm"].includes(ruolo.id) ? 1 : 2;
+const prova = t?.prova ?? { titolo: "Prova veloce", cosa: "Una richiesta breve di un collega di Cinque Foglie.", link: ruolo.id === "seo" ? "/app/seo/esercizio/" : `/app/${ruolo.id}/esercizio/`, minuti: 20 };
+const base = `/app/impara/${ruolo.id}`;
+---
+<AppLayout title={`${ruolo.nome} · Teoria`} percorso={[{ etichetta: azienda.nome, link: "/app/" }, { etichetta: `Hub ${hub}`, link: "/app/#ruoli" }, { etichetta: ruolo.nome }]}>
+  <Progresso slot="barra" />
+  <main class="pagina" data-ruolo={ruolo.id}>
+    <section class="testa">
+      <span class="icona" aria-hidden="true"><Icona nome={ruolo.icona} dimensione={30} /></span>
+      <div class="testa-testi">
+        <span class="occhiello">Hub {hub} · Teoria del ruolo</span>
+        <h1 class="app-titolo">{ruolo.nome}</h1>
+        <p>{t ? t.scheda.cosaFa : `${ruolo.breve}. La teoria di questo ruolo è in arrivo: intanto puoi fare la prova veloce.`}</p>
+        {t && <a class="bottone-app" href={`${base}/${t.lezioni[0].id}/`} data-inizia>Inizia dalla lezione 1</a>}
+      </div>
+    </section>
+
+    <div class="colonne">
+      <div class="principale">
+        {t && (
+          <section class="sezione" aria-labelledby="t-scheda">
+            <h2 class="titoletto" id="t-scheda">Il ruolo in breve</h2>
+            <div class="ruolo-scheda">
+              <div class="riquadro">
+                <h3>Con chi lavora</h3>
+                <ul>{t.scheda.conChi.map((x: string) => <li>{x}</li>)}</ul>
+              </div>
+              <div class="riquadro">
+                <h3>Gli strumenti</h3>
+                <dl>{t.scheda.strumenti.map((s: any) => <div><dt>{s.nome}</dt><dd>{s.cosa}</dd></div>)}</dl>
+              </div>
+              <div class="riquadro largo">
+                <h3>Una giornata tipo</h3>
+                <ol class="giornata">{t.scheda.giornata.map(([ora, cosa]: [string, string]) => <li><span class="ora">{ora}</span><span>{cosa}</span></li>)}</ol>
+              </div>
+            </div>
+            <p class="fa-per-te"><strong>Fa per te?</strong> {t.scheda.faPerTe} <a href={`/blog/${t.scheda.blog.slug}/`}>Approfondisci sul blog: {t.scheda.blog.titolo} →</a></p>
+          </section>
+        )}
+
+        <section class="sezione" aria-labelledby="t-percorso">
+          <h2 class="titoletto" id="t-percorso">{t ? "Il percorso di teoria" : "Cosa puoi fare ora"}</h2>
+          <ol class="passi">
+            {t && t.lezioni.map((l: any, i: number) => (
+              <li class="passo" data-lezione={l.id}>
+                <span class="passo-n" aria-hidden="true">{i + 1}</span>
+                <div class="passo-testi">
+                  <span class="passo-tipo">Lezione {i + 1} · {l.minuti} minuti · {l.blocchi.length} blocchi</span>
+                  <strong>{l.titolo}</strong>
+                  <span class="passo-cosa">{l.blocchi.map((b: any) => b.titolo).join(" · ")}</span>
+                </div>
+                <span class="passo-azione"><span class="stato" data-stato>Da fare</span><a class="mini" href={`${base}/${l.id}/`}>Apri</a></span>
+              </li>
+            ))}
+            {t && (
+              <li class="passo" data-verifica>
+                <span class="passo-n" aria-hidden="true">{t.lezioni.length + 1}</span>
+                <div class="passo-testi">
+                  <span class="passo-tipo">Verifica · 5 minuti · {t.verifica.length} domande</span>
+                  <strong>Verifica del ruolo</strong>
+                  <span class="passo-cosa">Almeno {t.verifica.length - 2} risposte giuste per completare la teoria del ruolo.</span>
+                </div>
+                <span class="passo-azione"><span class="stato" data-stato>Da fare</span><a class="mini" href={`${base}/verifica/`}>Apri</a></span>
+              </li>
+            )}
+            <li class="passo passo--extra">
+              <span class="passo-n" aria-hidden="true"><Icona nome="check" dimensione={16} /></span>
+              <div class="passo-testi">
+                <span class="passo-tipo">Prova veloce · facoltativa · circa {prova.minuti} minuti</span>
+                <strong>{prova.titolo}</strong>
+                <span class="passo-cosa">{prova.cosa}</span>
+              </div>
+              <span class="passo-azione"><a class="mini" href={prova.link}>Apri</a></span>
+            </li>
+            <li class="passo passo--extra">
+              <span class="passo-n" aria-hidden="true"><Icona nome="lampadina" dimensione={16} /></span>
+              <div class="passo-testi">
+                <span class="passo-tipo">Pratica · percorso specializzato</span>
+                <strong>{t?.pratica?.titolo ?? `Percorso ${ruolo.nome}`}</strong>
+                <span class="passo-cosa">{t?.pratica?.cosa ?? "In arrivo: si apre dopo il percorso SEO."}</span>
+              </div>
+              <span class="passo-azione">{t?.pratica ? <a class="mini mini--pieno" href={t.pratica.link}>Vai alla pratica</a> : <span class="stato">In arrivo</span>}</span>
+            </li>
+          </ol>
+        </section>
+      </div>
+
+      <aside class="lato">
+        {t && (
+          <div class="pannello avanzamento">
+            <span class="gruppo-titolo">Il tuo avanzamento</span>
+            <p class="numero"><strong data-fatte>0</strong> di {t.lezioni.length + 1} completati</p>
+            <div class="barra" aria-hidden="true"><span data-barra-teoria></span></div>
+            <p class="nota" data-esito-verifica>La verifica si apre quando vuoi, anche prima di finire le lezioni.</p>
+          </div>
+        )}
+        <div class="consiglio">
+          <Pesca dimensione={56} occhiali />
+          <p>{t ? "Prima la teoria, poi la pratica: ogni lezione dura una decina di minuti e ha domande dopo ogni concetto." : "Questo ruolo avrà presto le sue lezioni. Intanto la prova veloce ti fa vedere che lavoro è."}</p>
+        </div>
+      </aside>
+    </div>
+  </main>
+</AppLayout>
+
+<script>
+  import { leggiTeoria } from "../../../../scripts/quiz";
+  const pagina = document.querySelector<HTMLElement>("[data-ruolo]")!;
+  const s = leggiTeoria()[pagina.dataset.ruolo!];
+  const lezioni = [...document.querySelectorAll<HTMLElement>("[data-lezione]")];
+  let fatte = 0;
+  lezioni.forEach((li) => {
+    if (s?.lezioni?.[li.dataset.lezione!]) { fatte++; li.classList.add("fatto"); li.querySelector("[data-stato]")!.textContent = "Fatta"; li.querySelector(".mini")!.textContent = "Rivedi"; }
+  });
+  const ver = document.querySelector<HTMLElement>("[data-verifica]");
+  if (ver && s?.verifica) {
+    ver.querySelector("[data-stato]")!.textContent = `${s.verifica.giuste} giuste${s.verifica.superata ? " · superata" : ""}`;
+    if (s.verifica.superata) { ver.classList.add("fatto"); fatte++; }
+  }
+  const tot = lezioni.length + 1;
+  const n = document.querySelector("[data-fatte]"); if (n) n.textContent = String(fatte);
+  const b = document.querySelector<HTMLElement>("[data-barra-teoria]"); if (b) b.style.width = `${(fatte / tot) * 100}%`;
+  if (s?.verifica?.superata) { const e = document.querySelector("[data-esito-verifica]"); if (e) e.textContent = "Teoria completata. Adesso puoi passare alla pratica."; }
+  // Il bottone grande porta alla prima lezione non ancora fatta
+  const prossima = lezioni.find((li) => !li.classList.contains("fatto"));
+  const inizia = document.querySelector<HTMLAnchorElement>("[data-inizia]");
+  if (inizia && fatte > 0) {
+    if (prossima) { inizia.href = prossima.querySelector<HTMLAnchorElement>(".mini")!.href; inizia.textContent = `Continua: lezione ${lezioni.indexOf(prossima) + 1}`; }
+    else if (!s?.verifica?.superata) { inizia.href = ver!.querySelector<HTMLAnchorElement>(".mini")!.href; inizia.textContent = "Fai la verifica"; }
+    else { inizia.textContent = "Vai alla pratica"; inizia.href = document.querySelector<HTMLAnchorElement>(".mini--pieno")?.href ?? inizia.href; }
+  }
+</script>
+
+<style>
+  .pagina { max-width: 1180px; margin: 0 auto; padding: 32px 24px 64px; display: flex; flex-direction: column; gap: 28px; }
+  .testa { display: flex; gap: 22px; align-items: flex-start; background: var(--inchiostro); color: #f1efeb; border-radius: 22px; padding: 32px 36px; }
+  .icona { flex: none; width: 64px; height: 64px; border-radius: 18px; background: var(--arancio); color: var(--inchiostro); display: grid; place-items: center; }
+  .testa-testi { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+  .occhiello { font-size: .82rem; font-weight: 700; color: var(--arancio); }
+  .testa h1 { color: #fff; margin: 0; font-size: clamp(1.8rem, 3.4vw, 2.4rem); }
+  .testa p { margin: 0; line-height: 1.6; color: #dedad3; max-width: 62ch; }
+  .colonne { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 24px; align-items: start; }
+  .principale { display: flex; flex-direction: column; gap: 28px; }
+  .titoletto { font-family: var(--font-titoli); font-size: 1.35rem; font-weight: 800; margin: 0 0 14px; }
+  .ruolo-scheda { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .riquadro { background: #fff; border: 1px solid #e3e1dc; border-radius: 18px; padding: 18px 20px; font-size: .9rem; line-height: 1.55; }
+  .riquadro.largo { grid-column: 1 / -1; }
+  .riquadro h3 { margin: 0 0 10px; font-size: .95rem; }
+  .riquadro ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
+  .riquadro dl { margin: 0; display: flex; flex-direction: column; gap: 8px; }
+  .riquadro dt { font-weight: 700; } .riquadro dd { margin: 0; color: #55514c; }
+  .giornata { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; }
+  .giornata li { display: flex; flex-direction: column; gap: 4px; padding: 12px; border-radius: 12px; background: #f4f4f2; }
+  .ora { font-weight: 800; font-size: .85rem; }
+  .fa-per-te { margin: 12px 0 0; line-height: 1.6; font-size: .92rem; }
+  .fa-per-te a { color: var(--inchiostro); font-weight: 700; text-decoration-color: var(--arancio); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+  .passi { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .passo { display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; gap: 16px; align-items: center; background: #fff; border: 1px solid #e3e1dc; border-radius: 18px; padding: 16px 18px; }
+  .passo-n { width: 40px; height: 40px; border-radius: 50%; background: var(--arancio); display: grid; place-items: center; font-family: var(--font-titoli); font-weight: 800; color: var(--inchiostro); }
+  .passo--extra .passo-n { background: #e9e8e4; }
+  .passo.fatto .passo-n { background: #2f7a4f; color: #fff; }
+  .passo-testi { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .passo-tipo { font-size: .78rem; font-weight: 700; color: #625e58; }
+  .passo-testi strong { font-size: 1rem; }
+  .passo-cosa { font-size: .85rem; color: #55514c; line-height: 1.5; }
+  .passo-azione { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+  .stato { font-size: .78rem; font-weight: 700; color: #625e58; }
+  .fatto .stato { color: #1f5c38; }
+  .mini { font-weight: 700; font-size: .88rem; padding: 9px 14px; border-radius: 10px; border: 1px solid #d1cec8; background: #fff; color: var(--inchiostro); text-decoration: none; white-space: nowrap; }
+  .mini:hover { border-color: var(--inchiostro); color: var(--inchiostro); }
+  .mini--pieno { background: var(--arancio); border-color: var(--arancio); }
+  .lato { display: flex; flex-direction: column; gap: 14px; position: sticky; top: 84px; }
+  .pannello { background: #fff; border: 1px solid #e3e1dc; border-radius: 18px; padding: 18px 20px; }
+  .gruppo-titolo { font-size: .76rem; font-weight: 700; color: #55514c; letter-spacing: .04em; text-transform: uppercase; }
+  .numero { margin: 8px 0; font-size: .9rem; } .numero strong { font-family: var(--font-titoli); font-size: 1.8rem; }
+  .barra { height: 8px; border-radius: 99px; background: #e9e8e4; overflow: hidden; } .barra span { display: block; height: 100%; width: 0; background: #2f7a4f; }
+  .nota { margin: 10px 0 0; font-size: .82rem; color: #625e58; line-height: 1.5; }
+  .consiglio { display: flex; gap: 12px; align-items: flex-start; background: #f4f4f2; border-radius: 18px; padding: 16px; font-size: .88rem; line-height: 1.55; }
+  .consiglio p { margin: 0; }
+  @media (max-width: 900px) {
+    .colonne { grid-template-columns: 1fr; } .lato { position: static; }
+  }
+  @media (max-width: 640px) {
+    .pagina { padding: 20px 16px 48px; }
+    .testa { flex-direction: column; padding: 24px 20px; gap: 14px; }
+    .ruolo-scheda { grid-template-columns: 1fr; }
+    .passo { grid-template-columns: 34px minmax(0, 1fr); gap: 12px; padding: 14px; }
+    .passo-n { width: 34px; height: 34px; }
+    .passo-azione { grid-column: 2; flex-direction: row; align-items: center; justify-content: space-between; }
+  }
+</style>

@@ -1,0 +1,831 @@
+{
+ "_nota": "Teoria del ruolo SEO specialist (Hub 1). Generato da strumenti-dati/crea_teoria_seo.py. Testi scritti da Claude: DA RILEGGERE.",
+ "id": "seo",
+ "nome": "SEO specialist",
+ "hub": 1,
+ "scheda": {
+  "cosaFa": "Fa trovare un sito su Google senza pagare la pubblicità. Sceglie le ricerche giuste per ogni pagina, controlla che Google possa leggere il sito, migliora titoli e testi e misura i risultati.",
+  "conChi": [
+   "Copywriter e content creator, che scrivono i testi",
+   "Sviluppatori e team web, che sistemano la parte tecnica",
+   "E-commerce e marketing, che decidono cosa vendere e quando"
+  ],
+  "strumenti": [
+   {
+    "nome": "Google Search Console",
+    "cosa": "Clic, impressioni e pagine su Google. Gratis."
+   },
+   {
+    "nome": "Google Analytics",
+    "cosa": "Cosa succede dopo il clic: visite, ordini. Gratis."
+   },
+   {
+    "nome": "Un crawler (es. Screaming Frog)",
+    "cosa": "Legge tutto il sito come Google e trova i problemi. Gratis fino a 500 indirizzi."
+   },
+   {
+    "nome": "Strumenti per le keyword (es. Keyword Planner)",
+    "cosa": "Quante persone cercano una parola e quando."
+   }
+  ],
+  "giornata": [
+   [
+    "9:00",
+    "Controlla in Search Console se ci sono cali o errori nuovi"
+   ],
+   [
+    "10:00",
+    "Sceglie le keyword per un articolo e scrive il brief per il copywriter"
+   ],
+   [
+    "14:00",
+    "Riscrive title e description di una categoria"
+   ],
+   [
+    "16:00",
+    "Scrive una richiesta al team web per una pagina lenta"
+   ]
+  ],
+  "faPerTe": "Fa per te se ti piace capire perché le persone cercano una cosa, scrivere in modo chiaro e lavorare con i numeri un po' alla volta.",
+  "blog": {
+   "slug": "cosa-fa-un-seo-specialist",
+   "titolo": "Cosa fa un SEO specialist"
+  }
+ },
+ "lezioni": [
+  {
+   "id": "cos-e-la-seo",
+   "titolo": "Cos'è la SEO e come funziona Google",
+   "minuti": 10,
+   "blocchi": [
+    {
+     "titolo": "Risultati organici e annunci",
+     "testo": "Quando cerchi qualcosa su Google vedi due tipi di risultati. Gli annunci, con la scritta «Sponsorizzato», si pagano a ogni clic: sono il lavoro della SEA. I risultati organici sono gratuiti: Google li mette in ordine da solo, secondo quanto ogni pagina risponde bene alla ricerca. La SEO (Search Engine Optimization) è il lavoro per far comparire le pagine di un sito in alto tra i risultati organici. Oggi in alcune ricerche Google mostra anche un riassunto scritto dall'intelligenza artificiale (AI Overviews), che cita alcune pagine come fonti.",
+     "esempio": "Cerchi «tè verde biologico»: in alto due annunci di negozi che pagano, sotto i risultati organici. Cinque Foglie vuole stare tra questi ultimi senza pagare ogni clic.",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "Quale di questi è un risultato organico?",
+       "opzioni": [
+        {
+         "t": "Una pagina che compare senza la scritta «Sponsorizzato»",
+         "giusta": true
+        },
+        {
+         "t": "Un risultato con la scritta «Sponsorizzato»",
+         "giusta": false
+        },
+        {
+         "t": "Qualsiasi risultato in prima posizione",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "Gli annunci sono segnati come «Sponsorizzato». La prima posizione può essere anche un annuncio."
+      }
+     ],
+     "blog": {
+      "slug": "cosa-fa-un-seo-specialist",
+      "titolo": "Cosa fa un SEO specialist"
+     }
+    },
+    {
+     "titolo": "Come Google trova e ordina le pagine",
+     "testo": "Google lavora in tre fasi. Scansione: un programma (Googlebot) segue i link e legge le pagine. Indicizzazione: Google salva le pagine che ritiene utili nel suo archivio, l'indice. Posizionamento: quando qualcuno cerca, Google sceglie dall'indice le pagine più utili e le mette in ordine. Una pagina che non viene scansionata o non entra nell'indice non può comparire, anche se è bellissima.",
+     "esempio": "Una nuova scheda prodotto di Cinque Foglie senza nessun link che porti lì rischia di non essere trovata da Googlebot, quindi di non comparire mai.",
+     "domande": [
+      {
+       "tipo": "ordina",
+       "testo": "Metti in ordine le fasi di Google.",
+       "voci": [
+        "Scansione: Googlebot legge la pagina",
+        "Indicizzazione: la pagina entra nell'archivio",
+        "Posizionamento: la pagina compare in una ricerca"
+       ],
+       "spiegazione": "Prima Google deve leggere la pagina, poi salvarla, solo dopo può mostrarla."
+      }
+     ]
+    },
+    {
+     "titolo": "Le tre parti del lavoro",
+     "testo": "La SEO si divide in tre parti. Contenuti: scegliere le ricerche giuste e scrivere pagine che rispondono bene, con title, description e testi chiari. Tecnica: fare in modo che Google possa leggere il sito senza ostacoli, cioè pagine veloci, nessun errore, indirizzi ordinati. Autorità: altri siti affidabili che parlano di noi e mettono un link al nostro sito (backlink).",
+     "esempio": "Un articolo di un blog di cucina che consiglia il matcha di Cinque Foglie con un link è autorità; una scheda veloce da telefono è tecnica; una guida su come preparare il Sencha è contenuto.",
+     "domande": [
+      {
+       "tipo": "abbina",
+       "testo": "Abbina ogni attività alla parte del lavoro.",
+       "coppie": [
+        [
+         "Scrivere una guida su come preparare il Sencha",
+         "Contenuti"
+        ],
+        [
+         "Rendere più veloci le schede prodotto",
+         "Tecnica"
+        ],
+        [
+         "Ottenere un link da un blog di cucina",
+         "Autorità"
+        ]
+       ],
+       "spiegazione": "Contenuti = cosa scrivi; tecnica = come Google legge il sito; autorità = cosa dicono gli altri di te."
+      }
+     ],
+     "blog": {
+      "slug": "cosa-fa-un-seo-specialist",
+      "titolo": "Cosa fa un SEO specialist"
+     }
+    },
+    {
+     "titolo": "Come si misura",
+     "testo": "Il lavoro SEO si misura con quattro numeri, che si leggono in Google Search Console. Impressioni: quante volte una pagina compare nei risultati. Clic: quante volte qualcuno ci clicca. CTR: clic diviso impressioni, in percentuale. Posizione media: in che punto della classifica compare. Poi, con Google Analytics, si guarda cosa succede dopo il clic: visite, ordini, ricavi.",
+     "esempio": "La pagina dei tè verdi ha 10.000 impressioni e 100 clic: il CTR è 100 / 10.000 = 1%. Su 100 persone che la vedono, una sola clicca.",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "Una pagina ha 2.000 impressioni e 60 clic. Qual è il CTR?",
+       "opzioni": [
+        {
+         "t": "3%",
+         "giusta": true
+        },
+        {
+         "t": "0,3%",
+         "giusta": false
+        },
+        {
+         "t": "30%",
+         "giusta": false
+        },
+        {
+         "t": "60%",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "60 / 2.000 = 0,03, cioè 3%."
+      },
+      {
+       "tipo": "vf",
+       "testo": "Le impressioni contano quante persone hanno visitato la pagina.",
+       "risposta": false,
+       "spiegazione": "Le impressioni contano quante volte la pagina è comparsa nei risultati, anche se nessuno ha cliccato."
+      }
+     ]
+    }
+   ],
+   "riepilogo": [
+    "La SEO fa comparire un sito tra i risultati organici, senza pagare ogni clic.",
+    "Google scansiona, indicizza e poi posiziona le pagine.",
+    "Il lavoro ha tre parti (contenuti, tecnica, autorità) e si misura con impressioni, clic, CTR e posizione."
+   ],
+   "finali": [
+    {
+     "tipo": "singola",
+     "testo": "Una pagina non compare mai su Google, nemmeno cercando il suo titolo esatto. Qual è il primo dubbio?",
+     "opzioni": [
+      {
+       "t": "Che non sia nell'indice di Google",
+       "giusta": true
+      },
+      {
+       "t": "Che il CTR sia basso",
+       "giusta": false
+      },
+      {
+       "t": "Che manchino i backlink",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "Se una pagina non compare per niente, prima si controlla che Google l'abbia scansionata e indicizzata."
+    },
+    {
+     "tipo": "vf",
+     "testo": "La SEO e la SEA sono la stessa cosa.",
+     "risposta": false,
+     "spiegazione": "La SEO lavora sui risultati organici, gratuiti; la SEA sugli annunci a pagamento."
+    },
+    {
+     "tipo": "singola",
+     "testo": "Dove si leggono impressioni, clic e CTR di un sito?",
+     "opzioni": [
+      {
+       "t": "Google Search Console",
+       "giusta": true
+      },
+      {
+       "t": "Google Analytics",
+       "giusta": false
+      },
+      {
+       "t": "Il crawler",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "Search Console mostra cosa succede su Google; Analytics cosa succede dopo il clic."
+    }
+   ],
+   "parole": [
+    [
+     "SEO",
+     "Lavoro per far comparire un sito tra i risultati organici di Google."
+    ],
+    [
+     "Indice",
+     "L'archivio delle pagine che Google può mostrare."
+    ],
+    [
+     "CTR",
+     "Clic diviso impressioni: quante persone cliccano su 100 che vedono il risultato."
+    ],
+    [
+     "Backlink",
+     "Un link da un altro sito al nostro."
+    ]
+   ]
+  },
+  {
+   "id": "keyword-e-contenuti",
+   "titolo": "Keyword, intento e contenuti",
+   "minuti": 12,
+   "blocchi": [
+    {
+     "titolo": "Keyword e volume",
+     "testo": "Una keyword (parola chiave) è quello che una persona scrive su Google. Il volume è quante volte al mese viene cercata. Una keyword con tanto volume porta più visite possibili, ma di solito ha più concorrenza; una keyword più lunga e precisa ha meno volume ma persone più decise. Per ogni pagina si sceglie una keyword principale e qualche keyword vicina.",
+     "esempio": "«tè verde» ha tante ricerche ma è generico; «sencha biologico» ne ha meno, ma chi lo cerca sa già cosa vuole.",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "Quale keyword porta persone più decise a comprare?",
+       "opzioni": [
+        {
+         "t": "sencha biologico in foglie",
+         "giusta": true
+        },
+        {
+         "t": "tè",
+         "giusta": false
+        },
+        {
+         "t": "tè verde",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "Più la ricerca è precisa, più chi la fa sa cosa vuole, anche se il volume è più basso."
+      }
+     ]
+    },
+    {
+     "titolo": "L'intento di ricerca",
+     "testo": "Dietro ogni ricerca c'è un intento, cioè cosa vuole davvero la persona. Informativo: vuole capire («come preparare il sencha»). Commerciale: confronta prima di scegliere («miglior tè verde»). Transazionale: vuole comprare («sencha biologico prezzo»). Navigazionale: cerca un sito preciso («cinque foglie»). Google mostra le pagine che corrispondono all'intento: per una ricerca informativa mostra guide, per una transazionale schede prodotto.",
+     "esempio": "Per «come preparare il sencha» una scheda prodotto non sale mai: Google preferisce una guida. Per «sencha biologico prezzo» vale il contrario.",
+     "domande": [
+      {
+       "tipo": "abbina",
+       "testo": "Abbina ogni ricerca al suo intento.",
+       "coppie": [
+        [
+         "come preparare il sencha",
+         "Informativo"
+        ],
+        [
+         "sencha biologico prezzo",
+         "Transazionale"
+        ],
+        [
+         "cinque foglie",
+         "Navigazionale"
+        ],
+        [
+         "miglior tè verde giapponese",
+         "Commerciale"
+        ]
+       ],
+       "spiegazione": "Chiediti cosa vuole fare la persona subito dopo la ricerca: imparare, confrontare, comprare o andare su un sito preciso."
+      }
+     ]
+    },
+    {
+     "titolo": "Una pagina per ogni intento",
+     "testo": "Ogni pagina dovrebbe rispondere a un intento preciso. Se due pagine dello stesso sito puntano alla stessa ricerca, si fanno concorrenza: Google alterna l'una e l'altra e nessuna sale. Si chiama cannibalizzazione. Si risolve dando a ogni pagina un compito diverso e collegandole con un link.",
+     "esempio": "La guida «Sencha: cos'è e come si prepara» spiega; la scheda «Tè verde Sencha biologico» vende. La guida mette un link alla scheda per chi vuole comprare.",
+     "domande": [
+      {
+       "tipo": "vf",
+       "testo": "Due pagine che puntano alla stessa ricerca aiutano il sito a comparire di più.",
+       "risposta": false,
+       "spiegazione": "Si dividono i clic e Google non sa quale scegliere: di solito nessuna delle due sale."
+      }
+     ]
+    },
+    {
+     "titolo": "Title, meta description e H1",
+     "testo": "Il title è il titolo blu nei risultati di Google: deve contenere la keyword, dire cosa trova chi clicca e stare entro circa 580 pixel (60 caratteri). La meta description è il testo grigio sotto: 100-160 caratteri che convincono a cliccare. Non fa salire di posizione, ma aumenta i clic. L'H1 è il titolo grande nella pagina, letto da chi la visita.",
+     "esempio": "Title «Tè verde Sencha biologico in foglie | Cinque Foglie»; description «Sencha giapponese biologico, raccolto in primavera. Come prepararlo e spedizione in 24 ore.»; H1 «Sencha biologico».",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "Quale title è migliore per la scheda del Sencha?",
+       "opzioni": [
+        {
+         "t": "Tè verde Sencha biologico in foglie | Cinque Foglie",
+         "giusta": true
+        },
+        {
+         "t": "Cinque Foglie | Negozio di tè online",
+         "giusta": false
+        },
+        {
+         "t": "Sencha sencha tè verde sencha migliore sencha",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "Dice cosa si compra, contiene la keyword una volta e chiude con il brand."
+      },
+      {
+       "tipo": "singola",
+       "testo": "A cosa serve la meta description?",
+       "opzioni": [
+        {
+         "t": "A convincere a cliccare chi vede il risultato",
+         "giusta": true
+        },
+        {
+         "t": "A far salire la pagina di posizione",
+         "giusta": false
+        },
+        {
+         "t": "A dare il titolo alla pagina",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "Google non la usa per la classifica, ma una description chiara aumenta i clic."
+      }
+     ],
+     "blog": {
+      "slug": "title-e-meta-description",
+      "titolo": "Title e meta description: come si scrivono"
+     }
+    },
+    {
+     "titolo": "Contenuti utili e affidabili",
+     "testo": "Google premia i contenuti scritti per le persone: utili, chiari, scritti da chi conosce l'argomento. Nelle sue linee guida usa la sigla E-E-A-T: esperienza, competenza, autorevolezza, affidabilità. Per un negozio di alimenti ci sono anche regole di legge: nell'Unione europea non si possono promettere effetti sulla salute non autorizzati (Regolamento CE 1924/2006), come «brucia i grassi» o «detox».",
+     "esempio": "«Il nostro Sencha si prepara a 70-80 °C, per 1-2 minuti» è utile e vero. «Il Sencha che ti fa dimagrire» è vietato e fa perdere fiducia.",
+     "domande": [
+      {
+       "tipo": "multipla",
+       "testo": "Quali frasi può usare Cinque Foglie in una scheda prodotto?",
+       "opzioni": [
+        {
+         "t": "Raccolto in primavera in Giappone",
+         "giusta": true
+        },
+        {
+         "t": "Si prepara con acqua a 70-80 °C",
+         "giusta": true
+        },
+        {
+         "t": "Brucia i grassi in una settimana",
+         "giusta": false
+        },
+        {
+         "t": "Depura l'organismo",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "Le prime due descrivono il prodotto. Le altre sono promesse sulla salute non autorizzate: vietate per un alimento."
+      }
+     ]
+    }
+   ],
+   "riepilogo": [
+    "Ogni pagina ha una keyword principale e risponde a un intento preciso.",
+    "Due pagine sulla stessa ricerca si fanno concorrenza: è la cannibalizzazione.",
+    "Title e description fanno cliccare; i contenuti devono essere utili e rispettare le regole."
+   ],
+   "finali": [
+    {
+     "tipo": "singola",
+     "testo": "«come conservare il tè» ha intento…",
+     "opzioni": [
+      {
+       "t": "Informativo",
+       "giusta": true
+      },
+      {
+       "t": "Transazionale",
+       "giusta": false
+      },
+      {
+       "t": "Navigazionale",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "La persona vuole imparare qualcosa, non comprare subito."
+    },
+    {
+     "tipo": "vf",
+     "testo": "Per salire su Google conviene ripetere la keyword molte volte nel title.",
+     "risposta": false,
+     "spiegazione": "Ripeterla sembra spam: Google può riscrivere il title e le persone cliccano meno."
+    },
+    {
+     "tipo": "singola",
+     "testo": "La guida e la scheda del Sencha si contendono «tè verde sencha». Cosa fai?",
+     "opzioni": [
+      {
+       "t": "Do a ogni pagina un intento diverso e le collego con un link",
+       "giusta": true
+      },
+      {
+       "t": "Cancello la guida",
+       "giusta": false
+      },
+      {
+       "t": "Copio lo stesso testo in tutte e due",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "Così la guida risponde a chi si informa e la scheda a chi compra."
+    }
+   ],
+   "parole": [
+    [
+     "Keyword",
+     "Quello che le persone scrivono su Google."
+    ],
+    [
+     "Intento di ricerca",
+     "Cosa vuole fare davvero chi cerca."
+    ],
+    [
+     "Cannibalizzazione",
+     "Due pagine dello stesso sito che competono per la stessa ricerca."
+    ],
+    [
+     "Meta description",
+     "Il testo grigio sotto il titolo nei risultati."
+    ]
+   ]
+  },
+  {
+   "id": "tecnica-e-strumenti",
+   "titolo": "SEO tecnica, strumenti e numeri",
+   "minuti": 12,
+   "blocchi": [
+    {
+     "titolo": "Far entrare (o uscire) una pagina da Google",
+     "testo": "Il meta robots «noindex» chiede a Google di non mostrare una pagina: si usa per carrello, area personale, pagine di servizio. Il file robots.txt invece dice a Google quali parti del sito non scansionare. Attenzione: se una pagina è bloccata nel robots.txt, Google non può leggere il suo noindex; per togliere una pagina dai risultati si usa il noindex, non il robots.txt.",
+     "esempio": "Il carrello di Cinque Foglie ha il noindex: va bene. Se il noindex finisse per errore su una categoria, quella categoria sparirebbe da Google.",
+     "domande": [
+      {
+       "tipo": "abbina",
+       "testo": "Abbina lo strumento a cosa fa.",
+       "coppie": [
+        [
+         "noindex",
+         "Chiede di non mostrare la pagina nei risultati"
+        ],
+        [
+         "robots.txt",
+         "Chiede di non scansionare una parte del sito"
+        ]
+       ],
+       "spiegazione": "Il noindex agisce sull'indicizzazione, il robots.txt sulla scansione."
+      },
+      {
+       "tipo": "vf",
+       "testo": "Il carrello di un e-commerce dovrebbe comparire su Google.",
+       "risposta": false,
+       "spiegazione": "Nessuno lo cerca e non serve a chi arriva da Google: si mette in noindex."
+      }
+     ]
+    },
+    {
+     "titolo": "Redirect e pagine 404",
+     "testo": "Quando una pagina cambia indirizzo o viene tolta, si usa un reindirizzamento. Il 301 è definitivo: Google passa alla pagina nuova il valore della vecchia. Il 302 è temporaneo. Se un indirizzo non esiste più e non c'è un redirect, chi lo apre trova un errore 404. Un redirect va sempre verso la pagina più simile, e senza catene (un redirect che porta a un altro redirect).",
+     "esempio": "L'Earl Grey classico è stato sostituito dal biologico: il vecchio indirizzo va reindirizzato con un 301 alla scheda nuova, non alla home.",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "Un prodotto è stato tolto per sempre e ce n'è uno che lo sostituisce. Cosa usi?",
+       "opzioni": [
+        {
+         "t": "Un 301 verso il prodotto che lo sostituisce",
+         "giusta": true
+        },
+        {
+         "t": "Un 302 verso la home",
+         "giusta": false
+        },
+        {
+         "t": "Niente: il 404 va bene",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "Il cambio è definitivo e la pagina più simile è il nuovo prodotto."
+      }
+     ]
+    },
+    {
+     "titolo": "Contenuti duplicati e canonical",
+     "testo": "Lo stesso contenuto può avere più indirizzi: per esempio una categoria ordinata per prezzo (/te-verdi/?ordina=prezzo). Per Google sono copie, e deve indovinare quale mostrare. Il canonical è un'indicazione nel codice che dice qual è la versione principale. Così i filtri restano per chi compra e Google mostra la pagina giusta.",
+     "esempio": "/te-verdi/?ordina=prezzo indica come canonical /te-verdi/: su Google compare solo la categoria.",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "Cosa indica il canonical?",
+       "opzioni": [
+        {
+         "t": "La versione principale di una pagina che ha delle copie",
+         "giusta": true
+        },
+        {
+         "t": "Che la pagina non deve comparire su Google",
+         "giusta": false
+        },
+        {
+         "t": "Dove reindirizzare chi apre la pagina",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "Il canonical non nasconde e non sposta: dice quale versione considerare quella vera."
+      }
+     ]
+    },
+    {
+     "titolo": "Velocità: i Core Web Vitals",
+     "testo": "Google misura l'esperienza delle visite vere con i Core Web Vitals. LCP: quanto ci mette a comparire l'elemento più grande (buono sotto 2,5 secondi). INP: quanto la pagina risponde a un clic (buono sotto 200 millisecondi). CLS: quanto si sposta la pagina mentre carica (buono sotto 0,1). Si guardano separati per telefono e computer.",
+     "esempio": "Le schede di Cinque Foglie da telefono hanno un LCP di 4,1 secondi per una foto troppo pesante: tante persone se ne vanno prima di vedere il prodotto.",
+     "domande": [
+      {
+       "tipo": "abbina",
+       "testo": "Abbina la misura a cosa controlla.",
+       "coppie": [
+        [
+         "LCP",
+         "Quando compare l'elemento più grande"
+        ],
+        [
+         "INP",
+         "Quanto risponde la pagina a un clic"
+        ],
+        [
+         "CLS",
+         "Quanto si sposta la pagina mentre carica"
+        ]
+       ],
+       "spiegazione": "LCP = caricamento, INP = reattività, CLS = stabilità."
+      },
+      {
+       "tipo": "vf",
+       "testo": "Se una pagina è veloce sul computer, è veloce anche sul telefono.",
+       "risposta": false,
+       "spiegazione": "Telefono e computer si misurano a parte: sul telefono la connessione e il processore sono spesso più lenti."
+      }
+     ]
+    },
+    {
+     "titolo": "Gli strumenti di ogni giorno",
+     "testo": "Google Search Console (gratis) mostra come il sito va su Google: clic, impressioni, pagine indicizzate, errori. Google Analytics (gratis) mostra cosa fanno le persone dopo il clic. Un crawler, come Screaming Frog (gratis fino a 500 indirizzi), legge tutto il sito e trova errori, title doppi, redirect. Gli strumenti per le keyword dicono quanto e quando si cerca una parola.",
+     "esempio": "Un lunedì tipo: Search Console per vedere se qualcosa è calato, il crawler per trovare il perché, Analytics per capire quanto costa.",
+     "domande": [
+      {
+       "tipo": "abbina",
+       "testo": "Quale strumento usi per…",
+       "coppie": [
+        [
+         "Sapere quante pagine sono su Google",
+         "Search Console"
+        ],
+        [
+         "Trovare tutti i title duplicati del sito",
+         "Crawler"
+        ],
+        [
+         "Sapere quanti ordini arrivano da Google",
+         "Analytics"
+        ]
+       ],
+       "spiegazione": "Search Console guarda Google, il crawler guarda il sito, Analytics guarda le persone dopo il clic."
+      }
+     ],
+     "blog": {
+      "slug": "cosa-fa-un-seo-specialist",
+      "titolo": "Cosa fa un SEO specialist"
+     }
+    }
+   ],
+   "riepilogo": [
+    "Il noindex toglie una pagina dai risultati; il robots.txt blocca la scansione.",
+    "Un 301 sposta per sempre una pagina; il canonical indica la versione principale tra le copie.",
+    "La velocità si misura con LCP, INP e CLS; gli strumenti base sono Search Console, Analytics e un crawler."
+   ],
+   "finali": [
+    {
+     "tipo": "singola",
+     "testo": "Una categoria è sparita da Google dopo un aggiornamento del sito. Cosa controlli per primo?",
+     "opzioni": [
+      {
+       "t": "Se ha un noindex",
+       "giusta": true
+      },
+      {
+       "t": "Se ha poche immagini",
+       "giusta": false
+      },
+      {
+       "t": "Se il CTR è basso",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "Se una pagina sparisce del tutto, il primo sospetto è qualcosa che la esclude dall'indice."
+    },
+    {
+     "tipo": "vf",
+     "testo": "Un LCP di 4 secondi da telefono è buono.",
+     "risposta": false,
+     "spiegazione": "È oltre i 2,5 secondi: è da migliorare, anzi è al limite di «scarso»."
+    },
+    {
+     "tipo": "singola",
+     "testo": "Le versioni filtrate di una categoria compaiono come copie. Cosa usi?",
+     "opzioni": [
+      {
+       "t": "Il canonical verso la categoria",
+       "giusta": true
+      },
+      {
+       "t": "Un 404",
+       "giusta": false
+      },
+      {
+       "t": "Il noindex sulla categoria",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "Il canonical lascia i filtri a chi compra e dice a Google quale pagina mostrare."
+    }
+   ],
+   "parole": [
+    [
+     "Noindex",
+     "Istruzione che chiede a Google di non mostrare una pagina."
+    ],
+    [
+     "Redirect 301",
+     "Spostamento definitivo di una pagina a un altro indirizzo."
+    ],
+    [
+     "Canonical",
+     "Indica la versione principale tra più copie di una pagina."
+    ],
+    [
+     "Core Web Vitals",
+     "Le misure di Google sulla velocità e stabilità delle pagine."
+    ]
+   ]
+  }
+ ],
+ "verifica": [
+  {
+   "tipo": "singola",
+   "testo": "Cosa distingue un risultato organico da un annuncio?",
+   "opzioni": [
+    {
+     "t": "L'annuncio è segnato come «Sponsorizzato» e si paga a ogni clic",
+     "giusta": true
+    },
+    {
+     "t": "L'organico è sempre in prima posizione",
+     "giusta": false
+    },
+    {
+     "t": "Non c'è nessuna differenza",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "Gli annunci si pagano e sono segnati; gli organici sono gratuiti."
+  },
+  {
+   "tipo": "ordina",
+   "testo": "Metti in ordine cosa succede prima che una pagina compaia su Google.",
+   "voci": [
+    "Googlebot la legge",
+    "Google la salva nell'indice",
+    "Google la mostra in una ricerca"
+   ],
+   "spiegazione": "Scansione, indicizzazione, posizionamento."
+  },
+  {
+   "tipo": "singola",
+   "testo": "Una pagina ha 5.000 impressioni e 50 clic. Qual è il CTR?",
+   "opzioni": [
+    {
+     "t": "1%",
+     "giusta": true
+    },
+    {
+     "t": "10%",
+     "giusta": false
+    },
+    {
+     "t": "0,1%",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "50 / 5.000 = 0,01, cioè 1%."
+  },
+  {
+   "tipo": "abbina",
+   "testo": "Abbina ogni ricerca all'intento.",
+   "coppie": [
+    [
+     "tè verde prezzo",
+     "Transazionale"
+    ],
+    [
+     "differenza tra tè verde e nero",
+     "Informativo"
+    ]
+   ],
+   "spiegazione": "Chi chiede il prezzo vuole comprare; chi chiede la differenza vuole capire."
+  },
+  {
+   "tipo": "vf",
+   "testo": "La meta description fa salire una pagina di posizione.",
+   "risposta": false,
+   "spiegazione": "Non conta per la classifica, ma fa cliccare di più."
+  },
+  {
+   "tipo": "multipla",
+   "testo": "Quali pagine di un e-commerce di solito hanno il noindex?",
+   "opzioni": [
+    {
+     "t": "Carrello",
+     "giusta": true
+    },
+    {
+     "t": "Area personale",
+     "giusta": true
+    },
+    {
+     "t": "Categoria dei prodotti",
+     "giusta": false
+    },
+    {
+     "t": "Scheda di un prodotto",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "Carrello e area personale non servono a chi arriva da Google; categorie e prodotti sì."
+  },
+  {
+   "tipo": "singola",
+   "testo": "Una pagina cambia indirizzo per sempre. Cosa usi?",
+   "opzioni": [
+    {
+     "t": "Un redirect 301",
+     "giusta": true
+    },
+    {
+     "t": "Un redirect 302",
+     "giusta": false
+    },
+    {
+     "t": "Un canonical",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "Il 301 è lo spostamento definitivo."
+  },
+  {
+   "tipo": "singola",
+   "testo": "Quale misura dice quanto ci mette a comparire l'elemento più grande della pagina?",
+   "opzioni": [
+    {
+     "t": "LCP",
+     "giusta": true
+    },
+    {
+     "t": "CLS",
+     "giusta": false
+    },
+    {
+     "t": "CTR",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "L'LCP misura il caricamento; buono sotto 2,5 secondi."
+  }
+ ],
+ "prova": {
+  "titolo": "Il Sencha online non si trova",
+  "cosa": "Una richiesta breve di Marta: scegli la keyword, il title e la description della scheda del Sencha.",
+  "link": "/app/seo/esercizio/",
+  "minuti": 25
+ },
+ "pratica": {
+  "titolo": "Percorso SEO junior",
+  "cosa": "Lavori sul sito vero di Cinque Foglie con il Pannello e cinque strumenti: dalle basi ai casi difficili.",
+  "link": "/app/percorsi/seo/"
+ }
+}

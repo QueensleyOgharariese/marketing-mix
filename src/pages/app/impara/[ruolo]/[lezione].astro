@@ -1,0 +1,248 @@
+---
+// HUB · LEZIONE DI TEORIA (e verifica del ruolo)
+// Lezione: un blocco alla volta (concetto + esempio su Cinque Foglie + 1-2 domande), poi riepilogo e 3 domande finali.
+// Si va avanti quando le domande del blocco sono giuste; se sbagli vedi la spiegazione e riprovi (è teoria: niente punti).
+// Verifica: 8 domande una alla volta, senza correzione immediata; alla fine il risultato e le spiegazioni.
+// Con almeno 6 risposte giuste la teoria del ruolo è completata. "Approfondisci sul blog" porta agli articoli del blog.
+import AppLayout from "../../../../layouts/AppLayout.astro";
+import Progresso from "../../../../components/Progresso.astro";
+import Pesca from "../../../../components/Pesca.astro";
+import azienda from "../../../../data/app/cinque-foglie.json";
+import "../../../../styles/quiz.css";
+
+export function getStaticPaths() {
+  const teorie = import.meta.glob("../../../../data/app/teoria/*.json", { eager: true }) as Record<string, { default: any }>;
+  return Object.values(teorie).flatMap(({ default: t }) => [
+    ...t.lezioni.map((l: any, i: number) => ({ params: { ruolo: t.id, lezione: l.id }, props: { t, lezione: l, n: i } })),
+    { params: { ruolo: t.id, lezione: "verifica" }, props: { t, lezione: null, n: t.lezioni.length } },
+  ]);
+}
+const { t, lezione, n } = Astro.props;
+const ruolo = azienda.ruoli.find((r) => r.id === t.id)!;
+const verifica = !lezione;
+const base = `/app/impara/${t.id}`;
+const prossima = !verifica ? (t.lezioni[n + 1] ? { link: `${base}/${t.lezioni[n + 1].id}/`, testo: `Lezione ${n + 2}: ${t.lezioni[n + 1].titolo}` } : { link: `${base}/verifica/`, testo: "Fai la verifica del ruolo" }) : null;
+const titolo = verifica ? "Verifica del ruolo" : lezione.titolo;
+const passi = verifica ? t.verifica.map((_: any, i: number) => `Domanda ${i + 1}`) : [...lezione.blocchi.map((b: any) => b.titolo), "Riepilogo e domande finali"];
+const dati = { ruolo: t.id, lezione: verifica ? "verifica" : lezione.id, verifica, blocchi: verifica ? [] : lezione.blocchi, riepilogo: verifica ? [] : lezione.riepilogo, finali: verifica ? [] : lezione.finali, domande: verifica ? t.verifica : [], prossima, ruoloLink: `${base}/`, pratica: t.pratica };
+---
+<AppLayout title={`${titolo} · ${ruolo.nome}`} percorso={[{ etichetta: azienda.nome, link: "/app/" }, { etichetta: ruolo.nome, link: `${base}/` }, { etichetta: verifica ? "Verifica" : `Lezione ${n + 1}` }]}>
+  <Progresso slot="barra" />
+  <main class="lezione">
+    <nav class="indice" aria-label="Parti della lezione">
+      <a class="torna" href={`${base}/`}>← {ruolo.nome}</a>
+      <span class="gruppo-titolo">{verifica ? "Verifica" : `Lezione ${n + 1} di ${t.lezioni.length}`}</span>
+      <ol class="voci">
+        {passi.map((p: string, i: number) => <li data-voce={i}><span class="pallino" aria-hidden="true"></span><span>{p}</span></li>)}
+      </ol>
+    </nav>
+
+    <section class="centro">
+      <header class="testa">
+        <span class="occhiello">{verifica ? `${t.verifica.length} domande · senza correzione fino alla fine` : `${lezione.minuti} minuti · ${lezione.blocchi.length} blocchi`}</span>
+        <h1 class="app-titolo">{titolo}</h1>
+        <div class="segmenti" aria-hidden="true">{passi.map(() => <span></span>)}</div>
+      </header>
+      <article class="passo" data-passo aria-live="polite"></article>
+      <nav class="piede" data-piede>
+        <button type="button" class="secondario" data-indietro>← Indietro</button>
+        <span class="dove" data-dove></span>
+        <button type="button" class="bottone-app" data-avanti>Avanti →</button>
+      </nav>
+    </section>
+
+    <aside class="lato">
+      {!verifica && (
+        <div class="pannello">
+          <span class="gruppo-titolo">Parole da ricordare</span>
+          <dl class="parole">{lezione.parole.map(([p, d]: [string, string]) => <div><dt>{p}</dt><dd>{d}</dd></div>)}</dl>
+        </div>
+      )}
+      <div class="consiglio">
+        <Pesca dimensione={52} occhiali />
+        <p>{verifica ? `Rispondi a tutte le domande: alla fine vedi cosa hai sbagliato e perché. Servono almeno ${t.verifica.length - 2} risposte giuste.` : "Se sbagli una domanda, leggi la spiegazione e riprova: qui si impara, non si perdono punti."}</p>
+      </div>
+    </aside>
+  </main>
+  <script type="application/json" id="dati-lezione" set:html={JSON.stringify(dati)} />
+</AppLayout>
+
+<script>
+  import { disegnaDomanda, salvaTeoria, type Domanda } from "../../../../scripts/quiz";
+  const D = JSON.parse(document.getElementById("dati-lezione")!.textContent!);
+  const esc = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  const box = document.querySelector<HTMLElement>("[data-passo]")!;
+  const btnAvanti = document.querySelector<HTMLButtonElement>("[data-avanti]")!;
+  const btnIndietro = document.querySelector<HTMLButtonElement>("[data-indietro]")!;
+  const dove = document.querySelector<HTMLElement>("[data-dove]")!;
+  const voci = [...document.querySelectorAll<HTMLElement>("[data-voce]")];
+  const segmenti = [...document.querySelectorAll<HTMLElement>(".segmenti span")];
+  const totale = voci.length;
+  let passo = 0;
+  const risolti = new Set<number>(); // passi già superati (lezione) o risposti (verifica)
+  const risposte: (boolean | null)[] = [];
+
+  function aggiornaIndice() {
+    voci.forEach((v, i) => { v.classList.toggle("ora", i === passo); v.classList.toggle("fatta", risolti.has(i)); });
+    segmenti.forEach((s, i) => { s.className = risolti.has(i) ? "fatto" : i === passo ? "ora" : ""; });
+    dove.textContent = `${D.verifica ? "Domanda" : "Parte"} ${passo + 1} di ${totale}`;
+    btnIndietro.disabled = passo === 0;
+  }
+
+  // Una domanda con il suo bottone Controlla e la spiegazione. chiamaQuandoGiusta: per sbloccare Avanti.
+  function domandaConControllo(contenitore: HTMLElement, d: Domanda, giaRisolta: boolean, quandoGiusta: () => void) {
+    const div = document.createElement("div");
+    div.className = "q-blocco";
+    div.innerHTML = `<div data-q></div><div class="q-azioni"><button type="button" class="secondario" data-controlla-q>Controlla</button></div><div class="q-esito" data-esito-q hidden></div>`;
+    contenitore.appendChild(div);
+    const valuta = disegnaDomanda(div.querySelector("[data-q]")!, d);
+    const esito = div.querySelector<HTMLElement>("[data-esito-q]")!;
+    const mostraGiusta = () => { div.dataset.risolta = "si"; esito.hidden = false; esito.className = "q-esito ok"; esito.innerHTML = `<strong>Giusto.</strong><p>${esc(d.spiegazione)}</p>`; };
+    if (giaRisolta) mostraGiusta();
+    div.querySelector("[data-controlla-q]")!.addEventListener("click", () => {
+      const r = valuta();
+      esito.hidden = false;
+      if (r === null) { esito.className = "q-esito vuoto"; esito.innerHTML = "<p>Rispondi prima di controllare.</p>"; return; }
+      if (r) { mostraGiusta(); quandoGiusta(); }
+      else { esito.className = "q-esito no"; esito.innerHTML = `<strong>Non ancora.</strong><p>${esc(d.spiegazione)}</p><p>Correggi e premi di nuovo Controlla.</p>`; }
+    });
+  }
+
+  function disegnaLezione() {
+    const ultimo = passo === totale - 1;
+    let domande: Domanda[];
+    if (!ultimo) {
+      const b = D.blocchi[passo];
+      domande = b.domande;
+      box.innerHTML = `<h2>${esc(b.titolo)}</h2><p class="testo">${esc(b.testo)}</p>
+        <div class="esempio"><span>Su Cinque Foglie</span><p>${esc(b.esempio)}</p></div>
+        ${b.blog ? `<a class="blog" href="/blog/${b.blog.slug}/">Approfondisci sul blog: ${esc(b.blog.titolo)} →</a>` : ""}
+        <div class="domande"><h3>${domande.length > 1 ? "Due domande" : "Una domanda"} per vedere se è chiaro</h3></div>`;
+    } else {
+      domande = D.finali;
+      box.innerHTML = `<h2>Riepilogo</h2><ol class="riepilogo">${D.riepilogo.map((r: string) => `<li>${esc(r)}</li>`).join("")}</ol>
+        <div class="domande"><h3>Domande finali</h3></div>`;
+    }
+    const cont = box.querySelector<HTMLElement>(".domande")!;
+    let giuste = 0;
+    const gia = risolti.has(passo);
+    domande.forEach((d) => domandaConControllo(cont, d, gia, () => { giuste++; if (giuste === domande.length) { risolti.add(passo); sblocca(); } }));
+    sblocca();
+  }
+  function sblocca() {
+    const ok = risolti.has(passo);
+    btnAvanti.disabled = !ok;
+    btnAvanti.textContent = passo === totale - 1 ? "Concludi la lezione" : "Avanti →";
+    btnAvanti.title = ok ? "" : "Rispondi giusto alle domande per andare avanti";
+    aggiornaIndice();
+  }
+
+  function disegnaVerifica() {
+    const d: Domanda = D.domande[passo];
+    box.innerHTML = `<div class="domande"></div>`;
+    const div = box.querySelector<HTMLElement>(".domande")!;
+    const valuta = disegnaDomanda(div, d);
+    btnAvanti.disabled = false;
+    btnAvanti.textContent = passo === totale - 1 ? "Conferma e vedi il risultato" : "Conferma →";
+    btnAvanti.onclick = () => {
+      const r = valuta();
+      if (r === null) { let a = box.querySelector(".avviso"); if (!a) { a = document.createElement("p"); a.className = "q-esito vuoto avviso"; box.appendChild(a); } a.textContent = "Rispondi prima di andare avanti."; return; }
+      risposte[passo] = r; risolti.add(passo);
+      if (passo < totale - 1) { passo++; disegnaVerifica(); window.scrollTo({ top: 0, behavior: "smooth" }); }
+      else risultato();
+    };
+    aggiornaIndice();
+  }
+  function risultato() {
+    const giuste = risposte.filter(Boolean).length;
+    const superata = giuste >= totale - 2;
+    salvaTeoria(D.ruolo, (s) => { s.verifica = { giuste, superata: superata || !!s.verifica?.superata }; });
+    box.innerHTML = `<div class="fine ${superata ? "ok" : "no"}"><span class="fine-numero">${giuste} su ${totale}</span>
+        <h2>${superata ? "Verifica superata" : "Non ancora"}</h2>
+        <p>${superata ? "Hai completato la teoria del ruolo. Ora puoi passare alla pratica." : `Servono almeno ${totale - 2} risposte giuste. Rileggi le spiegazioni qui sotto e riprova quando vuoi.`}</p></div>
+      <h3>Le tue risposte</h3>
+      <ol class="revisione">${D.domande.map((d: Domanda, i: number) => `<li class="${risposte[i] ? "ok" : "no"}"><strong>${esc(d.testo)}</strong><span>${risposte[i] ? "Giusta" : "Sbagliata"}</span><p>${esc(d.spiegazione)}</p></li>`).join("")}</ol>`;
+    document.querySelector("[data-piede]")!.innerHTML = `<a class="secondario" href="${D.ruoloLink}">Torna al ruolo</a><button type="button" class="secondario" onclick="location.reload()">Rifai la verifica</button>${superata && D.pratica ? `<a class="bottone-app" href="${D.pratica.link}">Vai alla pratica →</a>` : ""}`;
+    voci.forEach((v, i) => { v.classList.remove("ora"); v.classList.toggle("fatta", !!risposte[i]); v.classList.toggle("sbagliata", !risposte[i]); });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  function fineLezione() {
+    salvaTeoria(D.ruolo, (s) => { s.lezioni[D.lezione] = true; });
+    voci.forEach((v) => v.classList.add("fatta"));
+    segmenti.forEach((s) => (s.className = "fatto"));
+    box.innerHTML = `<div class="fine ok"><span class="fine-numero">Fatto</span><h2>Lezione completata</h2><p>Le parole da ricordare restano qui a destra. Puoi rivedere la lezione quando vuoi.</p></div>`;
+    document.querySelector("[data-piede]")!.innerHTML = `<a class="secondario" href="${D.ruoloLink}">Torna al ruolo</a>${D.prossima ? `<a class="bottone-app" href="${D.prossima.link}">${esc(D.prossima.testo)} →</a>` : ""}`;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  btnIndietro.addEventListener("click", () => { if (passo > 0) { passo--; D.verifica ? disegnaVerifica() : disegnaLezione(); window.scrollTo({ top: 0, behavior: "smooth" }); } });
+  if (!D.verifica) btnAvanti.addEventListener("click", () => {
+    if (btnAvanti.disabled) return;
+    if (passo === totale - 1) { fineLezione(); return; }
+    passo++; disegnaLezione(); window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+  // L'indice a sinistra porta ai blocchi già visti
+  voci.forEach((v, i) => v.addEventListener("click", () => {
+    if (D.verifica || (i > passo && !risolti.has(i - 1))) return;
+    passo = i; disegnaLezione();
+  }));
+  D.verifica ? disegnaVerifica() : disegnaLezione();
+</script>
+
+<style>
+  .lezione { max-width: 1320px; margin: 0 auto; padding: 28px 24px 64px; display: grid; grid-template-columns: 230px minmax(0, 1fr) 280px; gap: 28px; align-items: start; }
+  .indice, .lato { position: sticky; top: 84px; display: flex; flex-direction: column; gap: 14px; }
+  .torna { font-weight: 700; color: var(--inchiostro); text-decoration: none; font-size: .9rem; }
+  .gruppo-titolo { font-size: .76rem; font-weight: 700; color: #55514c; letter-spacing: .04em; text-transform: uppercase; }
+  .voci { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+  .voci li { display: flex; gap: 10px; align-items: flex-start; padding: 8px 10px; border-radius: 10px; font-size: .86rem; line-height: 1.4; color: #55514c; cursor: pointer; }
+  .voci li.ora { background: #e9e8e4; color: var(--inchiostro); font-weight: 700; }
+  .pallino { flex: none; width: 10px; height: 10px; border-radius: 50%; border: 2px solid #b9b5ae; margin-top: 4px; }
+  .voci li.ora .pallino { border-color: var(--arancio); background: var(--arancio); }
+  .voci li.fatta .pallino { border-color: #2f7a4f; background: #2f7a4f; }
+  .voci li.sbagliata .pallino { border-color: #b3261e; background: #fff; }
+  .centro { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+  .testa { display: flex; flex-direction: column; gap: 8px; }
+  .occhiello { font-size: .82rem; font-weight: 700; color: #625e58; }
+  .testa h1 { margin: 0; font-size: clamp(1.6rem, 3vw, 2.1rem); }
+  .segmenti { display: flex; gap: 5px; margin-top: 4px; }
+  .segmenti span { flex: 1; height: 6px; border-radius: 3px; background: #e3e1dc; }
+  .segmenti :global(span.fatto) { background: #2f7a4f; } .segmenti :global(span.ora) { background: var(--arancio); }
+  .passo { background: #fff; border: 1px solid #e3e1dc; border-radius: 20px; padding: 28px 30px; display: flex; flex-direction: column; gap: 16px; }
+  .passo :global(h2) { margin: 0; font-family: var(--font-titoli); font-size: 1.45rem; line-height: 1.25; }
+  .passo :global(.testo) { margin: 0; font-size: 1.02rem; line-height: 1.7; color: #2f2925; max-width: 68ch; }
+  .passo :global(.esempio) { background: #f4f4f2; border-radius: 14px; padding: 14px 16px; border-left: 3px solid var(--arancio); }
+  .passo :global(.esempio span) { font-size: .76rem; font-weight: 800; color: #55514c; text-transform: uppercase; letter-spacing: .04em; }
+  .passo :global(.esempio p) { margin: 4px 0 0; line-height: 1.6; }
+  .passo :global(.blog) { align-self: flex-start; font-weight: 700; color: var(--inchiostro); text-decoration-color: var(--arancio); text-decoration-thickness: 2px; text-underline-offset: 3px; font-size: .92rem; }
+  .passo :global(.domande) { display: flex; flex-direction: column; gap: 18px; border-top: 1px solid #e3e1dc; padding-top: 18px; }
+  .passo :global(.domande h3) { margin: 0; font-size: .82rem; font-weight: 800; color: #55514c; text-transform: uppercase; letter-spacing: .04em; }
+  .passo :global(.q-blocco) { display: flex; flex-direction: column; gap: 10px; }
+  .passo :global(.q-azioni) { display: flex; gap: 8px; }
+  .passo :global(.riepilogo) { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; line-height: 1.6; font-size: 1rem; }
+  .passo :global(.fine) { border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 6px; }
+  .passo :global(.fine.ok) { background: #e3f3e8; } .passo :global(.fine.no) { background: #fde8e4; }
+  .passo :global(.fine-numero) { font-family: var(--font-titoli); font-weight: 800; font-size: 2rem; }
+  .passo :global(.fine p) { margin: 0; line-height: 1.6; }
+  .passo :global(.revisione) { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 12px; }
+  .passo :global(.revisione li) { line-height: 1.5; }
+  .passo :global(.revisione li span) { margin-left: 8px; font-size: .78rem; font-weight: 800; }
+  .passo :global(.revisione li.ok span) { color: #1f5c38; } .passo :global(.revisione li.no span) { color: #8a1f17; }
+  .passo :global(.revisione p) { margin: 4px 0 0; color: #55514c; font-size: .9rem; }
+  .piede { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+  .dove { font-size: .85rem; color: #625e58; }
+  .bottone-app:disabled { opacity: .45; cursor: not-allowed; }
+  :global(.secondario) { font: inherit; font-weight: 700; padding: 11px 14px; border-radius: 10px; border: 1px solid #d1cec8; background: #fff; color: var(--inchiostro); cursor: pointer; text-decoration: none; }
+  :global(.secondario:disabled) { opacity: .4; cursor: default; }
+  .pannello { background: #fff; border: 1px solid #e3e1dc; border-radius: 18px; padding: 18px 20px; }
+  .parole { margin: 10px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: .86rem; line-height: 1.5; }
+  .parole dt { font-weight: 800; } .parole dd { margin: 0; color: #423e39; }
+  .consiglio { display: flex; gap: 12px; align-items: flex-start; background: #f4f4f2; border-radius: 18px; padding: 16px; font-size: .86rem; line-height: 1.55; }
+  .consiglio p { margin: 0; }
+  @media (max-width: 1100px) { .lezione { grid-template-columns: 210px minmax(0, 1fr); } .lato { grid-column: 2; position: static; } }
+  @media (max-width: 760px) {
+    .lezione { grid-template-columns: 1fr; padding: 16px 16px 48px; gap: 18px; }
+    .indice { position: static; } .voci { display: none; } .lato { grid-column: auto; }
+    .passo { padding: 20px 18px; }
+  }
+</style>
