@@ -141,6 +141,28 @@ seo = {
   singola("Quale misura dice quanto ci mette a comparire l'elemento più grande della pagina?", "LCP", ["CLS", "CTR"], "L'LCP misura il caricamento; buono sotto 2,5 secondi.")],
  "prova": {"titolo": "Il Sencha online non si trova", "cosa": "Una richiesta breve di Marta: scegli la keyword, il title e la description della scheda del Sencha.", "link": "/app/seo/esercizio/", "minuti": 25},
  "pratica": {"titolo": "Simulazione SEO", "cosa": "Lavori sul sito vero di Cinque Foglie con il Pannello e cinque strumenti: dalle basi ai casi difficili.", "link": "/app/percorsi/seo/"}}
+# 30/10/2026: articoli SEO del blog per approfondire ogni blocco (solo articoli che esistono davvero).
+# Il blocco tiene il suo link se ne aveva già uno; altrimenti prende quello di questa tabella.
+APPROFONDIMENTI = {
+  "Come Google trova e ordina le pagine": ("come-google-trova-le-pagine", "Come Google trova e ordina le pagine"),
+  "Come si misura": ("search-console-per-chi-inizia", "Google Search Console per chi inizia"),
+  "Keyword e volume": ("come-scegliere-le-keyword", "Come scegliere le keyword"),
+  "L'intento di ricerca": ("intento-di-ricerca", "L'intento di ricerca spiegato semplice"),
+  "Una pagina per ogni intento": ("come-scegliere-le-keyword", "Come scegliere le keyword"),
+  "Contenuti utili e affidabili": ("content-strategy-per-principianti", "Content strategy per principianti"),
+  "Far entrare (o uscire) una pagina da Google": ("noindex-robots-txt-canonical", "Noindex, robots.txt e canonical"),
+  "Redirect e pagine 404": ("redirect-301-e-pagine-404", "Redirect 301 e pagine 404"),
+  "Contenuti duplicati e canonical": ("noindex-robots-txt-canonical", "Noindex, robots.txt e canonical"),
+  "Velocità: i Core Web Vitals": ("core-web-vitals", "Core Web Vitals spiegati semplici"),
+  "Gli strumenti di ogni giorno": ("search-console-per-chi-inizia", "Google Search Console per chi inizia"),
+}
+import os
+for l in seo["lezioni"]:
+    for b in l["blocchi"]:
+        if b["titolo"] in APPROFONDIMENTI and (b.get("blog") in (None, BLOG_RUOLO)):
+            slug, titolo = APPROFONDIMENTI[b["titolo"]]
+            assert os.path.exists(f"src/content/blog/{slug}.md"), slug  # mai link a un articolo che non c'è
+            b["blog"] = {"slug": slug, "titolo": titolo}
 json.dump(seo, open("src/data/app/teoria/seo.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 n = sum(len(b["domande"]) for l in seo["lezioni"] for b in l["blocchi"]) + sum(len(l["finali"]) for l in seo["lezioni"]) + len(seo["verifica"])
 print("lezioni", len(seo["lezioni"]), "blocchi", sum(len(l["blocchi"]) for l in seo["lezioni"]), "domande", n)

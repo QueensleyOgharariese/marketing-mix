@@ -103,7 +103,11 @@
        ],
        "spiegazione": "Prima Google deve leggere la pagina, poi salvarla, solo dopo può mostrarla."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "come-google-trova-le-pagine",
+      "titolo": "Come Google trova e ordina le pagine"
+     }
     },
     {
      "titolo": "Le tre parti del lavoro",
@@ -169,7 +173,11 @@
        "risposta": false,
        "spiegazione": "Le impressioni contano quante volte la pagina è comparsa nei risultati, anche se nessuno ha cliccato."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "search-console-per-chi-inizia",
+      "titolo": "Google Search Console per chi inizia"
+     }
     }
    ],
    "riepilogo": [
@@ -271,7 +279,11 @@
        ],
        "spiegazione": "Più la ricerca è precisa, più chi la fa sa cosa vuole, anche se il volume è più basso."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "come-scegliere-le-keyword",
+      "titolo": "Come scegliere le keyword"
+     }
     },
     {
      "titolo": "L'intento di ricerca",
@@ -301,7 +313,11 @@
        ],
        "spiegazione": "Chiediti cosa vuole fare la persona subito dopo la ricerca: imparare, confrontare, comprare o andare su un sito preciso."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "intento-di-ricerca",
+      "titolo": "L'intento di ricerca spiegato semplice"
+     }
     },
     {
      "titolo": "Una pagina per ogni intento",
@@ -314,7 +330,11 @@
        "risposta": false,
        "spiegazione": "Si dividono i clic e Google non sa quale scegliere: di solito nessuna delle due sale."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "come-scegliere-le-keyword",
+      "titolo": "Come scegliere le keyword"
+     }
     },
     {
      "titolo": "Title, meta description e H1",
@@ -393,7 +413,11 @@
        ],
        "spiegazione": "Le prime due descrivono il prodotto. Le altre sono promesse sulla salute non autorizzate: vietate per un alimento."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "content-strategy-per-principianti",
+      "titolo": "Content strategy per principianti"
+     }
     }
    ],
    "riepilogo": [
@@ -497,7 +521,11 @@
        "risposta": false,
        "spiegazione": "Nessuno lo cerca e non serve a chi arriva da Google: si mette in noindex."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "noindex-robots-txt-canonical",
+      "titolo": "Noindex, robots.txt e canonical"
+     }
     },
     {
      "titolo": "Redirect e pagine 404",
@@ -523,7 +551,11 @@
        ],
        "spiegazione": "Il cambio è definitivo e la pagina più simile è il nuovo prodotto."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "redirect-301-e-pagine-404",
+      "titolo": "Redirect 301 e pagine 404"
+     }
     },
     {
      "titolo": "Contenuti duplicati e canonical",
@@ -549,7 +581,11 @@
        ],
        "spiegazione": "Il canonical non nasconde e non sposta: dice quale versione considerare quella vera."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "noindex-robots-txt-canonical",
+      "titolo": "Noindex, robots.txt e canonical"
+     }
     },
     {
      "titolo": "Velocità: i Core Web Vitals",
@@ -581,7 +617,11 @@
        "risposta": false,
        "spiegazione": "Telefono e computer si misurano a parte: sul telefono la connessione e il processore sono spesso più lenti."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "core-web-vitals",
+      "titolo": "Core Web Vitals spiegati semplici"
+     }
     },
     {
      "titolo": "Gli strumenti di ogni giorno",
@@ -609,8 +649,8 @@
       }
      ],
      "blog": {
-      "slug": "cosa-fa-un-seo-specialist",
-      "titolo": "Cosa fa un SEO specialist"
+      "slug": "search-console-per-chi-inizia",
+      "titolo": "Google Search Console per chi inizia"
      }
     }
    ],
