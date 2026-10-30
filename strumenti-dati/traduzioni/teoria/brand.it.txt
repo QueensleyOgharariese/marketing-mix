@@ -1,0 +1,189 @@
+1|Brand manager
+2|Si prende cura dell'identità e della reputazione di un marchio: cosa promette, come si presenta e come parla. Fa in modo che il brand sia riconoscibile e coerente ovunque, dalla confezione ai social, e misura cosa ne pensano le persone.
+3|Grafici e agenzie creative, per logo, colori e campagne
+4|Social, PR e copywriter, che devono usare lo stesso tono
+5|Product marketing ed e-commerce, per confezioni e lanci
+6|Il manuale del brand (brand guidelines)
+7|Regole su logo, colori, caratteri e tono di voce.
+8|Sondaggi e ricerche
+9|Per sapere quante persone conoscono il brand e cosa ne pensano.
+10|Social listening
+11|Strumenti che raccolgono cosa si dice del brand online.
+12|Search Console e Google Trends
+13|Quante persone cercano il nome del brand.
+14|Rivede la grafica della nuova confezione dei tè freddi
+15|Riunione con l'agenzia sulla campagna di Natale
+16|Corregge il tono di una newsletter che suona troppo aggressiva
+17|Legge i commenti della settimana e i risultati di un sondaggio
+18|Fa per te se ti piace curare i dettagli, hai occhio per la coerenza e ti interessa come le persone percepiscono le cose.
+19|Cosa fa un brand manager
+20|Cos'è un brand
+21|Il brand non è il logo
+22|Il brand è l'idea che le persone hanno di un'azienda: cosa promette, come le fa sentire, perché la sceglierebbero. Il logo è solo uno dei segni che la rendono riconoscibile. Un brand si costruisce con tutto quello che le persone incontrano: prodotti, confezioni, sito, servizio clienti, modo di scrivere.
+23|Per molti clienti Cinque Foglie è «il negozio gentile dei tè biologici». Questa idea nasce dalle confezioni curate, dalle risposte rapide e dal tono delle email, non solo dal logo con la foglia.
+24|Cambiare il logo basta per cambiare il brand.
+25|Il brand è l'idea complessiva: se prodotti, servizio e tono restano uguali, anche l'idea resta.
+26|Identità e immagine
+27|L'identità di marca è come l'azienda vuole presentarsi: nome, logo, colori, caratteri, tono di voce, valori. L'immagine di marca è come le persone la vedono davvero. Il lavoro del brand manager è avvicinare le due cose: se l'azienda si vuole gentile ma i clienti la trovano fredda, qualcosa non funziona.
+28|Cinque Foglie si presenta come esperta e accogliente. Se nelle recensioni molti scrivono «sito confuso, risposte lente», l'immagine si allontana dall'identità.
+29|Abbina ogni esempio.
+30|Il colore verde scelto per il logo
+31|Identità
+32|«Per me è un negozio un po' caro» in una recensione
+33|Immagine
+34|L'identità la decide l'azienda; l'immagine è nella testa delle persone.
+35|Brand identity: logo, colori e valori
+36|Il posizionamento
+37|Il posizionamento è il posto che il brand vuole occupare nella mente delle persone rispetto ai concorrenti. Si riassume in una frase: per chi è, che bisogno soddisfa e perché è diverso. Serve a decidere cosa fare e cosa no: un brand non può essere tutto per tutti.
+38|«Per chi vuole bere bene ogni giorno senza essere un esperto, Cinque Foglie offre tè biologici spiegati in modo semplice, a differenza dei negozi specializzati che parlano solo agli intenditori.»
+39|Cosa contiene una frase di posizionamento?
+40|Per chi è, che bisogno soddisfa e perché è diverso
+41|Solo il prezzo del prodotto
+42|L'elenco di tutti i prodotti
+43|Pubblico, bisogno e differenza dai concorrenti.
+44|Il posizionamento di marca
+45|Promessa e valori
+46|La promessa di marca è quello che il cliente può aspettarsi ogni volta. I valori sono i principi che guidano le scelte. Valgono solo se si vedono nei fatti: un brand che si dice sostenibile ma spedisce in pacchi pieni di plastica perde credibilità. Nell'UE le dichiarazioni ambientali vaghe e non dimostrabili sono considerate pubblicità ingannevole.
+47|Se Cinque Foglie scrive «confezioni 100% riciclabili», deve poterlo dimostrare. «Amici dell'ambiente», senza prove, è troppo vago.
+48|Quale frase può usare Cinque Foglie senza rischi?
+49|«Le nostre latte sono in alluminio riciclabile»
+50|«Il tè più ecologico del mondo»
+51|«100% amici del pianeta»
+52|Si può dire una cosa precisa e dimostrabile; le frasi vaghe o assolute sono ingannevoli.
+53|Il brand è l'idea che le persone hanno di un'azienda, non solo il logo.
+54|L'identità è come ci si presenta, l'immagine come si è visti: vanno avvicinate.
+55|Posizionamento, promessa e valori guidano le scelte e devono essere veri.
+56|Una recensione dice «spedizione lenta, ma tè buonissimo». Cosa misura?
+57|L'immagine di marca
+58|L'identità visiva
+59|Il posizionamento scritto dall'azienda
+60|È come il brand è percepito da un cliente.
+61|Un buon posizionamento cerca di piacere a tutti.
+62|Posizionarsi vuol dire scegliere un pubblico e una differenza.
+63|Una dichiarazione ambientale va…
+64|Dimostrata con dati precisi
+65|Scritta nel modo più generico possibile
+66|Usata solo sui social
+67|Nell'UE le dichiarazioni ambientali vaghe sono considerate ingannevoli.
+68|Brand
+69|L'idea che le persone hanno di un'azienda.
+70|Identità di marca
+71|Come l'azienda vuole presentarsi.
+72|Immagine di marca
+73|Come le persone la vedono davvero.
+74|Posizionamento
+75|Il posto del brand nella mente delle persone rispetto ai concorrenti.
+76|Identità visiva e tono di voce
+77|L'identità visiva è l'insieme dei segni grafici: logo, colori, caratteri, stile delle foto e delle illustrazioni. Si usa sempre allo stesso modo, così il brand si riconosce anche senza leggere il nome. Il logo ha delle regole: spazio intorno, dimensioni minime, versioni su sfondo chiaro e scuro, cosa non fare (deformarlo, cambiarne i colori).
+78|La foglia di Cinque Foglie è sempre verde su fondo chiaro e bianca su fondo scuro, mai inclinata e mai più piccola di 24 pixel sul sito.
+79|Quali usi del logo vanno evitati?
+80|Deformarlo per farlo entrare in uno spazio
+81|Cambiargli i colori a piacere
+82|Usare la versione bianca su fondo scuro
+83|Lasciare spazio libero intorno
+84|Le versioni previste e lo spazio intorno sono regole del manuale; deformare e ricolorare no.
+85|Il tono di voce
+86|Il tono di voce è il modo in cui il brand parla: le parole che sceglie, quanto è formale, se usa il tu o il lei, se fa battute. Si descrive con tre o quattro aggettivi e con esempi di cosa dire e cosa non dire. Il tono resta lo stesso, ma si adatta alla situazione: un post può essere leggero, la risposta a un reclamo no.
+87|Cinque Foglie è gentile, esperta e semplice: «Ti spieghiamo come prepararlo in 3 passi», non «Acquista ORA il miglior tè del mondo!!!».
+88|Quale frase è nel tono «gentile, esperto, semplice»?
+89|«Il Sencha va preparato con acqua a 70-80 °C: così resta dolce.»
+90|«SOLO OGGI!!! Compra prima che finisca!!!»
+91|«L'infusione del Camellia sinensis var. sinensis richiede parametri termici specifici.»
+92|La prima è gentile, esperta e semplice; la seconda è aggressiva, la terza troppo tecnica.
+93|Tono di voce: cos'è e come si definisce
+94|Il manuale del brand
+95|Il manuale del brand (brand guidelines o brand book) raccoglie tutte le regole: posizionamento, valori, logo, colori con i loro codici, caratteri, stile delle immagini, tono di voce con esempi. Serve a chiunque lavori sul brand, anche fuori dall'azienda: agenzie, fotografi, nuovi colleghi. Senza manuale ognuno interpreta a modo suo.
+96|Un'agenzia prepara una campagna per Cinque Foglie: con il manuale usa subito il verde giusto e il tono gentile, senza dieci giri di correzioni.
+97|Il manuale del brand serve solo ai grafici.
+98|Serve a chiunque produca qualcosa per il brand: testi, foto, video, campagne.
+99|Coerenza su tutti i canali
+100|Una persona incontra il brand in tanti punti: un post, la confezione, il sito, un'email, il servizio clienti. Se ogni punto sembra di un'azienda diversa, il brand non si fissa nella memoria. La coerenza non vuol dire fare tutto uguale, ma far sembrare tutto della stessa persona.
+101|Il sito di Cinque Foglie è gentile, ma il messaggio automatico del carrello dice «ERRORE: dati non validi». Una frase come «Manca il CAP: lo aggiungi?» sarebbe nel tono.
+102|Metti in ordine il percorso tipico di un cliente che conosce il brand.
+103|Vede un post sui social
+104|Visita il sito
+105|Compra e riceve la confezione
+106|Riceve un'email dopo l'acquisto
+107|In ogni punto il brand deve sembrare lo stesso.
+108|L'identità visiva ha regole precise: logo, colori, caratteri, immagini.
+109|Il tono di voce si descrive con aggettivi ed esempi e si adatta alla situazione.
+110|Il manuale del brand tiene tutti coerenti, su tutti i canali.
+111|Il tono di un brand si descrive di solito con…
+112|Tre o quattro aggettivi ed esempi di frasi
+113|Il codice del colore principale
+114|Il numero di follower
+115|Aggettivi + esempi di cosa dire e cosa no.
+116|Coerenza vuol dire che un reclamo e un post divertente devono avere lo stesso registro.
+117|Il tono resta lo stesso, ma si adatta alla situazione.
+118|A chi serve il manuale del brand?
+119|A tutti quelli che lavorano sul brand, anche fuori dall'azienda
+120|Solo al brand manager
+121|Solo ai clienti
+122|Agenzie, fotografi, colleghi: tutti.
+123|Identità visiva
+124|Logo, colori, caratteri e stile delle immagini.
+125|Tono di voce
+126|Il modo in cui il brand parla.
+127|Brand guidelines
+128|Il manuale con tutte le regole del brand.
+129|Punto di contatto
+130|Ogni momento in cui una persona incontra il brand.
+131|Misurare e proteggere il brand
+132|La notorietà
+133|La notorietà (brand awareness) misura quante persone conoscono il brand. Si misura con sondaggi: notorietà spontanea («quali negozi di tè online conosci?») e sollecitata («conosci Cinque Foglie?»). La spontanea è più difficile da ottenere e vale di più. Un indizio gratuito sono le ricerche del nome del brand su Google.
+134|In un sondaggio su 500 appassionati di tè, il 6% nomina Cinque Foglie da solo (spontanea) e il 22% lo riconosce quando lo legge (sollecitata).
+135|Abbina la domanda del sondaggio al tipo di notorietà.
+136|«Quali negozi di tè online conosci?»
+137|Spontanea
+138|«Conosci Cinque Foglie?»
+139|Sollecitata
+140|Spontanea = senza suggerimenti; sollecitata = con il nome davanti.
+141|Come si misura un brand
+142|Cosa pensano le persone
+143|Oltre a sapere se le persone ci conoscono, serve sapere cosa ne pensano. Il sentiment è il tono di quello che si dice online del brand: positivo, neutro o negativo. L'NPS (Net Promoter Score) chiede «quanto consiglieresti questo brand a un amico, da 0 a 10?»: chi risponde 9-10 è un promotore, chi risponde da 0 a 6 un detrattore. NPS = % promotori − % detrattori.
+144|Su 100 clienti, 50 danno 9-10, 30 danno 7-8 e 20 danno da 0 a 6: NPS = 50 − 20 = 30.
+145|Su 200 risposte, 100 sono promotori e 40 detrattori. Qual è l'NPS?
+146|50% promotori − 20% detrattori = 30.
+147|Proteggere il marchio
+148|Il nome e il logo si possono registrare come marchio: così nessun altro può usarli per prodotti simili. In Italia si registra all'UIBM, per tutta l'Unione europea all'EUIPO. Prima di scegliere un nome nuovo si controlla che non esista già un marchio simile nello stesso settore. Proteggere vuol dire anche usare bene i marchi degli altri: non si usano loghi o nomi di altre aziende come se fossero propri.
+149|Cinque Foglie vuole chiamare una linea «Foglie d'Oro»: prima di stampare le confezioni verifica nelle banche dati dei marchi che il nome sia libero per il tè.
+150|Un marchio registrato all'EUIPO è protetto in tutti i paesi dell'Unione europea.
+151|Il marchio dell'Unione europea vale in tutti gli Stati membri.
+152|Come proteggere il marchio
+153|Quando qualcosa va storto
+154|Una crisi di reputazione può nascere da un errore vero (un prodotto difettoso) o da una polemica online. Le regole di base: rispondere presto, dire la verità, scusarsi se l'errore è nostro, spiegare cosa si fa per rimediare, usare lo stesso tono su tutti i canali. Cancellare i commenti critici di solito peggiora le cose.
+155|Un lotto di tisane arriva con le confezioni rotte. Cinque Foglie scrive ai clienti coinvolti, rimanda il prodotto gratis e spiega sui social cosa è successo.
+156|Metti in ordine cosa fare in una piccola crisi.
+157|Capire cosa è successo davvero
+158|Rispondere presto, con sincerità
+159|Rimediare per chi è stato coinvolto
+160|Spiegare cosa cambia perché non succeda più
+161|Prima i fatti, poi la risposta, il rimedio e la prevenzione.
+162|Comunicazione di crisi
+163|La notorietà si misura con sondaggi (spontanea e sollecitata) e ricerche del nome.
+164|Sentiment e NPS dicono cosa pensano le persone.
+165|Il marchio si registra e si protegge; nelle crisi si risponde presto e con sincerità.
+166|Quale indizio gratuito di notorietà si legge su Google?
+167|Quante persone cercano il nome del brand
+168|Il prezzo dei concorrenti
+169|Il numero di prodotti
+170|Più persone cercano il nome, più il brand è conosciuto.
+171|In una crisi conviene cancellare i commenti critici.
+172|Di solito peggiora: meglio rispondere presto e con sincerità.
+173|Dove si registra un marchio valido in tutta l'Unione europea?
+174|EUIPO
+175|UIBM
+176|Google
+177|UIBM è l'ufficio italiano; EUIPO quello dell'Unione europea.
+178|Notorietà
+179|Quante persone conoscono il brand.
+180|Sentiment
+181|Il tono di quello che si dice del brand.
+182|NPS
+183|% promotori − % detrattori.
+184|Marchio registrato
+185|Nome o logo protetto per legge.
+186|Il tono di voce di Cinque Foglie
+187|Una richiesta breve di Marta: scegli e correggi i testi perché suonino come Cinque Foglie.
+188|Simulazione Brand
+189|Lavori sul brand di Cinque Foglie: posizionamento, tono di voce, NPS e notorietà, dichiarazioni ambientali, strategia 2027 e ufficio stampa.

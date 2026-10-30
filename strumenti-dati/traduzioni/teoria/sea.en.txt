@@ -1,0 +1,190 @@
+1|SEA specialist
+2|Manages paid ads on search engines, mainly Google. Chooses which searches to appear on, writes the ads, decides how much to spend and checks every day that the money brings sales.
+3|E-commerce and management, who set budgets and goals
+4|Copywriters and designers, for ad copy and images
+5|Whoever runs the website and data, for landing pages and sales tracking
+6|Google Ads
+7|Where campaigns, ads and budgets are created.
+8|Keyword Planner
+9|How many people search for a word and how much a click costs. Free with a Google Ads account.
+10|Google Analytics
+11|What people do after clicking the ad.
+12|Google Merchant Center
+13|The product catalogue for Shopping ads.
+14|Checks yesterday's spend and the campaigns that are underperforming
+15|Adds negative keywords from searches that wasted money
+16|Writes new headlines for an ad to test against each other
+17|Prepares the weekly report: spend, sales, ROAS
+18|It's for you if you like numbers, enjoy testing and comparing, and aren't afraid of deciding how to spend a budget.
+19|UTM links: what they are and how to use them
+20|What SEA is and how the auction works
+21|Search engine ads
+22|SEA (Search Engine Advertising) is advertising on search engines. When someone searches, ads labelled «Sponsored» appear above and below the organic results. With SEA you only pay when someone clicks: that's why it's called pay-per-click (PPC). Unlike SEO, ads appear straight away, but they stop appearing as soon as you stop paying.
+23|Cinque Foglie launches its iced teas in June: with SEO it would take months to climb, with an ad it's in the results the same day.
+24|What's the main difference between SEA and SEO?
+25|With SEA you pay for every click and ads stop when you stop paying
+26|SEA only works on social media
+27|SEO is paid, SEA is free
+28|SEA = paid ads, visible straight away; SEO = organic results, free but slower.
+29|The auction: who appears, and in what order
+30|Every time someone searches, Google runs an auction between the ads that want to appear. It's not just the highest bid that wins: ad quality also counts, meaning how relevant the ad is to the search and how useful the page it leads to is. A very relevant ad can rank higher while paying less than a competitor.
+31|A competitor bids €1 per click on «iced tea» with a generic ad about its shop. Cinque Foglie bids €0.80 with an ad about iced teas that leads to the iced teas page: it can appear first.
+32|In Google's auction, whoever bids most per click always wins.
+33|Quality counts too: relevance of the ad and of the landing page.
+34|What helps an ad rank higher without raising the bid?
+35|Making it more relevant to the search and sending it to a useful page
+36|Writing everything in capitals
+37|Using more exclamation marks
+38|Quality counts in the auction: a relevant ad and a matching landing page.
+39|Quality Score
+40|Google gives each keyword a Quality Score from 1 to 10. It's based on three things: the click-through rate Google expects (expected CTR), how relevant the ad is to the search, and the landing page experience. A high score usually means paying less per click.
+41|The keyword «organic matcha» leads to the home page: low score. If it leads to the organic matcha page, with price and photos, the score goes up.
+42|What is Quality Score based on?
+43|Expected CTR
+44|Ad relevance
+45|Landing page experience
+46|Number of Instagram followers
+47|Those are the three components Google names. Social media has nothing to do with it.
+48|How an account is structured
+49|A Google Ads account is organised in levels. Campaigns have the budget, where to show the ads, and the goal. Inside each campaign there are ad groups, each on a specific theme. Inside each group there are the keywords and the ads about them. A tidy account shows straight away what works and what doesn't.
+50|Campaign «Iced teas – summer», group «Cold brew», keyword «cold brew tea», ad «Organic cold brew tea, ready in 8 hours in the fridge».
+51|Put the levels in order, from biggest to smallest.
+52|Account
+53|Campaign
+54|Ad group
+55|Keywords and ads
+56|The account contains campaigns, campaigns contain groups, groups contain keywords and ads.
+57|SEA is advertising on search engines: you pay per click and it appears straight away.
+58|In the auction the bid counts, but so does the quality of ad and page.
+59|An account is made of campaigns, ad groups, keywords and ads.
+60|An ad appears with the label…
+61|«Sponsored»
+62|«Recommended by Google»
+63|«Top result»
+64|On Google, ads are labelled «Sponsored».
+65|A good Quality Score usually means paying less per click.
+66|Google rewards relevant ads with lower costs per click.
+67|Where is the budget set?
+68|In the campaign
+69|In the individual ad
+70|In the keyword
+71|The budget is a campaign setting.
+72|SEA
+73|Paid advertising on search engines.
+74|PPC
+75|Pay-per-click: you pay when someone clicks.
+76|Quality Score
+77|Google's 1-10 rating of keyword, ad and page.
+78|A set of keywords and ads on the same theme.
+79|Keywords, ads and landing pages
+80|Match types
+81|For each keyword you choose how closely it must match the search. Exact match: the ad appears for searches with the same meaning. Phrase match: it appears for searches that include the keyword's meaning. Broad match: it also appears for related searches, and it's the widest. The broader it is, the more people it reaches, but the more it risks the wrong searches.
+82|The keyword «iced tea» in broad match can also show for «grandma's homemade iced tea recipe», which brings no sales.
+83|Match each match type to how broad it is.
+84|Exact
+85|Only searches with the same meaning
+86|Phrase
+87|Searches that include the meaning
+88|Broad
+89|Even searches that are only related
+90|From narrowest to broadest: exact, phrase, broad.
+91|Negative keywords
+92|Negative keywords tell Google which searches not to show the ad for. You find them in the search terms report, which shows what people who clicked actually typed. Removing useless searches is one of the simplest ways not to waste budget.
+93|The report shows «iced tea recipe» and «homemade iced tea»: people searching these want to cook, not buy. «recipe» and «homemade» are added as negatives.
+94|People searching «free green tea sample» click often but don't buy. What do you do?
+95|Add «free» as a negative keyword
+96|Raise the bid for that search
+97|Delete the whole campaign
+98|Negatives remove searches that cost money without bringing sales.
+99|Writing an ad
+100|Search ads are «responsive»: you write up to 15 headlines (max 30 characters each) and up to 4 descriptions (max 90 characters), and Google combines the ones that work best. A good ad echoes the search, states a concrete benefit and invites action. It can't promise false things, nor, for a food, unauthorised health effects.
+101|Headlines: «Organic iced tea», «24-hour delivery», «Cold brew kit from €19». Description: «Green teas and herbal teas to brew cold. Choose your kit and get it tomorrow.»
+102|Which headline follows the rules and the 30 characters?
+103|Organic iced tea
+104|The iced tea that makes you slim fast
+105|ICED TEA!!! UNMISSABLE DEAL TODAY ONLY
+106|The first is clear and short. The second promises a health effect (banned) and goes over 30 characters; the third is too long and shouting.
+107|The landing page
+108|The click is only half the job: the page people land on has to keep the ad's promise. If the ad is about iced teas, the page must show iced teas, with price and a buy button. A matching page improves Quality Score and sells more.
+109|The ad «Cold brew kit from €19» leads to the home page: people have to look for the kit themselves and often leave. Sending them to the kit's product page fixes it.
+110|It's best to send every ad to the home page, so people see the whole shop.
+111|People who click want to find straight away what they saw in the ad: the page has to be the right one.
+112|The match type decides how wide a keyword's audience is.
+113|Negative keywords remove searches that waste budget.
+114|Ad and landing page must say the same thing.
+115|Where do you find the real searches that led to an ad click?
+116|In the search terms report
+117|In Keyword Planner
+118|In the campaign settings
+119|The search terms report shows what people typed.
+120|A responsive ad headline can be at most 30 characters long.
+121|Headlines up to 30 characters, descriptions up to 90.
+122|The broadest match type is…
+123|Broad match also reaches searches that are only related.
+124|Match type
+125|How closely the search must resemble the keyword.
+126|Negative keyword
+127|A search the ad must not appear for.
+128|Responsive search ad
+129|An ad with several headlines and descriptions that Google combines.
+130|Landing page
+131|The page people land on when they click.
+132|Budget, numbers and rules
+133|A campaign's numbers
+134|Impressions: how many times the ad appears. Clicks and CTR: how many people click out of 100 who see it. CPC: average cost of a click. Conversions: the actions that matter, usually purchases. Conversion rate: how many clicks turn into a purchase. Together they show where you're losing people: if few click, it's the ad; if they click but don't buy, it's the page or the product.
+135|100 clicks, 3 purchases: conversion rate 3%. If clicks rise to 200 but purchases stay at 3, something's wrong with the page or the keywords.
+136|Match each number to what it measures.
+137|CTR
+138|How many click out of 100 who see the ad
+139|CPC
+140|How much a click costs on average
+141|Conversion rate
+142|How many clicks become a purchase
+143|CTR = clicks/impressions; CPC = spend/clicks; conversion = purchases/clicks.
+144|CPA and ROAS: is the campaign paying off?
+145|CPA (cost per acquisition) is how much a sale costs on average: spend divided by conversions. ROAS (return on ad spend) is how much you take in for every euro spent: revenue divided by spend. A ROAS of 4 means €4 in sales for every euro of ads. Whether it's worth it depends on the margin: what the shop keeps after product and shipping costs.
+146|The iced teas campaign spends €500 and brings €2,000 in sales: ROAS 4. With 25 orders, the CPA is 500 / 25 = €20.
+147|You spend €300 and take in €1,500. What's the ROAS?
+148|1,500 / 300 = 5: €5 in sales for every euro spent.
+149|You spend €400 and get 20 orders. What's the CPA?
+150|400 / 20 = €20 per order.
+151|Budget and bidding
+152|The budget is set per day, per campaign: it's an average, and on some days Google may spend a bit more and on others less. Bidding can be manual (you decide how much to pay per click) or automated: Google uses data to reach a goal, for example a target CPA or ROAS. Automated bidding only works well if conversions are measured correctly.
+153|Cinque Foglie sets €30 a day on iced teas with a target ROAS of 4: Google raises or lowers bids trying to stay at that return.
+154|Automated bidding works well even if sales aren't measured.
+155|Without measured conversions Google doesn't know what to optimise.
+156|Measuring sales and EU rules
+157|To know which ads sell, you measure conversions with a code on the website. In the European Union, cookies that aren't needed for the site to work require the person's consent (cookie banner, GDPR and the ePrivacy directive); Google asks European sites to pass on the choice made in the banner. UTM links are also used to understand where visits come from. And ads follow the same rules as any advertising: no false or misleading promises.
+158|If the cookie banner doesn't work, Cinque Foglie either collects data without consent (banned) or collects none at all: either way, the campaign numbers aren't reliable.
+159|What do you need to measure a campaign properly in the EU?
+160|The conversion code on the website
+161|Cookie consent collected with a banner
+162|Buying email lists
+163|Hiding the «Sponsored» label
+164|Measure sales, yes, but with consent. The other two are banned.
+165|CTR, CPC and conversion rate show where you're losing people.
+166|CPA and ROAS show whether the campaign pays off; margin matters too.
+167|Without measured conversions (with consent) you can't optimise.
+168|A campaign gets lots of clicks but no sales. What do you check first?
+169|The landing page and the search terms
+170|The logo colour
+171|The number of followers
+172|If they click but don't buy, the problem is after the click or in the wrong searches.
+173|A ROAS of 2 means €2 in sales for every euro spent.
+174|ROAS = revenue / spend.
+175|What do you need in the EU before using advertising cookies?
+176|The person's consent
+177|Nothing, having a website is enough
+178|A newsletter sign-up
+179|Non-essential cookies require consent.
+180|Average cost of a click.
+181|CPA
+182|Average cost of a sale: spend divided by conversions.
+183|ROAS
+184|Revenue divided by ad spend.
+185|Conversion
+186|An action that matters, usually a purchase.
+187|Ads for the iced teas
+188|A short request from Luca: choose the keywords and write the ad for the iced teas.
+189|SEA Simulation
+190|You work on Cinque Foglie's ad account: keywords, ads, search terms, Quality Score and the Black Friday budget.

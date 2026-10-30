@@ -1,0 +1,730 @@
+{
+ "_nota": "Teoria del ruolo SEA specialist (Hub 1). Generato da strumenti-dati/crea_teoria_hub1.py. DA RILEGGERE.",
+ "id": "sea",
+ "nome": "SEA specialist",
+ "hub": 1,
+ "scheda": {
+  "cosaFa": "Manages paid ads on search engines, mainly Google. Chooses which searches to appear on, writes the ads, decides how much to spend and checks every day that the money brings sales.",
+  "conChi": [
+   "E-commerce and management, who set budgets and goals",
+   "Copywriters and designers, for ad copy and images",
+   "Whoever runs the website and data, for landing pages and sales tracking"
+  ],
+  "strumenti": [
+   {
+    "nome": "Google Ads",
+    "cosa": "Where campaigns, ads and budgets are created."
+   },
+   {
+    "nome": "Keyword Planner",
+    "cosa": "How many people search for a word and how much a click costs. Free with a Google Ads account."
+   },
+   {
+    "nome": "Google Analytics",
+    "cosa": "What people do after clicking the ad."
+   },
+   {
+    "nome": "Google Merchant Center",
+    "cosa": "The product catalogue for Shopping ads."
+   }
+  ],
+  "giornata": [
+   [
+    "9:00",
+    "Checks yesterday's spend and the campaigns that are underperforming"
+   ],
+   [
+    "11:00",
+    "Adds negative keywords from searches that wasted money"
+   ],
+   [
+    "14:00",
+    "Writes new headlines for an ad to test against each other"
+   ],
+   [
+    "16:00",
+    "Prepares the weekly report: spend, sales, ROAS"
+   ]
+  ],
+  "faPerTe": "It's for you if you like numbers, enjoy testing and comparing, and aren't afraid of deciding how to spend a budget.",
+  "blog": {
+   "slug": "link-utm",
+   "titolo": "UTM links: what they are and how to use them"
+  }
+ },
+ "lezioni": [
+  {
+   "id": "cos-e-la-sea",
+   "titolo": "What SEA is and how the auction works",
+   "minuti": 10,
+   "blocchi": [
+    {
+     "titolo": "Search engine ads",
+     "testo": "SEA (Search Engine Advertising) is advertising on search engines. When someone searches, ads labelled «Sponsored» appear above and below the organic results. With SEA you only pay when someone clicks: that's why it's called pay-per-click (PPC). Unlike SEO, ads appear straight away, but they stop appearing as soon as you stop paying.",
+     "esempio": "Cinque Foglie launches its iced teas in June: with SEO it would take months to climb, with an ad it's in the results the same day.",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "What's the main difference between SEA and SEO?",
+       "opzioni": [
+        {
+         "t": "With SEA you pay for every click and ads stop when you stop paying",
+         "giusta": true
+        },
+        {
+         "t": "SEA only works on social media",
+         "giusta": false
+        },
+        {
+         "t": "SEO is paid, SEA is free",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "SEA = paid ads, visible straight away; SEO = organic results, free but slower."
+      }
+     ]
+    },
+    {
+     "titolo": "The auction: who appears, and in what order",
+     "testo": "Every time someone searches, Google runs an auction between the ads that want to appear. It's not just the highest bid that wins: ad quality also counts, meaning how relevant the ad is to the search and how useful the page it leads to is. A very relevant ad can rank higher while paying less than a competitor.",
+     "esempio": "A competitor bids €1 per click on «iced tea» with a generic ad about its shop. Cinque Foglie bids €0.80 with an ad about iced teas that leads to the iced teas page: it can appear first.",
+     "domande": [
+      {
+       "tipo": "vf",
+       "testo": "In Google's auction, whoever bids most per click always wins.",
+       "risposta": false,
+       "spiegazione": "Quality counts too: relevance of the ad and of the landing page."
+      },
+      {
+       "tipo": "singola",
+       "testo": "What helps an ad rank higher without raising the bid?",
+       "opzioni": [
+        {
+         "t": "Making it more relevant to the search and sending it to a useful page",
+         "giusta": true
+        },
+        {
+         "t": "Writing everything in capitals",
+         "giusta": false
+        },
+        {
+         "t": "Using more exclamation marks",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "Quality counts in the auction: a relevant ad and a matching landing page."
+      }
+     ]
+    },
+    {
+     "titolo": "Quality Score",
+     "testo": "Google gives each keyword a Quality Score from 1 to 10. It's based on three things: the click-through rate Google expects (expected CTR), how relevant the ad is to the search, and the landing page experience. A high score usually means paying less per click.",
+     "esempio": "The keyword «organic matcha» leads to the home page: low score. If it leads to the organic matcha page, with price and photos, the score goes up.",
+     "domande": [
+      {
+       "tipo": "multipla",
+       "testo": "What is Quality Score based on?",
+       "opzioni": [
+        {
+         "t": "Expected CTR",
+         "giusta": true
+        },
+        {
+         "t": "Ad relevance",
+         "giusta": true
+        },
+        {
+         "t": "Landing page experience",
+         "giusta": true
+        },
+        {
+         "t": "Number of Instagram followers",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "Those are the three components Google names. Social media has nothing to do with it."
+      }
+     ]
+    },
+    {
+     "titolo": "How an account is structured",
+     "testo": "A Google Ads account is organised in levels. Campaigns have the budget, where to show the ads, and the goal. Inside each campaign there are ad groups, each on a specific theme. Inside each group there are the keywords and the ads about them. A tidy account shows straight away what works and what doesn't.",
+     "esempio": "Campaign «Iced teas – summer», group «Cold brew», keyword «cold brew tea», ad «Organic cold brew tea, ready in 8 hours in the fridge».",
+     "domande": [
+      {
+       "tipo": "ordina",
+       "testo": "Put the levels in order, from biggest to smallest.",
+       "voci": [
+        "Account",
+        "Campaign",
+        "Ad group",
+        "Keywords and ads"
+       ],
+       "spiegazione": "The account contains campaigns, campaigns contain groups, groups contain keywords and ads."
+      }
+     ]
+    }
+   ],
+   "riepilogo": [
+    "SEA is advertising on search engines: you pay per click and it appears straight away.",
+    "In the auction the bid counts, but so does the quality of ad and page.",
+    "An account is made of campaigns, ad groups, keywords and ads."
+   ],
+   "finali": [
+    {
+     "tipo": "singola",
+     "testo": "An ad appears with the label…",
+     "opzioni": [
+      {
+       "t": "«Sponsored»",
+       "giusta": true
+      },
+      {
+       "t": "«Recommended by Google»",
+       "giusta": false
+      },
+      {
+       "t": "«Top result»",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "On Google, ads are labelled «Sponsored»."
+    },
+    {
+     "tipo": "vf",
+     "testo": "A good Quality Score usually means paying less per click.",
+     "risposta": true,
+     "spiegazione": "Google rewards relevant ads with lower costs per click."
+    },
+    {
+     "tipo": "singola",
+     "testo": "Where is the budget set?",
+     "opzioni": [
+      {
+       "t": "In the campaign",
+       "giusta": true
+      },
+      {
+       "t": "In the individual ad",
+       "giusta": false
+      },
+      {
+       "t": "In the keyword",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "The budget is a campaign setting."
+    }
+   ],
+   "parole": [
+    [
+     "SEA",
+     "Paid advertising on search engines."
+    ],
+    [
+     "PPC",
+     "Pay-per-click: you pay when someone clicks."
+    ],
+    [
+     "Quality Score",
+     "Google's 1-10 rating of keyword, ad and page."
+    ],
+    [
+     "Ad group",
+     "A set of keywords and ads on the same theme."
+    ]
+   ]
+  },
+  {
+   "id": "keyword-e-annunci",
+   "titolo": "Keywords, ads and landing pages",
+   "minuti": 12,
+   "blocchi": [
+    {
+     "titolo": "Match types",
+     "testo": "For each keyword you choose how closely it must match the search. Exact match: the ad appears for searches with the same meaning. Phrase match: it appears for searches that include the keyword's meaning. Broad match: it also appears for related searches, and it's the widest. The broader it is, the more people it reaches, but the more it risks the wrong searches.",
+     "esempio": "The keyword «iced tea» in broad match can also show for «grandma's homemade iced tea recipe», which brings no sales.",
+     "domande": [
+      {
+       "tipo": "abbina",
+       "testo": "Match each match type to how broad it is.",
+       "coppie": [
+        [
+         "Exact",
+         "Only searches with the same meaning"
+        ],
+        [
+         "Phrase",
+         "Searches that include the meaning"
+        ],
+        [
+         "Broad",
+         "Even searches that are only related"
+        ]
+       ],
+       "spiegazione": "From narrowest to broadest: exact, phrase, broad."
+      }
+     ]
+    },
+    {
+     "titolo": "Negative keywords",
+     "testo": "Negative keywords tell Google which searches not to show the ad for. You find them in the search terms report, which shows what people who clicked actually typed. Removing useless searches is one of the simplest ways not to waste budget.",
+     "esempio": "The report shows «iced tea recipe» and «homemade iced tea»: people searching these want to cook, not buy. «recipe» and «homemade» are added as negatives.",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "People searching «free green tea sample» click often but don't buy. What do you do?",
+       "opzioni": [
+        {
+         "t": "Add «free» as a negative keyword",
+         "giusta": true
+        },
+        {
+         "t": "Raise the bid for that search",
+         "giusta": false
+        },
+        {
+         "t": "Delete the whole campaign",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "Negatives remove searches that cost money without bringing sales."
+      }
+     ]
+    },
+    {
+     "titolo": "Writing an ad",
+     "testo": "Search ads are «responsive»: you write up to 15 headlines (max 30 characters each) and up to 4 descriptions (max 90 characters), and Google combines the ones that work best. A good ad echoes the search, states a concrete benefit and invites action. It can't promise false things, nor, for a food, unauthorised health effects.",
+     "esempio": "Headlines: «Organic iced tea», «24-hour delivery», «Cold brew kit from €19». Description: «Green teas and herbal teas to brew cold. Choose your kit and get it tomorrow.»",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "Which headline follows the rules and the 30 characters?",
+       "opzioni": [
+        {
+         "t": "Organic iced tea",
+         "giusta": true
+        },
+        {
+         "t": "The iced tea that makes you slim fast",
+         "giusta": false
+        },
+        {
+         "t": "ICED TEA!!! UNMISSABLE DEAL TODAY ONLY",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "The first is clear and short. The second promises a health effect (banned) and goes over 30 characters; the third is too long and shouting."
+      }
+     ]
+    },
+    {
+     "titolo": "The landing page",
+     "testo": "The click is only half the job: the page people land on has to keep the ad's promise. If the ad is about iced teas, the page must show iced teas, with price and a buy button. A matching page improves Quality Score and sells more.",
+     "esempio": "The ad «Cold brew kit from €19» leads to the home page: people have to look for the kit themselves and often leave. Sending them to the kit's product page fixes it.",
+     "domande": [
+      {
+       "tipo": "vf",
+       "testo": "It's best to send every ad to the home page, so people see the whole shop.",
+       "risposta": false,
+       "spiegazione": "People who click want to find straight away what they saw in the ad: the page has to be the right one."
+      }
+     ]
+    }
+   ],
+   "riepilogo": [
+    "The match type decides how wide a keyword's audience is.",
+    "Negative keywords remove searches that waste budget.",
+    "Ad and landing page must say the same thing."
+   ],
+   "finali": [
+    {
+     "tipo": "singola",
+     "testo": "Where do you find the real searches that led to an ad click?",
+     "opzioni": [
+      {
+       "t": "In the search terms report",
+       "giusta": true
+      },
+      {
+       "t": "In Keyword Planner",
+       "giusta": false
+      },
+      {
+       "t": "In the campaign settings",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "The search terms report shows what people typed."
+    },
+    {
+     "tipo": "vf",
+     "testo": "A responsive ad headline can be at most 30 characters long.",
+     "risposta": true,
+     "spiegazione": "Headlines up to 30 characters, descriptions up to 90."
+    },
+    {
+     "tipo": "singola",
+     "testo": "The broadest match type is…",
+     "opzioni": [
+      {
+       "t": "Broad",
+       "giusta": true
+      },
+      {
+       "t": "Exact",
+       "giusta": false
+      },
+      {
+       "t": "Phrase",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "Broad match also reaches searches that are only related."
+    }
+   ],
+   "parole": [
+    [
+     "Match type",
+     "How closely the search must resemble the keyword."
+    ],
+    [
+     "Negative keyword",
+     "A search the ad must not appear for."
+    ],
+    [
+     "Responsive search ad",
+     "An ad with several headlines and descriptions that Google combines."
+    ],
+    [
+     "Landing page",
+     "The page people land on when they click."
+    ]
+   ]
+  },
+  {
+   "id": "numeri-e-regole",
+   "titolo": "Budget, numbers and rules",
+   "minuti": 12,
+   "blocchi": [
+    {
+     "titolo": "A campaign's numbers",
+     "testo": "Impressions: how many times the ad appears. Clicks and CTR: how many people click out of 100 who see it. CPC: average cost of a click. Conversions: the actions that matter, usually purchases. Conversion rate: how many clicks turn into a purchase. Together they show where you're losing people: if few click, it's the ad; if they click but don't buy, it's the page or the product.",
+     "esempio": "100 clicks, 3 purchases: conversion rate 3%. If clicks rise to 200 but purchases stay at 3, something's wrong with the page or the keywords.",
+     "domande": [
+      {
+       "tipo": "abbina",
+       "testo": "Match each number to what it measures.",
+       "coppie": [
+        [
+         "CTR",
+         "How many click out of 100 who see the ad"
+        ],
+        [
+         "CPC",
+         "How much a click costs on average"
+        ],
+        [
+         "Conversion rate",
+         "How many clicks become a purchase"
+        ]
+       ],
+       "spiegazione": "CTR = clicks/impressions; CPC = spend/clicks; conversion = purchases/clicks."
+      }
+     ]
+    },
+    {
+     "titolo": "CPA and ROAS: is the campaign paying off?",
+     "testo": "CPA (cost per acquisition) is how much a sale costs on average: spend divided by conversions. ROAS (return on ad spend) is how much you take in for every euro spent: revenue divided by spend. A ROAS of 4 means €4 in sales for every euro of ads. Whether it's worth it depends on the margin: what the shop keeps after product and shipping costs.",
+     "esempio": "The iced teas campaign spends €500 and brings €2,000 in sales: ROAS 4. With 25 orders, the CPA is 500 / 25 = €20.",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "You spend €300 and take in €1,500. What's the ROAS?",
+       "opzioni": [
+        {
+         "t": "5",
+         "giusta": true
+        },
+        {
+         "t": "0,2",
+         "giusta": false
+        },
+        {
+         "t": "1.200",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "1,500 / 300 = 5: €5 in sales for every euro spent."
+      },
+      {
+       "tipo": "singola",
+       "testo": "You spend €400 and get 20 orders. What's the CPA?",
+       "opzioni": [
+        {
+         "t": "20 €",
+         "giusta": true
+        },
+        {
+         "t": "8.000 €",
+         "giusta": false
+        },
+        {
+         "t": "0,05 €",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "400 / 20 = €20 per order."
+      }
+     ]
+    },
+    {
+     "titolo": "Budget and bidding",
+     "testo": "The budget is set per day, per campaign: it's an average, and on some days Google may spend a bit more and on others less. Bidding can be manual (you decide how much to pay per click) or automated: Google uses data to reach a goal, for example a target CPA or ROAS. Automated bidding only works well if conversions are measured correctly.",
+     "esempio": "Cinque Foglie sets €30 a day on iced teas with a target ROAS of 4: Google raises or lowers bids trying to stay at that return.",
+     "domande": [
+      {
+       "tipo": "vf",
+       "testo": "Automated bidding works well even if sales aren't measured.",
+       "risposta": false,
+       "spiegazione": "Without measured conversions Google doesn't know what to optimise."
+      }
+     ]
+    },
+    {
+     "titolo": "Measuring sales and EU rules",
+     "testo": "To know which ads sell, you measure conversions with a code on the website. In the European Union, cookies that aren't needed for the site to work require the person's consent (cookie banner, GDPR and the ePrivacy directive); Google asks European sites to pass on the choice made in the banner. UTM links are also used to understand where visits come from. And ads follow the same rules as any advertising: no false or misleading promises.",
+     "esempio": "If the cookie banner doesn't work, Cinque Foglie either collects data without consent (banned) or collects none at all: either way, the campaign numbers aren't reliable.",
+     "domande": [
+      {
+       "tipo": "multipla",
+       "testo": "What do you need to measure a campaign properly in the EU?",
+       "opzioni": [
+        {
+         "t": "The conversion code on the website",
+         "giusta": true
+        },
+        {
+         "t": "Cookie consent collected with a banner",
+         "giusta": true
+        },
+        {
+         "t": "Buying email lists",
+         "giusta": false
+        },
+        {
+         "t": "Hiding the «Sponsored» label",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "Measure sales, yes, but with consent. The other two are banned."
+      }
+     ],
+     "blog": {
+      "slug": "link-utm",
+      "titolo": "UTM links: what they are and how to use them"
+     }
+    }
+   ],
+   "riepilogo": [
+    "CTR, CPC and conversion rate show where you're losing people.",
+    "CPA and ROAS show whether the campaign pays off; margin matters too.",
+    "Without measured conversions (with consent) you can't optimise."
+   ],
+   "finali": [
+    {
+     "tipo": "singola",
+     "testo": "A campaign gets lots of clicks but no sales. What do you check first?",
+     "opzioni": [
+      {
+       "t": "The landing page and the search terms",
+       "giusta": true
+      },
+      {
+       "t": "The logo colour",
+       "giusta": false
+      },
+      {
+       "t": "The number of followers",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "If they click but don't buy, the problem is after the click or in the wrong searches."
+    },
+    {
+     "tipo": "vf",
+     "testo": "A ROAS of 2 means €2 in sales for every euro spent.",
+     "risposta": true,
+     "spiegazione": "ROAS = revenue / spend."
+    },
+    {
+     "tipo": "singola",
+     "testo": "What do you need in the EU before using advertising cookies?",
+     "opzioni": [
+      {
+       "t": "The person's consent",
+       "giusta": true
+      },
+      {
+       "t": "Nothing, having a website is enough",
+       "giusta": false
+      },
+      {
+       "t": "A newsletter sign-up",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "Non-essential cookies require consent."
+    }
+   ],
+   "parole": [
+    [
+     "CPC",
+     "Average cost of a click."
+    ],
+    [
+     "CPA",
+     "Average cost of a sale: spend divided by conversions."
+    ],
+    [
+     "ROAS",
+     "Revenue divided by ad spend."
+    ],
+    [
+     "Conversion",
+     "An action that matters, usually a purchase."
+    ]
+   ]
+  }
+ ],
+ "verifica": [
+  {
+   "tipo": "singola",
+   "testo": "Cosa vuol dire PPC?",
+   "opzioni": [
+    {
+     "t": "Si paga ogni volta che qualcuno clicca l'annuncio",
+     "giusta": true
+    },
+    {
+     "t": "Si paga ogni volta che l'annuncio compare",
+     "giusta": false
+    },
+    {
+     "t": "Si paga una volta al mese",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "Pagamento per clic."
+  },
+  {
+   "tipo": "vf",
+   "testo": "Nell'asta di Google conta solo l'offerta.",
+   "risposta": false,
+   "spiegazione": "Conta anche la qualità."
+  },
+  {
+   "tipo": "ordina",
+   "testo": "Dal più grande al più piccolo:",
+   "voci": [
+    "Campagna",
+    "Gruppo di annunci",
+    "Keyword"
+   ],
+   "spiegazione": "La campagna contiene i gruppi, i gruppi le keyword."
+  },
+  {
+   "tipo": "singola",
+   "testo": "Qual è la corrispondenza più stretta?",
+   "opzioni": [
+    {
+     "t": "Esatta",
+     "giusta": true
+    },
+    {
+     "t": "Generica",
+     "giusta": false
+    },
+    {
+     "t": "A frase",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "L'esatta compare solo per ricerche con lo stesso significato."
+  },
+  {
+   "tipo": "singola",
+   "testo": "Chi cerca «tisana ricetta» non compra mai. Cosa fai?",
+   "opzioni": [
+    {
+     "t": "Aggiungo «ricetta» come keyword negativa",
+     "giusta": true
+    },
+    {
+     "t": "Alzo il budget",
+     "giusta": false
+    },
+    {
+     "t": "Tolgo la scritta Sponsorizzato",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "Le negative tolgono le ricerche inutili."
+  },
+  {
+   "tipo": "singola",
+   "testo": "Spendi 200 € e incassi 1.000 €: ROAS?",
+   "opzioni": [
+    {
+     "t": "5",
+     "giusta": true
+    },
+    {
+     "t": "0,2",
+     "giusta": false
+    },
+    {
+     "t": "800",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "1.000 / 200 = 5."
+  },
+  {
+   "tipo": "vf",
+   "testo": "Un annuncio di un tè può dire «brucia i grassi».",
+   "risposta": false,
+   "spiegazione": "È una promessa sulla salute non autorizzata: vietata per gli alimenti."
+  },
+  {
+   "tipo": "multipla",
+   "testo": "Cosa migliora il punteggio di qualità?",
+   "opzioni": [
+    {
+     "t": "Un annuncio pertinente alla ricerca",
+     "giusta": true
+    },
+    {
+     "t": "Una pagina di arrivo coerente con l'annuncio",
+     "giusta": true
+    },
+    {
+     "t": "Tanti punti esclamativi",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "Pertinenza ed esperienza sulla pagina."
+  }
+ ],
+ "prova": {
+  "titolo": "Ads for the iced teas",
+  "cosa": "A short request from Luca: choose the keywords and write the ad for the iced teas.",
+  "link": "/app/sea/esercizio/",
+  "minuti": 20
+ },
+ "pratica": {
+  "titolo": "SEA Simulation",
+  "cosa": "You work on Cinque Foglie's ad account: keywords, ads, search terms, Quality Score and the Black Friday budget.",
+  "link": "/app/simulazioni/sea/"
+ }
+}

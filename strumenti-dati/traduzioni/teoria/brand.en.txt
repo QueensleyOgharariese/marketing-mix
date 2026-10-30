@@ -1,0 +1,189 @@
+1|Brand manager
+2|Looks after a brand's identity and reputation: what it promises, how it looks and how it speaks. Makes sure the brand is recognisable and consistent everywhere, from packaging to social media, and measures what people think of it.
+3|Designers and creative agencies, for logo, colours and campaigns
+4|Social media, PR and copywriters, who must use the same tone
+5|Product marketing and e-commerce, for packaging and launches
+6|The brand manual (brand guidelines)
+7|Rules on logo, colours, typefaces and tone of voice.
+8|Surveys and research
+9|To find out how many people know the brand and what they think of it.
+10|Social listening
+11|Tools that collect what's said about the brand online.
+12|Search Console and Google Trends
+13|How many people search for the brand name.
+14|Reviews the design of the new iced tea packaging
+15|Meeting with the agency about the Christmas campaign
+16|Fixes the tone of a newsletter that sounds too pushy
+17|Reads the week's comments and the results of a survey
+18|It's for you if you like caring for details, have an eye for consistency and are interested in how people perceive things.
+19|What does a brand manager do?
+20|What a brand is
+21|A brand isn't the logo
+22|A brand is the idea people have of a company: what it promises, how it makes them feel, why they'd choose it. The logo is just one of the signs that make it recognisable. A brand is built with everything people come across: products, packaging, website, customer service, way of writing.
+23|For many customers Cinque Foglie is «the friendly organic tea shop». That idea comes from the careful packaging, the quick replies and the tone of the emails, not just from the leaf logo.
+24|Changing the logo is enough to change the brand.
+25|The brand is the overall idea: if products, service and tone stay the same, so does the idea.
+26|Identity and image
+27|Brand identity is how the company wants to present itself: name, logo, colours, typefaces, tone of voice, values. Brand image is how people actually see it. The brand manager's job is to bring the two closer: if the company wants to be friendly but customers find it cold, something isn't working.
+28|Cinque Foglie presents itself as expert and welcoming. If many reviews say «confusing website, slow replies», the image drifts away from the identity.
+29|Match each example.
+30|The green colour chosen for the logo
+31|Identity
+32|«To me it's a bit of a pricey shop» in a review
+33|Image
+34|The company decides the identity; the image lives in people's heads.
+35|Brand identity: logo, colours and values
+36|Positioning
+37|Positioning is the place the brand wants to hold in people's minds compared with competitors. It's summed up in one sentence: who it's for, what need it meets and why it's different. It helps decide what to do and what not to do: a brand can't be everything to everyone.
+38|«For people who want to drink well every day without being experts, Cinque Foglie offers organic teas explained simply, unlike specialist shops that only talk to connoisseurs.»
+39|What does a positioning statement contain?
+40|Who it's for, what need it meets and why it's different
+41|Only the product price
+42|A list of all the products
+43|Audience, need and difference from competitors.
+44|Brand positioning
+45|Promise and values
+46|The brand promise is what customers can expect every time. Values are the principles that guide choices. They only count if they show in actions: a brand that calls itself sustainable but ships in parcels full of plastic loses credibility. In the EU, vague and unprovable environmental claims are considered misleading advertising.
+47|If Cinque Foglie writes «100% recyclable packaging», it must be able to prove it. «Friends of the environment», without proof, is too vague.
+48|Which sentence can Cinque Foglie use safely?
+49|«Our tins are made of recyclable aluminium»
+50|«The most eco-friendly tea in the world»
+51|«100% friends of the planet»
+52|You can state something precise and provable; vague or absolute sentences are misleading.
+53|A brand is the idea people have of a company, not just the logo.
+54|Identity is how you present yourself, image is how you're seen: they need to be brought closer.
+55|Positioning, promise and values guide choices and must be true.
+56|A review says «slow delivery, but lovely tea». What does it measure?
+57|The brand image
+58|The visual identity
+59|The positioning written by the company
+60|It's how the brand is perceived by a customer.
+61|Good positioning tries to please everyone.
+62|Positioning means choosing an audience and a difference.
+63|An environmental claim should be…
+64|Proven with precise data
+65|Written as generically as possible
+66|Used only on social media
+67|In the EU, vague environmental claims are considered misleading.
+68|Brand
+69|The idea people have of a company.
+70|Brand identity
+71|How the company wants to present itself.
+72|Brand image
+73|How people actually see it.
+74|Positioning
+75|The brand's place in people's minds compared with competitors.
+76|Visual identity and tone of voice
+77|Visual identity is the set of graphic signs: logo, colours, typefaces, style of photos and illustrations. It's always used the same way, so the brand is recognisable even without reading the name. The logo has rules: clear space around it, minimum sizes, versions for light and dark backgrounds, what not to do (stretch it, change its colours).
+78|The Cinque Foglie leaf is always green on light backgrounds and white on dark ones, never tilted and never smaller than 24 pixels on the website.
+79|Which uses of the logo should be avoided?
+80|Stretching it to fit a space
+81|Changing its colours at will
+82|Using the white version on a dark background
+83|Leaving clear space around it
+84|The planned versions and the clear space are rules in the manual; stretching and recolouring aren't.
+85|Tone of voice
+86|Tone of voice is the way the brand speaks: the words it chooses, how formal it is, whether it's informal or formal with the reader, whether it jokes. It's described with three or four adjectives and examples of what to say and what not to say. The tone stays the same, but adapts to the situation: a post can be light, a reply to a complaint can't.
+87|Cinque Foglie is friendly, expert and simple: «We'll show you how to brew it in 3 steps», not «Buy the best tea in the world NOW!!!».
+88|Which sentence fits the tone «friendly, expert, simple»?
+89|«Sencha should be brewed with water at 70-80 °C: that way it stays sweet.»
+90|«TODAY ONLY!!! Buy before it's gone!!!»
+91|«Infusing Camellia sinensis var. sinensis requires specific thermal parameters.»
+92|The first is friendly, expert and simple; the second is pushy, the third too technical.
+93|Tone of voice: what it is and how to define it
+94|The brand manual
+95|The brand manual (brand guidelines or brand book) collects all the rules: positioning, values, logo, colours with their codes, typefaces, image style, tone of voice with examples. It's for anyone working on the brand, including people outside the company: agencies, photographers, new colleagues. Without a manual, everyone interprets it their own way.
+96|An agency prepares a campaign for Cinque Foglie: with the manual it uses the right green and the friendly tone straight away, without ten rounds of corrections.
+97|The brand manual is only for designers.
+98|It's for anyone producing something for the brand: copy, photos, videos, campaigns.
+99|Consistency across all channels
+100|A person meets the brand at many points: a post, the packaging, the website, an email, customer service. If each point seems to belong to a different company, the brand doesn't stick in memory. Consistency doesn't mean making everything identical, but making everything sound like the same person.
+101|Cinque Foglie's website is friendly, but the cart's automatic message says «ERROR: invalid data». A sentence like «The postcode is missing: can you add it?» would be on tone.
+102|Put a customer's typical journey with the brand in order.
+103|Sees a post on social media
+104|Visits the website
+105|Buys and receives the package
+106|Gets an email after the purchase
+107|At every point the brand should feel the same.
+108|Visual identity has precise rules: logo, colours, typefaces, images.
+109|Tone of voice is described with adjectives and examples and adapts to the situation.
+110|The brand manual keeps everyone consistent, on every channel.
+111|A brand's tone is usually described with…
+112|Three or four adjectives and example sentences
+113|The main colour code
+114|The number of followers
+115|Adjectives + examples of what to say and what not to.
+116|Consistency means a complaint reply and a funny post must use the same register.
+117|The tone stays the same, but adapts to the situation.
+118|Who is the brand manual for?
+119|Everyone working on the brand, including outside the company
+120|Only the brand manager
+121|Only customers
+122|Agencies, photographers, colleagues: everyone.
+123|Visual identity
+124|Logo, colours, typefaces and image style.
+125|Tone of voice
+126|The way the brand speaks.
+127|Brand guidelines
+128|The manual with all the brand's rules.
+129|Touchpoint
+130|Every moment a person comes across the brand.
+131|Measuring and protecting the brand
+132|Awareness
+133|Brand awareness measures how many people know the brand. It's measured with surveys: unaided awareness («which online tea shops do you know?») and aided awareness («do you know Cinque Foglie?»). Unaided is harder to achieve and worth more. A free clue is how many people search for the brand name on Google.
+134|In a survey of 500 tea lovers, 6% name Cinque Foglie on their own (unaided) and 22% recognise it when they read it (aided).
+135|Match each survey question to the type of awareness.
+136|«Which online tea shops do you know?»
+137|Unaided
+138|«Do you know Cinque Foglie?»
+139|Aided
+140|Unaided = no prompts; aided = with the name in front of you.
+141|How to measure a brand
+142|What people think
+143|Besides knowing whether people know us, we need to know what they think. Sentiment is the tone of what's said about the brand online: positive, neutral or negative. NPS (Net Promoter Score) asks «how likely are you to recommend this brand to a friend, from 0 to 10?»: people answering 9-10 are promoters, people answering 0 to 6 are detractors. NPS = % promoters − % detractors.
+144|Out of 100 customers, 50 give 9-10, 30 give 7-8 and 20 give 0 to 6: NPS = 50 − 20 = 30.
+145|Out of 200 answers, 100 are promoters and 40 detractors. What's the NPS?
+146|50% promoters − 20% detractors = 30.
+147|Protecting the trademark
+148|The name and logo can be registered as a trademark: that way nobody else can use them for similar products. In Italy you register with the UIBM, for the whole European Union with the EUIPO. Before choosing a new name, check that no similar trademark already exists in the same sector. Protecting also means using other people's trademarks properly: you don't use other companies' logos or names as if they were your own.
+149|Cinque Foglie wants to call a range «Foglie d'Oro»: before printing the packaging, it checks the trademark databases to make sure the name is free for tea.
+150|A trademark registered with the EUIPO is protected in every European Union country.
+151|The EU trade mark is valid in all member states.
+152|How to protect a trademark
+153|When something goes wrong
+154|A reputation crisis can come from a real mistake (a faulty product) or from an online controversy. The basic rules: reply quickly, tell the truth, apologise if the mistake is ours, explain what's being done to fix it, use the same tone on every channel. Deleting critical comments usually makes things worse.
+155|A batch of herbal teas arrives with damaged packaging. Cinque Foglie writes to the customers affected, sends the product again for free and explains on social media what happened.
+156|Put in order what to do in a small crisis.
+157|Find out what really happened
+158|Reply quickly and honestly
+159|Make it right for the people affected
+160|Explain what's changing so it doesn't happen again
+161|Facts first, then the reply, the remedy and prevention.
+162|Crisis communication
+163|Awareness is measured with surveys (unaided and aided) and searches for the name.
+164|Sentiment and NPS show what people think.
+165|The trademark is registered and protected; in a crisis you reply quickly and honestly.
+166|Which free clue to awareness can you read on Google?
+167|How many people search for the brand name
+168|Competitors' prices
+169|The number of products
+170|The more people search for the name, the better known the brand is.
+171|In a crisis it's best to delete critical comments.
+172|It usually makes things worse: better to reply quickly and honestly.
+173|Where do you register a trademark valid across the European Union?
+174|EUIPO
+175|UIBM
+176|Google
+177|UIBM is the Italian office; EUIPO is the European Union's.
+178|Awareness
+179|How many people know the brand.
+180|Sentiment
+181|The tone of what's said about the brand.
+182|NPS
+183|% promoters − % detractors.
+184|Registered trademark
+185|A name or logo protected by law.
+186|Cinque Foglie's tone of voice
+187|A short request from Marta: choose and fix the copy so it sounds like Cinque Foglie.
+188|Brand Simulation
+189|You work on Cinque Foglie's brand: positioning, tone of voice, NPS and awareness, environmental claims, the 2027 strategy and the press office.

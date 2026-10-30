@@ -1,0 +1,73 @@
+1|Cinque Foglie
+2|Negozio online di tè e tisane. Vende in tutta Italia, da quest'anno anche in 40 supermercati del Veneto, ha un blog e una newsletter, e vuole crescere mantenendo un tono gentile.
+3|cinquefoglie.example
+4|Prodotti
+5|Categorie
+6|Iscritti newsletter
+7|Obiettivo vendite
+8|Tè verdi
+9|Tè neri
+10|Tisane
+11|Matcha
+12|Tè freddi
+13|Accessori
+14|MR
+15|Marta
+16|Fondatrice
+17|LB
+18|Luca
+19|E-commerce
+20|SC
+21|Sara
+22|Social e community
+23|GR
+24|Giorgio
+25|Vendite e negozi
+26|SEO specialist
+27|Visibilità su Google
+28|SEA specialist
+29|Annunci e budget
+30|Brand manager
+31|Tono e identità
+32|Social media manager
+33|Contenuti e community
+34|Influencer marketing
+35|Creator e trasparenza
+36|CRM manager
+37|Email e fidelizzazione
+38|Product marketing
+39|Lanciare prodotti
+40|Trade marketing
+41|Vendere nei negozi
+42|PR e comunicazione
+43|Reputazione e stampa
+44|Partnerships
+45|Collaborazioni
+46|Ricerca di mercato
+47|Capire i clienti
+48|Marketing analytics / martech
+49|Dati e strumenti
+50|seo
+51|Il Sencha online non si trova
+52|sea
+53|Annunci per i tè freddi
+54|brand
+55|Il nostro tono di voce
+56|social
+57|Una settimana di post sul matcha
+58|influencer
+59|Una creator per il matcha
+60|crm
+61|Tanti carrelli abbandonati
+62|product
+63|Lanciamo le Tisane della Sera
+64|trade
+65|Siamo arrivati al supermercato!
+66|pr
+67|Una bella notizia e un brutto venerdì
+68|partner
+69|Facciamo qualcosa con un'altra azienda?
+70|ricerca
+71|Facciamo il tè freddo in bottiglia?
+72|analytics
+73|Nei dati non si capisce niente

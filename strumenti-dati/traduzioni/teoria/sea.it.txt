@@ -1,0 +1,190 @@
+1|SEA specialist
+2|Gestisce gli annunci a pagamento sui motori di ricerca, soprattutto Google. Sceglie le ricerche su cui comparire, scrive gli annunci, decide quanto spendere e controlla ogni giorno che i soldi portino vendite.
+3|E-commerce e direzione, che decidono budget e obiettivi
+4|Copywriter e grafici, per testi e immagini degli annunci
+5|Chi cura il sito e i dati, per le pagine di arrivo e il tracciamento delle vendite
+6|Google Ads
+7|Dove si creano campagne, annunci e budget.
+8|Keyword Planner
+9|Quante persone cercano una parola e quanto costa un clic. Gratis con un account Google Ads.
+10|Google Analytics
+11|Cosa fanno le persone dopo il clic sull'annuncio.
+12|Google Merchant Center
+13|Il catalogo dei prodotti per gli annunci Shopping.
+14|Controlla la spesa di ieri e le campagne che vanno male
+15|Aggiunge keyword negative dalle ricerche che hanno sprecato soldi
+16|Scrive nuovi titoli per un annuncio da mettere a confronto
+17|Prepara il report settimanale: spesa, vendite, ROAS
+18|Fa per te se ti piacciono i numeri, ti diverte fare prove e confronti e non ti spaventa decidere come spendere un budget.
+19|Link UTM: cosa sono e come usarli
+20|Cos'è la SEA e come funziona l'asta
+21|Annunci sui motori di ricerca
+22|La SEA (Search Engine Advertising) è la pubblicità sui motori di ricerca. Quando qualcuno cerca, sopra e sotto i risultati organici compaiono annunci segnati come «Sponsorizzato». Chi fa SEA paga solo quando qualcuno clicca: per questo si chiama pagamento per clic (PPC). A differenza della SEO, gli annunci compaiono subito, ma smettono di comparire appena si smette di pagare.
+23|Cinque Foglie lancia i tè freddi a giugno: con la SEO servirebbero mesi per salire, con un annuncio è nei risultati il giorno stesso.
+24|Qual è la differenza principale tra SEA e SEO?
+25|Con la SEA si paga ogni clic e gli annunci smettono quando si smette di pagare
+26|La SEA funziona solo sui social
+27|La SEO è a pagamento, la SEA è gratis
+28|SEA = annunci a pagamento, subito visibili; SEO = risultati organici, gratuiti ma più lenti.
+29|L'asta: chi compare e in che ordine
+30|Ogni volta che qualcuno cerca, Google fa un'asta tra gli annunci che vogliono comparire. Non vince solo chi offre di più: conta anche la qualità dell'annuncio, cioè quanto è pertinente alla ricerca e quanto è utile la pagina dove porta. Un annuncio molto pertinente può stare più in alto pagando meno di un concorrente.
+31|Un concorrente offre 1 € a clic per «tè freddo» con un annuncio generico sul negozio. Cinque Foglie offre 0,80 € con un annuncio sui tè freddi che porta alla pagina dei tè freddi: può comparire prima.
+32|Nell'asta di Google vince sempre chi offre di più per il clic.
+33|Conta anche la qualità: pertinenza dell'annuncio e della pagina di arrivo.
+34|Cosa aiuta un annuncio a comparire più in alto senza alzare l'offerta?
+35|Renderlo più pertinente alla ricerca e portarlo a una pagina utile
+36|Scrivere tutto in maiuscolo
+37|Usare più punti esclamativi
+38|La qualità conta nell'asta: annuncio pertinente e pagina di arrivo coerente.
+39|Il punteggio di qualità
+40|Google dà a ogni keyword un punteggio di qualità da 1 a 10. Si basa su tre cose: la percentuale di clic che Google si aspetta (CTR previsto), quanto l'annuncio è pertinente alla ricerca e com'è l'esperienza sulla pagina di destinazione. Un punteggio alto di solito fa pagare meno ogni clic.
+41|La keyword «matcha biologico» porta alla home: punteggio basso. Se porta alla pagina del matcha biologico, con prezzo e foto, il punteggio sale.
+42|Su cosa si basa il punteggio di qualità?
+43|CTR previsto
+44|Pertinenza dell'annuncio
+45|Esperienza sulla pagina di destinazione
+46|Numero di follower su Instagram
+47|Sono i tre elementi indicati da Google. I social non c'entrano.
+48|Com'è fatto un account
+49|Un account Google Ads è organizzato a livelli. Le campagne hanno il budget, il luogo dove mostrare gli annunci e l'obiettivo. Dentro ogni campagna ci sono i gruppi di annunci, ciascuno su un tema preciso. Dentro ogni gruppo ci sono le keyword e gli annunci che le riguardano. Un account ordinato fa capire subito cosa funziona e cosa no.
+50|Campagna «Tè freddi – estate», gruppo «Cold brew», keyword «tè cold brew», annuncio «Tè cold brew biologico, pronto in 8 ore in frigo».
+51|Metti in ordine i livelli, dal più grande al più piccolo.
+52|Account
+53|Campagna
+54|Gruppo di annunci
+55|Keyword e annunci
+56|L'account contiene le campagne, le campagne i gruppi, i gruppi keyword e annunci.
+57|La SEA è la pubblicità sui motori di ricerca: si paga a clic e compare subito.
+58|Nell'asta conta l'offerta ma anche la qualità di annuncio e pagina.
+59|Un account è fatto di campagne, gruppi di annunci, keyword e annunci.
+60|Un annuncio compare con la scritta…
+61|«Sponsorizzato»
+62|«Consigliato da Google»
+63|«Primo risultato»
+64|In Italia gli annunci sono segnati come «Sponsorizzato».
+65|Un buon punteggio di qualità di solito fa pagare meno ogni clic.
+66|Google premia gli annunci pertinenti con costi per clic più bassi.
+67|Dove si decide il budget?
+68|Nella campagna
+69|Nel singolo annuncio
+70|Nella keyword
+71|Il budget è un'impostazione della campagna.
+72|SEA
+73|Pubblicità a pagamento sui motori di ricerca.
+74|PPC
+75|Pagamento per clic: si paga quando qualcuno clicca.
+76|Punteggio di qualità
+77|Voto da 1 a 10 di Google su keyword, annuncio e pagina.
+78|Insieme di keyword e annunci sullo stesso tema.
+79|Keyword, annunci e pagine di arrivo
+80|I tipi di corrispondenza
+81|Per ogni keyword si sceglie quanto deve somigliare alla ricerca. Corrispondenza esatta: l'annuncio compare per ricerche con lo stesso significato. A frase: compare per ricerche che includono il significato della keyword. Generica: compare anche per ricerche collegate, ed è la più ampia. Più è ampia, più persone raggiunge, ma più rischia ricerche sbagliate.
+82|La keyword «tè freddo» con corrispondenza generica può comparire anche per «ricetta tè freddo della nonna», che non porta vendite.
+83|Abbina la corrispondenza a quanto è ampia.
+84|Esatta
+85|Solo ricerche con lo stesso significato
+86|A frase
+87|Ricerche che includono il significato
+88|Generica
+89|Anche ricerche solo collegate
+90|Dalla più stretta alla più ampia: esatta, a frase, generica.
+91|Le keyword negative
+92|Le keyword negative dicono a Google per quali ricerche non mostrare l'annuncio. Si trovano nel rapporto dei termini di ricerca, che mostra cosa hanno scritto davvero le persone che hanno cliccato. Togliere le ricerche inutili è uno dei modi più semplici per non sprecare budget.
+93|Nel rapporto compaiono «tè freddo ricetta» e «tè freddo fatto in casa»: chi le cerca vuole cucinare, non comprare. Si aggiungono «ricetta» e «fatto in casa» come negative.
+94|Chi cerca «tè verde gratis campione» clicca spesso ma non compra. Cosa fai?
+95|Aggiungo «gratis» come keyword negativa
+96|Alzo l'offerta per quella ricerca
+97|Cancello tutta la campagna
+98|Le negative tolgono le ricerche che costano senza portare vendite.
+99|Scrivere un annuncio
+100|Gli annunci della rete di ricerca sono «adattabili»: si scrivono fino a 15 titoli (massimo 30 caratteri ciascuno) e fino a 4 descrizioni (massimo 90 caratteri), e Google combina quelli che funzionano meglio. Un buon annuncio riprende la ricerca, dice un vantaggio concreto e invita a fare qualcosa. Non può promettere cose false né, per un alimento, effetti sulla salute non autorizzati.
+101|Titoli: «Tè freddo biologico», «Spedizione in 24 ore», «Kit cold brew da 19 €». Descrizione: «Tè verdi e tisane da preparare a freddo. Scegli il tuo kit e ricevilo domani.»
+102|Quale titolo rispetta le regole e i 30 caratteri?
+103|Tè freddo biologico
+104|Il tè freddo che ti fa dimagrire subito
+105|TÈ FREDDO!!! OFFERTA IMPERDIBILE SOLO OGGI
+106|Il primo è chiaro e corto. Il secondo promette un effetto sulla salute (vietato) e supera i 30 caratteri; il terzo è troppo lungo e urlato.
+107|La pagina di destinazione
+108|Il clic è solo metà del lavoro: la pagina dove arriva la persona deve mantenere la promessa dell'annuncio. Se l'annuncio parla di tè freddi, la pagina deve mostrare i tè freddi, con prezzo e bottone per comprare. Una pagina coerente migliora il punteggio di qualità e fa vendere di più.
+109|L'annuncio «Kit cold brew da 19 €» porta alla home: la persona deve cercare il kit da sola e spesso se ne va. Portarla alla scheda del kit risolve.
+110|Conviene mandare tutti gli annunci alla home page, così le persone vedono tutto il negozio.
+111|Chi clicca vuole trovare subito quello che ha visto nell'annuncio: la pagina deve essere quella giusta.
+112|Il tipo di corrispondenza decide quanto è ampio il pubblico di una keyword.
+113|Le keyword negative tolgono le ricerche che sprecano budget.
+114|Annuncio e pagina di arrivo devono dire la stessa cosa.
+115|Dove trovi le ricerche vere che hanno fatto cliccare un annuncio?
+116|Nel rapporto dei termini di ricerca
+117|Nel Keyword Planner
+118|Nelle impostazioni della campagna
+119|Il rapporto dei termini di ricerca mostra cosa hanno scritto le persone.
+120|Un titolo di un annuncio adattabile può essere lungo al massimo 30 caratteri.
+121|Titoli fino a 30 caratteri, descrizioni fino a 90.
+122|La corrispondenza più ampia è…
+123|La generica raggiunge anche ricerche solo collegate.
+124|Corrispondenza
+125|Quanto la ricerca deve somigliare alla keyword.
+126|Keyword negativa
+127|Ricerca per cui l'annuncio non deve comparire.
+128|Annuncio adattabile
+129|Annuncio con più titoli e descrizioni che Google combina.
+130|Pagina di destinazione
+131|La pagina dove arriva chi clicca.
+132|Budget, numeri e regole
+133|I numeri di una campagna
+134|Impressioni: quante volte l'annuncio compare. Clic e CTR: quante persone cliccano su 100 che lo vedono. CPC: costo medio di un clic. Conversioni: le azioni che contano, di solito gli acquisti. Tasso di conversione: quanti clic diventano acquisto. Insieme dicono dove si perde: se pochi cliccano, è l'annuncio; se cliccano ma non comprano, è la pagina o il prodotto.
+135|100 clic, 3 acquisti: tasso di conversione 3%. Se i clic salgono a 200 ma gli acquisti restano 3, qualcosa non va nella pagina o nelle keyword.
+136|Abbina il numero a cosa misura.
+137|CTR
+138|Quanti cliccano su 100 che vedono l'annuncio
+139|CPC
+140|Quanto costa in media un clic
+141|Tasso di conversione
+142|Quanti clic diventano un acquisto
+143|CTR = clic/impressioni; CPC = spesa/clic; conversione = acquisti/clic.
+144|CPA e ROAS: la campagna rende?
+145|Il CPA (costo per acquisizione) è quanto costa in media una vendita: spesa diviso conversioni. Il ROAS (ritorno sulla spesa pubblicitaria) è quanto incassi per ogni euro speso: ricavi diviso spesa. Un ROAS di 4 vuol dire 4 € di vendite per ogni euro di annunci. Se conviene dipende dal margine: quanto resta al negozio dopo i costi del prodotto e della spedizione.
+146|La campagna dei tè freddi spende 500 € e porta 2.000 € di vendite: ROAS 4. Con 25 ordini, il CPA è 500 / 25 = 20 €.
+147|Spendi 300 € e incassi 1.500 €. Qual è il ROAS?
+148|1.500 / 300 = 5: 5 € di vendite per ogni euro speso.
+149|Spendi 400 € e ottieni 20 ordini. Qual è il CPA?
+150|400 / 20 = 20 € per ordine.
+151|Il budget e le offerte
+152|Il budget si imposta al giorno, per campagna: è una media, e in alcuni giorni Google può spendere un po' di più e in altri meno. Le offerte possono essere manuali (decidi tu quanto pagare un clic) o automatiche: Google usa i dati per raggiungere un obiettivo, per esempio un CPA o un ROAS. Le offerte automatiche funzionano bene solo se le conversioni sono misurate correttamente.
+153|Cinque Foglie imposta 30 € al giorno sui tè freddi e un ROAS obiettivo di 4: Google alza o abbassa le offerte cercando di restare su quel ritorno.
+154|Le offerte automatiche funzionano bene anche se le vendite non vengono misurate.
+155|Senza conversioni misurate Google non sa cosa ottimizzare.
+156|Misurare le vendite e le regole UE
+157|Per sapere quali annunci vendono si misurano le conversioni con un codice sul sito. Nell'Unione europea, per i cookie che non servono al funzionamento del sito serve il consenso della persona (banner dei cookie, GDPR e direttiva ePrivacy); Google chiede ai siti europei di trasmettergli la scelta fatta nel banner. Per capire da dove arrivano le visite si usano anche i link UTM. E gli annunci seguono le stesse regole della pubblicità: niente promesse false o ingannevoli.
+158|Se il banner dei cookie non funziona, Cinque Foglie raccoglie dati senza consenso (vietato) oppure non li raccoglie affatto: in entrambi i casi i numeri delle campagne non sono affidabili.
+159|Cosa serve per misurare bene una campagna nell'UE?
+160|Il codice di conversione sul sito
+161|Il consenso ai cookie raccolto con un banner
+162|Comprare liste di email
+163|Nascondere la scritta «Sponsorizzato»
+164|Misurare le vendite sì, ma con il consenso. Le altre due sono vietate.
+165|CTR, CPC e tasso di conversione dicono dove si perde.
+166|CPA e ROAS dicono se la campagna rende; conta anche il margine.
+167|Senza conversioni misurate (con il consenso) non si ottimizza.
+168|Una campagna ha tanti clic ma nessuna vendita. Cosa controlli per primo?
+169|La pagina di destinazione e i termini di ricerca
+170|Il colore del logo
+171|Il numero di follower
+172|Se cliccano ma non comprano, il problema è dopo il clic o nelle ricerche sbagliate.
+173|Un ROAS di 2 vuol dire 2 € di vendite per ogni euro speso.
+174|ROAS = ricavi / spesa.
+175|Cosa serve nell'UE prima di usare i cookie pubblicitari?
+176|Il consenso della persona
+177|Niente, basta avere un sito
+178|Un'iscrizione alla newsletter
+179|Per i cookie non necessari serve il consenso.
+180|Costo medio di un clic.
+181|CPA
+182|Costo medio di una vendita: spesa diviso conversioni.
+183|ROAS
+184|Ricavi diviso spesa pubblicitaria.
+185|Conversione
+186|Un'azione che conta, di solito un acquisto.
+187|Annunci per i tè freddi
+188|Una richiesta breve di Luca: scegli le keyword e scrivi l'annuncio per i tè freddi.
+189|Simulazione SEA
+190|Lavori sull'account pubblicitario di Cinque Foglie: parole chiave, annunci, termini di ricerca, punteggio di qualità e budget del Black Friday.

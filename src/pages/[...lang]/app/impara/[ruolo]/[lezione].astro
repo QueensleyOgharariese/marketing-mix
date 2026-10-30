@@ -1,5 +1,6 @@
 ---
-import { LINGUE_APP, conLingue } from "../../../../../i18n";
+import { appLink, linguaDa } from "../../../../../i18n";
+import { getCollection } from "astro:content";
 // HUB · LEZIONE DI TEORIA (e verifica del ruolo)
 // Lezione: un blocco alla volta (concetto + esempio su Cinque Foglie + 1-2 domande), poi riepilogo e 3 domande finali.
 // Si va avanti quando le domande del blocco sono giuste; se sbagli vedi la spiegazione e riprovi (è teoria: niente punti).
@@ -14,30 +15,39 @@ import azienda from "../../../../../data/app/cinque-foglie.json";
 import "../../../../../styles/quiz.css";
 
 // Ogni pagina esiste in italiano (/app/...) e in inglese (/en/app/...): conLingue() raddoppia i percorsi
+// I file inglesi (teoria/<ruolo>.en.json) hanno la stessa forma di quelli italiani: cambiano solo i testi.
 export function getStaticPaths() {
-  return conLingue((() => {
-  const teorie = import.meta.glob("../../../../../data/app/teoria/*.json", { eager: true }) as Record<string, { default: any }>;
-  return Object.values(teorie).flatMap(({ default: t }) => [
-    ...t.lezioni.map((l: any, i: number) => ({ params: { ruolo: t.id, lezione: l.id }, props: { t, lezione: l, n: i } })),
-    { params: { ruolo: t.id, lezione: "verifica" }, props: { t, lezione: null, n: t.lezioni.length } },
-  ]);
-})());
+  const it = import.meta.glob(["../../../../../data/app/teoria/*.json", "!../../../../../data/app/teoria/*.en.json"], { eager: true }) as Record<string, { default: any }>;
+  const en = import.meta.glob("../../../../../data/app/teoria/*.en.json", { eager: true }) as Record<string, { default: any }>;
+  return [undefined, "en"].flatMap((lang) => Object.entries(it).flatMap(([file, { default: tIt }]) => {
+    const t = lang === "en" ? (en[file.replace(/\.json$/, ".en.json")]?.default ?? tIt) : tIt;
+    return [
+      ...t.lezioni.map((l: any, i: number) => ({ params: { lang, ruolo: t.id, lezione: l.id }, props: { t, lezione: l, n: i } })),
+      { params: { lang, ruolo: t.id, lezione: "verifica" }, props: { t, lezione: null, n: t.lezioni.length } },
+    ];
+  }));
 }
 const { t, lezione, n } = Astro.props;
-const ruolo = azienda.ruoli.find((r) => r.id === t.id)!;
+const lang = linguaDa(Astro.url);
+const L = (it: string, en: string) => (lang === "en" ? en : it);
+const ruolo = { ...azienda.ruoli.find((r) => r.id === t.id)!, nome: t.nome };
+// "Approfondisci sul blog": in inglese porta all'articolo tradotto (campo traduzione degli articoli inglesi)
+const blogEn = Object.fromEntries((await getCollection("blogEn")).map((a) => [a.data.traduzione, a.id]));
+const linkBlog = (slug: string) => (lang === "en" ? (blogEn[slug] ? `/en/blog/${blogEn[slug]}/` : "/en/blog/") : `/blog/${slug}/`);
+const blocchi = lezione ? lezione.blocchi.map((b: any) => (b.blog ? { ...b, blog: { ...b.blog, href: linkBlog(b.blog.slug) } } : b)) : [];
 const verifica = !lezione;
-const base = `/app/impara/${t.id}`;
-const prossima = !verifica ? (t.lezioni[n + 1] ? { link: `${base}/${t.lezioni[n + 1].id}/`, testo: `Lezione ${n + 2}: ${t.lezioni[n + 1].titolo}` } : { link: `${base}/verifica/`, testo: "Fai la verifica del ruolo" }) : null;
-const titolo = verifica ? "Verifica del ruolo" : lezione.titolo;
-const passi = verifica ? t.verifica.map((_: any, i: number) => `Domanda ${i + 1}`) : [...lezione.blocchi.map((b: any) => b.titolo), "Riepilogo e domande finali"];
-const dati = { ruolo: t.id, lezione: verifica ? "verifica" : lezione.id, verifica, blocchi: verifica ? [] : lezione.blocchi, riepilogo: verifica ? [] : lezione.riepilogo, finali: verifica ? [] : lezione.finali, domande: verifica ? t.verifica : [], prossima, ruoloLink: `${base}/`, pratica: t.pratica };
+const base = appLink(lang, `/app/impara/${t.id}`);
+const prossima = !verifica ? (t.lezioni[n + 1] ? { link: `${base}/${t.lezioni[n + 1].id}/`, testo: `${L("Lezione", "Lesson")} ${n + 2}: ${t.lezioni[n + 1].titolo}` } : { link: `${base}/verifica/`, testo: L("Fai la verifica del ruolo", "Take the role quiz") }) : null;
+const titolo = verifica ? L("Verifica del ruolo", "Role quiz") : lezione.titolo;
+const passi = verifica ? t.verifica.map((_: any, i: number) => `${L("Domanda", "Question")} ${i + 1}`) : [...lezione.blocchi.map((b: any) => b.titolo), L("Riepilogo e domande finali", "Summary and final questions")];
+const dati = { ruolo: t.id, lezione: verifica ? "verifica" : lezione.id, verifica, blocchi, riepilogo: verifica ? [] : lezione.riepilogo, finali: verifica ? [] : lezione.finali, domande: verifica ? t.verifica : [], prossima, ruoloLink: `${base}/`, pratica: t.pratica ? { ...t.pratica, link: appLink(lang, t.pratica.link) } : null };
 ---
-<AppLayout title={`${titolo} · ${ruolo.nome}`} percorso={[{ etichetta: azienda.nome, link: "/app/" }, { etichetta: ruolo.nome, link: `${base}/` }, { etichetta: verifica ? "Verifica" : `Lezione ${n + 1}` }]}>
+<AppLayout title={`${titolo} · ${ruolo.nome}`} percorso={[{ etichetta: azienda.nome, link: appLink(lang, "/app/") }, { etichetta: ruolo.nome, link: `${base}/` }, { etichetta: verifica ? L("Verifica", "Quiz") : `${L("Lezione", "Lesson")} ${n + 1}` }]}>
   <Progresso slot="barra" />
   <main class="lezione">
-    <nav class="indice" aria-label="Parti della lezione">
+    <nav class="indice" aria-label={L("Parti della lezione", "Parts of the lesson")}>
       <a class="torna" href={`${base}/`}>← {ruolo.nome}</a>
-      <span class="gruppo-titolo">{verifica ? "Verifica" : `Lezione ${n + 1} di ${t.lezioni.length}`}</span>
+      <span class="gruppo-titolo">{verifica ? L("Verifica", "Quiz") : `${L("Lezione", "Lesson")} ${n + 1} ${L("di", "of")} ${t.lezioni.length}`}</span>
       <ol class="voci">
         {passi.map((p: string, i: number) => <li data-voce={i}><span class="pallino" aria-hidden="true"></span><span>{p}</span></li>)}
       </ol>
@@ -45,28 +55,28 @@ const dati = { ruolo: t.id, lezione: verifica ? "verifica" : lezione.id, verific
 
     <section class="centro">
       <header class="testa">
-        <span class="occhiello">{verifica ? `${t.verifica.length} domande · senza correzione fino alla fine` : `${lezione.minuti} minuti · ${lezione.blocchi.length} blocchi`}</span>
+        <span class="occhiello">{verifica ? L(`${t.verifica.length} domande · senza correzione fino alla fine`, `${t.verifica.length} questions · no marking until the end`) : L(`${lezione.minuti} minuti · ${lezione.blocchi.length} blocchi`, `${lezione.minuti} minutes · ${lezione.blocchi.length} parts`)}</span>
         <h1 class="app-titolo">{titolo}</h1>
         <div class="segmenti" aria-hidden="true">{passi.map(() => <span></span>)}</div>
       </header>
       <article class="passo" data-passo aria-live="polite"></article>
       <nav class="piede" data-piede>
-        <button type="button" class="secondario" data-indietro>← Indietro</button>
+        <button type="button" class="secondario" data-indietro>← {L("Indietro", "Back")}</button>
         <span class="dove" data-dove></span>
-        <button type="button" class="bottone-app" data-avanti>Avanti →</button>
+        <button type="button" class="bottone-app" data-avanti>{L("Avanti", "Next")} →</button>
       </nav>
     </section>
 
     <aside class="lato">
       {!verifica && (
         <div class="pannello">
-          <span class="gruppo-titolo">Parole da ricordare</span>
+          <span class="gruppo-titolo">{L("Parole da ricordare", "Words to remember")}</span>
           <dl class="parole">{lezione.parole.map(([p, d]: [string, string]) => <div><dt>{p}</dt><dd>{d}</dd></div>)}</dl>
         </div>
       )}
       <div class="consiglio">
         <Pesca dimensione={52} occhiali />
-        <p>{verifica ? `Rispondi a tutte le domande: alla fine vedi cosa hai sbagliato e perché. Servono almeno ${t.verifica.length - 2} risposte giuste.` : "Se sbagli una domanda, leggi la spiegazione e riprova: qui si impara, non si perdono punti."}</p>
+        <p>{verifica ? L(`Rispondi a tutte le domande: alla fine vedi cosa hai sbagliato e perché. Servono almeno ${t.verifica.length - 2} risposte giuste.`, `Answer every question: at the end you'll see what you got wrong and why. You need at least ${t.verifica.length - 2} right answers.`) : L("Se sbagli una domanda, leggi la spiegazione e riprova: qui si impara, non si perdono punti.", "If you get a question wrong, read the explanation and try again: here you learn, you don't lose points.")}</p>
       </div>
     </aside>
   </main>
@@ -75,6 +85,7 @@ const dati = { ruolo: t.id, lezione: verifica ? "verifica" : lezione.id, verific
 
 <script>
   import { disegnaDomanda, salvaTeoria, soluzione, type Domanda } from "../../../../../scripts/quiz";
+  import { t } from "../../../../../scripts/lingua";
   const D = JSON.parse(document.getElementById("dati-lezione")!.textContent!);
   const esc = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   const box = document.querySelector<HTMLElement>("[data-passo]")!;
@@ -91,7 +102,7 @@ const dati = { ruolo: t.id, lezione: verifica ? "verifica" : lezione.id, verific
   function aggiornaIndice() {
     voci.forEach((v, i) => { v.classList.toggle("ora", i === passo); v.classList.toggle("fatta", risolti.has(i)); });
     segmenti.forEach((s, i) => { s.className = risolti.has(i) ? "fatto" : i === passo ? "ora" : ""; });
-    dove.textContent = `${D.verifica ? "Domanda" : "Parte"} ${passo + 1} di ${totale}`;
+    dove.textContent = `${D.verifica ? t("Domanda", "Question") : t("Parte", "Part")} ${passo + 1} ${t("di", "of")} ${totale}`;
     btnIndietro.disabled = passo === 0;
   }
 
@@ -102,13 +113,13 @@ const dati = { ruolo: t.id, lezione: verifica ? "verifica" : lezione.id, verific
       const b = D.blocchi[passo];
       domande = b.domande;
       box.innerHTML = `<h2>${esc(b.titolo)}</h2><p class="testo">${esc(b.testo)}</p>
-        <div class="esempio"><span>Su Cinque Foglie</span><p>${esc(b.esempio)}</p></div>
-        ${b.blog ? `<a class="blog" href="/blog/${b.blog.slug}/">Approfondisci sul blog: ${esc(b.blog.titolo)} →</a>` : ""}
-        <div class="domande"><h3>${domande.length > 1 ? "Due domande" : "Una domanda"} per vedere se è chiaro</h3></div>`;
+        <div class="esempio"><span>${t("Su Cinque Foglie", "At Cinque Foglie")}</span><p>${esc(b.esempio)}</p></div>
+        ${b.blog ? `<a class="blog" href="${b.blog.href}">${t("Approfondisci sul blog", "Read more on the blog")}: ${esc(b.blog.titolo)} →</a>` : ""}
+        <div class="domande"><h3>${domande.length > 1 ? t("Due domande per vedere se è chiaro", "Two questions to check it's clear") : t("Una domanda per vedere se è chiaro", "One question to check it's clear")}</h3></div>`;
     } else {
       domande = D.finali;
-      box.innerHTML = `<h2>Riepilogo</h2><ol class="riepilogo">${D.riepilogo.map((r: string) => `<li>${esc(r)}</li>`).join("")}</ol>
-        <div class="domande"><h3>Domande finali</h3></div>`;
+      box.innerHTML = `<h2>${t("Riepilogo", "Summary")}</h2><ol class="riepilogo">${D.riepilogo.map((r: string) => `<li>${esc(r)}</li>`).join("")}</ol>
+        <div class="domande"><h3>${t("Domande finali", "Final questions")}</h3></div>`;
     }
     const cont = box.querySelector<HTMLElement>(".domande")!;
     const gia = risolti.has(passo);
@@ -121,10 +132,10 @@ const dati = { ruolo: t.id, lezione: verifica ? "verifica" : lezione.id, verific
       cont.appendChild(div);
       return { d, div, valuta: disegnaDomanda(div.querySelector<HTMLElement>("[data-q]")!, d), esito: div.querySelector<HTMLElement>("[data-esito-q]")!, ok: false, sbagli: 0 };
     });
-    const giusta = (q: Q) => { q.ok = true; q.div.dataset.risolta = "si"; q.esito.hidden = false; q.esito.className = "q-esito ok"; q.esito.innerHTML = `<strong>Giusto.</strong><p>${esc(q.d.spiegazione)}</p>`; };
+    const giusta = (q: Q) => { q.ok = true; q.div.dataset.risolta = "si"; q.esito.hidden = false; q.esito.className = "q-esito ok"; q.esito.innerHTML = `<strong>${t("Giusto.", "Correct.")}</strong><p>${esc(q.d.spiegazione)}</p>`; };
     const azioni = document.createElement("div");
     azioni.className = "q-azioni";
-    azioni.innerHTML = `<button type="button" class="bottone-app" data-controlla-q>${qs.length > 1 ? "Controlla le risposte" : "Controlla"}</button><span class="q-avviso" data-avviso-q aria-live="polite"></span>`;
+    azioni.innerHTML = `<button type="button" class="bottone-app" data-controlla-q>${qs.length > 1 ? t("Controlla le risposte", "Check your answers") : t("Controlla", "Check")}</button><span class="q-avviso" data-avviso-q aria-live="polite"></span>`;
     cont.appendChild(azioni);
     const avviso = azioni.querySelector<HTMLElement>("[data-avviso-q]")!;
     const finito = () => { if (qs.every((q) => q.ok)) { risolti.add(passo); azioni.hidden = true; sblocca(); } };
@@ -132,7 +143,7 @@ const dati = { ruolo: t.id, lezione: verifica ? "verifica" : lezione.id, verific
     azioni.querySelector("[data-controlla-q]")!.addEventListener("click", () => {
       const daFare = qs.filter((q) => !q.ok);
       const valori = daFare.map((q) => q.valuta());
-      if (valori.some((v) => v === null)) { avviso.textContent = qs.length > 1 ? "Rispondi a tutte le domande, poi controlla." : "Rispondi prima di controllare."; return; }
+      if (valori.some((v) => v === null)) { avviso.textContent = qs.length > 1 ? t("Rispondi a tutte le domande, poi controlla.", "Answer every question, then check.") : t("Rispondi prima di controllare.", "Answer before checking."); return; }
       avviso.textContent = "";
       daFare.forEach((q, i) => {
         if (valori[i]) { giusta(q); return; }
@@ -140,11 +151,11 @@ const dati = { ruolo: t.id, lezione: verifica ? "verifica" : lezione.id, verific
         q.esito.hidden = false;
         q.esito.className = "q-esito no";
         // Dopo due tentativi si può vedere la soluzione: non si resta mai bloccati
-        q.esito.innerHTML = `<strong>Non ancora.</strong><p>${esc(q.d.spiegazione)}</p>${q.sbagli >= 2 ? '<button type="button" class="q-soluzione" data-soluzione>Vedi la soluzione</button>' : "<p>Correggi e premi di nuovo Controlla.</p>"}`;
+        q.esito.innerHTML = `<strong>${t("Non ancora.", "Not yet.")}</strong><p>${esc(q.d.spiegazione)}</p>${q.sbagli >= 2 ? `<button type="button" class="q-soluzione" data-soluzione>${t("Vedi la soluzione", "See the answer")}</button>` : `<p>${t("Correggi e premi di nuovo Controlla.", "Fix it and press Check again.")}</p>`}`;
         q.esito.querySelector("[data-soluzione]")?.addEventListener("click", () => {
           q.ok = true; q.div.dataset.risolta = "si";
           q.esito.className = "q-esito vuoto";
-          q.esito.innerHTML = `<strong>La risposta giusta</strong><p>${esc(soluzione(q.d))}</p><p>${esc(q.d.spiegazione)}</p>`;
+          q.esito.innerHTML = `<strong>${t("La risposta giusta", "The right answer")}</strong><p>${esc(soluzione(q.d))}</p><p>${esc(q.d.spiegazione)}</p>`;
           finito();
         });
       });
@@ -155,7 +166,7 @@ const dati = { ruolo: t.id, lezione: verifica ? "verifica" : lezione.id, verific
   function sblocca() {
     const ok = risolti.has(passo);
     btnAvanti.classList.toggle("bloccato", !ok); // sembra spento, ma se lo premi ti dice cosa manca
-    btnAvanti.textContent = passo === totale - 1 ? "Concludi la lezione" : "Avanti →";
+    btnAvanti.textContent = passo === totale - 1 ? t("Concludi la lezione", "Finish the lesson") : t("Avanti →", "Next →");
     aggiornaIndice();
   }
 
@@ -165,10 +176,10 @@ const dati = { ruolo: t.id, lezione: verifica ? "verifica" : lezione.id, verific
     const div = box.querySelector<HTMLElement>(".domande")!;
     const valuta = disegnaDomanda(div, d);
     btnAvanti.disabled = false;
-    btnAvanti.textContent = passo === totale - 1 ? "Conferma e vedi il risultato" : "Conferma →";
+    btnAvanti.textContent = passo === totale - 1 ? t("Conferma e vedi il risultato", "Confirm and see your result") : t("Conferma →", "Confirm →");
     btnAvanti.onclick = () => {
       const r = valuta();
-      if (r === null) { let a = box.querySelector(".avviso"); if (!a) { a = document.createElement("p"); a.className = "q-esito vuoto avviso"; box.appendChild(a); } a.textContent = "Rispondi prima di andare avanti."; return; }
+      if (r === null) { let a = box.querySelector(".avviso"); if (!a) { a = document.createElement("p"); a.className = "q-esito vuoto avviso"; box.appendChild(a); } a.textContent = t("Rispondi prima di andare avanti.", "Answer before moving on."); return; }
       risposte[passo] = r; risolti.add(passo);
       if (passo < totale - 1) { passo++; disegnaVerifica(); window.scrollTo({ top: 0, behavior: "smooth" }); }
       else risultato();
@@ -179,12 +190,12 @@ const dati = { ruolo: t.id, lezione: verifica ? "verifica" : lezione.id, verific
     const giuste = risposte.filter(Boolean).length;
     const superata = giuste >= totale - 2;
     salvaTeoria(D.ruolo, (s) => { s.verifica = { giuste, superata: superata || !!s.verifica?.superata }; });
-    box.innerHTML = `<div class="fine ${superata ? "ok" : "no"}"><span class="fine-numero">${giuste} su ${totale}</span>
-        <h2>${superata ? "Verifica superata" : "Non ancora"}</h2>
-        <p>${superata ? `Hai completato la teoria del ruolo. ${D.pratica ? "Ora puoi passare alla simulazione." : "La simulazione di questo ruolo arriverà presto."}` : `Servono almeno ${totale - 2} risposte giuste. Rileggi le spiegazioni qui sotto e riprova quando vuoi.`}</p></div>
-      <h3>Le tue risposte</h3>
-      <ol class="revisione">${D.domande.map((d: Domanda, i: number) => `<li class="${risposte[i] ? "ok" : "no"}"><strong>${esc(d.testo)}</strong><span>${risposte[i] ? "Giusta" : "Sbagliata"}</span><p>${esc(d.spiegazione)}</p></li>`).join("")}</ol>`;
-    document.querySelector("[data-piede]")!.innerHTML = `<a class="secondario" href="${D.ruoloLink}">Torna al ruolo</a><button type="button" class="secondario" onclick="location.reload()">Rifai la verifica</button>${superata && D.pratica ? `<a class="bottone-app" href="${D.pratica.link}">Vai alla simulazione →</a>` : ""}`;
+    box.innerHTML = `<div class="fine ${superata ? "ok" : "no"}"><span class="fine-numero">${giuste} ${t("su", "of")} ${totale}</span>
+        <h2>${superata ? t("Verifica superata", "Quiz passed") : t("Non ancora", "Not yet")}</h2>
+        <p>${superata ? `${t("Hai completato la teoria del ruolo.", "You've completed the role's theory.")} ${D.pratica ? t("Ora puoi passare alla simulazione.", "Now you can move on to the simulation.") : t("La simulazione di questo ruolo arriverà presto.", "This role's simulation is coming soon.")}` : t(`Servono almeno ${totale - 2} risposte giuste. Rileggi le spiegazioni qui sotto e riprova quando vuoi.`, `You need at least ${totale - 2} right answers. Reread the explanations below and try again whenever you like.`)}</p></div>
+      <h3>${t("Le tue risposte", "Your answers")}</h3>
+      <ol class="revisione">${D.domande.map((d: Domanda, i: number) => `<li class="${risposte[i] ? "ok" : "no"}"><strong>${esc(d.testo)}</strong><span>${risposte[i] ? t("Giusta", "Right") : t("Sbagliata", "Wrong")}</span><p>${esc(d.spiegazione)}</p></li>`).join("")}</ol>`;
+    document.querySelector("[data-piede]")!.innerHTML = `<a class="secondario" href="${D.ruoloLink}">${t("Torna al ruolo", "Back to the role")}</a><button type="button" class="secondario" onclick="location.reload()">${t("Rifai la verifica", "Retake the quiz")}</button>${superata && D.pratica ? `<a class="bottone-app" href="${D.pratica.link}">${t("Vai alla simulazione", "Go to the simulation")} →</a>` : ""}`;
     voci.forEach((v, i) => { v.classList.remove("ora"); v.classList.toggle("fatta", !!risposte[i]); v.classList.toggle("sbagliata", !risposte[i]); });
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
@@ -192,8 +203,8 @@ const dati = { ruolo: t.id, lezione: verifica ? "verifica" : lezione.id, verific
     salvaTeoria(D.ruolo, (s) => { s.lezioni[D.lezione] = true; });
     voci.forEach((v) => v.classList.add("fatta"));
     segmenti.forEach((s) => (s.className = "fatto"));
-    box.innerHTML = `<div class="fine ok"><span class="fine-numero">Fatto</span><h2>Lezione completata</h2><p>Le parole da ricordare restano qui a destra. Puoi rivedere la lezione quando vuoi.</p></div>`;
-    document.querySelector("[data-piede]")!.innerHTML = `<a class="secondario" href="${D.ruoloLink}">Torna al ruolo</a>${D.prossima ? `<a class="bottone-app" href="${D.prossima.link}">${esc(D.prossima.testo)} →</a>` : ""}`;
+    box.innerHTML = `<div class="fine ok"><span class="fine-numero">${t("Fatto", "Done")}</span><h2>${t("Lezione completata", "Lesson complete")}</h2><p>${t("Le parole da ricordare restano qui a destra. Puoi rivedere la lezione quando vuoi.", "The words to remember stay here on the right. You can review the lesson whenever you like.")}</p></div>`;
+    document.querySelector("[data-piede]")!.innerHTML = `<a class="secondario" href="${D.ruoloLink}">${t("Torna al ruolo", "Back to the role")}</a>${D.prossima ? `<a class="bottone-app" href="${D.prossima.link}">${esc(D.prossima.testo)} →</a>` : ""}`;
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
@@ -202,7 +213,7 @@ const dati = { ruolo: t.id, lezione: verifica ? "verifica" : lezione.id, verific
     if (!risolti.has(passo)) {
       const c = box.querySelector<HTMLElement>("[data-controlla-q]");
       const a = box.querySelector<HTMLElement>("[data-avviso-q]");
-      if (a) a.textContent = "Prima rispondi alle domande e premi Controlla.";
+      if (a) a.textContent = t("Prima rispondi alle domande e premi Controlla.", "First answer the questions and press Check.");
       c?.scrollIntoView({ behavior: "smooth", block: "center" }); c?.focus();
       return;
     }

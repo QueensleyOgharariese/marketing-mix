@@ -8,25 +8,31 @@ import AppLayout from "../../../../layouts/AppLayout.astro";
 import Progresso from "../../../../components/Progresso.astro";
 import Pesca from "../../../../components/Pesca.astro";
 import Icona from "../../../../components/Icona.astro";
-import azienda from "../../../../data/app/cinque-foglie.json";
-const TEORIE = import.meta.glob("../../../../data/app/teoria/*.json", { eager: true }) as Record<string, { default: any }>;
+import aziendaIt from "../../../../data/app/cinque-foglie.json";
+import aziendaEn from "../../../../data/app/cinque-foglie.en.json";
+import { linguaDa, appLink } from "../../../../i18n";
+const lang = linguaDa(Astro.url);
+const L = (it: string, en: string) => (lang === "en" ? en : it);
+const azienda = lang === "en" ? aziendaEn : aziendaIt;
+const TEORIE = import.meta.glob(["../../../../data/app/teoria/*.json", "!../../../../data/app/teoria/*.en.json"], { eager: true }) as Record<string, { default: any }>;
+const SIMULAZIONI = new Set(["seo", "sea", "brand", "social"]);
 const pronti = new Set(Object.values(TEORIE).map((t) => t.default.id));
 const HUB = [
-  { n: 1, nome: "Farsi trovare e parlare con i clienti", ruoli: ["seo", "sea", "brand", "social", "influencer", "crm"] },
-  { n: 2, nome: "Prodotto, vendite e dati", ruoli: ["product", "trade", "pr", "partner", "ricerca", "analytics"] },
+  { n: 1, nome: L("Farsi trovare e parlare con i clienti", "Getting found and talking to customers"), ruoli: ["seo", "sea", "brand", "social", "influencer", "crm"] },
+  { n: 2, nome: L("Prodotto, vendite e dati", "Product, sales and data"), ruoli: ["product", "trade", "pr", "partner", "ricerca", "analytics"] },
 ];
 const ruolo = (id: string) => azienda.ruoli.find((r) => r.id === id)!;
 export function getStaticPaths() { return LINGUE_APP(); }
 ---
-<AppLayout title="Benvenuto in Cinque Foglie" percorso={[{ etichetta: azienda.nome, link: "/app/" }, { etichetta: "Teoria" }]}>
+<AppLayout title={L("Benvenuto in Cinque Foglie", "Welcome to Cinque Foglie")} percorso={[{ etichetta: azienda.nome, link: appLink(lang, "/app/") }, { etichetta: L("Teoria", "Theory") }]}>
   <Progresso slot="barra" />
   <main class="contenuto">
     <section class="benvenuto">
-      <Pesca dimensione={84} etichetta="Pesca, la tua tutor" />
+      <Pesca dimensione={84} etichetta={L("Pesca, la tua tutor", "Pesca, your tutor")} />
       <div class="benvenuto-testi">
-        <span class="tag">Primo giorno</span>
-        <h1 class="app-titolo">Ti diamo il benvenuto in {azienda.nome}</h1>
-        <p>Sono Pesca, la tua tutor. Qui lavori per un'azienda finta. Per ogni ruolo del marketing prima impari la teoria con lezioni brevi, poi la metti alla prova. Scegli il ruolo da cui partire.</p>
+        <span class="tag">{L("Primo giorno", "First day")}</span>
+        <h1 class="app-titolo">{L("Ti diamo il benvenuto in", "Welcome to")} {azienda.nome}</h1>
+        <p>{L("Sono Pesca, la tua tutor. Qui lavori per un'azienda finta. Per ogni ruolo del marketing prima impari la teoria con lezioni brevi, poi la metti alla prova. Scegli il ruolo da cui partire.", "I'm Pesca, your tutor. Here you work for a fictional company. For each marketing role you first learn the theory with short lessons, then put it to the test. Choose the role to start with.")}</p>
       </div>
     </section>
 
@@ -35,7 +41,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
         <div class="azienda-testa">
           <span class="foglia" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2f7a4f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 C4 10 10 4 20 4 C20 14 14 20 4 20 Z" /><path d="M4 20 L13 11" /></svg></span>
           <div>
-            <div class="azienda-nome"><strong id="t-azienda">{azienda.nome}</strong><span class="simulata">Azienda simulata</span></div>
+            <div class="azienda-nome"><strong id="t-azienda">{azienda.nome}</strong><span class="simulata">{L("Azienda simulata", "Simulated company")}</span></div>
             <p>{azienda.descrizione}</p>
           </div>
         </div>
@@ -44,14 +50,14 @@ export function getStaticPaths() { return LINGUE_APP(); }
             <div><dt>{n.etichetta}</dt><dd>{n.valore}</dd></div>
           ))}
         </dl>
-        <p class="avviso">Tutti i dati di {azienda.nome} sono inventati per gli esercizi.</p>
+        <p class="avviso">{L(`Tutti i dati di ${azienda.nome} sono inventati per gli esercizi.`, `All of ${azienda.nome}'s data is made up for the exercises.`)}</p>
         <div class="dettagli">
           <div>
-            <h2 class="piccolo">Catalogo</h2>
+            <h2 class="piccolo">{L("Catalogo", "Catalogue")}</h2>
             <ul class="chip">{azienda.catalogo.map((c) => <li>{c}</li>)}</ul>
           </div>
           <div>
-            <h2 class="piccolo">Chi ti scriverà</h2>
+            <h2 class="piccolo">{L("Chi ti scriverà", "Who will write to you")}</h2>
             <ul class="colleghi">
               {azienda.colleghi.map((c) => (
                 <li><span class="avatar">{c.sigla}</span><span><strong>{c.nome}</strong> · {c.ruolo}</span></li>
@@ -62,29 +68,29 @@ export function getStaticPaths() { return LINGUE_APP(); }
       </section>
 
       <aside class="pannello come" aria-labelledby="t-come">
-        <h2 id="t-come" class="app-titolo come-titolo">Come funziona</h2>
+        <h2 id="t-come" class="app-titolo come-titolo">{L("Come funziona", "How it works")}</h2>
         <ol class="tappe">
-          <li><span class="tappa-n">1</span><span><strong>Teoria</strong>Scheda del ruolo, tre lezioni da dieci minuti con domande dopo ogni concetto, una verifica.</span></li>
-          <li><span class="tappa-n">2</span><span><strong>Prova veloce</strong>Una richiesta di un collega di Cinque Foglie, per vedere che lavoro è.</span></li>
-          <li><span class="tappa-n">3</span><span><strong>Simulazione</strong>Lavori sul sito vero di Cinque Foglie con gli strumenti del mestiere. <a href="/app/simulazioni/">Vedi le simulazioni</a></span></li>
+          <li><span class="tappa-n">1</span><span><strong>{L("Teoria", "Theory")}</strong>{L("Scheda del ruolo, tre lezioni da dieci minuti con domande dopo ogni concetto, una verifica.", "Role profile, three ten-minute lessons with questions after every concept, a quiz.")}</span></li>
+          <li><span class="tappa-n">2</span><span><strong>{L("Prova veloce", "Quick exercise")}</strong>{L("Una richiesta di un collega di Cinque Foglie, per vedere che lavoro è.", "A request from a Cinque Foglie colleague, to see what the job is like.")}</span></li>
+          <li><span class="tappa-n">3</span><span><strong>{L("Simulazione", "Simulation")}</strong>{L("Lavori su Cinque Foglie con gli strumenti del mestiere.", "You work on Cinque Foglie with the tools of the trade.")} <a href={appLink(lang, "/app/simulazioni/")}>{L("Vedi le simulazioni", "See the simulations")}</a></span></li>
         </ol>
-        <p class="nota">Per approfondire la teoria ci sono gli articoli del <a href="/blog/">blog</a>.</p>
+        <p class="nota">{L("Per approfondire la teoria ci sono gli articoli del", "To go deeper into the theory there are the articles on the")} <a href={lang === "en" ? "/en/blog/" : "/blog/"}>blog</a>.</p>
       </aside>
     </div>
 
-    <section id="ruoli" class="hub-tutti" aria-label="I ruoli">
+    <section id="ruoli" class="hub-tutti" aria-label={L("I ruoli", "The roles")}>
       {HUB.map((h) => (
         <section class="hub" aria-labelledby={`t-hub-${h.n}`}>
           <div class="hub-testa"><span class="hub-n">Hub {h.n}</span><h2 id={`t-hub-${h.n}`} class="app-titolo hub-titolo">{h.nome}</h2></div>
           <ul class="griglia">
             {h.ruoli.map((id) => { const r = ruolo(id); return (
               <li>
-                <a class="ruolo" href={`/app/impara/${r.id}/`} data-ruolo-card={r.id}>
+                <a class="ruolo" href={appLink(lang, `/app/impara/${r.id}/`)} data-ruolo-card={r.id}>
                   <span class="ruolo-icona"><Icona nome={r.icona} dimensione={18} /></span>
                   <span class="ruolo-testi"><strong>{r.nome}</strong><span>{r.breve}</span></span>
                   <span class="ruolo-piede">
-                    {pronti.has(r.id) ? <span class="etichetta pronta" data-avanz>Teoria pronta</span> : <span class="etichetta">Teoria in arrivo</span>}
-                    {r.id === "seo" && <span class="etichetta pratica">Simulazione</span>}
+                    {pronti.has(r.id) ? <span class="etichetta pronta" data-avanz>{L("Teoria pronta", "Theory ready")}</span> : <span class="etichetta">{L("Teoria in arrivo", "Theory coming soon")}</span>}
+                    {SIMULAZIONI.has(r.id) && <span class="etichetta pratica">{L("Simulazione", "Simulation")}</span>}
                   </span>
                 </a>
               </li>
@@ -99,12 +105,13 @@ export function getStaticPaths() { return LINGUE_APP(); }
 <script>
   // Sui ruoli con la teoria pronta, quante parti hai già fatto
   import { leggiTeoria } from "../../../../scripts/quiz";
+  import { t as tr } from "../../../../scripts/lingua";
   const t = leggiTeoria();
   document.querySelectorAll<HTMLElement>("[data-ruolo-card]").forEach((a) => {
     const s = t[a.dataset.ruoloCard!]; const e = a.querySelector("[data-avanz]");
     if (!s || !e) return;
     const fatte = Object.values(s.lezioni ?? {}).filter(Boolean).length + (s.verifica?.superata ? 1 : 0);
-    e.textContent = s.verifica?.superata ? "Teoria completata" : `Teoria: ${fatte} di 4`;
+    e.textContent = s.verifica?.superata ? tr("Teoria completata", "Theory completed") : tr(`Teoria: ${fatte} di 4`, `Theory: ${fatte} of 4`);
   });
 </script>
 

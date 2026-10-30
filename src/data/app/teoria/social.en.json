@@ -1,0 +1,748 @@
+{
+ "_nota": "Teoria del ruolo Social media manager (Hub 1). Generato da strumenti-dati/crea_teoria_hub1.py. DA RILEGGERE.",
+ "id": "social",
+ "nome": "Social media manager",
+ "hub": 1,
+ "scheda": {
+  "cosaFa": "Runs a brand's social media accounts: decides what to publish and when, creates or coordinates content, replies to people and measures results to understand what works.",
+  "conChi": [
+   "Content creators, photographers and designers, for photos and videos",
+   "Brand manager, to stay on brand",
+   "Influencer marketing and customer service, for partnerships and questions"
+  ],
+  "strumenti": [
+   {
+    "nome": "The platforms' apps and dashboards",
+    "cosa": "To publish and read the analytics of Instagram, TikTok, Facebook, LinkedIn."
+   },
+   {
+    "nome": "A content calendar",
+    "cosa": "A spreadsheet or tool for scheduling posts."
+   },
+   {
+    "nome": "Design and video tools",
+    "cosa": "To create images and short videos."
+   },
+   {
+    "nome": "UTM links and Google Analytics",
+    "cosa": "To know how many visits and sales come from social media."
+   }
+  ],
+  "giornata": [
+   [
+    "9:00",
+    "Replies to overnight comments and messages"
+   ],
+   [
+    "10:30",
+    "Publishes the matcha reel and checks the first reactions"
+   ],
+   [
+    "14:00",
+    "Prepares next week's calendar"
+   ],
+   [
+    "16:30",
+    "Reads the analytics: which posts were saved and shared most"
+   ]
+  ],
+  "faPerTe": "It's for you if you enjoy telling stories with images and video, you're curious about people and you like working out from the numbers what works.",
+  "blog": {
+   "slug": "cosa-fa-un-social-media-manager",
+   "titolo": "What does a social media manager do?"
+  }
+ },
+ "lezioni": [
+  {
+   "id": "ruolo-e-piattaforme",
+   "titolo": "The role and the platforms",
+   "minuti": 10,
+   "blocchi": [
+    {
+     "titolo": "What social media is for, for a brand",
+     "testo": "A brand uses social media for different goals: getting known (awareness), building a relationship with people (community), bringing visits to the website and sales, giving support. Each goal is measured differently, so it has to be chosen before publishing. The social media manager works mainly on organic content, meaning content that isn't sponsored.",
+     "esempio": "For the iced teas, Cinque Foglie's goal is to get the new range known; for matcha, to build a community of people sharing their recipes.",
+     "domande": [
+      {
+       "tipo": "abbina",
+       "testo": "Match each goal to how it's measured.",
+       "coppie": [
+        [
+         "Getting known",
+         "Reach: how many people see the posts"
+        ],
+        [
+         "Building a community",
+         "Comments, saves and shares"
+        ],
+        [
+         "Driving sales",
+         "Visits and purchases from the link"
+        ]
+       ],
+       "spiegazione": "First the goal, then the right number to watch."
+      }
+     ],
+     "blog": {
+      "slug": "cosa-fa-un-social-media-manager",
+      "titolo": "What does a social media manager do?"
+     }
+    },
+    {
+     "titolo": "Each platform has its own audience",
+     "testo": "Platforms differ in audience and format. Instagram lives on photos, carousels and short videos (reels). TikTok on short, spontaneous videos, discovered mostly through the algorithm's recommendations. Facebook on groups and communities. LinkedIn on work and professions. Pinterest on saved ideas and inspiration. You don't need to be everywhere: better a few platforms done well, where your audience is.",
+     "esempio": "Cinque Foglie chooses Instagram (recipes and curated photos) and Pinterest (gift and iced tea ideas), and doesn't open a LinkedIn account: its customers don't look for tea there.",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "A tea brand with a small team. What's best?",
+       "opzioni": [
+        {
+         "t": "A few platforms where its audience is, done well",
+         "giusta": true
+        },
+        {
+         "t": "Opening an account on every platform",
+         "giusta": false
+        },
+        {
+         "t": "Publishing the exact same post everywhere",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "Better less and done well, adapting formats to each platform."
+      }
+     ],
+     "blog": {
+      "slug": "cosa-fa-un-social-media-manager",
+      "titolo": "What does a social media manager do?"
+     }
+    },
+    {
+     "titolo": "Organic and paid",
+     "testo": "Organic content is published for free and mainly reaches people who follow the account or who get it from the algorithm. Sponsored content (social ads) is paid for to reach people chosen by age, interests, location. It's often handled by another role or an agency, but the social media manager chooses which content deserves a boost.",
+     "esempio": "The cold brew reel got lots of saves organically: it's a good candidate to sponsor, to show it to people who don't know Cinque Foglie yet.",
+     "domande": [
+      {
+       "tipo": "vf",
+       "testo": "An organic post always reaches all of the account's followers.",
+       "risposta": false,
+       "spiegazione": "Only some see it: the algorithm decides who to show it to."
+      }
+     ],
+     "blog": {
+      "slug": "cosa-fa-un-social-media-manager",
+      "titolo": "What does a social media manager do?"
+     }
+    },
+    {
+     "titolo": "How the algorithm works",
+     "testo": "Every platform decides what to show each person with an algorithm that tries to predict what will interest them. It looks at signals such as how long people spend on content, whether they watch to the end, and whether they save, share or comment. There's no secret trick: content people find useful or beautiful gets shown more.",
+     "esempio": "A carousel «5 mistakes to avoid with matcha» gets saved a lot because it's useful: the algorithm shows it to more people.",
+     "domande": [
+      {
+       "tipo": "multipla",
+       "testo": "Which signals tell the algorithm that people like a piece of content?",
+       "opzioni": [
+        {
+         "t": "People save it",
+         "giusta": true
+        },
+        {
+         "t": "They watch it to the end",
+         "giusta": true
+        },
+        {
+         "t": "It has lots of identical hashtags repeated",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "Saves, shares, watch time and comments count; stuffing it with hashtags doesn't."
+      }
+     ],
+     "blog": {
+      "slug": "come-funziona-l-algoritmo-dei-social",
+      "titolo": "How social media algorithms work, explained simply"
+     }
+    }
+   ],
+   "riepilogo": [
+    "First choose the goal, then the numbers to measure it.",
+    "Each platform has its own audience and formats: better a few, done well.",
+    "The algorithm shows content people find useful or beautiful more often."
+   ],
+   "finali": [
+    {
+     "tipo": "singola",
+     "testo": "What do you measure if the goal is getting known?",
+     "opzioni": [
+      {
+       "t": "Reach",
+       "giusta": true
+      },
+      {
+       "t": "The number of orders",
+       "giusta": false
+      },
+      {
+       "t": "Quality Score",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "Awareness = how many people see the content."
+    },
+    {
+     "tipo": "vf",
+     "testo": "For a brand it's always better to be on every platform.",
+     "risposta": false,
+     "spiegazione": "Better where your audience is, with suitable content."
+    },
+    {
+     "tipo": "singola",
+     "testo": "Social ads are for…",
+     "opzioni": [
+      {
+       "t": "Showing content to chosen people, for a fee",
+       "giusta": true
+      },
+      {
+       "t": "Publishing for free",
+       "giusta": false
+      },
+      {
+       "t": "Replying to comments",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "They're sponsored content with a chosen audience."
+    }
+   ],
+   "parole": [
+    [
+     "Organic content",
+     "A post published for free, without sponsorship."
+    ],
+    [
+     "Social ads",
+     "Paid content shown to a chosen audience."
+    ],
+    [
+     "Algorithm",
+     "The system that decides what to show each person."
+    ],
+    [
+     "Reel",
+     "A short vertical Instagram video."
+    ]
+   ]
+  },
+  {
+   "id": "contenuti-e-piano",
+   "titolo": "Content and the content plan",
+   "minuti": 12,
+   "blocchi": [
+    {
+     "titolo": "Content pillars",
+     "testo": "To avoid posting at random, you choose three or four fixed themes, the content pillars. Every post belongs to one of the pillars. That way the account is recognisable and there's always an idea to start from.",
+     "esempio": "Cinque Foglie's pillars: «Learn about tea» (how to brew it), «Recipes» (iced teas, matcha latte), «Behind the scenes» (growers, packaging), «The community» (customers' photos).",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "A post «How to choose the right teapot» belongs to the pillar…",
+       "opzioni": [
+        {
+         "t": "Learn about tea",
+         "giusta": true
+        },
+        {
+         "t": "Behind the scenes",
+         "giusta": false
+        },
+        {
+         "t": "The community",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "It explains something to the audience: it's educational content."
+      }
+     ],
+     "blog": {
+      "slug": "calendario-editoriale-social",
+      "titolo": "How to build a social media content calendar"
+     }
+    },
+    {
+     "titolo": "Formats",
+     "testo": "The same theme can be told in different formats. Short vertical videos (reels, TikTok) to get discovered. Carousels, meaning several images to swipe through, to explain step by step: they get saved often. Stories, which last 24 hours, for everyday updates and quick questions. Single posts for a strong photo or an announcement. You choose the format based on what you want to achieve.",
+     "esempio": "The iced tea recipe becomes a 20-second reel to get discovered and a carousel with the quantities to save.",
+     "domande": [
+      {
+       "tipo": "abbina",
+       "testo": "Match each format to its typical use.",
+       "coppie": [
+        [
+         "Short vertical video",
+         "Getting discovered by new people"
+        ],
+        [
+         "Carousel",
+         "Explaining step by step, to be saved"
+        ],
+        [
+         "Story",
+         "Daily updates that disappear after 24 hours"
+        ]
+       ],
+       "spiegazione": "Each format has its strength."
+      }
+     ],
+     "blog": {
+      "slug": "calendario-editoriale-social",
+      "titolo": "How to build a social media content calendar"
+     }
+    },
+    {
+     "titolo": "The content calendar",
+     "testo": "The content calendar says what gets published, where and when, usually a few weeks ahead. It brings together key dates (launches, holidays, seasons), pillars and formats. Posting regularly matters more than posting a lot. Always leave some room for things that happen unexpectedly.",
+     "esempio": "Cinque Foglie's October: evening herbal teas on Mondays, recipes on Thursdays, behind the scenes on Saturdays; the advent calendar at the end of the month.",
+     "domande": [
+      {
+       "tipo": "ordina",
+       "testo": "Put the steps of preparing a calendar in order.",
+       "voci": [
+        "Set the month's goals and key dates",
+        "Choose topics from the pillars",
+        "Assign a format and day to each piece of content",
+        "Prepare and schedule the content"
+       ],
+       "spiegazione": "First the why and the when, then the what and the how."
+      }
+     ],
+     "blog": {
+      "slug": "calendario-editoriale-social",
+      "titolo": "How to build a social media content calendar"
+     }
+    },
+    {
+     "titolo": "Other people's content, rights and accessibility",
+     "testo": "Content created by customers (UGC, user-generated content) is valuable, but before reposting it you ask for permission and credit the author. Music and images have rights too: only use those with a suitable licence, such as the platforms' music libraries for commercial use. Good content is also accessible: subtitles on videos and image descriptions (alt text) for people who can't see.",
+     "esempio": "A customer posts a beautiful photo of her matcha latte: Cinque Foglie writes to ask if it can repost it and credits her in the post.",
+     "domande": [
+      {
+       "tipo": "multipla",
+       "testo": "What do you do before reposting a customer's photo?",
+       "opzioni": [
+        {
+         "t": "Ask her for permission",
+         "giusta": true
+        },
+        {
+         "t": "Credit her in the post",
+         "giusta": true
+        },
+        {
+         "t": "Repost it straight away, it's public anyway",
+         "giusta": false
+        },
+        {
+         "t": "Remove her name from the photo",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "Public content isn't free to use: you need the author's permission."
+      }
+     ],
+     "blog": {
+      "slug": "contenuti-utenti-e-diritti",
+      "titolo": "Customer photos, music and alt text: the rules on social media"
+     }
+    }
+   ],
+   "riepilogo": [
+    "Content pillars give the account order and recognisability.",
+    "Each format has a use: video to get discovered, carousels to explain, stories for everyday updates.",
+    "A regular calendar, permission for other people's content, and accessibility."
+   ],
+   "finali": [
+    {
+     "tipo": "singola",
+     "testo": "What matters most in the calendar?",
+     "opzioni": [
+      {
+       "t": "Consistency",
+       "giusta": true
+      },
+      {
+       "t": "Posting ten times a day",
+       "giusta": false
+      },
+      {
+       "t": "Posting only when you have time",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "Better regular than lots and at random."
+    },
+    {
+     "tipo": "vf",
+     "testo": "A public Instagram photo can be reposted without asking.",
+     "risposta": false,
+     "spiegazione": "You need the permission of whoever created it."
+    },
+    {
+     "tipo": "singola",
+     "testo": "What are subtitles in videos for?",
+     "opzioni": [
+      {
+       "t": "Making them understandable without sound and for people who can't hear",
+       "giusta": true
+      },
+      {
+       "t": "Making the video look longer",
+       "giusta": false
+      },
+      {
+       "t": "Only for the algorithm",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "Accessibility: many people watch without sound, and some people can't hear."
+    }
+   ],
+   "parole": [
+    [
+     "Content pillars",
+     "The account's 3-4 fixed themes."
+    ],
+    [
+     "Carousel",
+     "A post with several images to swipe through."
+    ],
+    [
+     "Content calendar",
+     "The plan of what to publish, where and when."
+    ],
+    [
+     "UGC",
+     "Content created by customers."
+    ]
+   ]
+  },
+  {
+   "id": "numeri-e-community",
+   "titolo": "Numbers, community and rules",
+   "minuti": 12,
+   "blocchi": [
+    {
+     "titolo": "Metrics",
+     "testo": "Reach: how many different people saw a piece of content. Impressions: how many times it was seen in total, including repeat views by the same person. Interactions: likes, comments, saves, shares. Link clicks: how many people went to the website. Follower growth: how many new followers in the period. Saves and shares usually say more than likes, because they take more effort.",
+     "esempio": "A carousel has a reach of 4,000 and 6,000 impressions: some people saw it more than once.",
+     "domande": [
+      {
+       "tipo": "abbina",
+       "testo": "Match each metric.",
+       "coppie": [
+        [
+         "Reach",
+         "Different people who saw the content"
+        ],
+        [
+         "Impressions",
+         "Total views, including repeats"
+        ],
+        [
+         "Saves",
+         "People who want to find it again"
+        ]
+       ],
+       "spiegazione": "Reach ≤ impressions; saves = strong interest."
+      }
+     ],
+     "blog": {
+      "slug": "metriche-social",
+      "titolo": "Social media metrics: which to watch and when"
+     }
+    },
+    {
+     "titolo": "Engagement rate",
+     "testo": "Engagement rate shows how much people react to content: interactions divided by reach, times 100. It can also be calculated on followers, which is useful for comparing different accounts, but when you know the reach it's better to use it. There's no right value for everyone: compare with your own previous posts.",
+     "esempio": "A reel has 225 interactions and a reach of 5,000 people: 225 / 5,000 × 100 = 4.5%.",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "A post has 90 interactions and a reach of 3,000. Engagement rate on reach?",
+       "opzioni": [
+        {
+         "t": "3%",
+         "giusta": true
+        },
+        {
+         "t": "0,3%",
+         "giusta": false
+        },
+        {
+         "t": "30%",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "90 / 3,000 × 100 = 3%."
+      }
+     ],
+     "blog": {
+      "slug": "engagement-rate",
+      "titolo": "Engagement rate: what it is and how to calculate it"
+     }
+    },
+    {
+     "titolo": "The community",
+     "testo": "Managing the community means replying to comments and messages, thanking, helping, moderating. You reply quickly and on brand, even to criticism. Only spam and insults are hidden or reported, not honest criticism. Repeated questions become ideas for new content.",
+     "esempio": "Three people ask in one week «how much matcha for one cup?»: a kind reply to all of them and, the following Monday, a carousel with the quantities.",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "A customer criticises a late delivery in a comment. What do you do?",
+       "opzioni": [
+        {
+         "t": "Reply quickly, apologise and message them privately to sort it out",
+         "giusta": true
+        },
+        {
+         "t": "Delete the comment",
+         "giusta": false
+        },
+        {
+         "t": "Don't reply, so as not to give it visibility",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "Honest criticism is handled with a quick reply, not deleted."
+      }
+     ],
+     "blog": {
+      "slug": "gestire-commenti-e-community",
+      "titolo": "Community management: what to answer and what to hide"
+     }
+    },
+    {
+     "titolo": "The rules: ads, giveaways and privacy",
+     "testo": "If content is advertising, it must be clear: in paid partnerships with creators you use the platforms' labels and tools (for example «paid partnership», #ad). In Italy, prize contests («comment to win…») have precise legal rules (Presidential Decree 430/2001): before running one, ask whoever handles it in the company. And the data of people who write privately is handled under the GDPR.",
+     "esempio": "Cinque Foglie gives a creator a kit in exchange for a reel: the reel must be labelled as a partnership, even if no money changed hands.",
+     "domande": [
+      {
+       "tipo": "vf",
+       "testo": "Free products given in exchange for a post must be disclosed as advertising.",
+       "risposta": true,
+       "spiegazione": "A free product in exchange for content is also a commercial partnership to disclose."
+      },
+      {
+       "tipo": "singola",
+       "testo": "You want to run a «comment and win». What do you do first?",
+       "opzioni": [
+        {
+         "t": "Check the prize contest rules with whoever handles them",
+         "giusta": true
+        },
+        {
+         "t": "Publish it straight away",
+         "giusta": false
+        },
+        {
+         "t": "Run it only in stories, so it doesn't count",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "In Italy prize contests are regulated by law."
+      }
+     ],
+     "blog": {
+      "slug": "regole-pubblicita-e-concorsi-social",
+      "titolo": "Ads, giveaways and privacy on social media: the rules in Italy"
+     }
+    }
+   ],
+   "riepilogo": [
+    "Reach, impressions, interactions and clicks say different things.",
+    "Engagement rate = interactions / reach × 100, compared with your own posts.",
+    "Community: quick, on-brand replies; ads always disclosed, contests by the rules."
+   ],
+   "finali": [
+    {
+     "tipo": "singola",
+     "testo": "Which metric can be higher than reach?",
+     "opzioni": [
+      {
+       "t": "Impressions",
+       "giusta": true
+      },
+      {
+       "t": "People reached",
+       "giusta": false
+      },
+      {
+       "t": "New followers",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "One person can see the same content several times."
+    },
+    {
+     "tipo": "vf",
+     "testo": "Insults and spam can be hidden.",
+     "risposta": true,
+     "spiegazione": "Spam and insults are moderated; honest criticism isn't."
+    },
+    {
+     "tipo": "singola",
+     "testo": "A creator gets a free kit in exchange for a post. The post…",
+     "opzioni": [
+      {
+       "t": "Must be labelled as a partnership",
+       "giusta": true
+      },
+      {
+       "t": "Doesn't need labelling because there was no payment",
+       "giusta": false
+      },
+      {
+       "t": "Must be published without mentioning the brand",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "A gift in exchange for content is advertising too."
+    }
+   ],
+   "parole": [
+    [
+     "Reach",
+     "Different people who saw a piece of content."
+    ],
+    [
+     "Engagement rate",
+     "Interactions divided by reach, times 100."
+    ],
+    [
+     "Community management",
+     "Replying to, helping and moderating people."
+    ],
+    [
+     "#ad",
+     "A label that marks content as advertising."
+    ]
+   ]
+  }
+ ],
+ "verifica": [
+  {
+   "tipo": "singola",
+   "testo": "Prima di pubblicare si sceglie…",
+   "opzioni": [
+    {
+     "t": "L'obiettivo",
+     "giusta": true
+    },
+    {
+     "t": "Il filtro della foto",
+     "giusta": false
+    },
+    {
+     "t": "L'orario a caso",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "L'obiettivo decide contenuti e metriche."
+  },
+  {
+   "tipo": "vf",
+   "testo": "TikTok fa scoprire i contenuti soprattutto tramite l'algoritmo.",
+   "risposta": true,
+   "spiegazione": "La maggior parte dei video arriva dai consigli, non dai profili seguiti."
+  },
+  {
+   "tipo": "abbina",
+   "testo": "Abbina:",
+   "coppie": [
+    [
+     "Carosello",
+     "Spiegare passo per passo"
+    ],
+    [
+     "Video breve",
+     "Farsi scoprire"
+    ]
+   ],
+   "spiegazione": "Ogni formato ha un uso."
+  },
+  {
+   "tipo": "singola",
+   "testo": "120 interazioni, copertura 4.000. Engagement rate?",
+   "opzioni": [
+    {
+     "t": "3%",
+     "giusta": true
+    },
+    {
+     "t": "30%",
+     "giusta": false
+    },
+    {
+     "t": "0,03%",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "120 / 4.000 × 100 = 3%."
+  },
+  {
+   "tipo": "ordina",
+   "testo": "Come si prepara un calendario:",
+   "voci": [
+    "Obiettivi e date",
+    "Temi dai pilastri",
+    "Formato e giorno",
+    "Preparazione e programmazione"
+   ],
+   "spiegazione": "Prima il perché, poi il cosa."
+  },
+  {
+   "tipo": "vf",
+   "testo": "Si possono ripubblicare le foto dei clienti senza chiedere.",
+   "risposta": false,
+   "spiegazione": "Serve il permesso."
+  },
+  {
+   "tipo": "singola",
+   "testo": "Una critica sincera nei commenti si…",
+   "opzioni": [
+    {
+     "t": "Gestisce con una risposta rapida e gentile",
+     "giusta": true
+    },
+    {
+     "t": "Cancella",
+     "giusta": false
+    },
+    {
+     "t": "Ignora",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "Si risponde, non si nasconde."
+  },
+  {
+   "tipo": "vf",
+   "testo": "Un post di una creator pagata con prodotti gratuiti va segnalato come pubblicità.",
+   "risposta": true,
+   "spiegazione": "È una collaborazione commerciale."
+  }
+ ],
+ "prova": {
+  "titolo": "A week of matcha posts",
+  "cosa": "A short request from Sara: choose formats, days and copy for a week of posts.",
+  "link": "/app/social/esercizio/",
+  "minuti": 20
+ },
+ "pratica": {
+  "titolo": "Social Simulation",
+  "cosa": "You work on Cinque Foglie's account: posts, calendar, comments, analytics and photo rights, from the basics to a small crisis.",
+  "link": "/app/simulazioni/social/"
+ }
+}

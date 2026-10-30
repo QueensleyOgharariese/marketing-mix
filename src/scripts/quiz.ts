@@ -1,4 +1,5 @@
 // DOMANDE DELLE LEZIONI DI TEORIA (Hub)
+import { t } from "./lingua";
 // Cinque tipi: singola, multipla, vf (vero o falso), ordina, abbina.
 // disegnaDomanda() scrive la domanda dentro un contenitore e restituisce una funzione che dice se la risposta è giusta.
 // Lo stato delle lezioni (quali sono finite, il risultato della verifica) resta in questo browser.
@@ -24,7 +25,7 @@ export function disegnaDomanda(box: HTMLElement, d: Domanda): () => boolean | nu
   if (d.tipo === "singola" || d.tipo === "multipla") {
     const ordine = mescola(d.opzioni.map((o, i) => ({ ...o, i })));
     const tipo = d.tipo === "singola" ? "radio" : "checkbox";
-    box.innerHTML = `<fieldset class="q">${titolo}${d.tipo === "multipla" ? '<p class="q-nota">Puoi scegliere più risposte.</p>' : ""}
+    box.innerHTML = `<fieldset class="q">${titolo}${d.tipo === "multipla" ? `<p class="q-nota">${t("Puoi scegliere più risposte.", "You can choose more than one answer.")}</p>` : ""}
       ${ordine.map((o) => `<label class="q-opz"><input type="${tipo}" name="${id}" value="${o.i}" /><span>${esc(o.t)}</span></label>`).join("")}</fieldset>`;
     return () => {
       const scelte = [...box.querySelectorAll<HTMLInputElement>(`input[name=${id}]:checked`)].map((x) => Number(x.value));
@@ -35,8 +36,8 @@ export function disegnaDomanda(box: HTMLElement, d: Domanda): () => boolean | nu
   }
   if (d.tipo === "vf") {
     box.innerHTML = `<fieldset class="q">${titolo}<div class="q-vf">
-      <label class="q-opz"><input type="radio" name="${id}" value="1" /><span>Vero</span></label>
-      <label class="q-opz"><input type="radio" name="${id}" value="0" /><span>Falso</span></label></div></fieldset>`;
+      <label class="q-opz"><input type="radio" name="${id}" value="1" /><span>${t("Vero", "True")}</span></label>
+      <label class="q-opz"><input type="radio" name="${id}" value="0" /><span>${t("Falso", "False")}</span></label></div></fieldset>`;
     return () => {
       const s = box.querySelector<HTMLInputElement>(`input[name=${id}]:checked`);
       return s ? (s.value === "1") === d.risposta : null;
@@ -47,11 +48,11 @@ export function disegnaDomanda(box: HTMLElement, d: Domanda): () => boolean | nu
     // Restano anche le frecce su e giù, per chi usa la tastiera.
     let ordine = mescola(d.voci);
     if (ordine.every((v, i) => v === d.voci[i])) ordine = [...d.voci].reverse();
-    box.innerHTML = `<fieldset class="q">${titolo}<p class="q-nota">Trascina le voci nell'ordine giusto, dalla prima all'ultima (oppure usa le frecce).</p><ol class="q-lista" data-lista></ol></fieldset>`;
+    box.innerHTML = `<fieldset class="q">${titolo}<p class="q-nota">${t("Trascina le voci nell'ordine giusto, dalla prima all'ultima (oppure usa le frecce).", "Drag the items into the right order, from first to last (or use the arrows).")}</p><ol class="q-lista" data-lista></ol></fieldset>`;
     const lista = box.querySelector<HTMLElement>("[data-lista]")!;
     const disegna = () => {
       lista.innerHTML = ordine.map((v, i) => `<li class="q-ord"><span class="q-maniglia" aria-hidden="true">⠿</span><span class="q-num">${i + 1}</span><span class="q-voce">${esc(v)}</span>
-        <span class="q-frecce"><button type="button" data-su="${i}" aria-label="Sposta su" ${i === 0 ? "disabled" : ""}>↑</button><button type="button" data-giu="${i}" aria-label="Sposta giù" ${i === ordine.length - 1 ? "disabled" : ""}>↓</button></span></li>`).join("");
+        <span class="q-frecce"><button type="button" data-su="${i}" aria-label="${t("Sposta su", "Move up")}" ${i === 0 ? "disabled" : ""}>↑</button><button type="button" data-giu="${i}" aria-label="${t("Sposta giù", "Move down")}" ${i === ordine.length - 1 ? "disabled" : ""}>↓</button></span></li>`).join("");
     };
     disegna();
     lista.addEventListener("click", (e) => {
@@ -102,7 +103,7 @@ export function disegnaDomanda(box: HTMLElement, d: Domanda): () => boolean | nu
   // abbina: per ogni voce a sinistra si sceglie la risposta da un elenco
   const destre = mescola(d.coppie.map((c) => c[1]));
   box.innerHTML = `<fieldset class="q">${titolo}<div class="q-abbina">${d.coppie.map(([a], i) => `<label class="q-coppia"><span>${esc(a)}</span>
-      <select data-coppia="${i}"><option value="">Scegli…</option>${destre.map((r) => `<option>${esc(r)}</option>`).join("")}</select></label>`).join("")}</div></fieldset>`;
+      <select data-coppia="${i}"><option value="">${t("Scegli…", "Choose…")}</option>${destre.map((r) => `<option>${esc(r)}</option>`).join("")}</select></label>`).join("")}</div></fieldset>`;
   return () => {
     const sel = [...box.querySelectorAll<HTMLSelectElement>("[data-coppia]")];
     if (sel.some((s) => !s.value)) return null;
@@ -113,7 +114,7 @@ export function disegnaDomanda(box: HTMLElement, d: Domanda): () => boolean | nu
 // La risposta giusta scritta in chiaro (si mostra dopo due tentativi sbagliati, così non si resta bloccati)
 export function soluzione(d: Domanda) {
   if (d.tipo === "singola" || d.tipo === "multipla") return d.opzioni.filter((o) => o.giusta).map((o) => o.t).join(" · ");
-  if (d.tipo === "vf") return d.risposta ? "Vero" : "Falso";
+  if (d.tipo === "vf") return d.risposta ? t("Vero", "True") : t("Falso", "False");
   if (d.tipo === "ordina") return d.voci.map((v, i) => `${i + 1}. ${v}`).join(" → ");
   return d.coppie.map(([a, b]) => `${a} → ${b}`).join("; ");
 }

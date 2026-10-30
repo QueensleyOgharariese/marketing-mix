@@ -1,0 +1,238 @@
+{
+ "_nota": "Azienda e numeri INVENTATI per gli esercizi. Il dominio .example è riservato e non esiste davvero.",
+ "nome": "Cinque Foglie",
+ "descrizione": "Online shop for teas and herbal teas. It sells all over Italy, and since this year also in 40 supermarkets in the Veneto region; it has a blog and a newsletter, and wants to grow while keeping a friendly tone.",
+ "dominio": "cinquefoglie.example",
+ "numeri": [
+  {
+   "etichetta": "Products",
+   "valore": "120"
+  },
+  {
+   "etichetta": "Categories",
+   "valore": "6"
+  },
+  {
+   "etichetta": "Newsletter subscribers",
+   "valore": "8.400"
+  },
+  {
+   "etichetta": "Sales target",
+   "valore": "+20%"
+  }
+ ],
+ "catalogo": [
+  "Green teas",
+  "Black teas",
+  "Herbal teas",
+  "Matcha",
+  "Iced teas",
+  "Accessories"
+ ],
+ "colleghi": [
+  {
+   "sigla": "MR",
+   "nome": "Marta",
+   "ruolo": "Founder"
+  },
+  {
+   "sigla": "LB",
+   "nome": "Luca",
+   "ruolo": "E-commerce"
+  },
+  {
+   "sigla": "SC",
+   "nome": "Sara",
+   "ruolo": "Social media and community"
+  },
+  {
+   "sigla": "GR",
+   "nome": "Giorgio",
+   "ruolo": "Sales and shops"
+  }
+ ],
+ "ruoli": [
+  {
+   "id": "seo",
+   "nome": "SEO specialist",
+   "breve": "Visibility on Google",
+   "icona": "seo",
+   "pronto": true
+  },
+  {
+   "id": "sea",
+   "nome": "SEA specialist",
+   "breve": "Ads and budget",
+   "icona": "sea",
+   "pronto": true
+  },
+  {
+   "id": "brand",
+   "nome": "Brand manager",
+   "breve": "Tone and identity",
+   "icona": "brand",
+   "pronto": true
+  },
+  {
+   "id": "social",
+   "nome": "Social media manager",
+   "breve": "Content and community",
+   "icona": "social",
+   "pronto": true
+  },
+  {
+   "id": "influencer",
+   "nome": "Influencer marketing",
+   "breve": "Creators and transparency",
+   "icona": "influencer",
+   "pronto": true
+  },
+  {
+   "id": "crm",
+   "nome": "CRM manager",
+   "breve": "Email and loyalty",
+   "icona": "crm",
+   "pronto": true
+  },
+  {
+   "id": "product",
+   "nome": "Product marketing",
+   "breve": "Launching products",
+   "icona": "product",
+   "pronto": true
+  },
+  {
+   "id": "trade",
+   "nome": "Trade marketing",
+   "breve": "Selling in shops",
+   "icona": "trade",
+   "pronto": true
+  },
+  {
+   "id": "pr",
+   "nome": "PR and communications",
+   "breve": "Reputation and press",
+   "icona": "pr",
+   "pronto": true
+  },
+  {
+   "id": "partner",
+   "nome": "Partnerships",
+   "breve": "Collaborations",
+   "icona": "partner",
+   "pronto": true
+  },
+  {
+   "id": "ricerca",
+   "nome": "Market research",
+   "breve": "Understanding customers",
+   "icona": "ricerca",
+   "pronto": true
+  },
+  {
+   "id": "analytics",
+   "nome": "Marketing analytics / martech",
+   "breve": "Data and tools",
+   "icona": "analytics",
+   "pronto": true
+  }
+ ],
+ "richieste": [
+  {
+   "ruolo": "seo",
+   "da": "MR",
+   "nome": "Marta",
+   "quando": "9:12",
+   "oggetto": "Nobody can find the Sencha online",
+   "link": "/app/seo/esercizio/"
+  },
+  {
+   "ruolo": "sea",
+   "da": "LB",
+   "nome": "Luca",
+   "quando": "ieri",
+   "oggetto": "Ads for the iced teas",
+   "link": "/app/sea/esercizio/"
+  },
+  {
+   "ruolo": "brand",
+   "da": "MR",
+   "nome": "Marta",
+   "quando": "ieri",
+   "oggetto": "Our tone of voice",
+   "link": "/app/brand/esercizio/"
+  },
+  {
+   "ruolo": "social",
+   "da": "SC",
+   "nome": "Sara",
+   "quando": "ieri",
+   "oggetto": "A week of matcha posts",
+   "link": "/app/social/esercizio/"
+  },
+  {
+   "ruolo": "influencer",
+   "da": "SC",
+   "nome": "Sara",
+   "quando": "lunedì",
+   "oggetto": "A creator for the matcha",
+   "link": "/app/influencer/esercizio/"
+  },
+  {
+   "ruolo": "crm",
+   "da": "LB",
+   "nome": "Luca",
+   "quando": "martedì",
+   "oggetto": "So many abandoned carts",
+   "link": "/app/crm/esercizio/"
+  },
+  {
+   "ruolo": "product",
+   "da": "MR",
+   "nome": "Marta",
+   "quando": "mercoledì",
+   "oggetto": "Let's launch the Evening Herbal Teas",
+   "link": "/app/product/esercizio/"
+  },
+  {
+   "ruolo": "trade",
+   "da": "GR",
+   "nome": "Giorgio",
+   "quando": "giovedì",
+   "oggetto": "We've made it into the supermarket!",
+   "link": "/app/trade/esercizio/"
+  },
+  {
+   "ruolo": "pr",
+   "da": "MR",
+   "nome": "Marta",
+   "quando": "venerdì",
+   "oggetto": "Good news and a bad Friday",
+   "link": "/app/pr/esercizio/"
+  },
+  {
+   "ruolo": "partner",
+   "da": "LB",
+   "nome": "Luca",
+   "quando": "sabato",
+   "oggetto": "Shall we do something with another company?",
+   "link": "/app/partner/esercizio/"
+  },
+  {
+   "ruolo": "ricerca",
+   "da": "MR",
+   "nome": "Marta",
+   "quando": "domenica",
+   "oggetto": "Shall we make bottled iced tea?",
+   "link": "/app/ricerca/esercizio/"
+  },
+  {
+   "ruolo": "analytics",
+   "da": "LB",
+   "nome": "Luca",
+   "quando": "lunedì",
+   "oggetto": "Nobody can make sense of the data",
+   "link": "/app/analytics/esercizio/"
+  }
+ ]
+}

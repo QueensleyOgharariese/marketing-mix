@@ -7,39 +7,44 @@ import AppLayout from "../../../layouts/AppLayout.astro";
 import Progresso from "../../../components/Progresso.astro";
 import Pesca from "../../../components/Pesca.astro";
 import Icona from "../../../components/Icona.astro";
-import azienda from "../../../data/app/cinque-foglie.json";
+import aziendaIt from "../../../data/app/cinque-foglie.json";
+import aziendaEn from "../../../data/app/cinque-foglie.en.json";
+import { linguaDa, appLink } from "../../../i18n";
 export function getStaticPaths() { return LINGUE_APP(); }
+const lang = linguaDa(Astro.url);
+const L = (it: string, en: string) => (lang === "en" ? en : it);
+const azienda = lang === "en" ? aziendaEn : aziendaIt;
 ---
-<AppLayout title="Come vuoi iniziare?" percorso={[{ etichetta: azienda.nome }]}>
+<AppLayout title={L("Come vuoi iniziare?", "How do you want to start?")} percorso={[{ etichetta: azienda.nome }]}>
   <Progresso slot="barra" />
   <main class="ingresso">
     <header class="testa">
-      <Pesca dimensione={72} etichetta="Pesca, la tua tutor" />
+      <Pesca dimensione={72} etichetta={L("Pesca, la tua tutor", "Pesca, your tutor")} />
       <div>
-        <h1 class="app-titolo">Come vuoi iniziare?</h1>
-        <p>Lavori per {azienda.nome}, un negozio online di tè inventato. Puoi partire dalla teoria dei ruoli o entrare subito in una simulazione. Puoi cambiare quando vuoi.</p>
+        <h1 class="app-titolo">{L("Come vuoi iniziare?", "How do you want to start?")}</h1>
+        <p>{L(`Lavori per ${azienda.nome}, un negozio online di tè inventato. Puoi partire dalla teoria dei ruoli o entrare subito in una simulazione. Puoi cambiare quando vuoi.`, `You work for ${azienda.nome}, a fictional online tea shop. You can start from the theory of the roles or jump straight into a simulation. You can switch whenever you like.`)}</p>
       </div>
     </header>
 
     <div class="scelte">
-      <a class="scelta teoria" href="/app/teoria/">
+      <a class="scelta teoria" href={appLink(lang, "/app/teoria/")}>
         <span class="scelta-icona" aria-hidden="true"><Icona nome="lampadina" dimensione={26} /></span>
-        <span class="scelta-tipo">Teoria</span>
-        <strong>Impara i ruoli del marketing</strong>
-        <span class="scelta-testo">12 ruoli in due Hub. Per ogni ruolo una scheda, tre lezioni da dieci minuti con domande dopo ogni concetto e una verifica.</span>
-        <ul class="punti"><li>Per chi parte da zero</li><li>Approfondimenti sul blog</li><li>Prova veloce alla fine di ogni ruolo</li></ul>
-        <span class="bottone-finto">Inizia dalla teoria →</span>
+        <span class="scelta-tipo">{L("Teoria", "Theory")}</span>
+        <strong>{L("Impara i ruoli del marketing", "Learn the marketing roles")}</strong>
+        <span class="scelta-testo">{L("12 ruoli in due Hub. Per ogni ruolo una scheda, tre lezioni da dieci minuti con domande dopo ogni concetto e una verifica.", "12 roles in two Hubs. For each role a profile, three ten-minute lessons with questions after every concept, and a quiz.")}</span>
+        <ul class="punti"><li>{L("Per chi parte da zero", "For complete beginners")}</li><li>{L("Approfondimenti sul blog", "Further reading on the blog")}</li><li>{L("Prova veloce alla fine di ogni ruolo", "A quick exercise at the end of each role")}</li></ul>
+        <span class="bottone-finto">{L("Inizia dalla teoria", "Start with the theory")} →</span>
       </a>
-      <a class="scelta simula" href="/app/simulazioni/">
+      <a class="scelta simula" href={appLink(lang, "/app/simulazioni/")}>
         <span class="scelta-icona" aria-hidden="true"><Icona nome="anteprima" dimensione={26} /></span>
-        <span class="scelta-tipo">Simulazioni</span>
-        <strong>Fai pratica come in azienda</strong>
-        <span class="scelta-testo">Lavori sul sito vero di {azienda.nome}, con un pannello di gestione e strumenti come quelli che si usano nel lavoro. Dalle basi ai casi difficili.</span>
-        <ul class="punti"><li>Disponibile: SEO</li><li>Le modifiche si vedono sul sito</li><li>Esercizi controllati, con la soluzione di un collega senior</li></ul>
-        <span class="bottone-finto">Entra nelle simulazioni →</span>
+        <span class="scelta-tipo">{L("Simulazioni", "Simulations")}</span>
+        <strong>{L("Fai pratica come in azienda", "Practise like on the job")}</strong>
+        <span class="scelta-testo">{L(`Lavori sul sito, sui social, sugli annunci e sul brand di ${azienda.nome}, con strumenti come quelli che si usano nel lavoro. Dalle basi ai casi difficili.`, `You work on ${azienda.nome}'s website, social media, ads and brand, with tools like the ones used on the job. From the basics to the hard cases.`)}</span>
+        <ul class="punti"><li>{L("Disponibili: SEO, SEA, Brand e Social", "Available: SEO, SEA, Brand and Social")}</li><li>{L("Le modifiche si vedono negli strumenti", "Your changes show up in the tools")}</li><li>{L("Esercizi controllati, con la soluzione di un collega senior", "Checked exercises, with a senior colleague's solution")}</li></ul>
+        <span class="bottone-finto">{L("Entra nelle simulazioni", "Go to the simulations")} →</span>
       </a>
     </div>
-    <p class="nota">{azienda.nome} è un'azienda finta: persone, prodotti e numeri sono inventati per gli esercizi.</p>
+    <p class="nota">{L(`${azienda.nome} è un'azienda finta: persone, prodotti e numeri sono inventati per gli esercizi.`, `${azienda.nome} is a fictional company: people, products and numbers are made up for the exercises.`)}</p>
   </main>
 </AppLayout>
 

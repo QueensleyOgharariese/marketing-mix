@@ -1,0 +1,721 @@
+{
+ "_nota": "Teoria del ruolo Brand manager (Hub 1). Generato da strumenti-dati/crea_teoria_hub1.py. DA RILEGGERE.",
+ "id": "brand",
+ "nome": "Brand manager",
+ "hub": 1,
+ "scheda": {
+  "cosaFa": "Looks after a brand's identity and reputation: what it promises, how it looks and how it speaks. Makes sure the brand is recognisable and consistent everywhere, from packaging to social media, and measures what people think of it.",
+  "conChi": [
+   "Designers and creative agencies, for logo, colours and campaigns",
+   "Social media, PR and copywriters, who must use the same tone",
+   "Product marketing and e-commerce, for packaging and launches"
+  ],
+  "strumenti": [
+   {
+    "nome": "The brand manual (brand guidelines)",
+    "cosa": "Rules on logo, colours, typefaces and tone of voice."
+   },
+   {
+    "nome": "Surveys and research",
+    "cosa": "To find out how many people know the brand and what they think of it."
+   },
+   {
+    "nome": "Social listening",
+    "cosa": "Tools that collect what's said about the brand online."
+   },
+   {
+    "nome": "Search Console and Google Trends",
+    "cosa": "How many people search for the brand name."
+   }
+  ],
+  "giornata": [
+   [
+    "9:30",
+    "Reviews the design of the new iced tea packaging"
+   ],
+   [
+    "11:00",
+    "Meeting with the agency about the Christmas campaign"
+   ],
+   [
+    "14:30",
+    "Fixes the tone of a newsletter that sounds too pushy"
+   ],
+   [
+    "16:00",
+    "Reads the week's comments and the results of a survey"
+   ]
+  ],
+  "faPerTe": "It's for you if you like caring for details, have an eye for consistency and are interested in how people perceive things.",
+  "blog": {
+   "slug": "cosa-fa-un-brand-manager",
+   "titolo": "What does a brand manager do?"
+  }
+ },
+ "lezioni": [
+  {
+   "id": "cos-e-un-brand",
+   "titolo": "What a brand is",
+   "minuti": 10,
+   "blocchi": [
+    {
+     "titolo": "A brand isn't the logo",
+     "testo": "A brand is the idea people have of a company: what it promises, how it makes them feel, why they'd choose it. The logo is just one of the signs that make it recognisable. A brand is built with everything people come across: products, packaging, website, customer service, way of writing.",
+     "esempio": "For many customers Cinque Foglie is «the friendly organic tea shop». That idea comes from the careful packaging, the quick replies and the tone of the emails, not just from the leaf logo.",
+     "domande": [
+      {
+       "tipo": "vf",
+       "testo": "Changing the logo is enough to change the brand.",
+       "risposta": false,
+       "spiegazione": "The brand is the overall idea: if products, service and tone stay the same, so does the idea."
+      }
+     ],
+     "blog": {
+      "slug": "cosa-fa-un-brand-manager",
+      "titolo": "What does a brand manager do?"
+     }
+    },
+    {
+     "titolo": "Identity and image",
+     "testo": "Brand identity is how the company wants to present itself: name, logo, colours, typefaces, tone of voice, values. Brand image is how people actually see it. The brand manager's job is to bring the two closer: if the company wants to be friendly but customers find it cold, something isn't working.",
+     "esempio": "Cinque Foglie presents itself as expert and welcoming. If many reviews say «confusing website, slow replies», the image drifts away from the identity.",
+     "domande": [
+      {
+       "tipo": "abbina",
+       "testo": "Match each example.",
+       "coppie": [
+        [
+         "The green colour chosen for the logo",
+         "Identity"
+        ],
+        [
+         "«To me it's a bit of a pricey shop» in a review",
+         "Image"
+        ]
+       ],
+       "spiegazione": "The company decides the identity; the image lives in people's heads."
+      }
+     ],
+     "blog": {
+      "slug": "brand-identity",
+      "titolo": "Brand identity: logo, colours and values"
+     }
+    },
+    {
+     "titolo": "Positioning",
+     "testo": "Positioning is the place the brand wants to hold in people's minds compared with competitors. It's summed up in one sentence: who it's for, what need it meets and why it's different. It helps decide what to do and what not to do: a brand can't be everything to everyone.",
+     "esempio": "«For people who want to drink well every day without being experts, Cinque Foglie offers organic teas explained simply, unlike specialist shops that only talk to connoisseurs.»",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "What does a positioning statement contain?",
+       "opzioni": [
+        {
+         "t": "Who it's for, what need it meets and why it's different",
+         "giusta": true
+        },
+        {
+         "t": "Only the product price",
+         "giusta": false
+        },
+        {
+         "t": "A list of all the products",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "Audience, need and difference from competitors."
+      }
+     ],
+     "blog": {
+      "slug": "posizionamento-di-marca",
+      "titolo": "Brand positioning"
+     }
+    },
+    {
+     "titolo": "Promise and values",
+     "testo": "The brand promise is what customers can expect every time. Values are the principles that guide choices. They only count if they show in actions: a brand that calls itself sustainable but ships in parcels full of plastic loses credibility. In the EU, vague and unprovable environmental claims are considered misleading advertising.",
+     "esempio": "If Cinque Foglie writes «100% recyclable packaging», it must be able to prove it. «Friends of the environment», without proof, is too vague.",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "Which sentence can Cinque Foglie use safely?",
+       "opzioni": [
+        {
+         "t": "«Our tins are made of recyclable aluminium»",
+         "giusta": true
+        },
+        {
+         "t": "«The most eco-friendly tea in the world»",
+         "giusta": false
+        },
+        {
+         "t": "«100% friends of the planet»",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "You can state something precise and provable; vague or absolute sentences are misleading."
+      }
+     ],
+     "blog": {
+      "slug": "brand-identity",
+      "titolo": "Brand identity: logo, colours and values"
+     }
+    }
+   ],
+   "riepilogo": [
+    "A brand is the idea people have of a company, not just the logo.",
+    "Identity is how you present yourself, image is how you're seen: they need to be brought closer.",
+    "Positioning, promise and values guide choices and must be true."
+   ],
+   "finali": [
+    {
+     "tipo": "singola",
+     "testo": "A review says «slow delivery, but lovely tea». What does it measure?",
+     "opzioni": [
+      {
+       "t": "The brand image",
+       "giusta": true
+      },
+      {
+       "t": "The visual identity",
+       "giusta": false
+      },
+      {
+       "t": "The positioning written by the company",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "It's how the brand is perceived by a customer."
+    },
+    {
+     "tipo": "vf",
+     "testo": "Good positioning tries to please everyone.",
+     "risposta": false,
+     "spiegazione": "Positioning means choosing an audience and a difference."
+    },
+    {
+     "tipo": "singola",
+     "testo": "An environmental claim should be…",
+     "opzioni": [
+      {
+       "t": "Proven with precise data",
+       "giusta": true
+      },
+      {
+       "t": "Written as generically as possible",
+       "giusta": false
+      },
+      {
+       "t": "Used only on social media",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "In the EU, vague environmental claims are considered misleading."
+    }
+   ],
+   "parole": [
+    [
+     "Brand",
+     "The idea people have of a company."
+    ],
+    [
+     "Brand identity",
+     "How the company wants to present itself."
+    ],
+    [
+     "Brand image",
+     "How people actually see it."
+    ],
+    [
+     "Positioning",
+     "The brand's place in people's minds compared with competitors."
+    ]
+   ]
+  },
+  {
+   "id": "identita-e-tono",
+   "titolo": "Visual identity and tone of voice",
+   "minuti": 12,
+   "blocchi": [
+    {
+     "titolo": "The visual identity",
+     "testo": "Visual identity is the set of graphic signs: logo, colours, typefaces, style of photos and illustrations. It's always used the same way, so the brand is recognisable even without reading the name. The logo has rules: clear space around it, minimum sizes, versions for light and dark backgrounds, what not to do (stretch it, change its colours).",
+     "esempio": "The Cinque Foglie leaf is always green on light backgrounds and white on dark ones, never tilted and never smaller than 24 pixels on the website.",
+     "domande": [
+      {
+       "tipo": "multipla",
+       "testo": "Which uses of the logo should be avoided?",
+       "opzioni": [
+        {
+         "t": "Stretching it to fit a space",
+         "giusta": true
+        },
+        {
+         "t": "Changing its colours at will",
+         "giusta": true
+        },
+        {
+         "t": "Using the white version on a dark background",
+         "giusta": false
+        },
+        {
+         "t": "Leaving clear space around it",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "The planned versions and the clear space are rules in the manual; stretching and recolouring aren't."
+      }
+     ],
+     "blog": {
+      "slug": "brand-identity",
+      "titolo": "Brand identity: logo, colours and values"
+     }
+    },
+    {
+     "titolo": "Tone of voice",
+     "testo": "Tone of voice is the way the brand speaks: the words it chooses, how formal it is, whether it's informal or formal with the reader, whether it jokes. It's described with three or four adjectives and examples of what to say and what not to say. The tone stays the same, but adapts to the situation: a post can be light, a reply to a complaint can't.",
+     "esempio": "Cinque Foglie is friendly, expert and simple: «We'll show you how to brew it in 3 steps», not «Buy the best tea in the world NOW!!!».",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "Which sentence fits the tone «friendly, expert, simple»?",
+       "opzioni": [
+        {
+         "t": "«Sencha should be brewed with water at 70-80 °C: that way it stays sweet.»",
+         "giusta": true
+        },
+        {
+         "t": "«TODAY ONLY!!! Buy before it's gone!!!»",
+         "giusta": false
+        },
+        {
+         "t": "«Infusing Camellia sinensis var. sinensis requires specific thermal parameters.»",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "The first is friendly, expert and simple; the second is pushy, the third too technical."
+      }
+     ],
+     "blog": {
+      "slug": "tono-di-voce",
+      "titolo": "Tone of voice: what it is and how to define it"
+     }
+    },
+    {
+     "titolo": "The brand manual",
+     "testo": "The brand manual (brand guidelines or brand book) collects all the rules: positioning, values, logo, colours with their codes, typefaces, image style, tone of voice with examples. It's for anyone working on the brand, including people outside the company: agencies, photographers, new colleagues. Without a manual, everyone interprets it their own way.",
+     "esempio": "An agency prepares a campaign for Cinque Foglie: with the manual it uses the right green and the friendly tone straight away, without ten rounds of corrections.",
+     "domande": [
+      {
+       "tipo": "vf",
+       "testo": "The brand manual is only for designers.",
+       "risposta": false,
+       "spiegazione": "It's for anyone producing something for the brand: copy, photos, videos, campaigns."
+      }
+     ],
+     "blog": {
+      "slug": "manuale-del-brand",
+      "titolo": "The brand manual"
+     }
+    },
+    {
+     "titolo": "Consistency across all channels",
+     "testo": "A person meets the brand at many points: a post, the packaging, the website, an email, customer service. If each point seems to belong to a different company, the brand doesn't stick in memory. Consistency doesn't mean making everything identical, but making everything sound like the same person.",
+     "esempio": "Cinque Foglie's website is friendly, but the cart's automatic message says «ERROR: invalid data». A sentence like «The postcode is missing: can you add it?» would be on tone.",
+     "domande": [
+      {
+       "tipo": "ordina",
+       "testo": "Put a customer's typical journey with the brand in order.",
+       "voci": [
+        "Sees a post on social media",
+        "Visits the website",
+        "Buys and receives the package",
+        "Gets an email after the purchase"
+       ],
+       "spiegazione": "At every point the brand should feel the same."
+      }
+     ],
+     "blog": {
+      "slug": "tono-di-voce",
+      "titolo": "Tone of voice: what it is and how to define it"
+     }
+    }
+   ],
+   "riepilogo": [
+    "Visual identity has precise rules: logo, colours, typefaces, images.",
+    "Tone of voice is described with adjectives and examples and adapts to the situation.",
+    "The brand manual keeps everyone consistent, on every channel."
+   ],
+   "finali": [
+    {
+     "tipo": "singola",
+     "testo": "A brand's tone is usually described with…",
+     "opzioni": [
+      {
+       "t": "Three or four adjectives and example sentences",
+       "giusta": true
+      },
+      {
+       "t": "The main colour code",
+       "giusta": false
+      },
+      {
+       "t": "The number of followers",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "Adjectives + examples of what to say and what not to."
+    },
+    {
+     "tipo": "vf",
+     "testo": "Consistency means a complaint reply and a funny post must use the same register.",
+     "risposta": false,
+     "spiegazione": "The tone stays the same, but adapts to the situation."
+    },
+    {
+     "tipo": "singola",
+     "testo": "Who is the brand manual for?",
+     "opzioni": [
+      {
+       "t": "Everyone working on the brand, including outside the company",
+       "giusta": true
+      },
+      {
+       "t": "Only the brand manager",
+       "giusta": false
+      },
+      {
+       "t": "Only customers",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "Agencies, photographers, colleagues: everyone."
+    }
+   ],
+   "parole": [
+    [
+     "Visual identity",
+     "Logo, colours, typefaces and image style."
+    ],
+    [
+     "Tone of voice",
+     "The way the brand speaks."
+    ],
+    [
+     "Brand guidelines",
+     "The manual with all the brand's rules."
+    ],
+    [
+     "Touchpoint",
+     "Every moment a person comes across the brand."
+    ]
+   ]
+  },
+  {
+   "id": "misurare-e-proteggere",
+   "titolo": "Measuring and protecting the brand",
+   "minuti": 12,
+   "blocchi": [
+    {
+     "titolo": "Awareness",
+     "testo": "Brand awareness measures how many people know the brand. It's measured with surveys: unaided awareness («which online tea shops do you know?») and aided awareness («do you know Cinque Foglie?»). Unaided is harder to achieve and worth more. A free clue is how many people search for the brand name on Google.",
+     "esempio": "In a survey of 500 tea lovers, 6% name Cinque Foglie on their own (unaided) and 22% recognise it when they read it (aided).",
+     "domande": [
+      {
+       "tipo": "abbina",
+       "testo": "Match each survey question to the type of awareness.",
+       "coppie": [
+        [
+         "«Which online tea shops do you know?»",
+         "Unaided"
+        ],
+        [
+         "«Do you know Cinque Foglie?»",
+         "Aided"
+        ]
+       ],
+       "spiegazione": "Unaided = no prompts; aided = with the name in front of you."
+      }
+     ],
+     "blog": {
+      "slug": "come-si-misura-un-brand",
+      "titolo": "How to measure a brand"
+     }
+    },
+    {
+     "titolo": "What people think",
+     "testo": "Besides knowing whether people know us, we need to know what they think. Sentiment is the tone of what's said about the brand online: positive, neutral or negative. NPS (Net Promoter Score) asks «how likely are you to recommend this brand to a friend, from 0 to 10?»: people answering 9-10 are promoters, people answering 0 to 6 are detractors. NPS = % promoters − % detractors.",
+     "esempio": "Out of 100 customers, 50 give 9-10, 30 give 7-8 and 20 give 0 to 6: NPS = 50 − 20 = 30.",
+     "domande": [
+      {
+       "tipo": "singola",
+       "testo": "Out of 200 answers, 100 are promoters and 40 detractors. What's the NPS?",
+       "opzioni": [
+        {
+         "t": "30",
+         "giusta": true
+        },
+        {
+         "t": "60",
+         "giusta": false
+        },
+        {
+         "t": "140",
+         "giusta": false
+        }
+       ],
+       "spiegazione": "50% promoters − 20% detractors = 30."
+      }
+     ],
+     "blog": {
+      "slug": "come-si-misura-un-brand",
+      "titolo": "How to measure a brand"
+     }
+    },
+    {
+     "titolo": "Protecting the trademark",
+     "testo": "The name and logo can be registered as a trademark: that way nobody else can use them for similar products. In Italy you register with the UIBM, for the whole European Union with the EUIPO. Before choosing a new name, check that no similar trademark already exists in the same sector. Protecting also means using other people's trademarks properly: you don't use other companies' logos or names as if they were your own.",
+     "esempio": "Cinque Foglie wants to call a range «Foglie d'Oro»: before printing the packaging, it checks the trademark databases to make sure the name is free for tea.",
+     "domande": [
+      {
+       "tipo": "vf",
+       "testo": "A trademark registered with the EUIPO is protected in every European Union country.",
+       "risposta": true,
+       "spiegazione": "The EU trade mark is valid in all member states."
+      }
+     ],
+     "blog": {
+      "slug": "come-proteggere-il-marchio",
+      "titolo": "How to protect a trademark"
+     }
+    },
+    {
+     "titolo": "When something goes wrong",
+     "testo": "A reputation crisis can come from a real mistake (a faulty product) or from an online controversy. The basic rules: reply quickly, tell the truth, apologise if the mistake is ours, explain what's being done to fix it, use the same tone on every channel. Deleting critical comments usually makes things worse.",
+     "esempio": "A batch of herbal teas arrives with damaged packaging. Cinque Foglie writes to the customers affected, sends the product again for free and explains on social media what happened.",
+     "domande": [
+      {
+       "tipo": "ordina",
+       "testo": "Put in order what to do in a small crisis.",
+       "voci": [
+        "Find out what really happened",
+        "Reply quickly and honestly",
+        "Make it right for the people affected",
+        "Explain what's changing so it doesn't happen again"
+       ],
+       "spiegazione": "Facts first, then the reply, the remedy and prevention."
+      }
+     ],
+     "blog": {
+      "slug": "comunicazione-di-crisi",
+      "titolo": "Crisis communication"
+     }
+    }
+   ],
+   "riepilogo": [
+    "Awareness is measured with surveys (unaided and aided) and searches for the name.",
+    "Sentiment and NPS show what people think.",
+    "The trademark is registered and protected; in a crisis you reply quickly and honestly."
+   ],
+   "finali": [
+    {
+     "tipo": "singola",
+     "testo": "Which free clue to awareness can you read on Google?",
+     "opzioni": [
+      {
+       "t": "How many people search for the brand name",
+       "giusta": true
+      },
+      {
+       "t": "Competitors' prices",
+       "giusta": false
+      },
+      {
+       "t": "The number of products",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "The more people search for the name, the better known the brand is."
+    },
+    {
+     "tipo": "vf",
+     "testo": "In a crisis it's best to delete critical comments.",
+     "risposta": false,
+     "spiegazione": "It usually makes things worse: better to reply quickly and honestly."
+    },
+    {
+     "tipo": "singola",
+     "testo": "Where do you register a trademark valid across the European Union?",
+     "opzioni": [
+      {
+       "t": "EUIPO",
+       "giusta": true
+      },
+      {
+       "t": "UIBM",
+       "giusta": false
+      },
+      {
+       "t": "Google",
+       "giusta": false
+      }
+     ],
+     "spiegazione": "UIBM is the Italian office; EUIPO is the European Union's."
+    }
+   ],
+   "parole": [
+    [
+     "Awareness",
+     "How many people know the brand."
+    ],
+    [
+     "Sentiment",
+     "The tone of what's said about the brand."
+    ],
+    [
+     "NPS",
+     "% promoters − % detractors."
+    ],
+    [
+     "Registered trademark",
+     "A name or logo protected by law."
+    ]
+   ]
+  }
+ ],
+ "verifica": [
+  {
+   "tipo": "vf",
+   "testo": "Il brand coincide con il logo.",
+   "risposta": false,
+   "spiegazione": "Il logo è solo uno dei segni del brand."
+  },
+  {
+   "tipo": "abbina",
+   "testo": "Abbina:",
+   "coppie": [
+    [
+     "Come l'azienda vuole presentarsi",
+     "Identità"
+    ],
+    [
+     "Come le persone la vedono",
+     "Immagine"
+    ]
+   ],
+   "spiegazione": "Identità e immagine vanno avvicinate."
+  },
+  {
+   "tipo": "singola",
+   "testo": "Cosa NON è nel posizionamento?",
+   "opzioni": [
+    {
+     "t": "L'elenco completo dei prezzi",
+     "giusta": true
+    },
+    {
+     "t": "Il pubblico",
+     "giusta": false
+    },
+    {
+     "t": "La differenza dai concorrenti",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "Il posizionamento dice per chi, che bisogno e perché diverso."
+  },
+  {
+   "tipo": "singola",
+   "testo": "Quale frase è nel tono «gentile e semplice»?",
+   "opzioni": [
+    {
+     "t": "«Ti spieghiamo come prepararlo in 3 passi.»",
+     "giusta": true
+    },
+    {
+     "t": "«COMPRA ORA!!!»",
+     "giusta": false
+    },
+    {
+     "t": "«Procedere all'acquisto entro i termini.»",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "Gentile e chiara."
+  },
+  {
+   "tipo": "multipla",
+   "testo": "Cosa c'è in un manuale del brand?",
+   "opzioni": [
+    {
+     "t": "Regole sul logo",
+     "giusta": true
+    },
+    {
+     "t": "Tono di voce con esempi",
+     "giusta": true
+    },
+    {
+     "t": "Le password dei social",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "Logo, colori, caratteri, immagini e tono."
+  },
+  {
+   "tipo": "singola",
+   "testo": "Su 100 clienti: 40 promotori, 30 passivi, 30 detrattori. NPS?",
+   "opzioni": [
+    {
+     "t": "10",
+     "giusta": true
+    },
+    {
+     "t": "40",
+     "giusta": false
+    },
+    {
+     "t": "70",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "40 − 30 = 10."
+  },
+  {
+   "tipo": "vf",
+   "testo": "Una dichiarazione ambientale vaga, senza prove, è un rischio legale nell'UE.",
+   "risposta": true,
+   "spiegazione": "È considerata pubblicità ingannevole."
+  },
+  {
+   "tipo": "singola",
+   "testo": "Un prodotto arriva rotto a molti clienti. Prima cosa?",
+   "opzioni": [
+    {
+     "t": "Capire cosa è successo e rispondere presto e con sincerità",
+     "giusta": true
+    },
+    {
+     "t": "Aspettare che passi",
+     "giusta": false
+    },
+    {
+     "t": "Cancellare i commenti",
+     "giusta": false
+    }
+   ],
+   "spiegazione": "Fatti, risposta rapida, rimedio."
+  }
+ ],
+ "prova": {
+  "titolo": "Cinque Foglie's tone of voice",
+  "cosa": "A short request from Marta: choose and fix the copy so it sounds like Cinque Foglie.",
+  "link": "/app/brand/esercizio/",
+  "minuti": 20
+ },
+ "pratica": {
+  "titolo": "Brand Simulation",
+  "cosa": "You work on Cinque Foglie's brand: positioning, tone of voice, NPS and awareness, environmental claims, the 2027 strategy and the press office.",
+  "link": "/app/simulazioni/brand/"
+ }
+}

@@ -1,0 +1,73 @@
+1|Cinque Foglie
+2|Online shop for teas and herbal teas. It sells all over Italy, and since this year also in 40 supermarkets in the Veneto region; it has a blog and a newsletter, and wants to grow while keeping a friendly tone.
+3|cinquefoglie.example
+4|Products
+5|Categories
+6|Newsletter subscribers
+7|Sales target
+8|Green teas
+9|Black teas
+10|Herbal teas
+11|Matcha
+12|Iced teas
+13|Accessories
+14|MR
+15|Marta
+16|Founder
+17|LB
+18|Luca
+19|E-commerce
+20|SC
+21|Sara
+22|Social media and community
+23|GR
+24|Giorgio
+25|Sales and shops
+26|SEO specialist
+27|Visibility on Google
+28|SEA specialist
+29|Ads and budget
+30|Brand manager
+31|Tone and identity
+32|Social media manager
+33|Content and community
+34|Influencer marketing
+35|Creators and transparency
+36|CRM manager
+37|Email and loyalty
+38|Product marketing
+39|Launching products
+40|Trade marketing
+41|Selling in shops
+42|PR and communications
+43|Reputation and press
+44|Partnerships
+45|Collaborations
+46|Market research
+47|Understanding customers
+48|Marketing analytics / martech
+49|Data and tools
+50|seo
+51|Nobody can find the Sencha online
+52|sea
+53|Ads for the iced teas
+54|brand
+55|Our tone of voice
+56|social
+57|A week of matcha posts
+58|influencer
+59|A creator for the matcha
+60|crm
+61|So many abandoned carts
+62|product
+63|Let's launch the Evening Herbal Teas
+64|trade
+65|We've made it into the supermarket!
+66|pr
+67|Good news and a bad Friday
+68|partner
+69|Shall we do something with another company?
+70|ricerca
+71|Shall we make bottled iced tea?
+72|analytics
+73|Nobody can make sense of the data

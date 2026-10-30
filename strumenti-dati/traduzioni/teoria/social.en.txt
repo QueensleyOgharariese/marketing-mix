@@ -1,0 +1,202 @@
+1|Social media manager
+2|Runs a brand's social media accounts: decides what to publish and when, creates or coordinates content, replies to people and measures results to understand what works.
+3|Content creators, photographers and designers, for photos and videos
+4|Brand manager, to stay on brand
+5|Influencer marketing and customer service, for partnerships and questions
+6|The platforms' apps and dashboards
+7|To publish and read the analytics of Instagram, TikTok, Facebook, LinkedIn.
+8|A content calendar
+9|A spreadsheet or tool for scheduling posts.
+10|Design and video tools
+11|To create images and short videos.
+12|UTM links and Google Analytics
+13|To know how many visits and sales come from social media.
+14|Replies to overnight comments and messages
+15|Publishes the matcha reel and checks the first reactions
+16|Prepares next week's calendar
+17|Reads the analytics: which posts were saved and shared most
+18|It's for you if you enjoy telling stories with images and video, you're curious about people and you like working out from the numbers what works.
+19|What does a social media manager do?
+20|The role and the platforms
+21|What social media is for, for a brand
+22|A brand uses social media for different goals: getting known (awareness), building a relationship with people (community), bringing visits to the website and sales, giving support. Each goal is measured differently, so it has to be chosen before publishing. The social media manager works mainly on organic content, meaning content that isn't sponsored.
+23|For the iced teas, Cinque Foglie's goal is to get the new range known; for matcha, to build a community of people sharing their recipes.
+24|Match each goal to how it's measured.
+25|Getting known
+26|Reach: how many people see the posts
+27|Building a community
+28|Comments, saves and shares
+29|Driving sales
+30|Visits and purchases from the link
+31|First the goal, then the right number to watch.
+32|Each platform has its own audience
+33|Platforms differ in audience and format. Instagram lives on photos, carousels and short videos (reels). TikTok on short, spontaneous videos, discovered mostly through the algorithm's recommendations. Facebook on groups and communities. LinkedIn on work and professions. Pinterest on saved ideas and inspiration. You don't need to be everywhere: better a few platforms done well, where your audience is.
+34|Cinque Foglie chooses Instagram (recipes and curated photos) and Pinterest (gift and iced tea ideas), and doesn't open a LinkedIn account: its customers don't look for tea there.
+35|A tea brand with a small team. What's best?
+36|A few platforms where its audience is, done well
+37|Opening an account on every platform
+38|Publishing the exact same post everywhere
+39|Better less and done well, adapting formats to each platform.
+40|Organic and paid
+41|Organic content is published for free and mainly reaches people who follow the account or who get it from the algorithm. Sponsored content (social ads) is paid for to reach people chosen by age, interests, location. It's often handled by another role or an agency, but the social media manager chooses which content deserves a boost.
+42|The cold brew reel got lots of saves organically: it's a good candidate to sponsor, to show it to people who don't know Cinque Foglie yet.
+43|An organic post always reaches all of the account's followers.
+44|Only some see it: the algorithm decides who to show it to.
+45|How the algorithm works
+46|Every platform decides what to show each person with an algorithm that tries to predict what will interest them. It looks at signals such as how long people spend on content, whether they watch to the end, and whether they save, share or comment. There's no secret trick: content people find useful or beautiful gets shown more.
+47|A carousel «5 mistakes to avoid with matcha» gets saved a lot because it's useful: the algorithm shows it to more people.
+48|Which signals tell the algorithm that people like a piece of content?
+49|People save it
+50|They watch it to the end
+51|It has lots of identical hashtags repeated
+52|Saves, shares, watch time and comments count; stuffing it with hashtags doesn't.
+53|How social media algorithms work, explained simply
+54|First choose the goal, then the numbers to measure it.
+55|Each platform has its own audience and formats: better a few, done well.
+56|The algorithm shows content people find useful or beautiful more often.
+57|What do you measure if the goal is getting known?
+58|Reach
+59|The number of orders
+60|Quality Score
+61|Awareness = how many people see the content.
+62|For a brand it's always better to be on every platform.
+63|Better where your audience is, with suitable content.
+64|Social ads are for…
+65|Showing content to chosen people, for a fee
+66|Publishing for free
+67|Replying to comments
+68|They're sponsored content with a chosen audience.
+69|Organic content
+70|A post published for free, without sponsorship.
+71|Social ads
+72|Paid content shown to a chosen audience.
+73|Algorithm
+74|The system that decides what to show each person.
+75|Reel
+76|A short vertical Instagram video.
+77|Content and the content plan
+78|Content pillars
+79|To avoid posting at random, you choose three or four fixed themes, the content pillars. Every post belongs to one of the pillars. That way the account is recognisable and there's always an idea to start from.
+80|Cinque Foglie's pillars: «Learn about tea» (how to brew it), «Recipes» (iced teas, matcha latte), «Behind the scenes» (growers, packaging), «The community» (customers' photos).
+81|A post «How to choose the right teapot» belongs to the pillar…
+82|Learn about tea
+83|Behind the scenes
+84|The community
+85|It explains something to the audience: it's educational content.
+86|How to build a social media content calendar
+87|Formats
+88|The same theme can be told in different formats. Short vertical videos (reels, TikTok) to get discovered. Carousels, meaning several images to swipe through, to explain step by step: they get saved often. Stories, which last 24 hours, for everyday updates and quick questions. Single posts for a strong photo or an announcement. You choose the format based on what you want to achieve.
+89|The iced tea recipe becomes a 20-second reel to get discovered and a carousel with the quantities to save.
+90|Match each format to its typical use.
+91|Short vertical video
+92|Getting discovered by new people
+93|Carousel
+94|Explaining step by step, to be saved
+95|Story
+96|Daily updates that disappear after 24 hours
+97|Each format has its strength.
+98|The content calendar
+99|The content calendar says what gets published, where and when, usually a few weeks ahead. It brings together key dates (launches, holidays, seasons), pillars and formats. Posting regularly matters more than posting a lot. Always leave some room for things that happen unexpectedly.
+100|Cinque Foglie's October: evening herbal teas on Mondays, recipes on Thursdays, behind the scenes on Saturdays; the advent calendar at the end of the month.
+101|Put the steps of preparing a calendar in order.
+102|Set the month's goals and key dates
+103|Choose topics from the pillars
+104|Assign a format and day to each piece of content
+105|Prepare and schedule the content
+106|First the why and the when, then the what and the how.
+107|Other people's content, rights and accessibility
+108|Content created by customers (UGC, user-generated content) is valuable, but before reposting it you ask for permission and credit the author. Music and images have rights too: only use those with a suitable licence, such as the platforms' music libraries for commercial use. Good content is also accessible: subtitles on videos and image descriptions (alt text) for people who can't see.
+109|A customer posts a beautiful photo of her matcha latte: Cinque Foglie writes to ask if it can repost it and credits her in the post.
+110|What do you do before reposting a customer's photo?
+111|Ask her for permission
+112|Credit her in the post
+113|Repost it straight away, it's public anyway
+114|Remove her name from the photo
+115|Public content isn't free to use: you need the author's permission.
+116|Customer photos, music and alt text: the rules on social media
+117|Content pillars give the account order and recognisability.
+118|Each format has a use: video to get discovered, carousels to explain, stories for everyday updates.
+119|A regular calendar, permission for other people's content, and accessibility.
+120|What matters most in the calendar?
+121|Consistency
+122|Posting ten times a day
+123|Posting only when you have time
+124|Better regular than lots and at random.
+125|A public Instagram photo can be reposted without asking.
+126|You need the permission of whoever created it.
+127|What are subtitles in videos for?
+128|Making them understandable without sound and for people who can't hear
+129|Making the video look longer
+130|Only for the algorithm
+131|Accessibility: many people watch without sound, and some people can't hear.
+132|Content pillars
+133|The account's 3-4 fixed themes.
+134|A post with several images to swipe through.
+135|Content calendar
+136|The plan of what to publish, where and when.
+137|UGC
+138|Content created by customers.
+139|Numbers, community and rules
+140|Metrics
+141|Reach: how many different people saw a piece of content. Impressions: how many times it was seen in total, including repeat views by the same person. Interactions: likes, comments, saves, shares. Link clicks: how many people went to the website. Follower growth: how many new followers in the period. Saves and shares usually say more than likes, because they take more effort.
+142|A carousel has a reach of 4,000 and 6,000 impressions: some people saw it more than once.
+143|Match each metric.
+144|Reach
+145|Different people who saw the content
+146|Impressions
+147|Total views, including repeats
+148|Saves
+149|People who want to find it again
+150|Reach ≤ impressions; saves = strong interest.
+151|Social media metrics: which to watch and when
+152|Engagement rate
+153|Engagement rate shows how much people react to content: interactions divided by reach, times 100. It can also be calculated on followers, which is useful for comparing different accounts, but when you know the reach it's better to use it. There's no right value for everyone: compare with your own previous posts.
+154|A reel has 225 interactions and a reach of 5,000 people: 225 / 5,000 × 100 = 4.5%.
+155|A post has 90 interactions and a reach of 3,000. Engagement rate on reach?
+156|90 / 3,000 × 100 = 3%.
+157|Engagement rate: what it is and how to calculate it
+158|Managing the community means replying to comments and messages, thanking, helping, moderating. You reply quickly and on brand, even to criticism. Only spam and insults are hidden or reported, not honest criticism. Repeated questions become ideas for new content.
+159|Three people ask in one week «how much matcha for one cup?»: a kind reply to all of them and, the following Monday, a carousel with the quantities.
+160|A customer criticises a late delivery in a comment. What do you do?
+161|Reply quickly, apologise and message them privately to sort it out
+162|Delete the comment
+163|Don't reply, so as not to give it visibility
+164|Honest criticism is handled with a quick reply, not deleted.
+165|Community management: what to answer and what to hide
+166|The rules: ads, giveaways and privacy
+167|If content is advertising, it must be clear: in paid partnerships with creators you use the platforms' labels and tools (for example «paid partnership», #ad). In Italy, prize contests («comment to win…») have precise legal rules (Presidential Decree 430/2001): before running one, ask whoever handles it in the company. And the data of people who write privately is handled under the GDPR.
+168|Cinque Foglie gives a creator a kit in exchange for a reel: the reel must be labelled as a partnership, even if no money changed hands.
+169|Free products given in exchange for a post must be disclosed as advertising.
+170|A free product in exchange for content is also a commercial partnership to disclose.
+171|You want to run a «comment and win». What do you do first?
+172|Check the prize contest rules with whoever handles them
+173|Publish it straight away
+174|Run it only in stories, so it doesn't count
+175|In Italy prize contests are regulated by law.
+176|Ads, giveaways and privacy on social media: the rules in Italy
+177|Reach, impressions, interactions and clicks say different things.
+178|Engagement rate = interactions / reach × 100, compared with your own posts.
+179|Community: quick, on-brand replies; ads always disclosed, contests by the rules.
+180|Which metric can be higher than reach?
+181|Impressions
+182|People reached
+183|New followers
+184|One person can see the same content several times.
+185|Insults and spam can be hidden.
+186|Spam and insults are moderated; honest criticism isn't.
+187|A creator gets a free kit in exchange for a post. The post…
+188|Must be labelled as a partnership
+189|Doesn't need labelling because there was no payment
+190|Must be published without mentioning the brand
+191|A gift in exchange for content is advertising too.
+192|Different people who saw a piece of content.
+193|Engagement rate
+194|Interactions divided by reach, times 100.
+195|Community management
+196|Replying to, helping and moderating people.
+197|#ad
+198|A label that marks content as advertising.
+199|A week of matcha posts
+200|A short request from Sara: choose formats, days and copy for a week of posts.
+201|Social Simulation
+202|You work on Cinque Foglie's account: posts, calendar, comments, analytics and photo rights, from the basics to a small crisis.

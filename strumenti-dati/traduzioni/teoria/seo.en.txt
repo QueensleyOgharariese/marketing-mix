@@ -1,0 +1,231 @@
+1|SEO specialist
+2|Gets a website found on Google without paying for ads. Chooses the right searches for each page, makes sure Google can read the site, improves titles and copy, and measures the results.
+3|Copywriters and content creators, who write the copy
+4|Developers and web teams, who fix the technical side
+5|E-commerce and marketing, who decide what to sell and when
+6|Google Search Console
+7|Clicks, impressions and pages on Google. Free.
+8|Google Analytics
+9|What happens after the click: visits, orders. Free.
+10|A crawler (e.g. Screaming Frog)
+11|Reads the whole site like Google does and finds problems. Free up to 500 URLs.
+12|Keyword tools (e.g. Keyword Planner)
+13|How many people search for a word, and when.
+14|Checks Search Console for drops or new errors
+15|Chooses the keywords for an article and writes the brief for the copywriter
+16|Rewrites a category's title and description
+17|Writes a ticket for the web team about a slow page
+18|It's for you if you enjoy understanding why people search for something, writing clearly and working with numbers step by step.
+19|What does an SEO specialist do?
+20|What SEO is and how Google works
+21|Organic results and ads
+22|When you search on Google you see two kinds of results. Ads, marked «Sponsored», are paid for every click: that's the SEA job. Organic results are free: Google ranks them on its own, based on how well each page answers the search. SEO (Search Engine Optimization) is the work of getting a site's pages to appear high in the organic results. Today, for some searches, Google also shows an AI-written summary (AI Overviews) that cites some pages as sources.
+23|You search «organic green tea»: at the top, two ads from shops that pay, below them the organic results. Cinque Foglie wants to be among the organic ones without paying for every click.
+24|Which of these is an organic result?
+25|A page that appears without the «Sponsored» label
+26|A result with the «Sponsored» label
+27|Any result in first position
+28|Ads are marked «Sponsored». The first position can be an ad too.
+29|How Google finds and ranks pages
+30|Google works in three phases. Crawling: a program (Googlebot) follows links and reads pages. Indexing: Google saves the pages it finds useful in its archive, the index. Ranking: when someone searches, Google picks the most useful pages from the index and puts them in order. A page that isn't crawled or doesn't make it into the index can't appear, however beautiful it is.
+31|A new Cinque Foglie product page with no links pointing to it risks not being found by Googlebot, and so never appearing.
+32|Put Google's phases in order.
+33|Crawling: Googlebot reads the page
+34|Indexing: the page goes into the archive
+35|Ranking: the page appears in a search
+36|First Google has to read the page, then save it, and only then can it show it.
+37|The three parts of the job
+38|SEO has three parts. Content: choosing the right searches and writing pages that answer them well, with clear titles, descriptions and copy. Technical: making sure Google can read the site without obstacles, meaning fast pages, no errors, tidy URLs. Authority: other trusted websites talking about us and linking to our site (backlinks).
+39|A cooking blog post recommending Cinque Foglie's matcha with a link is authority; a product page that loads fast on phones is technical; a guide on how to brew Sencha is content.
+40|Match each activity to the part of the job.
+41|Writing a guide on how to brew Sencha
+42|Content
+43|Making product pages faster
+44|Technical
+45|Getting a link from a cooking blog
+46|Authority
+47|Content = what you write; technical = how Google reads the site; authority = what others say about you.
+48|How it's measured
+49|SEO work is measured with four numbers, read in Google Search Console. Impressions: how many times a page appears in the results. Clicks: how many times someone clicks it. CTR: clicks divided by impressions, as a percentage. Average position: where it appears in the ranking. Then, with Google Analytics, you see what happens after the click: visits, orders, revenue.
+50|The green teas page has 10,000 impressions and 100 clicks: the CTR is 100 / 10,000 = 1%. Out of 100 people who see it, only one clicks.
+51|A page has 2,000 impressions and 60 clicks. What's the CTR?
+52|60 / 2,000 = 0.03, that is 3%.
+53|Impressions count how many people visited the page.
+54|Impressions count how many times the page appeared in the results, even if nobody clicked.
+55|Google Search Console for beginners
+56|SEO gets a site into the organic results, without paying for every click.
+57|Google crawls, indexes and then ranks pages.
+58|The job has three parts (content, technical, authority) and is measured with impressions, clicks, CTR and position.
+59|A page never appears on Google, not even when searching its exact title. What's your first suspicion?
+60|That it isn't in Google's index
+61|That the CTR is low
+62|That it has no backlinks
+63|If a page doesn't appear at all, first check that Google has crawled and indexed it.
+64|SEO and SEA are the same thing.
+65|SEO works on free organic results; SEA on paid ads.
+66|Where do you read a site's impressions, clicks and CTR?
+67|The crawler
+68|Search Console shows what happens on Google; Analytics what happens after the click.
+69|SEO
+70|The work of getting a site into Google's organic results.
+71|Index
+72|The archive of pages Google can show.
+73|CTR
+74|Clicks divided by impressions: how many people click out of 100 who see the result.
+75|Backlink
+76|A link from another website to ours.
+77|Keywords, intent and content
+78|Keywords and volume
+79|A keyword is what a person types into Google. Volume is how many times a month it's searched. A high-volume keyword can bring the most visits, but usually has more competition; a longer, more specific keyword has less volume but more decided people. Each page gets one main keyword and a few close ones.
+80|«green tea» gets lots of searches but is generic; «organic sencha» gets fewer, but people searching it already know what they want.
+81|Which keyword brings people more ready to buy?
+82|organic loose leaf sencha
+83|tea
+84|green tea
+85|The more specific the search, the more the person knows what they want, even if the volume is lower.
+86|How to choose keywords
+87|Search intent
+88|Behind every search there's an intent, meaning what the person really wants. Informational: they want to understand («how to brew sencha»). Commercial: they compare before choosing («best green tea»). Transactional: they want to buy («organic sencha price»). Navigational: they're looking for a specific site («cinque foglie»). Google shows pages that match the intent: guides for an informational search, product pages for a transactional one.
+89|For «how to brew sencha» a product page never ranks: Google prefers a guide. For «organic sencha price» it's the other way round.
+90|Match each search to its intent.
+91|how to brew sencha
+92|Informational
+93|organic sencha price
+94|Transactional
+95|cinque foglie
+96|Navigational
+97|best japanese green tea
+98|Commercial
+99|Ask yourself what the person wants to do right after the search: learn, compare, buy or go to a specific site.
+100|Search intent explained simply
+101|One page per intent
+102|Each page should answer one specific intent. If two pages on the same site target the same search, they compete: Google alternates between them and neither ranks. It's called keyword cannibalisation. You fix it by giving each page a different job and linking them together.
+103|The guide «Sencha: what it is and how to brew it» explains; the product page «Organic Sencha green tea» sells. The guide links to the product page for people who want to buy.
+104|Two pages targeting the same search help the site appear more often.
+105|They split the clicks and Google doesn't know which to choose: usually neither ranks.
+106|Title, meta description and H1
+107|The title is the blue title in Google's results: it should contain the keyword, say what people will find when they click and stay within about 580 pixels (60 characters). The meta description is the grey text below: 100-160 characters that persuade people to click. It doesn't improve rankings, but it increases clicks. The H1 is the big heading on the page, read by visitors.
+108|Title «Organic Sencha green tea, loose leaf | Cinque Foglie»; description «Organic Japanese Sencha, harvested in spring. How to brew it, and delivery in 24 hours.»; H1 «Organic Sencha».
+109|Which title is better for the Sencha product page?
+110|Organic Sencha green tea, loose leaf | Cinque Foglie
+111|Cinque Foglie | Online tea shop
+112|Sencha sencha green tea sencha best sencha
+113|It says what you're buying, contains the keyword once and ends with the brand.
+114|What is the meta description for?
+115|Persuading people who see the result to click
+116|Making the page rank higher
+117|Giving the page its title
+118|Google doesn't use it for ranking, but a clear description increases clicks.
+119|Title tags and meta descriptions: how to write them
+120|Useful, trustworthy content
+121|Google rewards content written for people: useful, clear, written by someone who knows the topic. Its guidelines use the acronym E-E-A-T: experience, expertise, authoritativeness, trustworthiness. For a food shop there are also legal rules: in the European Union you can't promise unauthorised health effects (Regulation EC 1924/2006), such as «burns fat» or «detox».
+122|«Our Sencha is brewed at 70-80 °C, for 1-2 minutes» is useful and true. «The Sencha that makes you lose weight» is banned and loses trust.
+123|Which sentences can Cinque Foglie use on a product page?
+124|Harvested in spring in Japan
+125|Brew with water at 70-80 °C
+126|Burns fat in a week
+127|Detoxes your body
+128|The first two describe the product. The others are unauthorised health claims: banned for a food.
+129|Content strategy for beginners
+130|Each page has one main keyword and answers one specific intent.
+131|Two pages on the same search compete with each other: that's cannibalisation.
+132|Title and description get clicks; content must be useful and follow the rules.
+133|«how to store tea» has … intent
+134|The person wants to learn something, not buy straight away.
+135|To rank on Google it's worth repeating the keyword many times in the title.
+136|Repeating it looks like spam: Google may rewrite the title and people click less.
+137|The Sencha guide and product page compete for «sencha green tea». What do you do?
+138|Give each page a different intent and link them together
+139|Delete the guide
+140|Copy the same text into both
+141|That way the guide answers people looking for information and the product page answers people buying.
+142|Keyword
+143|What people type into Google.
+144|Search intent
+145|What the person searching really wants to do.
+146|Cannibalisation
+147|Two pages on the same site competing for the same search.
+148|Meta description
+149|The grey text under the title in the results.
+150|Technical SEO, tools and numbers
+151|Getting a page into (or out of) Google
+152|The «noindex» meta robots tag asks Google not to show a page: it's used for the cart, account area and service pages. The robots.txt file, instead, tells Google which parts of the site not to crawl. Careful: if a page is blocked in robots.txt, Google can't read its noindex; to remove a page from the results you use noindex, not robots.txt.
+153|Cinque Foglie's cart has a noindex: that's fine. If the noindex ended up on a category by mistake, that category would disappear from Google.
+154|Match each tool to what it does.
+155|noindex
+156|Asks not to show the page in the results
+157|robots.txt
+158|Asks not to crawl part of the site
+159|Noindex works on indexing, robots.txt on crawling.
+160|An e-commerce cart should appear on Google.
+161|Nobody searches for it and it's no use to people arriving from Google: it gets a noindex.
+162|Noindex, robots.txt and canonical: the differences
+163|Redirects and 404 pages
+164|When a page changes URL or is removed, you use a redirect. A 301 is permanent: Google passes the old page's value to the new one. A 302 is temporary. If a URL no longer exists and there's no redirect, anyone opening it gets a 404 error. A redirect should always point to the most similar page, and without chains (a redirect leading to another redirect).
+165|Classic Earl Grey has been replaced by the organic one: the old URL should be redirected with a 301 to the new product page, not to the home page.
+166|A product has been removed for good and there's one that replaces it. What do you use?
+167|A 301 to the replacement product
+168|A 302 to the home page
+169|Nothing: the 404 is fine
+170|The change is permanent and the most similar page is the new product.
+171|301 redirects and 404 pages
+172|Duplicate content and canonical
+173|The same content can have several URLs: for example a category sorted by price (/te-verdi/?ordina=prezzo). For Google they're copies, and it has to guess which one to show. The canonical is a hint in the code saying which version is the main one. That way filters stay available for shoppers and Google shows the right page.
+174|/te-verdi/?ordina=prezzo points its canonical to /te-verdi/: only the category appears on Google.
+175|What does the canonical indicate?
+176|The main version of a page that has copies
+177|That the page must not appear on Google
+178|Where to redirect people opening the page
+179|The canonical doesn't hide or move anything: it says which version to treat as the real one.
+180|Speed: Core Web Vitals
+181|Google measures the experience of real visits with Core Web Vitals. LCP: how long the largest element takes to appear (good under 2.5 seconds). INP: how quickly the page responds to a click (good under 200 milliseconds). CLS: how much the page shifts while loading (good under 0.1). Phones and computers are looked at separately.
+182|Cinque Foglie's product pages have an LCP of 4.1 seconds on phones because of a photo that's too heavy: lots of people leave before seeing the product.
+183|Match each metric to what it checks.
+184|LCP
+185|When the largest element appears
+186|INP
+187|How quickly the page responds to a click
+188|CLS
+189|How much the page shifts while loading
+190|LCP = loading, INP = responsiveness, CLS = stability.
+191|If a page is fast on a computer, it's fast on a phone too.
+192|Phones and computers are measured separately: on phones the connection and processor are often slower.
+193|Core Web Vitals explained simply
+194|Everyday tools
+195|Google Search Console (free) shows how the site performs on Google: clicks, impressions, indexed pages, errors. Google Analytics (free) shows what people do after the click. A crawler, such as Screaming Frog (free up to 500 URLs), reads the whole site and finds errors, duplicate titles, redirects. Keyword tools tell you how much and when a word is searched.
+196|A typical Monday: Search Console to see if anything dropped, the crawler to find out why, Analytics to understand what it costs.
+197|Which tool do you use to…
+198|Find out how many pages are on Google
+199|Search Console
+200|Find all duplicate titles on the site
+201|Crawler
+202|Find out how many orders come from Google
+203|Analytics
+204|Search Console looks at Google, the crawler looks at the site, Analytics looks at people after the click.
+205|Noindex removes a page from the results; robots.txt blocks crawling.
+206|A 301 moves a page for good; the canonical indicates the main version among copies.
+207|Speed is measured with LCP, INP and CLS; the basic tools are Search Console, Analytics and a crawler.
+208|A category disappeared from Google after a site update. What do you check first?
+209|Whether it has a noindex
+210|Whether it has few images
+211|Whether the CTR is low
+212|If a page disappears completely, the first suspect is something excluding it from the index.
+213|An LCP of 4 seconds on phones is good.
+214|It's over 2.5 seconds: it needs improvement, in fact it's on the edge of «poor».
+215|The filtered versions of a category appear as copies. What do you use?
+216|A canonical pointing to the category
+217|A 404
+218|A noindex on the category
+219|The canonical keeps filters for shoppers and tells Google which page to show.
+220|Noindex
+221|An instruction asking Google not to show a page.
+222|301 redirect
+223|A permanent move of a page to another URL.
+224|Canonical
+225|Indicates the main version among several copies of a page.
+226|Core Web Vitals
+227|Google's measures of page speed and stability.
+228|Nobody can find the Sencha online
+229|A short request from Marta: choose the keyword, title and description for the Sencha product page.
+230|SEO Simulation
+231|You work on Cinque Foglie's real website with the admin panel and five tools: from the basics to the hard cases.

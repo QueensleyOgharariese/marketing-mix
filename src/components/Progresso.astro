@@ -5,19 +5,20 @@ const totale = azienda.ruoli.length;
 // Il numero viene letto dal browser (localStorage) con un piccolo script.
 ---
 <span class="progresso" data-progresso data-totale={totale}>
-  <span data-progresso-testo>0 di {totale} ruoli</span>
+  <span data-progresso-testo>0 / {totale}</span>
   <span class="progresso-barra" aria-hidden="true"><span data-progresso-barra></span></span>
 </span>
 
 <script>
   import { leggi } from "../scripts/progressi";
+  import { t } from "../scripts/lingua";
   const p = leggi();
   const fatti = Object.values(p.ruoli).filter((r) => r.stato === "completato").length;
   document.querySelectorAll("[data-progresso]").forEach((el) => {
     const testo = el.querySelector("[data-progresso-testo]");
     const barra = el.querySelector<HTMLElement>("[data-progresso-barra]");
     const totale = Number((el as HTMLElement).dataset.totale);
-    if (testo) testo.textContent = `${fatti} di ${totale} ruoli`;
+    if (testo) testo.textContent = t(`${fatti} di ${totale} ruoli`, `${fatti} of ${totale} roles`);
     if (barra) barra.style.width = `${Math.max(4, (fatti / totale) * 100)}%`;
   });
 </script>

@@ -1,5 +1,6 @@
 ---
-import { LINGUE_APP, conLingue } from "../../../../../i18n";
+import { appLink, linguaDa } from "../../../../../i18n";
+import { getCollection } from "astro:content";
 // HUB · PAGINA DI UN RUOLO (teoria)
 // Ordine: scheda del ruolo → 3 lezioni → verifica → prova veloce → pratica.
 // Il contenuto arriva da src/data/app/teoria/<ruolo>.json. I ruoli senza file mostrano "teoria in arrivo"
@@ -8,33 +9,38 @@ import AppLayout from "../../../../../layouts/AppLayout.astro";
 import Progresso from "../../../../../components/Progresso.astro";
 import Pesca from "../../../../../components/Pesca.astro";
 import Icona from "../../../../../components/Icona.astro";
-import azienda from "../../../../../data/app/cinque-foglie.json";
+import aziendaIt from "../../../../../data/app/cinque-foglie.json";
+import aziendaEn from "../../../../../data/app/cinque-foglie.en.json";
 
+// Teorie in italiano (<ruolo>.json) e in inglese (<ruolo>.en.json)
 const TEORIE = import.meta.glob("../../../../../data/app/teoria/*.json", { eager: true }) as Record<string, { default: any }>;
-const teoriaDi = (id: string) => Object.entries(TEORIE).find(([k]) => k.endsWith(`/${id}.json`))?.[1].default;
 
 // Ogni pagina esiste in italiano (/app/...) e in inglese (/en/app/...): conLingue() raddoppia i percorsi
 export function getStaticPaths() {
-  return conLingue((() => {
-  return azienda.ruoli.map((r) => ({ params: { ruolo: r.id }, props: { ruolo: r } }));
-})());
+  return [undefined, "en"].flatMap((lang) => (lang === "en" ? aziendaEn : aziendaIt).ruoli.map((r) => ({ params: { lang, ruolo: r.id }, props: { ruolo: r } })));
 }
 const { ruolo } = Astro.props;
-const t = teoriaDi(ruolo.id);
+const lang = linguaDa(Astro.url);
+const L = (it: string, en: string) => (lang === "en" ? en : it);
+const azienda = lang === "en" ? aziendaEn : aziendaIt;
+const t = Object.entries(TEORIE).find(([k]) => k.endsWith(lang === "en" ? `/${ruolo.id}.en.json` : `/${ruolo.id}.json`))?.[1].default;
+const blogEn = Object.fromEntries((await getCollection("blogEn")).map((a) => [a.data.traduzione, a.id]));
+const linkBlog = (slug: string) => (lang === "en" ? (blogEn[slug] ? `/en/blog/${blogEn[slug]}/` : "/en/blog/") : `/blog/${slug}/`);
 const hub = ["seo", "sea", "brand", "social", "influencer", "crm"].includes(ruolo.id) ? 1 : 2;
-const prova = t?.prova ?? { titolo: "Prova veloce", cosa: "Una richiesta breve di un collega di Cinque Foglie.", link: ruolo.id === "seo" ? "/app/seo/esercizio/" : `/app/${ruolo.id}/esercizio/`, minuti: 20 };
-const base = `/app/impara/${ruolo.id}`;
+const prova0 = t?.prova ?? { titolo: L("Prova veloce", "Quick exercise"), cosa: L("Una richiesta breve di un collega di Cinque Foglie.", "A short request from a Cinque Foglie colleague."), link: ruolo.id === "seo" ? "/app/seo/esercizio/" : `/app/${ruolo.id}/esercizio/`, minuti: 20 };
+const prova = { ...prova0, link: appLink(lang, prova0.link) };
+const base = appLink(lang, `/app/impara/${ruolo.id}`);
 ---
-<AppLayout title={`${ruolo.nome} · Teoria`} percorso={[{ etichetta: azienda.nome, link: "/app/" }, { etichetta: `Teoria · Hub ${hub}`, link: "/app/teoria/#ruoli" }, { etichetta: ruolo.nome }]}>
+<AppLayout title={`${ruolo.nome} · ${L("Teoria", "Theory")}`} percorso={[{ etichetta: azienda.nome, link: appLink(lang, "/app/") }, { etichetta: `${L("Teoria", "Theory")} · Hub ${hub}`, link: appLink(lang, "/app/teoria/#ruoli") }, { etichetta: ruolo.nome }]}>
   <Progresso slot="barra" />
   <main class="pagina" data-ruolo={ruolo.id}>
     <section class="testa">
       <span class="icona" aria-hidden="true"><Icona nome={ruolo.icona} dimensione={30} /></span>
       <div class="testa-testi">
-        <span class="occhiello">Hub {hub} · Teoria del ruolo</span>
+        <span class="occhiello">Hub {hub} · {L("Teoria del ruolo", "Role theory")}</span>
         <h1 class="app-titolo">{ruolo.nome}</h1>
-        <p>{t ? t.scheda.cosaFa : `${ruolo.breve}. La teoria di questo ruolo è in arrivo: intanto puoi fare la prova veloce.`}</p>
-        {t && <a class="bottone-app" href={`${base}/${t.lezioni[0].id}/`} data-inizia>Inizia dalla lezione 1</a>}
+        <p>{t ? t.scheda.cosaFa : `${ruolo.breve}. ${L("La teoria di questo ruolo è in arrivo: intanto puoi fare la prova veloce.", "The theory for this role is coming soon: in the meantime you can do the quick exercise.")}`}</p>
+        {t && <a class="bottone-app" href={`${base}/${t.lezioni[0].id}/`} data-inizia>{L("Inizia dalla lezione 1", "Start with lesson 1")}</a>}
       </div>
     </section>
 
@@ -42,67 +48,67 @@ const base = `/app/impara/${ruolo.id}`;
       <div class="principale">
         {t && (
           <section class="sezione" aria-labelledby="t-scheda">
-            <h2 class="titoletto" id="t-scheda">Il ruolo in breve</h2>
+            <h2 class="titoletto" id="t-scheda">{L("Il ruolo in breve", "The role in brief")}</h2>
             <div class="ruolo-scheda">
               <div class="riquadro">
-                <h3>Con chi lavora</h3>
+                <h3>{L("Con chi lavora", "Who they work with")}</h3>
                 <ul>{t.scheda.conChi.map((x: string) => <li>{x}</li>)}</ul>
               </div>
               <div class="riquadro">
-                <h3>Gli strumenti</h3>
+                <h3>{L("Gli strumenti", "The tools")}</h3>
                 <dl>{t.scheda.strumenti.map((s: any) => <div><dt>{s.nome}</dt><dd>{s.cosa}</dd></div>)}</dl>
               </div>
               <div class="riquadro largo">
-                <h3>Una giornata tipo</h3>
+                <h3>{L("Una giornata tipo", "A typical day")}</h3>
                 <ol class="giornata">{t.scheda.giornata.map(([ora, cosa]: [string, string]) => <li><span class="ora">{ora}</span><span>{cosa}</span></li>)}</ol>
               </div>
             </div>
-            <p class="fa-per-te"><strong>Fa per te?</strong> {t.scheda.faPerTe} <a href={`/blog/${t.scheda.blog.slug}/`}>Approfondisci sul blog: {t.scheda.blog.titolo} →</a></p>
+            <p class="fa-per-te"><strong>{L("Fa per te?", "Is it for you?")}</strong> {t.scheda.faPerTe} <a href={linkBlog(t.scheda.blog.slug)}>{L("Approfondisci sul blog", "Read more on the blog")}: {t.scheda.blog.titolo} →</a></p>
           </section>
         )}
 
         <section class="sezione" aria-labelledby="t-percorso">
-          <h2 class="titoletto" id="t-percorso">{t ? "Il percorso di teoria" : "Cosa puoi fare ora"}</h2>
+          <h2 class="titoletto" id="t-percorso">{t ? L("Il percorso di teoria", "The theory path") : L("Cosa puoi fare ora", "What you can do now")}</h2>
           <ol class="passi">
             {t && t.lezioni.map((l: any, i: number) => (
               <li class="passo" data-lezione={l.id}>
                 <span class="passo-n" aria-hidden="true">{i + 1}</span>
                 <div class="passo-testi">
-                  <span class="passo-tipo">Lezione {i + 1} · {l.minuti} minuti · {l.blocchi.length} blocchi</span>
+                  <span class="passo-tipo">{L("Lezione", "Lesson")} {i + 1} · {l.minuti} {L("minuti", "minutes")} · {l.blocchi.length} {L("blocchi", "parts")}</span>
                   <strong>{l.titolo}</strong>
                   <span class="passo-cosa">{l.blocchi.map((b: any) => b.titolo).join(" · ")}</span>
                 </div>
-                <span class="passo-azione"><span class="stato" data-stato>Da fare</span><a class="mini" href={`${base}/${l.id}/`}>Apri</a></span>
+                <span class="passo-azione"><span class="stato" data-stato>{L("Da fare", "To do")}</span><a class="mini" href={`${base}/${l.id}/`}>{L("Apri", "Open")}</a></span>
               </li>
             ))}
             {t && (
               <li class="passo" data-verifica>
                 <span class="passo-n" aria-hidden="true">{t.lezioni.length + 1}</span>
                 <div class="passo-testi">
-                  <span class="passo-tipo">Verifica · 5 minuti · {t.verifica.length} domande</span>
-                  <strong>Verifica del ruolo</strong>
-                  <span class="passo-cosa">Almeno {t.verifica.length - 2} risposte giuste per completare la teoria del ruolo.</span>
+                  <span class="passo-tipo">{L("Verifica", "Quiz")} · 5 {L("minuti", "minutes")} · {t.verifica.length} {L("domande", "questions")}</span>
+                  <strong>{L("Verifica del ruolo", "Role quiz")}</strong>
+                  <span class="passo-cosa">{L(`Almeno ${t.verifica.length - 2} risposte giuste per completare la teoria del ruolo.`, `At least ${t.verifica.length - 2} right answers to complete the role's theory.`)}</span>
                 </div>
-                <span class="passo-azione"><span class="stato" data-stato>Da fare</span><a class="mini" href={`${base}/verifica/`}>Apri</a></span>
+                <span class="passo-azione"><span class="stato" data-stato>{L("Da fare", "To do")}</span><a class="mini" href={`${base}/verifica/`}>{L("Apri", "Open")}</a></span>
               </li>
             )}
             <li class="passo passo--extra">
               <span class="passo-n" aria-hidden="true"><Icona nome="check" dimensione={16} /></span>
               <div class="passo-testi">
-                <span class="passo-tipo">Prova veloce · facoltativa · circa {prova.minuti} minuti</span>
+                <span class="passo-tipo">{L("Prova veloce · facoltativa · circa", "Quick exercise · optional · about")} {prova.minuti} {L("minuti", "minutes")}</span>
                 <strong>{prova.titolo}</strong>
                 <span class="passo-cosa">{prova.cosa}</span>
               </div>
-              <span class="passo-azione"><a class="mini" href={prova.link}>Apri</a></span>
+              <span class="passo-azione"><a class="mini" href={prova.link}>{L("Apri", "Open")}</a></span>
             </li>
             <li class="passo passo--extra">
               <span class="passo-n" aria-hidden="true"><Icona nome="lampadina" dimensione={16} /></span>
               <div class="passo-testi">
-                <span class="passo-tipo">Pratica · simulazione</span>
-                <strong>{t?.pratica?.titolo ?? `Simulazione ${ruolo.nome}`}</strong>
-                <span class="passo-cosa">{t?.pratica?.cosa ?? "La simulazione di questo ruolo è in arrivo."}</span>
+                <span class="passo-tipo">{L("Pratica · simulazione", "Practice · simulation")}</span>
+                <strong>{t?.pratica?.titolo ?? `${L("Simulazione", "Simulation")} ${ruolo.nome}`}</strong>
+                <span class="passo-cosa">{t?.pratica?.cosa ?? L("La simulazione di questo ruolo è in arrivo.", "This role's simulation is coming soon.")}</span>
               </div>
-              <span class="passo-azione">{t?.pratica ? <a class="mini mini--pieno" href={t.pratica.link}>Vai alla simulazione</a> : <span class="stato">In arrivo</span>}</span>
+              <span class="passo-azione">{t?.pratica ? <a class="mini mini--pieno" href={appLink(lang, t.pratica.link)}>{L("Vai alla simulazione", "Go to the simulation")}</a> : <span class="stato">{L("In arrivo", "Coming soon")}</span>}</span>
             </li>
           </ol>
         </section>
@@ -111,15 +117,15 @@ const base = `/app/impara/${ruolo.id}`;
       <aside class="lato">
         {t && (
           <div class="pannello avanzamento">
-            <span class="gruppo-titolo">Il tuo avanzamento</span>
-            <p class="numero"><strong data-fatte>0</strong> di {t.lezioni.length + 1} completati</p>
+            <span class="gruppo-titolo">{L("Il tuo avanzamento", "Your progress")}</span>
+            <p class="numero"><strong data-fatte>0</strong> {L("di", "of")} {t.lezioni.length + 1} {L("completati", "completed")}</p>
             <div class="barra" aria-hidden="true"><span data-barra-teoria></span></div>
-            <p class="nota" data-esito-verifica>La verifica si apre quando vuoi, anche prima di finire le lezioni.</p>
+            <p class="nota" data-esito-verifica>{L("La verifica si apre quando vuoi, anche prima di finire le lezioni.", "You can take the quiz whenever you like, even before finishing the lessons.")}</p>
           </div>
         )}
         <div class="consiglio">
           <Pesca dimensione={56} occhiali />
-          <p>{t ? "Prima la teoria, poi la pratica: ogni lezione dura una decina di minuti e ha domande dopo ogni concetto." : "Questo ruolo avrà presto le sue lezioni. Intanto la prova veloce ti fa vedere che lavoro è."}</p>
+          <p>{t ? L("Prima la teoria, poi la pratica: ogni lezione dura una decina di minuti e ha domande dopo ogni concetto.", "Theory first, then practice: each lesson takes about ten minutes and has questions after every concept.") : L("Questo ruolo avrà presto le sue lezioni. Intanto la prova veloce ti fa vedere che lavoro è.", "This role will soon have its lessons. In the meantime the quick exercise shows you what the job is like.")}</p>
         </div>
       </aside>
     </div>
@@ -128,32 +134,33 @@ const base = `/app/impara/${ruolo.id}`;
 
 <script>
   import { leggiTeoria } from "../../../../../scripts/quiz";
+  import { t } from "../../../../../scripts/lingua";
   const pagina = document.querySelector<HTMLElement>("[data-ruolo]")!;
   const s = leggiTeoria()[pagina.dataset.ruolo!];
   const lezioni = [...document.querySelectorAll<HTMLElement>("[data-lezione]")];
   let fatte = 0;
   lezioni.forEach((li) => {
-    if (s?.lezioni?.[li.dataset.lezione!]) { fatte++; li.classList.add("fatto"); li.querySelector("[data-stato]")!.textContent = "Fatta"; li.querySelector(".mini")!.textContent = "Rivedi"; }
+    if (s?.lezioni?.[li.dataset.lezione!]) { fatte++; li.classList.add("fatto"); li.querySelector("[data-stato]")!.textContent = t("Fatta", "Done"); li.querySelector(".mini")!.textContent = t("Rivedi", "Review"); }
   });
   const ver = document.querySelector<HTMLElement>("[data-verifica]");
   if (ver && s?.verifica) {
-    ver.querySelector("[data-stato]")!.textContent = `${s.verifica.giuste} giuste${s.verifica.superata ? " · superata" : ""}`;
+    ver.querySelector("[data-stato]")!.textContent = `${s.verifica.giuste} ${t("giuste", "right")}${s.verifica.superata ? t(" · superata", " · passed") : ""}`;
     if (s.verifica.superata) { ver.classList.add("fatto"); fatte++; }
   }
   const tot = lezioni.length + 1;
   const n = document.querySelector("[data-fatte]"); if (n) n.textContent = String(fatte);
   const b = document.querySelector<HTMLElement>("[data-barra-teoria]"); if (b) b.style.width = `${(fatte / tot) * 100}%`;
-  if (s?.verifica?.superata) { const e = document.querySelector("[data-esito-verifica]"); if (e) e.textContent = "Teoria completata. Adesso puoi passare alla simulazione."; }
+  if (s?.verifica?.superata) { const e = document.querySelector("[data-esito-verifica]"); if (e) e.textContent = t("Teoria completata. Adesso puoi passare alla simulazione.", "Theory completed. Now you can move on to the simulation."); }
   // Il bottone grande porta alla prima lezione non ancora fatta
   const prossima = lezioni.find((li) => !li.classList.contains("fatto"));
   const inizia = document.querySelector<HTMLAnchorElement>("[data-inizia]");
   if (inizia && fatte > 0) {
-    if (prossima) { inizia.href = prossima.querySelector<HTMLAnchorElement>(".mini")!.href; inizia.textContent = `Continua: lezione ${lezioni.indexOf(prossima) + 1}`; }
-    else if (!s?.verifica?.superata) { inizia.href = ver!.querySelector<HTMLAnchorElement>(".mini")!.href; inizia.textContent = "Fai la verifica"; }
+    if (prossima) { inizia.href = prossima.querySelector<HTMLAnchorElement>(".mini")!.href; inizia.textContent = t(`Continua: lezione ${lezioni.indexOf(prossima) + 1}`, `Continue: lesson ${lezioni.indexOf(prossima) + 1}`); }
+    else if (!s?.verifica?.superata) { inizia.href = ver!.querySelector<HTMLAnchorElement>(".mini")!.href; inizia.textContent = t("Fai la verifica", "Take the quiz"); }
     else {
       const sim = document.querySelector<HTMLAnchorElement>(".mini--pieno");
-      if (sim) { inizia.textContent = "Vai alla simulazione"; inizia.href = sim.href; }
-      else inizia.textContent = "Teoria completata: ripassa dalla lezione 1"; // la simulazione di questo ruolo non c'è ancora
+      if (sim) { inizia.textContent = t("Vai alla simulazione", "Go to the simulation"); inizia.href = sim.href; }
+      else inizia.textContent = t("Teoria completata: ripassa dalla lezione 1", "Theory completed: review from lesson 1"); // la simulazione di questo ruolo non c'è ancora
     }
   }
 </script>
