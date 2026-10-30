@@ -1,7 +1,11 @@
 // SIMULAZIONE SEA: le modifiche fatte da chi gioca e l'account "effettivo" che ne risulta.
 // Come per SEO e Social: tutto resta in questo browser (localStorage) e tutti gli strumenti leggono da qui.
 // Le keyword aggiunte da chi gioca partono da zero (nessun dato: non sono ancora state pubblicate).
-import CONTO from "../../data/app/sea-sim/account.json";
+import CONTO_IT from "../../data/app/sea-sim/account.json";
+import CONTO_EN from "../../data/app/sea-sim/account.en.json";
+import { scegli, EN } from "../lingua";
+// L'account nella lingua della pagina (il gemello inglese ha la stessa forma: cambiano solo i testi)
+export const CONTO = scegli(CONTO_IT, CONTO_EN as typeof CONTO_IT);
 import CATALOGO from "../../data/app/seo-pro/catalogo.json";
 
 const CHIAVE = "marketing-mix-sea-modifiche";
@@ -74,4 +78,5 @@ export const normalizzaUrl = (u: string) => {
   if (!x.endsWith("/")) x += "/";
   return x;
 };
-export const euro = (x: number, dec = 2) => x.toFixed(dec).replace(".", ",") + " €";
+// Prezzi: "12,50 €" in italiano, "€12.50" in inglese (en si può passare a mano nelle pagine create da Astro)
+export const euro = (x: number, dec = 2, en = EN) => (en ? `€${x.toFixed(dec)}` : x.toFixed(dec).replace(".", ",") + " €");

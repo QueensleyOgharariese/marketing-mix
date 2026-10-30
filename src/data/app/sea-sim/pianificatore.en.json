@@ -1,0 +1,100 @@
+{
+ "idee": [
+  {
+   "testo": "matcha kit",
+   "volume": 1900,
+   "cpcBasso": 0.45,
+   "cpcAlto": 0.9,
+   "concorrenza": "media",
+   "intento": "acquisto"
+  },
+  {
+   "testo": "matcha kit with whisk",
+   "volume": 480,
+   "cpcBasso": 0.4,
+   "cpcAlto": 0.8,
+   "concorrenza": "bassa",
+   "intento": "acquisto"
+  },
+  {
+   "testo": "matcha set",
+   "volume": 720,
+   "cpcBasso": 0.4,
+   "cpcAlto": 0.85,
+   "concorrenza": "media",
+   "intento": "acquisto"
+  },
+  {
+   "testo": "matcha whisk",
+   "volume": 1300,
+   "cpcBasso": 0.3,
+   "cpcAlto": 0.7,
+   "concorrenza": "media",
+   "intento": "acquisto"
+  },
+  {
+   "testo": "buy matcha",
+   "volume": 590,
+   "cpcBasso": 0.5,
+   "cpcAlto": 1.1,
+   "concorrenza": "alta",
+   "intento": "acquisto"
+  },
+  {
+   "testo": "matcha",
+   "volume": 49500,
+   "cpcBasso": 0.7,
+   "cpcAlto": 1.6,
+   "concorrenza": "alta",
+   "intento": "misto"
+  },
+  {
+   "testo": "matcha benefits",
+   "volume": 8100,
+   "cpcBasso": 0.2,
+   "cpcAlto": 0.5,
+   "concorrenza": "bassa",
+   "intento": "informativo"
+  },
+  {
+   "testo": "how to make matcha",
+   "volume": 5400,
+   "cpcBasso": 0.15,
+   "cpcAlto": 0.4,
+   "concorrenza": "bassa",
+   "intento": "informativo"
+  },
+  {
+   "testo": "matcha latte recipe",
+   "volume": 6600,
+   "cpcBasso": 0.15,
+   "cpcAlto": 0.35,
+   "concorrenza": "bassa",
+   "intento": "informativo"
+  },
+  {
+   "testo": "what is matcha",
+   "volume": 2900,
+   "cpcBasso": 0.1,
+   "cpcAlto": 0.3,
+   "concorrenza": "bassa",
+   "intento": "informativo"
+  },
+  {
+   "testo": "matcha gift set",
+   "volume": 390,
+   "cpcBasso": 0.45,
+   "cpcAlto": 0.95,
+   "concorrenza": "media",
+   "intento": "acquisto"
+  },
+  {
+   "testo": "matcha bowl",
+   "volume": 880,
+   "cpcBasso": 0.3,
+   "cpcAlto": 0.7,
+   "concorrenza": "media",
+   "intento": "acquisto"
+  }
+ ]
+}

@@ -25,7 +25,7 @@ SALTA |= {"giusti", "ids", "campo", "da"}  # esercizi: id delle colonne, delle s
 # se invece contengono oggetti (le righe di una tabella con il loro testo) si traducono normalmente.
 SALTA_SE_CODICI = {"righe"}
 # Chiavi da saltare solo in alcuni file (aggiunte quando serve)
-SALTA_FILE = {}
+SALTA_FILE = {"sea-sim/pianificatore.json": {"intento", "concorrenza"}}  # codici usati dalla pagina per i colori
 # Chiavi che in alcuni file vanno tradotte anche se di solito si saltano
 # (nel Social "post" è l'elenco dei post e "pilastro" è un testo che si vede, non un codice)
 TRADUCI_FILE = {f"social-sim/{n}.json": {"post", "pilastro"} for n in ("post", "calendario", "profilo", "commenti", "libreria")}

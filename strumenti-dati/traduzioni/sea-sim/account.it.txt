@@ -1,0 +1,62 @@
+1|1-28 ottobre 2026
+2|Brand · Cinque Foglie
+3|Nome del negozio
+4|cinque foglie
+5|sopra la media
+6|cinque foglie tè
+7|Cinque Foglie | Sito ufficiale
+8|Tè e tisane biologici
+9|Spedizione in 24/48 ore
+10|Oltre 120 tè in foglie
+11|Resi facili in 14 giorni
+12|Tè e tisane biologici scelti da piccoli produttori. Spedizione gratuita da 39 €.
+13|Scopri tè verdi, neri, matcha e tisane. Guide semplici per prepararli.
+14|Tè verdi
+15|Tè verde generico
+16|tè verde
+17|sotto la media
+18|nella media
+19|tè verde biologico
+20|Tè verde biologico in foglie
+21|Sencha, Gyokuro e Genmaicha
+22|Da piccoli produttori
+23|Guida alla scelta
+24|Tè verdi biologici dal Giappone e dalla Cina, in foglie intere. Scopri la selezione.
+25|Spedizione gratuita da 39 €. Resi facili in 14 giorni.
+26|Sencha
+27|sencha biologico
+28|tè sencha
+29|Tè Sencha biologico
+30|Sencha in foglie intere
+31|Dal Giappone, 100 g
+32|Il tè verde di ogni giorno
+33|Sencha biologico fresco ed erbaceo, in latta da 100 g. Ordina ora.
+34|Gyokuro
+35|gyokuro
+36|Gyokuro giapponese
+37|Tè verde cresciuto all'ombra
+38|Gusto dolce e morbido
+39|Il Gyokuro: tè verde pregiato coltivato all'ombra. Scopri come prepararlo.
+40|Spedizione gratuita da 39 €.
+41|Tisane
+42|Tisane della sera
+43|tisane della sera
+44|tisana rilassante
+45|Tisane biologiche
+46|tisane biologiche
+47|Camomilla, menta e rooibos
+48|Senza aromi artificiali
+49|Da 5,50 € a confezione
+50|Tisane biologiche per ogni momento della giornata. Scopri la selezione.
+51|Kit e idee regalo
+52|Idee regalo
+53|idee regalo tè
+54|kit tè regalo
+55|cofanetto tè
+56|Idee regalo per chi ama il tè
+57|Kit e cofanetti di tè
+58|Teiere e tazze fatte a mano
+59|Biglietto regalo incluso
+60|Kit matcha, teiere in ghisa e cofanetti di tè biologici: il regalo giusto.
+61|Black Friday
+62|Kit matcha

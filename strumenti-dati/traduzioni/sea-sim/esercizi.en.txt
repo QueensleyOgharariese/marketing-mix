@@ -1,0 +1,465 @@
+1|Tutorial
+2|How the account works.
+3|Basics
+4|One concept at a time. «How it works» is already open and the hint is always available.
+5|Diagnosis
+6|Mixed problems, including false alarms. You open «How it works» yourself.
+7|Cases
+8|No hints: just data and theory. The Black Friday budget and ads.
+9|Tutorial: how it works
+10|8 minutes
+11|Campaigns
+12|Where things are and how to save and check a change.
+13|Hi, I'm Davide and I look after Cinque Foglie's paid ads. Before we start I'll show you the account: ten minutes and you're ready to go.
+14|Learn to move between campaigns, search terms and data and to save a change.
+15|How the workspace is laid out
+16|You work on the ad account of Cinque Foglie, a fictional online tea shop. The screen has three areas.
+17|<strong>On the left the menu</strong> (on a phone it's at the top): the campaigns, the search terms, the keyword planner and the website performance.
+18|<strong>In the middle</strong> the open tool.
+19|<strong>On the right this guide</strong>: the task at the top, the answers below. The <strong>How it works</strong>, <strong>Theory</strong> and <strong>Hint</strong> tabs help you when needed; the button to check is always at the bottom.
+20|The numbers are for 1-28 October 2026 and are invented, but consistent from one tool to another.
+21|Which campaign spent the most in October?
+22|Look at the Cost column in the campaigns table.
+23|The campaigns table sums up each campaign: how many times the ads appeared (impressions), how many clicks, how much it cost and how many sales (conversions) they brought.
+24|A travel agency looks at the table and sees that the «Cruises» campaign spent €2,000 in a month.
+25|Brand · Cinque Foglie
+26|Brand costs little: people searching for the shop's name click a lot and the click is cheap.
+27|Green teas
+28|Kits and gift ideas
+29|Look at the Cost column again.
+30|Green teas spent more than €900 in four weeks: you'll come across it again in the exercises.
+31|Sort the table by clicking the Cost header.
+32|Open the campaign
+33|Save your first change
+34|Open the campaign «Brand · Cinque Foglie» and raise the daily budget from €10 to €12. Then save.
+35|The daily budget is how much the campaign can spend on average per day. You change it in the campaign settings and press Save: it applies straight away.
+36|A restaurant raises the daily budget of its «Book a table» campaign for Valentine's weekend.
+37|You changed a setting and checked it: in the exercises you always work like this.
+38|Click the campaign name in the table: the settings open.
+39|Points, levels and how to choose
+40|Last rules, then we start from the Basics.
+41|Three levels: <strong>Basics</strong>, <strong>Diagnosis</strong> and <strong>Cases</strong>. Each exercise is a small project made of mini exercises.
+42|<strong>How it works</strong> explains the tool, not the answer. <strong>Theory</strong> is free. <strong>Hint</strong> costs 5 points.
+43|The guide fades as you go up a level: in Basics «How it works» is already open, in Diagnosis you open it yourself, in Cases there's only theory and data.
+44|Each exercise starts from 100 points: a wrong answer takes off 10 points. When you work in the tools you can try again without losing points.
+45|The campaigns table sums up costs and results.
+46|The daily budget is changed in the campaign settings.
+47|After every change you check.
+48|Perfect, now you know your way around the account. We start from the Basics.
+49|The matcha kit campaign
+50|35 minutes
+51|Planner, Campaigns
+52|From keywords to the published ad: match types, copy, landing page and budget.
+53|The matcha kit is doing really well on social media, but we have no ads on Google. The «Matcha kit» campaign is a draft and empty: can you prepare it? Budget: €450 a month.
+54|Build and publish the matcha kit campaign: keywords, ad, landing page and budget.
+55|Which keywords are searched by people ready to buy?
+56|Look at the Intent column in the Planner. You can choose more than one answer.
+57|With paid ads you pay for every click: it's worth appearing when the person wants to buy, not when they're looking for information. Someone typing «matcha kit» probably wants a kit; someone typing «matcha benefits» wants to read an article.
+58|An English school runs ads for «online english course prices», not for «how to say hello in english».
+59|Choosing the keywords with the most searches without looking at what the searcher wants.
+60|matcha kit
+61|matcha whisk
+62|matcha benefits
+63|People searching for the benefits want information, not to buy (and you can't promise health effects).
+64|matcha latte recipe
+65|People searching for a recipe want to cook, not buy a kit.
+66|«Matcha kit» and «matcha whisk» have purchase intent: people searching them are already thinking about buying.
+67|Keywords with «informational» intent bring clicks that cost money but don't sell.
+68|Why not use the keyword «matcha» on its own?
+69|Compare «matcha» with «matcha kit» in the Planner.
+70|A very generic keyword has lots of searches but mixed intents: some people want to buy, some to read, some a recipe. On top of that it costs more, because all the competitors bid on it.
+71|A bike shop doesn't target «bike» (too generic) but «folding electric bike».
+72|Thinking more searches means more sales.
+73|It's too generic: mixed intents and more expensive clicks
+74|It has few searches
+75|On the contrary: it has loads.
+76|It can't be used because it's a foreign word
+77|It can be used: the problem is that it's too generic.
+78|«Matcha» has 49,500 searches a month but mixed intent and a CPC up to €1.60: you'd pay for lots of curious people's clicks.
+79|Add the keywords
+80|In the «Matcha kit» campaign, «Matcha kit» group, add at least 3 keywords with purchase intent, in phrase or exact match.
+81|The match type says how closely the search must resemble the keyword. Broad: even searches that are only related (risky). Phrase: searches that contain the meaning of the phrase. Exact: only searches with the same meaning. To start with a small budget you use phrase and exact.
+82|A florist adds «flower delivery verona» in phrase and «florist verona» in exact.
+83|Adding generic words in broad match: the ad appears for distant searches and the budget runs out fast.
+84|The keywords are ready: the ad will only appear to people looking for a kit or matcha tools.
+85|Use Planner keywords with purchase intent, for example «matcha kit» in phrase.
+86|Which search can «matcha kit» in phrase match appear for?
+87|Think about what phrase match means.
+88|With phrase match the ad appears for searches containing the meaning of the phrase, even with words before or after. It doesn't appear if the meaning changes.
+89|«running shoes» in phrase appears for «women's running shoes», not for «smart shoes».
+90|Confusing phrase and broad: broad widens much more.
+91|matcha kit with whisk to give as a gift
+92|matcha powder
+93|The meaning of «kit» is missing: it doesn't appear.
+94|green tea kit
+95|The meaning is different: it doesn't appear.
+96|In phrase match the ad appears for «matcha kit with whisk to give as a gift»: the meaning of «matcha kit» is there with other words around it.
+97|Write the ad
+98|In the same group write the ad: at least 5 headlines, at least 2 descriptions and the final URL of the kit page.
+99|A responsive ad has up to 15 headlines (30 characters at most) and 4 descriptions (90 at most): the system combines them. At least one headline repeats the keyword, the descriptions say what's there and invite action. The final URL must lead to the product page, not the home page.
+100|For a yoga course: headlines «Online yoga course», «First lesson free», «Certified teachers»; description «Live and recorded lessons. Try the first lesson».
+101|Sending everyone to the home page: people who searched for a kit must find it straight away, not search for it again.
+102|The ad is about the kit, respects the character limits and leads to the right page.
+103|The kit page in the shop is /matcha/kit-matcha/.
+104|Set the budget and publish
+105|Davide has €450 a month for this campaign. Set the right daily budget and publish the campaign.
+106|The budget is set per day: you divide the monthly budget by the average number of days in a month (30.4). Some days the campaign spends a bit more, others less, but over the month it doesn't exceed the total.
+107|With €300 a month: 300 ÷ 30.4 = about €9.90 a day.
+108|Dividing by 30 or 31 at random, or putting the monthly budget in the daily field.
+109|The campaign is published with about €15 a day: over the month it will stay within €450.
+110|450 ÷ 30.4 = ?
+111|After a week, what do you look at to know whether it's working?
+112|Think about the goal: selling kits.
+113|For a sales campaign the key number is how much a sale costs (CPA, cost per acquisition) compared with how much you earn on a sale. Impressions and clicks say whether the ad is seen and chosen, not whether it sells.
+114|A pizzeria with delivery looks at how much each order coming from the ads costs it, not how many people saw the ad.
+115|Stopping at the CTR or the number of clicks.
+116|Conversions and cost per sale (CPA)
+117|Only impressions
+118|They say how many times the ad appeared, not whether it sells.
+119|Only the number of clicks
+120|Clicks cost money: what counts is how many become sales.
+121|CPA and conversions say whether each euro spent comes back as a sale.
+122|You choose keywords with purchase intent.
+123|Phrase and exact keep control; broad widens a lot.
+124|The ad repeats the keyword and leads to the right page.
+125|Daily budget = monthly budget ÷ 30.4.
+126|Great, the campaign is live. In a week we'll look at the cost per sale together.
+127|Reading the numbers
+128|25 minutes
+129|CTR, CPC, conversion rate, CPA and ROAS: what they say and how they're calculated.
+130|At the end of the month I have to tell management how the ads went. Can you help me with the numbers for the «Kits and gift ideas» campaign?
+131|Calculate the metrics of the Kits and gift ideas campaign and write to Davide about what works.
+132|What's the CTR of the «Kits and gift ideas» campaign?
+133|CTR = clicks ÷ impressions × 100.
+134|CTR (click-through rate) says how many people out of 100 who see the ad click on it. A high CTR means the ad is relevant to that search.
+135|An ad seen 2,000 times with 80 clicks: 80 ÷ 2,000 × 100 = 4%.
+136|Dividing impressions by clicks (the other way round).
+137|About 0.6%
+138|Check again: clicks are a few hundred, impressions a few thousand.
+139|About 6.3%
+140|About 16%
+141|Did you divide impressions by clicks?
+142|460 clicks out of 7,300 impressions: about 6.3%.
+143|In the campaign's row you'll find impressions and clicks.
+144|How much does a click cost on average (CPC)?
+145|Average CPC = cost ÷ clicks.
+146|The average CPC is how much you pay on average for each click. It depends on the auction: competition, bid and ad quality.
+147|€100 spent for 250 clicks: €0.40 per click.
+148|About €0.58
+149|About €1.73
+150|Did you divide clicks by cost?
+151|About €0.04
+152|Did you use impressions instead of clicks?
+153|€266 for 460 clicks: about €0.58 per click.
+154|What's the conversion rate?
+155|Conversion rate = conversions ÷ clicks × 100.
+156|The conversion rate says how many people out of 100 who click then buy. It depends a lot on the landing page and the offer.
+157|200 clicks and 6 orders: 3%.
+158|Dividing conversions by impressions.
+159|About 0.4%
+160|You divided by impressions: you divide by clicks.
+161|About 5.9%
+162|About 59%
+163|Check the figures again: 27 sales out of 460 clicks.
+164|27 sales out of 460 clicks: about 5.9%.
+165|How much does a sale cost (CPA)?
+166|CPA = cost ÷ conversions.
+167|CPA (cost per acquisition) is how much you spend on ads to get one sale. It's compared with how much you earn on a sale.
+168|€300 of ads and 20 sales: €15 per sale.
+169|About €9.90
+170|That's the cost of a click, not of a sale.
+171|About €45
+172|That's closer to the average order value.
+173|€266 for 27 sales: about €9.90 per sale.
+174|What's the ROAS?
+175|ROAS = value of sales ÷ cost.
+176|ROAS (return on ad spend) says how many euros of sales come in for every euro spent on ads. ROAS 4 means €4 of sales for €1 of ads. Careful: these are sales, not profit.
+177|€1,000 of sales with €250 of ads: ROAS 4.
+178|Confusing ROAS with profit: the cost of the products has to be taken off sales.
+179|About 0.22
+180|You divided cost by value (the other way round).
+181|About 4.6
+182|About 46
+183|Check again: €1,230 of sales and €266 of cost.
+184|€1,230 of sales for €266 of ads: ROAS about 4.6. It's the best-performing campaign after brand.
+185|Write to Davide about how the ads are doing
+186|Write 3-5 sentences: which campaign performs best, which worst (with a number) and what you propose.
+187|A report for decision-makers puts the conclusion first, then the numbers that prove it, then a proposal. You compare campaigns with the same metric.
+188|«The Online courses campaign performs best (ROAS 5). The Books campaign spends a lot and sells little (ROAS 0.8): I propose checking the keywords.»
+189|Listing every number without saying what to do.
+190|Example from a senior colleague: «The Kits and gift ideas campaign performs well: ROAS 4.6 and a sale costs about €10. Green teas, on the other hand, spends more than €900 with ROAS below 1: sales don't pay for the ads. I propose checking the keywords and landing pages of Green teas.»
+191|CTR = clicks ÷ impressions.
+192|CPC = cost ÷ clicks. CPA = cost ÷ conversions.
+193|ROAS = value of sales ÷ cost: these are sales, not profit.
+194|Clear and quick, thanks. I need to look into Green teas: I'll let you know.
+195|Green teas: lots of clicks, few sales
+196|40 minutes
+197|Campaigns, Search terms, Website performance
+198|A campaign that spends more than €900 a month and hardly sells: keywords, search terms and landing pages.
+199|Green teas spends more than all the other campaigns and sells very little. Before switching it off I'd like to understand what's wrong.
+200|Find out why Green teas doesn't sell and fix what's needed, without touching what works.
+201|Which campaign has the lowest ROAS?
+202|Compare the campaigns' ROAS column.
+203|ROAS compares campaigns on equal spend: it says which one turns euros into sales best.
+204|A bookshop sees that its «Comics» campaign has ROAS 0.8 while «Novels» has 3.
+205|Looking only at spend: a campaign can spend a lot and perform well.
+206|Herbal teas
+207|It's low too, but Green teas is even lower.
+208|It's one of the best.
+209|Green teas has ROAS below 1: for every euro spent, less than €0.95 of sales comes back.
+210|Which keyword spends the most while selling little?
+211|Open the Green teas campaign and look at the keywords.
+212|Inside a poorly performing campaign you look for the keyword that weighs most: often a single keyword eats up most of the budget.
+213|In an estate agency's campaign, «house» in broad match spends half the budget and only brings in curious people.
+214|Lowering everything equally without looking for where the problem is.
+215|«green tea», in broad match
+216|«gyokuro»
+217|It has few clicks and sells well.
+218|«organic green tea»
+219|It spends less and sells more.
+220|«Green tea» in broad match spent more than €500 with only 6 sales.
+221|What were the people who clicked really looking for?
+222|Open the Search terms and filter by the keyword «green tea».
+223|The search terms report shows the exact phrases people typed before clicking. With broad match, searches far from the keyword show up.
+224|A travel agency with «travel» in broad match discovers clicks on «time travel films».
+225|Looking only at keywords and never at search terms.
+226|Mostly information: benefits, recipes, free samples, even jobs
+227|Almost only people who wanted to buy green tea
+228|Look at the rows with 0 conversions: they're the majority.
+229|Mostly the shop's name
+230|Those searches are in the Brand campaign.
+231|Most clicks come from people who wanted information: benefits, weight loss, recipes, free samples, jobs. None of these searches sold anything.
+232|Open the Search terms
+233|Exclude the wrong searches
+234|Add negative keywords to the Green teas campaign for the searches that don't sell. Be careful not to exclude the ones that do.
+235|A negative keyword says not to show the ad when the search contains it. You add words that point to the wrong intent (free, recipe, jobs). A negative that's too broad can switch off the good searches too.
+236|A shoe shop adds «used», «free» and «repair» as negatives.
+237|Excluding «tea» or «green»: you'd also block the searches that sell.
+238|Informational searches will no longer show the ad: the budget goes to people who want to buy.
+239|Take one word from each search with no sales: benefits, weight loss, recipe, free, jobs.
+240|Narrow the keyword
+241|Change the match type of «green tea» so it no longer appears for distant searches.
+242|Negatives remove the wrong searches you know about; a narrower match type avoids the ones you haven't seen yet. Together they keep the budget on the right searches.
+243|A gym moves «gym» from broad to phrase and adds «gym verona centre» in exact.
+244|Leaving broad match and chasing new searches every week with more negatives.
+245|«Green tea» will now only appear for searches containing that meaning.
+246|In the keywords table, the Match type column.
+247|Which group sends people to the wrong page?
+248|Look at Landing page and Bounce rate in the Website performance.
+249|The landing page must immediately show what the ad promises. If the ad is about Sencha and the page is the home page, many people leave straight away (high bounce rate).
+250|A «Trail shoes» ad leading to a sports shop's home page: people looking for trail shoes have to start all over again.
+251|Looking only at the ad and never at what happens after the click.
+252|Sencha: it lands on the home page and almost 8 people in 10 leave
+253|Gyokuro
+254|It lands on the product page and bounces little.
+255|Generic green tea
+256|It lands on the green teas category: that's consistent.
+257|The Sencha group leads to the home page: bounce rate 78%.
+258|Fix the landing page
+259|Change the final URL of the Sencha group's ad to the right page in the shop.
+260|The final URL is the page where people who click arrive. It must be the page closest to what the person searched for: for a product, the product page.
+261|The «Cast iron teapot» ad leads to /teapots/cast-iron/, not to /.
+262|Always using the home page because «you can find everything from there anyway».
+263|People searching for Sencha now land on the Sencha product page.
+264|Look for the Sencha in the shop: the product page's address is in the bar.
+265|«Gyokuro» has only 18 clicks in a month. Shall we pause it?
+266|Look at the conversions and value of «gyokuro».
+267|Not everything small should be switched off. A keyword with few clicks that sells a lot in proportion costs little and pays off: it's a good niche keyword.
+268|A bike shop keeps «titanium gravel bike»: few clicks, but almost everyone buys.
+269|Switching off keywords with few clicks without looking at sales.
+270|Yes, it brings few clicks
+271|Few clicks, but 3 sales out of 18: it performs very well.
+272|No: it costs very little and brings in about 6 times what it spends
+273|Yes, because the CPC is the highest
+274|The CPC is high, but the ROAS more than pays for it.
+275|False alarm: «gyokuro» costs €16 and brings about €98 of sales.
+276|Search terms show what people actually typed.
+277|Negatives and narrower match types keep the budget on the right searches.
+278|The landing page must keep the ad's promise.
+279|Few clicks doesn't mean a useless keyword.
+280|Switch it off? No way! With the negatives and the right page, Green teas can pay off again. Thanks.
+281|The herbal teas Quality Score
+282|30 minutes
+283|Campaigns, Website performance
+284|Two keywords with a very low Quality Score: understand why and fix the ad.
+285|On «evening herbal teas» we pay almost €1 a click and appear rarely. Our competitor pays less. What are we doing wrong?
+286|Find out why the herbal teas Quality Score is low and raise it.
+287|Which keywords have the lowest Quality Score?
+288|Open the Herbal teas campaign and look at the Quality column.
+289|Quality Score (from 1 to 10) estimates how useful the ad and page are to the person making that search. The higher it is, the less you pay for the same position.
+290|A keyword with Quality 3 pays much more than a competitor with Quality 8 to be in the same position.
+291|Ignoring the score and just raising the bid.
+292|«evening herbal teas» and «relaxing herbal tea»
+293|«organic herbal teas»
+294|It has Quality 7: that's fine.
+295|The brand keywords
+296|They're in the other campaign and have 9 and 10.
+297|The two keywords in the «Evening herbal teas» group have Quality 3 and 4.
+298|Which parts of the score are below average?
+299|Click the score to see the three parts.
+300|The score has three parts: expected CTR (how many are expected to click), ad relevance (how much the ad is about what was searched) and landing page experience.
+301|A keyword «guitar lessons» with an ad about the piano has below-average relevance.
+302|Expected CTR and ad relevance
+303|Only the landing page
+304|The /tisane/ page is average.
+305|All three
+306|The page is average.
+307|Expected CTR and relevance are below average; the page is fine.
+308|Why isn't the ad relevant?
+309|Read the ad in the «Evening herbal teas» group.
+310|Every ad group should have ads about its own keywords. An ad copied from another group talks about something else: people searching for herbal teas see green tea and don't click.
+311|A wine shop uses the ad written for sparkling wine for «red wine».
+312|Copying the same ad into every group to save time.
+313|It's copied from the green teas: it isn't about herbal teas
+314|It's too short
+315|It has 5 headlines and 2 descriptions: the problem is the content.
+316|It has no final URL
+317|The URL is there: /tisane/.
+318|The ad is the green teas one: people looking for evening herbal teas read «Sencha, Gyokuro and Genmaicha».
+319|Rewrite the herbal teas ad
+320|Rewrite the ad in the «Evening herbal teas» group: at least 5 headlines and 2 descriptions about herbal teas.
+321|A relevant ad repeats the words searched for (herbal teas, evening) and says what the person will find. In herbal tea copy there are no health claims (sleep better, cures insomnia): they're foods.
+322|For «decaf coffee»: «Decaf coffee beans», «Full flavour, no caffeine».
+323|Writing «Helps you sleep» or «Beats insomnia»: it's a health claim banned for foods.
+324|The ad is now about herbal teas: relevance will rise and the CPC will fall.
+325|What happens if the Quality Score goes up?
+326|Think about how the auction works.
+327|In the auction the position depends on the bid and on quality. With higher quality you get the same position for less, or a better position with the same bid.
+328|Two shops bid €1: the one with Quality 8 appears above the one with Quality 4.
+329|For the same position you pay less per click
+330|The daily budget increases on its own
+331|You decide the budget.
+332|The ad also appears for other keywords
+333|Quality doesn't change which searches it appears for.
+334|With a higher score you pay less per click: the same budget brings more clicks.
+335|The Herbal teas campaign has ROAS 1.6. Shall we switch off «organic herbal teas» too?
+336|Look at the «Organic herbal teas» group in the Website performance and in the campaign.
+337|A campaign average can hide good groups and bad groups. Before switching anything off you look group by group.
+338|A restaurant sees that delivery is doing badly overall, but only because of one neighbourhood that's too far away.
+339|Switching off the whole campaign because of one group.
+340|Yes, the campaign is doing badly
+341|The average is low because of the other group.
+342|No: on its own it brings in about 2.5 times what it spends; the problem is in the other group
+343|Yes, because it has the lowest quality
+344|It has Quality 7: it's the best in the campaign.
+345|False alarm: «organic herbal teas» performs well; it's the evening group that drags the average down.
+346|Quality Score has three parts: expected CTR, relevance, page.
+347|Every group has ads about its own keywords.
+348|More quality = lower cost per click.
+349|Before switching anything off you look group by group.
+350|So that's why we were paying so much! With the right ad, quality should go up in a couple of weeks.
+351|The Black Friday budget
+352|Where to put the extra budget for Black Friday: break-even, ROAS and lost impressions.
+353|For Black Friday (27-30 November) management is giving us more budget: €140 a day at most in total. How do we split it? The average margin on products is 40%.
+354|Split the Black Friday budget between the campaigns based on the numbers.
+355|Below which ROAS does a campaign lose money?
+356|Average margin of 40%.
+357|Break-even ROAS is the ROAS below which sales don't cover the cost of the ads. It's calculated as 1 ÷ margin. With a 40% margin: 1 ÷ 0.40 = 2.5. Below 2.5 you lose, above it you earn.
+358|With a 25% margin: 1 ÷ 0.25 = 4. You need ROAS 4 just to break even.
+359|Thinking ROAS 1 is break-even: it would mean the products cost nothing.
+360|Below 1
+361|With ROAS 1 the spend is covered in sales, but not the cost of the products.
+362|Below 2.5
+363|Below 4
+364|That would apply with a 25% margin.
+365|1 ÷ 0.40 = 2.5: below this ROAS every sale from ads costs more than it earns.
+366|Which campaigns are below break-even?
+367|Compare each campaign's ROAS with 2.5. You can choose more than one answer.
+368|Comparing each campaign with break-even ROAS shows where ads make money and where they lose it.
+369|It has ROAS 4.6: it earns.
+370|It has the highest ROAS of all.
+371|Green teas (0.9) and Herbal teas (1.6) are below 2.5: today they lose money.
+372|Where is it worth putting the extra budget?
+373|Look at ROAS and Impressions lost to budget.
+374|More budget is needed where the campaign performs well and today stops because the budget runs out: the «Impressions lost to budget» column says how many times the ad didn't appear for lack of money.
+375|A campaign with ROAS 5 that loses 40% of impressions to budget is leaving sales on the table.
+376|Putting budget where ROAS is high but nothing is lost: the extra money wouldn't be spent.
+377|Kits and gift ideas: it brings in 4.6 and loses 38% of impressions to budget
+378|Brand: it has the highest ROAS
+379|It loses only 2% to budget: it already appears almost always.
+380|Green teas: it spends the most
+381|Below break-even: more budget = more losses.
+382|Kits and gift ideas performs well and today gets stopped by the budget: that's where extra money brings sales.
+383|Open the Campaigns
+384|Split the budget
+385|Set the daily budgets for Black Friday: €140 a day at most in total, across the active campaigns.
+386|You move budget towards campaigns that perform well and lose impressions, you keep brand, and you don't give extra budget to campaigns below break-even until they're fixed.
+387|For Black Friday an electronics shop raises «Headphones» from €30 to €70 and leaves «Cables» at €10.
+388|Increasing everything proportionally.
+389|The budget is where it performs: the gifts campaign can appear much more on Black Friday days.
+390|Why not put everything on brand, which has the highest ROAS?
+391|Look at brand's lost impressions.
+392|Brand catches people already searching for the shop's name: it appears almost always and many of those people would arrive anyway. Adding budget there doesn't bring new customers.
+393|A famous restaurant doesn't double its ads on «restaurant name»: people searching for it already find it.
+394|It already appears almost always: the extra money wouldn't be spent
+395|Because brand doesn't sell
+396|It sells a lot.
+397|Because raising the brand budget is forbidden
+398|It isn't forbidden: it's pointless.
+399|Brand loses only 2% to budget: it's already at its maximum.
+400|Explain to Davide how you split the budget
+401|Write 3-5 sentences: how much you give each campaign and why, with the numbers.
+402|A budget proposal says how much, where and why. The why rests on the numbers (ROAS, break-even, lost impressions), so decision-makers can trust it.
+403|«For Christmas we raise Headphones to €70 a day: ROAS 5 and it loses 40% of impressions. Cables stays at €10: it's below break-even.»
+404|Giving the numbers without the why.
+405|Example from a senior colleague: «For Black Friday I'm raising Kits and gift ideas to €60 a day: it brings in 4.6 and today loses 38% of impressions to budget. Brand stays at €12: it already appears almost always. Green teas and Herbal teas don't go up: they're below the break-even ROAS of 2.5 until we see the effect of the fixes.»
+406|Break-even ROAS = 1 ÷ margin.
+407|Extra budget goes where the campaign performs well and loses impressions to budget.
+408|Brand already appears almost always.
+409|A budget proposal says how much, where and why.
+410|Approved by management first time. Let's see if Kits and gifts breaks the record!
+411|The Black Friday ads
+412|Write clear, correct discount ads: reference price, claims, end date.
+413|Black Friday is 20% off kits and accessories from 27 to 30 November. In the «Black Friday» group the ad is empty. The legal office reminds us: no claims we can't prove.
+414|Prepare the Black Friday ad following the rules on discounts.
+415|Crossed-out price: which price is shown as «was»?
+416|Think about the European rules on discounts.
+417|Under the European Omnibus directive (in the Italian Consumer Code since 2023), anyone announcing a discount must show as the previous price the lowest one applied in the 30 days before the discount. That way you can't raise the price in October to fake a bigger discount in November.
+418|A jacket cost €100 but for two weeks in October it was €80: the November discount is calculated from €80.
+419|Using the highest price ever charged to make the discount look bigger.
+420|The lowest price in the 30 days before the discount
+421|The highest price of the year
+422|That's exactly what the rules forbid.
+423|The manufacturer's recommended price, always
+424|The reference is the lowest price of the last 30 days.
+425|The 20% off is calculated from the lowest price of the previous 30 days.
+426|Which sentence can NOT be written in the ad?
+427|Think about what can be proven.
+428|Ads don't contain claims that can't be proven (the lowest prices, the best in Italy): it's misleading advertising. Ad platforms also often reject unverifiable superlatives.
+429|An agency writes «Cheap flights from €29» (true and verifiable), not «The cheapest flights in the world».
+430|Thinking anything goes on Black Friday.
+431|«The lowest tea prices in Italy»
+432|«20% off kits and accessories until 30/11»
+433|It's true and has a date: it can be written.
+434|«Shipping in 24/48 hours»
+435|It's true: it can be written.
+436|«The lowest prices in Italy» can't be proven: it's a misleading claim.
+437|Open the Kits and gift ideas campaign
+438|Write the Black Friday ad
+439|In the «Black Friday» group write the ad (at least 5 headlines and 2 descriptions), choose the landing page and the end date.
+440|A discount ad says how much, on what and until when. The ad's end date must match the end of the offer, so nobody sees a discount that no longer exists.
+441|«30% off yoga courses», «Only until Sunday the 12th», «Sign up by 12 November».
+442|Leaving the ad running after the discount has ended.
+443|The ad states the discount and the date and leads to the right page; it switches itself off on 30 November.
+444|How will you know whether Black Friday went well?
+445|Think about what to compare.
+446|To assess a promotion you compare the same numbers (orders, ROAS, CPA) with a similar period without a promotion, and check that the margin is still positive with the discount.
+447|A shop compares the sale week with the 4 weeks before, and checks break-even ROAS against the discounted margin.
+448|Only checking that sales went up.
+449|I compare orders and ROAS with the weeks before, remembering that the margin is lower with the discount
+450|I check whether clicks went up
+451|With a discount they almost always go up: what counts is whether you earn.
+452|I check whether followers increased
+453|It's a social media metric, not a campaign one.
+454|With 20% off the margin falls: break-even ROAS rises. It must be checked before celebrating.
+455|Write Davide the Black Friday summary
+456|Write 3-5 sentences: what you prepared (budget and ad) and what you'll check afterwards.
+457|A work summary says what's ready, what's expected and how it will be checked. The reader must be able to say «ok» without asking questions.
+458|«I've prepared the Christmas campaign: budget €60 a day, ad with the discount and the end date. Afterwards I'll check orders and ROAS against November.»
+459|Describing the steps instead of the result.
+460|Example from a senior colleague: «For Black Friday Kits and gift ideas goes up to €60 a day. The ad says 20% off kits and accessories until 30 November, leads to the accessories page and switches itself off on the 30th. The discount starts from the lowest price of the last 30 days. Afterwards I'll compare orders and ROAS with the weeks before, taking the lower margin into account.»
+461|The discount is calculated from the lowest price of the 30 days before (Omnibus).
+462|No claims that can't be proven.
+463|The ad's end date matches the end of the offer.
+464|With the discount, break-even ROAS rises.
+465|Perfect and lawyer-proof too. Black Friday is ready!

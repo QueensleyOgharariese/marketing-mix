@@ -1,13 +1,19 @@
 ---
-import { LINGUE_APP } from "../../../../../i18n";
+import { LINGUE_APP, linguaDa } from "../../../../../i18n";
 // SIMULAZIONE SEA · RENDIMENTO SUL SITO
 // Cosa succede dopo il clic, gruppo per gruppo (dalle statistiche del negozio), accanto al costo degli annunci.
 // In alto il margine lordo medio: serve per il ROAS di pareggio (1 ÷ margine), che chi gioca calcola da sé.
 import Console from "../../../../../components/seopro/Console.astro";
 import R from "../../../../../data/app/sea-sim/rendimento.json";
-import CONTO from "../../../../../data/app/sea-sim/account.json";
-import { num } from "../../../../../scripts/tabella";
-const euro = (x: number) => num(x, 2) + " €";
+import CONTO_IT from "../../../../../data/app/sea-sim/account.json";
+import CONTO_EN from "../../../../../data/app/sea-sim/account.en.json";
+import { num as numero } from "../../../../../scripts/tabella";
+import { euro as euroL } from "../../../../../scripts/sea/stato";
+const lang = linguaDa(Astro.url);
+const L = (it: string, en: string) => (lang === "en" ? en : it);
+const CONTO = lang === "en" ? (CONTO_EN as typeof CONTO_IT) : CONTO_IT;
+const num = (x: number, d = 0) => numero(x, d, lang === "en");
+const euro = (x: number, d = 2) => euroL(x, d, lang === "en");
 const gruppi = CONTO.campagne.flatMap((c) => c.gruppi.map((g) => ({ ...g, campagna: c.nome })));
 const righe = R.righe.map((r) => {
   const g = gruppi.find((x) => x.id === r.gruppo)!;
@@ -16,18 +22,18 @@ const righe = R.righe.map((r) => {
 });
 export function getStaticPaths() { return LINGUE_APP(); }
 ---
-<Console sim="sea" attivo="rendimento" titolo="Rendimento sul sito" sottotitolo="Visite arrivate dagli annunci, dal 1 al 28 ottobre 2026" ispirato="le statistiche di un sito e-commerce (nome generico)">
+<Console sim="sea" attivo="rendimento" titolo={L("Rendimento sul sito", "Website performance")} sottotitolo={L("Visite arrivate dagli annunci, dal 1 al 28 ottobre 2026", "Visits from the ads, 1 to 28 October 2026")} ispirato={L("le statistiche di un sito e-commerce (nome generico)", "an e-commerce site's analytics (generic name)")}>
   <div class="sp-cifre" data-margine>
-    <div class="sp-cifra"><span>Margine lordo medio sui prodotti</span><strong>{Math.round(CONTO.margine * 100)}%</strong><small>su 100 € di vendite, 40 € restano dopo il costo dei prodotti</small></div>
-    <div class="sp-cifra"><span>Ordini arrivati dagli annunci</span><strong>{righe.reduce((s, r) => s + r.ordini, 0)}</strong></div>
-    <div class="sp-cifra"><span>Ricavi dagli annunci</span><strong>{num(righe.reduce((s, r) => s + r.ricavi, 0))} €</strong></div>
+    <div class="sp-cifra"><span>{L("Margine lordo medio sui prodotti", "Average gross margin on products")}</span><strong>{Math.round(CONTO.margine * 100)}%</strong><small>{L("su 100 € di vendite, 40 € restano dopo il costo dei prodotti", "out of €100 of sales, €40 is left after the cost of the products")}</small></div>
+    <div class="sp-cifra"><span>{L("Ordini arrivati dagli annunci", "Orders from the ads")}</span><strong>{righe.reduce((s, r) => s + r.ordini, 0)}</strong></div>
+    <div class="sp-cifra"><span>{L("Ricavi dagli annunci", "Revenue from the ads")}</span><strong>{euro(righe.reduce((s, r) => s + r.ricavi, 0), 0)}</strong></div>
   </div>
   <section class="sp-pannello">
     <div class="sp-scorri">
       <table data-tabella id="t-rendimento">
-        <thead><tr><th data-ordina="testo">Campagna</th><th data-ordina="testo">Gruppo</th><th data-ordina="testo">Pagina di arrivo</th>
-          <th class="n" data-ordina="numero">Sessioni</th><th class="n" data-ordina="numero">Frequenza di rimbalzo</th><th class="n" data-ordina="numero">Ordini</th>
-          <th class="n" data-ordina="numero">Ricavi</th><th class="n" data-ordina="numero">Costo annunci</th><th class="n" data-ordina="numero">ROAS</th></tr></thead>
+        <thead><tr><th data-ordina="testo">{L("Campagna", "Campaign")}</th><th data-ordina="testo">{L("Gruppo", "Group")}</th><th data-ordina="testo">{L("Pagina di arrivo", "Landing page")}</th>
+          <th class="n" data-ordina="numero">{L("Sessioni", "Sessions")}</th><th class="n" data-ordina="numero">{L("Frequenza di rimbalzo", "Bounce rate")}</th><th class="n" data-ordina="numero">{L("Ordini", "Orders")}</th>
+          <th class="n" data-ordina="numero">{L("Ricavi", "Revenue")}</th><th class="n" data-ordina="numero">{L("Costo annunci", "Ad cost")}</th><th class="n" data-ordina="numero">ROAS</th></tr></thead>
         <tbody>{righe.map((r) => (
           <tr><td>{r.nomeC}</td><td><strong>{r.nomeG}</strong></td><td class="url">{r.pagina}</td>
             <td class="n" data-valore={r.sessioni}>{num(r.sessioni)}</td><td class="n" data-valore={r.rimbalzo}>{Math.round(r.rimbalzo * 100)}%</td>
@@ -35,7 +41,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
         ))}</tbody>
       </table>
     </div>
-    <p class="sp-nota">Frequenza di rimbalzo: su 100 visite, quante lasciano il sito dalla prima pagina senza fare altro. ROAS = ricavi ÷ costo degli annunci del gruppo.</p>
+    <p class="sp-nota">{L("Frequenza di rimbalzo: su 100 visite, quante lasciano il sito dalla prima pagina senza fare altro. ROAS = ricavi ÷ costo degli annunci del gruppo.", "Bounce rate: out of 100 visits, how many leave the site from the first page without doing anything else. ROAS = revenue ÷ the group's ad cost.")}</p>
   </section>
 </Console>
 <script>

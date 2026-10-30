@@ -1,20 +1,25 @@
 ---
-import { LINGUE_APP } from "../../../../../i18n";
+import { LINGUE_APP, linguaDa } from "../../../../../i18n";
 // SIMULAZIONE SEA · PANORAMICA (pagina di partenza)
 // Stessa struttura di SEO e Social: benvenuto, messaggio del responsabile (Davide, inventato), tutorial,
 // poi i tre livelli (Basi, Diagnosi, Casi). Un livello si apre quando è finito quello prima.
 // Lo stato degli esercizi arriva dal browser (scripts/sea/missioni-sea.ts).
 import Console from "../../../../../components/seopro/Console.astro";
-import dati from "../../../../../data/app/sea-sim/esercizi.json";
+import datiIt from "../../../../../data/app/sea-sim/esercizi.json";
+import datiEn from "../../../../../data/app/sea-sim/esercizi.en.json";
 import CONTO from "../../../../../data/app/sea-sim/account.json";
-import { num } from "../../../../../scripts/tabella";
+import { num as numero } from "../../../../../scripts/tabella";
 
+const lang = linguaDa(Astro.url);
+const L = (it: string, en: string) => (lang === "en" ? en : it);
+const dati = lang === "en" ? (datiEn as typeof datiIt) : datiIt;
+const num = (x: number) => numero(x, 0, lang === "en");
 const A = "/app/simulazioni/sea";
 const STRUMENTI = [
-  { nome: "Campagne", link: `${A}/campagne/`, cosa: "Budget, parole chiave, corrispondenze, negative e annunci di ogni campagna." },
-  { nome: "Termini di ricerca", link: `${A}/termini/`, cosa: "Cosa hanno scritto davvero le persone prima di cliccare." },
-  { nome: "Pianificatore keyword", link: `${A}/pianificatore/`, cosa: "Ricerche al mese, costo per clic previsto e intento." },
-  { nome: "Rendimento sul sito", link: `${A}/rendimento/`, cosa: "Cosa succede dopo il clic: pagine di arrivo, ordini, ricavi." },
+  { nome: L("Campagne", "Campaigns"), link: `${A}/campagne/`, cosa: L("Budget, parole chiave, corrispondenze, negative e annunci di ogni campagna.", "Budget, keywords, match types, negatives and ads for each campaign.") },
+  { nome: L("Termini di ricerca", "Search terms"), link: `${A}/termini/`, cosa: L("Cosa hanno scritto davvero le persone prima di cliccare.", "What people actually typed before clicking.") },
+  { nome: L("Pianificatore keyword", "Keyword planner"), link: `${A}/pianificatore/`, cosa: L("Ricerche al mese, costo per clic previsto e intento.", "Searches per month, expected cost per click and intent.") },
+  { nome: L("Rendimento sul sito", "Website performance"), link: `${A}/rendimento/`, cosa: L("Cosa succede dopo il clic: pagine di arrivo, ordini, ricavi.", "What happens after the click: landing pages, orders, revenue.") },
 ];
 const TUTORIAL = dati.missioni.find((m) => m.id === "tutorial")!;
 const LIVELLI = dati.livelli.filter((l) => l.n > 0).map((l) => ({ ...l, esercizi: dati.missioni.filter((m) => m.livello === l.n) }));
@@ -23,36 +28,36 @@ const kws = CONTO.campagne.flatMap((c) => c.gruppi.flatMap((g) => g.keyword));
 const costo = kws.reduce((s, k) => s + k.costo, 0), valore = kws.reduce((s, k) => s + k.valore, 0);
 export function getStaticPaths() { return LINGUE_APP(); }
 ---
-<Console sim="sea" attivo="percorso" titolo="Simulazione SEA">
+<Console sim="sea" attivo="percorso" titolo={L("Simulazione SEA", "SEA Simulation")}>
   <section class="apertura">
     <div class="benvenuto">
-      <p class="occhiello">Simulazione · primo giorno da SEA specialist</p>
-      <h2>Benvenuta nel team performance di Cinque Foglie</h2>
-      <p>Hai a disposizione l'account pubblicitario del negozio con le campagne, i termini di ricerca, il pianificatore delle parole chiave e i dati di vendita del sito. Si parte dal tutorial, poi tre livelli: <strong>Basi</strong>, <strong>Diagnosi</strong> e <strong>Casi</strong>. Ogni livello si apre quando finisci quello prima; dentro il livello scegli tu l'ordine.</p>
+      <p class="occhiello">{L("Simulazione · primo giorno da SEA specialist", "Simulation · first day as a SEA specialist")}</p>
+      <h2>{L("Benvenuta nel team performance di Cinque Foglie", "Welcome to the Cinque Foglie performance team")}</h2>
+      <p set:html={L("Hai a disposizione l'account pubblicitario del negozio con le campagne, i termini di ricerca, il pianificatore delle parole chiave e i dati di vendita del sito. Si parte dal tutorial, poi tre livelli: <strong>Basi</strong>, <strong>Diagnosi</strong> e <strong>Casi</strong>. Ogni livello si apre quando finisci quello prima; dentro il livello scegli tu l'ordine.", "You have the shop's ad account with the campaigns, the search terms, the keyword planner and the website's sales data. You start with the tutorial, then three levels: <strong>Basics</strong>, <strong>Diagnosis</strong> and <strong>Cases</strong>. Each level unlocks when you finish the one before; within a level you choose the order.")} />
       <div class="bottoni">
-        <button type="button" class="bottone-app" data-avvia-prossima>Inizia il tutorial</button>
-        <a class="bottone-scuro" href="/app/simulazioni/sea/campagne/">Prima guardo le campagne</a>
+        <button type="button" class="bottone-app" data-avvia-prossima>{L("Inizia il tutorial", "Start the tutorial")}</button>
+        <a class="bottone-scuro" href="/app/simulazioni/sea/campagne/">{L("Prima guardo le campagne", "I'll look at the campaigns first")}</a>
       </div>
-      <button type="button" class="salta" data-salta hidden>Conosco già gli strumenti: salta il tutorial</button>
+      <button type="button" class="salta" data-salta hidden>{L("Conosco già gli strumenti: salta il tutorial", "I already know the tools: skip the tutorial")}</button>
     </div>
     <article class="messaggio">
-      <div class="mittente"><span class="avatar avatar--verde">DR</span><span><strong>Davide R.</strong><span class="nota">Performance marketing manager, oggi alle 9:20</span></span></div>
-      <strong>Benvenuta!</strong>
-      <p>Questa settimana lavori con me sugli annunci a pagamento. Si parte da una campagna nuova e dai numeri, poi i problemi veri. A ottobre abbiamo speso {num(costo)} € in annunci e sono tornati {num(valore)} € di vendite: qualche campagna fa guadagnare, qualcuna no. E poi c'è il Black Friday.</p>
-      <span class="nota">Persona e azienda inventate</span>
+      <div class="mittente"><span class="avatar avatar--verde">DR</span><span><strong>Davide R.</strong><span class="nota">{L("Performance marketing manager, oggi alle 9:20", "Performance marketing manager, today at 9:20")}</span></span></div>
+      <strong>{L("Benvenuta!", "Welcome!")}</strong>
+      <p>{L(`Questa settimana lavori con me sugli annunci a pagamento. Si parte da una campagna nuova e dai numeri, poi i problemi veri. A ottobre abbiamo speso ${num(costo)} € in annunci e sono tornati ${num(valore)} € di vendite: qualche campagna fa guadagnare, qualcuna no. E poi c'è il Black Friday.`, `This week you're working with me on paid ads. We start with a new campaign and the numbers, then the real problems. In October we spent €${num(costo)} on ads and €${num(valore)} of sales came back: some campaigns make money, some don't. And then there's Black Friday.`)}</p>
+      <span class="nota">{L("Persona e azienda inventate", "Fictional person and company")}</span>
     </article>
   </section>
 
 <section class="tutorial" data-tutorial>
     <div class="tut-testo">
-      <span class="tut-etichetta">Livello 0 · Da fare per primo · {TUTORIAL.tempo}</span>
+      <span class="tut-etichetta">{L("Livello 0 · Da fare per primo", "Level 0 · Do this first")} · {TUTORIAL.tempo}</span>
       <h2 class="titoletto">{TUTORIAL.nome}</h2>
       <p>{TUTORIAL.cosa}</p>
     </div>
     <ol class="tut-passi">
       {TUTORIAL.passi.map((p) => <li>{p.domanda}</li>)}
     </ol>
-    <div class="tut-azione"><span class="stato" data-tut-stato>Da iniziare</span><button type="button" class="bottone-app" data-tut-azione>Inizia il tutorial</button></div>
+    <div class="tut-azione"><span class="stato" data-tut-stato>{L("Da iniziare", "Not started")}</span><button type="button" class="bottone-app" data-tut-azione>{L("Inizia il tutorial", "Start the tutorial")}</button></div>
   </section>
 
   <div id="livelli" class="livelli">
@@ -61,18 +66,18 @@ export function getStaticPaths() { return LINGUE_APP(); }
         <div class="livello-testa">
           <span class="livello-n" aria-hidden="true">{l.n}</span>
           <div>
-            <h2 class="titoletto">Livello {l.n} · {l.nome}</h2>
+            <h2 class="titoletto">{L("Livello", "Level")} {l.n} · {l.nome}</h2>
             <p class="nota">{l.cosa}</p>
           </div>
-          <span class="livello-stato" data-livello-stato>Si apre quando finisci: {prima(l.n)}</span>
+          <span class="livello-stato" data-livello-stato>{L("Si apre quando finisci:", "Unlocks when you finish:")} {prima(l.n)}</span>
         </div>
         <ol class="esercizi">
           {l.esercizi.map((m) => (
             <li class="esercizio" data-missione={m.id}>
               <strong>{m.nome}</strong>
               <span class="cosa">{m.cosa}</span>
-              <span class="meta">{m.passi.length} mini esercizi · {m.tempo}<br />{m.strumenti}</span>
-              <div class="riga-stato"><span class="stato" data-stato>Chiuso</span><button type="button" class="azione" data-azione hidden></button></div>
+              <span class="meta">{m.passi.length} {L("mini esercizi", "mini exercises")} · {m.tempo}<br />{m.strumenti}</span>
+              <div class="riga-stato"><span class="stato" data-stato>{L("Chiuso", "Locked")}</span><button type="button" class="azione" data-azione hidden></button></div>
             </li>
           ))}
         </ol>
@@ -82,7 +87,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
 
   <section class="sotto">
     <div class="strumenti">
-      <h2 class="titoletto">Gli strumenti</h2>
+      <h2 class="titoletto">{L("Gli strumenti", "The tools")}</h2>
       <div class="griglia">
         {STRUMENTI.map((s) => (
           <a class="strumento" href={s.link}>
@@ -93,18 +98,19 @@ export function getStaticPaths() { return LINGUE_APP(); }
       </div>
     </div>
     <aside class="parole">
-      <h2 class="titoletto">Parole che incontrerai</h2>
+      <h2 class="titoletto">{L("Parole che incontrerai", "Words you'll come across")}</h2>
       <dl>
-        <div><dt>CTR</dt><dd>Su 100 persone che vedono l'annuncio, quante cliccano.</dd></div>
-        <div><dt>CPC</dt><dd>Quanto costa in media un clic.</dd></div>
-        <div><dt>CPA</dt><dd>Quanto costa in annunci una vendita.</dd></div>
-        <div><dt>ROAS</dt><dd>Euro di vendite per ogni euro speso in annunci.</dd></div>
+        <div><dt>CTR</dt><dd>{L("Su 100 persone che vedono l'annuncio, quante cliccano.", "Out of 100 people who see the ad, how many click.")}</dd></div>
+        <div><dt>CPC</dt><dd>{L("Quanto costa in media un clic.", "How much a click costs on average.")}</dd></div>
+        <div><dt>CPA</dt><dd>{L("Quanto costa in annunci una vendita.", "How much a sale costs in ads.")}</dd></div>
+        <div><dt>ROAS</dt><dd>{L("Euro di vendite per ogni euro speso in annunci.", "Euros of sales for every euro spent on ads.")}</dd></div>
       </dl>
     </aside>
   </section>
 </Console>
 
 <script>
+  import { t } from "../../../../../scripts/lingua";
   import { motoreSea } from "../../../../../scripts/sea/missioni-sea";
   const { TUTTE, MISSIONI, TUTORIAL, LIVELLI, leggiStato, sbloccata, livelloAperto, fatta, punti, avvia, tutorialFatto, saltaTutorial, consigliata } = motoreSea;
   const s = leggiStato();
@@ -115,8 +121,8 @@ export function getStaticPaths() { return LINGUE_APP(); }
   const tut = document.querySelector<HTMLElement>("[data-tutorial]")!;
   const tutStato = tut.querySelector<HTMLElement>("[data-tut-stato]")!;
   const tutAzione = tut.querySelector<HTMLButtonElement>("[data-tut-azione]")!;
-  if (tutorialFatto(s)) { tut.classList.add("fatta"); tutStato.textContent = "Fatto"; tutAzione.textContent = "Rifai il tutorial"; tutAzione.className = "azione"; }
-  else if (st?.stato === "in-corso") { tutStato.textContent = `In corso, passo ${st.passo + 1} di ${TUTORIAL.passi.length}`; tutAzione.textContent = "Continua il tutorial"; }
+  if (tutorialFatto(s)) { tut.classList.add("fatta"); tutStato.textContent = t("Fatto", "Done"); tutAzione.textContent = t("Rifai il tutorial", "Redo the tutorial"); tutAzione.className = "azione"; }
+  else if (st?.stato === "in-corso") { tutStato.textContent = t(`In corso, passo ${st.passo + 1} di ${TUTORIAL.passi.length}`, `In progress, step ${st.passo + 1} of ${TUTORIAL.passi.length}`); tutAzione.textContent = t("Continua il tutorial", "Continue the tutorial"); }
   tutAzione.addEventListener("click", () => { location.href = avvia("tutorial"); });
 
   // Livelli: aperto o chiuso, quanti esercizi fatti
@@ -124,7 +130,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
     const sez = document.querySelector<HTMLElement>(`[data-livello="${l.n}"]`)!;
     const es = MISSIONI.filter((m) => m.livello === l.n);
     const n = es.filter((m) => fatta(s, m)).length;
-    if (livelloAperto(s, l.n)) sez.querySelector("[data-livello-stato]")!.textContent = n === es.length ? "Livello completato" : `${n} di ${es.length} fatti`;
+    if (livelloAperto(s, l.n)) sez.querySelector("[data-livello-stato]")!.textContent = n === es.length ? t("Livello completato", "Level completed") : t(`${n} di ${es.length} fatti`, `${n} of ${es.length} done`);
     else sez.classList.add("chiuso");
     if (n === es.length) sez.classList.add("completato");
   }
@@ -137,10 +143,10 @@ export function getStaticPaths() { return LINGUE_APP(); }
     const sm = s.missioni[m.id];
     if (!sbloccata(s, m)) continue;
     azione.hidden = false;
-    if (sm?.stato === "completata") { stato.textContent = `Fatto, ${punti(sm)} punti`; azione.textContent = "Rifai"; li.classList.add("fatta"); }
-    else if (sm?.stato === "in-corso") { stato.textContent = `In corso, passo ${sm.passo + 1} di ${m.passi.length}`; azione.textContent = "Continua"; }
-    else { stato.textContent = "Da fare"; azione.textContent = "Inizia"; }
-    if (m.id === prossima?.id && sm?.stato !== "in-corso") { li.classList.add("prima"); stato.textContent = "Consigliato ora"; }
+    if (sm?.stato === "completata") { stato.textContent = t(`Fatto, ${punti(sm)} punti`, `Done, ${punti(sm)} points`); azione.textContent = t("Rifai", "Redo"); li.classList.add("fatta"); }
+    else if (sm?.stato === "in-corso") { stato.textContent = t(`In corso, passo ${sm.passo + 1} di ${m.passi.length}`, `In progress, step ${sm.passo + 1} of ${m.passi.length}`); azione.textContent = t("Continua", "Continue"); }
+    else { stato.textContent = t("Da fare", "To do"); azione.textContent = t("Inizia", "Start"); }
+    if (m.id === prossima?.id && sm?.stato !== "in-corso") { li.classList.add("prima"); stato.textContent = t("Consigliato ora", "Recommended now"); }
     azione.addEventListener("click", () => { location.href = avvia(m.id); });
   }
 
@@ -150,9 +156,9 @@ export function getStaticPaths() { return LINGUE_APP(); }
   const inCorso = TUTTE.find((m) => s.attiva === m.id && s.missioni[m.id]?.stato === "in-corso") ?? TUTTE.find((m) => s.missioni[m.id]?.stato === "in-corso");
   const m = inCorso ?? prossima;
   if (m) {
-    hero.textContent = m.id === "tutorial" ? (inCorso ? "Continua il tutorial" : "Inizia il tutorial") : `${inCorso ? "Continua" : "Inizia"}: ${m.nome}`;
+    hero.textContent = m.id === "tutorial" ? (inCorso ? t("Continua il tutorial", "Continue the tutorial") : t("Inizia il tutorial", "Start the tutorial")) : `${inCorso ? t("Continua", "Continue") : t("Inizia", "Start")}: ${m.nome}`;
     hero.addEventListener("click", () => { location.href = avvia(m.id); });
-  } else { hero.textContent = "Hai finito tutti gli esercizi"; hero.disabled = true; }
+  } else { hero.textContent = t("Hai finito tutti gli esercizi", "You have finished all the exercises"); hero.disabled = true; }
   if (!tutorialFatto(s)) { salta.hidden = false; salta.addEventListener("click", () => { saltaTutorial(); location.reload(); }); }
 </script>
 

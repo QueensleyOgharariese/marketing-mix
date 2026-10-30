@@ -11,7 +11,8 @@ import aziendaEn from "../../../../data/app/cinque-foglie.en.json";
 import seo from "../../../../data/app/seo-pro/missioni.json";
 import socialIt from "../../../../data/app/social-sim/esercizi.json";
 import socialEn from "../../../../data/app/social-sim/esercizi.en.json";
-import sea from "../../../../data/app/sea-sim/esercizi.json";
+import seaIt from "../../../../data/app/sea-sim/esercizi.json";
+import seaEn from "../../../../data/app/sea-sim/esercizi.en.json";
 import brand from "../../../../data/app/brand-sim/esercizi.json";
 
 const lang = linguaDa(Astro.url);
@@ -21,7 +22,7 @@ const azienda = EN ? aziendaEn : aziendaIt;
 // Una scheda per simulazione: id del ruolo, link, testo e file degli esercizi (in inglese quando c'è)
 const SIM = [
   { id: "seo", nome: L("Simulazione SEO", "SEO Simulation"), link: "/app/percorsi/seo/", dati: seo, testo: L("Le tisane sono sparite da Google, una categoria non viene cliccata, ottobre va male: trovi i problemi negli strumenti e li correggi sul sito.", "The herbal teas have vanished from Google, a category isn't getting clicks, October is going badly: you find the problems in the tools and fix them on the website.") },
-  { id: "sea", nome: L("Simulazione SEA", "SEA Simulation"), link: "/app/simulazioni/sea/", dati: sea, testo: L("Una campagna nuova per il kit matcha, una campagna che spende tanto e vende poco, un annuncio copiato nel posto sbagliato e il budget del Black Friday da dividere.", "A new campaign for the matcha kit, a campaign that spends a lot and sells little, an ad copied into the wrong place and the Black Friday budget to split.") },
+  { id: "sea", nome: L("Simulazione SEA", "SEA Simulation"), link: "/app/simulazioni/sea/", dati: EN ? (seaEn as typeof seaIt) : seaIt, testo: L("Una campagna nuova per il kit matcha, una campagna che spende tanto e vende poco, un annuncio copiato nel posto sbagliato e il budget del Black Friday da dividere.", "A new campaign for the matcha kit, a campaign that spends a lot and sells little, an ad copied into the wrong place and the Black Friday budget to split.") },
   { id: "brand", nome: L("Simulazione Brand", "Brand Simulation"), link: "/app/simulazioni/brand/", dati: brand, testo: L("Il posizionamento da scrivere, testi fuori tono, un NPS che crolla, una frase «100% sostenibile» da correggere, la strategia 2027 e l'ufficio stampa.", "The positioning to write, off-tone copy, a collapsing NPS, a «100% sustainable» claim to fix, the 2027 strategy and the press office.") },
   { id: "social", nome: L("Simulazione Social", "Social Simulation"), link: "/app/simulazioni/social/", dati: EN ? (socialEn as typeof socialIt) : socialIt, testo: L("Un post da preparare, commenti da gestire, foto usate senza permesso e una copertura crollata a fine settembre: lavori sul profilo, sul calendario e sui commenti.", "A post to prepare, comments to handle, photos used without permission and reach that collapsed at the end of September: you work on the profile, the calendar and the comments.") },
 ].map((s) => {

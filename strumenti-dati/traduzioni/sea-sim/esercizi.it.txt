@@ -1,0 +1,465 @@
+1|Tutorial
+2|Come funziona l'account.
+3|Basi
+4|Un concetto alla volta. «Come funziona» è già aperto e l'indizio è sempre disponibile.
+5|Diagnosi
+6|Problemi mescolati, anche falsi allarmi. «Come funziona» lo apri tu.
+7|Casi
+8|Nessun indizio: solo dati e teoria. Il budget e gli annunci del Black Friday.
+9|Tutorial: come funziona
+10|8 minuti
+11|Campagne
+12|Dove sono le cose e come si salva e si controlla una modifica.
+13|Ciao, sono Davide e seguo gli annunci a pagamento di Cinque Foglie. Prima di iniziare ti mostro l'account: dieci minuti e sei operativa.
+14|Impara a muoverti tra campagne, termini di ricerca e statistiche e a salvare una modifica.
+15|Come è fatta la scrivania
+16|Lavori sull'account pubblicitario di Cinque Foglie, un negozio online di tè inventato. Lo schermo ha tre zone.
+17|<strong>A sinistra il menu</strong> (sul telefono è in alto): le campagne, i termini di ricerca, il pianificatore delle parole chiave e il rendimento sul sito.
+18|<strong>Al centro</strong> lo strumento aperto.
+19|<strong>A destra questa guida</strong>: in alto il compito, sotto le risposte. Le schede <strong>Come funziona</strong>, <strong>Teoria</strong> e <strong>Indizio</strong> ti aiutano quando serve; il bottone per controllare è sempre in fondo.
+20|I numeri sono del periodo 1-28 ottobre 2026 e sono inventati, ma coerenti tra uno strumento e l'altro.
+21|Quale campagna ha speso di più a ottobre?
+22|Guarda la colonna Costo nella tabella delle campagne.
+23|La tabella delle campagne riassume ogni campagna: quante volte gli annunci sono comparsi (impressioni), quanti clic, quanto è costato e quante vendite (conversioni) hanno portato.
+24|Un'agenzia di viaggi guarda la tabella e vede che la campagna «Crociere» ha speso 2.000 € in un mese.
+25|Brand · Cinque Foglie
+26|Il brand costa poco: chi cerca il nome del negozio clicca molto e il clic costa poco.
+27|Tè verdi
+28|Kit e idee regalo
+29|Guarda di nuovo la colonna Costo.
+30|Tè verdi ha speso più di 900 € in quattro settimane: la ritroverai negli esercizi.
+31|Ordina la tabella cliccando l'intestazione Costo.
+32|Apri la campagna
+33|Salva la tua prima modifica
+34|Apri la campagna «Brand · Cinque Foglie» e porta il budget giornaliero da 10 a 12 €. Poi salva.
+35|Il budget giornaliero è quanto la campagna può spendere in media al giorno. Nelle impostazioni della campagna lo cambi e premi Salva: vale da subito.
+36|Un ristorante alza il budget giornaliero della campagna «Prenota un tavolo» per il weekend di San Valentino.
+37|Hai cambiato un'impostazione e l'hai controllata: negli esercizi si lavora sempre così.
+38|Clicca il nome della campagna nella tabella: si aprono le impostazioni.
+39|Punti, livelli e come scegliere
+40|Ultime regole, poi si parte dalle Basi.
+41|Tre livelli: <strong>Basi</strong>, <strong>Diagnosi</strong> e <strong>Casi</strong>. Ogni esercizio è un piccolo progetto fatto di mini esercizi.
+42|<strong>Come funziona</strong> spiega lo strumento, non la risposta. <strong>Teoria</strong> è gratis. <strong>Indizio</strong> costa 5 punti.
+43|La guida cala salendo di livello: nelle Basi «Come funziona» è già aperto, in Diagnosi lo apri tu, nei Casi ci sono solo teoria e dati.
+44|Ogni esercizio parte da 100 punti: una risposta sbagliata toglie 10 punti. Quando lavori negli strumenti puoi riprovare senza perdere punti.
+45|La tabella delle campagne riassume costi e risultati.
+46|Il budget giornaliero si cambia nelle impostazioni della campagna.
+47|Dopo ogni modifica si controlla.
+48|Perfetto, ora sai muoverti nell'account. Si parte dalle Basi.
+49|La campagna del kit matcha
+50|35 minuti
+51|Pianificatore, Campagne
+52|Dalle parole chiave all'annuncio pubblicato: corrispondenze, testi, pagina di arrivo e budget.
+53|Il kit matcha va forte sui social, ma su Google non abbiamo nessun annuncio. La campagna «Kit matcha» è in bozza e vuota: me la prepari? Budget: 450 € al mese.
+54|Costruire e pubblicare la campagna del kit matcha: parole chiave, annuncio, pagina di arrivo e budget.
+55|Quali parole chiave cercano persone pronte a comprare?
+56|Guarda la colonna Intento nel Pianificatore. Puoi scegliere più risposte.
+57|Con gli annunci a pagamento si paga ogni clic: conviene comparire quando la persona vuole comprare, non quando cerca informazioni. Chi scrive «kit matcha» probabilmente vuole un kit; chi scrive «matcha benefici» vuole leggere un articolo.
+58|Una scuola di inglese fa annunci per «corso inglese online prezzi», non per «come si dice ciao in inglese».
+59|Scegliere le parole chiave con più ricerche senza guardare cosa vuole chi cerca.
+60|kit matcha
+61|frusta matcha
+62|matcha benefici
+63|Chi cerca i benefici vuole informarsi, non comprare (e non si possono promettere effetti sulla salute).
+64|matcha latte ricetta
+65|Chi cerca una ricetta vuole cucinare, non comprare un kit.
+66|«Kit matcha» e «frusta matcha» hanno intento di acquisto: chi le cerca sta già pensando di comprare.
+67|Le parole con intento «informativo» portano clic che costano ma non vendono.
+68|Perché non usare la parola chiave «matcha» da sola?
+69|Confronta «matcha» con «kit matcha» nel Pianificatore.
+70|Una parola chiave molto generica ha tante ricerche ma intenti diversi mescolati: c'è chi vuole comprare, chi leggere, chi una ricetta. In più costa di più, perché la cercano tutti i concorrenti.
+71|Un negozio di bici non punta su «bici» (troppo generica) ma su «bici elettrica pieghevole».
+72|Pensare che più ricerche voglia dire più vendite.
+73|È troppo generica: intenti mescolati e clic più cari
+74|Ha poche ricerche
+75|Al contrario: ne ha tantissime.
+76|Non si può usare perché è una parola straniera
+77|Si può usare: il problema è che è troppo generica.
+78|«Matcha» ha 49.500 ricerche al mese ma intento misto e CPC fino a 1,60 €: si pagherebbero tanti clic di curiosi.
+79|Aggiungi le parole chiave
+80|Nella campagna «Kit matcha», gruppo «Kit matcha», aggiungi almeno 3 parole chiave con intento di acquisto, in corrispondenza a frase o esatta.
+81|La corrispondenza dice quanto la ricerca deve somigliare alla parola chiave. Generica: anche ricerche solo collegate (rischiosa). A frase: ricerche che contengono il significato della frase. Esatta: solo ricerche con lo stesso significato. Per iniziare con poco budget si usano frase ed esatta.
+82|Un fioraio aggiunge «consegna fiori Verona» a frase e «fiorista Verona» esatta.
+83|Aggiungere parole generiche in corrispondenza generica: l'annuncio compare per ricerche lontane e il budget finisce in fretta.
+84|Le parole chiave sono pronte: l'annuncio comparirà solo a chi cerca un kit o gli strumenti per il matcha.
+85|Usa parole del Pianificatore con intento di acquisto, per esempio «kit matcha» a frase.
+86|Per quale ricerca può comparire «kit matcha» a frase?
+87|Pensa a cosa vuol dire corrispondenza a frase.
+88|Con la corrispondenza a frase l'annuncio compare per ricerche che contengono il significato della frase, anche con parole prima o dopo. Non compare se il significato cambia.
+89|«Scarpe da corsa» a frase compare per «scarpe da corsa donna», non per «scarpe eleganti».
+90|Confondere frase e generica: la generica allarga molto di più.
+91|kit matcha con frusta da regalare
+92|matcha in polvere
+93|Manca il significato di «kit»: non compare.
+94|kit tè verde
+95|Il significato è diverso: non compare.
+96|A frase l'annuncio compare per «kit matcha con frusta da regalare»: c'è il significato di «kit matcha» con altre parole intorno.
+97|Scrivi l'annuncio
+98|Nello stesso gruppo scrivi l'annuncio: almeno 5 titoli, almeno 2 descrizioni e l'URL finale della pagina del kit.
+99|Un annuncio adattabile ha fino a 15 titoli (massimo 30 caratteri) e 4 descrizioni (massimo 90): il sistema li combina. Almeno un titolo ripete la parola chiave, le descrizioni dicono cosa c'è e invitano a fare qualcosa. L'URL finale deve portare alla pagina del prodotto, non alla home.
+100|Per un corso di yoga: titoli «Corso di yoga online», «Prima lezione gratuita», «Insegnanti certificati»; descrizione «Lezioni dal vivo e registrate. Prova la prima lezione».
+101|Mandare tutti alla home: chi ha cercato un kit deve trovarlo subito, non cercarlo di nuovo.
+102|L'annuncio parla del kit, rispetta i limiti di caratteri e porta alla pagina giusta.
+103|La pagina del kit nel negozio è /matcha/kit-matcha/.
+104|Imposta il budget e pubblica
+105|Davide ha 450 € al mese per questa campagna. Imposta il budget giornaliero giusto e pubblica la campagna.
+106|Il budget si imposta al giorno: si divide il budget del mese per i giorni medi di un mese (30,4). Alcuni giorni la campagna spende un po' di più, altri meno, ma nel mese non supera il totale.
+107|Con 300 € al mese: 300 ÷ 30,4 = circa 9,90 € al giorno.
+108|Dividere per 30 o per 31 a caso, o mettere il budget del mese nel campo del giorno.
+109|La campagna è pubblicata con circa 15 € al giorno: nel mese resterà nei 450 €.
+110|450 ÷ 30,4 = ?
+111|Dopo una settimana, cosa guardi per sapere se funziona?
+112|Pensa all'obiettivo: vendere kit.
+113|Per una campagna di vendita il numero chiave è quanto costa una vendita (CPA, costo per acquisizione) confrontato con quanto si guadagna su una vendita. Impressioni e clic dicono se l'annuncio è visto e scelto, non se vende.
+114|Una pizzeria con consegna guarda quanto le costa ogni ordine arrivato dagli annunci, non quanti hanno visto l'annuncio.
+115|Fermarsi al CTR o al numero di clic.
+116|Le conversioni e il costo per vendita (CPA)
+117|Solo le impressioni
+118|Dicono quante volte è comparso l'annuncio, non se vende.
+119|Solo il numero di clic
+120|I clic costano: conta quanti diventano vendite.
+121|CPA e conversioni dicono se ogni euro speso torna indietro come vendita.
+122|Si scelgono parole chiave con intento di acquisto.
+123|Frase ed esatta tengono il controllo; la generica allarga molto.
+124|L'annuncio ripete la parola chiave e porta alla pagina giusta.
+125|Budget giornaliero = budget mensile ÷ 30,4.
+126|Bellissimo, la campagna è online. Tra una settimana guardiamo insieme il costo per vendita.
+127|Leggere i numeri
+128|25 minuti
+129|CTR, CPC, tasso di conversione, CPA e ROAS: cosa dicono e come si calcolano.
+130|A fine mese devo raccontare alla direzione come sono andati gli annunci. Mi aiuti con i numeri della campagna «Kit e idee regalo»?
+131|Calcolare le metriche della campagna Kit e idee regalo e scrivere a Davide cosa funziona.
+132|Qual è il CTR della campagna «Kit e idee regalo»?
+133|CTR = clic ÷ impressioni × 100.
+134|Il CTR (click-through rate) dice quante persone su 100 che vedono l'annuncio ci cliccano. Un CTR alto vuol dire che l'annuncio è pertinente per quella ricerca.
+135|Un annuncio visto 2.000 volte con 80 clic: 80 ÷ 2.000 × 100 = 4%.
+136|Dividere le impressioni per i clic (il contrario).
+137|Circa 0,6%
+138|Ricontrolla: i clic sono qualche centinaio, le impressioni qualche migliaio.
+139|Circa 6,3%
+140|Circa 16%
+141|Hai diviso le impressioni per i clic?
+142|460 clic su 7.300 impressioni: circa 6,3%.
+143|Nella riga della campagna trovi impressioni e clic.
+144|Quanto costa in media un clic (CPC)?
+145|CPC medio = costo ÷ clic.
+146|Il CPC medio è quanto si paga in media per ogni clic. Dipende dall'asta: concorrenza, offerta e qualità dell'annuncio.
+147|100 € spesi per 250 clic: 0,40 € a clic.
+148|Circa 0,58 €
+149|Circa 1,73 €
+150|Hai diviso i clic per il costo?
+151|Circa 0,04 €
+152|Hai usato le impressioni al posto dei clic?
+153|266 € per 460 clic: circa 0,58 € a clic.
+154|Qual è il tasso di conversione?
+155|Tasso di conversione = conversioni ÷ clic × 100.
+156|Il tasso di conversione dice quante persone su 100 che cliccano poi comprano. Dipende molto dalla pagina di arrivo e dall'offerta.
+157|200 clic e 6 ordini: 3%.
+158|Dividere le conversioni per le impressioni.
+159|Circa 0,4%
+160|Hai diviso per le impressioni: si divide per i clic.
+161|Circa 5,9%
+162|Circa 59%
+163|Ricontrolla le cifre: 27 vendite su 460 clic.
+164|27 vendite su 460 clic: circa 5,9%.
+165|Quanto costa una vendita (CPA)?
+166|CPA = costo ÷ conversioni.
+167|Il CPA (costo per acquisizione) è quanto si spende in annunci per ottenere una vendita. Va confrontato con quanto si guadagna su una vendita.
+168|300 € di annunci e 20 vendite: 15 € a vendita.
+169|Circa 9,90 €
+170|Questo è il costo di un clic, non di una vendita.
+171|Circa 45 €
+172|Questo è più vicino al valore medio di un ordine.
+173|266 € per 27 vendite: circa 9,90 € per vendita.
+174|Qual è il ROAS?
+175|ROAS = valore delle vendite ÷ costo.
+176|Il ROAS (ritorno sulla spesa pubblicitaria) dice quanti euro di vendite arrivano per ogni euro speso in annunci. ROAS 4 vuol dire 4 € di vendite per 1 € di annunci. Attenzione: sono vendite, non guadagno.
+177|1.000 € di vendite con 250 € di annunci: ROAS 4.
+178|Confondere il ROAS con il guadagno: dalle vendite vanno tolti i costi dei prodotti.
+179|Circa 0,22
+180|Hai diviso il costo per il valore (il contrario).
+181|Circa 4,6
+182|Circa 46
+183|Ricontrolla: 1.230 € di vendite e 266 € di costo.
+184|1.230 € di vendite per 266 € di annunci: ROAS circa 4,6. È la campagna che rende di più dopo il brand.
+185|Scrivi a Davide come vanno gli annunci
+186|Scrivi 3-5 frasi: quale campagna rende di più, quale di meno (con un numero) e cosa proponi.
+187|Un report per chi decide mette prima la conclusione, poi i numeri che la dimostrano, poi una proposta. Si confrontano le campagne con la stessa metrica.
+188|«La campagna Corsi online rende di più (ROAS 5). La campagna Libri spende molto e vende poco (ROAS 0,8): propongo di controllare le parole chiave.»
+189|Elencare tutti i numeri senza dire cosa fare.
+190|Esempio di una collega senior: «La campagna Kit e idee regalo rende bene: ROAS 4,6 e una vendita costa circa 10 €. Tè verdi invece spende più di 900 € con un ROAS sotto 1: le vendite non ripagano gli annunci. Propongo di controllare le parole chiave e le pagine di arrivo di Tè verdi.»
+191|CTR = clic ÷ impressioni.
+192|CPC = costo ÷ clic. CPA = costo ÷ conversioni.
+193|ROAS = valore delle vendite ÷ costo: sono vendite, non guadagno.
+194|Chiaro e veloce, grazie. Su Tè verdi devo indagare: ti farò sapere.
+195|Tè verdi: tanti clic, poche vendite
+196|40 minuti
+197|Campagne, Termini di ricerca, Rendimento sul sito
+198|Una campagna che spende più di 900 € al mese e quasi non vende: parole chiave, termini di ricerca e pagine di arrivo.
+199|Tè verdi spende più di tutte le altre campagne e vende pochissimo. Prima di spegnerla vorrei capire cosa non va.
+200|Trovare perché Tè verdi non vende e correggere quello che serve, senza toccare quello che funziona.
+201|Qual è la campagna con il ROAS più basso?
+202|Confronta la colonna ROAS delle campagne.
+203|Il ROAS confronta le campagne a parità di spesa: dice quale trasforma meglio gli euro in vendite.
+204|Una libreria vede che la campagna «Fumetti» ha ROAS 0,8 mentre «Romanzi» ha 3.
+205|Guardare solo la spesa: una campagna può spendere tanto e rendere bene.
+206|Tisane
+207|È bassa anche lei, ma Tè verdi è ancora più bassa.
+208|È una delle migliori.
+209|Tè verdi ha ROAS sotto 1: per ogni euro speso tornano meno di 0,95 € di vendite.
+210|Quale parola chiave spende di più vendendo poco?
+211|Apri la campagna Tè verdi e guarda le parole chiave.
+212|Dentro una campagna che va male si cerca la parola chiave che pesa di più: spesso una sola parola si mangia gran parte del budget.
+213|In una campagna di un'agenzia immobiliare, «casa» in generica spende metà del budget e porta solo curiosi.
+214|Abbassare tutto in modo uguale senza cercare dove sta il problema.
+215|«tè verde», in corrispondenza generica
+216|«gyokuro»
+217|Ha pochi clic e vende bene.
+218|«tè verde biologico»
+219|Spende meno e vende di più.
+220|«Tè verde» in generica ha speso più di 500 € con solo 6 vendite.
+221|Cosa cercavano davvero le persone che hanno cliccato?
+222|Apri i Termini di ricerca e filtra la keyword «tè verde».
+223|Il rapporto dei termini di ricerca mostra le frasi esatte che le persone hanno scritto prima di cliccare. Con la corrispondenza generica compaiono ricerche lontane dalla parola chiave.
+224|Un'agenzia di viaggi con «viaggi» in generica scopre clic su «viaggi nel tempo film».
+225|Guardare solo le parole chiave e mai i termini di ricerca.
+226|Soprattutto informazioni: benefici, ricette, campioni gratis, persino lavoro
+227|Quasi solo persone che volevano comprare tè verde
+228|Guarda le righe con 0 conversioni: sono la maggior parte.
+229|Soprattutto il nome del negozio
+230|Quelle ricerche sono nella campagna Brand.
+231|Gran parte dei clic arriva da chi voleva informarsi: benefici, dimagrire, ricette, campioni gratis, lavoro. Nessuna di queste ricerche ha venduto.
+232|Apri i Termini di ricerca
+233|Escludi le ricerche sbagliate
+234|Aggiungi alla campagna Tè verdi le parole chiave negative per le ricerche che non vendono. Attenta a non escludere quelle che vendono.
+235|Una parola chiave negativa dice di non mostrare l'annuncio quando la ricerca la contiene. Si aggiungono parole che indicano un intento sbagliato (gratis, ricetta, lavoro). Una negativa troppo larga può spegnere anche le ricerche buone.
+236|Un negozio di scarpe aggiunge «usate», «gratis» e «riparazione» come negative.
+237|Escludere «tè» o «verde»: si bloccherebbero anche le ricerche che vendono.
+238|Le ricerche informative non faranno più comparire l'annuncio: il budget va a chi vuole comprare.
+239|Prendi una parola da ogni ricerca senza vendite: benefici, dimagrire, ricetta, gratis, lavoro.
+240|Restringi la parola chiave
+241|Cambia la corrispondenza di «tè verde» perché non compaia più per ricerche lontane.
+242|Le negative tolgono le ricerche sbagliate che conosci; la corrispondenza più stretta evita quelle che non hai ancora visto. Insieme tengono il budget sulle ricerche giuste.
+243|Una palestra porta «palestra» da generica a frase e aggiunge «palestra Verona centro» esatta.
+244|Lasciare la generica e inseguire ogni settimana le ricerche nuove con altre negative.
+245|«Tè verde» ora comparirà solo per ricerche che contengono quel significato.
+246|Nella tabella delle parole chiave, colonna Corrispondenza.
+247|Quale gruppo manda le persone sulla pagina sbagliata?
+248|Guarda Pagina di arrivo e Frequenza di rimbalzo nel Rendimento sul sito.
+249|La pagina di arrivo deve mostrare subito quello che l'annuncio promette. Se l'annuncio parla di Sencha e la pagina è la home, molte persone se ne vanno subito (frequenza di rimbalzo alta).
+250|Un annuncio «Scarpe da trail» che porta alla home di un negozio di sport: chi cerca le scarpe da trail deve ricominciare da capo.
+251|Guardare solo l'annuncio e mai cosa succede dopo il clic.
+252|Sencha: arriva sulla home e quasi 8 persone su 10 se ne vanno
+253|Gyokuro
+254|Arriva sulla pagina del prodotto e rimbalza poco.
+255|Tè verde generico
+256|Arriva sulla categoria dei tè verdi: è coerente.
+257|Il gruppo Sencha porta alla home: frequenza di rimbalzo 78%.
+258|Correggi la pagina di arrivo
+259|Cambia l'URL finale dell'annuncio del gruppo Sencha con la pagina giusta del negozio.
+260|L'URL finale è la pagina dove arriva chi clicca. Deve essere la pagina più vicina a ciò che la persona ha cercato: per un prodotto, la scheda del prodotto.
+261|L'annuncio «Teiera in ghisa» porta a /teiere/ghisa/, non a /.
+262|Usare sempre la home perché «tanto da lì si trova tutto».
+263|Chi cerca il Sencha ora arriva sulla scheda del Sencha.
+264|Cerca il Sencha nel negozio: l'indirizzo della scheda è nella barra.
+265|«Gyokuro» ha solo 18 clic in un mese. La mettiamo in pausa?
+266|Guarda conversioni e valore di «gyokuro».
+267|Non tutto ciò che è piccolo va spento. Una parola chiave con pochi clic ma che vende molto in proporzione costa poco e rende: è una buona parola chiave di nicchia.
+268|Un negozio di bici tiene «bici gravel titanio»: pochi clic, ma quasi tutti comprano.
+269|Spegnere le parole chiave con pochi clic senza guardare le vendite.
+270|Sì, porta pochi clic
+271|Pochi clic, ma 3 vendite su 18: rende molto.
+272|No: costa pochissimo e rende circa 6 volte la spesa
+273|Sì, perché il CPC è il più alto
+274|Il CPC è alto, ma il ROAS lo ripaga ampiamente.
+275|Falso allarme: «gyokuro» costa 16 € e porta circa 98 € di vendite.
+276|I termini di ricerca mostrano cosa le persone hanno scritto davvero.
+277|Negative e corrispondenze più strette tengono il budget sulle ricerche giuste.
+278|La pagina di arrivo deve mantenere la promessa dell'annuncio.
+279|Pochi clic non vuol dire parola chiave inutile.
+280|Altro che spegnerla! Con le negative e la pagina giusta, Tè verdi può tornare a rendere. Grazie.
+281|Il punteggio di qualità delle tisane
+282|30 minuti
+283|Campagne, Rendimento sul sito
+284|Due parole chiave con punteggio di qualità bassissimo: capire perché e sistemare l'annuncio.
+285|Su «tisane della sera» paghiamo quasi 1 € a clic e compariamo poco. Il nostro concorrente paga meno. Cosa sbagliamo?
+286|Trovare perché il punteggio di qualità delle tisane è basso e alzarlo.
+287|Quali parole chiave hanno il punteggio di qualità più basso?
+288|Apri la campagna Tisane e guarda la colonna Qualità.
+289|Il punteggio di qualità (da 1 a 10) stima quanto annuncio e pagina sono utili per chi fa quella ricerca. Più è alto, meno si paga a parità di posizione.
+290|Una keyword con qualità 3 paga molto di più di un concorrente con qualità 8 per stare nella stessa posizione.
+291|Ignorare il punteggio e alzare solo l'offerta.
+292|«tisane della sera» e «tisana rilassante»
+293|«tisane biologiche»
+294|Ha qualità 7: va bene.
+295|Le parole chiave del brand
+296|Sono nell'altra campagna e hanno 9 e 10.
+297|Le due parole chiave del gruppo «Tisane della sera» hanno qualità 3 e 4.
+298|Quali parti del punteggio sono sotto la media?
+299|Clicca il punteggio per vedere le tre parti.
+300|Il punteggio ha tre parti: CTR previsto (quanto si pensa che cliccheranno), pertinenza dell'annuncio (quanto l'annuncio parla di ciò che è stato cercato) ed esperienza sulla pagina di destinazione.
+301|Una parola chiave «corso di chitarra» con un annuncio che parla di pianoforte ha pertinenza sotto la media.
+302|CTR previsto e pertinenza dell'annuncio
+303|Solo la pagina di destinazione
+304|La pagina /tisane/ è nella media.
+305|Tutte e tre
+306|La pagina è nella media.
+307|CTR previsto e pertinenza sono sotto la media; la pagina va bene.
+308|Perché l'annuncio non è pertinente?
+309|Leggi l'annuncio del gruppo «Tisane della sera».
+310|Ogni gruppo di annunci dovrebbe avere annunci che parlano delle sue parole chiave. Un annuncio copiato da un altro gruppo parla d'altro: chi cerca tisane vede tè verde e non clicca.
+311|Un'enoteca usa per «vino rosso» l'annuncio scritto per lo spumante.
+312|Copiare lo stesso annuncio in tutti i gruppi per fare prima.
+313|È copiato dai tè verdi: non parla di tisane
+314|È troppo corto
+315|Ha 5 titoli e 2 descrizioni: il problema è il contenuto.
+316|Non ha l'URL finale
+317|L'URL c'è: /tisane/.
+318|L'annuncio è quello dei tè verdi: chi cerca tisane per la sera legge «Sencha, Gyokuro e Genmaicha».
+319|Riscrivi l'annuncio delle tisane
+320|Riscrivi l'annuncio del gruppo «Tisane della sera»: almeno 5 titoli e 2 descrizioni che parlino di tisane.
+321|Un annuncio pertinente ripete le parole cercate (tisane, sera) e dice cosa trova la persona. Nei testi sulle tisane niente promesse sulla salute (dorme meglio, cura l'insonnia): sono alimenti.
+322|Per «caffè decaffeinato»: «Caffè decaffeinato in grani», «Gusto pieno, senza caffeina».
+323|Scrivere «Ti aiuta a dormire» o «Contro l'insonnia»: è una promessa sulla salute vietata per gli alimenti.
+324|L'annuncio ora parla di tisane: la pertinenza salirà e il CPC scenderà.
+325|Cosa succede se il punteggio di qualità sale?
+326|Pensa a come funziona l'asta.
+327|Nell'asta la posizione dipende dall'offerta e dalla qualità. Con qualità più alta si ottiene la stessa posizione pagando meno, o una posizione migliore con la stessa offerta.
+328|Due negozi offrono 1 €: quello con qualità 8 compare sopra quello con qualità 4.
+329|A parità di posizione si paga meno a clic
+330|Il budget giornaliero aumenta da solo
+331|Il budget lo decidi tu.
+332|L'annuncio compare anche per altre parole chiave
+333|La qualità non cambia per quali ricerche compare.
+334|Con un punteggio più alto si paga meno a clic: lo stesso budget porta più clic.
+335|La campagna Tisane ha ROAS 1,6. Spegniamo anche «tisane biologiche»?
+336|Guarda il gruppo «Tisane biologiche» nel Rendimento sul sito e nella campagna.
+337|Una media di campagna può nascondere gruppi buoni e gruppi cattivi. Prima di spegnere si guarda gruppo per gruppo.
+338|Un ristorante vede che il delivery va male nel complesso, ma solo per un quartiere troppo lontano.
+339|Spegnere tutta la campagna per colpa di un gruppo.
+340|Sì, la campagna va male
+341|La media è bassa per colpa dell'altro gruppo.
+342|No: da solo rende circa 2,5 volte la spesa; il problema è nell'altro gruppo
+343|Sì, perché ha la qualità più bassa
+344|Ha qualità 7: è la migliore della campagna.
+345|Falso allarme: «tisane biologiche» rende bene; a tirare giù la media è il gruppo della sera.
+346|Il punteggio di qualità ha tre parti: CTR previsto, pertinenza, pagina.
+347|Ogni gruppo ha annunci che parlano delle sue parole chiave.
+348|Più qualità = meno costo a clic.
+349|Prima di spegnere si guarda gruppo per gruppo.
+350|Ecco perché pagavamo così tanto! Con l'annuncio giusto la qualità dovrebbe salire in un paio di settimane.
+351|Il budget del Black Friday
+352|Dove mettere il budget in più per il Black Friday: pareggio, ROAS e impressioni perse.
+353|Per il Black Friday (27-30 novembre) la direzione ci dà più budget: al massimo 140 € al giorno in tutto. Come lo dividiamo? Il margine medio sui prodotti è del 40%.
+354|Dividere il budget del Black Friday tra le campagne in base ai numeri.
+355|Sotto quale ROAS una campagna perde soldi?
+356|Margine medio del 40%.
+357|Il ROAS di pareggio è il ROAS sotto cui le vendite non coprono il costo degli annunci. Si calcola 1 ÷ margine. Con margine 40%: 1 ÷ 0,40 = 2,5. Sotto 2,5 si perde, sopra si guadagna.
+358|Con margine 25%: 1 ÷ 0,25 = 4. Serve ROAS 4 solo per andare in pari.
+359|Pensare che ROAS 1 sia il pareggio: vorrebbe dire che i prodotti non costano niente.
+360|Sotto 1
+361|Con ROAS 1 si copre la spesa in vendite, ma non il costo dei prodotti.
+362|Sotto 2,5
+363|Sotto 4
+364|Varrebbe con un margine del 25%.
+365|1 ÷ 0,40 = 2,5: sotto questo ROAS ogni vendita da annuncio costa più di quello che fa guadagnare.
+366|Quali campagne sono sotto il pareggio?
+367|Confronta il ROAS di ogni campagna con 2,5. Puoi scegliere più risposte.
+368|Confrontare ogni campagna con il ROAS di pareggio dice dove gli annunci fanno guadagnare e dove fanno perdere.
+369|Ha ROAS 4,6: guadagna.
+370|Ha il ROAS più alto di tutti.
+371|Tè verdi (0,9) e Tisane (1,6) sono sotto 2,5: oggi fanno perdere soldi.
+372|Dove conviene mettere il budget in più?
+373|Guarda ROAS e Impressioni perse per budget.
+374|Più budget serve dove la campagna rende e oggi si ferma perché finisce il budget: la colonna «Impressioni perse per budget» dice quante volte l'annuncio non è comparso per mancanza di soldi.
+375|Una campagna con ROAS 5 che perde il 40% delle impressioni per budget sta lasciando vendite sul tavolo.
+376|Mettere budget dove il ROAS è alto ma non si perde niente: i soldi in più non verrebbero spesi.
+377|Kit e idee regalo: rende 4,6 e perde il 38% delle impressioni per budget
+378|Brand: ha il ROAS più alto
+379|Perde solo il 2% per budget: compare già quasi sempre.
+380|Tè verdi: spende di più
+381|Sotto il pareggio: più budget = più perdite.
+382|Kit e idee regalo rende bene e oggi viene fermata dal budget: è lì che i soldi in più portano vendite.
+383|Apri le Campagne
+384|Dividi il budget
+385|Imposta i budget giornalieri per il Black Friday: al massimo 140 € al giorno in tutto, tra le campagne attive.
+386|Si sposta il budget verso chi rende e perde impressioni, si tiene il brand, e non si dà budget in più a chi è sotto il pareggio finché non è sistemato.
+387|Un negozio di elettronica per il Black Friday porta «Cuffie» da 30 a 70 € e lascia «Cavi» a 10 €.
+388|Aumentare tutto in proporzione.
+389|Il budget è dove rende: la campagna dei regali può comparire molto di più nei giorni del Black Friday.
+390|Perché non mettere tutto sul brand, che ha il ROAS più alto?
+391|Guarda le impressioni perse del brand.
+392|Il brand intercetta chi cerca già il nome del negozio: compare quasi sempre e molte di quelle persone arriverebbero comunque. Aggiungere budget lì non porta clienti nuovi.
+393|Un ristorante famoso non raddoppia gli annunci su «nome del ristorante»: chi lo cerca lo trova già.
+394|Compare già quasi sempre: i soldi in più non verrebbero spesi
+395|Perché il brand non vende
+396|Vende moltissimo.
+397|Perché è vietato aumentare il budget del brand
+398|Non è vietato: è inutile.
+399|Il brand perde solo il 2% per budget: è già al massimo.
+400|Spiega a Davide come hai diviso il budget
+401|Scrivi 3-5 frasi: quanto dai a ogni campagna e perché, con i numeri.
+402|Una proposta di budget dice quanto, dove e perché. Il perché si appoggia ai numeri (ROAS, pareggio, impressioni perse), così chi decide può fidarsi.
+403|«Per Natale portiamo Cuffie a 70 € al giorno: ROAS 5 e perde il 40% di impressioni. Cavi resta a 10 €: è sotto il pareggio.»
+404|Dare i numeri senza il perché.
+405|Esempio di una collega senior: «Per il Black Friday porto Kit e idee regalo a 60 € al giorno: rende 4,6 e oggi perde il 38% delle impressioni per budget. Il brand resta a 12 €: compare già quasi sempre. Tè verdi e Tisane non salgono: sono sotto il ROAS di pareggio di 2,5 finché non vediamo l'effetto delle correzioni.»
+406|ROAS di pareggio = 1 ÷ margine.
+407|Il budget in più va dove la campagna rende e perde impressioni per budget.
+408|Il brand compare già quasi sempre.
+409|Una proposta di budget dice quanto, dove e perché.
+410|Approvato dalla direzione al primo colpo. Vediamo se Kit e regali fa il record!
+411|Gli annunci del Black Friday
+412|Scrivere annunci di sconto chiari e corretti: prezzo di riferimento, affermazioni, data di fine.
+413|Il Black Friday è -20% su kit e accessori dal 27 al 30 novembre. Nel gruppo «Black Friday» l'annuncio è vuoto. L'ufficio legale ricorda: niente promesse che non possiamo dimostrare.
+414|Preparare l'annuncio del Black Friday rispettando le regole sugli sconti.
+415|Prezzo barrato: quale prezzo si mostra come «prima»?
+416|Pensa alle regole europee sugli sconti.
+417|Con la direttiva europea Omnibus (in Italia nel Codice del consumo dal 2023) chi annuncia uno sconto deve indicare come prezzo precedente il più basso applicato nei 30 giorni prima dello sconto. Così non si può alzare il prezzo a ottobre per fingere uno sconto più grande a novembre.
+418|Una giacca costava 100 € ma per due settimane di ottobre era a 80 €: lo sconto di novembre si calcola da 80 €.
+419|Usare il prezzo più alto mai avuto per far sembrare lo sconto più grande.
+420|Il prezzo più basso dei 30 giorni prima dello sconto
+421|Il prezzo più alto dell'anno
+422|È proprio quello che le regole vietano.
+423|Il prezzo consigliato dal produttore, sempre
+424|Il riferimento è il prezzo più basso degli ultimi 30 giorni.
+425|Il -20% si calcola dal prezzo più basso dei 30 giorni precedenti.
+426|Quale frase NON si può scrivere nell'annuncio?
+427|Pensa a cosa si può dimostrare.
+428|Negli annunci non si scrivono affermazioni che non si possono dimostrare (i prezzi più bassi, il migliore d'Italia): è pubblicità ingannevole. Le piattaforme di annunci, inoltre, rifiutano spesso i superlativi non verificabili.
+429|Un'agenzia scrive «Voli economici a partire da 29 €» (vero e verificabile), non «I voli più economici del mondo».
+430|Pensare che nel Black Friday tutto sia permesso.
+431|«I prezzi più bassi d'Italia sul tè»
+432|«-20% su kit e accessori fino al 30/11»
+433|È vera e ha una data: si può scrivere.
+434|«Spedizione in 24/48 ore»
+435|È vera: si può scrivere.
+436|«I prezzi più bassi d'Italia» non si può dimostrare: è un'affermazione ingannevole.
+437|Apri la campagna Kit e idee regalo
+438|Scrivi l'annuncio del Black Friday
+439|Nel gruppo «Black Friday» scrivi l'annuncio (almeno 5 titoli e 2 descrizioni), scegli la pagina di arrivo e la data di fine.
+440|Un annuncio di sconto dice quanto, su cosa e fino a quando. La data di fine dell'annuncio deve coincidere con la fine dell'offerta, così nessuno vede uno sconto che non esiste più.
+441|«-30% sui corsi di yoga», «Solo fino a domenica 12», «Iscriviti entro il 12 novembre».
+442|Lasciare l'annuncio attivo dopo la fine dello sconto.
+443|L'annuncio dice lo sconto, la data e porta alla pagina giusta; si spegne da solo il 30 novembre.
+444|Come capirai se il Black Friday è andato bene?
+445|Pensa a cosa confrontare.
+446|Per valutare una promozione si confrontano gli stessi numeri (ordini, ROAS, CPA) con un periodo simile senza promozione, e si controlla che il margine sia ancora positivo con lo sconto.
+447|Un negozio confronta la settimana del saldo con le 4 settimane prima, e controlla il ROAS di pareggio con il margine scontato.
+448|Guardare solo che le vendite siano salite.
+449|Confronto ordini e ROAS con le settimane prima, ricordando che con lo sconto il margine è più basso
+450|Guardo se i clic sono saliti
+451|Con lo sconto salgono quasi sempre: conta se si guadagna.
+452|Guardo se i follower sono aumentati
+453|È una metrica social, non della campagna.
+454|Con il -20% il margine scende: il ROAS di pareggio sale. Va controllato prima di festeggiare.
+455|Scrivi a Davide il riepilogo del Black Friday
+456|Scrivi 3-5 frasi: cosa hai preparato (budget e annuncio) e cosa controllerai dopo.
+457|Un riepilogo di lavoro dice cosa è pronto, cosa si aspetta e come si controllerà. Chi legge deve poter dire «ok» senza fare domande.
+458|«Ho preparato la campagna di Natale: budget 60 € al giorno, annuncio con lo sconto e la data di fine. Dopo controllo ordini e ROAS rispetto a novembre.»
+459|Raccontare i passaggi invece del risultato.
+460|Esempio di una collega senior: «Per il Black Friday Kit e idee regalo sale a 60 € al giorno. L'annuncio dice -20% su kit e accessori fino al 30 novembre, porta alla pagina degli accessori e si spegne da solo il 30. Lo sconto parte dal prezzo più basso degli ultimi 30 giorni. Dopo confronto ordini e ROAS con le settimane prima, tenendo conto del margine più basso.»
+461|Lo sconto si calcola dal prezzo più basso dei 30 giorni prima (Omnibus).
+462|Niente affermazioni che non si possono dimostrare.
+463|La data di fine dell'annuncio coincide con la fine dell'offerta.
+464|Con lo sconto il ROAS di pareggio sale.
+465|Perfetto e pure a prova di avvocato. Il Black Friday è pronto!

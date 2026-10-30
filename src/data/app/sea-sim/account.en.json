@@ -1,0 +1,468 @@
+{
+ "_nota": "Account pubblicitario finto di Cinque Foglie (ispirato agli strumenti per gli annunci sui motori di ricerca). Periodo 1-28 ottobre 2026. Dati inventati: vedi strumenti-dati/genera_sea.py.",
+ "periodo": "1-28 October 2026",
+ "margine": 0.4,
+ "budgetMensileKit": 450,
+ "campagne": [
+  {
+   "id": "brand",
+   "nome": "Brand · Cinque Foglie",
+   "stato": "attiva",
+   "budget": 10,
+   "quotaPersaBudget": 0.02,
+   "tipo": "Rete di ricerca",
+   "gruppi": [
+    {
+     "id": "g-brand",
+     "nome": "Shop name",
+     "keyword": [
+      {
+       "id": "k-b1",
+       "testo": "cinque foglie",
+       "corrispondenza": "esatta",
+       "qs": 10,
+       "componenti": {
+        "ctr": "above average",
+        "pertinenza": "above average",
+        "pagina": "sopra la media"
+       },
+       "impressioni": 2400,
+       "clic": 610,
+       "costo": 115.9,
+       "conversioni": 31,
+       "valore": 1540,
+       "stato": "attiva"
+      },
+      {
+       "id": "k-b2",
+       "testo": "cinque foglie tea",
+       "corrispondenza": "frase",
+       "qs": 9,
+       "componenti": {
+        "ctr": "above average",
+        "pertinenza": "above average",
+        "pagina": "nella media"
+       },
+       "impressioni": 900,
+       "clic": 220,
+       "costo": 52.8,
+       "conversioni": 15,
+       "valore": 760,
+       "stato": "attiva"
+      }
+     ],
+     "annunci": [
+      {
+       "id": "a-brand",
+       "titoli": [
+        "Cinque Foglie | Official site",
+        "Organic teas and herbal teas",
+        "Shipping in 24/48 hours",
+        "Over 120 loose leaf teas",
+        "Easy returns within 14 days"
+       ],
+       "descrizioni": [
+        "Organic teas and herbal teas chosen from small growers. Free shipping from €39.",
+        "Discover green, black, matcha and herbal teas. Simple guides to brewing them."
+       ],
+       "url": "/"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "teverdi",
+   "nome": "Green teas",
+   "stato": "attiva",
+   "budget": 40,
+   "quotaPersaBudget": 0.05,
+   "tipo": "Rete di ricerca",
+   "gruppi": [
+    {
+     "id": "g-verde",
+     "nome": "Generic green tea",
+     "keyword": [
+      {
+       "id": "k-v1",
+       "testo": "green tea",
+       "corrispondenza": "generica",
+       "qs": 5,
+       "componenti": {
+        "ctr": "below average",
+        "pertinenza": "average",
+        "pagina": "nella media"
+       },
+       "impressioni": 21000,
+       "clic": 840,
+       "costo": 504.0,
+       "conversioni": 6,
+       "valore": 190,
+       "stato": "attiva"
+      },
+      {
+       "id": "k-v2",
+       "testo": "organic green tea",
+       "corrispondenza": "frase",
+       "qs": 7,
+       "componenti": {
+        "ctr": "average",
+        "pertinenza": "average",
+        "pagina": "nella media"
+       },
+       "impressioni": 4100,
+       "clic": 260,
+       "costo": 182.0,
+       "conversioni": 12,
+       "valore": 380,
+       "stato": "attiva"
+      }
+     ],
+     "annunci": [
+      {
+       "id": "a-verde",
+       "titoli": [
+        "Organic loose leaf green tea",
+        "Sencha, Gyokuro and Genmaicha",
+        "Shipping in 24/48 hours",
+        "From small growers",
+        "Guide to choosing"
+       ],
+       "descrizioni": [
+        "Organic green teas from Japan and China, whole leaf. Discover the selection.",
+        "Free shipping from €39. Easy returns within 14 days."
+       ],
+       "url": "/te-verdi/"
+      }
+     ]
+    },
+    {
+     "id": "g-sencha",
+     "nome": "Sencha",
+     "keyword": [
+      {
+       "id": "k-s1",
+       "testo": "organic sencha",
+       "corrispondenza": "frase",
+       "qs": 6,
+       "componenti": {
+        "ctr": "average",
+        "pertinenza": "above average",
+        "pagina": "sotto la media"
+       },
+       "impressioni": 2600,
+       "clic": 190,
+       "costo": 133.0,
+       "conversioni": 3,
+       "valore": 95,
+       "stato": "attiva"
+      },
+      {
+       "id": "k-s2",
+       "testo": "sencha tea",
+       "corrispondenza": "frase",
+       "qs": 6,
+       "componenti": {
+        "ctr": "average",
+        "pertinenza": "above average",
+        "pagina": "sotto la media"
+       },
+       "impressioni": 1500,
+       "clic": 105,
+       "costo": 68.25,
+       "conversioni": 2,
+       "valore": 64,
+       "stato": "attiva"
+      }
+     ],
+     "annunci": [
+      {
+       "id": "a-sencha",
+       "titoli": [
+        "Organic Sencha tea",
+        "Whole leaf Sencha",
+        "From Japan, 100 g",
+        "Shipping in 24/48 hours",
+        "Your everyday green tea"
+       ],
+       "descrizioni": [
+        "Fresh, grassy organic Sencha in a 100 g tin. Order now.",
+        "Free shipping from €39. Easy returns within 14 days."
+       ],
+       "url": "/"
+      }
+     ]
+    },
+    {
+     "id": "g-gyokuro",
+     "nome": "Gyokuro",
+     "keyword": [
+      {
+       "id": "k-g1",
+       "testo": "gyokuro",
+       "corrispondenza": "esatta",
+       "qs": 8,
+       "componenti": {
+        "ctr": "above average",
+        "pertinenza": "above average",
+        "pagina": "nella media"
+       },
+       "impressioni": 700,
+       "clic": 18,
+       "costo": 16.2,
+       "conversioni": 3,
+       "valore": 98,
+       "stato": "attiva"
+      }
+     ],
+     "annunci": [
+      {
+       "id": "a-gyokuro",
+       "titoli": [
+        "Japanese Gyokuro",
+        "Shade-grown green tea",
+        "Sweet, smooth taste",
+        "Shipping in 24/48 hours",
+        "From small growers"
+       ],
+       "descrizioni": [
+        "Gyokuro: a fine green tea grown in the shade. Discover how to brew it.",
+        "Free shipping from €39."
+       ],
+       "url": "/te-verdi/gyokuro/"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tisane",
+   "nome": "Herbal teas",
+   "stato": "attiva",
+   "budget": 20,
+   "quotaPersaBudget": 0.1,
+   "tipo": "Rete di ricerca",
+   "gruppi": [
+    {
+     "id": "g-sera",
+     "nome": "Evening herbal teas",
+     "keyword": [
+      {
+       "id": "k-t1",
+       "testo": "evening herbal teas",
+       "corrispondenza": "frase",
+       "qs": 3,
+       "componenti": {
+        "ctr": "below average",
+        "pertinenza": "below average",
+        "pagina": "nella media"
+       },
+       "impressioni": 3200,
+       "clic": 70,
+       "costo": 66.5,
+       "conversioni": 3,
+       "valore": 62,
+       "stato": "attiva"
+      },
+      {
+       "id": "k-t2",
+       "testo": "relaxing herbal tea",
+       "corrispondenza": "frase",
+       "qs": 4,
+       "componenti": {
+        "ctr": "below average",
+        "pertinenza": "below average",
+        "pagina": "nella media"
+       },
+       "impressioni": 5400,
+       "clic": 120,
+       "costo": 102.0,
+       "conversioni": 4,
+       "valore": 85,
+       "stato": "attiva"
+      }
+     ],
+     "annunci": [
+      {
+       "id": "a-sera",
+       "titoli": [
+        "Organic loose leaf green tea",
+        "Sencha, Gyokuro and Genmaicha",
+        "Shipping in 24/48 hours",
+        "From small growers",
+        "Guide to choosing"
+       ],
+       "descrizioni": [
+        "Organic green teas from Japan and China, whole leaf. Discover the selection.",
+        "Free shipping from €39. Easy returns within 14 days."
+       ],
+       "url": "/tisane/"
+      }
+     ]
+    },
+    {
+     "id": "g-tisanebio",
+     "nome": "Organic herbal teas",
+     "keyword": [
+      {
+       "id": "k-t3",
+       "testo": "organic herbal teas",
+       "corrispondenza": "frase",
+       "qs": 7,
+       "componenti": {
+        "ctr": "average",
+        "pertinenza": "above average",
+        "pagina": "nella media"
+       },
+       "impressioni": 4800,
+       "clic": 290,
+       "costo": 130.5,
+       "conversioni": 15,
+       "valore": 330,
+       "stato": "attiva"
+      }
+     ],
+     "annunci": [
+      {
+       "id": "a-tisanebio",
+       "titoli": [
+        "Organic herbal teas",
+        "Chamomile, mint and rooibos",
+        "No artificial flavourings",
+        "Shipping in 24/48 hours",
+        "From €5.50 a pack"
+       ],
+       "descrizioni": [
+        "Organic herbal teas for every moment of the day. Discover the selection.",
+        "Free shipping from €39. Easy returns within 14 days."
+       ],
+       "url": "/tisane/"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "regali",
+   "nome": "Kits and gift ideas",
+   "stato": "attiva",
+   "budget": 25,
+   "quotaPersaBudget": 0.38,
+   "tipo": "Rete di ricerca",
+   "gruppi": [
+    {
+     "id": "g-regali",
+     "nome": "Gift ideas",
+     "keyword": [
+      {
+       "id": "k-r1",
+       "testo": "tea gift ideas",
+       "corrispondenza": "frase",
+       "qs": 8,
+       "componenti": {
+        "ctr": "above average",
+        "pertinenza": "above average",
+        "pagina": "nella media"
+       },
+       "impressioni": 3900,
+       "clic": 230,
+       "costo": 126.5,
+       "conversioni": 14,
+       "valore": 640,
+       "stato": "attiva"
+      },
+      {
+       "id": "k-r2",
+       "testo": "tea gift set",
+       "corrispondenza": "frase",
+       "qs": 8,
+       "componenti": {
+        "ctr": "above average",
+        "pertinenza": "above average",
+        "pagina": "nella media"
+       },
+       "impressioni": 2100,
+       "clic": 150,
+       "costo": 90.0,
+       "conversioni": 9,
+       "valore": 410,
+       "stato": "attiva"
+      },
+      {
+       "id": "k-r3",
+       "testo": "tea gift box",
+       "corrispondenza": "esatta",
+       "qs": 7,
+       "componenti": {
+        "ctr": "average",
+        "pertinenza": "average",
+        "pagina": "nella media"
+       },
+       "impressioni": 1300,
+       "clic": 80,
+       "costo": 49.6,
+       "conversioni": 4,
+       "valore": 180,
+       "stato": "attiva"
+      }
+     ],
+     "annunci": [
+      {
+       "id": "a-regali",
+       "titoli": [
+        "Gift ideas for tea lovers",
+        "Tea kits and gift boxes",
+        "Handmade teapots and cups",
+        "Shipping in 24/48 hours",
+        "Gift card included"
+       ],
+       "descrizioni": [
+        "Matcha kits, cast iron teapots and organic tea gift boxes: the right gift.",
+        "Free shipping from €39. Easy returns within 14 days."
+       ],
+       "url": "/accessori/"
+      }
+     ]
+    },
+    {
+     "id": "g-bf",
+     "nome": "Black Friday",
+     "bozza": true,
+     "keyword": [],
+     "annunci": [
+      {
+       "id": "a-bf",
+       "titoli": [],
+       "descrizioni": [],
+       "url": "",
+       "fine": ""
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kit",
+   "nome": "Matcha kit",
+   "stato": "bozza",
+   "budget": 0,
+   "quotaPersaBudget": 0,
+   "tipo": "Rete di ricerca",
+   "gruppi": [
+    {
+     "id": "g-kit",
+     "nome": "Matcha kit",
+     "keyword": [],
+     "annunci": [
+      {
+       "id": "a-kit",
+       "titoli": [],
+       "descrizioni": [],
+       "url": ""
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

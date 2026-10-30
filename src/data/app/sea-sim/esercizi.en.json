@@ -1,0 +1,1369 @@
+{
+ "_nota": "Simulazione SEA a livelli. Generato da strumenti-dati/crea_esercizi_sea.py. Dati in genera_sea.py.",
+ "livelli": [
+  {
+   "n": 0,
+   "nome": "Tutorial",
+   "cosa": "How the account works."
+  },
+  {
+   "n": 1,
+   "nome": "Basics",
+   "cosa": "One concept at a time. «How it works» is already open and the hint is always available."
+  },
+  {
+   "n": 2,
+   "nome": "Diagnosis",
+   "cosa": "Mixed problems, including false alarms. You open «How it works» yourself."
+  },
+  {
+   "n": 3,
+   "nome": "Cases",
+   "cosa": "No hints: just data and theory. The Black Friday budget and ads."
+  }
+ ],
+ "missioni": [
+  {
+   "id": "tutorial",
+   "livello": 0,
+   "n": 0,
+   "nome": "Tutorial: how it works",
+   "tempo": "8 minutes",
+   "strumenti": "Campaigns",
+   "cosa": "Where things are and how to save and check a change.",
+   "situazione": "Hi, I'm Davide and I look after Cinque Foglie's paid ads. Before we start I'll show you the account: ten minutes and you're ready to go.",
+   "obiettivo": "Learn to move between campaigns, search terms and data and to save a change.",
+   "passi": [
+    {
+     "strumento": "campagne",
+     "tipo": "info",
+     "domanda": "How the workspace is laid out",
+     "consegna": "",
+     "spiega": "You work on the ad account of Cinque Foglie, a fictional online tea shop. The screen has three areas.",
+     "esempio": "",
+     "errore": "",
+     "come": [
+      "<strong>On the left the menu</strong> (on a phone it's at the top): the campaigns, the search terms, the keyword planner and the website performance.",
+      "<strong>In the middle</strong> the open tool.",
+      "<strong>On the right this guide</strong>: the task at the top, the answers below. The <strong>How it works</strong>, <strong>Theory</strong> and <strong>Hint</strong> tabs help you when needed; the button to check is always at the bottom.",
+      "The numbers are for 1-28 October 2026 and are invented, but consistent from one tool to another."
+     ],
+     "opzioni": [],
+     "perche": "",
+     "aiuto": "",
+     "dove": ".console > .menu"
+    },
+    {
+     "strumento": "campagne",
+     "tipo": "radio",
+     "domanda": "Which campaign spent the most in October?",
+     "consegna": "Look at the Cost column in the campaigns table.",
+     "spiega": "The campaigns table sums up each campaign: how many times the ads appeared (impressions), how many clicks, how much it cost and how many sales (conversions) they brought.",
+     "esempio": "A travel agency looks at the table and sees that the «Cruises» campaign spent €2,000 in a month.",
+     "errore": "",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Brand · Cinque Foglie",
+       "giusta": false,
+       "nota": "Brand costs little: people searching for the shop's name click a lot and the click is cheap."
+      },
+      {
+       "id": "o2",
+       "testo": "Green teas",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Kits and gift ideas",
+       "giusta": false,
+       "nota": "Look at the Cost column again."
+      }
+     ],
+     "perche": "Green teas spent more than €900 in four weeks: you'll come across it again in the exercises.",
+     "aiuto": "Sort the table by clicking the Cost header.",
+     "dove": "[data-tabella-campagne]"
+    },
+    {
+     "strumento": "campagne",
+     "tipo": "azione",
+     "verifica": "sea_tutorial",
+     "vai": {
+      "link": "/app/simulazioni/sea/campagne/#brand",
+      "testo": "Open the campaign"
+     },
+     "negozio": "",
+     "domanda": "Save your first change",
+     "consegna": "Open the campaign «Brand · Cinque Foglie» and raise the daily budget from €10 to €12. Then save.",
+     "spiega": "The daily budget is how much the campaign can spend on average per day. You change it in the campaign settings and press Save: it applies straight away.",
+     "esempio": "A restaurant raises the daily budget of its «Book a table» campaign for Valentine's weekend.",
+     "errore": "",
+     "opzioni": [],
+     "perche": "You changed a setting and checked it: in the exercises you always work like this.",
+     "aiuto": "Click the campaign name in the table: the settings open.",
+     "dove": "[data-budget]"
+    },
+    {
+     "strumento": "campagne",
+     "tipo": "info",
+     "domanda": "Points, levels and how to choose",
+     "consegna": "",
+     "spiega": "Last rules, then we start from the Basics.",
+     "esempio": "",
+     "errore": "",
+     "come": [
+      "Three levels: <strong>Basics</strong>, <strong>Diagnosis</strong> and <strong>Cases</strong>. Each exercise is a small project made of mini exercises.",
+      "<strong>How it works</strong> explains the tool, not the answer. <strong>Theory</strong> is free. <strong>Hint</strong> costs 5 points.",
+      "The guide fades as you go up a level: in Basics «How it works» is already open, in Diagnosis you open it yourself, in Cases there's only theory and data.",
+      "Each exercise starts from 100 points: a wrong answer takes off 10 points. When you work in the tools you can try again without losing points."
+     ],
+     "opzioni": [],
+     "perche": "",
+     "aiuto": "",
+     "dove": ""
+    }
+   ],
+   "imparato": [
+    "The campaigns table sums up costs and results.",
+    "The daily budget is changed in the campaign settings.",
+    "After every change you check."
+   ],
+   "elena": "Perfect, now you know your way around the account. We start from the Basics.",
+   "prepara": {
+    "campagne": [
+     "brand"
+    ]
+   }
+  },
+  {
+   "id": "base1",
+   "livello": 1,
+   "n": 1,
+   "nome": "The matcha kit campaign",
+   "tempo": "35 minutes",
+   "strumenti": "Planner, Campaigns",
+   "cosa": "From keywords to the published ad: match types, copy, landing page and budget.",
+   "situazione": "The matcha kit is doing really well on social media, but we have no ads on Google. The «Matcha kit» campaign is a draft and empty: can you prepare it? Budget: €450 a month.",
+   "obiettivo": "Build and publish the matcha kit campaign: keywords, ad, landing page and budget.",
+   "passi": [
+    {
+     "strumento": "pianificatore",
+     "tipo": "checkbox",
+     "domanda": "Which keywords are searched by people ready to buy?",
+     "consegna": "Look at the Intent column in the Planner. You can choose more than one answer.",
+     "spiega": "With paid ads you pay for every click: it's worth appearing when the person wants to buy, not when they're looking for information. Someone typing «matcha kit» probably wants a kit; someone typing «matcha benefits» wants to read an article.",
+     "esempio": "An English school runs ads for «online english course prices», not for «how to say hello in english».",
+     "errore": "Choosing the keywords with the most searches without looking at what the searcher wants.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "matcha kit",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "matcha whisk",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "matcha benefits",
+       "giusta": false,
+       "nota": "People searching for the benefits want information, not to buy (and you can't promise health effects)."
+      },
+      {
+       "id": "o4",
+       "testo": "matcha latte recipe",
+       "giusta": false,
+       "nota": "People searching for a recipe want to cook, not buy a kit."
+      }
+     ],
+     "perche": "«Matcha kit» and «matcha whisk» have purchase intent: people searching them are already thinking about buying.",
+     "aiuto": "Keywords with «informational» intent bring clicks that cost money but don't sell.",
+     "dove": "#t-idee"
+    },
+    {
+     "strumento": "pianificatore",
+     "tipo": "radio",
+     "domanda": "Why not use the keyword «matcha» on its own?",
+     "consegna": "Compare «matcha» with «matcha kit» in the Planner.",
+     "spiega": "A very generic keyword has lots of searches but mixed intents: some people want to buy, some to read, some a recipe. On top of that it costs more, because all the competitors bid on it.",
+     "esempio": "A bike shop doesn't target «bike» (too generic) but «folding electric bike».",
+     "errore": "Thinking more searches means more sales.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "It's too generic: mixed intents and more expensive clicks",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "It has few searches",
+       "giusta": false,
+       "nota": "On the contrary: it has loads."
+      },
+      {
+       "id": "o3",
+       "testo": "It can't be used because it's a foreign word",
+       "giusta": false,
+       "nota": "It can be used: the problem is that it's too generic."
+      }
+     ],
+     "perche": "«Matcha» has 49,500 searches a month but mixed intent and a CPC up to €1.60: you'd pay for lots of curious people's clicks.",
+     "aiuto": "",
+     "dove": "#t-idee"
+    },
+    {
+     "strumento": "campagne",
+     "tipo": "azione",
+     "verifica": "sea_keywordKit",
+     "vai": {
+      "link": "/app/simulazioni/sea/campagne/#kit",
+      "testo": "Open the campaign"
+     },
+     "negozio": "",
+     "domanda": "Add the keywords",
+     "consegna": "In the «Matcha kit» campaign, «Matcha kit» group, add at least 3 keywords with purchase intent, in phrase or exact match.",
+     "spiega": "The match type says how closely the search must resemble the keyword. Broad: even searches that are only related (risky). Phrase: searches that contain the meaning of the phrase. Exact: only searches with the same meaning. To start with a small budget you use phrase and exact.",
+     "esempio": "A florist adds «flower delivery verona» in phrase and «florist verona» in exact.",
+     "errore": "Adding generic words in broad match: the ad appears for distant searches and the budget runs out fast.",
+     "opzioni": [],
+     "perche": "The keywords are ready: the ad will only appear to people looking for a kit or matcha tools.",
+     "aiuto": "Use Planner keywords with purchase intent, for example «matcha kit» in phrase.",
+     "dove": "[data-nuova-keyword]"
+    },
+    {
+     "strumento": "campagne",
+     "tipo": "radio",
+     "domanda": "Which search can «matcha kit» in phrase match appear for?",
+     "consegna": "Think about what phrase match means.",
+     "spiega": "With phrase match the ad appears for searches containing the meaning of the phrase, even with words before or after. It doesn't appear if the meaning changes.",
+     "esempio": "«running shoes» in phrase appears for «women's running shoes», not for «smart shoes».",
+     "errore": "Confusing phrase and broad: broad widens much more.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "matcha kit with whisk to give as a gift",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "matcha powder",
+       "giusta": false,
+       "nota": "The meaning of «kit» is missing: it doesn't appear."
+      },
+      {
+       "id": "o3",
+       "testo": "green tea kit",
+       "giusta": false,
+       "nota": "The meaning is different: it doesn't appear."
+      }
+     ],
+     "perche": "In phrase match the ad appears for «matcha kit with whisk to give as a gift»: the meaning of «matcha kit» is there with other words around it.",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "campagne",
+     "tipo": "azione",
+     "verifica": "sea_annuncioKit",
+     "vai": {
+      "link": "/app/simulazioni/sea/campagne/#kit",
+      "testo": "Open the campaign"
+     },
+     "negozio": "",
+     "domanda": "Write the ad",
+     "consegna": "In the same group write the ad: at least 5 headlines, at least 2 descriptions and the final URL of the kit page.",
+     "spiega": "A responsive ad has up to 15 headlines (30 characters at most) and 4 descriptions (90 at most): the system combines them. At least one headline repeats the keyword, the descriptions say what's there and invite action. The final URL must lead to the product page, not the home page.",
+     "esempio": "For a yoga course: headlines «Online yoga course», «First lesson free», «Certified teachers»; description «Live and recorded lessons. Try the first lesson».",
+     "errore": "Sending everyone to the home page: people who searched for a kit must find it straight away, not search for it again.",
+     "opzioni": [],
+     "perche": "The ad is about the kit, respects the character limits and leads to the right page.",
+     "aiuto": "The kit page in the shop is /matcha/kit-matcha/.",
+     "dove": "[data-annuncio=\"a-kit\"]"
+    },
+    {
+     "strumento": "campagne",
+     "tipo": "azione",
+     "verifica": "sea_budgetKit",
+     "vai": {
+      "link": "/app/simulazioni/sea/campagne/#kit",
+      "testo": "Open the campaign"
+     },
+     "negozio": "",
+     "domanda": "Set the budget and publish",
+     "consegna": "Davide has €450 a month for this campaign. Set the right daily budget and publish the campaign.",
+     "spiega": "The budget is set per day: you divide the monthly budget by the average number of days in a month (30.4). Some days the campaign spends a bit more, others less, but over the month it doesn't exceed the total.",
+     "esempio": "With €300 a month: 300 ÷ 30.4 = about €9.90 a day.",
+     "errore": "Dividing by 30 or 31 at random, or putting the monthly budget in the daily field.",
+     "opzioni": [],
+     "perche": "The campaign is published with about €15 a day: over the month it will stay within €450.",
+     "aiuto": "450 ÷ 30.4 = ?",
+     "dove": "[data-budget]"
+    },
+    {
+     "strumento": "campagne",
+     "tipo": "radio",
+     "domanda": "After a week, what do you look at to know whether it's working?",
+     "consegna": "Think about the goal: selling kits.",
+     "spiega": "For a sales campaign the key number is how much a sale costs (CPA, cost per acquisition) compared with how much you earn on a sale. Impressions and clicks say whether the ad is seen and chosen, not whether it sells.",
+     "esempio": "A pizzeria with delivery looks at how much each order coming from the ads costs it, not how many people saw the ad.",
+     "errore": "Stopping at the CTR or the number of clicks.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Conversions and cost per sale (CPA)",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Only impressions",
+       "giusta": false,
+       "nota": "They say how many times the ad appeared, not whether it sells."
+      },
+      {
+       "id": "o3",
+       "testo": "Only the number of clicks",
+       "giusta": false,
+       "nota": "Clicks cost money: what counts is how many become sales."
+      }
+     ],
+     "perche": "CPA and conversions say whether each euro spent comes back as a sale.",
+     "aiuto": "",
+     "dove": ""
+    }
+   ],
+   "imparato": [
+    "You choose keywords with purchase intent.",
+    "Phrase and exact keep control; broad widens a lot.",
+    "The ad repeats the keyword and leads to the right page.",
+    "Daily budget = monthly budget ÷ 30.4."
+   ],
+   "elena": "Great, the campaign is live. In a week we'll look at the cost per sale together.",
+   "prepara": {
+    "campagne": [
+     "kit"
+    ],
+    "nuove": [
+     "g-kit"
+    ],
+    "annunci": [
+     "a-kit"
+    ]
+   }
+  },
+  {
+   "id": "base2",
+   "livello": 1,
+   "n": 2,
+   "nome": "Reading the numbers",
+   "tempo": "25 minutes",
+   "strumenti": "Campaigns",
+   "cosa": "CTR, CPC, conversion rate, CPA and ROAS: what they say and how they're calculated.",
+   "situazione": "At the end of the month I have to tell management how the ads went. Can you help me with the numbers for the «Kits and gift ideas» campaign?",
+   "obiettivo": "Calculate the metrics of the Kits and gift ideas campaign and write to Davide about what works.",
+   "passi": [
+    {
+     "strumento": "campagne",
+     "tipo": "radio",
+     "domanda": "What's the CTR of the «Kits and gift ideas» campaign?",
+     "consegna": "CTR = clicks ÷ impressions × 100.",
+     "spiega": "CTR (click-through rate) says how many people out of 100 who see the ad click on it. A high CTR means the ad is relevant to that search.",
+     "esempio": "An ad seen 2,000 times with 80 clicks: 80 ÷ 2,000 × 100 = 4%.",
+     "errore": "Dividing impressions by clicks (the other way round).",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "About 0.6%",
+       "giusta": false,
+       "nota": "Check again: clicks are a few hundred, impressions a few thousand."
+      },
+      {
+       "id": "o2",
+       "testo": "About 6.3%",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "About 16%",
+       "giusta": false,
+       "nota": "Did you divide impressions by clicks?"
+      }
+     ],
+     "perche": "460 clicks out of 7,300 impressions: about 6.3%.",
+     "aiuto": "In the campaign's row you'll find impressions and clicks.",
+     "dove": "[data-tabella-campagne]"
+    },
+    {
+     "strumento": "campagne",
+     "tipo": "radio",
+     "domanda": "How much does a click cost on average (CPC)?",
+     "consegna": "Average CPC = cost ÷ clicks.",
+     "spiega": "The average CPC is how much you pay on average for each click. It depends on the auction: competition, bid and ad quality.",
+     "esempio": "€100 spent for 250 clicks: €0.40 per click.",
+     "errore": "",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "About €0.58",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "About €1.73",
+       "giusta": false,
+       "nota": "Did you divide clicks by cost?"
+      },
+      {
+       "id": "o3",
+       "testo": "About €0.04",
+       "giusta": false,
+       "nota": "Did you use impressions instead of clicks?"
+      }
+     ],
+     "perche": "€266 for 460 clicks: about €0.58 per click.",
+     "aiuto": "",
+     "dove": "[data-tabella-campagne]"
+    },
+    {
+     "strumento": "campagne",
+     "tipo": "radio",
+     "domanda": "What's the conversion rate?",
+     "consegna": "Conversion rate = conversions ÷ clicks × 100.",
+     "spiega": "The conversion rate says how many people out of 100 who click then buy. It depends a lot on the landing page and the offer.",
+     "esempio": "200 clicks and 6 orders: 3%.",
+     "errore": "Dividing conversions by impressions.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "About 0.4%",
+       "giusta": false,
+       "nota": "You divided by impressions: you divide by clicks."
+      },
+      {
+       "id": "o2",
+       "testo": "About 5.9%",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "About 59%",
+       "giusta": false,
+       "nota": "Check the figures again: 27 sales out of 460 clicks."
+      }
+     ],
+     "perche": "27 sales out of 460 clicks: about 5.9%.",
+     "aiuto": "",
+     "dove": "[data-tabella-campagne]"
+    },
+    {
+     "strumento": "campagne",
+     "tipo": "radio",
+     "domanda": "How much does a sale cost (CPA)?",
+     "consegna": "CPA = cost ÷ conversions.",
+     "spiega": "CPA (cost per acquisition) is how much you spend on ads to get one sale. It's compared with how much you earn on a sale.",
+     "esempio": "€300 of ads and 20 sales: €15 per sale.",
+     "errore": "",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "About €9.90",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "About €0.58",
+       "giusta": false,
+       "nota": "That's the cost of a click, not of a sale."
+      },
+      {
+       "id": "o3",
+       "testo": "About €45",
+       "giusta": false,
+       "nota": "That's closer to the average order value."
+      }
+     ],
+     "perche": "€266 for 27 sales: about €9.90 per sale.",
+     "aiuto": "",
+     "dove": "[data-tabella-campagne]"
+    },
+    {
+     "strumento": "campagne",
+     "tipo": "radio",
+     "domanda": "What's the ROAS?",
+     "consegna": "ROAS = value of sales ÷ cost.",
+     "spiega": "ROAS (return on ad spend) says how many euros of sales come in for every euro spent on ads. ROAS 4 means €4 of sales for €1 of ads. Careful: these are sales, not profit.",
+     "esempio": "€1,000 of sales with €250 of ads: ROAS 4.",
+     "errore": "Confusing ROAS with profit: the cost of the products has to be taken off sales.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "About 0.22",
+       "giusta": false,
+       "nota": "You divided cost by value (the other way round)."
+      },
+      {
+       "id": "o2",
+       "testo": "About 4.6",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "About 46",
+       "giusta": false,
+       "nota": "Check again: €1,230 of sales and €266 of cost."
+      }
+     ],
+     "perche": "€1,230 of sales for €266 of ads: ROAS about 4.6. It's the best-performing campaign after brand.",
+     "aiuto": "",
+     "dove": "[data-tabella-campagne]"
+    },
+    {
+     "strumento": "guida",
+     "tipo": "testo",
+     "verifica": "sea_reportNumeri",
+     "domanda": "Write to Davide about how the ads are doing",
+     "consegna": "Write 3-5 sentences: which campaign performs best, which worst (with a number) and what you propose.",
+     "spiega": "A report for decision-makers puts the conclusion first, then the numbers that prove it, then a proposal. You compare campaigns with the same metric.",
+     "esempio": "«The Online courses campaign performs best (ROAS 5). The Books campaign spends a lot and sells little (ROAS 0.8): I propose checking the keywords.»",
+     "errore": "Listing every number without saying what to do.",
+     "opzioni": [],
+     "perche": "Example from a senior colleague: «The Kits and gift ideas campaign performs well: ROAS 4.6 and a sale costs about €10. Green teas, on the other hand, spends more than €900 with ROAS below 1: sales don't pay for the ads. I propose checking the keywords and landing pages of Green teas.»",
+     "aiuto": "",
+     "dove": "",
+     "parole": [
+      25,
+      140
+     ]
+    }
+   ],
+   "imparato": [
+    "CTR = clicks ÷ impressions.",
+    "CPC = cost ÷ clicks. CPA = cost ÷ conversions.",
+    "ROAS = value of sales ÷ cost: these are sales, not profit."
+   ],
+   "elena": "Clear and quick, thanks. I need to look into Green teas: I'll let you know."
+  },
+  {
+   "id": "d1",
+   "livello": 2,
+   "n": 1,
+   "nome": "Green teas: lots of clicks, few sales",
+   "tempo": "40 minutes",
+   "strumenti": "Campaigns, Search terms, Website performance",
+   "cosa": "A campaign that spends more than €900 a month and hardly sells: keywords, search terms and landing pages.",
+   "situazione": "Green teas spends more than all the other campaigns and sells very little. Before switching it off I'd like to understand what's wrong.",
+   "obiettivo": "Find out why Green teas doesn't sell and fix what's needed, without touching what works.",
+   "passi": [
+    {
+     "strumento": "campagne",
+     "tipo": "radio",
+     "domanda": "Which campaign has the lowest ROAS?",
+     "consegna": "Compare the campaigns' ROAS column.",
+     "spiega": "ROAS compares campaigns on equal spend: it says which one turns euros into sales best.",
+     "esempio": "A bookshop sees that its «Comics» campaign has ROAS 0.8 while «Novels» has 3.",
+     "errore": "Looking only at spend: a campaign can spend a lot and perform well.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Green teas",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Herbal teas",
+       "giusta": false,
+       "nota": "It's low too, but Green teas is even lower."
+      },
+      {
+       "id": "o3",
+       "testo": "Kits and gift ideas",
+       "giusta": false,
+       "nota": "It's one of the best."
+      }
+     ],
+     "perche": "Green teas has ROAS below 1: for every euro spent, less than €0.95 of sales comes back.",
+     "aiuto": "",
+     "dove": "[data-tabella-campagne]"
+    },
+    {
+     "strumento": "campagne",
+     "tipo": "radio",
+     "domanda": "Which keyword spends the most while selling little?",
+     "consegna": "Open the Green teas campaign and look at the keywords.",
+     "spiega": "Inside a poorly performing campaign you look for the keyword that weighs most: often a single keyword eats up most of the budget.",
+     "esempio": "In an estate agency's campaign, «house» in broad match spends half the budget and only brings in curious people.",
+     "errore": "Lowering everything equally without looking for where the problem is.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "«green tea», in broad match",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "«gyokuro»",
+       "giusta": false,
+       "nota": "It has few clicks and sells well."
+      },
+      {
+       "id": "o3",
+       "testo": "«organic green tea»",
+       "giusta": false,
+       "nota": "It spends less and sells more."
+      }
+     ],
+     "perche": "«Green tea» in broad match spent more than €500 with only 6 sales.",
+     "aiuto": "",
+     "dove": "[data-campagna]"
+    },
+    {
+     "strumento": "termini",
+     "tipo": "radio",
+     "domanda": "What were the people who clicked really looking for?",
+     "consegna": "Open the Search terms and filter by the keyword «green tea».",
+     "spiega": "The search terms report shows the exact phrases people typed before clicking. With broad match, searches far from the keyword show up.",
+     "esempio": "A travel agency with «travel» in broad match discovers clicks on «time travel films».",
+     "errore": "Looking only at keywords and never at search terms.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Mostly information: benefits, recipes, free samples, even jobs",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Almost only people who wanted to buy green tea",
+       "giusta": false,
+       "nota": "Look at the rows with 0 conversions: they're the majority."
+      },
+      {
+       "id": "o3",
+       "testo": "Mostly the shop's name",
+       "giusta": false,
+       "nota": "Those searches are in the Brand campaign."
+      }
+     ],
+     "perche": "Most clicks come from people who wanted information: benefits, weight loss, recipes, free samples, jobs. None of these searches sold anything.",
+     "aiuto": "",
+     "dove": "#t-termini"
+    },
+    {
+     "strumento": "termini",
+     "tipo": "azione",
+     "verifica": "sea_negative",
+     "vai": {
+      "link": "/app/simulazioni/sea/termini/",
+      "testo": "Open the Search terms"
+     },
+     "negozio": "",
+     "domanda": "Exclude the wrong searches",
+     "consegna": "Add negative keywords to the Green teas campaign for the searches that don't sell. Be careful not to exclude the ones that do.",
+     "spiega": "A negative keyword says not to show the ad when the search contains it. You add words that point to the wrong intent (free, recipe, jobs). A negative that's too broad can switch off the good searches too.",
+     "esempio": "A shoe shop adds «used», «free» and «repair» as negatives.",
+     "errore": "Excluding «tea» or «green»: you'd also block the searches that sell.",
+     "opzioni": [],
+     "perche": "Informational searches will no longer show the ad: the budget goes to people who want to buy.",
+     "aiuto": "Take one word from each search with no sales: benefits, weight loss, recipe, free, jobs.",
+     "dove": "#t-termini"
+    },
+    {
+     "strumento": "campagne",
+     "tipo": "azione",
+     "verifica": "sea_corrispondenza",
+     "vai": {
+      "link": "/app/simulazioni/sea/campagne/#teverdi",
+      "testo": "Open the campaign"
+     },
+     "negozio": "",
+     "domanda": "Narrow the keyword",
+     "consegna": "Change the match type of «green tea» so it no longer appears for distant searches.",
+     "spiega": "Negatives remove the wrong searches you know about; a narrower match type avoids the ones you haven't seen yet. Together they keep the budget on the right searches.",
+     "esempio": "A gym moves «gym» from broad to phrase and adds «gym verona centre» in exact.",
+     "errore": "Leaving broad match and chasing new searches every week with more negatives.",
+     "opzioni": [],
+     "perche": "«Green tea» will now only appear for searches containing that meaning.",
+     "aiuto": "In the keywords table, the Match type column.",
+     "dove": "[data-campagna]"
+    },
+    {
+     "strumento": "rendimento",
+     "tipo": "radio",
+     "domanda": "Which group sends people to the wrong page?",
+     "consegna": "Look at Landing page and Bounce rate in the Website performance.",
+     "spiega": "The landing page must immediately show what the ad promises. If the ad is about Sencha and the page is the home page, many people leave straight away (high bounce rate).",
+     "esempio": "A «Trail shoes» ad leading to a sports shop's home page: people looking for trail shoes have to start all over again.",
+     "errore": "Looking only at the ad and never at what happens after the click.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Sencha: it lands on the home page and almost 8 people in 10 leave",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Gyokuro",
+       "giusta": false,
+       "nota": "It lands on the product page and bounces little."
+      },
+      {
+       "id": "o3",
+       "testo": "Generic green tea",
+       "giusta": false,
+       "nota": "It lands on the green teas category: that's consistent."
+      }
+     ],
+     "perche": "The Sencha group leads to the home page: bounce rate 78%.",
+     "aiuto": "",
+     "dove": "#t-rendimento"
+    },
+    {
+     "strumento": "campagne",
+     "tipo": "azione",
+     "verifica": "sea_urlSencha",
+     "vai": {
+      "link": "/app/simulazioni/sea/campagne/#teverdi",
+      "testo": "Open the campaign"
+     },
+     "negozio": "",
+     "domanda": "Fix the landing page",
+     "consegna": "Change the final URL of the Sencha group's ad to the right page in the shop.",
+     "spiega": "The final URL is the page where people who click arrive. It must be the page closest to what the person searched for: for a product, the product page.",
+     "esempio": "The «Cast iron teapot» ad leads to /teapots/cast-iron/, not to /.",
+     "errore": "Always using the home page because «you can find everything from there anyway».",
+     "opzioni": [],
+     "perche": "People searching for Sencha now land on the Sencha product page.",
+     "aiuto": "Look for the Sencha in the shop: the product page's address is in the bar.",
+     "dove": "[data-annuncio=\"a-sencha\"]"
+    },
+    {
+     "strumento": "campagne",
+     "tipo": "radio",
+     "domanda": "«Gyokuro» has only 18 clicks in a month. Shall we pause it?",
+     "consegna": "Look at the conversions and value of «gyokuro».",
+     "spiega": "Not everything small should be switched off. A keyword with few clicks that sells a lot in proportion costs little and pays off: it's a good niche keyword.",
+     "esempio": "A bike shop keeps «titanium gravel bike»: few clicks, but almost everyone buys.",
+     "errore": "Switching off keywords with few clicks without looking at sales.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Yes, it brings few clicks",
+       "giusta": false,
+       "nota": "Few clicks, but 3 sales out of 18: it performs very well."
+      },
+      {
+       "id": "o2",
+       "testo": "No: it costs very little and brings in about 6 times what it spends",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Yes, because the CPC is the highest",
+       "giusta": false,
+       "nota": "The CPC is high, but the ROAS more than pays for it."
+      }
+     ],
+     "perche": "False alarm: «gyokuro» costs €16 and brings about €98 of sales.",
+     "aiuto": "",
+     "dove": "[data-campagna]"
+    }
+   ],
+   "imparato": [
+    "Search terms show what people actually typed.",
+    "Negatives and narrower match types keep the budget on the right searches.",
+    "The landing page must keep the ad's promise.",
+    "Few clicks doesn't mean a useless keyword."
+   ],
+   "elena": "Switch it off? No way! With the negatives and the right page, Green teas can pay off again. Thanks.",
+   "prepara": {
+    "keyword": [
+     "k-v1"
+    ],
+    "negative": [
+     "teverdi"
+    ],
+    "annunci": [
+     "a-sencha"
+    ]
+   }
+  },
+  {
+   "id": "d2",
+   "livello": 2,
+   "n": 2,
+   "nome": "The herbal teas Quality Score",
+   "tempo": "30 minutes",
+   "strumenti": "Campaigns, Website performance",
+   "cosa": "Two keywords with a very low Quality Score: understand why and fix the ad.",
+   "situazione": "On «evening herbal teas» we pay almost €1 a click and appear rarely. Our competitor pays less. What are we doing wrong?",
+   "obiettivo": "Find out why the herbal teas Quality Score is low and raise it.",
+   "passi": [
+    {
+     "strumento": "campagne",
+     "tipo": "radio",
+     "domanda": "Which keywords have the lowest Quality Score?",
+     "consegna": "Open the Herbal teas campaign and look at the Quality column.",
+     "spiega": "Quality Score (from 1 to 10) estimates how useful the ad and page are to the person making that search. The higher it is, the less you pay for the same position.",
+     "esempio": "A keyword with Quality 3 pays much more than a competitor with Quality 8 to be in the same position.",
+     "errore": "Ignoring the score and just raising the bid.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "«evening herbal teas» and «relaxing herbal tea»",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "«organic herbal teas»",
+       "giusta": false,
+       "nota": "It has Quality 7: that's fine."
+      },
+      {
+       "id": "o3",
+       "testo": "The brand keywords",
+       "giusta": false,
+       "nota": "They're in the other campaign and have 9 and 10."
+      }
+     ],
+     "perche": "The two keywords in the «Evening herbal teas» group have Quality 3 and 4.",
+     "aiuto": "",
+     "dove": "[data-campagna]"
+    },
+    {
+     "strumento": "campagne",
+     "tipo": "radio",
+     "domanda": "Which parts of the score are below average?",
+     "consegna": "Click the score to see the three parts.",
+     "spiega": "The score has three parts: expected CTR (how many are expected to click), ad relevance (how much the ad is about what was searched) and landing page experience.",
+     "esempio": "A keyword «guitar lessons» with an ad about the piano has below-average relevance.",
+     "errore": "",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Expected CTR and ad relevance",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Only the landing page",
+       "giusta": false,
+       "nota": "The /tisane/ page is average."
+      },
+      {
+       "id": "o3",
+       "testo": "All three",
+       "giusta": false,
+       "nota": "The page is average."
+      }
+     ],
+     "perche": "Expected CTR and relevance are below average; the page is fine.",
+     "aiuto": "",
+     "dove": "[data-campagna]"
+    },
+    {
+     "strumento": "campagne",
+     "tipo": "radio",
+     "domanda": "Why isn't the ad relevant?",
+     "consegna": "Read the ad in the «Evening herbal teas» group.",
+     "spiega": "Every ad group should have ads about its own keywords. An ad copied from another group talks about something else: people searching for herbal teas see green tea and don't click.",
+     "esempio": "A wine shop uses the ad written for sparkling wine for «red wine».",
+     "errore": "Copying the same ad into every group to save time.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "It's copied from the green teas: it isn't about herbal teas",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "It's too short",
+       "giusta": false,
+       "nota": "It has 5 headlines and 2 descriptions: the problem is the content."
+      },
+      {
+       "id": "o3",
+       "testo": "It has no final URL",
+       "giusta": false,
+       "nota": "The URL is there: /tisane/."
+      }
+     ],
+     "perche": "The ad is the green teas one: people looking for evening herbal teas read «Sencha, Gyokuro and Genmaicha».",
+     "aiuto": "",
+     "dove": "[data-annuncio=\"a-sera\"]"
+    },
+    {
+     "strumento": "campagne",
+     "tipo": "azione",
+     "verifica": "sea_annuncioTisane",
+     "vai": {
+      "link": "/app/simulazioni/sea/campagne/#tisane",
+      "testo": "Open the campaign"
+     },
+     "negozio": "",
+     "domanda": "Rewrite the herbal teas ad",
+     "consegna": "Rewrite the ad in the «Evening herbal teas» group: at least 5 headlines and 2 descriptions about herbal teas.",
+     "spiega": "A relevant ad repeats the words searched for (herbal teas, evening) and says what the person will find. In herbal tea copy there are no health claims (sleep better, cures insomnia): they're foods.",
+     "esempio": "For «decaf coffee»: «Decaf coffee beans», «Full flavour, no caffeine».",
+     "errore": "Writing «Helps you sleep» or «Beats insomnia»: it's a health claim banned for foods.",
+     "opzioni": [],
+     "perche": "The ad is now about herbal teas: relevance will rise and the CPC will fall.",
+     "aiuto": "",
+     "dove": "[data-annuncio=\"a-sera\"]"
+    },
+    {
+     "strumento": "campagne",
+     "tipo": "radio",
+     "domanda": "What happens if the Quality Score goes up?",
+     "consegna": "Think about how the auction works.",
+     "spiega": "In the auction the position depends on the bid and on quality. With higher quality you get the same position for less, or a better position with the same bid.",
+     "esempio": "Two shops bid €1: the one with Quality 8 appears above the one with Quality 4.",
+     "errore": "",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "For the same position you pay less per click",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "The daily budget increases on its own",
+       "giusta": false,
+       "nota": "You decide the budget."
+      },
+      {
+       "id": "o3",
+       "testo": "The ad also appears for other keywords",
+       "giusta": false,
+       "nota": "Quality doesn't change which searches it appears for."
+      }
+     ],
+     "perche": "With a higher score you pay less per click: the same budget brings more clicks.",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "rendimento",
+     "tipo": "radio",
+     "domanda": "The Herbal teas campaign has ROAS 1.6. Shall we switch off «organic herbal teas» too?",
+     "consegna": "Look at the «Organic herbal teas» group in the Website performance and in the campaign.",
+     "spiega": "A campaign average can hide good groups and bad groups. Before switching anything off you look group by group.",
+     "esempio": "A restaurant sees that delivery is doing badly overall, but only because of one neighbourhood that's too far away.",
+     "errore": "Switching off the whole campaign because of one group.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Yes, the campaign is doing badly",
+       "giusta": false,
+       "nota": "The average is low because of the other group."
+      },
+      {
+       "id": "o2",
+       "testo": "No: on its own it brings in about 2.5 times what it spends; the problem is in the other group",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Yes, because it has the lowest quality",
+       "giusta": false,
+       "nota": "It has Quality 7: it's the best in the campaign."
+      }
+     ],
+     "perche": "False alarm: «organic herbal teas» performs well; it's the evening group that drags the average down.",
+     "aiuto": "",
+     "dove": "#t-rendimento"
+    }
+   ],
+   "imparato": [
+    "Quality Score has three parts: expected CTR, relevance, page.",
+    "Every group has ads about its own keywords.",
+    "More quality = lower cost per click.",
+    "Before switching anything off you look group by group."
+   ],
+   "elena": "So that's why we were paying so much! With the right ad, quality should go up in a couple of weeks.",
+   "prepara": {
+    "annunci": [
+     "a-sera"
+    ]
+   }
+  },
+  {
+   "id": "c1",
+   "livello": 3,
+   "n": 1,
+   "nome": "The Black Friday budget",
+   "tempo": "35 minutes",
+   "strumenti": "Campaigns, Website performance",
+   "cosa": "Where to put the extra budget for Black Friday: break-even, ROAS and lost impressions.",
+   "situazione": "For Black Friday (27-30 November) management is giving us more budget: €140 a day at most in total. How do we split it? The average margin on products is 40%.",
+   "obiettivo": "Split the Black Friday budget between the campaigns based on the numbers.",
+   "passi": [
+    {
+     "strumento": "campagne",
+     "tipo": "radio",
+     "domanda": "Below which ROAS does a campaign lose money?",
+     "consegna": "Average margin of 40%.",
+     "spiega": "Break-even ROAS is the ROAS below which sales don't cover the cost of the ads. It's calculated as 1 ÷ margin. With a 40% margin: 1 ÷ 0.40 = 2.5. Below 2.5 you lose, above it you earn.",
+     "esempio": "With a 25% margin: 1 ÷ 0.25 = 4. You need ROAS 4 just to break even.",
+     "errore": "Thinking ROAS 1 is break-even: it would mean the products cost nothing.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Below 1",
+       "giusta": false,
+       "nota": "With ROAS 1 the spend is covered in sales, but not the cost of the products."
+      },
+      {
+       "id": "o2",
+       "testo": "Below 2.5",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Below 4",
+       "giusta": false,
+       "nota": "That would apply with a 25% margin."
+      }
+     ],
+     "perche": "1 ÷ 0.40 = 2.5: below this ROAS every sale from ads costs more than it earns.",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "campagne",
+     "tipo": "checkbox",
+     "domanda": "Which campaigns are below break-even?",
+     "consegna": "Compare each campaign's ROAS with 2.5. You can choose more than one answer.",
+     "spiega": "Comparing each campaign with break-even ROAS shows where ads make money and where they lose it.",
+     "esempio": "",
+     "errore": "",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Green teas",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Herbal teas",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Kits and gift ideas",
+       "giusta": false,
+       "nota": "It has ROAS 4.6: it earns."
+      },
+      {
+       "id": "o4",
+       "testo": "Brand · Cinque Foglie",
+       "giusta": false,
+       "nota": "It has the highest ROAS of all."
+      }
+     ],
+     "perche": "Green teas (0.9) and Herbal teas (1.6) are below 2.5: today they lose money.",
+     "aiuto": "",
+     "dove": "[data-tabella-campagne]"
+    },
+    {
+     "strumento": "campagne",
+     "tipo": "radio",
+     "domanda": "Where is it worth putting the extra budget?",
+     "consegna": "Look at ROAS and Impressions lost to budget.",
+     "spiega": "More budget is needed where the campaign performs well and today stops because the budget runs out: the «Impressions lost to budget» column says how many times the ad didn't appear for lack of money.",
+     "esempio": "A campaign with ROAS 5 that loses 40% of impressions to budget is leaving sales on the table.",
+     "errore": "Putting budget where ROAS is high but nothing is lost: the extra money wouldn't be spent.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Kits and gift ideas: it brings in 4.6 and loses 38% of impressions to budget",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Brand: it has the highest ROAS",
+       "giusta": false,
+       "nota": "It loses only 2% to budget: it already appears almost always."
+      },
+      {
+       "id": "o3",
+       "testo": "Green teas: it spends the most",
+       "giusta": false,
+       "nota": "Below break-even: more budget = more losses."
+      }
+     ],
+     "perche": "Kits and gift ideas performs well and today gets stopped by the budget: that's where extra money brings sales.",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "campagne",
+     "tipo": "azione",
+     "verifica": "sea_budgetBF",
+     "vai": {
+      "link": "/app/simulazioni/sea/campagne/",
+      "testo": "Open the Campaigns"
+     },
+     "negozio": "",
+     "domanda": "Split the budget",
+     "consegna": "Set the daily budgets for Black Friday: €140 a day at most in total, across the active campaigns.",
+     "spiega": "You move budget towards campaigns that perform well and lose impressions, you keep brand, and you don't give extra budget to campaigns below break-even until they're fixed.",
+     "esempio": "For Black Friday an electronics shop raises «Headphones» from €30 to €70 and leaves «Cables» at €10.",
+     "errore": "Increasing everything proportionally.",
+     "opzioni": [],
+     "perche": "The budget is where it performs: the gifts campaign can appear much more on Black Friday days.",
+     "aiuto": "",
+     "dove": "[data-tabella-campagne]"
+    },
+    {
+     "strumento": "campagne",
+     "tipo": "radio",
+     "domanda": "Why not put everything on brand, which has the highest ROAS?",
+     "consegna": "Look at brand's lost impressions.",
+     "spiega": "Brand catches people already searching for the shop's name: it appears almost always and many of those people would arrive anyway. Adding budget there doesn't bring new customers.",
+     "esempio": "A famous restaurant doesn't double its ads on «restaurant name»: people searching for it already find it.",
+     "errore": "",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "It already appears almost always: the extra money wouldn't be spent",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Because brand doesn't sell",
+       "giusta": false,
+       "nota": "It sells a lot."
+      },
+      {
+       "id": "o3",
+       "testo": "Because raising the brand budget is forbidden",
+       "giusta": false,
+       "nota": "It isn't forbidden: it's pointless."
+      }
+     ],
+     "perche": "Brand loses only 2% to budget: it's already at its maximum.",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "guida",
+     "tipo": "testo",
+     "verifica": "sea_pianoBF",
+     "domanda": "Explain to Davide how you split the budget",
+     "consegna": "Write 3-5 sentences: how much you give each campaign and why, with the numbers.",
+     "spiega": "A budget proposal says how much, where and why. The why rests on the numbers (ROAS, break-even, lost impressions), so decision-makers can trust it.",
+     "esempio": "«For Christmas we raise Headphones to €70 a day: ROAS 5 and it loses 40% of impressions. Cables stays at €10: it's below break-even.»",
+     "errore": "Giving the numbers without the why.",
+     "opzioni": [],
+     "perche": "Example from a senior colleague: «For Black Friday I'm raising Kits and gift ideas to €60 a day: it brings in 4.6 and today loses 38% of impressions to budget. Brand stays at €12: it already appears almost always. Green teas and Herbal teas don't go up: they're below the break-even ROAS of 2.5 until we see the effect of the fixes.»",
+     "aiuto": "",
+     "dove": "",
+     "parole": [
+      30,
+      150
+     ]
+    }
+   ],
+   "imparato": [
+    "Break-even ROAS = 1 ÷ margin.",
+    "Extra budget goes where the campaign performs well and loses impressions to budget.",
+    "Brand already appears almost always.",
+    "A budget proposal says how much, where and why."
+   ],
+   "elena": "Approved by management first time. Let's see if Kits and gifts breaks the record!",
+   "prepara": {
+    "campagne": [
+     "brand",
+     "teverdi",
+     "tisane",
+     "regali",
+     "kit"
+    ]
+   }
+  },
+  {
+   "id": "c2",
+   "livello": 3,
+   "n": 2,
+   "nome": "The Black Friday ads",
+   "tempo": "35 minutes",
+   "strumenti": "Campaigns",
+   "cosa": "Write clear, correct discount ads: reference price, claims, end date.",
+   "situazione": "Black Friday is 20% off kits and accessories from 27 to 30 November. In the «Black Friday» group the ad is empty. The legal office reminds us: no claims we can't prove.",
+   "obiettivo": "Prepare the Black Friday ad following the rules on discounts.",
+   "passi": [
+    {
+     "strumento": "campagne",
+     "tipo": "radio",
+     "domanda": "Crossed-out price: which price is shown as «was»?",
+     "consegna": "Think about the European rules on discounts.",
+     "spiega": "Under the European Omnibus directive (in the Italian Consumer Code since 2023), anyone announcing a discount must show as the previous price the lowest one applied in the 30 days before the discount. That way you can't raise the price in October to fake a bigger discount in November.",
+     "esempio": "A jacket cost €100 but for two weeks in October it was €80: the November discount is calculated from €80.",
+     "errore": "Using the highest price ever charged to make the discount look bigger.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "The lowest price in the 30 days before the discount",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "The highest price of the year",
+       "giusta": false,
+       "nota": "That's exactly what the rules forbid."
+      },
+      {
+       "id": "o3",
+       "testo": "The manufacturer's recommended price, always",
+       "giusta": false,
+       "nota": "The reference is the lowest price of the last 30 days."
+      }
+     ],
+     "perche": "The 20% off is calculated from the lowest price of the previous 30 days.",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "campagne",
+     "tipo": "radio",
+     "domanda": "Which sentence can NOT be written in the ad?",
+     "consegna": "Think about what can be proven.",
+     "spiega": "Ads don't contain claims that can't be proven (the lowest prices, the best in Italy): it's misleading advertising. Ad platforms also often reject unverifiable superlatives.",
+     "esempio": "An agency writes «Cheap flights from €29» (true and verifiable), not «The cheapest flights in the world».",
+     "errore": "Thinking anything goes on Black Friday.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "«The lowest tea prices in Italy»",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "«20% off kits and accessories until 30/11»",
+       "giusta": false,
+       "nota": "It's true and has a date: it can be written."
+      },
+      {
+       "id": "o3",
+       "testo": "«Shipping in 24/48 hours»",
+       "giusta": false,
+       "nota": "It's true: it can be written."
+      }
+     ],
+     "perche": "«The lowest prices in Italy» can't be proven: it's a misleading claim.",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "campagne",
+     "tipo": "azione",
+     "verifica": "sea_annuncioBF",
+     "vai": {
+      "link": "/app/simulazioni/sea/campagne/#regali",
+      "testo": "Open the Kits and gift ideas campaign"
+     },
+     "negozio": "",
+     "domanda": "Write the Black Friday ad",
+     "consegna": "In the «Black Friday» group write the ad (at least 5 headlines and 2 descriptions), choose the landing page and the end date.",
+     "spiega": "A discount ad says how much, on what and until when. The ad's end date must match the end of the offer, so nobody sees a discount that no longer exists.",
+     "esempio": "«30% off yoga courses», «Only until Sunday the 12th», «Sign up by 12 November».",
+     "errore": "Leaving the ad running after the discount has ended.",
+     "opzioni": [],
+     "perche": "The ad states the discount and the date and leads to the right page; it switches itself off on 30 November.",
+     "aiuto": "",
+     "dove": "[data-annuncio=\"a-bf\"]"
+    },
+    {
+     "strumento": "campagne",
+     "tipo": "radio",
+     "domanda": "How will you know whether Black Friday went well?",
+     "consegna": "Think about what to compare.",
+     "spiega": "To assess a promotion you compare the same numbers (orders, ROAS, CPA) with a similar period without a promotion, and check that the margin is still positive with the discount.",
+     "esempio": "A shop compares the sale week with the 4 weeks before, and checks break-even ROAS against the discounted margin.",
+     "errore": "Only checking that sales went up.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "I compare orders and ROAS with the weeks before, remembering that the margin is lower with the discount",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "I check whether clicks went up",
+       "giusta": false,
+       "nota": "With a discount they almost always go up: what counts is whether you earn."
+      },
+      {
+       "id": "o3",
+       "testo": "I check whether followers increased",
+       "giusta": false,
+       "nota": "It's a social media metric, not a campaign one."
+      }
+     ],
+     "perche": "With 20% off the margin falls: break-even ROAS rises. It must be checked before celebrating.",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "guida",
+     "tipo": "testo",
+     "verifica": "sea_messaggioBF",
+     "domanda": "Write Davide the Black Friday summary",
+     "consegna": "Write 3-5 sentences: what you prepared (budget and ad) and what you'll check afterwards.",
+     "spiega": "A work summary says what's ready, what's expected and how it will be checked. The reader must be able to say «ok» without asking questions.",
+     "esempio": "«I've prepared the Christmas campaign: budget €60 a day, ad with the discount and the end date. Afterwards I'll check orders and ROAS against November.»",
+     "errore": "Describing the steps instead of the result.",
+     "opzioni": [],
+     "perche": "Example from a senior colleague: «For Black Friday Kits and gift ideas goes up to €60 a day. The ad says 20% off kits and accessories until 30 November, leads to the accessories page and switches itself off on the 30th. The discount starts from the lowest price of the last 30 days. Afterwards I'll compare orders and ROAS with the weeks before, taking the lower margin into account.»",
+     "aiuto": "",
+     "dove": "",
+     "parole": [
+      30,
+      150
+     ]
+    }
+   ],
+   "imparato": [
+    "The discount is calculated from the lowest price of the 30 days before (Omnibus).",
+    "No claims that can't be proven.",
+    "The ad's end date matches the end of the offer.",
+    "With the discount, break-even ROAS rises."
+   ],
+   "elena": "Perfect and lawyer-proof too. Black Friday is ready!",
+   "prepara": {
+    "annunci": [
+     "a-bf"
+    ]
+   }
+  }
+ ]
+}

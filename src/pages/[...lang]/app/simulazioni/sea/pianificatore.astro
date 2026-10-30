@@ -1,26 +1,34 @@
 ---
-import { LINGUE_APP } from "../../../../../i18n";
+import { LINGUE_APP, linguaDa } from "../../../../../i18n";
 // SIMULAZIONE SEA · PIANIFICATORE KEYWORD (ispirato ai pianificatori delle parole chiave, nome generico)
 // Idee di parole chiave per il matcha con ricerche al mese, costo per clic previsto, concorrenza e intento.
 import Console from "../../../../../components/seopro/Console.astro";
-import P from "../../../../../data/app/sea-sim/pianificatore.json";
-import { num } from "../../../../../scripts/tabella";
-const euro = (x: number) => num(x, 2) + " €";
+import P_IT from "../../../../../data/app/sea-sim/pianificatore.json";
+import P_EN from "../../../../../data/app/sea-sim/pianificatore.en.json";
+import { num as numero } from "../../../../../scripts/tabella";
+import { euro as euroL } from "../../../../../scripts/sea/stato";
+const lang = linguaDa(Astro.url);
+const L = (it: string, en: string) => (lang === "en" ? en : it);
+const P = lang === "en" ? (P_EN as typeof P_IT) : P_IT;
+const num = (x: number) => numero(x, 0, lang === "en");
+const euro = (x: number) => euroL(x, 2, lang === "en");
 const CLASSE: Record<string, string> = { acquisto: "ok", informativo: "", misto: "medio" };
+// intento e concorrenza sono codici: qui il testo da mostrare
+const NOMI: Record<string, string> = { acquisto: L("acquisto", "purchase"), informativo: L("informativo", "informational"), misto: L("misto", "mixed"), alta: L("alta", "high"), media: L("media", "medium"), bassa: L("bassa", "low") };
 export function getStaticPaths() { return LINGUE_APP(); }
 ---
-<Console sim="sea" attivo="pianificatore" titolo="Pianificatore keyword" sottotitolo="Idee per il matcha · ricerche medie al mese in Italia" ispirato="i pianificatori delle parole chiave (nome generico, nessun marchio reale)">
+<Console sim="sea" attivo="pianificatore" titolo={L("Pianificatore keyword", "Keyword planner")} sottotitolo={L("Idee per il matcha · ricerche medie al mese in Italia", "Matcha ideas · average monthly searches")} ispirato={L("i pianificatori delle parole chiave (nome generico, nessun marchio reale)", "keyword planners (generic name, no real brand)")}>
   <section class="sp-pannello pi-tab">
-    <div class="sp-riga"><input class="sp-cerca" type="search" placeholder="Cerca una parola chiave" data-filtra="t-idee" aria-label="Cerca una parola chiave" /></div>
+    <div class="sp-riga"><input class="sp-cerca" type="search" placeholder={L("Cerca una parola chiave", "Search for a keyword")} data-filtra="t-idee" aria-label={L("Cerca una parola chiave", "Search for a keyword")} /></div>
     <div class="sp-scorri">
       <table data-tabella id="t-idee">
-        <thead><tr><th data-ordina="testo">Parola chiave</th><th class="n" data-ordina="numero">Ricerche al mese</th><th class="n" data-ordina="numero">CPC previsto (da)</th><th class="n" data-ordina="numero">CPC previsto (a)</th><th data-ordina="testo">Concorrenza</th><th data-ordina="testo">Intento</th></tr></thead>
+        <thead><tr><th data-ordina="testo">{L("Parola chiave", "Keyword")}</th><th class="n" data-ordina="numero">{L("Ricerche al mese", "Searches per month")}</th><th class="n" data-ordina="numero">{L("CPC previsto (da)", "Expected CPC (from)")}</th><th class="n" data-ordina="numero">{L("CPC previsto (a)", "Expected CPC (to)")}</th><th data-ordina="testo">{L("Concorrenza", "Competition")}</th><th data-ordina="testo">{L("Intento", "Intent")}</th></tr></thead>
         <tbody>{P.idee.map((i) => (
-          <tr><td><strong>{i.testo}</strong></td><td class="n" data-valore={i.volume}>{num(i.volume)}</td><td class="n" data-valore={i.cpcBasso}>{euro(i.cpcBasso)}</td><td class="n" data-valore={i.cpcAlto}>{euro(i.cpcAlto)}</td><td>{i.concorrenza}</td><td><span class={`sp-badge ${CLASSE[i.intento]}`}>{i.intento}</span></td></tr>
+          <tr><td><strong>{i.testo}</strong></td><td class="n" data-valore={i.volume}>{num(i.volume)}</td><td class="n" data-valore={i.cpcBasso}>{euro(i.cpcBasso)}</td><td class="n" data-valore={i.cpcAlto}>{euro(i.cpcAlto)}</td><td>{NOMI[i.concorrenza] ?? i.concorrenza}</td><td><span class={`sp-badge ${CLASSE[i.intento]}`}>{NOMI[i.intento] ?? i.intento}</span></td></tr>
         ))}</tbody>
       </table>
     </div>
-    <p class="sp-nota">Intento: «acquisto» = chi cerca vuole comprare; «informativo» = vuole leggere o imparare; «misto» = un po' tutto. Il CPC previsto è un intervallo: il costo vero dipende dall'asta.</p>
+    <p class="sp-nota">{L("Intento: «acquisto» = chi cerca vuole comprare; «informativo» = vuole leggere o imparare; «misto» = un po' tutto. Il CPC previsto è un intervallo: il costo vero dipende dall'asta.", "Intent: «purchase» = the searcher wants to buy; «informational» = they want to read or learn; «mixed» = a bit of everything. The expected CPC is a range: the real cost depends on the auction.")}</p>
   </section>
 </Console>
 <script>
