@@ -40,8 +40,14 @@ const link = `${en ? "/en" : ""}/app/negozio${p.url}`;
   .stelle { color: #b06a10; letter-spacing: 1px; }
   .voto { white-space: nowrap; }
   .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  .piede { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 12px; }
+  .piede { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; margin-top: auto; padding-top: 12px; }
   .piede strong { font-size: 1.1rem; }
   .piede button { font: inherit; font-size: .85rem; font-weight: 700; background: #1f4d36; color: #fff; border: 0; border-radius: 999px; padding: 10px 16px; min-height: 42px; cursor: not-allowed; }
   .piede button:disabled { background: #b9c4bc; }
+  /* schede strette (due per riga sul telefono): meno spazio intorno, bottone a tutta larghezza */
+  @container sito (max-width: 760px) {
+    .testi { padding: 12px 12px 14px; }
+    .nome { font-size: .95rem; }
+    .piede button { flex: 1 1 100%; min-height: 40px; padding: 8px 12px; }
+  }
 </style>

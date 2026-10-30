@@ -215,6 +215,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
   .dettaglio :global(dd) { margin: 0; overflow-wrap: anywhere; }
   .aiuto summary { cursor: pointer; font-weight: 700; }
   .aiuto p { margin: 10px 0 0; line-height: 1.6; font-size: .9rem; }
-  @media (max-width: 900px) { .corpo { grid-template-columns: 1fr; } }
-  @media (max-width: 700px) { .dettaglio :global(dl div) { grid-template-columns: 1fr; gap: 2px; } }
+  /* area stretta: i filtri vanno sopra la tabella, divisi in colonne invece di una lista lunga */
+  @container area (max-width: 760px) { .corpo { grid-template-columns: 1fr; } .filtri { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); align-items: start; } }
+  @container area (max-width: 520px) { .dettaglio :global(dl div) { grid-template-columns: 1fr; gap: 2px; } }
 </style>

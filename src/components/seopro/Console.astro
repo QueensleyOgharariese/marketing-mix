@@ -126,8 +126,10 @@ const conGuida = attivo !== "percorso";
   .livello { font-weight: 700; background: var(--arancio); color: var(--inchiostro); padding: 4px 10px; border-radius: 999px; }
   .missioni-barra { width: 90px; height: 6px; border-radius: 99px; background: #e9e8e4; overflow: hidden; }
   .missioni-barra span { display: block; height: 100%; width: 0; background: var(--arancio); }
-  .console { display: grid; grid-template-columns: 248px minmax(0, 1fr); min-height: calc(100vh - 61px); }
-  .console.con-guida { grid-template-columns: 248px minmax(0, 1fr) 400px; }
+  /* Larghezze delle due barre laterali: sui portatili (fino a 1500 px) si stringono, così il lavoro al centro ha spazio */
+  .console { --menu: 248px; --guida: 400px; display: grid; grid-template-columns: var(--menu) minmax(0, 1fr); min-height: calc(100vh - 61px); }
+  .console.con-guida { grid-template-columns: var(--menu) minmax(0, 1fr) var(--guida); }
+  @media (max-width: 1500px) { .console { --menu: 208px; --guida: 320px; } }
   .menu { background: #fff; border-right: 1px solid #e3e1dc; padding: 24px 16px; display: flex; flex-direction: column; gap: 24px; }
   .gruppo { display: flex; flex-direction: column; gap: 2px; }
   .menu-titolo { font-size: .78rem; font-weight: 700; color: #55514c; padding: 0 12px 8px; }
@@ -137,7 +139,10 @@ const conGuida = attivo !== "percorso";
   .pallino { flex: none; width: 8px; height: 8px; border-radius: 50%; background: #d1cec8; }
   .attiva .pallino { background: var(--arancio); }
   .menu-nota { margin-top: auto; font-size: .78rem; color: #55514c; line-height: 1.5; padding: 10px; }
-  .contenuto { min-width: 0; width: 100%; max-width: 1280px; margin: 0 auto; box-sizing: border-box; padding: 32px 40px 72px; display: flex; flex-direction: column; gap: 24px; }
+  /* "area" è un contenitore: le pagine degli strumenti adattano il loro layout alla larghezza di quest'area
+     (con @container area), non a quella dello schermo, perché le barre laterali possono essere aperte o chiuse */
+  .contenuto { container: area / inline-size; min-width: 0; width: 100%; max-width: 1280px; margin: 0 auto; box-sizing: border-box; padding: 32px 40px 72px; display: flex; flex-direction: column; gap: 24px; }
+  @media (max-width: 1500px) { .contenuto { padding-inline: 28px; } }
   .testa { display: flex; flex-direction: column; gap: 6px; margin-bottom: 4px; }
   .testa h1 { font-size: 2rem; line-height: 1.15; }
   .sottotitolo { margin: 0; font-size: .95rem; color: #423e39; }
@@ -145,8 +150,8 @@ const conGuida = attivo !== "percorso";
   .guida { background: #fff; border-left: 1px solid #e3e1dc; padding: 28px 24px 0; display: flex; flex-direction: column; gap: 18px; align-self: start; position: sticky; top: 61px; max-height: calc(100vh - 61px); overflow-y: auto; min-height: calc(100vh - 61px); box-sizing: border-box; }
   /* Barre chiuse: diventano strisce sottili da 52 px */
   .console:has(> .menu[data-chiuso]) { grid-template-columns: 52px minmax(0, 1fr); }
-  .console.con-guida:has(> .menu[data-chiuso]) { grid-template-columns: 52px minmax(0, 1fr) 400px; }
-  .console.con-guida:has(> .guida[data-chiuso]) { grid-template-columns: 248px minmax(0, 1fr) 52px; }
+  .console.con-guida:has(> .menu[data-chiuso]) { grid-template-columns: 52px minmax(0, 1fr) var(--guida); }
+  .console.con-guida:has(> .guida[data-chiuso]) { grid-template-columns: var(--menu) minmax(0, 1fr) 52px; }
   .console.con-guida:has(> .menu[data-chiuso]):has(> .guida[data-chiuso]) { grid-template-columns: 52px minmax(0, 1fr) 52px; }
   .guida[data-chiuso] { min-height: 0; }
   @media (max-width: 1180px) {

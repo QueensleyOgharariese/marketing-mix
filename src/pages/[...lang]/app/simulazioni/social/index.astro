@@ -197,7 +197,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
   .tut-passi li::before { content: counter(t); flex: none; width: 24px; height: 24px; border-radius: 50%; background: #e9e8e4; display: grid; place-items: center; font-weight: 800; font-size: .78rem; }
   .tut-azione { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
   .tutorial.fatta .stato { color: #1f5c38; }
-  @media (max-width: 900px) { .tutorial { grid-template-columns: 1fr; gap: 16px; padding: 20px; } }
+  @container area (max-width: 720px) { .tutorial { grid-template-columns: 1fr; gap: 16px; padding: 20px; } }
   .livelli { display: flex; flex-direction: column; gap: 28px; }
   .livello { display: flex; flex-direction: column; gap: 14px; }
   .livello-testa { display: grid; grid-template-columns: 44px 1fr auto; gap: 14px; align-items: center; }
@@ -223,7 +223,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
   .riga-stato { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-top: auto; padding-top: 4px; }
   .fatta .stato { color: #1f5c38; }
   .prima .azione { background: var(--arancio); border-color: var(--arancio); }
-  @media (max-width: 640px) { .livello-testa { grid-template-columns: 40px 1fr; } .livello-stato { grid-column: 2; } .livello-n { width: 40px; height: 40px; } }
+  @container area (max-width: 520px) { .livello-testa { grid-template-columns: 40px 1fr; } .livello-stato { grid-column: 2; } .livello-n { width: 40px; height: 40px; } }
   .sotto { display: flex; flex-wrap: wrap; gap: 20px; }
   .strumenti { flex: 2 1 480px; }
   .griglia { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }

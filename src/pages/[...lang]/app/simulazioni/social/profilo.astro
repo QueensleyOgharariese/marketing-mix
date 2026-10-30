@@ -144,19 +144,19 @@ const PROFILO = lang === "en" ? PROFILO_EN : PROFILO_IT;
   .prof-visibile { font-weight: 700; font-size: .9rem; }
   .prof-bio { margin: 0; font-size: .9rem; color: #423e39; }
   .prof-corpo { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 20px; align-items: start; }
-  @media (max-width: 1000px) { .prof-corpo { grid-template-columns: 1fr; } }
+  @container area (max-width: 820px) { .prof-corpo { grid-template-columns: 1fr; } }
   .prof-tit { font-family: var(--font-titoli); font-size: 1.15rem; font-weight: 800; margin: 0; }
   .prof-griglia { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 14px; }
   .prof-archivio { margin-top: 18px; font-size: .88rem; }
   .prof-archivio summary { cursor: pointer; font-weight: 700; }
   .prof-dett { position: sticky; top: 80px; display: flex; flex-direction: column; gap: 12px; }
-  @media (max-width: 1000px) { .prof-dett { position: static; } }
+  @container area (max-width: 820px) { .prof-dett { position: static; } }
   :global(.tessera) { aspect-ratio: 1; border: 0; border-radius: 6px; padding: 10px; display: flex; flex-direction: column; justify-content: space-between; text-align: left; font: inherit; cursor: pointer; color: var(--inchiostro); min-width: 0; }
   :global(.tessera:hover), :global(.tessera.aperta) { outline: 3px solid var(--arancio); outline-offset: -3px; }
   :global(.t-formato) { align-self: flex-end; font-size: .66rem; font-weight: 700; background: rgba(255,255,255,.85); padding: 2px 6px; border-radius: 999px; }
   :global(.t-titolo) { font-size: .78rem; font-weight: 700; line-height: 1.25; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
   :global(.t-data) { font-size: .68rem; color: #423e39; }
-  @media (max-width: 560px) { :global(.t-titolo) { font-size: .66rem; -webkit-line-clamp: 2; } :global(.tessera) { padding: 6px; } }
+  @container area (max-width: 480px) { :global(.t-titolo) { font-size: .66rem; -webkit-line-clamp: 2; } :global(.tessera) { padding: 6px; } }
   :global(.pil-imparail) { background: #dcecdf; } :global(.pil-ricette) { background: #dfe8f7; } :global(.pil-dietrole) { background: #e7e2f3; }
   :global(.pil-lacommun) { background: #d9eeec; } :global(.pil-prodotto) { background: #e8e6e1; } :global(.pil-collabor) { background: #f3e1ea; }
   /* gli stessi colori per i pilastri in inglese */

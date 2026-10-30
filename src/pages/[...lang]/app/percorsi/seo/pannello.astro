@@ -290,6 +290,7 @@ const catalogo = en ? (catalogoEn as typeof catalogoIt) : catalogoIt;
 <style>
   .sezione { display: flex; flex-direction: column; gap: 20px; }
   .elenco-testa { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; }
+  .elenco-testa .sp-cerca { flex: 1 1 280px; min-width: 0; } /* la ricerca usa tutta la riga: il suggerimento non viene tagliato */
   .due { display: grid; grid-template-columns: minmax(260px, 1fr) minmax(0, 1.4fr); gap: 20px; align-items: start; }
   .elenco { max-height: 640px; overflow-y: auto; }
   .tabella-pagine :global(td.url .u) { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -338,7 +339,7 @@ const catalogo = en ? (catalogoEn as typeof catalogoIt) : catalogoIt;
   .int-stato { font-size: .78rem; color: #5f5a55; width: 100%; padding-left: 28px; margin-top: -6px; }
   .pericolo { border-color: #f1c9c2; }
   .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  @media (max-width: 1100px) { .due { grid-template-columns: 1fr; } .editor { position: static; } }
+  @container area (max-width: 900px) { .due { grid-template-columns: 1fr; } .editor { position: static; } }
   .sp-conferma { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 12px; padding: 14px; border: 1px solid #e3c9c6; border-radius: 10px; background: #fff; }
   .sp-conferma p { margin: 0; flex-basis: 100%; font-size: .9rem; }
   .sp-conferma[hidden] { display: none; }

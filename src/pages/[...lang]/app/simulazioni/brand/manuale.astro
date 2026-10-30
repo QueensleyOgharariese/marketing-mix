@@ -96,7 +96,7 @@ const M = lang === "en" ? (M_EN as typeof M_IT) : M_IT;
   section ul { margin: 0; padding-left: 20px; line-height: 1.6; font-size: .92rem; }
   .ma-esempi { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
   .ma-esempi li { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-  @media (max-width: 600px) { .ma-esempi li { grid-template-columns: 1fr; } }
+  @container area (max-width: 480px) { .ma-esempi li { grid-template-columns: 1fr; } }
   .ma-prima { background: #fde8e4; border-radius: 8px; padding: 8px 10px; }
   .ma-dopo { background: #e3f3e8; border-radius: 8px; padding: 8px 10px; }
   .ma-colori { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 14px; }

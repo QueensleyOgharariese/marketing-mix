@@ -385,8 +385,15 @@ const piuVenduti = ["sencha-bio", "matcha-quotidiano", "tisane-della-sera", "tei
   .grande-num { font-family: "Fraunces", Georgia, serif; font-size: 5rem; color: #c9c2b5; margin: 0; }
   .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-  @media (max-width: 860px) {
+  /* Si guarda la larghezza del sito finto (contenitore "sito" in Negozio.astro), non quella dello schermo */
+  @container sito (max-width: 760px) {
     .eroe, .banner, .prodotto, .cat-corpo, .dettagli, .recensioni { grid-template-columns: 1fr; }
+    /* prodotti su due colonne, come nei negozi veri da telefono; i filtri diventano una riga sopra */
+    .griglia, .cat-corpo .griglia, .prodotto ~ .griglia { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 12px; }
+    .filtri { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding: 14px 16px; }
+    .filtri strong { flex-basis: 100%; }
+    .disp-filtro { border-top: 0; padding-top: 0; }
+    .cat-corpo { gap: 20px; }
     .eroe-testo, .banner > div:first-child { padding: 32px 24px; }
     h2 { margin-top: 48px; } .titolo-riga { margin-top: 48px; } .banner, .newsletter, .dettagli { margin-top: 48px; }
     .rec-elenco { padding-top: 0; } .filtri { position: static; } .prodotto { gap: 28px; }

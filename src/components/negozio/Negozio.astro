@@ -150,7 +150,9 @@ const attiva = (id: string) => url.startsWith(`/${id}/`);
 </script>
 
 <style>
-  .area { padding: 24px; max-width: 1760px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) 400px; gap: 24px; align-items: start; }
+  /* La guida è larga 400 px sugli schermi grandi, 320 px sui portatili: così resta più spazio al negozio */
+  .area { --guida: 400px; padding: 24px; max-width: 1760px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) var(--guida); gap: 24px; align-items: start; }
+  @media (max-width: 1500px) { .area { --guida: 320px; } }
   .area:has(> .guida-negozio[data-chiuso]) { grid-template-columns: minmax(0, 1fr) 52px; }
   .guida-negozio { display: flex; flex-direction: column; gap: 4px; background: #fff; border: 1px solid #e3e1dc; border-radius: 16px; padding: 20px 24px 0; position: sticky; top: 80px; max-height: calc(100vh - 100px); overflow-y: auto; }
   @media (max-width: 1180px) { .area, .area:has(> .guida-negozio[data-chiuso]) { grid-template-columns: 1fr; } .guida-negozio { position: static; max-height: none; } .guida-negozio[data-chiuso] > :global(.apri-pannello) { margin: 0; } }
@@ -170,7 +172,9 @@ const attiva = (id: string) => url.startsWith(`/${id}/`);
   .codice .allarme { color: #ff9b8a; font-weight: 700; }
 
   /* ---- Il sito di Cinque Foglie ---- */
-  .sito { --verde: #1f4d36; --verde-scuro: #143323; --crema: #fbf8f2; --linea: #e6dfd0; --testo-n: #1d2a22; --testo-2n: #4a5a50;
+  /* Il sito è un "contenitore": il suo aspetto dipende dalla larghezza della finestra del browser finto, non dello schermo
+     (sul portatile, con la guida aperta, la finestra è stretta come un tablet) */
+  .sito { container: sito / inline-size; --verde: #1f4d36; --verde-scuro: #143323; --crema: #fbf8f2; --linea: #e6dfd0; --testo-n: #1d2a22; --testo-2n: #4a5a50;
     font-family: var(--font-testo); color: var(--testo-n); background: var(--crema); }
   .sito :global(a) { color: var(--verde); }
   .striscia { margin: 0; background: var(--verde); color: #f3efe4; font-size: .82rem; text-align: center; padding: 9px 16px; }
@@ -199,11 +203,13 @@ const attiva = (id: string) => url.startsWith(`/${id}/`);
   .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   @media (max-width: 760px) {
     .area { padding: 12px; gap: 16px; }
+    .codice dl div { grid-template-columns: 1fr; gap: 2px; }
+  }
+  @container sito (max-width: 640px) {
     .testa-riga, .menu, .sito-corpo, .piede-colonne, .finto { padding-inline: 16px; }
     .sito-corpo { padding-top: 24px; padding-bottom: 48px; }
     .conto a:first-child { display: none; }
     .menu { gap: 2px 16px; }
     .menu-blog { margin-left: 0; }
-    .codice dl div { grid-template-columns: 1fr; gap: 2px; }
   }
 </style>

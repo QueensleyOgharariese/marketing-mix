@@ -178,7 +178,10 @@ const css = [
   .titolo-medio { font-size: 1.9rem; }
   .titolo-grande { font-size: clamp(2rem, 5vw, 2.75rem); line-height: 1.05; }
   .testo-2 { margin: 0; font-size: 1.05rem; line-height: 1.55; color: var(--testo-2); max-width: 70ch; }
-  .fasi { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+  /* 4 fasi: in riga sugli schermi larghi, 2 + 2 sui tablet (mai 3 + 1), una sotto l'altra sul telefono */
+  .fasi { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  @media (max-width: 1000px) { .fasi { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 520px) { .fasi { grid-template-columns: 1fr; } }
   .fase { display: flex; flex-direction: column; gap: 6px; padding: 18px; border-radius: 20px; }
   .fase-1 { background: #fff4ec; } .fase-2 { background: #ffe8d6; } .fase-3 { background: #ffdcc2; } .fase-4 { background: #ffd0ae; }
   .fase-n { font-size: .8rem; font-weight: 800; color: var(--etichetta); }
