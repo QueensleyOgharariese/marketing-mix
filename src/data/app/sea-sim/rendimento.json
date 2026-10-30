@@ -1,0 +1,67 @@
+{
+ "righe": [
+  {
+   "campagna": "brand",
+   "gruppo": "g-brand",
+   "pagina": "/",
+   "sessioni": 790,
+   "rimbalzo": 0.22,
+   "ordini": 46,
+   "ricavi": 2300
+  },
+  {
+   "campagna": "teverdi",
+   "gruppo": "g-verde",
+   "pagina": "/te-verdi/",
+   "sessioni": 1050,
+   "rimbalzo": 0.58,
+   "ordini": 18,
+   "ricavi": 570
+  },
+  {
+   "campagna": "teverdi",
+   "gruppo": "g-sencha",
+   "pagina": "/",
+   "sessioni": 285,
+   "rimbalzo": 0.78,
+   "ordini": 5,
+   "ricavi": 159
+  },
+  {
+   "campagna": "teverdi",
+   "gruppo": "g-gyokuro",
+   "pagina": "/te-verdi/gyokuro/",
+   "sessioni": 17,
+   "rimbalzo": 0.29,
+   "ordini": 3,
+   "ricavi": 98
+  },
+  {
+   "campagna": "tisane",
+   "gruppo": "g-sera",
+   "pagina": "/tisane/",
+   "sessioni": 182,
+   "rimbalzo": 0.47,
+   "ordini": 7,
+   "ricavi": 147
+  },
+  {
+   "campagna": "tisane",
+   "gruppo": "g-tisanebio",
+   "pagina": "/tisane/",
+   "sessioni": 280,
+   "rimbalzo": 0.38,
+   "ordini": 15,
+   "ricavi": 330
+  },
+  {
+   "campagna": "regali",
+   "gruppo": "g-regali",
+   "pagina": "/accessori/",
+   "sessioni": 445,
+   "rimbalzo": 0.35,
+   "ordini": 27,
+   "ricavi": 1230
+  }
+ ]
+}

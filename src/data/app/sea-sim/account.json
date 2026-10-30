@@ -1,0 +1,468 @@
+{
+ "_nota": "Account pubblicitario finto di Cinque Foglie (ispirato agli strumenti per gli annunci sui motori di ricerca). Periodo 1-28 ottobre 2026. Dati inventati: vedi strumenti-dati/genera_sea.py.",
+ "periodo": "1-28 ottobre 2026",
+ "margine": 0.4,
+ "budgetMensileKit": 450,
+ "campagne": [
+  {
+   "id": "brand",
+   "nome": "Brand · Cinque Foglie",
+   "stato": "attiva",
+   "budget": 10,
+   "quotaPersaBudget": 0.02,
+   "tipo": "Rete di ricerca",
+   "gruppi": [
+    {
+     "id": "g-brand",
+     "nome": "Nome del negozio",
+     "keyword": [
+      {
+       "id": "k-b1",
+       "testo": "cinque foglie",
+       "corrispondenza": "esatta",
+       "qs": 10,
+       "componenti": {
+        "ctr": "sopra la media",
+        "pertinenza": "sopra la media",
+        "pagina": "sopra la media"
+       },
+       "impressioni": 2400,
+       "clic": 610,
+       "costo": 115.9,
+       "conversioni": 31,
+       "valore": 1540,
+       "stato": "attiva"
+      },
+      {
+       "id": "k-b2",
+       "testo": "cinque foglie tè",
+       "corrispondenza": "frase",
+       "qs": 9,
+       "componenti": {
+        "ctr": "sopra la media",
+        "pertinenza": "sopra la media",
+        "pagina": "nella media"
+       },
+       "impressioni": 900,
+       "clic": 220,
+       "costo": 52.8,
+       "conversioni": 15,
+       "valore": 760,
+       "stato": "attiva"
+      }
+     ],
+     "annunci": [
+      {
+       "id": "a-brand",
+       "titoli": [
+        "Cinque Foglie | Sito ufficiale",
+        "Tè e tisane biologici",
+        "Spedizione in 24/48 ore",
+        "Oltre 120 tè in foglie",
+        "Resi facili in 14 giorni"
+       ],
+       "descrizioni": [
+        "Tè e tisane biologici scelti da piccoli produttori. Spedizione gratuita da 39 €.",
+        "Scopri tè verdi, neri, matcha e tisane. Guide semplici per prepararli."
+       ],
+       "url": "/"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "teverdi",
+   "nome": "Tè verdi",
+   "stato": "attiva",
+   "budget": 40,
+   "quotaPersaBudget": 0.05,
+   "tipo": "Rete di ricerca",
+   "gruppi": [
+    {
+     "id": "g-verde",
+     "nome": "Tè verde generico",
+     "keyword": [
+      {
+       "id": "k-v1",
+       "testo": "tè verde",
+       "corrispondenza": "generica",
+       "qs": 5,
+       "componenti": {
+        "ctr": "sotto la media",
+        "pertinenza": "nella media",
+        "pagina": "nella media"
+       },
+       "impressioni": 21000,
+       "clic": 840,
+       "costo": 504.0,
+       "conversioni": 6,
+       "valore": 190,
+       "stato": "attiva"
+      },
+      {
+       "id": "k-v2",
+       "testo": "tè verde biologico",
+       "corrispondenza": "frase",
+       "qs": 7,
+       "componenti": {
+        "ctr": "nella media",
+        "pertinenza": "nella media",
+        "pagina": "nella media"
+       },
+       "impressioni": 4100,
+       "clic": 260,
+       "costo": 182.0,
+       "conversioni": 12,
+       "valore": 380,
+       "stato": "attiva"
+      }
+     ],
+     "annunci": [
+      {
+       "id": "a-verde",
+       "titoli": [
+        "Tè verde biologico in foglie",
+        "Sencha, Gyokuro e Genmaicha",
+        "Spedizione in 24/48 ore",
+        "Da piccoli produttori",
+        "Guida alla scelta"
+       ],
+       "descrizioni": [
+        "Tè verdi biologici dal Giappone e dalla Cina, in foglie intere. Scopri la selezione.",
+        "Spedizione gratuita da 39 €. Resi facili in 14 giorni."
+       ],
+       "url": "/te-verdi/"
+      }
+     ]
+    },
+    {
+     "id": "g-sencha",
+     "nome": "Sencha",
+     "keyword": [
+      {
+       "id": "k-s1",
+       "testo": "sencha biologico",
+       "corrispondenza": "frase",
+       "qs": 6,
+       "componenti": {
+        "ctr": "nella media",
+        "pertinenza": "sopra la media",
+        "pagina": "sotto la media"
+       },
+       "impressioni": 2600,
+       "clic": 190,
+       "costo": 133.0,
+       "conversioni": 3,
+       "valore": 95,
+       "stato": "attiva"
+      },
+      {
+       "id": "k-s2",
+       "testo": "tè sencha",
+       "corrispondenza": "frase",
+       "qs": 6,
+       "componenti": {
+        "ctr": "nella media",
+        "pertinenza": "sopra la media",
+        "pagina": "sotto la media"
+       },
+       "impressioni": 1500,
+       "clic": 105,
+       "costo": 68.25,
+       "conversioni": 2,
+       "valore": 64,
+       "stato": "attiva"
+      }
+     ],
+     "annunci": [
+      {
+       "id": "a-sencha",
+       "titoli": [
+        "Tè Sencha biologico",
+        "Sencha in foglie intere",
+        "Dal Giappone, 100 g",
+        "Spedizione in 24/48 ore",
+        "Il tè verde di ogni giorno"
+       ],
+       "descrizioni": [
+        "Sencha biologico fresco ed erbaceo, in latta da 100 g. Ordina ora.",
+        "Spedizione gratuita da 39 €. Resi facili in 14 giorni."
+       ],
+       "url": "/"
+      }
+     ]
+    },
+    {
+     "id": "g-gyokuro",
+     "nome": "Gyokuro",
+     "keyword": [
+      {
+       "id": "k-g1",
+       "testo": "gyokuro",
+       "corrispondenza": "esatta",
+       "qs": 8,
+       "componenti": {
+        "ctr": "sopra la media",
+        "pertinenza": "sopra la media",
+        "pagina": "nella media"
+       },
+       "impressioni": 700,
+       "clic": 18,
+       "costo": 16.2,
+       "conversioni": 3,
+       "valore": 98,
+       "stato": "attiva"
+      }
+     ],
+     "annunci": [
+      {
+       "id": "a-gyokuro",
+       "titoli": [
+        "Gyokuro giapponese",
+        "Tè verde cresciuto all'ombra",
+        "Gusto dolce e morbido",
+        "Spedizione in 24/48 ore",
+        "Da piccoli produttori"
+       ],
+       "descrizioni": [
+        "Il Gyokuro: tè verde pregiato coltivato all'ombra. Scopri come prepararlo.",
+        "Spedizione gratuita da 39 €."
+       ],
+       "url": "/te-verdi/gyokuro/"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tisane",
+   "nome": "Tisane",
+   "stato": "attiva",
+   "budget": 20,
+   "quotaPersaBudget": 0.1,
+   "tipo": "Rete di ricerca",
+   "gruppi": [
+    {
+     "id": "g-sera",
+     "nome": "Tisane della sera",
+     "keyword": [
+      {
+       "id": "k-t1",
+       "testo": "tisane della sera",
+       "corrispondenza": "frase",
+       "qs": 3,
+       "componenti": {
+        "ctr": "sotto la media",
+        "pertinenza": "sotto la media",
+        "pagina": "nella media"
+       },
+       "impressioni": 3200,
+       "clic": 70,
+       "costo": 66.5,
+       "conversioni": 3,
+       "valore": 62,
+       "stato": "attiva"
+      },
+      {
+       "id": "k-t2",
+       "testo": "tisana rilassante",
+       "corrispondenza": "frase",
+       "qs": 4,
+       "componenti": {
+        "ctr": "sotto la media",
+        "pertinenza": "sotto la media",
+        "pagina": "nella media"
+       },
+       "impressioni": 5400,
+       "clic": 120,
+       "costo": 102.0,
+       "conversioni": 4,
+       "valore": 85,
+       "stato": "attiva"
+      }
+     ],
+     "annunci": [
+      {
+       "id": "a-sera",
+       "titoli": [
+        "Tè verde biologico in foglie",
+        "Sencha, Gyokuro e Genmaicha",
+        "Spedizione in 24/48 ore",
+        "Da piccoli produttori",
+        "Guida alla scelta"
+       ],
+       "descrizioni": [
+        "Tè verdi biologici dal Giappone e dalla Cina, in foglie intere. Scopri la selezione.",
+        "Spedizione gratuita da 39 €. Resi facili in 14 giorni."
+       ],
+       "url": "/tisane/"
+      }
+     ]
+    },
+    {
+     "id": "g-tisanebio",
+     "nome": "Tisane biologiche",
+     "keyword": [
+      {
+       "id": "k-t3",
+       "testo": "tisane biologiche",
+       "corrispondenza": "frase",
+       "qs": 7,
+       "componenti": {
+        "ctr": "nella media",
+        "pertinenza": "sopra la media",
+        "pagina": "nella media"
+       },
+       "impressioni": 4800,
+       "clic": 290,
+       "costo": 130.5,
+       "conversioni": 15,
+       "valore": 330,
+       "stato": "attiva"
+      }
+     ],
+     "annunci": [
+      {
+       "id": "a-tisanebio",
+       "titoli": [
+        "Tisane biologiche",
+        "Camomilla, menta e rooibos",
+        "Senza aromi artificiali",
+        "Spedizione in 24/48 ore",
+        "Da 5,50 € a confezione"
+       ],
+       "descrizioni": [
+        "Tisane biologiche per ogni momento della giornata. Scopri la selezione.",
+        "Spedizione gratuita da 39 €. Resi facili in 14 giorni."
+       ],
+       "url": "/tisane/"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "regali",
+   "nome": "Kit e idee regalo",
+   "stato": "attiva",
+   "budget": 25,
+   "quotaPersaBudget": 0.38,
+   "tipo": "Rete di ricerca",
+   "gruppi": [
+    {
+     "id": "g-regali",
+     "nome": "Idee regalo",
+     "keyword": [
+      {
+       "id": "k-r1",
+       "testo": "idee regalo tè",
+       "corrispondenza": "frase",
+       "qs": 8,
+       "componenti": {
+        "ctr": "sopra la media",
+        "pertinenza": "sopra la media",
+        "pagina": "nella media"
+       },
+       "impressioni": 3900,
+       "clic": 230,
+       "costo": 126.5,
+       "conversioni": 14,
+       "valore": 640,
+       "stato": "attiva"
+      },
+      {
+       "id": "k-r2",
+       "testo": "kit tè regalo",
+       "corrispondenza": "frase",
+       "qs": 8,
+       "componenti": {
+        "ctr": "sopra la media",
+        "pertinenza": "sopra la media",
+        "pagina": "nella media"
+       },
+       "impressioni": 2100,
+       "clic": 150,
+       "costo": 90.0,
+       "conversioni": 9,
+       "valore": 410,
+       "stato": "attiva"
+      },
+      {
+       "id": "k-r3",
+       "testo": "cofanetto tè",
+       "corrispondenza": "esatta",
+       "qs": 7,
+       "componenti": {
+        "ctr": "nella media",
+        "pertinenza": "nella media",
+        "pagina": "nella media"
+       },
+       "impressioni": 1300,
+       "clic": 80,
+       "costo": 49.6,
+       "conversioni": 4,
+       "valore": 180,
+       "stato": "attiva"
+      }
+     ],
+     "annunci": [
+      {
+       "id": "a-regali",
+       "titoli": [
+        "Idee regalo per chi ama il tè",
+        "Kit e cofanetti di tè",
+        "Teiere e tazze fatte a mano",
+        "Spedizione in 24/48 ore",
+        "Biglietto regalo incluso"
+       ],
+       "descrizioni": [
+        "Kit matcha, teiere in ghisa e cofanetti di tè biologici: il regalo giusto.",
+        "Spedizione gratuita da 39 €. Resi facili in 14 giorni."
+       ],
+       "url": "/accessori/"
+      }
+     ]
+    },
+    {
+     "id": "g-bf",
+     "nome": "Black Friday",
+     "bozza": true,
+     "keyword": [],
+     "annunci": [
+      {
+       "id": "a-bf",
+       "titoli": [],
+       "descrizioni": [],
+       "url": "",
+       "fine": ""
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kit",
+   "nome": "Kit matcha",
+   "stato": "bozza",
+   "budget": 0,
+   "quotaPersaBudget": 0,
+   "tipo": "Rete di ricerca",
+   "gruppi": [
+    {
+     "id": "g-kit",
+     "nome": "Kit matcha",
+     "keyword": [],
+     "annunci": [
+      {
+       "id": "a-kit",
+       "titoli": [],
+       "descrizioni": [],
+       "url": ""
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

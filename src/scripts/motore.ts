@@ -30,6 +30,11 @@ export const STRUMENTI: Record<string, Strumento> = {
   calendario: { nome: "Calendario e post", link: "/app/simulazioni/social/calendario/" },
   community: { nome: "Commenti e messaggi", link: "/app/simulazioni/social/community/" },
   libreria: { nome: "Libreria foto e musica", link: "/app/simulazioni/social/libreria/" },
+  // SEA
+  campagne: { nome: "Campagne", link: "/app/simulazioni/sea/campagne/" },
+  termini: { nome: "Termini di ricerca", link: "/app/simulazioni/sea/termini/" },
+  pianificatore: { nome: "Pianificatore keyword", link: "/app/simulazioni/sea/pianificatore/" },
+  rendimento: { nome: "Rendimento sul sito", link: "/app/simulazioni/sea/rendimento/" },
 };
 
 type Config = { dati: { livelli: any[]; missioni: any[] }; chiave: string; ripristina?: (parti: any) => void; base: string; nome: string };

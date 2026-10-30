@@ -721,5 +721,10 @@
   "cosa": "Una richiesta breve di Luca: scegli le keyword e scrivi l'annuncio per i tè freddi.",
   "link": "/app/sea/esercizio/",
   "minuti": 20
+ },
+ "pratica": {
+  "titolo": "Simulazione SEA",
+  "cosa": "Lavori sull'account pubblicitario di Cinque Foglie: parole chiave, annunci, termini di ricerca, punteggio di qualità e budget del Black Friday.",
+  "link": "/app/simulazioni/sea/"
  }
 }

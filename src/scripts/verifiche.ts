@@ -5,6 +5,7 @@ import { leggiModifiche, paginaEffettiva, catena, type Modifiche } from "./cms";
 import { normalizza, senzaSalute, cerca, pixel, contaParole } from "./controlli-seo";
 import catalogo from "../data/app/seo-pro/catalogo.json";
 import { VERIFICHE_SOCIAL, leggiSocial } from "./social/verifiche-social";
+import { VERIFICHE_SEA, leggiSea } from "./sea/verifiche-sea";
 
 export type Controllo = { nome: string; ok: boolean; suggerimento: string };
 type Verifica = (m: Modifiche, testo: string) => Controllo[]; // testo: quello scritto nella guida (passi "testo")
@@ -163,6 +164,9 @@ export const VERIFICHE: Record<string, Verifica> = {
 
 export function verifica(id: string, testo = "") {
   // Le verifiche della Simulazione Social (id "so_…") leggono le modifiche del profilo, non quelle del negozio
-  const controlli = id.startsWith("so_") ? (VERIFICHE_SOCIAL[id]?.(leggiSocial(), testo) ?? []) : (VERIFICHE[id]?.(leggiModifiche(), testo) ?? []);
+  // e quelle della Simulazione SEA (id "sea_…") leggono le modifiche dell'account pubblicitario
+  const controlli = id.startsWith("so_") ? (VERIFICHE_SOCIAL[id]?.(leggiSocial(), testo) ?? [])
+    : id.startsWith("sea_") ? (VERIFICHE_SEA[id]?.(leggiSea(), testo) ?? [])
+    : (VERIFICHE[id]?.(leggiModifiche(), testo) ?? []);
   return { ok: controlli.length > 0 && controlli.every((c) => c.ok), controlli };
 }

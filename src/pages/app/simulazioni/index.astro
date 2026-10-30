@@ -1,6 +1,6 @@
 ---
 // APP · SIMULAZIONI (la pratica)
-// Elenco delle simulazioni disponibili (SEO e Social); gli altri ruoli arriveranno uno alla volta.
+// Elenco delle simulazioni disponibili (SEO, SEA e Social); gli altri ruoli arriveranno uno alla volta.
 // L'avanzamento di ogni simulazione viene letto dal browser (stessi dati della sua panoramica).
 import AppLayout from "../../../layouts/AppLayout.astro";
 import Progresso from "../../../components/Progresso.astro";
@@ -8,10 +8,12 @@ import Icona from "../../../components/Icona.astro";
 import azienda from "../../../data/app/cinque-foglie.json";
 import seo from "../../../data/app/seo-pro/missioni.json";
 import social from "../../../data/app/social-sim/esercizi.json";
+import sea from "../../../data/app/sea-sim/esercizi.json";
 
 // Una scheda per simulazione: id del ruolo, link, testo e file degli esercizi
 const SIM = [
   { id: "seo", nome: "Simulazione SEO", link: "/app/percorsi/seo/", dati: seo, testo: "Le tisane sono sparite da Google, una categoria non viene cliccata, ottobre va male: trovi i problemi negli strumenti e li correggi sul sito." },
+  { id: "sea", nome: "Simulazione SEA", link: "/app/simulazioni/sea/", dati: sea, testo: "Una campagna nuova per il kit matcha, una campagna che spende tanto e vende poco, un annuncio copiato nel posto sbagliato e il budget del Black Friday da dividere." },
   { id: "social", nome: "Simulazione Social", link: "/app/simulazioni/social/", dati: social, testo: "Un post da preparare, commenti da gestire, foto usate senza permesso e una copertura crollata a fine settembre: lavori sul profilo, sul calendario e sui commenti." },
 ].map((s) => {
   const esercizi = s.dati.missioni.filter((m) => m.id !== "tutorial");
@@ -65,7 +67,8 @@ const altri = azienda.ruoli.filter((r) => !SIM.some((s) => s.id === r.id));
 <script>
   import { motoreSeo } from "../../../scripts/missioni";
   import { motoreSocial } from "../../../scripts/social/missioni-social";
-  for (const [id, mo] of [["seo", motoreSeo], ["social", motoreSocial]] as const) {
+  import { motoreSea } from "../../../scripts/sea/missioni-sea";
+  for (const [id, mo] of [["seo", motoreSeo], ["sea", motoreSea], ["social", motoreSocial]] as const) {
     const s = mo.leggiStato();
     const n = mo.MISSIONI.filter((m) => mo.fatta(s, m)).length;
     const el = document.querySelector(`[data-avanz="${id}"]`);

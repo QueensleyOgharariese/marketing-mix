@@ -114,5 +114,38 @@
    "Ogni voce dice da dove arriva e che <strong>permesso</strong> o <strong>licenza</strong> ha.",
    "Per le foto di altre persone puoi scrivere qui il messaggio per <strong>chiedere il permesso</strong>."
   ]
+ },
+ "campagne": {
+  "nome": "Le Campagne",
+  "punti": [
+   "La tabella elenca le campagne con i numeri di ottobre: impressioni, clic, CTR, costo, conversioni, CPA, ROAS e <strong>impressioni perse per budget</strong>. Clicca un'intestazione per ordinare.",
+   "Clicca il nome di una campagna per aprirla: in alto <strong>budget giornaliero</strong> e stato (con <strong>Salva</strong>), poi le <strong>parole chiave negative</strong> e i gruppi di annunci.",
+   "In ogni gruppo: la tabella delle parole chiave (la corrispondenza si cambia dal menu della riga; clicca il punteggio di <strong>Qualità</strong> per vederne le tre parti), il modulo <strong>Aggiungi parola chiave</strong> e l'annuncio con il bottone <strong>Modifica l'annuncio</strong>.",
+   "Nell'annuncio: fino a 15 titoli (30 caratteri) e 4 descrizioni (90 caratteri), con il contatore accanto, l'<strong>URL finale</strong> e, se serve, la <strong>data di fine</strong>."
+  ]
+ },
+ "termini": {
+  "nome": "I Termini di ricerca",
+  "punti": [
+   "Mostrano cosa hanno scritto davvero le persone prima di cliccare un annuncio, con la parola chiave che l'ha fatto comparire.",
+   "Filtra per campagna o per parola chiave con i menu in alto; clicca un'intestazione per ordinare.",
+   "Il bottone <strong>Escludi</strong> su una riga ti fa scegliere quali parole aggiungere come <strong>negative</strong> della campagna. Le negative già aggiunte sono elencate sopra la tabella."
+  ]
+ },
+ "pianificatore": {
+  "nome": "Il Pianificatore keyword",
+  "punti": [
+   "Idee di parole chiave con le <strong>ricerche al mese</strong>, il costo per clic previsto (da… a…), la <strong>concorrenza</strong> e l'<strong>intento</strong> (acquisto, informativo o misto).",
+   "Scrivi nella casella per cercare; clicca un'intestazione per ordinare.",
+   "Il pianificatore non aggiunge niente alle campagne: le parole chiave si aggiungono dalle Campagne."
+  ]
+ },
+ "rendimento": {
+  "nome": "Il Rendimento sul sito",
+  "punti": [
+   "Cosa succede dopo il clic, gruppo per gruppo: <strong>pagina di arrivo</strong>, sessioni, <strong>frequenza di rimbalzo</strong> (chi se ne va subito), ordini e ricavi.",
+   "Accanto ci sono il costo degli annunci e il ROAS del gruppo, per confrontare.",
+   "In alto il <strong>margine lordo medio</strong> dei prodotti: serve per capire quando una campagna fa guadagnare."
+  ]
  }
 }

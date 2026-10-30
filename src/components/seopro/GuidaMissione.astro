@@ -12,7 +12,7 @@
 // La guida cala con il livello: Basi "Come funziona" già aperto; Diagnosi tutto chiuso; Casi solo Teoria.
 // Il contenuto arriva da missioni.json e viene disegnato nel browser, perché dipende dallo stato salvato (localStorage).
 // pagina: id dello strumento in cui si trova la guida (console, crawler, negozio...); sim: quale simulazione
-interface Props { pagina: string; sim?: "seo" | "social" }
+interface Props { pagina: string; sim?: "seo" | "social" | "sea" }
 const { pagina, sim = "seo" } = Astro.props;
 ---
 <div class="gm" data-guida-missione={pagina} data-sim={sim} aria-live="polite">
@@ -22,13 +22,14 @@ const { pagina, sim = "seo" } = Astro.props;
 <script>
   import { motoreSeo, type Missione, type Passo } from "../../scripts/missioni";
   import { motoreSocial } from "../../scripts/social/missioni-social";
+  import { motoreSea } from "../../scripts/sea/missioni-sea";
   // La stessa guida serve tutte le simulazioni: si sceglie il motore in base a data-sim
-  const MO = document.querySelector<HTMLElement>("[data-guida-missione]")?.dataset.sim === "social" ? motoreSocial : motoreSeo;
+  const SIM = document.querySelector<HTMLElement>("[data-guida-missione]")?.dataset.sim ?? "seo";
+  const MO = { social: motoreSocial, sea: motoreSea }[SIM] ?? motoreSeo;
   const { TUTTE, LIVELLI, STRUMENTI, leggiStato, salvaStato, linkPasso, controlla, punti, avvia, ricomincia, etichetta, consigliata, livelloAperto } = MO;
   const PANORAMICA = `${MO.base}/`;
-  // Chi assegna gli esercizi: Elena nella SEO, Sara nel Social (persone inventate)
-  const SOCIAL = MO === motoreSocial;
-  const CHI = SOCIAL ? { nome: "Sara L.", ruolo: "social media manager" } : { nome: "Elena M.", ruolo: "responsabile e-commerce" };
+  // Chi assegna i compiti in ogni simulazione (persone inventate)
+  const CHI = { social: { nome: "Sara L.", ruolo: "social media manager" }, sea: { nome: "Davide R.", ruolo: "performance marketing manager" } }[SIM] ?? { nome: "Elena M.", ruolo: "responsabile e-commerce" };
   import { verifica } from "../../scripts/verifiche";
   import AIUTO from "../../data/app/seo-pro/aiuto-strumenti.json";
 
@@ -128,7 +129,7 @@ const { pagina, sim = "seo" } = Astro.props;
     }
 
     // --- Risposta: scelta, modifica sul sito o testo ---
-    const chiaveTesto = `${SOCIAL ? "social-" : ""}${m.id}-${sm.passo}`; // il Social ha id come la SEO (base1, d1…): il prefisso li tiene separati
+    const chiaveTesto = `${SIM === "seo" ? "" : SIM + "-"}${m.id}-${sm.passo}`; // le simulazioni hanno id uguali (base1, d1…): il prefisso li tiene separati
     let risposta = "";
     if (p.tipo === "radio" || p.tipo === "checkbox") {
       risposta = `<fieldset class="gm-opzioni"><legend>${p.tipo === "checkbox" ? "Scegli tutte le risposte giuste" : "Scegli una risposta"}</legend>

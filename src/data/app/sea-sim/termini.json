@@ -1,0 +1,174 @@
+{
+ "termini": [
+  {
+   "termine": "tè verde benefici",
+   "keyword": "tè verde",
+   "campagna": "teverdi",
+   "impressioni": 4250,
+   "clic": 170,
+   "costo": 102.0,
+   "conversioni": 0,
+   "valore": 0
+  },
+  {
+   "termine": "tè verde fa dimagrire",
+   "keyword": "tè verde",
+   "campagna": "teverdi",
+   "impressioni": 3500,
+   "clic": 140,
+   "costo": 84.0,
+   "conversioni": 0,
+   "valore": 0
+  },
+  {
+   "termine": "ricetta tè verde freddo",
+   "keyword": "tè verde",
+   "campagna": "teverdi",
+   "impressioni": 3000,
+   "clic": 120,
+   "costo": 72.0,
+   "conversioni": 0,
+   "valore": 0
+  },
+  {
+   "termine": "campioni tè verde gratis",
+   "keyword": "tè verde",
+   "campagna": "teverdi",
+   "impressioni": 2375,
+   "clic": 95,
+   "costo": 57.0,
+   "conversioni": 0,
+   "valore": 0
+  },
+  {
+   "termine": "lavoro raccolta tè verde",
+   "keyword": "tè verde",
+   "campagna": "teverdi",
+   "impressioni": 1000,
+   "clic": 40,
+   "costo": 24.0,
+   "conversioni": 0,
+   "valore": 0
+  },
+  {
+   "termine": "tè verde biologico in foglie",
+   "keyword": "tè verde",
+   "campagna": "teverdi",
+   "impressioni": 2000,
+   "clic": 80,
+   "costo": 48.0,
+   "conversioni": 3,
+   "valore": 95
+  },
+  {
+   "termine": "comprare tè verde online",
+   "keyword": "tè verde",
+   "campagna": "teverdi",
+   "impressioni": 2250,
+   "clic": 90,
+   "costo": 54.0,
+   "conversioni": 2,
+   "valore": 64
+  },
+  {
+   "termine": "tè verde sencha",
+   "keyword": "tè verde",
+   "campagna": "teverdi",
+   "impressioni": 1625,
+   "clic": 65,
+   "costo": 39.0,
+   "conversioni": 1,
+   "valore": 31
+  },
+  {
+   "termine": "tè verde",
+   "keyword": "tè verde",
+   "campagna": "teverdi",
+   "impressioni": 1000,
+   "clic": 40,
+   "costo": 24.0,
+   "conversioni": 0,
+   "valore": 0
+  },
+  {
+   "termine": "tè verde biologico",
+   "keyword": "tè verde biologico",
+   "campagna": "teverdi",
+   "impressioni": 4000,
+   "clic": 160,
+   "costo": 112.0,
+   "conversioni": 8,
+   "valore": 250
+  },
+  {
+   "termine": "tè verde biologico prezzo",
+   "keyword": "tè verde biologico",
+   "campagna": "teverdi",
+   "impressioni": 2500,
+   "clic": 100,
+   "costo": 70.0,
+   "conversioni": 4,
+   "valore": 130
+  },
+  {
+   "termine": "sencha biologico",
+   "keyword": "sencha biologico",
+   "campagna": "teverdi",
+   "impressioni": 4750,
+   "clic": 190,
+   "costo": 133.0,
+   "conversioni": 3,
+   "valore": 95
+  },
+  {
+   "termine": "tè sencha",
+   "keyword": "tè sencha",
+   "campagna": "teverdi",
+   "impressioni": 2625,
+   "clic": 105,
+   "costo": 68.25,
+   "conversioni": 2,
+   "valore": 64
+  },
+  {
+   "termine": "gyokuro",
+   "keyword": "gyokuro",
+   "campagna": "teverdi",
+   "impressioni": 450,
+   "clic": 18,
+   "costo": 16.2,
+   "conversioni": 3,
+   "valore": 98
+  },
+  {
+   "termine": "tisane della sera",
+   "keyword": "tisane della sera",
+   "campagna": "tisane",
+   "impressioni": 1750,
+   "clic": 70,
+   "costo": 66.5,
+   "conversioni": 3,
+   "valore": 62
+  },
+  {
+   "termine": "tisana rilassante",
+   "keyword": "tisana rilassante",
+   "campagna": "tisane",
+   "impressioni": 3000,
+   "clic": 120,
+   "costo": 102.0,
+   "conversioni": 4,
+   "valore": 85
+  },
+  {
+   "termine": "tisane biologiche",
+   "keyword": "tisane biologiche",
+   "campagna": "tisane",
+   "impressioni": 7250,
+   "clic": 290,
+   "costo": 130.5,
+   "conversioni": 15,
+   "valore": 330
+  }
+ ]
+}

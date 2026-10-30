@@ -1,0 +1,100 @@
+{
+ "idee": [
+  {
+   "testo": "kit matcha",
+   "volume": 1900,
+   "cpcBasso": 0.45,
+   "cpcAlto": 0.9,
+   "concorrenza": "media",
+   "intento": "acquisto"
+  },
+  {
+   "testo": "kit matcha con frusta",
+   "volume": 480,
+   "cpcBasso": 0.4,
+   "cpcAlto": 0.8,
+   "concorrenza": "bassa",
+   "intento": "acquisto"
+  },
+  {
+   "testo": "set matcha",
+   "volume": 720,
+   "cpcBasso": 0.4,
+   "cpcAlto": 0.85,
+   "concorrenza": "media",
+   "intento": "acquisto"
+  },
+  {
+   "testo": "frusta matcha",
+   "volume": 1300,
+   "cpcBasso": 0.3,
+   "cpcAlto": 0.7,
+   "concorrenza": "media",
+   "intento": "acquisto"
+  },
+  {
+   "testo": "comprare matcha",
+   "volume": 590,
+   "cpcBasso": 0.5,
+   "cpcAlto": 1.1,
+   "concorrenza": "alta",
+   "intento": "acquisto"
+  },
+  {
+   "testo": "matcha",
+   "volume": 49500,
+   "cpcBasso": 0.7,
+   "cpcAlto": 1.6,
+   "concorrenza": "alta",
+   "intento": "misto"
+  },
+  {
+   "testo": "matcha benefici",
+   "volume": 8100,
+   "cpcBasso": 0.2,
+   "cpcAlto": 0.5,
+   "concorrenza": "bassa",
+   "intento": "informativo"
+  },
+  {
+   "testo": "come si prepara il matcha",
+   "volume": 5400,
+   "cpcBasso": 0.15,
+   "cpcAlto": 0.4,
+   "concorrenza": "bassa",
+   "intento": "informativo"
+  },
+  {
+   "testo": "matcha latte ricetta",
+   "volume": 6600,
+   "cpcBasso": 0.15,
+   "cpcAlto": 0.35,
+   "concorrenza": "bassa",
+   "intento": "informativo"
+  },
+  {
+   "testo": "matcha cos'è",
+   "volume": 2900,
+   "cpcBasso": 0.1,
+   "cpcAlto": 0.3,
+   "concorrenza": "bassa",
+   "intento": "informativo"
+  },
+  {
+   "testo": "kit matcha regalo",
+   "volume": 390,
+   "cpcBasso": 0.45,
+   "cpcAlto": 0.95,
+   "concorrenza": "media",
+   "intento": "acquisto"
+  },
+  {
+   "testo": "ciotola matcha",
+   "volume": 880,
+   "cpcBasso": 0.3,
+   "cpcAlto": 0.7,
+   "concorrenza": "media",
+   "intento": "acquisto"
+  }
+ ]
+}

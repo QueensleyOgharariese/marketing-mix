@@ -10,13 +10,24 @@ import GuidaMissione from "./GuidaMissione.astro";
 import SchermoIntero from "../SchermoIntero.astro";
 
 // sim: quale simulazione (seo o social). Cambiano menu, nome e conteggio degli esercizi; tutto il resto è comune.
-interface Props { attivo: string; titolo: string; ispirato?: string; sottotitolo?: string; sim?: "seo" | "social" }
+interface Props { attivo: string; titolo: string; ispirato?: string; sottotitolo?: string; sim?: "seo" | "social" | "sea" }
 const { attivo, titolo, ispirato, sottotitolo, sim = "seo" } = Astro.props;
 const B = "/app/percorsi/seo";
 const S = "/app/simulazioni/social";
-const NOME = sim === "social" ? "Simulazione Social" : "Simulazione SEO";
-const BASE = sim === "social" ? S : B;
-const GRUPPI = sim === "social" ? [
+const A = "/app/simulazioni/sea";
+const NOME = { seo: "Simulazione SEO", social: "Simulazione Social", sea: "Simulazione SEA" }[sim];
+const BASE = { seo: B, social: S, sea: A }[sim];
+const GRUPPI = sim === "sea" ? [
+  { nome: "Il lavoro", voci: [
+    { id: "percorso", nome: "Panoramica", link: `${A}/` },
+    { id: "campagne", nome: "Campagne", link: `${A}/campagne/` },
+  ] },
+  { nome: "Strumenti", voci: [
+    { id: "termini", nome: "Termini di ricerca", link: `${A}/termini/` },
+    { id: "pianificatore", nome: "Pianificatore keyword", link: `${A}/pianificatore/` },
+    { id: "rendimento", nome: "Rendimento sul sito", link: `${A}/rendimento/` },
+  ] },
+] : sim === "social" ? [
   { nome: "Il lavoro", voci: [
     { id: "percorso", nome: "Panoramica", link: `${S}/` },
     { id: "profilo", nome: "Il profilo", link: `${S}/profilo/` },
@@ -80,9 +91,10 @@ const conGuida = attivo !== "percorso";
   // Esercizi completati: letti dai progressi salvati nel browser (il tutorial non conta)
   import { motoreSeo } from "../../scripts/missioni";
   import { motoreSocial } from "../../scripts/social/missioni-social";
+  import { motoreSea } from "../../scripts/sea/missioni-sea";
   function aggiornaBarra() {
     const t = document.querySelector<HTMLElement>("[data-missioni-testo]"); const b = document.querySelector<HTMLElement>("[data-missioni-barra]");
-    const mo = t?.dataset.sim === "social" ? motoreSocial : motoreSeo;
+    const mo = { social: motoreSocial, sea: motoreSea }[t?.dataset.sim ?? ""] ?? motoreSeo;
     const s = mo.leggiStato();
     const n = mo.MISSIONI.filter((m) => mo.fatta(s, m)).length;
     if (t) t.textContent = `Esercizi ${n} di ${mo.MISSIONI.length}`;
