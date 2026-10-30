@@ -90,7 +90,6 @@ const ruolo = (id: string) => azienda.ruoli.find((r) => r.id === id)!;
           </ul>
         </section>
       ))}
-      <p class="nota prove">Le prove veloci di tutti i ruoli sono anche nella <a href="/app/scrivania/">scrivania</a>.</p>
     </section>
   </main>
 </AppLayout>
@@ -159,5 +158,4 @@ const ruolo = (id: string) => azienda.ruoli.find((r) => r.id === id)!;
   .etichetta { font-size: .72rem; font-weight: 700; padding: 3px 8px; border-radius: 999px; background: #efeeea; color: #5f5a55; }
   .etichetta.pronta { background: #e3f3e8; color: #1f5c38; }
   .etichetta.pratica { background: var(--inchiostro); color: #fff; }
-  .prove { text-align: center; }
 </style>

@@ -13,7 +13,7 @@ export function getStaticPaths() {
 const { es } = Astro.props as { es: Esercizio };
 const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + p.controlli.length, 0));
 ---
-<AppLayout title={`Correzione · ${es.ruolo}`} indietro={{ etichetta: "Scrivania", link: "/app/scrivania/" }} percorso={[{ etichetta: es.ruolo }, { etichetta: "Correzione" }]}>
+<AppLayout title={`Correzione · ${es.ruolo}`} indietro={{ etichetta: "Teoria del ruolo", link: `/app/impara/${es.id}/` }} percorso={[{ etichetta: es.ruolo, link: `/app/impara/${es.id}/` }, { etichetta: "Correzione" }]}>
   <Passi slot="barra" attivo={3} />
 
   <main class="contenuto" data-vuoto hidden>
@@ -158,7 +158,7 @@ const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + 
 
     document.querySelector("[data-completa]")!.addEventListener("click", () => {
       aggiornaRuolo(id, { stato: "completato", autovalutazione: voti.map((v) => v.checked) });
-      window.location.href = "/app/riepilogo/";
+      window.location.href = `/app/impara/${id}/`; // dopo la prova veloce si torna alla pagina del ruolo
     });
   }
 </script>

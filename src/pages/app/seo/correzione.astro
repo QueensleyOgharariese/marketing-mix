@@ -9,7 +9,7 @@ import Passi from "../../../components/PassiEsercizio.astro";
 import es from "../../../data/app/seo-sencha.json";
 import { PARTI } from "../../../scripts/controlli-seo";
 ---
-<AppLayout title="Correzione · SEO" indietro={{ etichetta: "Scrivania", link: "/app/scrivania/" }} percorso={[{ etichetta: "SEO" }, { etichetta: "Esercizio 1 · Correzione" }]}>
+<AppLayout title="Correzione · SEO" indietro={{ etichetta: "Teoria del ruolo", link: "/app/impara/seo/" }} percorso={[{ etichetta: "SEO", link: "/app/impara/seo/" }, { etichetta: "Esercizio 1 · Correzione" }]}>
   <Passi slot="barra" attivo={3} />
 
   <!-- Se non c'è ancora una consegna -->
@@ -188,7 +188,7 @@ import { PARTI } from "../../../scripts/controlli-seo";
 
     document.querySelector("[data-completa]")!.addEventListener("click", () => {
       aggiornaRuolo("seo", { stato: "completato", autovalutazione: [...voti].map((v) => v.checked) });
-      window.location.href = "/app/riepilogo/";
+      window.location.href = "/app/impara/seo/"; // dopo la prova veloce si torna alla pagina del ruolo
     });
   }
 </script>

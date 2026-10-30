@@ -30,7 +30,7 @@ const guida = [
 // Numero del primo controllo di ogni parte (serve per collegare i controlli a destra)
 const inizio = es.parti.map((_, i) => es.parti.slice(0, i).reduce((s, p) => s + p.controlli.length, 0));
 ---
-<AppLayout title={`${es.titolo} · ${es.ruolo}`} indietro={{ etichetta: "Scrivania", link: "/app/scrivania/" }} percorso={[{ etichetta: es.ruolo }, { etichetta: es.titolo }]}>
+<AppLayout title={`${es.titolo} · ${es.ruolo}`} indietro={{ etichetta: "Teoria del ruolo", link: `/app/impara/${es.id}/` }} percorso={[{ etichetta: es.ruolo, link: `/app/impara/${es.id}/` }, { etichetta: es.titolo }]}>
   <Passi slot="barra" attivo={2} />
   <div class="layout" data-esercizio={es.id}>
     <!-- ====== SINISTRA: richiesta e scheda ====== -->
