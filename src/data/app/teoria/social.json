@@ -695,5 +695,10 @@
   "cosa": "Una richiesta breve di Sara: scegli formati, giorni e testi per una settimana di post.",
   "link": "/app/social/esercizio/",
   "minuti": 20
+ },
+ "pratica": {
+  "titolo": "Simulazione Social",
+  "cosa": "Lavori sul profilo di Cinque Foglie: post, calendario, commenti, statistiche e diritti delle foto, dalle basi a una piccola crisi.",
+  "link": "/app/simulazioni/social/"
  }
 }

@@ -1,0 +1,1508 @@
+{
+ "_nota": "Simulazione Social a livelli. Generato da strumenti-dati/crea_esercizi_social.py. Dati in genera_social.py.",
+ "livelli": [
+  {
+   "n": 0,
+   "nome": "Tutorial",
+   "cosa": "Come funziona la scrivania."
+  },
+  {
+   "n": 1,
+   "nome": "Basi",
+   "cosa": "Un concetto alla volta. «Come funziona» è già aperto e l'indizio è sempre disponibile."
+  },
+  {
+   "n": 2,
+   "nome": "Diagnosi",
+   "cosa": "Problemi mescolati, anche falsi allarmi. «Come funziona» lo apri tu."
+  },
+  {
+   "n": 3,
+   "nome": "Casi",
+   "cosa": "Nessun indizio: solo dati e teoria. Un mese da pianificare e una crisi da gestire."
+  }
+ ],
+ "missioni": [
+  {
+   "id": "tutorial",
+   "livello": 0,
+   "n": 0,
+   "nome": "Tutorial: come funziona",
+   "tempo": "8 minuti",
+   "strumenti": "Profilo, Calendario",
+   "cosa": "Dove sono le cose e come si salva e si controlla una modifica.",
+   "situazione": "Ciao, sono Sara e mi occupo dei social di Cinque Foglie. Prima di iniziare ti faccio vedere gli strumenti: dieci minuti e sei operativa.",
+   "obiettivo": "Impara a muoverti tra profilo, calendario e statistiche e a salvare una modifica.",
+   "passi": [
+    {
+     "strumento": "profilo",
+     "tipo": "info",
+     "domanda": "Come è fatta la scrivania",
+     "consegna": "",
+     "spiega": "Lavori sui social di Cinque Foglie, un negozio online di tè inventato. Lo schermo ha tre zone.",
+     "esempio": "",
+     "errore": "",
+     "come": [
+      "<strong>A sinistra il menu</strong> (sul telefono è in alto): il profilo, il calendario dei post, i commenti e messaggi, le statistiche e la libreria di foto e musica.",
+      "<strong>Al centro</strong> lo strumento aperto.",
+      "<strong>A destra questa guida</strong>: in alto il compito, sotto le risposte. Le schede <strong>Come funziona</strong>, <strong>Teoria</strong> e <strong>Indizio</strong> ti aiutano quando serve; il bottone per controllare è sempre in fondo.",
+      "Le barre laterali si chiudono con la X e si riaprono con l'icona sul bordo."
+     ],
+     "opzioni": [],
+     "perche": "",
+     "aiuto": "",
+     "dove": ".console > .menu"
+    },
+    {
+     "strumento": "profilo",
+     "tipo": "radio",
+     "domanda": "A che ora è stato pubblicato l'ultimo post?",
+     "consegna": "Apri il post più recente del profilo e leggi data e ora.",
+     "spiega": "Il profilo mostra i post come li vedono i follower. Aprendo un post vedi anche quello che i follower non vedono subito: data e ora di pubblicazione, testo alternativo, etichette.",
+     "esempio": "Su un profilo di un ristorante, aprendo il post del menu del giorno vedi che è uscito alle 11:30, prima di pranzo.",
+     "errore": "",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Alle 19:00",
+       "giusta": false,
+       "nota": "Apri il primo post in alto a sinistra, il più recente, e leggi l'ora sotto la data."
+      },
+      {
+       "id": "o2",
+       "testo": "Alle 03:00 di notte",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Alle 12:00",
+       "giusta": false,
+       "nota": "Guarda di nuovo l'ora nel post aperto."
+      }
+     ],
+     "perche": "L'ultimo post è uscito alle 3 di notte: strano per un profilo che parla a persone che bevono tè la sera. Lo ritroverai negli esercizi.",
+     "aiuto": "Il post più recente è il primo della griglia, in alto a sinistra.",
+     "dove": "[data-griglia]"
+    },
+    {
+     "strumento": "calendario",
+     "tipo": "azione",
+     "verifica": "so_tutorial",
+     "vai": {
+      "link": "/app/simulazioni/social/calendario/",
+      "testo": "Apri il Calendario"
+     },
+     "negozio": "",
+     "domanda": "Salva la tua prima modifica",
+     "consegna": "Nel Calendario apri il post programmato per il 31 ottobre e aggiungi alla didascalia la frase «Buon fine settimana!». Poi salva.",
+     "spiega": "Il Calendario contiene i post già programmati e le bozze. Quello che salvi qui è subito nel piano di pubblicazione. Dopo ogni modifica premi Controlla il lavoro: la guida dice cosa va e cosa no.",
+     "esempio": "In uno strumento di programmazione cambi il testo di un post di domani e premi Salva: domani esce con il testo nuovo.",
+     "errore": "",
+     "opzioni": [],
+     "perche": "Hai modificato un post programmato e l'hai controllato: negli esercizi si lavora sempre così.",
+     "aiuto": "Il post del 31/10 è il reel «Il nostro ottobre in 30 secondi». Cliccalo nel calendario per aprire l'editor.",
+     "dove": "[data-mese]"
+    },
+    {
+     "strumento": "profilo",
+     "tipo": "info",
+     "domanda": "Punti, livelli e come scegliere",
+     "consegna": "",
+     "spiega": "Ultime regole, poi si parte dalle Basi.",
+     "esempio": "",
+     "errore": "",
+     "come": [
+      "Tre livelli: <strong>Basi</strong>, <strong>Diagnosi</strong> e <strong>Casi</strong>. Ogni esercizio è un piccolo progetto fatto di mini esercizi.",
+      "<strong>Come funziona</strong> spiega lo strumento, non la risposta. <strong>Teoria</strong> è gratis. <strong>Indizio</strong> costa 5 punti.",
+      "La guida cala salendo di livello: nelle Basi «Come funziona» è già aperto, in Diagnosi lo apri tu, nei Casi ci sono solo teoria e dati.",
+      "Ogni esercizio parte da 100 punti: una risposta sbagliata toglie 10 punti. Quando scrivi o modifichi puoi riprovare senza perdere punti."
+     ],
+     "opzioni": [],
+     "perche": "",
+     "aiuto": "",
+     "dove": ""
+    }
+   ],
+   "imparato": [
+    "La guida ti segue in ogni strumento.",
+    "Aprendo un post vedi data, ora e dettagli.",
+    "Nel Calendario modifichi i post e poi controlli."
+   ],
+   "elena": "Perfetto, ora sai usare gli strumenti. Si parte dalle Basi.",
+   "prepara": {
+    "post": [
+     "g2"
+    ]
+   }
+  },
+  {
+   "id": "base1",
+   "livello": 1,
+   "n": 1,
+   "nome": "Il post del kit matcha",
+   "tempo": "30 minuti",
+   "strumenti": "Statistiche, Calendario",
+   "cosa": "Dall'obiettivo al post programmato: formato, didascalia, testo alternativo e orario.",
+   "situazione": "È arrivato il kit matcha! Vorrei farlo conoscere anche a chi non ci segue ancora. Il video l'abbiamo già girato: mi prepari il post?",
+   "obiettivo": "Preparare e programmare il post del kit matcha, scegliendo formato, testi e orario con i dati.",
+   "passi": [
+    {
+     "strumento": "insight",
+     "tipo": "radio",
+     "domanda": "Quale formato fa scoprire il profilo a più persone nuove?",
+     "consegna": "Guarda le Medie per formato nelle Statistiche.",
+     "spiega": "Ogni formato ha un punto di forza. Per farsi scoprire conta la copertura, soprattutto quella tra chi non segue il profilo. I video brevi verticali (reel) vengono proposti dall'algoritmo anche a chi non ti segue.",
+     "esempio": "Un panificio vede che i suoi video della pasta che lievita arrivano a molte persone di altre città, mentre le foto del pane arrivano quasi solo ai clienti.",
+     "errore": "Scegliere il formato che piace a te invece di quello che serve all'obiettivo.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Il reel",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Il carosello",
+       "giusta": false,
+       "nota": "I caroselli hanno tanti salvataggi, ma arrivano soprattutto a chi già ci segue."
+      },
+      {
+       "id": "o3",
+       "testo": "La foto singola",
+       "giusta": false,
+       "nota": "Le foto hanno la copertura media più bassa."
+      }
+     ],
+     "perche": "I reel hanno la copertura media più alta e più della metà delle persone raggiunte non ci segue: è il formato per farsi scoprire.",
+     "aiuto": "Guarda la colonna «Non follower» nelle medie per formato.",
+     "dove": "[data-formati]"
+    },
+    {
+     "strumento": "calendario",
+     "tipo": "azione",
+     "verifica": "so_didascaliaKit",
+     "vai": {
+      "link": "/app/simulazioni/social/calendario/",
+      "testo": "Apri il Calendario"
+     },
+     "negozio": "",
+     "domanda": "Scrivi la didascalia del kit matcha",
+     "consegna": "Nel Calendario apri la bozza «Kit matcha: tutto per iniziare» e scrivi la didascalia.",
+     "spiega": "Nel feed si vedono solo le prime parole della didascalia (circa 125 caratteri), poi c'è «altro». La prima frase deve far fermare chi scorre. Poi si dice cosa c'è, si invita a fare qualcosa (vai al link in bio, salva, commenta) e si chiude con pochi hashtag pertinenti. Niente promesse sulla salute: il matcha è un alimento.",
+     "esempio": "Per una candela: «Il profumo del bosco dopo la pioggia, in una candela. Cera di soia, 40 ore di luce. La trovi nel link in bio. #candele #casaaccogliente»",
+     "errore": "Scrivere tutto in maiuscolo con tanti punti esclamativi, o riempire la didascalia di 30 hashtag.",
+     "opzioni": [],
+     "perche": "Esempio di una collega senior: «Il tuo primo matcha, senza sbagliare. Nel kit trovi matcha biologico, frusta di bambù e ciotola: ti serve solo acqua calda. Tutto nel link in bio. #matcha #matchalatte #tèverde»",
+     "aiuto": "Prima frase corta che incuriosisce, poi cosa c'è nel kit, poi «link in bio», poi 3-5 hashtag.",
+     "dove": "[data-editor-post] textarea[name=didascalia]"
+    },
+    {
+     "strumento": "calendario",
+     "tipo": "azione",
+     "verifica": "so_altKit",
+     "vai": {
+      "link": "/app/simulazioni/social/calendario/",
+      "testo": "Apri il Calendario"
+     },
+     "negozio": "",
+     "domanda": "Scrivi il testo alternativo",
+     "consegna": "Nella stessa bozza scrivi il testo alternativo (la descrizione per chi non vede l'immagine).",
+     "spiega": "Il testo alternativo descrive cosa si vede, per chi usa un lettore di schermo. Si scrive in modo semplice e concreto: chi, cosa, dove. Non serve scrivere «immagine di», e non si riempie di hashtag.",
+     "esempio": "Per un post di una pizzeria: «Pizza margherita appena sfornata su un tagliere di legno, con basilico fresco.»",
+     "errore": "Copiare la didascalia nel testo alternativo: chi non vede vuole sapere cosa c'è nell'immagine, non lo slogan.",
+     "opzioni": [],
+     "perche": "Esempio: «Mani che sbattono il matcha con una frusta di bambù in una ciotola bianca; accanto la confezione del kit.»",
+     "aiuto": "Descrivi il video come lo racconteresti al telefono a un'amica.",
+     "dove": "[data-editor-post] textarea[name=alt]"
+    },
+    {
+     "strumento": "insight",
+     "tipo": "radio",
+     "domanda": "A che ora conviene pubblicarlo?",
+     "consegna": "Guarda il grafico Follower attivi per ora.",
+     "spiega": "Un post riceve la prima spinta nelle ore dopo la pubblicazione: se in quel momento i follower sono online, interagiscono e l'algoritmo lo mostra a più persone. Per questo si pubblica quando il proprio pubblico è attivo.",
+     "esempio": "Un profilo di ricette pubblica alle 17:30, quando le persone pensano alla cena.",
+     "errore": "Usare l'orario «migliore» letto in un articolo generico invece dei dati del proprio profilo.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Alle 03:00, così è il primo post del giorno",
+       "giusta": false,
+       "nota": "A quell'ora quasi nessun follower è online."
+      },
+      {
+       "id": "o2",
+       "testo": "Tra le 19 e le 21",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Alle 9 del mattino",
+       "giusta": false,
+       "nota": "Alle 9 c'è un po' di attività, ma il picco è la sera."
+      }
+     ],
+     "perche": "I follower di Cinque Foglie sono più attivi tra le 19 e le 21: il momento del tè della sera.",
+     "aiuto": "Cerca le barre più alte del grafico.",
+     "dove": "[data-grafico-ore]"
+    },
+    {
+     "strumento": "calendario",
+     "tipo": "azione",
+     "verifica": "so_programmaKit",
+     "vai": {
+      "link": "/app/simulazioni/social/calendario/",
+      "testo": "Apri il Calendario"
+     },
+     "negozio": "",
+     "domanda": "Programma il post",
+     "consegna": "Programma la bozza del kit matcha nella prima settimana di novembre, all'orario migliore.",
+     "spiega": "Programmare vuol dire scegliere giorno e ora in cui il post uscirà da solo. Si sceglie un giorno senza altri post, così non si fanno concorrenza.",
+     "esempio": "Un museo programma il post della mostra nuova per il giovedì sera, il giorno prima dell'apertura.",
+     "errore": "Programmare due post nello stesso giorno: si rubano copertura a vicenda.",
+     "opzioni": [],
+     "perche": "Il post è nel piano: uscirà nella prima settimana di novembre, quando i follower sono online.",
+     "aiuto": "Trascina la bozza su un giorno tra il 2 e l'8 novembre, poi nell'editor scegli un'ora tra le 19 e le 21.",
+     "dove": "[data-bozze]"
+    },
+    {
+     "strumento": "insight",
+     "tipo": "radio",
+     "domanda": "Dopo 24 ore, cosa guardi per sapere se il post ha fatto conoscere il kit?",
+     "consegna": "Pensa all'obiettivo di Sara.",
+     "spiega": "Ogni obiettivo ha il suo numero. Per «farsi conoscere» conta quante persone diverse hanno visto il post (copertura) e quante di queste non seguivano il profilo. I like da soli non dicono quante persone nuove hai raggiunto.",
+     "esempio": "Un negozio di bici che vuole farsi conoscere guarda quante persone nuove hanno visto il video, non quanti clienti fedeli hanno messo like.",
+     "errore": "Guardare solo i like perché sono il numero più visibile.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "La copertura e la percentuale di non follower",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Solo i like",
+       "giusta": false,
+       "nota": "I like dicono quanto è piaciuto a chi l'ha visto, non quante persone nuove l'hanno visto."
+      },
+      {
+       "id": "o3",
+       "testo": "Il numero di follower totali",
+       "giusta": false,
+       "nota": "Cambia poco in un giorno e dipende da tutti i post."
+      }
+     ],
+     "perche": "Copertura e non follower dicono quante persone nuove hanno incontrato il kit: è proprio l'obiettivo di Sara.",
+     "aiuto": "Rileggi la richiesta: «farlo conoscere a chi non ci segue».",
+     "dove": ""
+    }
+   ],
+   "imparato": [
+    "Prima si sceglie l'obiettivo, poi il formato: i reel fanno scoprire il profilo.",
+    "La didascalia ha una prima frase forte, un invito e pochi hashtag.",
+    "Il testo alternativo descrive cosa si vede.",
+    "Si pubblica quando i follower sono online."
+   ],
+   "elena": "Perfetto, il post del kit è nel calendario. Tra una settimana guardiamo la copertura insieme!",
+   "prepara": {
+    "post": [
+     "k1"
+    ]
+   }
+  },
+  {
+   "id": "base2",
+   "livello": 1,
+   "n": 2,
+   "nome": "Leggere le statistiche",
+   "tempo": "25 minuti",
+   "strumenti": "Statistiche, Profilo",
+   "cosa": "Copertura, impressioni, engagement rate: cosa funziona sul profilo e cosa no.",
+   "situazione": "Ogni mese devo dire alla direzione cosa funziona sui social. Mi aiuti a leggere i numeri di settembre e ottobre?",
+   "obiettivo": "Capire le metriche dei post e scrivere a Sara cosa funziona e cosa no.",
+   "passi": [
+    {
+     "strumento": "insight",
+     "tipo": "radio",
+     "domanda": "Copertura o impressioni: quale numero è più alto, e perché?",
+     "consegna": "Confronta le due colonne nella tabella.",
+     "spiega": "La copertura conta le persone diverse che hanno visto un post. Le impressioni contano tutte le volte che è stato visto, anche più volte dalla stessa persona. Per questo le impressioni sono sempre uguali o più alte della copertura.",
+     "esempio": "Un cartellone visto da 100 persone diverse, alcune due volte al giorno: 100 di copertura, magari 180 impressioni.",
+     "errore": "Usare le impressioni per dire «abbiamo raggiunto X persone»: si conta più volte la stessa persona.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Le impressioni, perché una persona può vedere lo stesso post più volte",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "La copertura, perché conta anche chi non segue il profilo",
+       "giusta": false,
+       "nota": "Anche le impressioni contano chi non segue: la differenza è che contano le visualizzazioni ripetute."
+      },
+      {
+       "id": "o3",
+       "testo": "Sono sempre uguali",
+       "giusta": false,
+       "nota": "Guarda un carosello: le impressioni sono molto più alte, perché chi scorre le schede lo rivede."
+      }
+     ],
+     "perche": "Le impressioni sono più alte; nei caroselli molto di più, perché le persone tornano a guardare le schede.",
+     "aiuto": "",
+     "dove": "#t-post"
+    },
+    {
+     "strumento": "insight",
+     "tipo": "radio",
+     "domanda": "Qual è l'engagement rate del post «Matcha latte: dosi e frusta»?",
+     "consegna": "Usa la formula: interazioni ÷ copertura × 100.",
+     "spiega": "L'engagement rate dice quanto le persone reagiscono a un contenuto: interazioni (like, commenti, salvataggi, condivisioni) divise per la copertura, per 100. Si confronta con i propri post precedenti, non con quelli degli altri.",
+     "esempio": "Un post con 150 interazioni e 3.000 di copertura: 150 / 3.000 × 100 = 5%.",
+     "errore": "Dividere per i follower quando si conosce la copertura: si contano anche persone che il post non l'hanno mai visto.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Circa 0,7%",
+       "giusta": false,
+       "nota": "Hai diviso per un numero troppo grande, forse le impressioni."
+      },
+      {
+       "id": "o2",
+       "testo": "Circa 7%",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Circa 27%",
+       "giusta": false,
+       "nota": "Ricontrolla: le interazioni sono qualche centinaio, la copertura qualche migliaio."
+      }
+     ],
+     "perche": "Il carosello del matcha latte ha un engagement rate di circa il 7%: uno dei più alti del profilo, soprattutto grazie ai salvataggi.",
+     "aiuto": "Somma like, commenti, salvataggi e condivisioni della riga e dividi per la copertura.",
+     "dove": "#t-post"
+    },
+    {
+     "strumento": "insight",
+     "tipo": "radio",
+     "domanda": "Quale formato ha i salvataggi più alti?",
+     "consegna": "Guarda le Medie per formato.",
+     "spiega": "Un salvataggio vuol dire «lo voglio ritrovare»: è un segnale forte di utilità. Di solito si salvano contenuti che insegnano qualcosa: ricette, guide, liste.",
+     "esempio": "Un profilo di viaggi vede che i caroselli «10 cose da vedere a Lisbona» vengono salvati molto più delle foto del tramonto.",
+     "errore": "Guardare solo i like e perdere il segnale più forte, il salvataggio.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Il carosello",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Il reel",
+       "giusta": false,
+       "nota": "I reel arrivano a più persone, ma si salvano meno."
+      },
+      {
+       "id": "o3",
+       "testo": "La foto",
+       "giusta": false,
+       "nota": "Le foto hanno pochissimi salvataggi."
+      }
+     ],
+     "perche": "I caroselli educativi vengono salvati più di tutto: sono i contenuti più utili per i follower.",
+     "aiuto": "",
+     "dove": "[data-formati]"
+    },
+    {
+     "strumento": "insight",
+     "tipo": "radio",
+     "domanda": "Quali post sono andati peggio?",
+     "consegna": "Ordina la tabella per engagement rate.",
+     "spiega": "Per capire cosa non funziona si guardano i post in fondo alla classifica e si cerca cosa hanno in comune: formato, pilastro, orario, tema.",
+     "esempio": "Un'enoteca ordina i suoi post e scopre che i cinque peggiori sono tutti foto di bottiglie senza persone.",
+     "errore": "Fermarsi al singolo post peggiore invece di cercare cosa hanno in comune i peggiori.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Le foto dei prodotti con una frase di vendita",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "I caroselli che spiegano come preparare il tè",
+       "giusta": false,
+       "nota": "Sono tra i migliori per engagement."
+      },
+      {
+       "id": "o3",
+       "testo": "I reel di ricette",
+       "giusta": false,
+       "nota": "Hanno un engagement nella media e la copertura più alta."
+      }
+     ],
+     "perche": "Le foto prodotto («Lo trovi sul sito») hanno un engagement intorno all'1,5%: le persone non si fermano su un annuncio.",
+     "aiuto": "Ordina per ER cliccando l'intestazione e guarda il pilastro delle ultime righe.",
+     "dove": "#t-post"
+    },
+    {
+     "strumento": "insight",
+     "tipo": "radio",
+     "domanda": "Perché le foto dei prodotti vanno male?",
+     "consegna": "Rileggi le didascalie di quei post nel profilo.",
+     "spiega": "Sui social le persone non cercano pubblicità: si fermano su ciò che è utile, bello o divertente. Un prodotto funziona meglio dentro una storia o un uso concreto (una ricetta, un consiglio) che da solo con «compralo».",
+     "esempio": "Invece di «Nuova borraccia disponibile», un negozio sportivo mostra un'escursione in cui la borraccia tiene l'acqua fresca tutto il giorno.",
+     "errore": "Concludere che quel prodotto non piace: è il modo in cui è presentato che non funziona.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Sono annunci senza un motivo per fermarsi: niente consiglio, niente storia",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Perché i prodotti sono brutti",
+       "giusta": false,
+       "nota": "Gli stessi prodotti vanno bene nelle ricette e nei reel."
+      },
+      {
+       "id": "o3",
+       "testo": "Perché le foto non piacciono all'algoritmo",
+       "giusta": false,
+       "nota": "L'algoritmo guarda come reagiscono le persone: è la reazione a essere bassa."
+      }
+     ],
+     "perche": "Le stesse cose (il kit, la teiera) vanno bene quando compaiono in una ricetta o in un tutorial: è il modo di presentarle a fare la differenza.",
+     "aiuto": "",
+     "dove": "[data-griglia]"
+    },
+    {
+     "strumento": "guida",
+     "tipo": "testo",
+     "verifica": "so_reportStatistiche",
+     "domanda": "Scrivi a Sara cosa funziona",
+     "consegna": "Scrivi 3-5 frasi per Sara: cosa funziona meglio, cosa peggio e cosa proponi.",
+     "spiega": "Un report breve per chi decide mette prima la conclusione, poi i numeri che la dimostrano, poi una proposta concreta.",
+     "esempio": "«Le guide sui viaggi in treno vengono salvate più di tutto (ER 8%); le foto delle offerte vanno male (1%). Propongo di presentare le offerte dentro le guide.»",
+     "errore": "Copiare tutti i numeri della tabella: chi legge vuole sapere cosa fare.",
+     "opzioni": [],
+     "perche": "Esempio di una collega senior: «I caroselli che insegnano qualcosa funzionano meglio: engagement intorno al 7% e tanti salvataggi. I reel portano più persone nuove. Le foto dei prodotti vanno male (circa 1,5%): propongo di mostrare i prodotti dentro ricette e tutorial invece che da soli.»",
+     "aiuto": "",
+     "dove": "",
+     "parole": [
+      25,
+      140
+     ]
+    }
+   ],
+   "imparato": [
+    "Le impressioni sono sempre uguali o più alte della copertura.",
+    "Engagement rate = interazioni ÷ copertura × 100.",
+    "I salvataggi sono il segnale più forte di utilità.",
+    "I prodotti funzionano dentro una storia, non da soli."
+   ],
+   "elena": "Chiarissimo, lo porto così in riunione. Da novembre più caroselli e meno foto «compralo»."
+  },
+  {
+   "id": "d1",
+   "livello": 2,
+   "n": 1,
+   "nome": "I post delle 3 di notte",
+   "tempo": "30 minuti",
+   "strumenti": "Statistiche, Profilo, Calendario",
+   "cosa": "La copertura è crollata a fine settembre: trovare quando, perché e sistemare.",
+   "situazione": "Da fine settembre i post arrivano a meno della metà delle persone. Non abbiamo cambiato niente… o forse sì?",
+   "obiettivo": "Trovare la causa del calo di copertura, correggerla e sistemare i post già programmati.",
+   "passi": [
+    {
+     "strumento": "insight",
+     "tipo": "radio",
+     "domanda": "Da quando cala la copertura?",
+     "consegna": "Guarda la tabella dei post in ordine di data.",
+     "spiega": "Per capire un calo si cerca il momento esatto in cui inizia, poi si cerca cosa è cambiato in quei giorni.",
+     "esempio": "Un'app vede le iscrizioni calare dal 3 marzo: quel giorno era uscito un nuovo modulo di registrazione.",
+     "errore": "Confrontare un mese con l'altro senza guardare il giorno esatto in cui cambia qualcosa.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Da inizio settembre",
+       "giusta": false,
+       "nota": "I post di inizio settembre hanno coperture alte."
+      },
+      {
+       "id": "o2",
+       "testo": "Dal 21 settembre",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Da metà ottobre",
+       "giusta": false,
+       "nota": "A metà ottobre il calo c'era già da settimane."
+      }
+     ],
+     "perche": "Dal post del 21 settembre la copertura si dimezza, salvo pochi post.",
+     "aiuto": "Ordina per data e cerca dove i numeri crollano.",
+     "dove": "#t-post"
+    },
+    {
+     "strumento": "insight",
+     "tipo": "radio",
+     "domanda": "Cosa hanno in comune i post che vanno male da allora?",
+     "consegna": "Confronta i post bassi con quelli che vanno ancora bene.",
+     "spiega": "Quando alcuni post di un periodo vanno bene e altri male, la differenza tra i due gruppi indica la causa.",
+     "esempio": "In un negozio, le vendite calano solo nei giorni in cui apre il nuovo commesso: il problema è l'orario o la persona, non il negozio.",
+     "errore": "Dare la colpa all'algoritmo senza guardare cosa distingue i post andati bene.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Sono stati pubblicati alle 03:00 di notte",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Sono tutti caroselli",
+       "giusta": false,
+       "nota": "Ci sono reel, caroselli e foto: il formato non spiega il calo."
+      },
+      {
+       "id": "o3",
+       "testo": "Hanno troppi hashtag",
+       "giusta": false,
+       "nota": "Gli hashtag sono simili a quelli dei post di settembre."
+      }
+     ],
+     "perche": "Tutti i post che vanno male da allora sono usciti alle 03:00. Quelli pubblicati a mano alle 19 vanno ancora bene.",
+     "aiuto": "Guarda la colonna Ora.",
+     "dove": "#t-post"
+    },
+    {
+     "strumento": "calendario",
+     "tipo": "radio",
+     "domanda": "Perché escono alle 3 di notte?",
+     "consegna": "Guarda le impostazioni del Calendario.",
+     "spiega": "Gli strumenti di programmazione hanno impostazioni predefinite: se non si sceglie un'ora, ne usano una loro. Un'impostazione dimenticata può cambiare i risultati di mesi.",
+     "esempio": "Una newsletter programmata «in blocco» parte sempre a mezzanotte perché nessuno ha cambiato l'ora predefinita.",
+     "errore": "Pensare che qualcuno pubblichi di notte apposta, senza controllare le impostazioni.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Dal 21/09 si programma in blocco e l'ora predefinita dello strumento è le 03:00",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Perché l'algoritmo premia i post notturni",
+       "giusta": false,
+       "nota": "I dati dicono il contrario: di notte la copertura crolla."
+      },
+      {
+       "id": "o3",
+       "testo": "Perché il fuso orario del profilo è sbagliato",
+       "giusta": false,
+       "nota": "Le impostazioni mostrano chiaramente un'ora predefinita, non un altro fuso."
+      }
+     ],
+     "perche": "Dal 21/09 il team carica i post in blocco e lo strumento li mette alle 03:00, l'ora predefinita mai cambiata.",
+     "aiuto": "Il riquadro si chiama Impostazioni di programmazione.",
+     "dove": "[data-impostazioni]"
+    },
+    {
+     "strumento": "calendario",
+     "tipo": "azione",
+     "verifica": "so_oraPredefinita",
+     "vai": {
+      "link": "/app/simulazioni/social/calendario/",
+      "testo": "Apri il Calendario"
+     },
+     "negozio": "",
+     "domanda": "Correggi l'ora predefinita",
+     "consegna": "Nelle impostazioni del Calendario scegli un'ora predefinita adatta ai follower di Cinque Foglie.",
+     "spiega": "L'ora predefinita va scelta con i dati del proprio pubblico (follower attivi per ora), non a caso.",
+     "esempio": "Un profilo di colazioni imposta le 7:30, quando i suoi follower cercano idee per la mattina.",
+     "errore": "Scegliere un orario «comodo per il team» invece che per il pubblico.",
+     "opzioni": [],
+     "perche": "Da ora i post programmati in blocco usciranno quando i follower sono online.",
+     "aiuto": "Guarda il grafico dei follower attivi: dove sono le barre più alte?",
+     "dove": "[data-impostazioni]"
+    },
+    {
+     "strumento": "calendario",
+     "tipo": "azione",
+     "verifica": "so_programmatiOra",
+     "vai": {
+      "link": "/app/simulazioni/social/calendario/",
+      "testo": "Apri il Calendario"
+     },
+     "negozio": "",
+     "domanda": "Sposta i post già programmati",
+     "consegna": "Cambiare l'impostazione non sposta i post già in calendario: correggi l'ora dei tre post dei prossimi giorni.",
+     "spiega": "Un'impostazione nuova vale per il futuro: le cose già programmate restano come erano. Dopo una correzione si controlla sempre cosa è già in coda.",
+     "esempio": "Cambi l'orario di consegna standard di un negozio, ma gli ordini già fissati per domani restano all'ora vecchia finché non li sposti.",
+     "errore": "Dare per scontato che la correzione valga anche per quello che era già programmato.",
+     "opzioni": [],
+     "perche": "I tre post usciranno la sera: niente più post alle 3 di notte.",
+     "aiuto": "Apri i post del 30/10, 31/10 e 1/11 e cambia l'ora.",
+     "dove": "[data-mese]"
+    },
+    {
+     "strumento": "insight",
+     "tipo": "radio",
+     "domanda": "Il post del 2/10 è uscito alle 19 ma è andato male. Stesso problema?",
+     "consegna": "Guarda formato e pilastro del post.",
+     "spiega": "Non tutti i risultati bassi hanno la stessa causa. Prima di applicare la stessa spiegazione a tutto si controlla se il caso è davvero simile.",
+     "esempio": "In un ristorante calano i coperti il martedì per un cantiere in strada, ma il calo del sabato dipende dal meteo: due cause diverse.",
+     "errore": "Attribuire ogni calo alla prima causa trovata.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Sì, anche lui è uscito di notte",
+       "giusta": false,
+       "nota": "Guarda l'ora: 19:00."
+      },
+      {
+       "id": "o2",
+       "testo": "No: è una foto prodotto, che va male anche alle 19",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Sì, perché è uscito di venerdì",
+       "giusta": false,
+       "nota": "Il giorno non c'entra: guarda il tipo di post."
+      }
+     ],
+     "perche": "È un falso allarme rispetto all'orario: è una foto prodotto, e le foto prodotto vanno male a qualsiasi ora.",
+     "aiuto": "",
+     "dove": "#t-post"
+    }
+   ],
+   "imparato": [
+    "Per capire un calo si cerca il giorno esatto e cosa è cambiato.",
+    "Un'impostazione predefinita dimenticata può costare mesi di risultati.",
+    "Le correzioni valgono per il futuro: quello già programmato va spostato a mano.",
+    "Non tutti i risultati bassi hanno la stessa causa."
+   ],
+   "elena": "Incredibile, era un'impostazione! Grazie: da stasera i post escono quando le persone ci sono.",
+   "prepara": {
+    "ora": true,
+    "post": [
+     "g1",
+     "g2",
+     "g3"
+    ]
+   }
+  },
+  {
+   "id": "d2",
+   "livello": 2,
+   "n": 2,
+   "nome": "Una settimana di commenti",
+   "tempo": "35 minuti",
+   "strumenti": "Commenti e messaggi",
+   "cosa": "Critiche, dati personali, spam, domande ripetute: chi risponde, come e cosa si nasconde.",
+   "situazione": "Sono stata via una settimana e nei commenti c'è di tutto. Mi aiuti a sistemare la community prima che qualcuno si arrabbi?",
+   "obiettivo": "Rispondere e moderare i commenti della settimana nel modo giusto.",
+   "passi": [
+    {
+     "strumento": "community",
+     "tipo": "radio",
+     "domanda": "Quale commento è più urgente?",
+     "consegna": "Leggi tutti i commenti e messaggi.",
+     "spiega": "Nella community si risponde prima a chi ha un problema, soprattutto se aspetta da tempo e il commento è pubblico: ogni ora in più lo vedono altre persone.",
+     "esempio": "Un hotel risponde prima alla recensione «camera sporca, nessuno mi ha aiutato» che ai complimenti per la colazione.",
+     "errore": "Rispondere in ordine di arrivo o prima ai commenti facili e positivi.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "La cliente che aspetta da 4 giorni per un ordine in ritardo",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Il complimento al Sencha",
+       "giusta": false,
+       "nota": "Fa piacere, ma può aspettare."
+      },
+      {
+       "id": "o3",
+       "testo": "La domanda sulla Svizzera",
+       "giusta": false,
+       "nota": "È una domanda semplice, non un problema aperto."
+      }
+     ],
+     "perche": "La critica sull'ordine in ritardo è pubblica, aspetta da 4 giorni e nessuno ha risposto: va gestita per prima.",
+     "aiuto": "",
+     "dove": "[data-lista-commenti]"
+    },
+    {
+     "strumento": "community",
+     "tipo": "azione",
+     "verifica": "so_rispostaCritica",
+     "vai": {
+      "link": "/app/simulazioni/social/community/",
+      "testo": "Apri i commenti"
+     },
+     "negozio": "",
+     "domanda": "Rispondi alla critica",
+     "consegna": "Rispondi pubblicamente alla cliente con l'ordine in ritardo.",
+     "spiega": "Una buona risposta a una critica: ringrazia o si scusa, non discute, porta la conversazione in privato per i dettagli e dice cosa succede ora. È breve e nel tono del brand.",
+     "esempio": "«Ciao Paolo, ci dispiace davvero per l'attesa. Ti scriviamo subito in privato per capire dov'è il pacco e sistemare tutto.»",
+     "errore": "Rispondere «abbiamo già risposto alle mail» o dare la colpa al corriere davanti a tutti.",
+     "opzioni": [],
+     "perche": "La cliente si sente ascoltata e chi legge vede un'azienda che risponde. I dettagli dell'ordine si gestiscono in privato.",
+     "aiuto": "Scuse, invito a continuare in privato, cosa farete adesso.",
+     "dove": "[data-commento=\"c01\"]"
+    },
+    {
+     "strumento": "community",
+     "tipo": "azione",
+     "verifica": "so_datiPersonali",
+     "vai": {
+      "link": "/app/simulazioni/social/community/",
+      "testo": "Apri i commenti"
+     },
+     "negozio": "",
+     "domanda": "Un cliente ha scritto i suoi dati in pubblico",
+     "consegna": "Un cliente ha scritto numero d'ordine e indirizzo in un commento. Proteggilo e aiutalo.",
+     "spiega": "I dati personali (indirizzo, numero d'ordine, telefono) non devono restare in pubblico. Si nasconde il commento e si chiede di continuare in privato, senza ripetere i dati nella risposta. È rispetto per la persona ed è in linea con il GDPR.",
+     "esempio": "Una cliente scrive il suo numero di telefono sotto un post: la palestra nasconde il commento e le scrive in privato.",
+     "errore": "Rispondere in pubblico ripetendo il numero d'ordine o l'indirizzo per «confermare».",
+     "opzioni": [],
+     "perche": "Il commento è nascosto e il cliente sa dove continuare: i suoi dati non sono più davanti a tutti.",
+     "aiuto": "Prima nascondi il commento, poi rispondi invitando a scrivere in privato.",
+     "dove": "[data-commento=\"c02\"]"
+    },
+    {
+     "strumento": "community",
+     "tipo": "azione",
+     "verifica": "so_moderazione",
+     "vai": {
+      "link": "/app/simulazioni/social/community/",
+      "testo": "Apri i commenti"
+     },
+     "negozio": "",
+     "domanda": "Modera spam e insulti",
+     "consegna": "Nascondi o segnala solo i commenti che vanno tolti. Le critiche sincere restano.",
+     "spiega": "Si moderano spam (pubblicità, truffe) e insulti senza contenuto. Le critiche sincere, anche dure, non si nascondono: si risponde. Nasconderle fa sembrare l'azienda poco trasparente.",
+     "esempio": "Un ristorante nasconde «guadagna 1000 € da casa» ma risponde a «il risotto era scotto».",
+     "errore": "Nascondere tutto quello che è negativo per avere un profilo «pulito».",
+     "opzioni": [],
+     "perche": "Spam e insulto sono spariti; la critica sul rooibos resta, e merita una risposta.",
+     "aiuto": "Ci sono uno spam, un insulto e una critica sincera su un prodotto: solo i primi due vanno tolti.",
+     "dove": "[data-lista-commenti]"
+    },
+    {
+     "strumento": "community",
+     "tipo": "radio",
+     "domanda": "Tre persone chiedono le dosi del matcha. Cosa fai oltre a rispondere?",
+     "consegna": "Rileggi le domande sul matcha.",
+     "spiega": "Le domande che si ripetono sono un'ottima fonte di idee: se tre persone in una settimana chiedono la stessa cosa, molte altre se lo chiedono senza scrivere.",
+     "esempio": "Un negozio di piante riceve sempre «ogni quanto annaffio?»: ne fa un carosello che diventa il post più salvato dell'anno.",
+     "errore": "Rispondere ogni volta da capo senza accorgersi che è un tema da contenuto.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Propongo un carosello con le dosi del matcha",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Nascondo le domande ripetute",
+       "giusta": false,
+       "nota": "Sono domande sincere di clienti: si risponde."
+      },
+      {
+       "id": "o3",
+       "testo": "Rispondo «guardate il sito»",
+       "giusta": false,
+       "nota": "È poco gentile e non aiuta chi è sui social."
+      }
+     ],
+     "perche": "La domanda ripetuta diventa un contenuto: nelle bozze di novembre c'è già «Quanta acqua per il matcha?».",
+     "aiuto": "",
+     "dove": "[data-lista-commenti]"
+    },
+    {
+     "strumento": "community",
+     "tipo": "azione",
+     "verifica": "so_dosi",
+     "vai": {
+      "link": "/app/simulazioni/social/community/",
+      "testo": "Apri i commenti"
+     },
+     "negozio": "",
+     "domanda": "Rispondi a una domanda sulle dosi",
+     "consegna": "Rispondi a una delle persone che chiedono quanto matcha usare.",
+     "spiega": "Una risposta utile è concreta: numeri e passaggi. Per il matcha: circa 2 grammi (un cucchiaino scarso) in 70 ml di acqua a 75-80 °C, sbattendo con la frusta. Si chiude con un tono caldo.",
+     "esempio": "«Ciao! Per un espresso usiamo 7 grammi di caffè macinato: un cucchiaio raso. Buona pausa!»",
+     "errore": "Rispondere in modo vago («poco, a gusto») a chi ha chiesto un numero.",
+     "opzioni": [],
+     "perche": "Una risposta con i numeri risolve il problema e mostra che Cinque Foglie sa di cosa parla.",
+     "aiuto": "Scrivi quanti grammi (o cucchiaini) e quanta acqua.",
+     "dove": "[data-commento=\"c03\"]"
+    },
+    {
+     "strumento": "community",
+     "tipo": "radio",
+     "domanda": "Una creator propone una collaborazione in privato. Cosa fai?",
+     "consegna": "Leggi il messaggio della creator.",
+     "spiega": "Le collaborazioni con creator sono il lavoro dell'influencer marketing: si valutano pubblico, valori, costi e regole (la pubblicità va dichiarata). Il social media manager di solito le passa a chi se ne occupa, con una risposta gentile.",
+     "esempio": "In un'azienda di cosmetici, chi gestisce i commenti inoltra le proposte dei creator alla collega delle partnership.",
+     "errore": "Accettare subito in chat, senza valutare il profilo né concordare le regole.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Rispondo gentilmente e la passo a chi si occupa di influencer marketing",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Accetto subito: 32k follower sono tanti",
+       "giusta": false,
+       "nota": "Prima si valuta se il pubblico è adatto e si concordano le regole."
+      },
+      {
+       "id": "o3",
+       "testo": "La ignoro",
+       "giusta": false,
+       "nota": "È una proposta seria: merita una risposta."
+      }
+     ],
+     "perche": "Le collaborazioni si valutano con chi se ne occupa: pubblico adatto, accordo scritto, pubblicità dichiarata.",
+     "aiuto": "",
+     "dove": "[data-commento=\"c10\"]"
+    }
+   ],
+   "imparato": [
+    "Si risponde prima ai problemi pubblici che aspettano da tempo.",
+    "I dati personali non restano in pubblico: si nasconde e si va in privato.",
+    "Si moderano spam e insulti, non le critiche sincere.",
+    "Le domande ripetute diventano contenuti."
+   ],
+   "elena": "Grazie! La cliente dell'ordine mi ha già scritto in privato, e il carosello sul matcha lo prepariamo per novembre.",
+   "prepara": {
+    "commenti": [
+     "c01",
+     "c02",
+     "c03",
+     "c04",
+     "c05",
+     "c06",
+     "c07",
+     "c08",
+     "c09",
+     "c10",
+     "c11",
+     "c12"
+    ],
+    "crisi": false
+   }
+  },
+  {
+   "id": "d3",
+   "livello": 2,
+   "n": 3,
+   "nome": "Foto, diritti e collaborazioni",
+   "tempo": "30 minuti",
+   "strumenti": "Libreria, Profilo",
+   "cosa": "Una foto usata senza permesso e una collaborazione non dichiarata: trovarle e sistemarle.",
+   "situazione": "Una cliente ci ha scritto: «avete usato la mia foto senza chiedermelo». E l'avvocato vuole sapere se le collaborazioni sono a posto. Controlli?",
+   "obiettivo": "Trovare i contenuti a rischio, chiedere il permesso e dichiarare la collaborazione.",
+   "passi": [
+    {
+     "strumento": "libreria",
+     "tipo": "radio",
+     "domanda": "Quale foto non si può usare?",
+     "consegna": "Guarda la colonna dei permessi nella Libreria.",
+     "spiega": "Una foto pubblicata da qualcuno sui social non è libera: appartiene a chi l'ha scattata. Per ripubblicarla serve il suo permesso. Le foto del team e quelle con licenza commerciale si possono usare.",
+     "esempio": "Un bar ripubblica la foto di un cliente con il suo cappuccino: prima gli scrive «possiamo condividerla citandoti?».",
+     "errore": "Pensare che «è pubblica, quindi si può usare».",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Il matcha latte di @giulia.foglie",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "La tazza di Anna",
+       "giusta": false,
+       "nota": "Anna ha dato il permesso il 13/09."
+      },
+      {
+       "id": "o3",
+       "testo": "Tazza fumante su sfondo autunnale",
+       "giusta": false,
+       "nota": "Ha una licenza commerciale acquistata."
+      }
+     ],
+     "perche": "La foto di Giulia è stata presa dal suo profilo senza chiederle niente.",
+     "aiuto": "",
+     "dove": "[data-libreria]"
+    },
+    {
+     "strumento": "profilo",
+     "tipo": "radio",
+     "domanda": "In quale post è stata usata?",
+     "consegna": "Cerca il post nel profilo.",
+     "spiega": "Dopo aver trovato un contenuto a rischio si controlla dove è stato usato, per sistemare tutto.",
+     "esempio": "Un'azienda scopre una foto senza licenza e controlla sito, newsletter e social per toglierla ovunque.",
+     "errore": "Sistemare solo la libreria e lasciare il post pubblicato.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Nel post del 12/10 «Il matcha latte di Giulia»",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Nel post del 14/09 «La tazza di Anna»",
+       "giusta": false,
+       "nota": "Quella è la foto di Anna, con il permesso."
+      },
+      {
+       "id": "o3",
+       "testo": "Nel reel dell'8/10",
+       "giusta": false,
+       "nota": "Il reel è di @tazzaemiele, con un accordo."
+      }
+     ],
+     "perche": "Il post del 12/10 usa la foto di Giulia, e la didascalia non la cita nemmeno.",
+     "aiuto": "",
+     "dove": "[data-griglia]"
+    },
+    {
+     "strumento": "libreria",
+     "tipo": "azione",
+     "verifica": "so_permesso",
+     "vai": {
+      "link": "/app/simulazioni/social/libreria/",
+      "testo": "Apri la Libreria"
+     },
+     "negozio": "",
+     "domanda": "Chiedi il permesso a Giulia",
+     "consegna": "Nella Libreria scrivi il messaggio per chiedere a Giulia il permesso di usare la foto.",
+     "spiega": "Un buon messaggio è gentile e chiaro: si presenta, chiede il permesso per un uso preciso, propone di citare l'autrice e, se serve, si scusa. Si lascia libera la persona di dire di no.",
+     "esempio": "«Ciao Marco! Siamo il bar Aurora: la tua foto del cappuccino è bellissima. Possiamo condividerla sul nostro profilo citandoti? Se preferisci di no, nessun problema.»",
+     "errore": "Scrivere solo «ti abbiamo taggata!» dopo averla già usata, come se bastasse.",
+     "opzioni": [],
+     "perche": "Il messaggio è pronto: con il permesso scritto la foto si può usare, citandola.",
+     "aiuto": "Saluta, scusati per averla usata prima di chiedere, chiedi il permesso e proponi di citarla.",
+     "dove": "[data-voce-lib=\"u2\"]"
+    },
+    {
+     "strumento": "profilo",
+     "tipo": "azione",
+     "verifica": "so_archiviaUgc",
+     "vai": {
+      "link": "/app/simulazioni/social/profilo/",
+      "testo": "Apri il profilo"
+     },
+     "negozio": "",
+     "domanda": "Nel frattempo togli il post",
+     "consegna": "Finché Giulia non risponde, togli il post dal profilo senza cancellarlo.",
+     "spiega": "Archiviare un post lo toglie dal profilo ma lo conserva: se arriva il permesso si può rimettere, con la citazione. È la scelta prudente mentre si aspetta.",
+     "esempio": "Un negozio archivia il post con la foto di un fotografo finché non arriva la licenza.",
+     "errore": "Lasciare il post online «tanto ormai l'hanno visto tutti».",
+     "opzioni": [],
+     "perche": "Il post non è più visibile: se Giulia dice sì, lo rimetti citandola.",
+     "aiuto": "Apri il post del 12/10 e usa Archivia.",
+     "dove": "[data-griglia]"
+    },
+    {
+     "strumento": "profilo",
+     "tipo": "radio",
+     "domanda": "Cosa non va nel reel dell'8/10 con @tazzaemiele?",
+     "consegna": "Apri il reel e controlla la Libreria per l'accordo.",
+     "spiega": "Quando un creator riceve soldi o prodotti in cambio di un contenuto, il contenuto è pubblicità e va dichiarato in modo chiaro (etichetta di collaborazione della piattaforma, #adv all'inizio). In Italia lo chiedono le regole sulla pubblicità e le linee guida AGCOM sugli influencer.",
+     "esempio": "Una creator riceve una crema gratis e la mostra: il post deve dire che è una collaborazione, anche senza pagamento in soldi.",
+     "errore": "Pensare che senza pagamento in soldi non sia pubblicità.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Il kit è stato regalato in cambio del video, ma il reel non è segnalato come collaborazione",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Il video è troppo lungo",
+       "giusta": false,
+       "nota": "La durata va bene: il problema è legale."
+      },
+      {
+       "id": "o3",
+       "testo": "Manca l'hashtag #matcha",
+       "giusta": false,
+       "nota": "C'è, e comunque non è quello il problema."
+      }
+     ],
+     "perche": "Un kit regalato in cambio di un video è una collaborazione commerciale: va dichiarata.",
+     "aiuto": "",
+     "dove": "[data-griglia]"
+    },
+    {
+     "strumento": "profilo",
+     "tipo": "azione",
+     "verifica": "so_collab",
+     "vai": {
+      "link": "/app/simulazioni/social/profilo/",
+      "testo": "Apri il profilo"
+     },
+     "negozio": "",
+     "domanda": "Dichiara la collaborazione",
+     "consegna": "Correggi il reel dell'8/10 perché sia chiaro che è una collaborazione.",
+     "spiega": "Si usano insieme l'etichetta della piattaforma («Partnership a pagamento» o simile) e una dicitura nella didascalia, all'inizio: #adv o «Collaborazione con…». Chi guarda deve capirlo subito.",
+     "esempio": "«#adv Collaborazione con @bioskin: ho provato la loro crema per un mese…»",
+     "errore": "Mettere #adv in mezzo a 20 hashtag in fondo, dove nessuno lo legge.",
+     "opzioni": [],
+     "perche": "Ora il reel è dichiarato: etichetta attiva e #adv all'inizio della didascalia.",
+     "aiuto": "Apri il reel, attiva l'etichetta di collaborazione e aggiungi #adv all'inizio della didascalia.",
+     "dove": "[data-griglia]"
+    },
+    {
+     "strumento": "libreria",
+     "tipo": "radio",
+     "domanda": "Per il reel del chai, quale musica puoi usare?",
+     "consegna": "Guarda le voci di tipo musica nella Libreria.",
+     "spiega": "Anche la musica ha i suoi diritti. I profili aziendali possono usare solo brani con licenza commerciale, per esempio quelli della libreria della piattaforma per le aziende. Le canzoni famose spesso non sono disponibili per uso commerciale.",
+     "esempio": "Un'agenzia di viaggi usa una base strumentale della libreria per aziende invece della hit dell'estate.",
+     "errore": "Usare la canzone del momento perché «la usano tutti»: per un'azienda il rischio è che il video venga tolto o senza audio.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Chitarra acustica tranquilla (libreria per uso commerciale)",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Canzone famosa del momento",
+       "giusta": false,
+       "nota": "Non è disponibile per i profili aziendali."
+      },
+      {
+       "id": "o3",
+       "testo": "Qualsiasi brano, basta citare l'artista",
+       "giusta": false,
+       "nota": "Citare non basta: serve la licenza."
+      }
+     ],
+     "perche": "La base della libreria per aziende si può usare; la canzone famosa no.",
+     "aiuto": "",
+     "dove": "[data-libreria]"
+    }
+   ],
+   "imparato": [
+    "Le foto degli altri si usano solo con il permesso, citando l'autore.",
+    "Archiviare toglie un post senza cancellarlo.",
+    "Prodotti regalati in cambio di contenuti = pubblicità da dichiarare.",
+    "Anche la musica deve avere la licenza giusta."
+   ],
+   "elena": "Giulia ha risposto: è felicissima, rimettiamo il post citandola. E l'avvocato è contento del reel.",
+   "prepara": {
+    "post": [
+     "p17",
+     "p19"
+    ],
+    "permessi": [
+     "u2"
+    ]
+   }
+  },
+  {
+   "id": "c1",
+   "livello": 3,
+   "n": 1,
+   "nome": "Il calendario di novembre",
+   "tempo": "45 minuti",
+   "strumenti": "Calendario, Statistiche",
+   "cosa": "Un mese intero: lancio del calendario dell'avvento, Black Friday, pilastri e orari.",
+   "situazione": "Novembre è il mese più importante: il 2 lanciamo il calendario dell'avvento e il 27 c'è il Black Friday. Le bozze sono pronte: mi prepari il calendario?",
+   "obiettivo": "Programmare le bozze di novembre con equilibrio, date giuste, testi e link misurabili.",
+   "passi": [
+    {
+     "strumento": "insight",
+     "tipo": "radio",
+     "domanda": "Quanti post a settimana?",
+     "consegna": "Guarda quanti post a settimana sono stati pubblicati finora e come sono andati.",
+     "spiega": "Conta la regolarità più del numero. Meglio tre post a settimana curati e costanti che uno al giorno fatto di corsa; e la frequenza deve essere sostenibile per il team.",
+     "esempio": "Un piccolo forno pubblica lunedì, mercoledì e venerdì: i follower sanno quando aspettarsi il pane nuovo.",
+     "errore": "Pubblicare tantissimo a novembre e poi sparire a dicembre.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Circa 3 a settimana, con regolarità",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Uno al giorno, per sfruttare il mese",
+       "giusta": false,
+       "nota": "Con dieci bozze e un team piccolo non è sostenibile, e non serve."
+      },
+      {
+       "id": "o3",
+       "testo": "Tutti nella prima settimana",
+       "giusta": false,
+       "nota": "Poi il profilo resterebbe vuoto proprio prima del Black Friday."
+      }
+     ],
+     "perche": "Finora il profilo ha pubblicato 3 post a settimana con buoni risultati quando l'orario era giusto: si continua così.",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "calendario",
+     "tipo": "azione",
+     "verifica": "so_calendarioNovembre",
+     "vai": {
+      "link": "/app/simulazioni/social/calendario/",
+      "testo": "Apri il Calendario"
+     },
+     "negozio": "",
+     "domanda": "Programma le bozze di novembre",
+     "consegna": "Metti nel calendario di novembre almeno 8 bozze, con le date e gli orari giusti.",
+     "spiega": "Un buon calendario segue le date importanti, alterna i pilastri (non solo prodotto), distribuisce i post nelle settimane senza due post lo stesso giorno e usa l'orario in cui i follower sono online.",
+     "esempio": "Un negozio di libri a dicembre alterna consigli di lettura, dietro le quinte e una sola promozione, il giorno giusto.",
+     "errore": "Mettere tutte le promozioni di fila: il profilo diventa un volantino.",
+     "opzioni": [],
+     "perche": "Il mese è pronto: lancio il 2-4 novembre, Black Friday il 27, pilastri alternati e post serali.",
+     "aiuto": "",
+     "dove": "[data-mese]"
+    },
+    {
+     "strumento": "calendario",
+     "tipo": "radio",
+     "domanda": "Per il lancio del calendario dell'avvento, quale coppia di formati?",
+     "consegna": "Pensa a cosa deve fare ogni post.",
+     "spiega": "Un lancio ha due compiti: farsi vedere da più persone possibile e spiegare bene il prodotto. Si usano formati diversi per i due compiti.",
+     "esempio": "Un'app nuova esce con un video breve che incuriosisce e una guida a schede su come funziona.",
+     "errore": "Usare un solo post per fare tutto.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Un reel per farlo scoprire e un carosello per mostrare cosa c'è dentro",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Solo storie",
+       "giusta": false,
+       "nota": "Spariscono in 24 ore e arrivano soprattutto ai follower."
+      },
+      {
+       "id": "o3",
+       "testo": "Una foto prodotto con «disponibile sul sito»",
+       "giusta": false,
+       "nota": "È il tipo di post che va peggio sul profilo."
+      }
+     ],
+     "perche": "Reel per la copertura, carosello per i dettagli: sono già nelle bozze (b01 e b02).",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "guida",
+     "tipo": "testo",
+     "verifica": "so_didascaliaLancio",
+     "domanda": "Scrivi la didascalia del lancio",
+     "consegna": "Scrivi la didascalia del reel di lancio del calendario dell'avvento.",
+     "spiega": "La didascalia di un lancio dice cos'è, da quando si trova, perché è speciale e cosa fare adesso. Prima frase corta e forte, un invito chiaro, pochi hashtag. Niente urgenza finta («ultimi pezzi!» se non è vero).",
+     "esempio": "«24 caffè da tutto il mondo, uno al giorno fino a Natale. Il nostro calendario dell'avvento è disponibile da oggi: lo trovi nel link in bio. #calendariodellavvento»",
+     "errore": "Scrivere «ULTIMI PEZZI, AFFRETTATEVI» il primo giorno: è falso e fa perdere fiducia.",
+     "opzioni": [],
+     "perche": "Esempio di una collega senior: «24 tè, uno per ogni giorno fino a Natale. Il calendario dell'avvento di Cinque Foglie è disponibile dal 2 novembre: dentro trovi tè e tisane biologici da scoprire giorno per giorno. Lo trovi nel link in bio. #calendariodellavvento #tè»",
+     "aiuto": "",
+     "dove": "",
+     "parole": [
+      20,
+      90
+     ]
+    },
+    {
+     "strumento": "insight",
+     "tipo": "radio",
+     "domanda": "Per il post del Black Friday, quale numero guardi?",
+     "consegna": "Pensa all'obiettivo di quel post.",
+     "spiega": "Ogni post ha un obiettivo e un numero. Un post di promozione serve a vendere: si guardano i clic sul link e gli acquisti che arrivano da lì, misurati con un link UTM.",
+     "esempio": "Un cinema guarda quanti biglietti arrivano dal link nel post della promozione, non quanti like ha il post.",
+     "errore": "Giudicare un post di vendita dai like.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "I clic sul link e le vendite che arrivano da quel link",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "I like",
+       "giusta": false,
+       "nota": "Un post può piacere tanto e non vendere niente."
+      },
+      {
+       "id": "o3",
+       "testo": "I follower nuovi",
+       "giusta": false,
+       "nota": "Non è l'obiettivo di un post di promozione."
+      }
+     ],
+     "perche": "Per misurare le vendite dal post serve un link con i parametri UTM: lo prepari nel prossimo passo.",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "calendario",
+     "tipo": "azione",
+     "verifica": "so_utm",
+     "vai": {
+      "link": "/app/simulazioni/social/calendario/",
+      "testo": "Apri il Calendario"
+     },
+     "negozio": "",
+     "domanda": "Prepara il link del Black Friday",
+     "consegna": "Nella bozza del Black Friday metti un link al sito con i parametri UTM.",
+     "spiega": "I parametri UTM si aggiungono al link per sapere da dove arrivano le visite: utm_source (chi manda: instagram), utm_medium (il tipo di canale: social), utm_campaign (la campagna: per esempio black-friday). Si leggono poi nelle statistiche del sito.",
+     "esempio": "cinquefoglie.example/?utm_source=newsletter&utm_medium=email&utm_campaign=natale",
+     "errore": "Scrivere i valori ogni volta in modo diverso (Instagram, IG, insta): le statistiche li contano come fonti diverse.",
+     "opzioni": [],
+     "perche": "Con il link UTM sapremo quante vendite del Black Friday arrivano da questo post.",
+     "aiuto": "",
+     "dove": "[data-editor-post] input[name=link]"
+    },
+    {
+     "strumento": "guida",
+     "tipo": "testo",
+     "verifica": "so_pianoNovembre",
+     "domanda": "Spiega il piano a Sara",
+     "consegna": "Scrivi 3-5 frasi a Sara: come hai organizzato novembre e come misurerai i risultati.",
+     "spiega": "Presentare un piano vuol dire spiegare le scelte: perché quelle date, quei formati, quegli orari, e come si saprà se ha funzionato.",
+     "esempio": "«A dicembre alterniamo consigli e promozioni, 3 post a settimana alle 18. Il giorno del lancio un reel e un carosello. Misuriamo i clic con link UTM.»",
+     "errore": "Elencare i post uno per uno senza spiegare il perché.",
+     "opzioni": [],
+     "perche": "Esempio di una collega senior: «Novembre ha 3 post a settimana, sempre la sera tra le 19 e le 21. Lanciamo il calendario dell'avvento il 2 con un reel e il giorno dopo un carosello con cosa c'è dentro. Alterniamo ricette e consigli ai post di prodotto e mettiamo il Black Friday solo il 27. Misuriamo copertura per il lancio e clic con link UTM per il Black Friday.»",
+     "aiuto": "",
+     "dove": "",
+     "parole": [
+      30,
+      150
+     ]
+    }
+   ],
+   "imparato": [
+    "Regolarità prima della quantità.",
+    "Un lancio usa più formati con compiti diversi.",
+    "Ogni post ha il suo numero: copertura, salvataggi, clic.",
+    "I link UTM dicono quante vendite arrivano da un post."
+   ],
+   "elena": "Il calendario è perfetto. Lo condivido con il team e lo mettiamo in produzione da lunedì.",
+   "prepara": {
+    "post": [
+     "b01",
+     "b02",
+     "b03",
+     "b04",
+     "b05",
+     "b06",
+     "b07",
+     "b08",
+     "b09",
+     "b10"
+    ]
+   }
+  },
+  {
+   "id": "c2",
+   "livello": 3,
+   "n": 2,
+   "nome": "Una piccola crisi",
+   "tempo": "40 minuti",
+   "strumenti": "Commenti e messaggi, Calendario",
+   "cosa": "Kit matcha arrivati rotti, commenti arrabbiati e una promo programmata nel momento sbagliato.",
+   "situazione": "Aiuto: stamattina tanti kit matcha sono arrivati con la frusta rotta e i commenti stanno esplodendo. Anche @tazzaemiele ne parla nelle storie. Cosa facciamo?",
+   "obiettivo": "Gestire la crisi: capire, rispondere, fermare ciò che peggiora le cose, informare.",
+   "passi": [
+    {
+     "strumento": "community",
+     "tipo": "radio",
+     "domanda": "Qual è la prima cosa da fare?",
+     "consegna": "Leggi i commenti di oggi.",
+     "spiega": "In una crisi la prima cosa è capire i fatti: cosa è successo, a quante persone, perché. Si chiede subito a chi ha le informazioni (magazzino, assistenza clienti). Rispondere senza sapere rischia di promettere cose sbagliate.",
+     "esempio": "Un'azienda di giocattoli riceve segnalazioni di pezzi rotti: prima verifica con la logistica quale lotto è coinvolto, poi risponde.",
+     "errore": "Rispondere a caso «non ci risulta» prima di aver controllato.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Chiedere al magazzino e all'assistenza cosa è successo e quanti ordini sono coinvolti",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Cancellare i commenti negativi",
+       "giusta": false,
+       "nota": "Peggiora tutto: le persone se ne accorgono e si arrabbiano di più."
+      },
+      {
+       "id": "o3",
+       "testo": "Aspettare che passi",
+       "giusta": false,
+       "nota": "Ogni ora senza risposta i commenti aumentano."
+      }
+     ],
+     "perche": "Il magazzino conferma: un lotto di fruste si è rotto nel trasporto, circa 40 kit spediti ieri.",
+     "aiuto": "",
+     "dove": "[data-lista-commenti]"
+    },
+    {
+     "strumento": "calendario",
+     "tipo": "azione",
+     "verifica": "so_sospendi",
+     "vai": {
+      "link": "/app/simulazioni/social/calendario/",
+      "testo": "Apri il Calendario"
+     },
+     "negozio": "",
+     "domanda": "Ferma il post programmato",
+     "consegna": "Nel calendario c'è un post che oggi peggiorerebbe la situazione: sospendilo.",
+     "spiega": "In una crisi si controllano i post programmati: una promozione allegra nel mezzo delle lamentele sembra insensibile. Si sospende e si riprogramma più avanti.",
+     "esempio": "Durante un disservizio, una compagnia telefonica sospende i post «Scopri le nostre offerte!» previsti per quel giorno.",
+     "errore": "Lasciare uscire tutto come previsto perché «era già programmato».",
+     "opzioni": [],
+     "perche": "La promo lampo sul kit matcha non uscirà oggi: sarebbe sembrata una presa in giro.",
+     "aiuto": "",
+     "dove": "[data-mese]"
+    },
+    {
+     "strumento": "guida",
+     "tipo": "testo",
+     "verifica": "so_postCrisi",
+     "domanda": "Scrivi il messaggio pubblico",
+     "consegna": "Scrivi il testo da pubblicare (storia o post): cosa è successo, cosa fate per chi è coinvolto e come contattarvi.",
+     "spiega": "Un messaggio di crisi è breve, sincero e concreto: riconosce il problema, si scusa, spiega cosa si fa per rimediare e come contattare l'azienda. Non dà la colpa ad altri e non minimizza.",
+     "esempio": "«Alcuni ordini di ieri sono arrivati con il coperchio rotto. Ci dispiace molto. Vi mandiamo subito un prodotto nuovo, gratis: scriveteci in privato con il numero d'ordine.»",
+     "errore": "Scrivere «il problema è del corriere» o «sono pochissimi casi»: chi è coinvolto si sente ignorato.",
+     "opzioni": [],
+     "perche": "Esempio di una collega senior: «Alcuni kit matcha spediti ieri sono arrivati con la frusta rotta. Ci dispiace davvero, soprattutto per chi li aveva scelti come regalo. Spediamo subito una frusta nuova a tutti, gratis: scriveteci in privato con il numero d'ordine. Stiamo controllando gli imballaggi perché non succeda più.»",
+     "aiuto": "",
+     "dove": "",
+     "parole": [
+      30,
+      120
+     ]
+    },
+    {
+     "strumento": "community",
+     "tipo": "azione",
+     "verifica": "so_risposteCrisi",
+     "vai": {
+      "link": "/app/simulazioni/social/community/",
+      "testo": "Apri i commenti"
+     },
+     "negozio": "",
+     "domanda": "Rispondi ai commenti",
+     "consegna": "Rispondi ad almeno tre commenti sulla frusta rotta, senza nasconderli.",
+     "spiega": "In crisi si risponde a tutti con lo stesso messaggio di fondo (scuse, rimedio, privato), ma personalizzato: copiare e incollare la stessa frase a tutti sembra un robot. Le critiche non si nascondono.",
+     "esempio": "«Ciao Anna, ci dispiace tanto: ti scriviamo in privato per mandarti subito il pezzo nuovo.»",
+     "errore": "Incollare lo stesso testo identico sotto venti commenti.",
+     "opzioni": [],
+     "perche": "Ogni persona ha avuto una risposta e sa che riceverà una frusta nuova.",
+     "aiuto": "",
+     "dove": "[data-lista-commenti]"
+    },
+    {
+     "strumento": "community",
+     "tipo": "radio",
+     "domanda": "@tazzaemiele ne parla nelle storie. Cosa fai?",
+     "consegna": "Pensa a chi è e a cosa ha scritto.",
+     "spiega": "Quando una persona con un pubblico parla del problema, conviene contattarla direttamente, con sincerità: spiegare cosa è successo e cosa si sta facendo. Non si chiede di cancellare.",
+     "esempio": "Un ristorante criticato da un food blogger lo chiama, si scusa e lo invita a tornare: il blogger aggiorna il suo post.",
+     "errore": "Chiederle di cancellare le storie o offrirle soldi per parlarne bene.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Le scrivo in privato, mi scuso e le spiego come stiamo rimediando",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Le chiedo di cancellare le storie",
+       "giusta": false,
+       "nota": "Sembra una censura e peggiora la situazione."
+      },
+      {
+       "id": "o3",
+       "testo": "La ignoro, tanto le storie spariscono",
+       "giusta": false,
+       "nota": "Il suo pubblico ricorda come ha reagito l'azienda."
+      }
+     ],
+     "perche": "Con le informazioni giuste, spesso è proprio la creator ad aggiornare il suo pubblico: «Mi hanno già rimandato la frusta!».",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "guida",
+     "tipo": "testo",
+     "verifica": "so_reportCrisi",
+     "domanda": "Scrivi il riepilogo per Sara",
+     "consegna": "Scrivi 3-6 frasi: cosa è successo, cosa avete fatto oggi e cosa proponete di cambiare.",
+     "spiega": "Dopo una crisi si scrive un riepilogo: i fatti, le azioni fatte, cosa ha funzionato e cosa cambiare perché non succeda di nuovo.",
+     "esempio": "«Ieri 30 ordini sono arrivati con il coperchio rotto. Abbiamo risposto a tutti, rispedito il prodotto e sospeso la promo. Proponiamo di provare un nuovo imballaggio.»",
+     "errore": "Raccontare solo quanto è stato faticoso, senza fatti e proposte.",
+     "opzioni": [],
+     "perche": "Esempio di una collega senior: «Circa 40 kit matcha spediti ieri sono arrivati con la frusta rotta. Oggi abbiamo sospeso la promo lampo, pubblicato una storia con le scuse e il rimedio, risposto a tutti i commenti e scritto a @tazzaemiele. Rispediamo una frusta nuova gratis a chi è coinvolto. Proponiamo di proteggere meglio le fruste negli imballaggi.»",
+     "aiuto": "",
+     "dove": "",
+     "parole": [
+      30,
+      160
+     ]
+    }
+   ],
+   "imparato": [
+    "In una crisi prima si capiscono i fatti.",
+    "Si fermano i post programmati fuori luogo.",
+    "Messaggio pubblico sincero: scuse, rimedio, contatto.",
+    "Le critiche non si nascondono: si risponde a tutti, in modo personale."
+   ],
+   "elena": "Grazie, gestita benissimo. @tazzaemiele ha già scritto «mi hanno rimandato la frusta in un giorno»: quasi meglio di prima!",
+   "prepara": {
+    "crisi": true,
+    "post": [
+     "z1"
+    ],
+    "commenti": [
+     "x01",
+     "x02",
+     "x03",
+     "x04",
+     "x05"
+    ]
+   }
+  }
+ ]
+}

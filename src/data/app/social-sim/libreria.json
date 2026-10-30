@@ -1,0 +1,77 @@
+{
+ "_nota": "Foto, video e musica che il team può usare, con permessi e licenze.",
+ "voci": [
+  {
+   "id": "f1",
+   "tipo": "foto",
+   "titolo": "Latte di tè in magazzino",
+   "fonte": "Foto del team",
+   "permesso": "proprio",
+   "nota": "Scattata da Cinque Foglie."
+  },
+  {
+   "id": "f2",
+   "tipo": "foto",
+   "titolo": "Kit matcha su fondo chiaro",
+   "fonte": "Foto del team",
+   "permesso": "proprio",
+   "nota": "Scattata da Cinque Foglie."
+  },
+  {
+   "id": "u1",
+   "tipo": "foto",
+   "titolo": "La tazza di Anna (con libro)",
+   "fonte": "@anna.legge",
+   "permesso": "concesso",
+   "nota": "Permesso chiesto e dato in privato il 13/09. Da citare."
+  },
+  {
+   "id": "u2",
+   "tipo": "foto",
+   "titolo": "Matcha latte di Giulia",
+   "fonte": "@giulia.foglie",
+   "permesso": "non chiesto",
+   "nota": "Presa dal suo profilo il 11/10. Usata nel post del 12/10."
+  },
+  {
+   "id": "s1",
+   "tipo": "foto",
+   "titolo": "Tazza fumante su sfondo autunnale",
+   "fonte": "Archivio di foto con licenza",
+   "permesso": "licenza commerciale",
+   "nota": "Licenza acquistata: uso commerciale consentito."
+  },
+  {
+   "id": "s2",
+   "tipo": "foto",
+   "titolo": "Teiere vintage",
+   "fonte": "Trovata su una bacheca di ispirazione",
+   "permesso": "sconosciuto",
+   "nota": "Non si sa chi l'ha scattata."
+  },
+  {
+   "id": "m1",
+   "tipo": "musica",
+   "titolo": "Chitarra acustica tranquilla",
+   "fonte": "Libreria musicale della piattaforma",
+   "permesso": "uso commerciale",
+   "nota": "Nella sezione per i profili aziendali."
+  },
+  {
+   "id": "m2",
+   "tipo": "musica",
+   "titolo": "Canzone famosa del momento",
+   "fonte": "Classifica musicale",
+   "permesso": "non per profili aziendali",
+   "nota": "Non disponibile per l'uso commerciale."
+  },
+  {
+   "id": "v-tazzaemiele",
+   "tipo": "video",
+   "titolo": "Reel di @tazzaemiele con il kit matcha",
+   "fonte": "@tazzaemiele",
+   "permesso": "concesso",
+   "nota": "Kit matcha regalato in cambio del video (accordo via email del 1/10)."
+  }
+ ]
+}

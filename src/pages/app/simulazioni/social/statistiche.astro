@@ -1,0 +1,126 @@
+---
+// SIMULAZIONE SOCIAL · STATISTICHE DEI POST (ispirate alle statistiche dei social, nome generico)
+// Numeri del periodo, follower attivi per ora, medie per formato e tabella dei post ordinabile.
+// I numeri arrivano da post.json e profilo.json (generati da strumenti-dati/genera_social.py).
+// Engagement rate = (like + commenti + salvataggi + condivisioni) / copertura x 100.
+import Console from "../../../../components/seopro/Console.astro";
+import POST from "../../../../data/app/social-sim/post.json";
+import PROFILO from "../../../../data/app/social-sim/profilo.json";
+import { num } from "../../../../scripts/tabella";
+
+const er = (p: (typeof POST.post)[number]) => ((p.like + p.commenti + p.salvataggi + p.condivisioni) / p.copertura) * 100;
+const media = (xs: number[]) => xs.reduce((a, b) => a + b, 0) / (xs.length || 1);
+const dec = (x: number) => num(x, 1);
+const dataBreve = (iso: string) => `${iso.slice(8)}/${iso.slice(5, 7)}`;
+const sett = POST.post.filter((p) => p.data.startsWith("2026-09")), ott = POST.post.filter((p) => p.data.startsWith("2026-10"));
+const copSet = media(sett.map((p) => p.copertura)), copOtt = media(ott.map((p) => p.copertura));
+const FORMATI = ["reel", "carosello", "foto"].map((f) => {
+  const ps = POST.post.filter((p) => p.formato === f);
+  return { f, n: ps.length, cop: media(ps.map((p) => p.copertura)), er: media(ps.map(er)), salv: media(ps.map((p) => p.salvataggi)), nf: media(ps.map((p) => p.nonFollower)) * 100 };
+});
+const NOME_F: Record<string, string> = { reel: "Reel", carosello: "Carosello", foto: "Foto" };
+const PILASTRI = [...new Set(POST.post.map((p) => p.pilastro))];
+
+// Grafico delle ore: 24 barre
+const ORE = PROFILO.attivitaPerOra;
+const maxOra = Math.max(...ORE);
+// Grafico dei follower: una linea
+const F = PROFILO.andamentoFollower;
+const fMin = Math.min(...F.map((x) => x.follower)) - 40, fMax = Math.max(...F.map((x) => x.follower)) + 40;
+const punti = F.map((x, i) => `${20 + (i * 560) / (F.length - 1)},${150 - ((x.follower - fMin) / (fMax - fMin)) * 120}`).join(" ");
+---
+<Console sim="social" attivo="insight" titolo="Statistiche dei post" sottotitolo="Settembre e ottobre 2026" ispirato="le statistiche dei social network (nome generico, nessun marchio reale)">
+  <div class="sp-cifre">
+    <div class="sp-cifra"><span>Follower</span><strong>{num(PROFILO.follower)}</strong><small class="su">+{num(PROFILO.follower - F[0].follower)} da fine agosto</small></div>
+    <div class="sp-cifra"><span>Copertura media per post, settembre</span><strong>{num(copSet)}</strong></div>
+    <div class="sp-cifra"><span>Copertura media per post, ottobre</span><strong>{num(copOtt)}</strong><small class="giu">{num(((copOtt - copSet) / copSet) * 100)}% su settembre</small></div>
+    <div class="sp-cifra"><span>Post pubblicati</span><strong>{POST.post.length}</strong></div>
+  </div>
+
+  <div class="st-due">
+    <section class="sp-pannello" data-grafico-ore>
+      <h2 class="st-tit">Follower attivi per ora</h2>
+      <p class="sp-nota">Quanti follower sono online in ogni ora del giorno (media degli ultimi 30 giorni, in percentuale sul momento di picco).</p>
+      <svg class="sp-grafico" viewBox="0 0 600 190" role="img" aria-label="Follower attivi per ora: picco tra le 19 e le 21, minimo di notte">
+        {ORE.map((v, h) => {
+          const alt = (v / maxOra) * 140;
+          return <g>
+            <rect x={14 + h * 24} y={150 - alt} width="18" height={alt} rx="3" fill={v === maxOra ? "#e0650f" : "#9d9890"}><title>{`Ore ${h}: ${v}%`}</title></rect>
+            {h % 3 === 0 && <text x={23 + h * 24} y="170" text-anchor="middle" font-size="11" fill="#55514c">{h}</text>}
+          </g>;
+        })}
+        <text x="300" y="188" text-anchor="middle" font-size="11" fill="#55514c">ora del giorno</text>
+      </svg>
+    </section>
+    <section class="sp-pannello" data-follower>
+      <h2 class="st-tit">Follower, settimana per settimana</h2>
+      <p class="sp-nota">Da {num(F[0].follower)} a {num(F[F.length - 1].follower)}.</p>
+      <svg class="sp-grafico" viewBox="0 0 600 180" role="img" aria-label="Follower in crescita lenta da fine agosto a fine ottobre">
+        <polyline points={punti} fill="none" stroke="#e0650f" stroke-width="3" />
+        {F.map((x, i) => i % 2 === 0 && <text x={20 + (i * 560) / (F.length - 1)} y="172" text-anchor="middle" font-size="11" fill="#55514c">{dataBreve(x.settimana)}</text>)}
+      </svg>
+    </section>
+  </div>
+
+  <section class="sp-pannello" data-formati>
+    <h2 class="st-tit">Medie per formato</h2>
+    <div class="sp-scorri">
+      <table data-tabella>
+        <thead><tr><th>Formato</th><th class="n">Post</th><th class="n">Copertura media</th><th class="n">Engagement rate</th><th class="n">Salvataggi medi</th><th class="n">Non follower</th></tr></thead>
+        <tbody>{FORMATI.map((f) => <tr><td><strong>{NOME_F[f.f]}</strong></td><td class="n">{f.n}</td><td class="n">{num(f.cop)}</td><td class="n">{dec(f.er)}%</td><td class="n">{num(f.salv)}</td><td class="n">{num(f.nf)}%</td></tr>)}</tbody>
+      </table>
+    </div>
+    <p class="sp-nota">Non follower: la parte di persone raggiunte che non segue il profilo.</p>
+  </section>
+
+  <section class="sp-pannello st-post">
+    <div class="sp-riga">
+      <h2 class="st-tit">Tutti i post</h2>
+      <div class="st-filtri">
+        <label>Formato <select class="sp-scegli" data-filtro="formato"><option value="">Tutti</option>{FORMATI.map((f) => <option value={f.f}>{NOME_F[f.f]}</option>)}</select></label>
+        <label>Pilastro <select class="sp-scegli" data-filtro="pilastro"><option value="">Tutti</option>{PILASTRI.map((p) => <option value={p}>{p}</option>)}</select></label>
+      </div>
+    </div>
+    <div class="sp-scorri">
+      <table data-tabella id="t-post">
+        <thead><tr>
+          <th data-ordina="testo">Data</th><th data-ordina="testo">Ora</th><th data-ordina="testo">Formato</th><th data-ordina="testo">Pilastro</th><th>Post</th>
+          <th class="n" data-ordina="numero">Copertura</th><th class="n" data-ordina="numero">Impressioni</th><th class="n" data-ordina="numero">Like</th><th class="n" data-ordina="numero">Commenti</th>
+          <th class="n" data-ordina="numero">Salvataggi</th><th class="n" data-ordina="numero">Condivisioni</th><th class="n" data-ordina="numero">ER</th><th class="n" data-ordina="numero">Non follower</th>
+        </tr></thead>
+        <tbody>
+          {POST.post.map((p) => (
+            <tr data-formato={p.formato} data-pilastro={p.pilastro}>
+              <td data-valore={p.data}>{dataBreve(p.data)}</td><td>{p.ora}</td><td>{NOME_F[p.formato]}</td><td>{p.pilastro}</td><td class="st-titolo">{p.titolo}</td>
+              <td class="n" data-valore={p.copertura}>{num(p.copertura)}</td><td class="n" data-valore={p.impressioni}>{num(p.impressioni)}</td>
+              <td class="n">{p.like}</td><td class="n">{p.commenti}</td><td class="n">{p.salvataggi}</td><td class="n">{p.condivisioni}</td>
+              <td class="n" data-valore={er(p).toFixed(2)}>{dec(er(p))}%</td><td class="n" data-valore={p.nonFollower}>{num(p.nonFollower * 100)}%</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="sp-nota">ER (engagement rate) = (like + commenti + salvataggi + condivisioni) ÷ copertura × 100. Clicca un'intestazione per ordinare.</p>
+  </section>
+</Console>
+
+<script>
+  import { attivaTabelle } from "../../../../scripts/tabella";
+  attivaTabelle();
+  const filtri = [...document.querySelectorAll<HTMLSelectElement>("[data-filtro]")];
+  const filtra = () => {
+    const [f, p] = filtri.map((s) => s.value);
+    document.querySelectorAll<HTMLTableRowElement>("#t-post tbody tr").forEach((r) => { r.hidden = (!!f && r.dataset.formato !== f) || (!!p && r.dataset.pilastro !== p); });
+  };
+  filtri.forEach((s) => s.addEventListener("change", filtra));
+</script>
+
+<style>
+  .st-due { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .st-tit { font-family: var(--font-titoli); font-size: 1.1rem; font-weight: 800; margin: 0 0 6px; }
+  .st-post { display: flex; flex-direction: column; gap: 12px; }
+  .st-filtri { display: flex; flex-wrap: wrap; gap: 12px; font-size: .85rem; font-weight: 700; }
+  .st-filtri label { display: flex; align-items: center; gap: 6px; }
+  .st-titolo { min-width: 220px; }
+  section .sp-scorri { margin: 8px 0; }
+</style>

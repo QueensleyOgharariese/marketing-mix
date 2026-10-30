@@ -11,15 +11,24 @@
 //   Indizio       = una spinta verso la risposta (costa 5 punti)
 // La guida cala con il livello: Basi "Come funziona" già aperto; Diagnosi tutto chiuso; Casi solo Teoria.
 // Il contenuto arriva da missioni.json e viene disegnato nel browser, perché dipende dallo stato salvato (localStorage).
-interface Props { pagina: string } // id dello strumento in cui si trova la guida (console, crawler, negozio...)
-const { pagina } = Astro.props;
+// pagina: id dello strumento in cui si trova la guida (console, crawler, negozio...); sim: quale simulazione
+interface Props { pagina: string; sim?: "seo" | "social" }
+const { pagina, sim = "seo" } = Astro.props;
 ---
-<div class="gm" data-guida-missione={pagina} aria-live="polite">
+<div class="gm" data-guida-missione={pagina} data-sim={sim} aria-live="polite">
   <p class="gm-attesa">Caricamento dell'esercizio…</p>
 </div>
 
 <script>
-  import { TUTTE, LIVELLI, STRUMENTI, leggiStato, salvaStato, linkPasso, controlla, punti, avvia, ricomincia, etichetta, consigliata, livelloAperto, type Missione, type Passo } from "../../scripts/missioni";
+  import { motoreSeo, type Missione, type Passo } from "../../scripts/missioni";
+  import { motoreSocial } from "../../scripts/social/missioni-social";
+  // La stessa guida serve tutte le simulazioni: si sceglie il motore in base a data-sim
+  const MO = document.querySelector<HTMLElement>("[data-guida-missione]")?.dataset.sim === "social" ? motoreSocial : motoreSeo;
+  const { TUTTE, LIVELLI, STRUMENTI, leggiStato, salvaStato, linkPasso, controlla, punti, avvia, ricomincia, etichetta, consigliata, livelloAperto } = MO;
+  const PANORAMICA = `${MO.base}/`;
+  // Chi assegna gli esercizi: Elena nella SEO, Sara nel Social (persone inventate)
+  const SOCIAL = MO === motoreSocial;
+  const CHI = SOCIAL ? { nome: "Sara L.", ruolo: "social media manager" } : { nome: "Elena M.", ruolo: "responsabile e-commerce" };
   import { verifica } from "../../scripts/verifiche";
   import AIUTO from "../../data/app/seo-pro/aiuto-strumenti.json";
 
@@ -66,7 +75,7 @@ const { pagina } = Astro.props;
 
     // Nessun esercizio in corso
     if (!m || !sm) {
-      radice.innerHTML = `<div class="gm-corpo"><h2 class="gm-titolo">Nessun esercizio in corso</h2><p class="gm-testo">Puoi esplorare gli strumenti liberamente. Quando vuoi, scegli un esercizio dalla panoramica.</p><a class="bottone-app" href="/app/percorsi/seo/#livelli">Scegli un esercizio</a></div>`;
+      radice.innerHTML = `<div class="gm-corpo"><h2 class="gm-titolo">Nessun esercizio in corso</h2><p class="gm-testo">Puoi esplorare gli strumenti liberamente. Quando vuoi, scegli un esercizio dalla panoramica.</p><a class="bottone-app" href="${PANORAMICA}#livelli">Scegli un esercizio</a></div>`;
       return;
     }
     const tutorial = m.id === "tutorial";
@@ -83,9 +92,9 @@ const { pagina } = Astro.props;
           ${tutorial ? "" : `<p class="gm-punti"><strong>${punti(sm)}</strong> punti su 100</p><p class="gm-testo">Giusti al primo tentativo: ${primo} su ${domande}. Aiuti usati: ${sm.aiuti.length}.</p>`}
           ${nuovo && !tutorial ? `<p class="gm-sblocco"><strong>Livello ${nuovo.n} aperto: ${esc(nuovo.nome)}</strong>${esc(nuovo.cosa)}</p>` : ""}
           <div class="gm-blocco"><h3>Cosa hai imparato</h3><ul>${m.imparato.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
-          <div class="gm-messaggio"><strong>Elena M.</strong><p>${esc(m.elena)}</p></div>
+          <div class="gm-messaggio"><strong>${CHI.nome}</strong><p>${esc(m.elena)}</p></div>
         </div>
-        <div class="gm-piede">${prossima ? `<button type="button" class="bottone-app" data-prossima="${prossima.id}">Prossimo: ${esc(prossima.nome)}</button>` : ""}<a class="gm-secondario" href="/app/percorsi/seo/#livelli">${prossima ? "Scegli tu" : "Torna agli esercizi"}</a></div>`;
+        <div class="gm-piede">${prossima ? `<button type="button" class="bottone-app" data-prossima="${prossima.id}">Prossimo: ${esc(prossima.nome)}</button>` : ""}<a class="gm-secondario" href="${PANORAMICA}#livelli">${prossima ? "Scegli tu" : "Torna agli esercizi"}</a></div>`;
       radice.querySelector<HTMLButtonElement>("[data-prossima]")?.addEventListener("click", (e) => {
         location.href = avvia((e.currentTarget as HTMLElement).dataset.prossima!);
       });
@@ -96,7 +105,7 @@ const { pagina } = Astro.props;
     const ultimo = sm.passo === m.passi.length - 1;
     const livello = m.livello;
     const testa = `<div class="gm-testa"><p class="gm-missione">${esc(etichetta(m))}</p>${barre(m, sm.passo)}<p class="gm-passo">${tutorial ? "Passo" : "Mini esercizio"} ${sm.passo + 1} di ${m.passi.length}<button type="button" class="gm-ricomincia" data-ricomincia>Ricomincia</button></p></div>`;
-    const elena = sm.passo === 0 && m.situazione ? `<div class="gm-situazione"><span class="gm-da">Elena M., responsabile e-commerce</span><p>${esc(m.situazione)}</p></div>` : "";
+    const elena = sm.passo === 0 && m.situazione ? `<div class="gm-situazione"><span class="gm-da">${CHI.nome}, ${CHI.ruolo}</span><p>${esc(m.situazione)}</p></div>` : "";
     const avanti = ultimo ? (tutorial ? "Concludi il tutorial" : "Concludi l'esercizio") : "Passo successivo";
 
     // Passo "info" (tutorial): si legge e si va avanti
@@ -119,7 +128,7 @@ const { pagina } = Astro.props;
     }
 
     // --- Risposta: scelta, modifica sul sito o testo ---
-    const chiaveTesto = `${m.id}-${sm.passo}`;
+    const chiaveTesto = `${SOCIAL ? "social-" : ""}${m.id}-${sm.passo}`; // il Social ha id come la SEO (base1, d1…): il prefisso li tiene separati
     let risposta = "";
     if (p.tipo === "radio" || p.tipo === "checkbox") {
       risposta = `<fieldset class="gm-opzioni"><legend>${p.tipo === "checkbox" ? "Scegli tutte le risposte giuste" : "Scegli una risposta"}</legend>

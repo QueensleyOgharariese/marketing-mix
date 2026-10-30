@@ -1,0 +1,148 @@
+{
+ "_nota": "Post programmati e bozze. Oggi nella simulazione è il 29/10/2026.",
+ "programmati": [
+  {
+   "id": "g1",
+   "data": "2026-10-30",
+   "ora": "03:00",
+   "formato": "carosello",
+   "pilastro": "Ricette",
+   "titolo": "Tè e biscotti: 4 abbinamenti",
+   "didascalia": "Shortbread e Earl Grey, cantucci e Darjeeling… 4 abbinamenti da provare. #tè",
+   "alt": "Schede con biscotti e tazze di tè su un vassoio."
+  },
+  {
+   "id": "g2",
+   "data": "2026-10-31",
+   "ora": "03:00",
+   "formato": "reel",
+   "pilastro": "Dietro le quinte",
+   "titolo": "Il nostro ottobre in 30 secondi",
+   "didascalia": "Un mese di tè, pacchi e assaggi in 30 secondi. #dietrolequinte",
+   "alt": "Video veloce di momenti in magazzino."
+  },
+  {
+   "id": "g3",
+   "data": "2026-11-01",
+   "ora": "03:00",
+   "formato": "carosello",
+   "pilastro": "Impara il tè",
+   "titolo": "Il tè nero con il latte: sì o no?",
+   "didascalia": "Tè nero e latte: quali tè si sposano meglio? Scorri. #tenero",
+   "alt": "Schede con tazze di tè nero e un bricco di latte."
+  }
+ ],
+ "bozze": [
+  {
+   "id": "k1",
+   "formato": "reel",
+   "pilastro": "Prodotto",
+   "titolo": "Kit matcha: tutto per iniziare",
+   "didascalia": "",
+   "alt": "",
+   "nota": "Video già girato: mani che preparano il matcha con la frusta di bambù del kit."
+  },
+  {
+   "id": "b01",
+   "formato": "reel",
+   "pilastro": "Prodotto",
+   "titolo": "Il calendario dell'avvento è arrivato",
+   "didascalia": "",
+   "alt": "",
+   "nota": "Lancio: in vendita dal 2 novembre.",
+   "lancio": true
+  },
+  {
+   "id": "b02",
+   "formato": "carosello",
+   "pilastro": "Prodotto",
+   "titolo": "24 giorni, 24 tè: cosa c'è dentro",
+   "didascalia": "",
+   "alt": "",
+   "nota": "Da pubblicare dopo il lancio."
+  },
+  {
+   "id": "b03",
+   "formato": "carosello",
+   "pilastro": "Impara il tè",
+   "titolo": "Tisane per la sera: 3 abbinamenti",
+   "didascalia": "",
+   "alt": "",
+   "nota": ""
+  },
+  {
+   "id": "b04",
+   "formato": "reel",
+   "pilastro": "Ricette",
+   "titolo": "Come si prepara il chai",
+   "didascalia": "",
+   "alt": "",
+   "nota": ""
+  },
+  {
+   "id": "b05",
+   "formato": "reel",
+   "pilastro": "Dietro le quinte",
+   "titolo": "Dal produttore: la raccolta autunnale",
+   "didascalia": "",
+   "alt": "",
+   "nota": ""
+  },
+  {
+   "id": "b06",
+   "formato": "carosello",
+   "pilastro": "La community",
+   "titolo": "Le vostre tazze di ottobre",
+   "didascalia": "",
+   "alt": "",
+   "nota": "Solo foto con il permesso delle persone."
+  },
+  {
+   "id": "b07",
+   "formato": "carosello",
+   "pilastro": "Prodotto",
+   "titolo": "Black Friday: -20% su tutto",
+   "didascalia": "",
+   "alt": "",
+   "nota": "Lo sconto vale solo venerdì 27 novembre.",
+   "blackFriday": true
+  },
+  {
+   "id": "b08",
+   "formato": "carosello",
+   "pilastro": "Impara il tè",
+   "titolo": "Quanta acqua per il matcha?",
+   "didascalia": "",
+   "alt": "",
+   "nota": "Risponde alla domanda più frequente nei commenti."
+  },
+  {
+   "id": "b09",
+   "formato": "carosello",
+   "pilastro": "Prodotto",
+   "titolo": "Idee regalo sotto i 25 €",
+   "didascalia": "",
+   "alt": "",
+   "nota": ""
+  },
+  {
+   "id": "b10",
+   "formato": "carosello",
+   "pilastro": "Impara il tè",
+   "titolo": "Come conservare il tè d'inverno",
+   "didascalia": "",
+   "alt": "",
+   "nota": ""
+  }
+ ],
+ "crisi": {
+  "id": "z1",
+  "data": "2026-10-29",
+  "ora": "18:00",
+  "formato": "foto",
+  "pilastro": "Prodotto",
+  "titolo": "Promo lampo: kit matcha -30%",
+  "didascalia": "Solo oggi: kit matcha -30%! Corri sul sito 🔥",
+  "alt": ""
+ }
+}

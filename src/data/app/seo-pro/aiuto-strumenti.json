@@ -1,51 +1,118 @@
 {
  "_nota": "Scheda 'Come funziona' della guida: spiega solo come si usa ogni strumento della piattaforma, mai dove sta la risposta di un esercizio.",
- "negozio": { "nome": "Il negozio", "punti": [
-  "È il sito di Cinque Foglie come lo vede un cliente: il menu in alto porta alle categorie, le schede ai prodotti.",
-  "Il bottone scuro <strong>Ispeziona</strong>, accanto all'indirizzo, mostra i dati che legge Google: stato, title, description, meta robots, canonical e H1.",
-  "Se apri un indirizzo che ha un reindirizzamento, in alto compare un avviso che lo spiega.",
-  "Le modifiche salvate nel Pannello del negozio si vedono qui subito."
- ]},
- "crawler": { "nome": "Il Crawler", "punti": [
-  "Elenca tutti gli indirizzi del sito, come li trova Google seguendo i link. Sotto ogni indirizzo, in grigio, c'è il suo title.",
-  "A sinistra i <strong>filtri</strong> raggruppano i problemi in Errori, Da sistemare e Da controllare. Il numero accanto dice quante pagine ci sono.",
-  "La casella <strong>Filtra gli indirizzi</strong> cerca dentro il filtro che hai scelto.",
-  "Clicca una riga per aprire i <strong>Dettagli dell'indirizzo</strong>, sotto la tabella: lì ci sono tutti i dati della pagina, le note e da dove è linkata.",
-  "La tabella scorre in orizzontale. Le righe che hai cambiato nel Pannello hanno una linea arancione."
- ]},
- "console": { "nome": "La Console di ricerca", "punti": [
-  "In alto scegli la <strong>parte del sito</strong>, il <strong>periodo</strong> e se <strong>confrontare con l'anno prima</strong>: il grafico e i numeri cambiano.",
-  "Le schede <strong>Query</strong> (cosa cercano le persone) e <strong>Pagine</strong> (le pagine del sito) mostrano clic, impressioni, CTR e posizione.",
-  "Clicca un'intestazione per ordinare. Clicca una query per vedere quali pagine del sito compaiono per quella ricerca.",
-  "<strong>Controllo URL</strong>: scrivi un indirizzo per confrontare quello che ricorda Google con il sito di oggi. Da lì puoi chiedere l'indicizzazione."
- ]},
- "indicizzazione": { "nome": "Pagine e indicizzazione", "punti": [
-  "Due schede: <strong>Indicizzazione delle pagine</strong> e <strong>Core Web Vitals</strong> (la velocità).",
-  "Il grafico mostra, settimana per settimana, le pagine su Google (verde) e quelle fuori (grigio). Sotto ci sono gli eventi segnati.",
-  "La tabella dei motivi spiega perché alcune pagine sono fuori. Clicca un motivo per vedere le pagine, la colonna <strong>Sul sito oggi</strong> e il bottone <strong>Convalida correzione</strong>.",
-  "Core Web Vitals divide le pagine in gruppi e mostra i tempi su telefono e su computer, con la causa principale."
- ]},
- "keyword": { "nome": "La Ricerca keyword", "punti": [
-  "Scrivi nella casella per cercare tra le keyword.",
-  "Colonne: <strong>Intento</strong> (cosa vuole chi cerca), <strong>Volume</strong> (ricerche al mese), <strong>Difficoltà</strong>, <strong>Andamento</strong> (una barretta per mese, da luglio a giugno) e <strong>Posizione del sito</strong>.",
-  "<strong>Solo dove il sito non compare</strong> mostra le keyword per cui non siamo nei risultati.",
-  "La tabella scorre in orizzontale; clicca un'intestazione per ordinare."
- ]},
- "statistiche": { "nome": "Le Statistiche", "punti": [
-  "Mostrano cosa succede dopo il clic su Google: visite, ordini e ricavi.",
-  "La tabella ha una riga per pagina di arrivo: <strong>Sessioni</strong>, <strong>Conversione</strong> (su 100 visite quante diventano un ordine), <strong>Ordini</strong> e <strong>Ricavi</strong>.",
-  "Il grafico mostra i ricavi da Google mese per mese.",
-  "Puoi filtrare le pagine e ordinare cliccando le intestazioni."
- ]},
- "pannello": { "nome": "Il Pannello del negozio", "punti": [
-  "È il gestionale del sito, come WordPress o Shopify. Ha tre schede: <strong>Pagine</strong>, <strong>Reindirizzamenti</strong> e <strong>Tema e impostazioni</strong>.",
-  "<strong>Pagine</strong>: scegli una pagina dall'elenco (o cercala) e cambia title, description, H1, testo e meta robots. L'anteprima di Google si aggiorna mentre scrivi. Poi premi <strong>Salva le modifiche</strong>.",
-  "<strong>Reindirizzamenti</strong>: scrivi <strong>Da</strong> (indirizzo vecchio) e <strong>A</strong> (pagina nuova) e premi <strong>Salva il 301</strong>. Nella tabella puoi modificare o eliminare.",
-  "<strong>Tema e impostazioni</strong>: quali categorie sono visibili ai motori di ricerca e il canonical delle pagine filtrate.",
-  "Ogni modifica va subito online. <strong>Torna all'originale</strong> annulla le modifiche di una pagina."
- ]},
- "guida": { "nome": "La guida", "punti": [
-  "Qui scrivi il testo richiesto. Si salva da solo in questo browser.",
-  "Premi <strong>Controlla il lavoro</strong>: la guida dice cosa va e cosa manca. Puoi riprovare quante volte vuoi."
- ]}
+ "negozio": {
+  "nome": "Il negozio",
+  "punti": [
+   "È il sito di Cinque Foglie come lo vede un cliente: il menu in alto porta alle categorie, le schede ai prodotti.",
+   "Il bottone scuro <strong>Ispeziona</strong>, accanto all'indirizzo, mostra i dati che legge Google: stato, title, description, meta robots, canonical e H1.",
+   "Se apri un indirizzo che ha un reindirizzamento, in alto compare un avviso che lo spiega.",
+   "Le modifiche salvate nel Pannello del negozio si vedono qui subito."
+  ]
+ },
+ "crawler": {
+  "nome": "Il Crawler",
+  "punti": [
+   "Elenca tutti gli indirizzi del sito, come li trova Google seguendo i link. Sotto ogni indirizzo, in grigio, c'è il suo title.",
+   "A sinistra i <strong>filtri</strong> raggruppano i problemi in Errori, Da sistemare e Da controllare. Il numero accanto dice quante pagine ci sono.",
+   "La casella <strong>Filtra gli indirizzi</strong> cerca dentro il filtro che hai scelto.",
+   "Clicca una riga per aprire i <strong>Dettagli dell'indirizzo</strong>, sotto la tabella: lì ci sono tutti i dati della pagina, le note e da dove è linkata.",
+   "La tabella scorre in orizzontale. Le righe che hai cambiato nel Pannello hanno una linea arancione."
+  ]
+ },
+ "console": {
+  "nome": "La Console di ricerca",
+  "punti": [
+   "In alto scegli la <strong>parte del sito</strong>, il <strong>periodo</strong> e se <strong>confrontare con l'anno prima</strong>: il grafico e i numeri cambiano.",
+   "Le schede <strong>Query</strong> (cosa cercano le persone) e <strong>Pagine</strong> (le pagine del sito) mostrano clic, impressioni, CTR e posizione.",
+   "Clicca un'intestazione per ordinare. Clicca una query per vedere quali pagine del sito compaiono per quella ricerca.",
+   "<strong>Controllo URL</strong>: scrivi un indirizzo per confrontare quello che ricorda Google con il sito di oggi. Da lì puoi chiedere l'indicizzazione."
+  ]
+ },
+ "indicizzazione": {
+  "nome": "Pagine e indicizzazione",
+  "punti": [
+   "Due schede: <strong>Indicizzazione delle pagine</strong> e <strong>Core Web Vitals</strong> (la velocità).",
+   "Il grafico mostra, settimana per settimana, le pagine su Google (verde) e quelle fuori (grigio). Sotto ci sono gli eventi segnati.",
+   "La tabella dei motivi spiega perché alcune pagine sono fuori. Clicca un motivo per vedere le pagine, la colonna <strong>Sul sito oggi</strong> e il bottone <strong>Convalida correzione</strong>.",
+   "Core Web Vitals divide le pagine in gruppi e mostra i tempi su telefono e su computer, con la causa principale."
+  ]
+ },
+ "keyword": {
+  "nome": "La Ricerca keyword",
+  "punti": [
+   "Scrivi nella casella per cercare tra le keyword.",
+   "Colonne: <strong>Intento</strong> (cosa vuole chi cerca), <strong>Volume</strong> (ricerche al mese), <strong>Difficoltà</strong>, <strong>Andamento</strong> (una barretta per mese, da luglio a giugno) e <strong>Posizione del sito</strong>.",
+   "<strong>Solo dove il sito non compare</strong> mostra le keyword per cui non siamo nei risultati.",
+   "La tabella scorre in orizzontale; clicca un'intestazione per ordinare."
+  ]
+ },
+ "statistiche": {
+  "nome": "Le Statistiche",
+  "punti": [
+   "Mostrano cosa succede dopo il clic su Google: visite, ordini e ricavi.",
+   "La tabella ha una riga per pagina di arrivo: <strong>Sessioni</strong>, <strong>Conversione</strong> (su 100 visite quante diventano un ordine), <strong>Ordini</strong> e <strong>Ricavi</strong>.",
+   "Il grafico mostra i ricavi da Google mese per mese.",
+   "Puoi filtrare le pagine e ordinare cliccando le intestazioni."
+  ]
+ },
+ "pannello": {
+  "nome": "Il Pannello del negozio",
+  "punti": [
+   "È il gestionale del sito, come WordPress o Shopify. Ha tre schede: <strong>Pagine</strong>, <strong>Reindirizzamenti</strong> e <strong>Tema e impostazioni</strong>.",
+   "<strong>Pagine</strong>: scegli una pagina dall'elenco (o cercala) e cambia title, description, H1, testo e meta robots. L'anteprima di Google si aggiorna mentre scrivi. Poi premi <strong>Salva le modifiche</strong>.",
+   "<strong>Reindirizzamenti</strong>: scrivi <strong>Da</strong> (indirizzo vecchio) e <strong>A</strong> (pagina nuova) e premi <strong>Salva il 301</strong>. Nella tabella puoi modificare o eliminare.",
+   "<strong>Tema e impostazioni</strong>: quali categorie sono visibili ai motori di ricerca e il canonical delle pagine filtrate.",
+   "Ogni modifica va subito online. <strong>Torna all'originale</strong> annulla le modifiche di una pagina."
+  ]
+ },
+ "guida": {
+  "nome": "La guida",
+  "punti": [
+   "Qui scrivi il testo richiesto. Si salva da solo in questo browser.",
+   "Premi <strong>Controlla il lavoro</strong>: la guida dice cosa va e cosa manca. Puoi riprovare quante volte vuoi."
+  ]
+ },
+ "profilo": {
+  "nome": "Il profilo",
+  "punti": [
+   "È il profilo di Cinque Foglie come lo vedono i follower: in alto la bio, sotto la griglia dei post.",
+   "Clicca un post per aprirlo: vedi didascalia, data e ora di pubblicazione, testo alternativo ed eventuale etichetta di collaborazione.",
+   "Nel post aperto puoi <strong>modificare</strong> didascalia, testo alternativo ed etichetta, oppure <strong>archiviarlo</strong> (sparisce dal profilo ma non si cancella)."
+  ]
+ },
+ "insight": {
+  "nome": "Le Statistiche dei post",
+  "punti": [
+   "In alto i numeri del periodo e l'andamento dei follower.",
+   "Il grafico <strong>Follower attivi per ora</strong> dice a che ora i follower sono online.",
+   "La tabella ha una riga per post: copertura, impressioni, interazioni, salvataggi, engagement rate. Clicca un'intestazione per ordinare.",
+   "I filtri sopra la tabella mostrano solo un formato o un pilastro.",
+   "Il riquadro <strong>Medie per formato</strong> confronta reel, caroselli e foto."
+  ]
+ },
+ "calendario": {
+  "nome": "Calendario e post",
+  "punti": [
+   "A sinistra le <strong>bozze</strong>; al centro il calendario con i post programmati. Puoi cambiare mese con le frecce.",
+   "Trascina una bozza su un giorno per programmarla (oppure aprila e scegli data e ora).",
+   "Clicca un post o una bozza per aprire l'editor: formato, didascalia, testo alternativo, link, data e ora. Poi <strong>Salva</strong>.",
+   "In <strong>Impostazioni di programmazione</strong> c'è l'ora usata quando si programmano più post in blocco."
+  ]
+ },
+ "community": {
+  "nome": "Commenti e messaggi",
+  "punti": [
+   "Qui arrivano i commenti ai post e i messaggi privati, dal più recente.",
+   "Su ogni voce puoi <strong>rispondere</strong>, <strong>nascondere</strong> (resta visibile solo a chi l'ha scritto), <strong>segnalare come spam</strong> o <strong>passarla</strong> a un collega.",
+   "I filtri in alto mostrano solo i commenti senza risposta o solo i messaggi."
+  ]
+ },
+ "libreria": {
+  "nome": "La Libreria foto e musica",
+  "punti": [
+   "Raccoglie foto, video e musica che il team può usare.",
+   "Ogni voce dice da dove arriva e che <strong>permesso</strong> o <strong>licenza</strong> ha.",
+   "Per le foto di altre persone puoi scrivere qui il messaggio per <strong>chiedere il permesso</strong>."
+  ]
+ }
 }

@@ -1,0 +1,86 @@
+{
+ "_nota": "Profilo social finto di Cinque Foglie (ispirato a Instagram). Dati inventati: vedi strumenti-dati/genera_social.py.",
+ "nome": "cinquefoglie.te",
+ "nomeVisibile": "Cinque Foglie · Tè e tisane",
+ "bio": "Tè e tisane biologici, spiegati semplici 🍃 Spedizione in 24/48 ore",
+ "follower": 12670,
+ "pilastri": [
+  "Impara il tè",
+  "Ricette",
+  "Dietro le quinte",
+  "La community",
+  "Prodotto"
+ ],
+ "andamentoFollower": [
+  {
+   "settimana": "2026-08-31",
+   "follower": 12400
+  },
+  {
+   "settimana": "2026-09-07",
+   "follower": 12460
+  },
+  {
+   "settimana": "2026-09-14",
+   "follower": 12520
+  },
+  {
+   "settimana": "2026-09-21",
+   "follower": 12580
+  },
+  {
+   "settimana": "2026-09-28",
+   "follower": 12595
+  },
+  {
+   "settimana": "2026-10-05",
+   "follower": 12610
+  },
+  {
+   "settimana": "2026-10-12",
+   "follower": 12625
+  },
+  {
+   "settimana": "2026-10-19",
+   "follower": 12640
+  },
+  {
+   "settimana": "2026-10-26",
+   "follower": 12655
+  }
+ ],
+ "attivitaPerOra": [
+  8,
+  4,
+  2,
+  1,
+  1,
+  2,
+  6,
+  14,
+  22,
+  26,
+  30,
+  38,
+  52,
+  58,
+  44,
+  36,
+  38,
+  48,
+  66,
+  82,
+  88,
+  74,
+  46,
+  22
+ ],
+ "cambio": {
+  "data": "2026-09-21",
+  "cosa": "Da questa data il team programma i post in blocco: lo strumento usa l'ora predefinita 03:00."
+ },
+ "programmazione": {
+  "oraPredefinita": "03:00",
+  "nota": "Ora usata per i post programmati in blocco, se non se ne sceglie un'altra."
+ }
+}

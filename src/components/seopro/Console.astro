@@ -9,10 +9,25 @@ import AppLayout from "../../layouts/AppLayout.astro";
 import GuidaMissione from "./GuidaMissione.astro";
 import SchermoIntero from "../SchermoIntero.astro";
 
-interface Props { attivo: string; titolo: string; ispirato?: string; sottotitolo?: string; }
-const { attivo, titolo, ispirato, sottotitolo } = Astro.props;
+// sim: quale simulazione (seo o social). Cambiano menu, nome e conteggio degli esercizi; tutto il resto è comune.
+interface Props { attivo: string; titolo: string; ispirato?: string; sottotitolo?: string; sim?: "seo" | "social" }
+const { attivo, titolo, ispirato, sottotitolo, sim = "seo" } = Astro.props;
 const B = "/app/percorsi/seo";
-const GRUPPI = [
+const S = "/app/simulazioni/social";
+const NOME = sim === "social" ? "Simulazione Social" : "Simulazione SEO";
+const BASE = sim === "social" ? S : B;
+const GRUPPI = sim === "social" ? [
+  { nome: "Il lavoro", voci: [
+    { id: "percorso", nome: "Panoramica", link: `${S}/` },
+    { id: "profilo", nome: "Il profilo", link: `${S}/profilo/` },
+    { id: "calendario", nome: "Calendario e post", link: `${S}/calendario/` },
+    { id: "community", nome: "Commenti e messaggi", link: `${S}/community/` },
+  ] },
+  { nome: "Strumenti", voci: [
+    { id: "insight", nome: "Statistiche dei post", link: `${S}/statistiche/` },
+    { id: "libreria", nome: "Libreria foto e musica", link: `${S}/libreria/` },
+  ] },
+] : [
   { nome: "Il lavoro", voci: [
     { id: "percorso", nome: "Panoramica", link: `${B}/` },
     { id: "negozio", nome: "Il negozio", link: "/app/negozio/" },
@@ -29,14 +44,14 @@ const GRUPPI = [
 // La guida della missione c'è in tutti gli strumenti (non nella panoramica)
 const conGuida = attivo !== "percorso";
 ---
-<AppLayout title={`${titolo} · Simulazione SEO`} percorso={attivo === "percorso" ? [{ etichetta: "Simulazione SEO" }] : [{ etichetta: "Simulazione SEO", link: `${B}/` }, { etichetta: titolo }]} indietro={{ etichetta: "Simulazioni", link: "/app/simulazioni/" }}>
+<AppLayout title={`${titolo} · ${NOME}`} percorso={attivo === "percorso" ? [{ etichetta: NOME }] : [{ etichetta: NOME, link: `${BASE}/` }, { etichetta: titolo }]} indietro={{ etichetta: "Simulazioni", link: "/app/simulazioni/" }}>
   <div slot="barra" class="stato">
     <SchermoIntero />
-    <span class="missioni-testo" data-missioni-testo>Esercizi 0 di 11</span>
+    <span class="missioni-testo" data-missioni-testo data-sim={sim}>Esercizi 0</span>
     <span class="missioni-barra" aria-hidden="true"><span data-missioni-barra></span></span>
   </div>
   <div class:list={["console", { "con-guida": conGuida }]}>
-    <nav class="menu" aria-label="Workspace SEO" data-barra="menu-seo" data-etichetta="menu">
+    <nav class="menu" aria-label={`Strumenti della ${NOME}`} data-barra="menu-seo" data-etichetta="menu">
       {GRUPPI.map((g) => (
         <div class="gruppo">
           <span class="menu-titolo">{g.nome}</span>
@@ -57,19 +72,21 @@ const conGuida = attivo !== "percorso";
       </header>
       <slot />
     </main>
-    {conGuida && <aside class="guida" aria-label="Guida della missione" data-barra="guida-seo" data-lato="destra" data-etichetta="guida"><GuidaMissione pagina={attivo} /></aside>}
+    {conGuida && <aside class="guida" aria-label="Guida della missione" data-barra="guida-seo" data-lato="destra" data-etichetta="guida"><GuidaMissione pagina={attivo} sim={sim} /></aside>}
   </div>
 </AppLayout>
 
 <script>
   // Esercizi completati: letti dai progressi salvati nel browser (il tutorial non conta)
-  import { MISSIONI, leggiStato, fatta } from "../../scripts/missioni";
+  import { motoreSeo } from "../../scripts/missioni";
+  import { motoreSocial } from "../../scripts/social/missioni-social";
   function aggiornaBarra() {
-    const s = leggiStato();
-    const n = MISSIONI.filter((m) => fatta(s, m)).length;
-    const t = document.querySelector("[data-missioni-testo]"); const b = document.querySelector<HTMLElement>("[data-missioni-barra]");
-    if (t) t.textContent = `Esercizi ${n} di ${MISSIONI.length}`;
-    if (b) b.style.width = `${(n / MISSIONI.length) * 100}%`;
+    const t = document.querySelector<HTMLElement>("[data-missioni-testo]"); const b = document.querySelector<HTMLElement>("[data-missioni-barra]");
+    const mo = t?.dataset.sim === "social" ? motoreSocial : motoreSeo;
+    const s = mo.leggiStato();
+    const n = mo.MISSIONI.filter((m) => mo.fatta(s, m)).length;
+    if (t) t.textContent = `Esercizi ${n} di ${mo.MISSIONI.length}`;
+    if (b) b.style.width = `${(n / mo.MISSIONI.length) * 100}%`;
   }
   aggiornaBarra();
   // la guida avvisa quando un esercizio finisce

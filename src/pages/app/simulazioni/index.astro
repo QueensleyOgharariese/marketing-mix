@@ -1,17 +1,24 @@
 ---
 // APP · SIMULAZIONI (la pratica)
-// Elenco delle simulazioni: oggi c'è la SEO (/app/percorsi/seo/), gli altri ruoli arriveranno uno alla volta.
-// L'avanzamento della SEO viene letto dal browser (stessi dati della panoramica della simulazione).
+// Elenco delle simulazioni disponibili (SEO e Social); gli altri ruoli arriveranno uno alla volta.
+// L'avanzamento di ogni simulazione viene letto dal browser (stessi dati della sua panoramica).
 import AppLayout from "../../../layouts/AppLayout.astro";
 import Progresso from "../../../components/Progresso.astro";
 import Icona from "../../../components/Icona.astro";
 import azienda from "../../../data/app/cinque-foglie.json";
-import dati from "../../../data/app/seo-pro/missioni.json";
+import seo from "../../../data/app/seo-pro/missioni.json";
+import social from "../../../data/app/social-sim/esercizi.json";
 
-const livelli = dati.livelli.filter((l) => l.n > 0).map((l) => ({ ...l, esercizi: dati.missioni.filter((m) => m.livello === l.n) }));
-const esercizi = dati.missioni.filter((m) => m.id !== "tutorial");
-const ore = Math.round(esercizi.reduce((t, m) => t + parseInt(m.tempo), 0) / 30) / 2;
-const altri = azienda.ruoli.filter((r) => r.id !== "seo");
+// Una scheda per simulazione: id del ruolo, link, testo e file degli esercizi
+const SIM = [
+  { id: "seo", nome: "Simulazione SEO", link: "/app/percorsi/seo/", dati: seo, testo: "Le tisane sono sparite da Google, una categoria non viene cliccata, ottobre va male: trovi i problemi negli strumenti e li correggi sul sito." },
+  { id: "social", nome: "Simulazione Social", link: "/app/simulazioni/social/", dati: social, testo: "Un post da preparare, commenti da gestire, foto usate senza permesso e una copertura crollata a fine settembre: lavori sul profilo, sul calendario e sui commenti." },
+].map((s) => {
+  const esercizi = s.dati.missioni.filter((m) => m.id !== "tutorial");
+  return { ...s, esercizi, ore: Math.round(esercizi.reduce((t, m) => t + parseInt(m.tempo), 0) / 30) / 2,
+    livelli: s.dati.livelli.filter((l) => l.n > 0).map((l) => ({ ...l, esercizi: s.dati.missioni.filter((m) => m.livello === l.n) })) };
+});
+const altri = azienda.ruoli.filter((r) => !SIM.some((s) => s.id === r.id));
 ---
 <AppLayout title="Simulazioni" percorso={[{ etichetta: azienda.nome, link: "/app/" }, { etichetta: "Simulazioni" }]}>
   <Progresso slot="barra" />
@@ -21,25 +28,27 @@ const altri = azienda.ruoli.filter((r) => r.id !== "seo");
       <p>Lavori dentro {azienda.nome} come in un primo impiego: un sito vero, un pannello di gestione, strumenti come quelli del mestiere. Ogni simulazione parte da un tutorial e sale di difficoltà.</p>
     </header>
 
-    <a class="sim" href="/app/percorsi/seo/">
-      <div class="sim-testa">
-        <span class="sim-icona" aria-hidden="true"><Icona nome="seo" dimensione={28} /></span>
-        <div>
-          <span class="occhiello">Disponibile</span>
-          <h2>Simulazione SEO</h2>
-          <p>Le tisane sono sparite da Google, una categoria non viene cliccata, ottobre va male: trovi i problemi negli strumenti e li correggi sul sito.</p>
+    {SIM.map((x) => (
+      <a class="sim" href={x.link}>
+        <div class="sim-testa">
+          <span class="sim-icona" aria-hidden="true"><Icona nome={x.id} dimensione={28} /></span>
+          <div>
+            <span class="occhiello">Disponibile</span>
+            <h2>{x.nome}</h2>
+            <p>{x.testo}</p>
+          </div>
         </div>
-      </div>
-      <ol class="livelli">
-        {livelli.map((l) => (
-          <li><strong>{l.nome}</strong><span>{l.esercizi.map((e) => e.nome).join(" · ")}</span></li>
-        ))}
-      </ol>
-      <div class="sim-piede">
-        <span class="meta">Tutorial + {esercizi.length} esercizi · circa {ore.toLocaleString("it-IT")} ore · <span data-avanz-seo>da iniziare</span></span>
-        <span class="bottone-finto">Entra nella simulazione →</span>
-      </div>
-    </a>
+        <ol class="livelli">
+          {x.livelli.map((l) => (
+            <li><strong>{l.nome}</strong><span>{l.esercizi.map((e) => e.nome).join(" · ")}</span></li>
+          ))}
+        </ol>
+        <div class="sim-piede">
+          <span class="meta">Tutorial + {x.esercizi.length} esercizi · circa {x.ore.toLocaleString("it-IT")} ore · <span data-avanz={x.id}>da iniziare</span></span>
+          <span class="bottone-finto">Entra nella simulazione →</span>
+        </div>
+      </a>
+    ))}
 
     <section aria-labelledby="t-arrivo">
       <h2 class="titoletto" id="t-arrivo">In arrivo</h2>
@@ -54,11 +63,14 @@ const altri = azienda.ruoli.filter((r) => r.id !== "seo");
 </AppLayout>
 
 <script>
-  import { MISSIONI, leggiStato, fatta } from "../../../scripts/missioni";
-  const s = leggiStato();
-  const n = MISSIONI.filter((m) => fatta(s, m)).length;
-  const el = document.querySelector("[data-avanz-seo]");
-  if (el && (n > 0 || s.missioni.tutorial)) el.textContent = `${n} di ${MISSIONI.length} esercizi fatti`;
+  import { motoreSeo } from "../../../scripts/missioni";
+  import { motoreSocial } from "../../../scripts/social/missioni-social";
+  for (const [id, mo] of [["seo", motoreSeo], ["social", motoreSocial]] as const) {
+    const s = mo.leggiStato();
+    const n = mo.MISSIONI.filter((m) => mo.fatta(s, m)).length;
+    const el = document.querySelector(`[data-avanz="${id}"]`);
+    if (el && (n > 0 || s.missioni.tutorial)) el.textContent = `${n} di ${mo.MISSIONI.length} esercizi fatti`;
+  }
 </script>
 
 <style>
