@@ -1,5 +1,5 @@
 ---
-// CORNICE DELLA WORKSPACE SEO (percorso SEO "Approfondisci", livello junior)
+// CORNICE DELLA SIMULAZIONE SEO (prima "percorso SEO junior"; dal 30/10/2026 si chiama "Simulazione SEO")
 // In alto: livello e missioni completate. A sinistra il menu (Il lavoro, Strumenti), al centro lo strumento,
 // a destra la guida della missione (componente GuidaMissione).
 // Gli strumenti sono ispirati a quelli professionali (Google Search Console, Keyword Planner,
@@ -29,10 +29,9 @@ const GRUPPI = [
 // La guida della missione c'è in tutti gli strumenti (non nella panoramica)
 const conGuida = attivo !== "percorso";
 ---
-<AppLayout title={`${titolo} · Percorso SEO`} percorso={attivo === "percorso" ? [{ etichetta: "Percorso SEO" }] : [{ etichetta: "Percorso SEO", link: `${B}/` }, { etichetta: titolo }]} indietro={{ etichetta: "Scrivania", link: "/app/scrivania/" }}>
+<AppLayout title={`${titolo} · Simulazione SEO`} percorso={attivo === "percorso" ? [{ etichetta: "Simulazione SEO" }] : [{ etichetta: "Simulazione SEO", link: `${B}/` }, { etichetta: titolo }]} indietro={{ etichetta: "Simulazioni", link: "/app/simulazioni/" }}>
   <div slot="barra" class="stato">
     <SchermoIntero />
-    <span class="livello">Livello junior</span>
     <span class="missioni-testo" data-missioni-testo>Esercizi 0 di 11</span>
     <span class="missioni-barra" aria-hidden="true"><span data-missioni-barra></span></span>
   </div>

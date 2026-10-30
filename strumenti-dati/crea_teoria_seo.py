@@ -140,7 +140,7 @@ seo = {
   singola("Una pagina cambia indirizzo per sempre. Cosa usi?", "Un redirect 301", ["Un redirect 302", "Un canonical"], "Il 301 è lo spostamento definitivo."),
   singola("Quale misura dice quanto ci mette a comparire l'elemento più grande della pagina?", "LCP", ["CLS", "CTR"], "L'LCP misura il caricamento; buono sotto 2,5 secondi.")],
  "prova": {"titolo": "Il Sencha online non si trova", "cosa": "Una richiesta breve di Marta: scegli la keyword, il title e la description della scheda del Sencha.", "link": "/app/seo/esercizio/", "minuti": 25},
- "pratica": {"titolo": "Percorso SEO junior", "cosa": "Lavori sul sito vero di Cinque Foglie con il Pannello e cinque strumenti: dalle basi ai casi difficili.", "link": "/app/percorsi/seo/"}}
+ "pratica": {"titolo": "Simulazione SEO", "cosa": "Lavori sul sito vero di Cinque Foglie con il Pannello e cinque strumenti: dalle basi ai casi difficili.", "link": "/app/percorsi/seo/"}}
 json.dump(seo, open("src/data/app/teoria/seo.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 n = sum(len(b["domande"]) for l in seo["lezioni"] for b in l["blocchi"]) + sum(len(l["finali"]) for l in seo["lezioni"]) + len(seo["verifica"])
 print("lezioni", len(seo["lezioni"]), "blocchi", sum(len(l["blocchi"]) for l in seo["lezioni"]), "domande", n)

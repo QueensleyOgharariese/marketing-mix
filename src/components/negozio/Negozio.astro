@@ -22,7 +22,7 @@ const testa = pagina ?? { title: "", description: "", robots: "", canonical: "",
 const NEG = "/app/negozio";
 const attiva = (id: string) => url.startsWith(`/${id}/`);
 ---
-<AppLayout title={`Negozio · ${titoloScheda}`} percorso={[{ etichetta: "Percorso SEO", link: "/app/percorsi/seo/" }, { etichetta: "Il negozio" }, { etichetta: titoloScheda }]} indietro={{ etichetta: "Percorso SEO", link: "/app/percorsi/seo/" }}>
+<AppLayout title={`Negozio · ${titoloScheda}`} percorso={[{ etichetta: "Simulazione SEO", link: "/app/percorsi/seo/" }, { etichetta: "Il negozio" }, { etichetta: titoloScheda }]} indietro={{ etichetta: "Simulazione SEO", link: "/app/percorsi/seo/" }}>
   <SchermoIntero slot="barra" />
   <div class="area">
     <div class="finestra" data-url-negozio={url}>

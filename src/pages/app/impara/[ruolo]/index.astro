@@ -21,7 +21,7 @@ const hub = ["seo", "sea", "brand", "social", "influencer", "crm"].includes(ruol
 const prova = t?.prova ?? { titolo: "Prova veloce", cosa: "Una richiesta breve di un collega di Cinque Foglie.", link: ruolo.id === "seo" ? "/app/seo/esercizio/" : `/app/${ruolo.id}/esercizio/`, minuti: 20 };
 const base = `/app/impara/${ruolo.id}`;
 ---
-<AppLayout title={`${ruolo.nome} · Teoria`} percorso={[{ etichetta: azienda.nome, link: "/app/" }, { etichetta: `Hub ${hub}`, link: "/app/#ruoli" }, { etichetta: ruolo.nome }]}>
+<AppLayout title={`${ruolo.nome} · Teoria`} percorso={[{ etichetta: azienda.nome, link: "/app/" }, { etichetta: `Teoria · Hub ${hub}`, link: "/app/teoria/#ruoli" }, { etichetta: ruolo.nome }]}>
   <Progresso slot="barra" />
   <main class="pagina" data-ruolo={ruolo.id}>
     <section class="testa">
@@ -94,11 +94,11 @@ const base = `/app/impara/${ruolo.id}`;
             <li class="passo passo--extra">
               <span class="passo-n" aria-hidden="true"><Icona nome="lampadina" dimensione={16} /></span>
               <div class="passo-testi">
-                <span class="passo-tipo">Pratica · percorso specializzato</span>
-                <strong>{t?.pratica?.titolo ?? `Percorso ${ruolo.nome}`}</strong>
-                <span class="passo-cosa">{t?.pratica?.cosa ?? "In arrivo: si apre dopo il percorso SEO."}</span>
+                <span class="passo-tipo">Pratica · simulazione</span>
+                <strong>{t?.pratica?.titolo ?? `Simulazione ${ruolo.nome}`}</strong>
+                <span class="passo-cosa">{t?.pratica?.cosa ?? "La simulazione di questo ruolo è in arrivo."}</span>
               </div>
-              <span class="passo-azione">{t?.pratica ? <a class="mini mini--pieno" href={t.pratica.link}>Vai alla pratica</a> : <span class="stato">In arrivo</span>}</span>
+              <span class="passo-azione">{t?.pratica ? <a class="mini mini--pieno" href={t.pratica.link}>Vai alla simulazione</a> : <span class="stato">In arrivo</span>}</span>
             </li>
           </ol>
         </section>
@@ -139,14 +139,14 @@ const base = `/app/impara/${ruolo.id}`;
   const tot = lezioni.length + 1;
   const n = document.querySelector("[data-fatte]"); if (n) n.textContent = String(fatte);
   const b = document.querySelector<HTMLElement>("[data-barra-teoria]"); if (b) b.style.width = `${(fatte / tot) * 100}%`;
-  if (s?.verifica?.superata) { const e = document.querySelector("[data-esito-verifica]"); if (e) e.textContent = "Teoria completata. Adesso puoi passare alla pratica."; }
+  if (s?.verifica?.superata) { const e = document.querySelector("[data-esito-verifica]"); if (e) e.textContent = "Teoria completata. Adesso puoi passare alla simulazione."; }
   // Il bottone grande porta alla prima lezione non ancora fatta
   const prossima = lezioni.find((li) => !li.classList.contains("fatto"));
   const inizia = document.querySelector<HTMLAnchorElement>("[data-inizia]");
   if (inizia && fatte > 0) {
     if (prossima) { inizia.href = prossima.querySelector<HTMLAnchorElement>(".mini")!.href; inizia.textContent = `Continua: lezione ${lezioni.indexOf(prossima) + 1}`; }
     else if (!s?.verifica?.superata) { inizia.href = ver!.querySelector<HTMLAnchorElement>(".mini")!.href; inizia.textContent = "Fai la verifica"; }
-    else { inizia.textContent = "Vai alla pratica"; inizia.href = document.querySelector<HTMLAnchorElement>(".mini--pieno")?.href ?? inizia.href; }
+    else { inizia.textContent = "Vai alla simulazione"; inizia.href = document.querySelector<HTMLAnchorElement>(".mini--pieno")?.href ?? inizia.href; }
   }
 </script>
 
