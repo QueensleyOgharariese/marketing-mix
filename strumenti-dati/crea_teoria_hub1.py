@@ -1,6 +1,6 @@
 # Teoria dell'Hub 1: SEA, brand e social (30/10/2026). Stessa struttura del ruolo pilota SEO
 # (vedi crea_teoria_seo.py): scheda, 3 lezioni a blocchi con domande, riepilogo, domande finali, verifica, prova veloce.
-# La simulazione Brand non c'è ancora: niente campo "pratica" (la pagina mostra "in arrivo"). Il Social ce l'ha dal 30/10/2026.
+# Dal 30/10/2026 SEA, brand e social hanno tutti il campo "pratica" (la loro simulazione).
 # Testi scritti da Claude: DA RILEGGERE.
 import json
 def singola(testo, giusta, sbagliate, spiega): return {"tipo": "singola", "testo": testo, "opzioni": [{"t": giusta, "giusta": True}] + [{"t": s, "giusta": False} for s in sbagliate], "spiegazione": spiega}
@@ -301,6 +301,8 @@ for r in (sea, brand, social):
     # 30/10/2026: la Simulazione Social esiste, quindi il ruolo social ha il campo "pratica"
     if r["id"] == "sea":
         r["pratica"] = {"titolo": "Simulazione SEA", "cosa": "Lavori sull'account pubblicitario di Cinque Foglie: parole chiave, annunci, termini di ricerca, punteggio di qualità e budget del Black Friday.", "link": "/app/simulazioni/sea/"}
+    if r["id"] == "brand":
+        r["pratica"] = {"titolo": "Simulazione Brand", "cosa": "Lavori sul brand di Cinque Foglie: posizionamento, tono di voce, NPS e notorietà, dichiarazioni ambientali, strategia 2027 e ufficio stampa.", "link": "/app/simulazioni/brand/"}
     if r["id"] == "social":
         r["pratica"] = {"titolo": "Simulazione Social", "cosa": "Lavori sul profilo di Cinque Foglie: post, calendario, commenti, statistiche e diritti delle foto, dalle basi a una piccola crisi.", "link": "/app/simulazioni/social/"}
     json.dump(r, open(f"src/data/app/teoria/{r['id']}.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)

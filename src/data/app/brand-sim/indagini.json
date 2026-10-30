@@ -1,0 +1,250 @@
+{
+ "_nota": "Ricerche sul brand di Cinque Foglie (inventate).",
+ "segmenti": {
+  "fonte": "Sondaggio a 612 clienti, settembre 2026",
+  "voci": [
+   {
+    "nome": "Curiosi del tè di ogni giorno",
+    "eta": "25-40 anni",
+    "quota": 0.46,
+    "cosa": "Bevono tè ogni giorno, vogliono capire cosa comprano e provare cose nuove senza spendere troppo."
+   },
+   {
+    "nome": "Chi fa un regalo",
+    "eta": "30-55 anni",
+    "quota": 0.22,
+    "cosa": "Comprano soprattutto a Natale e per i compleanni, cercano confezioni belle."
+   },
+   {
+    "nome": "Esperti appassionati",
+    "eta": "35-60 anni",
+    "quota": 0.18,
+    "cosa": "Conoscono le origini e le annate, cercano tè rari."
+   },
+   {
+    "nome": "Benessere",
+    "eta": "20-35 anni",
+    "quota": 0.14,
+    "cosa": "Scelgono tisane e matcha per la routine della giornata."
+   }
+  ]
+ },
+ "concorrenti": [
+  {
+   "nome": "Grande catena del tè",
+   "prezzo": "basso",
+   "scelta": "molto ampia",
+   "spiegazioni": "poche, linguaggio da catalogo",
+   "biologico": "in parte"
+  },
+  {
+   "nome": "Boutique del tè pregiato",
+   "prezzo": "alto",
+   "scelta": "media",
+   "spiegazioni": "approfondite ma per esperti",
+   "biologico": "sì"
+  },
+  {
+   "nome": "Marketplace generalista",
+   "prezzo": "da basso a medio",
+   "scelta": "enorme",
+   "spiegazioni": "nessuna",
+   "biologico": "misto"
+  },
+  {
+   "nome": "Cinque Foglie",
+   "prezzo": "medio",
+   "scelta": "120 tè e tisane",
+   "spiegazioni": "guide semplici per ogni tè",
+   "biologico": "sì, tutto certificato"
+  }
+ ],
+ "nps": [
+  {
+   "mese": "2026-07",
+   "promotori": 0.58,
+   "passivi": 0.33,
+   "detrattori": 0.09,
+   "risposte": 210
+  },
+  {
+   "mese": "2026-08",
+   "promotori": 0.61,
+   "passivi": 0.31,
+   "detrattori": 0.08,
+   "risposte": 188
+  },
+  {
+   "mese": "2026-09",
+   "promotori": 0.6,
+   "passivi": 0.32,
+   "detrattori": 0.08,
+   "risposte": 230
+  },
+  {
+   "mese": "2026-10",
+   "promotori": 0.45,
+   "passivi": 0.41,
+   "detrattori": 0.14,
+   "risposte": 251
+  }
+ ],
+ "motiviDetrattori": {
+  "mese": "2026-10",
+  "voci": [
+   {
+    "motivo": "Spedizione in ritardo rispetto alla promessa",
+    "quota": 0.48,
+    "esempio": "Sul sito c'è scritto 24 ore, è arrivato dopo 5 giorni."
+   },
+   {
+    "motivo": "Troppa plastica nel pacco",
+    "quota": 0.22,
+    "esempio": "Sulla scatola dite sostenibile, ma dentro c'era il pluriball."
+   },
+   {
+    "motivo": "Prezzo",
+    "quota": 0.14,
+    "esempio": "Buono ma un po' caro."
+   },
+   {
+    "motivo": "Gusto",
+    "quota": 0.09,
+    "esempio": "Il rooibos era diverso dal solito."
+   },
+   {
+    "motivo": "Altro",
+    "quota": 0.07,
+    "esempio": ""
+   }
+  ]
+ },
+ "spedizioni": {
+  "promessaSito": "24 ore",
+  "mediaGiorni": {
+   "2026-09": 1.8,
+   "2026-10": 4.1
+  },
+  "nota": "Da ottobre il magazzino ha cambiato corriere: le consegne medie sono passate da 1,8 a 4,1 giorni lavorativi."
+ },
+ "ricercheNome": [
+  {
+   "mese": "2025-01",
+   "ricerche": 1450
+  },
+  {
+   "mese": "2025-02",
+   "ricerche": 1380
+  },
+  {
+   "mese": "2025-03",
+   "ricerche": 1300
+  },
+  {
+   "mese": "2025-04",
+   "ricerche": 1250
+  },
+  {
+   "mese": "2025-05",
+   "ricerche": 1520
+  },
+  {
+   "mese": "2025-06",
+   "ricerche": 1900
+  },
+  {
+   "mese": "2025-07",
+   "ricerche": 2150
+  },
+  {
+   "mese": "2025-08",
+   "ricerche": 2050
+  },
+  {
+   "mese": "2025-09",
+   "ricerche": 1700
+  },
+  {
+   "mese": "2025-10",
+   "ricerche": 1430
+  },
+  {
+   "mese": "2025-11",
+   "ricerche": 1820
+  },
+  {
+   "mese": "2025-12",
+   "ricerche": 2400
+  },
+  {
+   "mese": "2026-01",
+   "ricerche": 1800
+  },
+  {
+   "mese": "2026-02",
+   "ricerche": 1720
+  },
+  {
+   "mese": "2026-03",
+   "ricerche": 1650
+  },
+  {
+   "mese": "2026-04",
+   "ricerche": 1560
+  },
+  {
+   "mese": "2026-05",
+   "ricerche": 1890
+  },
+  {
+   "mese": "2026-06",
+   "ricerche": 2380
+  },
+  {
+   "mese": "2026-07",
+   "ricerche": 2700
+  },
+  {
+   "mese": "2026-08",
+   "ricerche": 2560
+  },
+  {
+   "mese": "2026-09",
+   "ricerche": 2120
+  },
+  {
+   "mese": "2026-10",
+   "ricerche": 1740
+  }
+ ],
+ "notorieta": {
+  "fonte": "Sondaggio a 1.000 persone che bevono tè almeno una volta a settimana",
+  "rilevazioni": [
+   {
+    "quando": "marzo 2026",
+    "spontanea": 0.04,
+    "guidata": 0.16
+   },
+   {
+    "quando": "settembre 2026",
+    "spontanea": 0.04,
+    "guidata": 0.21
+   }
+  ],
+  "definizioni": {
+   "spontanea": "Senza suggerimenti: «Quali negozi di tè conosci?»",
+   "guidata": "Con un elenco: «Tra questi, quali conosci?»"
+  }
+ },
+ "schedaPackaging": {
+  "fonte": "Ufficio qualità, ottobre 2026",
+  "fatti": [
+   "Latta in alluminio: riciclabile nella raccolta dei metalli.",
+   "Busta interna in carta compostabile certificata secondo la norma EN 13432.",
+   "Scatola di spedizione in cartone riciclato all'80%.",
+   "Riempitivo: da ottobre pluriball in plastica (il fornitore di carta riempitiva ha finito le scorte). Dal 15 novembre si torna alla carta.",
+   "Spedizioni: le emissioni sono compensate con un progetto di riforestazione (compensazione, non riduzione).",
+   "Tutti i tè sono biologici certificati secondo il regolamento UE 2018/848, con il codice dell'organismo di controllo sull'etichetta."
+  ]
+ }
+}

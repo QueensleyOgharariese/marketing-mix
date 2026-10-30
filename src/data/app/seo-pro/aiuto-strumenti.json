@@ -147,5 +147,44 @@
    "Accanto ci sono il costo degli annunci e il ROAS del gruppo, per confrontare.",
    "In alto il <strong>margine lordo medio</strong> dei prodotti: serve per capire quando una campagna fa guadagnare."
   ]
+ },
+ "manuale": {
+  "nome": "Il Manuale del brand",
+  "punti": [
+   "In alto il <strong>Payoff</strong> e il <strong>Posizionamento</strong>: campi da compilare, con il bottone <strong>Salva</strong>.",
+   "Sotto, da leggere: missione, <strong>valori</strong>, <strong>tono di voce</strong> (come siamo, come non siamo, regole ed esempi prima e dopo), logo e colori."
+  ]
+ },
+ "ricerche": {
+  "nome": "Le Ricerche sul brand",
+  "punti": [
+   "Raccolgono i dati sul brand: <strong>segmenti di clienti</strong>, <strong>concorrenti</strong>, <strong>NPS</strong> mese per mese con i <strong>motivi dei detrattori</strong>, tempi di spedizione, <strong>ricerche del nome</strong> negli ultimi due anni e il sondaggio sulla <strong>notorietà</strong>.",
+   "In fondo la <strong>scheda dell'ufficio qualità</strong> sul packaging: i fatti verificati.",
+   "Ogni sezione dice da dove arrivano i dati."
+  ]
+ },
+ "testi": {
+  "nome": "I Testi del brand",
+  "punti": [
+   "Sei testi del brand su canali diversi (sito, email, social, assistenza, packaging).",
+   "Su ogni testo: <strong>Modifica</strong>, scrivi la versione nuova e premi <strong>Salva</strong>. <strong>Torna all'originale</strong> annulla.",
+   "Il contatore sotto il testo dice quante parole e caratteri ha."
+  ]
+ },
+ "piano": {
+  "nome": "Il Piano di brand",
+  "punti": [
+   "Una pagina con cinque parti: <strong>obiettivo</strong>, <strong>pubblico</strong>, <strong>messaggio chiave</strong>, <strong>canali</strong> e <strong>KPI</strong>.",
+   "Obiettivo, pubblico e messaggio si scrivono; canali e KPI si scelgono dalle caselle.",
+   "Premi <strong>Salva il piano</strong> per salvarlo."
+  ]
+ },
+ "stampa": {
+  "nome": "L'Ufficio stampa",
+  "punti": [
+   "Tre schede: <strong>Comunicato</strong> (titolo, sottotitolo, testo, contatti, con il contatore delle parole), <strong>Giornalisti</strong> (scegli a chi mandarlo, leggi le note) e <strong>Richieste</strong> (le domande dei giornalisti, con il modulo per rispondere).",
+   "Accanto ci sono i <strong>fatti sul calendario</strong> e la <strong>nota interna</strong> sui kit: usa solo informazioni verificate.",
+   "In un testo, una riga vuota separa i paragrafi."
+  ]
  }
 }

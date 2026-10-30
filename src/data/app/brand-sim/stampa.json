@@ -1,0 +1,86 @@
+{
+ "_nota": "Ufficio stampa di Cinque Foglie: giornalisti e testate inventati.",
+ "giornalisti": [
+  {
+   "id": "g1",
+   "nome": "Marta Ferri",
+   "testata": "Il Mestolo (blog di cucina)",
+   "tema": "Ricette, prodotti alimentari",
+   "nota": ""
+  },
+  {
+   "id": "g2",
+   "nome": "Paolo Neri",
+   "testata": "Foglie & Tazze (rivista sul tè)",
+   "tema": "Tè, tisane, produttori",
+   "nota": ""
+  },
+  {
+   "id": "g3",
+   "nome": "Chiara Lodi",
+   "testata": "Cronache Scaligere (quotidiano locale, pagina economia)",
+   "tema": "Imprese di Verona",
+   "nota": ""
+  },
+  {
+   "id": "g4",
+   "nome": "Sara Conti",
+   "testata": "Idee regalo della settimana (newsletter)",
+   "tema": "Regali, Natale",
+   "nota": ""
+  },
+  {
+   "id": "g5",
+   "nome": "Luca Riva",
+   "testata": "Sport e Motori Oggi",
+   "tema": "Calcio, automobili",
+   "nota": ""
+  },
+  {
+   "id": "g6",
+   "nome": "Elisa Fontana",
+   "testata": "Vivere Bio (mensile)",
+   "tema": "Biologico, alimentazione",
+   "nota": "A marzo 2026 ha chiesto di non ricevere più comunicati stampa da noi."
+  },
+  {
+   "id": "g7",
+   "nome": "Andrea Gallo",
+   "testata": "Cronache Scaligere (cronaca nera)",
+   "tema": "Cronaca",
+   "nota": ""
+  },
+  {
+   "id": "g8",
+   "nome": "Giulia Marchi",
+   "testata": "Pausa tè (podcast)",
+   "tema": "Tè, piccoli produttori",
+   "nota": ""
+  }
+ ],
+ "fattiCalendario": [
+  "24 tè e tisane biologici, uno per ogni giorno dal 1 al 24 dicembre.",
+  "Arrivano da 8 piccoli produttori di 6 Paesi.",
+  "Illustrazioni di un'artista veronese, stampate su cartone riciclato.",
+  "Prezzo: 34,90 €. In vendita online dal 2 novembre 2026, fino a esaurimento delle 3.000 copie.",
+  "Citazione disponibile: Marco F., fondatore: «Volevamo un calendario che facesse scoprire un tè nuovo ogni giorno, con una guida semplice dietro ogni finestrella.»",
+  "Contatti stampa: Sara L., stampa@cinquefoglie.example, 045 000 0000 (numero inventato)."
+ ],
+ "richieste": [
+  {
+   "id": "r1",
+   "da": "Paolo Neri",
+   "testata": "Foglie & Tazze",
+   "quando": "29/10, 11:40",
+   "oggetto": "Kit matcha arrivati rotti",
+   "testo": "Buongiorno, sto scrivendo un pezzo sui kit matcha arrivati con la frusta rotta di cui si parla sui social. Mi conferma che il problema riguarda tutti i kit venduti? Avete intenzione di ritirarli dal mercato? Mi servirebbe una risposta entro le 17. Grazie, Paolo Neri"
+  }
+ ],
+ "notaInterna": [
+  "Circa 40 kit spediti il 28/10 sono arrivati con la frusta di bambù rotta: si è spezzata durante il trasporto (stesso lotto di imballaggi).",
+  "Gli altri kit venduti non hanno avuto problemi.",
+  "A tutti i clienti coinvolti spediamo una frusta nuova gratis; li stiamo contattando uno per uno.",
+  "Dal 3 novembre le fruste viaggiano in un astuccio rigido.",
+  "Portavoce per la stampa: Elena M., responsabile e-commerce (telefono 045 000 0000, inventato)."
+ ]
+}

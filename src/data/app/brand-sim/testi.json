@@ -1,0 +1,35 @@
+{
+ "_nota": "Testi del brand da controllare (inventati).",
+ "voci": [
+  {
+   "id": "t1",
+   "canale": "Sito · frase in alto nella home",
+   "testo": "Tè e tisane biologici, a casa tua in 24 ore."
+  },
+  {
+   "id": "t2",
+   "canale": "Email · oggetto e prima riga della promozione",
+   "testo": "OFFERTA IMPERDIBILE!!! SOLO OGGI -15% SU TUTTO, COMPRA SUBITO PRIMA CHE FINISCA!!!"
+  },
+  {
+   "id": "t3",
+   "canale": "Social · bio del profilo",
+   "testo": "Tè e tisane biologici, spiegati semplici 🍃 Spedizione in tutta Italia"
+  },
+  {
+   "id": "t4",
+   "canale": "Assistenza · risposta standard a chi chiede dov'è l'ordine",
+   "testo": "Gentile cliente, la Sua richiesta è stata presa in carico e verrà evasa secondo le tempistiche previste. Distinti saluti, Servizio Clienti."
+  },
+  {
+   "id": "t5",
+   "canale": "Packaging · frase sul retro della scatola",
+   "testo": "Confezione 100% sostenibile. Spedizioni a impatto zero."
+  },
+  {
+   "id": "t6",
+   "canale": "Sito · descrizione del Sencha",
+   "testo": "Il tè verde di ogni giorno: fresco, erbaceo, leggermente amaro. Ti basta acqua a 75 °C e due minuti."
+  }
+ ]
+}

@@ -12,7 +12,7 @@
 // La guida cala con il livello: Basi "Come funziona" già aperto; Diagnosi tutto chiuso; Casi solo Teoria.
 // Il contenuto arriva da missioni.json e viene disegnato nel browser, perché dipende dallo stato salvato (localStorage).
 // pagina: id dello strumento in cui si trova la guida (console, crawler, negozio...); sim: quale simulazione
-interface Props { pagina: string; sim?: "seo" | "social" | "sea" }
+interface Props { pagina: string; sim?: "seo" | "social" | "sea" | "brand" }
 const { pagina, sim = "seo" } = Astro.props;
 ---
 <div class="gm" data-guida-missione={pagina} data-sim={sim} aria-live="polite">
@@ -23,13 +23,14 @@ const { pagina, sim = "seo" } = Astro.props;
   import { motoreSeo, type Missione, type Passo } from "../../scripts/missioni";
   import { motoreSocial } from "../../scripts/social/missioni-social";
   import { motoreSea } from "../../scripts/sea/missioni-sea";
+  import { motoreBrand } from "../../scripts/brand/missioni-brand";
   // La stessa guida serve tutte le simulazioni: si sceglie il motore in base a data-sim
   const SIM = document.querySelector<HTMLElement>("[data-guida-missione]")?.dataset.sim ?? "seo";
-  const MO = { social: motoreSocial, sea: motoreSea }[SIM] ?? motoreSeo;
+  const MO = { social: motoreSocial, sea: motoreSea, brand: motoreBrand }[SIM] ?? motoreSeo;
   const { TUTTE, LIVELLI, STRUMENTI, leggiStato, salvaStato, linkPasso, controlla, punti, avvia, ricomincia, etichetta, consigliata, livelloAperto } = MO;
   const PANORAMICA = `${MO.base}/`;
   // Chi assegna i compiti in ogni simulazione (persone inventate)
-  const CHI = { social: { nome: "Sara L.", ruolo: "social media manager" }, sea: { nome: "Davide R.", ruolo: "performance marketing manager" } }[SIM] ?? { nome: "Elena M.", ruolo: "responsabile e-commerce" };
+  const CHI = { social: { nome: "Sara L.", ruolo: "social media manager" }, sea: { nome: "Davide R.", ruolo: "performance marketing manager" }, brand: { nome: "Irene P.", ruolo: "brand manager" } }[SIM] ?? { nome: "Elena M.", ruolo: "responsabile e-commerce" };
   import { verifica } from "../../scripts/verifiche";
   import AIUTO from "../../data/app/seo-pro/aiuto-strumenti.json";
 

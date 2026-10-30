@@ -1,0 +1,1171 @@
+{
+ "_nota": "Simulazione Brand a livelli (con strategia e ufficio stampa). Generato da strumenti-dati/crea_esercizi_brand.py. Dati in genera_brand.py.",
+ "livelli": [
+  {
+   "n": 0,
+   "nome": "Tutorial",
+   "cosa": "Come funzionano gli strumenti del brand."
+  },
+  {
+   "n": 1,
+   "nome": "Basi",
+   "cosa": "Un concetto alla volta. «Come funziona» è già aperto e l'indizio è sempre disponibile."
+  },
+  {
+   "n": 2,
+   "nome": "Diagnosi",
+   "cosa": "Problemi mescolati, anche falsi allarmi. «Come funziona» lo apri tu."
+  },
+  {
+   "n": 3,
+   "nome": "Casi",
+   "cosa": "Nessun indizio: solo dati e teoria. La strategia 2027 e l'ufficio stampa."
+  }
+ ],
+ "missioni": [
+  {
+   "id": "tutorial",
+   "livello": 0,
+   "n": 0,
+   "nome": "Tutorial: come funziona",
+   "tempo": "8 minuti",
+   "strumenti": "Manuale del brand",
+   "cosa": "Dove sono le cose e come si salva e si controlla una modifica.",
+   "situazione": "Ciao, sono Irene e curo il brand di Cinque Foglie. Prima di iniziare ti mostro dove teniamo tutto: dieci minuti e sei operativa.",
+   "obiettivo": "Impara a muoverti tra manuale, ricerche, testi, piano e ufficio stampa e a salvare una modifica.",
+   "passi": [
+    {
+     "strumento": "manuale",
+     "tipo": "info",
+     "domanda": "Come è fatta la scrivania",
+     "consegna": "",
+     "spiega": "Lavori sul brand di Cinque Foglie, un negozio online di tè inventato. Lo schermo ha tre zone.",
+     "esempio": "",
+     "errore": "",
+     "come": [
+      "<strong>A sinistra il menu</strong> (sul telefono è in alto): il manuale del brand, le ricerche sul brand, i testi, il piano di brand e l'ufficio stampa.",
+      "<strong>Al centro</strong> lo strumento aperto.",
+      "<strong>A destra questa guida</strong>: in alto il compito, sotto le risposte. Le schede <strong>Come funziona</strong>, <strong>Teoria</strong> e <strong>Indizio</strong> ti aiutano quando serve; il bottone per controllare è sempre in fondo.",
+      "Persone, testate e numeri sono inventati, ma coerenti tra uno strumento e l'altro."
+     ],
+     "opzioni": [],
+     "perche": "",
+     "aiuto": "",
+     "dove": ".console > .menu"
+    },
+    {
+     "strumento": "manuale",
+     "tipo": "radio",
+     "domanda": "Qual è uno dei valori di Cinque Foglie?",
+     "consegna": "Leggi la sezione Valori del Manuale.",
+     "spiega": "Il manuale del brand raccoglie chi è il brand: missione, valori, tono di voce, logo e colori. Serve perché chiunque scriva o disegni per il brand lo faccia nello stesso modo.",
+     "esempio": "Il manuale di una catena di librerie dice: «Parliamo di libri come un amico che consiglia, mai come un professore».",
+     "errore": "",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Prezzi più bassi di tutti",
+       "giusta": false,
+       "nota": "Non è tra i valori, e non sarebbe nemmeno vero."
+      },
+      {
+       "id": "o2",
+       "testo": "Chiarezza",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Lusso",
+       "giusta": false,
+       "nota": "Il manuale dice il contrario: niente snob."
+      }
+     ],
+     "perche": "Chiarezza, rispetto per chi coltiva e curiosità: i tre valori su cui si basa tutto il resto.",
+     "aiuto": "",
+     "dove": "[data-valori]"
+    },
+    {
+     "strumento": "manuale",
+     "tipo": "azione",
+     "verifica": "brand_tutorial",
+     "vai": {
+      "link": "/app/simulazioni/brand/manuale/",
+      "testo": "Apri il Manuale"
+     },
+     "negozio": "",
+     "domanda": "Salva la tua prima modifica",
+     "consegna": "Nel Manuale scrivi nel campo Payoff la frase «Tè e tisane, spiegati semplici». Poi salva.",
+     "spiega": "Il payoff è la frase breve che accompagna il nome del brand (per esempio sotto il logo). Nel Manuale lo scrivi e premi Salva: da quel momento è la frase ufficiale.",
+     "esempio": "Il payoff di un'azienda di biciclette inventata: «Pedala la tua città».",
+     "errore": "",
+     "opzioni": [],
+     "perche": "Hai salvato una modifica e l'hai controllata: negli esercizi si lavora sempre così.",
+     "aiuto": "Il campo Payoff è in alto nel Manuale.",
+     "dove": "[data-payoff]"
+    },
+    {
+     "strumento": "manuale",
+     "tipo": "info",
+     "domanda": "Punti, livelli e come scegliere",
+     "consegna": "",
+     "spiega": "Ultime regole, poi si parte dalle Basi.",
+     "esempio": "",
+     "errore": "",
+     "come": [
+      "Tre livelli: <strong>Basi</strong>, <strong>Diagnosi</strong> e <strong>Casi</strong>. Ogni esercizio è un piccolo progetto fatto di mini esercizi.",
+      "<strong>Come funziona</strong> spiega lo strumento, non la risposta. <strong>Teoria</strong> è gratis. <strong>Indizio</strong> costa 5 punti.",
+      "La guida cala salendo di livello: nelle Basi «Come funziona» è già aperto, in Diagnosi lo apri tu, nei Casi ci sono solo teoria e dati.",
+      "Ogni esercizio parte da 100 punti: una risposta sbagliata toglie 10 punti. Quando scrivi o modifichi puoi riprovare senza perdere punti."
+     ],
+     "opzioni": [],
+     "perche": "",
+     "aiuto": "",
+     "dove": ""
+    }
+   ],
+   "imparato": [
+    "Il manuale raccoglie missione, valori, tono, logo e colori.",
+    "Il payoff accompagna il nome del brand.",
+    "Dopo ogni modifica si controlla."
+   ],
+   "elena": "Perfetto, ora sai dove sono le cose. Si parte dalle Basi.",
+   "prepara": {
+    "payoff": true
+   }
+  },
+  {
+   "id": "base1",
+   "livello": 1,
+   "n": 1,
+   "nome": "Il posizionamento",
+   "tempo": "30 minuti",
+   "strumenti": "Ricerche, Manuale",
+   "cosa": "Per chi è Cinque Foglie, contro chi compete e cosa la rende diversa: la frase di posizionamento.",
+   "situazione": "Nel manuale manca la cosa più importante: il posizionamento. Ognuno in azienda lo racconta a modo suo. Me lo scrivi, partendo dai dati?",
+   "obiettivo": "Scrivere il posizionamento di Cinque Foglie partendo da clienti e concorrenti.",
+   "passi": [
+    {
+     "strumento": "ricerche",
+     "tipo": "radio",
+     "domanda": "Chi sono i clienti più importanti di Cinque Foglie?",
+     "consegna": "Guarda i Segmenti di clienti nelle Ricerche.",
+     "spiega": "Il posizionamento parte da un pubblico preciso. Non si sceglie «tutti»: si sceglie il gruppo più grande o più importante, quello per cui il brand vuole essere la prima scelta.",
+     "esempio": "Una palestra sceglie «chi lavora in ufficio e ha 45 minuti in pausa pranzo», non «chi vuole stare in forma».",
+     "errore": "Volere parlare a tutti: alla fine il messaggio non arriva a nessuno.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "I curiosi del tè di ogni giorno, 25-40 anni",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Gli esperti appassionati",
+       "giusta": false,
+       "nota": "Sono il 18%: importanti, ma non il gruppo principale."
+      },
+      {
+       "id": "o3",
+       "testo": "Tutti quelli che bevono tè",
+       "giusta": false,
+       "nota": "Troppo largo: il posizionamento sceglie."
+      }
+     ],
+     "perche": "Quasi metà dei clienti (46%) beve tè ogni giorno e vuole capire cosa compra.",
+     "aiuto": "",
+     "dove": "[data-segmenti]"
+    },
+    {
+     "strumento": "ricerche",
+     "tipo": "radio",
+     "domanda": "Quale spazio lasciano liberi i concorrenti?",
+     "consegna": "Confronta le righe della tabella dei Concorrenti.",
+     "spiega": "Si cerca una posizione che i concorrenti non occupano e che conta per il pubblico scelto. La tabella dei concorrenti mette le differenze una accanto all'altra.",
+     "esempio": "Tra pizzerie economiche e ristoranti stellati, una pizzeria sceglie «ingredienti di qualità spiegati nel menu, a prezzo normale».",
+     "errore": "Scegliere una differenza che non interessa al pubblico (per esempio il colore del sito).",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Tè biologico spiegato in modo semplice, a prezzo medio",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Il prezzo più basso",
+       "giusta": false,
+       "nota": "Lo occupano già la grande catena e il marketplace."
+      },
+      {
+       "id": "o3",
+       "testo": "Tè rari per esperti",
+       "giusta": false,
+       "nota": "È il territorio della boutique, e non è il pubblico principale."
+      }
+     ],
+     "perche": "La catena e il marketplace spiegano poco, la boutique parla agli esperti: nessuno spiega in modo semplice il tè biologico.",
+     "aiuto": "",
+     "dove": "[data-concorrenti]"
+    },
+    {
+     "strumento": "manuale",
+     "tipo": "azione",
+     "verifica": "brand_posizionamento",
+     "vai": {
+      "link": "/app/simulazioni/brand/manuale/",
+      "testo": "Apri il Manuale"
+     },
+     "negozio": "",
+     "domanda": "Scrivi il posizionamento",
+     "consegna": "Nel Manuale compila i quattro campi del Posizionamento: per chi, che cosa (categoria), cosa ci rende diversi e perché crederci (una prova).",
+     "spiega": "Una formula semplice: Per [pubblico], [brand] è [categoria] che [differenza], perché [prova concreta]. La prova (reason to believe) è un fatto verificabile, non un aggettivo.",
+     "esempio": "Per chi va al lavoro in bici in città, Pedalo è la bici pieghevole che sta sotto la scrivania, perché si chiude in 10 secondi e pesa 9 kg.",
+     "errore": "Scrivere «il migliore» o «di qualità» come differenza: non distingue nessuno e non si può dimostrare.",
+     "opzioni": [],
+     "perche": "Il posizionamento ora dice per chi è Cinque Foglie, cosa offre di diverso e perché crederci.",
+     "aiuto": "Usa i dati: il segmento più grande, lo spazio libero tra i concorrenti, un fatto come «guide per ogni tè» o «tutto certificato biologico».",
+     "dove": "[data-posizionamento]"
+    },
+    {
+     "strumento": "manuale",
+     "tipo": "radio",
+     "domanda": "Come capisci se un posizionamento è abbastanza preciso?",
+     "consegna": "Pensa ai concorrenti.",
+     "spiega": "Un buon test: se la stessa frase potesse scriverla un concorrente, non è un posizionamento, è una descrizione generica.",
+     "esempio": "«Vendiamo scarpe comode» lo dicono tutti; «scarpe da camminata per chi sta in piedi 8 ore al lavoro» no.",
+     "errore": "",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Se un concorrente non potrebbe scrivere la stessa frase",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Se contiene molti aggettivi positivi",
+       "giusta": false,
+       "nota": "Gli aggettivi rendono la frase più generica, non più precisa."
+      },
+      {
+       "id": "o3",
+       "testo": "Se è lunga almeno una pagina",
+       "giusta": false,
+       "nota": "Il posizionamento sta in una frase."
+      }
+     ],
+     "perche": "Se la grande catena potrebbe firmarla, la frase va ristretta.",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "manuale",
+     "tipo": "radio",
+     "domanda": "Cos'è una «prova» (reason to believe)?",
+     "consegna": "Rileggi il campo «Perché crederci».",
+     "spiega": "La prova è un fatto che rende credibile la differenza: un numero, una certificazione, qualcosa che si può verificare.",
+     "esempio": "«Consegna in 30 minuti» diventa credibile con «12 punti di consegna in città».",
+     "errore": "",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Un fatto verificabile, come «tutti i tè sono biologici certificati»",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Una promessa, come «ti piacerà di sicuro»",
+       "giusta": false,
+       "nota": "È una promessa, non una prova."
+      },
+      {
+       "id": "o3",
+       "testo": "Uno slogan, come «il tè più buono»",
+       "giusta": false,
+       "nota": "Non si può verificare."
+      }
+     ],
+     "perche": "Una prova si può controllare: certificazioni, numeri, guide per ogni tè.",
+     "aiuto": "",
+     "dove": ""
+    }
+   ],
+   "imparato": [
+    "Il posizionamento sceglie un pubblico preciso.",
+    "Si cerca lo spazio libero tra i concorrenti.",
+    "Formula: per chi, che cosa, cosa ci rende diversi, perché crederci.",
+    "Se lo potrebbe scrivere un concorrente, non è un posizionamento."
+   ],
+   "elena": "Finalmente lo diciamo tutti nello stesso modo. Lo presento lunedì al team.",
+   "prepara": {
+    "posizionamento": true
+   }
+  },
+  {
+   "id": "base2",
+   "livello": 1,
+   "n": 2,
+   "nome": "Il tono di voce",
+   "tempo": "30 minuti",
+   "strumenti": "Manuale, Testi",
+   "cosa": "Cinque testi scritti da persone diverse: quali rispettano il tono di voce e come sistemare gli altri.",
+   "situazione": "Il cliente legge la home, poi una nostra email, poi una risposta dell'assistenza: sembrano tre aziende diverse. Mi aiuti a rimetterli in riga?",
+   "obiettivo": "Riconoscere i testi fuori tono e riscriverli seguendo il manuale.",
+   "passi": [
+    {
+     "strumento": "manuale",
+     "tipo": "radio",
+     "domanda": "Come parla Cinque Foglie?",
+     "consegna": "Leggi il Tono di voce nel Manuale.",
+     "spiega": "Il tono di voce è il modo di parlare del brand: le parole che usa, quanto è formale, come tratta chi legge. Resta lo stesso su tutti i canali, cambia solo un po' l'intensità.",
+     "esempio": "Una banca online parla in modo chiaro e rassicurante sia nell'app sia nelle email di sollecito.",
+     "errore": "Cambiare personalità da un canale all'altro.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Amichevole ma competente, semplice, senza urlare, dando del tu",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Formale e tecnico, dando del lei",
+       "giusta": false,
+       "nota": "È il contrario di quello che dice il manuale."
+      },
+      {
+       "id": "o3",
+       "testo": "Entusiasta, con tante maiuscole e punti esclamativi",
+       "giusta": false,
+       "nota": "Il manuale vieta le urla e la fretta finta."
+      }
+     ],
+     "perche": "Amichevoli ma competenti, semplici, calmi, sempre il tu.",
+     "aiuto": "",
+     "dove": "[data-tono]"
+    },
+    {
+     "strumento": "testi",
+     "tipo": "checkbox",
+     "domanda": "Quali testi sono fuori tono?",
+     "consegna": "Confronta ogni testo con le regole del Manuale. Puoi scegliere più risposte.",
+     "spiega": "Per controllare un testo si confronta con le regole del tono: tu o lei, maiuscole, frasi semplici, calma.",
+     "esempio": "",
+     "errore": "Considerare fuori tono un'emoji sui social: il manuale lo permette.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "L'email della promozione",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "La risposta standard dell'assistenza",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "La bio dei social",
+       "giusta": false,
+       "nota": "Un'emoji sui social è ammessa dal manuale."
+      },
+      {
+       "id": "o4",
+       "testo": "La descrizione del Sencha",
+       "giusta": false,
+       "nota": "È semplice, dà del tu, è calma: è in tono."
+      }
+     ],
+     "perche": "L'email urla (maiuscole e «!!!») e l'assistenza è fredda e dà del lei.",
+     "aiuto": "",
+     "dove": "[data-testi]"
+    },
+    {
+     "strumento": "testi",
+     "tipo": "azione",
+     "verifica": "brand_email",
+     "vai": {
+      "link": "/app/simulazioni/brand/testi/",
+      "testo": "Apri i Testi"
+     },
+     "negozio": "",
+     "domanda": "Riscrivi l'email della promozione",
+     "consegna": "Riscrivi oggetto e prima riga dell'email: stessa offerta (-15% solo oggi), nel tono di Cinque Foglie.",
+     "spiega": "Si può creare interesse senza urlare: si dice il vantaggio concreto, con calma, e si invita a fare qualcosa. Niente fretta finta: se l'offerta dura un giorno, lo si dice e basta.",
+     "esempio": "Invece di «SALDI PAZZESCHI!!!»: «Fino a domenica le giacche costano il 30% in meno».",
+     "errore": "Togliere le maiuscole ma lasciare tre punti esclamativi e «compra subito».",
+     "opzioni": [],
+     "perche": "La promozione è chiara e calma, ed è riconoscibile come Cinque Foglie.",
+     "aiuto": "",
+     "dove": "[data-testo=\"t2\"]"
+    },
+    {
+     "strumento": "testi",
+     "tipo": "azione",
+     "verifica": "brand_assistenza",
+     "vai": {
+      "link": "/app/simulazioni/brand/testi/",
+      "testo": "Apri i Testi"
+     },
+     "negozio": "",
+     "domanda": "Riscrivi la risposta dell'assistenza",
+     "consegna": "Riscrivi la risposta standard a chi chiede dov'è il suo ordine.",
+     "spiega": "Anche le risposte dell'assistenza sono brand. Una buona risposta dà del tu, riconosce l'attesa, dice cosa succede e quando, ed è firmata da una persona.",
+     "esempio": "«Ciao Marco, capisco l'attesa. Il tuo pacco è partito ieri e arriva entro giovedì. Ti scrivo appena lo vedo in consegna. Anna»",
+     "errore": "Frasi vuote come «secondo le tempistiche previste»: non dicono niente.",
+     "opzioni": [],
+     "perche": "La risposta ora suona come Cinque Foglie: vicina, concreta, firmata.",
+     "aiuto": "",
+     "dove": "[data-testo=\"t4\"]"
+    },
+    {
+     "strumento": "testi",
+     "tipo": "radio",
+     "domanda": "Perché tenere lo stesso tono su tutti i canali?",
+     "consegna": "Pensa a chi incontra il brand più volte.",
+     "spiega": "Un tono coerente rende il brand riconoscibile e fa fidare: chi legge sente di parlare sempre con la stessa «persona».",
+     "esempio": "Se un amico ti scrivesse un giorno in modo affettuoso e il giorno dopo come un ufficio, ti chiederesti cosa è successo.",
+     "errore": "",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Rende il brand riconoscibile e affidabile",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Fa risparmiare sui testi",
+       "giusta": false,
+       "nota": "Non è il motivo principale."
+      },
+      {
+       "id": "o3",
+       "testo": "È un obbligo di legge",
+       "giusta": false,
+       "nota": "Non c'è nessuna legge sul tono di voce."
+      }
+     ],
+     "perche": "Coerenza = riconoscibilità + fiducia.",
+     "aiuto": "",
+     "dove": ""
+    }
+   ],
+   "imparato": [
+    "Il tono di voce è lo stesso su tutti i canali.",
+    "Si crea interesse senza urlare.",
+    "Anche l'assistenza è brand: tu, concretezza, una firma."
+   ],
+   "elena": "Molto meglio! Le metto nel manuale come esempi «prima e dopo».",
+   "prepara": {
+    "testi": [
+     "t2",
+     "t4"
+    ]
+   }
+  },
+  {
+   "id": "d1",
+   "livello": 2,
+   "n": 1,
+   "nome": "Cosa pensano di noi",
+   "tempo": "35 minuti",
+   "strumenti": "Ricerche, Testi",
+   "cosa": "Il NPS crolla, le ricerche del nome calano: cosa è un problema vero e cosa no.",
+   "situazione": "Il consiglio di amministrazione ha visto due numeri: il NPS è sceso e le ricerche del nostro nome calano. Qualcuno dice che il brand è in crisi. È vero?",
+   "obiettivo": "Capire cosa sta succedendo davvero al brand e correggere quello che dipende da noi.",
+   "passi": [
+    {
+     "strumento": "ricerche",
+     "tipo": "radio",
+     "domanda": "Qual è il NPS di ottobre?",
+     "consegna": "NPS = % promotori − % detrattori.",
+     "spiega": "Il NPS (Net Promoter Score) chiede «Quanto consiglieresti Cinque Foglie a un amico, da 0 a 10?». Promotori: 9-10. Passivi: 7-8. Detrattori: 0-6. NPS = percentuale di promotori meno percentuale di detrattori: va da -100 a +100.",
+     "esempio": "70% promotori e 10% detrattori: NPS 60.",
+     "errore": "Fare la media dei voti: il NPS non è una media.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "31 (era 52 a settembre)",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "45",
+       "giusta": false,
+       "nota": "45 è la percentuale di promotori: va tolta quella dei detrattori."
+      },
+      {
+       "id": "o3",
+       "testo": "59",
+       "giusta": false,
+       "nota": "Hai sommato invece di sottrarre?"
+      }
+     ],
+     "perche": "45% − 14% = 31. A settembre era 60% − 8% = 52.",
+     "aiuto": "",
+     "dove": "[data-nps]"
+    },
+    {
+     "strumento": "ricerche",
+     "tipo": "radio",
+     "domanda": "Perché è sceso?",
+     "consegna": "Guarda i motivi dei detrattori di ottobre.",
+     "spiega": "I numeri dicono quanto, le risposte aperte dicono perché. Si raggruppano e si guarda il motivo più frequente.",
+     "esempio": "Un ristorante vede crollare le recensioni: metà parlano dell'attesa, non del cibo.",
+     "errore": "Pensare subito che il problema sia la comunicazione.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Soprattutto per le spedizioni in ritardo rispetto alla promessa",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Perché il tè non piace più",
+       "giusta": false,
+       "nota": "Il gusto è solo il 9% dei motivi."
+      },
+      {
+       "id": "o3",
+       "testo": "Perché il logo è vecchio",
+       "giusta": false,
+       "nota": "Nessuno ne parla."
+      }
+     ],
+     "perche": "Quasi la metà dei detrattori (48%) parla di spedizioni più lente di quanto promesso: da ottobre la media è 4,1 giorni, il sito dice 24 ore.",
+     "aiuto": "",
+     "dove": "[data-motivi]"
+    },
+    {
+     "strumento": "testi",
+     "tipo": "azione",
+     "verifica": "brand_promessa",
+     "vai": {
+      "link": "/app/simulazioni/brand/testi/",
+      "testo": "Apri i Testi"
+     },
+     "negozio": "",
+     "domanda": "Allinea la promessa del sito",
+     "consegna": "La frase in alto nella home promette una cosa che oggi non manteniamo. Riscrivila con una promessa vera.",
+     "spiega": "Un brand è una promessa mantenuta. Se la comunicazione promette più di quello che l'azienda fa, la delusione si scarica sul brand. Si promette quello che si mantiene, e intanto si sistema il problema.",
+     "esempio": "Un corriere che promette «consegna in giornata» ma consegna in tre giorni perde più fiducia di uno che promette «in 3 giorni» e li rispetta.",
+     "errore": "Lasciare la promessa e sperare che il magazzino si sistemi da solo.",
+     "opzioni": [],
+     "perche": "La home ora promette tempi veri: chi ordina sa cosa aspettarsi.",
+     "aiuto": "Guarda nelle Ricerche quanto ci mettono oggi le spedizioni.",
+     "dove": "[data-testo=\"t1\"]"
+    },
+    {
+     "strumento": "ricerche",
+     "tipo": "radio",
+     "domanda": "Le ricerche del nome calano del 18% da settembre a ottobre. È un problema?",
+     "consegna": "Guarda le ricerche del nome mese per mese, anche nel 2025.",
+     "spiega": "Prima di parlare di crisi si confronta con lo stesso periodo dell'anno prima. Molti numeri hanno una stagionalità: salgono e scendono ogni anno negli stessi mesi.",
+     "esempio": "Un gelataio vede le vendite calare a settembre: succede ogni anno, non è una crisi.",
+     "errore": "Confrontare solo con il mese prima.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "No: succede ogni anno, e rispetto a ottobre 2025 sono più alte del 22%",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Sì: la notorietà sta crollando",
+       "giusta": false,
+       "nota": "Ottobre 2026 è più alto di ottobre 2025."
+      },
+      {
+       "id": "o3",
+       "testo": "Sì, perché il NPS è sceso",
+       "giusta": false,
+       "nota": "Sono due cose diverse: il calo delle ricerche è stagionale."
+      }
+     ],
+     "perche": "Falso allarme: dopo l'estate le ricerche calano tutti gli anni (-16% nel 2025), ma rispetto all'anno scorso crescono.",
+     "aiuto": "",
+     "dove": "[data-ricerche-brand]"
+    },
+    {
+     "strumento": "ricerche",
+     "tipo": "radio",
+     "domanda": "Cosa dice il sondaggio sulla notorietà?",
+     "consegna": "Confronta marzo e settembre.",
+     "spiega": "Notorietà spontanea: quanti nominano il brand senza suggerimenti. Notorietà guidata: quanti lo riconoscono in un elenco. La guidata cresce prima; la spontanea è più difficile da muovere.",
+     "esempio": "Molti riconoscono il nome di un'app quando lo vedono, pochi lo direbbero spontaneamente.",
+     "errore": "",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "La guidata cresce (dal 16% al 21%), la spontanea è ferma al 4%",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Calano tutte e due",
+       "giusta": false,
+       "nota": "La guidata cresce."
+      },
+      {
+       "id": "o3",
+       "testo": "La spontanea è al 21%",
+       "giusta": false,
+       "nota": "21% è la guidata."
+      }
+     ],
+     "perche": "Più persone ci riconoscono, ma ancora pochissime ci nominano da sole: è il punto di partenza del piano 2027.",
+     "aiuto": "",
+     "dove": "[data-notorieta]"
+    },
+    {
+     "strumento": "guida",
+     "tipo": "testo",
+     "verifica": "brand_reportNotorieta",
+     "domanda": "Rispondi al consiglio di amministrazione",
+     "consegna": "Scrivi 3-5 frasi: il brand è in crisi? Cosa è un problema vero, cosa no, e cosa proponi.",
+     "spiega": "In un report che risponde a una paura si dà subito la risposta, poi i numeri, poi cosa fare. Si separa quello che è un problema da quello che non lo è.",
+     "esempio": "«Le vendite di settembre non sono in crisi: calano ogni anno dopo l'estate e sono più alte del 2025. Il problema vero è il reso, salito al 12%: proponiamo…»",
+     "errore": "Mettere tutto sullo stesso piano.",
+     "opzioni": [],
+     "perche": "Esempio di una collega senior: «Il brand non è in crisi: le ricerche del nome calano ogni anno dopo l'estate e sono più alte del 22% rispetto a ottobre 2025, e la notorietà guidata è salita al 21%. Il problema vero è il NPS, sceso da 52 a 31 per le spedizioni in ritardo rispetto alla promessa delle 24 ore. Abbiamo già corretto la promessa sul sito; proponiamo di risolvere i tempi con il magazzino.»",
+     "aiuto": "",
+     "dove": "",
+     "parole": [
+      30,
+      150
+     ]
+    }
+   ],
+   "imparato": [
+    "NPS = % promotori − % detrattori.",
+    "Le risposte aperte dicono il perché.",
+    "Un brand è una promessa mantenuta.",
+    "Si confronta con lo stesso periodo dell'anno prima."
+   ],
+   "elena": "Risposta perfetta per il CdA: nessuna crisi di brand, ma una promessa da mantenere. Parlo io con il magazzino.",
+   "prepara": {
+    "testi": [
+     "t1"
+    ]
+   }
+  },
+  {
+   "id": "d2",
+   "livello": 2,
+   "n": 2,
+   "nome": "Il packaging «100% sostenibile»",
+   "tempo": "30 minuti",
+   "strumenti": "Testi, Ricerche",
+   "cosa": "Una frase ambientale sulla scatola che dal 27 settembre 2026 non si può più scrivere: correggerla con i fatti.",
+   "situazione": "Una cliente ci ha scritto: «Dite 100% sostenibile ma nel pacco c'era il pluriball». E l'avvocato dice che con le nuove regole europee quella frase è un problema. Mi aiuti?",
+   "obiettivo": "Sostituire le affermazioni ambientali generiche con fatti precisi e verificabili.",
+   "passi": [
+    {
+     "strumento": "testi",
+     "tipo": "radio",
+     "domanda": "Quale frase sulla scatola è un problema?",
+     "consegna": "Leggi il testo del packaging.",
+     "spiega": "Le affermazioni ambientali generiche («sostenibile», «eco», «green», «a impatto zero») sono vietate se non dimostrate: lo dice la direttiva UE 2024/825, applicata dal 27 settembre 2026. Vietate anche le affermazioni di neutralità basate solo sulla compensazione delle emissioni.",
+     "esempio": "Una borraccia «eco-friendly» diventa «borraccia in acciaio inox, riutilizzabile per anni».",
+     "errore": "Pensare che basti un dato vero per giustificare una parola generica.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "«Confezione 100% sostenibile. Spedizioni a impatto zero.»",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "«Tè e tisane, spiegati semplici»",
+       "giusta": false,
+       "nota": "È il payoff: nessuna affermazione ambientale."
+      },
+      {
+       "id": "o3",
+       "testo": "Il codice dell'organismo di controllo biologico",
+       "giusta": false,
+       "nota": "È obbligatorio per i prodotti biologici."
+      }
+     ],
+     "perche": "«100% sostenibile» e «impatto zero» sono generiche e non dimostrabili, e «impatto zero» si basa sulla compensazione.",
+     "aiuto": "",
+     "dove": "[data-testo=\"t5\"]"
+    },
+    {
+     "strumento": "ricerche",
+     "tipo": "radio",
+     "domanda": "Cosa si può dire davvero del packaging?",
+     "consegna": "Leggi la Scheda dell'ufficio qualità nelle Ricerche.",
+     "spiega": "Al posto di una parola generica si scrivono fatti precisi e verificabili, su una parte specifica del prodotto.",
+     "esempio": "Non «abito sostenibile» ma «cotone biologico certificato, tinture senza metalli pesanti».",
+     "errore": "",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Che la latta è in alluminio riciclabile e la busta interna è compostabile certificata",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Che tutto il pacco è senza plastica",
+       "giusta": false,
+       "nota": "Da ottobre c'è il pluriball."
+      },
+      {
+       "id": "o3",
+       "testo": "Che le spedizioni non inquinano",
+       "giusta": false,
+       "nota": "Le emissioni sono compensate, non eliminate."
+      }
+     ],
+     "perche": "Latta riciclabile, busta compostabile EN 13432, scatola in cartone riciclato all'80%: fatti precisi.",
+     "aiuto": "",
+     "dove": "[data-scheda-packaging]"
+    },
+    {
+     "strumento": "testi",
+     "tipo": "azione",
+     "verifica": "brand_packaging",
+     "vai": {
+      "link": "/app/simulazioni/brand/testi/",
+      "testo": "Apri i Testi"
+     },
+     "negozio": "",
+     "domanda": "Riscrivi la frase del packaging",
+     "consegna": "Riscrivi la frase sul retro della scatola usando solo fatti della scheda dell'ufficio qualità.",
+     "spiega": "Una buona dichiarazione ambientale dice su quale parte (la latta, la busta), cosa (riciclabile, compostabile), e con quale prova (certificazione o percentuale). Può spiegare come smaltire.",
+     "esempio": "«Bottiglia in plastica riciclata al 50%. Tappo riciclabile nella plastica.»",
+     "errore": "Togliere «100%» e lasciare «sostenibile».",
+     "opzioni": [],
+     "perche": "La scatola ora dice fatti veri e utili: la cliente sa anche dove buttare ogni parte.",
+     "aiuto": "",
+     "dove": "[data-testo=\"t5\"]"
+    },
+    {
+     "strumento": "testi",
+     "tipo": "radio",
+     "domanda": "Compensiamo le emissioni con un progetto di alberi. Possiamo scrivere «spedizioni a impatto zero»?",
+     "consegna": "Pensa a cosa vuol dire compensare.",
+     "spiega": "Compensare vuol dire finanziare un progetto altrove, non eliminare le emissioni delle spedizioni. Le nuove regole europee vietano di dire che un prodotto ha impatto neutro o zero solo grazie alla compensazione.",
+     "esempio": "Una compagnia aerea che pianta alberi non può dire che il volo è «a impatto zero».",
+     "errore": "",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "No: le emissioni ci sono, sono solo compensate altrove",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Sì, se gli alberi sono abbastanza",
+       "giusta": false,
+       "nota": "La regola vieta proprio questo tipo di affermazione."
+      },
+      {
+       "id": "o3",
+       "testo": "Sì, se lo scriviamo in piccolo",
+       "giusta": false,
+       "nota": "La grandezza del testo non cambia nulla."
+      }
+     ],
+     "perche": "Si può raccontare il progetto di compensazione, ma non dire «impatto zero».",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "ricerche",
+     "tipo": "radio",
+     "domanda": "Sull'etichetta c'è scritto «biologico». Va tolto anche quello?",
+     "consegna": "Guarda la scheda dell'ufficio qualità.",
+     "spiega": "Non ogni parola «verde» è un problema: «biologico» è un termine regolato da una legge europea (regolamento UE 2018/848) e si può usare se il prodotto è certificato, con il codice dell'organismo di controllo.",
+     "esempio": "Un vino certificato biologico può scriverlo in etichetta; un vino «naturale» senza certificazione no.",
+     "errore": "Togliere per paura anche le parole certificate.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Sì, è un'affermazione ambientale generica",
+       "giusta": false,
+       "nota": "È un termine regolato e certificato."
+      },
+      {
+       "id": "o2",
+       "testo": "No: è certificato secondo il regolamento UE 2018/848",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Sì, finché non cambiamo il packaging",
+       "giusta": false,
+       "nota": "La certificazione c'è già."
+      }
+     ],
+     "perche": "Falso allarme: «biologico» è certificato e si può usare.",
+     "aiuto": "",
+     "dove": "[data-scheda-packaging]"
+    }
+   ],
+   "imparato": [
+    "Parole generiche come «sostenibile» o «impatto zero» non si usano senza prove.",
+    "Si scrivono fatti precisi: quale parte, cosa, quale prova.",
+    "Compensare non vuol dire «impatto zero».",
+    "«Biologico» certificato si può usare."
+   ],
+   "elena": "L'avvocato ha approvato la frase nuova. E la cliente del pluriball ha apprezzato la sincerità.",
+   "prepara": {
+    "testi": [
+     "t5"
+    ]
+   }
+  },
+  {
+   "id": "c1",
+   "livello": 3,
+   "n": 1,
+   "nome": "La strategia di brand 2027",
+   "tempo": "40 minuti",
+   "strumenti": "Ricerche, Piano di brand",
+   "cosa": "Obiettivo, pubblico, messaggio, canali e KPI su una pagina, da presentare alla direzione.",
+   "situazione": "A dicembre presento alla direzione la strategia di brand per il 2027. Mi prepari la pagina del piano? Deve stare in una pagina e partire dai dati.",
+   "obiettivo": "Costruire il piano di brand 2027 e riassumerlo per la direzione.",
+   "passi": [
+    {
+     "strumento": "ricerche",
+     "tipo": "radio",
+     "domanda": "Quale obiettivo è scritto bene?",
+     "consegna": "Un obiettivo deve essere misurabile e avere una scadenza.",
+     "spiega": "Un obiettivo SMART è specifico, misurabile, raggiungibile, rilevante e con una scadenza. Per il brand si parte dai numeri di oggi (notorietà spontanea 4%).",
+     "esempio": "Non «diventare più famosi», ma «portare la notorietà spontanea dal 10% al 14% tra i ciclisti urbani entro dicembre».",
+     "errore": "Scrivere obiettivi che non si possono misurare.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Portare la notorietà spontanea dal 4% al 7% tra chi beve tè, entro dicembre 2027",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Diventare il brand di tè più amato d'Italia",
+       "giusta": false,
+       "nota": "Non si misura e non ha scadenza."
+      },
+      {
+       "id": "o3",
+       "testo": "Avere più follower",
+       "giusta": false,
+       "nota": "Non dice quanti, entro quando, né se serve all'obiettivo di brand."
+      }
+     ],
+     "perche": "Numero di partenza, numero di arrivo, pubblico, scadenza.",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "piano",
+     "tipo": "azione",
+     "verifica": "brand_piano",
+     "vai": {
+      "link": "/app/simulazioni/brand/piano/",
+      "testo": "Apri il Piano"
+     },
+     "negozio": "",
+     "domanda": "Compila il piano di brand",
+     "consegna": "Nel Piano di brand compila obiettivo, pubblico, messaggio chiave, canali e KPI.",
+     "spiega": "Il piano collega tutto: l'obiettivo (con numeri e scadenza), il pubblico del posizionamento, un messaggio coerente con la differenza del brand, pochi canali scelti per quel pubblico, e KPI che misurano proprio l'obiettivo.",
+     "esempio": "Obiettivo: notorietà spontanea dal 10% al 14% entro dicembre. KPI: notorietà spontanea, ricerche del nome. Canali: podcast di settore, eventi, creator.",
+     "errore": "Scegliere tutti i canali e tutti i KPI: il piano non sceglie più niente.",
+     "opzioni": [],
+     "perche": "Il piano sta in una pagina e ogni parte è collegata alle altre.",
+     "aiuto": "",
+     "dove": "[data-piano]"
+    },
+    {
+     "strumento": "piano",
+     "tipo": "radio",
+     "domanda": "Quale KPI da solo non dice se la notorietà cresce?",
+     "consegna": "Pensa a cosa misura ogni KPI.",
+     "spiega": "Una vanity metric è un numero che fa piacere vedere salire ma non dice se l'obiettivo si avvicina.",
+     "esempio": "Per una scuola di lingue, le visualizzazioni di un video divertente non dicono se crescono le iscrizioni.",
+     "errore": "",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "I like ai post",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "La notorietà spontanea",
+       "giusta": false,
+       "nota": "È proprio l'obiettivo."
+      },
+      {
+       "id": "o3",
+       "testo": "Le ricerche del nome del negozio",
+       "giusta": false,
+       "nota": "Sono un buon segnale indiretto di notorietà."
+      }
+     ],
+     "perche": "I like misurano la reazione a un post, non quante persone conoscono il brand.",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "piano",
+     "tipo": "radio",
+     "domanda": "Presentando alla direzione, da dove parti?",
+     "consegna": "Pensa a chi ha poco tempo.",
+     "spiega": "Per chi decide si usa la piramide: prima la conclusione e la richiesta, poi i motivi, poi i dettagli. Chi ascolta sa subito cosa deve decidere.",
+     "esempio": "«Chiediamo 20.000 € per portare la notorietà dal 10% al 14%. Ecco perché…»",
+     "errore": "Partire dalla storia di come si è lavorato.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Dall'obiettivo e da cosa chiedi, poi i motivi",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Dalla storia del brand dal 2019",
+       "giusta": false,
+       "nota": "Interessante, ma non aiuta a decidere."
+      },
+      {
+       "id": "o3",
+       "testo": "Dall'elenco di tutti i dati raccolti",
+       "giusta": false,
+       "nota": "I dati servono come prova, dopo."
+      }
+     ],
+     "perche": "Prima conclusione e richiesta, poi i perché.",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "guida",
+     "tipo": "testo",
+     "verifica": "brand_sintesiPiano",
+     "domanda": "Scrivi la sintesi per la direzione",
+     "consegna": "Scrivi 3-5 frasi che aprono la presentazione: obiettivo, come ci arriviamo, come lo misuriamo.",
+     "spiega": "La sintesi è la prima cosa che legge la direzione: deve stare in piedi da sola.",
+     "esempio": "«Nel 2027 vogliamo portare la notorietà spontanea dal 10% al 14% tra i ciclisti urbani. Ci concentriamo su podcast e eventi in città. Misuriamo con il sondaggio di giugno e dicembre e con le ricerche del nome.»",
+     "errore": "Ripetere il piano campo per campo.",
+     "opzioni": [],
+     "perche": "Esempio di una collega senior: «Nel 2027 vogliamo portare la notorietà spontanea di Cinque Foglie dal 4% al 7% tra chi beve tè, entro dicembre. Parliamo ai curiosi del tè di ogni giorno con un messaggio solo: il tè biologico spiegato semplice. Ci concentriamo su ufficio stampa, social e collaborazioni con creator. Misuriamo con il sondaggio di giugno e dicembre, le ricerche del nome e il NPS.»",
+     "aiuto": "",
+     "dove": "",
+     "parole": [
+      30,
+      150
+     ]
+    }
+   ],
+   "imparato": [
+    "Obiettivo SMART: da quanto a quanto, per chi, entro quando.",
+    "Pochi canali scelti per il pubblico.",
+    "KPI che misurano l'obiettivo, non vanity metric.",
+    "Alla direzione: prima conclusione e richiesta."
+   ],
+   "elena": "La direzione ha approvato il piano. E ha chiesto chi l'ha scritto!",
+   "prepara": {
+    "piano": true
+   }
+  },
+  {
+   "id": "c2",
+   "livello": 3,
+   "n": 2,
+   "nome": "Press: il calendario e una giornalista",
+   "tempo": "40 minuti",
+   "strumenti": "Ufficio stampa",
+   "cosa": "Un comunicato stampa per il calendario dell'avvento, a chi mandarlo, e una risposta a una giornalista durante la crisi.",
+   "situazione": "Due cose per l'ufficio stampa: il comunicato per il calendario dell'avvento, che esce il 2 novembre. E Paolo Neri di Foglie & Tazze ci chiede dei kit rotti: vuole una risposta entro le 17.",
+   "obiettivo": "Scrivere e inviare il comunicato e rispondere alla giornalista in modo corretto.",
+   "passi": [
+    {
+     "strumento": "stampa",
+     "tipo": "radio",
+     "domanda": "Cosa rende il calendario una notizia?",
+     "consegna": "Leggi i fatti sul calendario nell'Ufficio stampa.",
+     "spiega": "Un giornalista non pubblica pubblicità: cerca una notizia. Si mette in evidenza ciò che è nuovo, concreto e interessante per i suoi lettori (numeri, persone, una storia locale).",
+     "esempio": "«Un panificio apre» non è una notizia; «un panificio riapre il forno a legna del 1920 chiuso da 40 anni» sì.",
+     "errore": "Riempire il comunicato di aggettivi («bellissimo», «unico»).",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "24 tè da 8 piccoli produttori di 6 Paesi, illustrato da un'artista veronese",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Che è il calendario più bello di sempre",
+       "giusta": false,
+       "nota": "È un'opinione, non una notizia."
+      },
+      {
+       "id": "o3",
+       "testo": "Che costa 34,90 €",
+       "giusta": false,
+       "nota": "Il prezzo va scritto, ma non è la notizia."
+      }
+     ],
+     "perche": "Numeri concreti, piccoli produttori e un'artista locale: è questo che un giornalista può raccontare.",
+     "aiuto": "",
+     "dove": "[data-fatti-calendario]"
+    },
+    {
+     "strumento": "stampa",
+     "tipo": "azione",
+     "verifica": "brand_comunicato",
+     "vai": {
+      "link": "/app/simulazioni/brand/stampa/",
+      "testo": "Apri l'Ufficio stampa"
+     },
+     "negozio": "",
+     "domanda": "Scrivi il comunicato stampa",
+     "consegna": "Nella scheda Comunicato scrivi titolo, sottotitolo, testo e contatti stampa del comunicato.",
+     "spiega": "Il comunicato ha un titolo informativo, un primo paragrafo che risponde a chi, cosa, quando, dove e perché, poi i dettagli, una citazione di una persona dell'azienda e alla fine i contatti per la stampa. Massimo una pagina.",
+     "esempio": "Titolo: «Il panificio Rossi riaccende il forno a legna del 1920». Primo paragrafo: chi, cosa, quando, dove. Citazione del titolare. Contatti.",
+     "errore": "Mettere la notizia in fondo dopo la storia dell'azienda.",
+     "opzioni": [],
+     "perche": "Il comunicato si capisce già dal titolo e dal primo paragrafo.",
+     "aiuto": "",
+     "dove": "[data-comunicato]"
+    },
+    {
+     "strumento": "stampa",
+     "tipo": "azione",
+     "verifica": "brand_destinatari",
+     "vai": {
+      "link": "/app/simulazioni/brand/stampa/#giornalisti",
+      "testo": "Apri i Giornalisti"
+     },
+     "negozio": "",
+     "domanda": "Scegli a chi mandarlo",
+     "consegna": "Nella scheda Giornalisti scegli a chi mandare il comunicato.",
+     "spiega": "Si manda solo a chi si occupa dei temi del comunicato: un comunicato fuori tema fa perdere credibilità. E chi ha chiesto di non ricevere più comunicati non si contatta: è un suo diritto (anche per il GDPR).",
+     "esempio": "Una casa editrice manda il comunicato di un libro di cucina ai giornalisti di cucina, non a quelli di sport.",
+     "errore": "Mandarlo a tutti «tanto non costa niente».",
+     "opzioni": [],
+     "perche": "Il comunicato arriva solo a chi può essere interessato, e nessuno lo riceve contro la sua volontà.",
+     "aiuto": "",
+     "dove": "[data-giornalisti]"
+    },
+    {
+     "strumento": "stampa",
+     "tipo": "radio",
+     "domanda": "Quando lo mandi?",
+     "consegna": "Il calendario esce il 2 novembre.",
+     "spiega": "Di solito si manda il comunicato qualche giorno prima con un embargo: i giornalisti lo ricevono in anticipo per preparare il pezzo, ma possono pubblicarlo solo dalla data e ora indicate.",
+     "esempio": "Un'app manda il comunicato il lunedì «sotto embargo fino a giovedì alle 9», giorno del lancio.",
+     "errore": "",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Qualche giorno prima, con embargo fino al 2 novembre",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Il 24 dicembre",
+       "giusta": false,
+       "nota": "Troppo tardi: il calendario serve dal 1° dicembre."
+      },
+      {
+       "id": "o3",
+       "testo": "Due mesi prima, senza embargo",
+       "giusta": false,
+       "nota": "Troppo presto: rischia di uscire prima del lancio o di essere dimenticato."
+      }
+     ],
+     "perche": "Embargo: anticipo per chi scrive, uscita tutti insieme il giorno del lancio.",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "stampa",
+     "tipo": "azione",
+     "verifica": "brand_rispostaGiornalista",
+     "vai": {
+      "link": "/app/simulazioni/brand/stampa/#richieste",
+      "testo": "Apri le Richieste"
+     },
+     "negozio": "",
+     "domanda": "Rispondi a Paolo Neri",
+     "consegna": "Nella scheda Richieste rispondi alla domanda di Paolo Neri sui kit matcha, usando la nota interna.",
+     "spiega": "Con un giornalista durante una crisi: si risponde in tempo, con i fatti verificati (quanti, cosa è successo), si dice cosa si sta facendo e si indica chi contattare. Niente «no comment», niente colpe ad altri, niente supposizioni.",
+     "esempio": "«Confermiamo che 30 ordini di ieri sono arrivati danneggiati. Abbiamo già rispedito i prodotti e cambiato imballaggio. Per altre domande: Anna Verdi, 333 000 0000.»",
+     "errore": "Rispondere «no comment» o non rispondere: il pezzo uscirà comunque, senza la vostra versione.",
+     "opzioni": [],
+     "perche": "Paolo ha i fatti, il rimedio e un contatto: il pezzo racconterà anche come avete reagito.",
+     "aiuto": "",
+     "dove": "[data-richiesta=\"r1\"]"
+    },
+    {
+     "strumento": "stampa",
+     "tipo": "radio",
+     "domanda": "Al telefono Paolo dice: «Questo resta tra noi». Cosa fai?",
+     "consegna": "Pensa a come si parla con la stampa.",
+     "spiega": "Con un giornalista non esiste davvero il «tra noi»: si parla sempre come se tutto potesse essere pubblicato. Le regole sul «fuori registrazione» vanno concordate prima, e non sempre sono rispettate.",
+     "esempio": "Un portavoce fa una battuta «tanto non la scrivi» e la ritrova nel titolo.",
+     "errore": "",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Parlo come se tutto potesse essere pubblicato",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Gli racconto anche le supposizioni sul corriere",
+       "giusta": false,
+       "nota": "Se escono, diventano la notizia."
+      },
+      {
+       "id": "o3",
+       "testo": "Gli dico cose diverse dal comunicato, tanto non le scrive",
+       "giusta": false,
+       "nota": "Due versioni diverse fanno perdere credibilità."
+      }
+     ],
+     "perche": "Regola d'oro: nulla è fuori registrazione.",
+     "aiuto": "",
+     "dove": ""
+    }
+   ],
+   "imparato": [
+    "Un comunicato racconta una notizia, non un'opinione.",
+    "Si manda solo a chi è pertinente e non a chi ha chiesto di non riceverlo.",
+    "Embargo: anticipo per chi scrive, uscita insieme.",
+    "In crisi: fatti, rimedio, contatto; niente «no comment»."
+   ],
+   "elena": "Foglie & Tazze ha scritto «risposta rapida e trasparente»: meglio di così non poteva andare.",
+   "prepara": {
+    "comunicato": true,
+    "destinatari": true,
+    "risposte": [
+     "r1"
+    ]
+   }
+  }
+ ]
+}

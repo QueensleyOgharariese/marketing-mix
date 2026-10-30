@@ -1,0 +1,62 @@
+{
+ "_nota": "Manuale del brand di Cinque Foglie (inventato).",
+ "missione": "Far scoprire il tè buono a chi non è un esperto, spiegando tutto in modo semplice.",
+ "valori": [
+  {
+   "nome": "Chiarezza",
+   "cosa": "Spieghiamo cosa c'è nella tazza e come prepararlo, senza parole da esperti."
+  },
+  {
+   "nome": "Rispetto per chi coltiva",
+   "cosa": "Compriamo da piccoli produttori biologici e diciamo chi sono."
+  },
+  {
+   "nome": "Curiosità",
+   "cosa": "Facciamo venire voglia di provare un tè nuovo, senza giudicare chi beve solo camomilla."
+  }
+ ],
+ "tono": {
+  "siamo": [
+   "Amichevoli ma competenti",
+   "Semplici: frasi corte, parole di tutti i giorni",
+   "Calmi: niente urla, niente fretta finta"
+  ],
+  "nonSiamo": [
+   "Freddi o burocratici",
+   "Snob o da esperti",
+   "Aggressivi nelle vendite"
+  ],
+  "regole": [
+   "Diamo del tu, sempre.",
+   "Niente maiuscole per gridare e niente «!!!».",
+   "Una cosa alla volta: prima il beneficio concreto, poi i dettagli.",
+   "Le emoji vanno bene solo sui social, al massimo una per testo.",
+   "Nessuna promessa sulla salute: tè e tisane sono alimenti."
+  ],
+  "esempi": [
+   {
+    "prima": "Gentile cliente, la informiamo che il prodotto è disponibile.",
+    "dopo": "Buone notizie: il tuo tè preferito è tornato."
+   },
+   {
+    "prima": "SUPER OFFERTA!!! COMPRA ORA!!!",
+    "dopo": "Questa settimana il Sencha costa il 15% in meno."
+   }
+  ]
+ },
+ "logo": "Cinque foglie stilizzate in cerchio. Su fondo chiaro va in verde scuro, su fondo scuro in bianco. Non si deforma e non si cambia colore.",
+ "colori": [
+  {
+   "nome": "Verde foglia",
+   "hex": "#1F5C38"
+  },
+  {
+   "nome": "Crema",
+   "hex": "#F4F1EA"
+  },
+  {
+   "nome": "Inchiostro",
+   "hex": "#24211E"
+  }
+ ]
+}

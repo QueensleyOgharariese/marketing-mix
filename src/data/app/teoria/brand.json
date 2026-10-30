@@ -668,5 +668,10 @@
   "cosa": "Una richiesta breve di Marta: scegli e correggi i testi perché suonino come Cinque Foglie.",
   "link": "/app/brand/esercizio/",
   "minuti": 20
+ },
+ "pratica": {
+  "titolo": "Simulazione Brand",
+  "cosa": "Lavori sul brand di Cinque Foglie: posizionamento, tono di voce, NPS e notorietà, dichiarazioni ambientali, strategia 2027 e ufficio stampa.",
+  "link": "/app/simulazioni/brand/"
  }
 }

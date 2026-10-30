@@ -10,14 +10,26 @@ import GuidaMissione from "./GuidaMissione.astro";
 import SchermoIntero from "../SchermoIntero.astro";
 
 // sim: quale simulazione (seo o social). Cambiano menu, nome e conteggio degli esercizi; tutto il resto è comune.
-interface Props { attivo: string; titolo: string; ispirato?: string; sottotitolo?: string; sim?: "seo" | "social" | "sea" }
+interface Props { attivo: string; titolo: string; ispirato?: string; sottotitolo?: string; sim?: "seo" | "social" | "sea" | "brand" }
 const { attivo, titolo, ispirato, sottotitolo, sim = "seo" } = Astro.props;
 const B = "/app/percorsi/seo";
 const S = "/app/simulazioni/social";
 const A = "/app/simulazioni/sea";
-const NOME = { seo: "Simulazione SEO", social: "Simulazione Social", sea: "Simulazione SEA" }[sim];
-const BASE = { seo: B, social: S, sea: A }[sim];
-const GRUPPI = sim === "sea" ? [
+const R = "/app/simulazioni/brand";
+const NOME = { seo: "Simulazione SEO", social: "Simulazione Social", sea: "Simulazione SEA", brand: "Simulazione Brand" }[sim];
+const BASE = { seo: B, social: S, sea: A, brand: R }[sim];
+const GRUPPI = sim === "brand" ? [
+  { nome: "Il lavoro", voci: [
+    { id: "percorso", nome: "Panoramica", link: `${R}/` },
+    { id: "manuale", nome: "Manuale del brand", link: `${R}/manuale/` },
+    { id: "testi", nome: "Testi del brand", link: `${R}/testi/` },
+    { id: "piano", nome: "Piano di brand", link: `${R}/piano/` },
+    { id: "stampa", nome: "Ufficio stampa", link: `${R}/stampa/` },
+  ] },
+  { nome: "Strumenti", voci: [
+    { id: "ricerche", nome: "Ricerche sul brand", link: `${R}/ricerche/` },
+  ] },
+] : sim === "sea" ? [
   { nome: "Il lavoro", voci: [
     { id: "percorso", nome: "Panoramica", link: `${A}/` },
     { id: "campagne", nome: "Campagne", link: `${A}/campagne/` },
@@ -92,9 +104,10 @@ const conGuida = attivo !== "percorso";
   import { motoreSeo } from "../../scripts/missioni";
   import { motoreSocial } from "../../scripts/social/missioni-social";
   import { motoreSea } from "../../scripts/sea/missioni-sea";
+  import { motoreBrand } from "../../scripts/brand/missioni-brand";
   function aggiornaBarra() {
     const t = document.querySelector<HTMLElement>("[data-missioni-testo]"); const b = document.querySelector<HTMLElement>("[data-missioni-barra]");
-    const mo = { social: motoreSocial, sea: motoreSea }[t?.dataset.sim ?? ""] ?? motoreSeo;
+    const mo = { social: motoreSocial, sea: motoreSea, brand: motoreBrand }[t?.dataset.sim ?? ""] ?? motoreSeo;
     const s = mo.leggiStato();
     const n = mo.MISSIONI.filter((m) => mo.fatta(s, m)).length;
     if (t) t.textContent = `Esercizi ${n} di ${mo.MISSIONI.length}`;

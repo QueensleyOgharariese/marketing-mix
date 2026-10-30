@@ -35,6 +35,12 @@ export const STRUMENTI: Record<string, Strumento> = {
   termini: { nome: "Termini di ricerca", link: "/app/simulazioni/sea/termini/" },
   pianificatore: { nome: "Pianificatore keyword", link: "/app/simulazioni/sea/pianificatore/" },
   rendimento: { nome: "Rendimento sul sito", link: "/app/simulazioni/sea/rendimento/" },
+  // Brand
+  manuale: { nome: "Manuale del brand", link: "/app/simulazioni/brand/manuale/" },
+  ricerche: { nome: "Ricerche sul brand", link: "/app/simulazioni/brand/ricerche/" },
+  testi: { nome: "Testi del brand", link: "/app/simulazioni/brand/testi/" },
+  piano: { nome: "Piano di brand", link: "/app/simulazioni/brand/piano/" },
+  stampa: { nome: "Ufficio stampa", link: "/app/simulazioni/brand/stampa/" },
 };
 
 type Config = { dati: { livelli: any[]; missioni: any[] }; chiave: string; ripristina?: (parti: any) => void; base: string; nome: string };

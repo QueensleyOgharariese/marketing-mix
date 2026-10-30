@@ -1,0 +1,62 @@
+---
+// SIMULAZIONE BRAND · TESTI DEL BRAND
+// Sei testi su canali diversi: si leggono, si riscrivono e si salvano (o si torna all'originale).
+import Console from "../../../../components/seopro/Console.astro";
+---
+<Console sim="brand" attivo="testi" titolo="Testi del brand" sottotitolo="Come parla Cinque Foglie, canale per canale">
+  <ul class="tx-lista" data-testi></ul>
+</Console>
+
+<script>
+  import { leggi, salva, testo, contaParole } from "../../../../scripts/brand/stato";
+  import T from "../../../../data/app/brand-sim/testi.json";
+  const esc = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  const lista = document.querySelector<HTMLElement>("[data-testi]")!;
+  let aperto: string | null = null;
+  function disegna() {
+    const m = leggi();
+    lista.innerHTML = T.voci.map((v) => {
+      const t = testo(v.id, m), cambiato = v.id in m.testi;
+      return `<li class="tx-voce" data-testo="${v.id}">
+        <div class="tx-testa"><span class="sp-nota">${esc(v.canale)}</span>${cambiato ? '<span class="sp-badge ok">Riscritto</span>' : ""}</div>
+        ${aperto === v.id ? `<form class="tx-form" data-form-testo="${v.id}"><label class="sr" for="tx-${v.id}">Testo</label><textarea id="tx-${v.id}" rows="4">${esc(t)}</textarea>
+            <span class="sp-nota" data-conta></span>
+            <div class="tx-bottoni"><button type="submit" class="bottone-app">Salva</button><button type="button" class="tx-sec" data-annulla>Annulla</button></div></form>`
+          : `<p class="tx-testo">${esc(t)}</p><span class="sp-nota">${contaParole(t)} parole · ${t.length} caratteri</span>
+            <div class="tx-bottoni"><button type="button" class="tx-sec" data-modifica>Modifica</button>${cambiato ? '<button type="button" class="tx-link" data-originale>Torna all\'originale</button>' : ""}</div>`}
+      </li>`;
+    }).join("");
+    const f = lista.querySelector<HTMLFormElement>("[data-form-testo]");
+    if (f) {
+      const area = f.querySelector("textarea")!, conta = () => { f.querySelector("[data-conta]")!.textContent = `${contaParole(area.value)} parole · ${area.value.length} caratteri`; };
+      area.addEventListener("input", conta); conta(); area.focus();
+      f.addEventListener("submit", (e) => {
+        e.preventDefault(); const m2 = leggi(); const id = f.dataset.formTesto!;
+        const orig = T.voci.find((x) => x.id === id)!.testo;
+        if (area.value.trim() && area.value.trim() !== orig) m2.testi[id] = area.value.trim(); else delete m2.testi[id];
+        aperto = null; salva(m2); disegna();
+      });
+      f.querySelector("[data-annulla]")!.addEventListener("click", () => { aperto = null; disegna(); });
+    }
+  }
+  lista.addEventListener("click", (e) => {
+    const el = e.target as HTMLElement, id = el.closest<HTMLElement>("[data-testo]")?.dataset.testo;
+    if (!id) return;
+    if (el.closest("[data-modifica]")) { aperto = id; disegna(); }
+    if (el.closest("[data-originale]")) { const m = leggi(); delete m.testi[id]; salva(m); disegna(); }
+  });
+  disegna();
+</script>
+
+<style>
+  .tx-lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+  :global(.tx-voce) { background: #fff; border: 1px solid #e3e1dc; border-radius: 14px; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; }
+  :global(.tx-testa) { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; }
+  :global(.tx-testo) { margin: 0; font-size: 1rem; line-height: 1.55; overflow-wrap: anywhere; }
+  :global(.tx-form) { display: flex; flex-direction: column; gap: 8px; }
+  :global(.tx-form textarea) { font: inherit; font-size: .95rem; padding: 10px 12px; border: 1px solid #d1cec8; border-radius: 10px; width: 100%; box-sizing: border-box; }
+  :global(.tx-bottoni) { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  :global(.tx-sec) { font: inherit; font-weight: 700; font-size: .84rem; padding: 8px 13px; border-radius: 10px; border: 1px solid #d1cec8; background: #fff; cursor: pointer; color: var(--inchiostro); }
+  :global(.tx-link) { font: inherit; font-size: .82rem; background: none; border: 0; text-decoration: underline; cursor: pointer; color: #55514c; }
+  :global(.sr) { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+</style>
