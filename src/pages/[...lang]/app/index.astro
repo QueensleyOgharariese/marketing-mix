@@ -1,0 +1,72 @@
+---
+import { LINGUE_APP } from "../../../i18n";
+// APP · INGRESSO: SCEGLI COME INIZIARE
+// Si arriva qui dai bottoni del sito ("Entra in azienda", "Prova un ruolo").
+// Due strade: Teoria (gli Hub: lezioni brevi con quiz, /app/teoria/) o Simulazioni (pratica nel negozio finto, /app/simulazioni/).
+import AppLayout from "../../../layouts/AppLayout.astro";
+import Progresso from "../../../components/Progresso.astro";
+import Pesca from "../../../components/Pesca.astro";
+import Icona from "../../../components/Icona.astro";
+import azienda from "../../../data/app/cinque-foglie.json";
+export function getStaticPaths() { return LINGUE_APP(); }
+---
+<AppLayout title="Come vuoi iniziare?" percorso={[{ etichetta: azienda.nome }]}>
+  <Progresso slot="barra" />
+  <main class="ingresso">
+    <header class="testa">
+      <Pesca dimensione={72} etichetta="Pesca, la tua tutor" />
+      <div>
+        <h1 class="app-titolo">Come vuoi iniziare?</h1>
+        <p>Lavori per {azienda.nome}, un negozio online di tè inventato. Puoi partire dalla teoria dei ruoli o entrare subito in una simulazione. Puoi cambiare quando vuoi.</p>
+      </div>
+    </header>
+
+    <div class="scelte">
+      <a class="scelta teoria" href="/app/teoria/">
+        <span class="scelta-icona" aria-hidden="true"><Icona nome="lampadina" dimensione={26} /></span>
+        <span class="scelta-tipo">Teoria</span>
+        <strong>Impara i ruoli del marketing</strong>
+        <span class="scelta-testo">12 ruoli in due Hub. Per ogni ruolo una scheda, tre lezioni da dieci minuti con domande dopo ogni concetto e una verifica.</span>
+        <ul class="punti"><li>Per chi parte da zero</li><li>Approfondimenti sul blog</li><li>Prova veloce alla fine di ogni ruolo</li></ul>
+        <span class="bottone-finto">Inizia dalla teoria →</span>
+      </a>
+      <a class="scelta simula" href="/app/simulazioni/">
+        <span class="scelta-icona" aria-hidden="true"><Icona nome="anteprima" dimensione={26} /></span>
+        <span class="scelta-tipo">Simulazioni</span>
+        <strong>Fai pratica come in azienda</strong>
+        <span class="scelta-testo">Lavori sul sito vero di {azienda.nome}, con un pannello di gestione e strumenti come quelli che si usano nel lavoro. Dalle basi ai casi difficili.</span>
+        <ul class="punti"><li>Disponibile: SEO</li><li>Le modifiche si vedono sul sito</li><li>Esercizi controllati, con la soluzione di un collega senior</li></ul>
+        <span class="bottone-finto">Entra nelle simulazioni →</span>
+      </a>
+    </div>
+    <p class="nota">{azienda.nome} è un'azienda finta: persone, prodotti e numeri sono inventati per gli esercizi.</p>
+  </main>
+</AppLayout>
+
+<style>
+  .ingresso { max-width: 1080px; margin: 0 auto; padding: 40px 24px 64px; display: flex; flex-direction: column; gap: 28px; }
+  .testa { display: flex; gap: 20px; align-items: center; }
+  .testa h1 { margin: 0 0 6px; font-size: clamp(1.9rem, 4vw, 2.6rem); }
+  .testa p { margin: 0; line-height: 1.6; color: #55514c; max-width: 60ch; }
+  .scelte { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .scelta { display: flex; flex-direction: column; gap: 10px; padding: 28px; border-radius: 22px; text-decoration: none; border: 1px solid #e3e1dc; background: #fff; color: var(--inchiostro); transition: transform .15s, border-color .15s; }
+  .scelta:hover { transform: translateY(-3px); border-color: var(--arancio); color: var(--inchiostro); }
+  .scelta.simula { background: var(--inchiostro); border-color: var(--inchiostro); color: #f1efeb; }
+  .scelta.simula:hover { color: #f1efeb; border-color: var(--arancio); }
+  .scelta-icona { width: 52px; height: 52px; border-radius: 16px; background: var(--arancio); color: var(--inchiostro); display: grid; place-items: center; }
+  .scelta-tipo { font-size: .8rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: #8a3a06; }
+  .simula .scelta-tipo { color: var(--arancio); }
+  .scelta strong { font-family: var(--font-titoli); font-size: 1.6rem; line-height: 1.15; }
+  .simula strong { color: #fff; }
+  .scelta-testo { line-height: 1.6; color: #55514c; }
+  .simula .scelta-testo { color: #dedad3; }
+  .punti { margin: 4px 0 8px; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; font-size: .9rem; line-height: 1.5; }
+  .bottone-finto { margin-top: auto; align-self: flex-start; background: var(--arancio); color: var(--inchiostro); font-weight: 800; padding: 12px 18px; border-radius: 10px; }
+  .nota { margin: 0; text-align: center; font-size: .85rem; color: #625e58; }
+  @media (max-width: 760px) {
+    .ingresso { padding: 24px 16px 48px; }
+    .testa { flex-direction: column; align-items: flex-start; }
+    .scelte { grid-template-columns: 1fr; }
+    .scelta { padding: 22px; }
+  }
+</style>

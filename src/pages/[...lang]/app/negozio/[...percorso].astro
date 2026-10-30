@@ -1,0 +1,365 @@
+---
+import { LINGUE_APP, conLingue } from "../../../../i18n";
+// PAGINE DEL NEGOZIO FINTO (home, categorie, prodotti, blog, pagine di servizio, 404)
+// Un solo file crea tutte le pagine partendo da crawl.json e catalogo.json.
+// Esempio: la pagina /te-verdi/sencha-bio/ del negozio qui è /app/negozio/te-verdi/sencha-bio/.
+// I problemi SEO del sito (noindex sulle tisane, H1 mancante su /matcha/, testo povero su /te-verdi/,
+// link al prodotto tolto...) sono davvero nelle pagine: li vedi con "Ispeziona" e li ritrovi negli strumenti.
+// L'aspetto segue i design approvati (tela "Workspace SEO junior").
+import Negozio from "../../../../components/negozio/Negozio.astro";
+import Confezione from "../../../../components/negozio/Confezione.astro";
+import SchedaProdotto from "../../../../components/negozio/SchedaProdotto.astro";
+import catalogo from "../../../../data/app/seo-pro/catalogo.json";
+import crawl from "../../../../data/app/seo-pro/crawl.json";
+import { prezzo, voto, alKg, PREPARAZIONE } from "../../../../scripts/negozio";
+
+// Ogni pagina esiste in italiano (/app/...) e in inglese (/en/app/...): conLingue() raddoppia i percorsi
+export function getStaticPaths() {
+  return conLingue((() => {
+  // Pagine vere (200) e la pagina tolta (404). Filtri e vecchi indirizzi non hanno una pagina propria.
+  return crawl.pagine
+    .filter((p) => (p.stato === 200 || p.stato === 404) && !p.url.includes("?"))
+    .map((p) => ({ params: { percorso: p.url === "/" ? undefined : p.url.replace(/^\/|\/$/g, "") }, props: { url: p.url } }));
+})());
+}
+const { url } = Astro.props as { url: string };
+const pagina = crawl.pagine.find((p) => p.url === url)!;
+const N = (u: string) => `/app/negozio${u}`;
+const cat = catalogo.categorie.find((c) => url === `/${c.id}/`);
+const prodotto = catalogo.prodotti.find((p) => p.url === url);
+const categoriaDi = (id: string) => catalogo.categorie.find((c) => c.id === id)!;
+const linkaIl404 = (crawl.link404 as Record<string, string[]>)["/te-neri/earl-grey-classico/"].includes(url);
+const blog = crawl.pagine.filter((p) => p.tipo === "Articolo");
+const minuti = (parole: number) => `${Math.max(2, Math.round(parole / 200))} minuti`;
+const TEMA: Record<string, string> = { "/blog/sencha-guida-completa/": "Guida", "/blog/come-preparare-il-matcha/": "Ricetta", "/blog/tisane-per-la-sera/": "Consigli",
+  "/blog/te-freddo-fatto-in-casa/": "Ricetta", "/blog/differenza-te-verde-nero/": "Guida", "/blog/conservare-il-te/": "Consigli" };
+const SFONDI = ["#d7e4cc", "#dfe9c8", "#efdcc4", "#f6e2d6", "#e4e8ec", "#ece4d8"];
+
+// Filtri e ordinamenti che esistono davvero per questa categoria (sono quelli che il crawler trova)
+const filtri = cat ? crawl.pagine.filter((p) => p.url.startsWith(`/${cat.id}/?`)) : [];
+const nomeFiltro = (u: string) => {
+  const [k, v] = u.split("?")[1].split("=");
+  return k === "ordina" ? `Ordina per ${v}` : k === "page" ? `Pagina ${v}` : `${k[0].toUpperCase() + k.slice(1)}: ${v.replace(/-/g, " ")}`;
+};
+
+// Testi delle schede prodotto, per categoria (inventati)
+const GUSTO: Record<string, string> = {
+  "te-verdi": "Foglie intere cotte al vapore, dal gusto fresco ed erbaceo con una punta dolce. Ottimo caldo e anche in infusione a freddo.",
+  "te-neri": "Gusto pieno e rotondo, perfetto a colazione e ottimo anche con un goccio di latte.",
+  tisane: "Senza teina, da bere a ogni ora, anche la sera. Bustine in carta compostabile.",
+  matcha: "Polvere fine di foglie di tè macinate a pietra. Da sbattere con la frusta fino a fare una leggera schiuma.",
+  "te-freddi": "Da preparare a freddo: si lascia in frigo per 8 ore, senza zucchero aggiunto.",
+  accessori: "Pensato per durare: si lava a mano con acqua calda, senza detersivi profumati.",
+};
+const RECENSIONI: Record<string, [string, string, string][]> = {
+  default: [["Buono, lo ricompro", "Marta", "Arrivato in un giorno, confezione curata. Lo uso ogni mattina."], ["Come descritto", "Luca", "Gusto pulito e preciso. Il formato piccolo finisce in fretta se lo bevete in due."]],
+  accessori: [["Fatto bene", "Sara", "Solido e bello da vedere. Arrivato imballato con cura."], ["Ottimo regalo", "Paolo", "L'ho regalato a mia madre, lo usa ogni giorno."]],
+};
+const titolo = prodotto?.nome ?? cat?.nome ?? pagina.h1 ?? "Cinque Foglie";
+const piuVenduti = ["sencha-bio", "matcha-quotidiano", "tisane-della-sera", "teiera-ghisa"].map((id) => catalogo.prodotti.find((x) => x.id === id)!);
+---
+<Negozio url={url} titoloScheda={pagina.stato === 404 ? "Pagina non trovata" : titolo}>
+  {pagina.stato === 404 ? (
+    <section class="vuota">
+      <p class="grande-num">404</p>
+      <h1>Pagina non trovata</h1>
+      <p>Il prodotto che cerchi non è più disponibile.</p>
+      <a class="nbottone" href={N("/")}>Torna al negozio</a>
+    </section>
+  ) : url === "/" ? (
+    <>
+      <section class="eroe">
+        <div class="eroe-testo">
+          <p class="occhiello">Nuovo raccolto d'autunno</p>
+          <h1>{pagina.h1}</h1>
+          <p class="eroe-sotto">Tè verdi, neri, matcha e tisane senza teina, biologici e in foglie intere. Spedizione in 24 ore in tutta Italia.</p>
+          <div class="bottoni"><a class="nbottone" href={N("/te-verdi/")}>Scopri i tè verdi</a><a class="nbottone nbottone--contorno" href={N("/matcha/")}>Il matcha</a></div>
+        </div>
+        <div class="eroe-foto">
+          {["te-verdi", "matcha", "tisane"].map((c, i) => <div class={`barattolo b${i}`}><Confezione categoria={c} nome={categoriaDi(c).nome} /></div>)}
+        </div>
+      </section>
+
+      <ul class="vantaggi" aria-label="Perché comprare da noi">
+        <li><strong>Spedizione gratuita</strong>da 39 €</li>
+        <li><strong>Biologico certificato</strong>tutto il catalogo</li>
+        <li><strong>Reso entro 30 giorni</strong>senza spiegazioni</li>
+        <li><strong>Pagamenti sicuri</strong>carta, PayPal, bonifico</li>
+      </ul>
+
+      <h2>Esplora per categoria</h2>
+      <ul class="griglia-cat">
+        {catalogo.categorie.map((c) => (<li><a href={N(`/${c.id}/`)}><Confezione categoria={c.id} nome={c.nome} /><span>{c.nome}</span><small>{catalogo.prodotti.filter((p) => p.categoria === c.id).length} prodotti</small></a></li>))}
+      </ul>
+
+      <div class="titolo-riga"><h2>I più venduti</h2><a href={N("/te-verdi/")}>Vedi tutti</a></div>
+      <ul class="griglia">{piuVenduti.map((p) => <li><SchedaProdotto p={p} categoriaNome={categoriaDi(p.categoria).nome} /></li>)}</ul>
+
+      <section class="banner">
+        <div>
+          <p class="occhiello occhiello--chiaro">Per le sere d'autunno</p>
+          <h2>Tisane della Sera</h2>
+          <p>Tre miscele biologiche senza teina, in bustine compostabili. Camomilla, melissa e scorza d'arancia.</p>
+          <a class="nbottone nbottone--miele" href={N("/tisane/tisane-della-sera/")}>Scopri le Tisane della Sera</a>
+        </div>
+        <div class="banner-foto"><Confezione categoria="tisane" nome="Tisane della Sera" /></div>
+      </section>
+
+      <p class="nota-link">Torna l'<a href={N("/te-neri/earl-grey-classico/")}>Earl Grey classico</a>, il preferito dei nostri clienti.</p>
+
+      <div class="titolo-riga"><h2>Dal Diario del tè</h2><a href={N("/blog/")}>Tutti gli articoli</a></div>
+      <ul class="griglia-blog">
+        {blog.slice(0, 3).map((b, i) => (<li><a href={N(b.url)}><span class="blog-foto" style={`background:${SFONDI[i]}`}></span><small>{TEMA[b.url]}, {minuti(b.parole)}</small><strong>{b.h1}</strong></a></li>))}
+      </ul>
+
+      <form class="newsletter" onsubmit="return false">
+        <div><h2>Un tè nuovo ogni mese, via email</h2><p>Ricette, raccolti e offerte per chi si iscrive. Ti puoi cancellare quando vuoi.</p></div>
+        <div class="newsletter-campi">
+          <div class="riga-campi"><label for="email-neg" class="sr">La tua email</label><input id="email-neg" type="email" placeholder="La tua email" /><button type="submit" class="nbottone" disabled title="Negozio finto">Iscriviti</button></div>
+          <label class="consenso"><input type="checkbox" /> Ho letto l'informativa privacy e voglio ricevere la newsletter.</label>
+        </div>
+      </form>
+    </>
+  ) : cat ? (
+    <>
+      <nav class="briciole" aria-label="Sei qui"><a href={N("/")}>Home</a><span aria-hidden="true">›</span>{cat.nome}</nav>
+      <div class="cat-testa">
+        <div>
+          {cat.h1 ? <h1 data-cms-h1>{cat.h1}</h1> : <p class="titolo-finto" data-cms-h1>{cat.nome}</p>}
+          <div class="intro" data-cms-intro={cat.id}><p>{cat.intro}</p></div>
+        </div>
+        <span class="conta">{catalogo.prodotti.filter((p) => p.categoria === cat.id).length} prodotti</span>
+      </div>
+      <div class="cat-corpo">
+        <aside class="filtri" aria-label="Filtri e ordinamento">
+          <strong>Ordina e filtra</strong>
+          {filtri.length ? filtri.map((f) => <a href={N(f.url)}>{nomeFiltro(f.url)}</a>) : <span class="nessuno">In evidenza</span>}
+          <label class="disp-filtro"><input type="checkbox" checked disabled /> Solo disponibili</label>
+        </aside>
+        <ul class="griglia">
+          {catalogo.prodotti.filter((p) => p.categoria === cat.id).map((p) => <li><SchedaProdotto p={p} /></li>)}
+        </ul>
+      </div>
+      {linkaIl404 && <p class="nota-link">Cerchi un classico? Prova il nostro <a href={N("/te-neri/earl-grey-classico/")}>Earl Grey classico</a>.</p>}
+    </>
+  ) : prodotto ? (
+    <>
+      <nav class="briciole" aria-label="Sei qui"><a href={N("/")}>Home</a><span aria-hidden="true">›</span><a href={N(`/${prodotto.categoria}/`)}>{categoriaDi(prodotto.categoria).nome}</a><span aria-hidden="true">›</span>{prodotto.nome}</nav>
+      <section class="prodotto">
+        <div class="galleria">
+          <div class="foto-grande"><Confezione categoria={prodotto.categoria} nome={prodotto.nome} grande /></div>
+          <div class="miniature" aria-hidden="true"><span class="m attiva"></span><span class="m"></span><span class="m"></span><span class="m"></span></div>
+        </div>
+        <div class="prodotto-testi">
+          <p class="occhiello">{categoriaDi(prodotto.categoria).nome}</p>
+          <h1 data-cms-h1>{prodotto.h1}</h1>
+          <a class="voto-link" href="#recensioni">{prodotto.recensioni ? <><span class="stelle" aria-hidden="true">★★★★★</span> {voto(prodotto.id)} su 5, {prodotto.recensioni} recensioni</> : "Ancora nessuna recensione"}</a>
+          <div class="prezzo-blocco">
+            <strong class="prezzo">{prezzo(prodotto.prezzo)}</strong>
+            <span>IVA inclusa{alKg(prodotto.prezzo, prodotto.formato) && `, ${alKg(prodotto.prezzo, prodotto.formato)} al kg`}. Formato: {prodotto.formato}</span>
+          </div>
+          <p class="descr">{GUSTO[prodotto.categoria]}</p>
+          <div class="acquista">
+            <div class="qta" aria-hidden="true"><span>−</span><span>1</span><span>+</span></div>
+            <button type="button" class="nbottone grande" disabled title="Negozio finto: non si può comprare">{prodotto.disponibile ? "Aggiungi al carrello" : "Avvisami quando torna"}</button>
+          </div>
+          <ul class="consegna">
+            {prodotto.disponibile ? <li><span class="pallino ok"></span>Disponibile: ordina entro le 14 e lo spediamo oggi</li> : <li><span class="pallino no"></span>Esaurito. {prodotto.nota}</li>}
+            <li><span class="pallino"></span>Spedizione gratuita sopra i 39 €</li>
+            <li><span class="pallino"></span>Reso entro 30 giorni</li>
+          </ul>
+          {PREPARAZIONE[prodotto.categoria] && (
+            <div class="preparazione" aria-label="Come si prepara">
+              {PREPARAZIONE[prodotto.categoria].map(([v, c]) => <div><strong>{v}</strong><span>{c}</span></div>)}
+            </div>
+          )}
+          {linkaIl404 && <p class="nota-link">Ti piace? Prova anche l'<a href={N("/te-neri/earl-grey-classico/")}>Earl Grey classico</a>.</p>}
+        </div>
+      </section>
+
+      <section class="dettagli">
+        <h2>Descrizione</h2>
+        <p>{GUSTO[prodotto.categoria]} Selezionato e confezionato in Veneto da Cinque Foglie.</p>
+        <dl>
+          <div><dt>Formato</dt><dd>{prodotto.formato}</dd></div>
+          <div><dt>Certificazione</dt><dd>{prodotto.categoria === "accessori" ? "non applicabile" : "biologico UE"}</dd></div>
+          <div><dt>Conservazione</dt><dd>{prodotto.categoria === "accessori" ? "lavare a mano" : "luogo fresco e asciutto, lontano dalla luce"}</dd></div>
+        </dl>
+      </section>
+
+      <section id="recensioni" class="recensioni">
+        <div class="rec-sintesi">
+          <h2>Recensioni</h2>
+          {prodotto.recensioni
+            ? <><p class="rec-voto"><strong>{voto(prodotto.id)}</strong> su 5, {prodotto.recensioni} recensioni</p><p class="rec-nota">Recensioni di esempio di un negozio finto.</p></>
+            : <p>Ancora nessuna recensione per questo prodotto.</p>}
+        </div>
+        {prodotto.recensioni > 0 && (
+          <div class="rec-elenco">
+            {(RECENSIONI[prodotto.categoria] ?? RECENSIONI.default).map(([t, chi, testo]) => (
+              <article><div class="rec-testa"><strong>{t}</strong><span>{chi}</span></div><p>{testo}</p></article>
+            ))}
+          </div>
+        )}
+      </section>
+
+      <h2>Potrebbe piacerti anche</h2>
+      <ul class="griglia">
+        {catalogo.prodotti.filter((p) => p.categoria === prodotto.categoria && p.id !== prodotto.id).slice(0, 4).map((p) => <li><SchedaProdotto p={p} /></li>)}
+      </ul>
+    </>
+  ) : url === "/blog/" ? (
+    <>
+      <h1>{pagina.h1}</h1>
+      <p class="intro">Guide, ricette e consigli per preparare il tè a casa.</p>
+      <ul class="griglia-blog">
+        {blog.map((b, i) => (<li><a href={N(b.url)}><span class="blog-foto" style={`background:${SFONDI[i % SFONDI.length]}`}></span><small>{TEMA[b.url]}, {minuti(b.parole)}</small><strong>{b.h1}</strong></a></li>))}
+      </ul>
+    </>
+  ) : pagina.tipo === "Articolo" ? (
+    <article class="articolo">
+      <nav class="briciole" aria-label="Sei qui"><a href={N("/")}>Home</a><span aria-hidden="true">›</span><a href={N("/blog/")}>Il Diario del tè</a><span aria-hidden="true">›</span>{TEMA[url]}</nav>
+      <p class="occhiello">{TEMA[url]}, {minuti(pagina.parole)}</p>
+      <h1 data-cms-h1>{pagina.h1}</h1>
+      <p class="intro">{pagina.description}</p>
+      <div class="blog-foto grande" style={`background:${SFONDI[blog.findIndex((b) => b.url === url) % SFONDI.length]}`}></div>
+      <p>Articolo di circa {pagina.parole} parole. In questo negozio finto mostriamo solo l'inizio: il testo completo non serve per gli esercizi.</p>
+      {url === "/blog/sencha-guida-completa/" && <p>Il tè verde Sencha è il tè più bevuto in Giappone. In questa guida trovi cos'è, come si prepara e dove comprare il <strong>tè verde Sencha</strong> migliore: il nostro <a href={N("/te-verdi/sencha-bio/")}>Sencha biologico</a>.</p>}
+      {linkaIl404 && <p class="nota-link">Il nostro consiglio: l'<a href={N("/te-neri/earl-grey-classico/")}>Earl Grey classico</a>.</p>}
+    </article>
+  ) : pagina.tipo === "Tag" ? (
+    <>
+      <nav class="briciole" aria-label="Sei qui"><a href={N("/")}>Home</a><span aria-hidden="true">›</span><a href={N("/blog/")}>Il Diario del tè</a><span aria-hidden="true">›</span>{pagina.h1}</nav>
+      <h1>{pagina.h1}</h1>
+      <ul class="elenco-blog">{blog.slice(0, 2).map((b) => <li><a href={N(b.url)}>{b.h1}</a></li>)}</ul>
+    </>
+  ) : (
+    <section class="servizio">
+      <h1>{pagina.h1}</h1>
+      <p class="intro">Pagina di servizio del negozio finto: qui non c'è niente da comprare.</p>
+    </section>
+  )}
+</Negozio>
+
+<style>
+  h1, h2, .titolo-finto { font-family: "Fraunces", Georgia, serif; font-weight: 500; color: #143323; letter-spacing: -.015em; }
+  h1, .titolo-finto { font-size: clamp(2rem, 4.5vw, 3.1rem); line-height: 1.05; margin: 0 0 12px; }
+  .titolo-finto { opacity: .9; }
+  h2 { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.15; margin: 64px 0 20px; }
+  p { line-height: 1.6; }
+  .occhiello { font-size: .85rem; font-weight: 700; color: #3d6b4f; margin: 0 0 10px; }
+  .occhiello--chiaro { color: #e7b77a; }
+  .briciole { display: flex; flex-wrap: wrap; gap: 8px; font-size: .85rem; color: #4a5a50; margin-bottom: 18px; }
+  .intro { font-size: 1.05rem; color: #3f4f45; max-width: 66ch; margin: 0; display: flex; flex-direction: column; gap: 10px; line-height: 1.65; }
+  .intro :global(p) { margin: 0; }
+  .nbottone { display: inline-flex; align-items: center; justify-content: center; font: inherit; font-weight: 700; background: #1f4d36; color: #fff !important; border: 1.5px solid #1f4d36; border-radius: 999px; padding: 13px 22px; text-decoration: none; cursor: pointer; }
+  .nbottone:disabled { opacity: .75; cursor: not-allowed; }
+  .nbottone--contorno { background: transparent; color: #1f4d36 !important; }
+  .nbottone--miele { background: #e7b77a; border-color: #e7b77a; color: #2a2219 !important; }
+  .bottoni { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; }
+  .nota-link { font-size: .92rem; color: #3f4f45; margin: 16px 0 0; }
+
+  /* Home */
+  .eroe h1 { font-size: clamp(2rem, 3.2vw, 2.9rem); }
+  .eroe { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); background: #e9efe4; border-radius: 26px; overflow: hidden; }
+  .eroe-testo { padding: 64px 56px; display: flex; flex-direction: column; gap: 10px; justify-content: center; }
+  .eroe-sotto { font-size: 1.08rem; color: #3f4f45; margin: 0; max-width: 46ch; }
+  .eroe-foto { background: #c9d9c0; display: flex; align-items: flex-end; justify-content: center; padding: 40px 12px 0; min-height: 320px; overflow: hidden; }
+  .barattolo { width: 46%; max-width: 300px; margin: 0 -9%; } .barattolo.b0 { width: 58%; max-width: 380px; position: relative; z-index: 1; } .barattolo :global(rect:first-child) { fill: transparent; }
+  .vantaggi { list-style: none; margin: 20px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+  .vantaggi li { background: #fff; border: 1px solid #e6dfd0; border-radius: 16px; padding: 18px 20px; gap: 2px; font-size: .88rem; color: #3f4f45; display: flex; flex-direction: column; }
+  .vantaggi strong { color: #1d2a22; font-size: .95rem; }
+  .griglia-cat, .griglia, .griglia-blog { list-style: none; margin: 0; padding: 0; display: grid; gap: 24px 20px; }
+  .griglia-cat { grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); }
+  .griglia-cat a { display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: #1d2a22 !important; background: #fff; border: 1px solid #e6dfd0; border-radius: 18px; padding: 14px 14px 16px; font-weight: 700; }
+  .griglia-cat :global(svg) { border-radius: 12px; }
+  .griglia-cat small { font-weight: 400; color: #4a5a50; }
+  .griglia { grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+  .cat-corpo .griglia, .prodotto ~ .griglia { grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); }
+  .titolo-riga { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px; margin: 64px 0 20px; }
+  .titolo-riga h2 { margin: 0; }
+  .titolo-riga a { font-weight: 700; font-size: .92rem; }
+  .banner { margin-top: 64px; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); background: #2a2219; color: #f3eadb; border-radius: 26px; overflow: hidden; }
+  .banner > div:first-child { padding: 56px; }
+  .banner h2 { color: #f3eadb; margin: 0 0 8px; }
+  .banner p { color: #d8cbb6; max-width: 44ch; }
+  .banner-foto { background: #3a2f22; display: flex; align-items: flex-end; justify-content: center; padding: 30px 40px 0; }
+  .banner-foto :global(svg) { max-width: 200px; } .banner-foto :global(rect:first-child) { fill: transparent; }
+  .griglia-blog { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+  .griglia-blog a { display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: #1d2a22 !important; }
+  .griglia-blog small { font-size: .82rem; font-weight: 700; color: #3d6b4f; }
+  .griglia-blog strong { font-family: "Fraunces", Georgia, serif; font-weight: 500; font-size: 1.25rem; line-height: 1.25; }
+  .blog-foto { display: block; height: 160px; border-radius: 18px; }
+  .blog-foto.grande { height: 260px; margin: 18px 0; }
+  .newsletter { margin-top: 64px; background: #e9efe4; border-radius: 26px; padding: 40px 48px; display: flex; flex-wrap: wrap; gap: 20px 32px; align-items: center; justify-content: space-between; }
+  .newsletter h2 { margin: 0 0 6px; font-size: 1.6rem; }
+  .newsletter p { margin: 0; color: #3f4f45; }
+  .newsletter > div { flex: 1 1 320px; }
+  .newsletter-campi { display: flex; flex-direction: column; gap: 10px; }
+  .riga-campi { display: flex; flex-wrap: wrap; gap: 8px; }
+  .riga-campi input { flex: 1 1 200px; font: inherit; padding: 12px 16px; border-radius: 999px; border: 1px solid #c4d1bd; background: #fff; min-width: 0; }
+  .consenso { display: flex; gap: 10px; align-items: flex-start; font-size: .85rem; color: #3f4f45; }
+
+  /* Categoria */
+  .cat-testa { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; justify-content: space-between; margin-bottom: 32px; }
+  .conta { font-size: .9rem; color: #4a5a50; }
+  .cat-corpo { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 32px; align-items: start; }
+  .filtri { display: flex; flex-direction: column; gap: 12px; font-size: .9rem; background: #fff; border: 1px solid #e6dfd0; border-radius: 16px; padding: 20px; position: sticky; top: 16px; }
+  .filtri a { color: #1d2a22 !important; }
+  .nessuno { color: #4a5a50; }
+  .disp-filtro { display: flex; gap: 8px; align-items: center; border-top: 1px solid #e6dfd0; padding-top: 10px; color: #4a5a50; }
+
+  /* Prodotto */
+  .prodotto { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: start; }
+  .galleria { display: flex; flex-direction: column; gap: 12px; }
+  .foto-grande { border-radius: 22px; overflow: hidden; }
+  .miniature { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  .m { aspect-ratio: 1; border-radius: 12px; background: #ece4d8; border: 1px solid #e6dfd0; } .m.attiva { border: 2px solid #1f4d36; background: #e3ecda; }
+  .prodotto-testi { display: flex; flex-direction: column; gap: 18px; padding-top: 8px; }
+  .prodotto-testi h1 { margin: 0; }
+  .voto-link { font-size: .92rem; color: #3f4f45 !important; text-decoration: none; }
+  .stelle { color: #b06a10; letter-spacing: 1px; }
+  .prezzo-blocco { display: flex; flex-direction: column; gap: 2px; }
+  .prezzo { font-size: 2rem; }
+  .prezzo-blocco span { font-size: .85rem; color: #4a5a50; }
+  .descr { margin: 0; color: #3f4f45; font-size: 1.02rem; }
+  .acquista { display: flex; flex-wrap: wrap; gap: 10px; }
+  .qta { display: flex; align-items: center; gap: 16px; border: 1px solid #d8cfbd; border-radius: 999px; background: #fff; padding: 0 18px; min-height: 50px; font-weight: 700; }
+  .nbottone.grande { flex: 1 1 220px; min-height: 50px; }
+  .consegna { list-style: none; margin: 0; padding: 14px 16px; background: #fff; border: 1px solid #e6dfd0; border-radius: 14px; display: flex; flex-direction: column; gap: 8px; font-size: .9rem; }
+  .consegna li { display: flex; gap: 10px; align-items: baseline; }
+  .pallino { width: 9px; height: 9px; border-radius: 50%; background: #c9d2c8; flex: none; } .pallino.ok { background: #2f8a4f; } .pallino.no { background: #b3261e; }
+  .preparazione { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; text-align: center; }
+  .preparazione div { background: #eef3ea; border-radius: 14px; padding: 12px 6px; display: flex; flex-direction: column; }
+  .preparazione strong { font-size: 1.2rem; } .preparazione span { font-size: .78rem; color: #3f4f45; }
+  .dettagli { margin-top: 64px; border-top: 1px solid #e6dfd0; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 0 40px; }
+  .dettagli h2 { grid-column: 1 / -1; margin: 40px 0 16px; }
+  .dettagli p { margin: 0; color: #3f4f45; }
+  .dettagli dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; font-size: .9rem; }
+  .dettagli dl div { display: contents; } .dettagli dt { font-weight: 700; } .dettagli dd { margin: 0; color: #3f4f45; }
+  .recensioni { margin-top: 24px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 40px; align-items: start; }
+  .recensioni h2 { margin-top: 20px; }
+  .rec-voto strong { font-size: 2.4rem; margin-right: 6px; }
+  .rec-nota { font-size: .82rem; color: #4a5a50; }
+  .rec-elenco { display: flex; flex-direction: column; gap: 14px; padding-top: 64px; }
+  .rec-elenco article { background: #fff; border: 1px solid #e6dfd0; border-radius: 16px; padding: 18px 22px; }
+  .rec-testa { display: flex; justify-content: space-between; gap: 10px; } .rec-testa span { font-size: .85rem; color: #4a5a50; }
+  .rec-elenco p { margin: 6px 0 0; color: #3f4f45; }
+
+  /* Blog, servizio, 404 */
+  .articolo { max-width: 72ch; }
+  .elenco-blog { line-height: 1.9; }
+  .servizio { padding: 20px 0 40px; }
+  .vuota { text-align: center; padding: 40px 0; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .grande-num { font-family: "Fraunces", Georgia, serif; font-size: 5rem; color: #c9c2b5; margin: 0; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  @media (max-width: 860px) {
+    .eroe, .banner, .prodotto, .cat-corpo, .dettagli, .recensioni { grid-template-columns: 1fr; }
+    .eroe-testo, .banner > div:first-child { padding: 32px 24px; }
+    h2 { margin-top: 48px; } .titolo-riga { margin-top: 48px; } .banner, .newsletter, .dettagli { margin-top: 48px; }
+    .rec-elenco { padding-top: 0; } .filtri { position: static; } .prodotto { gap: 28px; }
+    .eroe-foto { min-height: 220px; }
+    .newsletter { padding: 28px 22px; }
+  }
+</style>

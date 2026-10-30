@@ -2,7 +2,7 @@
 // L'italiano resta agli indirizzi di sempre (/ruoli/), l'inglese sta sotto /en/ (/en/roles/).
 // Qui ci sono: la mappa degli indirizzi tra le due lingue, i testi comuni (menu, footer)
 // e le funzioni per avere ruoli e strumenti nella lingua giusta.
-// L'app (l'azienda finta) per ora è solo in italiano.
+// Anche l'app (l'azienda finta) è bilingue: italiano in /app/, inglese in /en/app/ (stesse pagine, cartella src/pages/[...lang]/app).
 import ruoliIt from "../data/ruoli.json";
 import ruoliEn from "../data/en/ruoli.json";
 import strumentiIt from "../data/strumenti.json";
@@ -22,7 +22,7 @@ export const PAGINE = {
   progetto: { it: "/progetto/", en: "/en/about/" },
   privacy: { it: "/privacy/", en: "/en/privacy/" },
   licenze: { it: "/licenze/", en: "/en/licences/" },
-  app: { it: "/app/", en: "/app/" },
+  app: { it: "/app/", en: "/en/app/" },
 } as const;
 export type Pagina = keyof typeof PAGINE;
 export const link = (lang: Lingua, pagina: Pagina) => PAGINE[pagina][lang];
@@ -38,7 +38,7 @@ export const SLUG_STRUMENTI_EN: Record<string, string> = {
   "engagement-rate": "engagement-rate-calculator",
 };
 export const linkStrumento = (lang: Lingua, id: string) => (lang === "it" ? `/strumenti/${id}/` : `/en/tools/${SLUG_STRUMENTI_EN[id] ?? id}/`);
-export const linkEsercizio = (id: string) => `/app/${id}/esercizio/`; // l'app è solo in italiano
+export const linkEsercizio = (id: string, lang: Lingua = "it") => `${lang === "en" ? "/en" : ""}/app/${id}/esercizio/`;
 
 // Ruoli e strumenti nella lingua scelta: i testi inglesi stanno in src/data/en/ e
 // sostituiscono quelli italiani; numeri, icone e collegamenti restano quelli dei file italiani.
@@ -98,3 +98,14 @@ export const COMUNI = {
 } as const;
 
 export const GITHUB = "https://github.com/QueensleyOgharariese/marketing-mix";
+
+// APP BILINGUE: ogni pagina dell'app esiste due volte, /app/... e /en/app/...
+// getStaticPaths delle pagine dell'app: LINGUE_APP per le pagine semplici, conLingue() per quelle che hanno già parametri.
+export const LINGUE_APP = () => [{ params: { lang: undefined } }, { params: { lang: "en" } }]; // sempre oggetti nuovi: Astro li modifica
+export function conLingue<T extends { params: Record<string, any>; props?: any }>(percorsi: T[]) {
+  return percorsi.flatMap((p) => [{ ...p, params: { ...p.params, lang: undefined } }, { ...p, params: { ...p.params, lang: "en" } }]);
+}
+// Aggiunge /en davanti agli indirizzi dell'app quando la pagina è in inglese
+export const appLink = (lang: Lingua, percorso: string) => (lang === "en" && percorso.startsWith("/app") ? `/en${percorso}` : percorso);
+// Lo stesso indirizzo nell'altra lingua (per il selettore IT / EN dell'app)
+export const altraLinguaApp = (url: URL) => (linguaDa(url) === "en" ? url.pathname.replace(/^\/en/, "") : `/en${url.pathname}`);

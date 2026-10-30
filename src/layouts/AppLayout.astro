@@ -8,6 +8,7 @@ import "@fontsource/figtree/latin-700.css";
 import "@fontsource/gabarito/latin-700.css";
 import "@fontsource/gabarito/latin-800.css";
 import "../styles/global.css";
+import { linguaDa, altraLinguaApp } from "../i18n";
 
 interface Props {
   title: string;
@@ -15,15 +16,23 @@ interface Props {
   indietro?: { etichetta: string; link: string };
 }
 const { title, percorso, indietro } = Astro.props;
+// La lingua arriva dall'indirizzo: /en/app/... è inglese. I link interni /app/... vengono corretti da correggiLink().
+const lang = linguaDa(Astro.url);
+const T = {
+  it: { descr: "Esercizi di marketing nell'azienda finta Cinque Foglie.", logo: "Marketing Mix, torna al sito", dove: "Dove sei", esci: "Esci dall'azienda", lingua: "Lingua", home: "/" },
+  en: { descr: "Marketing exercises inside Cinque Foglie, a practice company.", logo: "Marketing Mix, back to the website", dove: "You are here", esci: "Leave the company", lingua: "Language", home: "/en/" },
+}[lang];
+const altra = altraLinguaApp(Astro.url);
 ---
 <!doctype html>
-<html lang="it">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{`${title} · Marketing Mix`}</title>
     <meta name="robots" content="noindex" />
-    <meta name="description" content="Esercizi di marketing nell'azienda finta Cinque Foglie." />
+    <meta name="description" content={T.descr} />
+    <link rel="alternate" hreflang={lang === "it" ? "en" : "it"} href={altra} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   </head>
   <body class="app">
@@ -32,12 +41,12 @@ const { title, percorso, indietro } = Astro.props;
         {indietro ? (
           <a class="indietro" href={indietro.link}>← {indietro.etichetta}</a>
         ) : (
-          <a class="logo" href="/" aria-label="Marketing Mix, torna al sito">
+          <a class="logo" href={T.home} aria-label={T.logo}>
             <svg width="26" height="27" viewBox="0 0 200 210" aria-hidden="true"><path d="M104 40 C120 10 160 8 172 20 C152 40 126 46 104 40Z" fill="#3a9d5d" /><path d="M100 52 C60 40 22 72 22 122 C22 170 58 202 100 202 C142 202 178 170 178 122 C178 72 140 40 100 52Z" fill="#ff8a3d" /></svg>
             <strong>Marketing Mix</strong>
           </a>
         )}
-        <nav aria-label="Dove sei" class="briciole">
+        <nav aria-label={T.dove} class="briciole">
           {percorso.map((p, i) => (
             <>
               <span class="sep" aria-hidden="true">/</span>
@@ -48,12 +57,18 @@ const { title, percorso, indietro } = Astro.props;
       </div>
       <div class="barra-dx">
         <slot name="barra" />
-        <a class="esci" href="/">Esci dall'azienda</a>
+        <nav class="lingue" aria-label={T.lingua}>
+          <a href={lang === "it" ? undefined : altra} aria-current={lang === "it" ? "true" : undefined} lang="it">IT</a>
+          <a href={lang === "en" ? undefined : altra} aria-current={lang === "en" ? "true" : undefined} lang="en">EN</a>
+        </nav>
+        <a class="esci" href={T.home}>{T.esci}</a>
       </div>
     </header>
     <slot />
     <script>
       import { attivaPannelli } from "../scripts/pannelli";
+      import { correggiLink } from "../scripts/lingua";
+      correggiLink();
       attivaPannelli();
     </script>
   </body>
@@ -84,6 +99,9 @@ const { title, percorso, indietro } = Astro.props;
   .briciole [aria-current] { color: var(--inchiostro); font-weight: 600; }
   .sep { color: #cbbdb2; }
   .esci { font-size: .85rem; font-weight: 700; color: #6b5d55; }
+  .lingue { display: flex; border: 1.5px solid #d1cec8; border-radius: 999px; padding: 2px; }
+  .lingue a { font-size: .75rem; font-weight: 800; padding: 4px 9px; border-radius: 999px; text-decoration: none; color: #55514c; }
+  .lingue a[aria-current] { background: var(--inchiostro); color: #fff; }
   .pannello { background: #fff; border: 1px solid #e3e1dc; border-radius: 16px; }
   .app-titolo { font-family: var(--font-titoli); font-weight: 800; letter-spacing: -0.015em; }
   .tag { display: inline-block; font-size: .7rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--inchiostro); background: #ebeae6; padding: 3px 9px; border-radius: 999px; }

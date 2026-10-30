@@ -1,0 +1,117 @@
+---
+import { LINGUE_APP } from "../../../../../i18n";
+// SIMULAZIONE SOCIAL · COMMENTI E MESSAGGI
+// Commenti ai post e messaggi privati, dal più recente. Su ogni voce: rispondere, nascondere,
+// segnalare come spam, passare a un collega. Durante la crisi (esercizio dei Casi) arrivano i commenti x01-x05.
+// Le risposte restano in questo browser (scripts/social/stato.ts).
+import Console from "../../../../../components/seopro/Console.astro";
+export function getStaticPaths() { return LINGUE_APP(); }
+---
+<Console sim="social" attivo="community" titolo="Commenti e messaggi" ispirato="la casella dei commenti dei social (nome generico, nessun marchio reale)">
+  <div class="sp-schede" role="tablist" data-filtri-com>
+    <button type="button" role="tab" aria-selected="true" data-f="tutti">Tutti</button>
+    <button type="button" role="tab" aria-selected="false" data-f="senza">Senza risposta</button>
+    <button type="button" role="tab" aria-selected="false" data-f="messaggi">Messaggi privati</button>
+    <button type="button" role="tab" aria-selected="false" data-f="nascosti">Nascosti e spam</button>
+  </div>
+  <ul class="com-lista" data-lista-commenti></ul>
+</Console>
+
+<script>
+  import { leggi, salva, commenti } from "../../../../../scripts/social/stato";
+  import POST from "../../../../../data/app/social-sim/post.json";
+  const esc = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  const lista = document.querySelector<HTMLElement>("[data-lista-commenti]")!;
+  const COLLEGHI = ["Assistenza clienti", "Influencer marketing", "Magazzino", "Responsabile qualità"];
+  let filtro = "tutti";
+  let scrivi: string | null = null; // la voce in cui si sta scrivendo una risposta
+  // "25/10, 21:12" -> numero ordinabile
+  const ordine = (q: string) => { const [d, h] = q.split(", "); const [g, mm] = d.split("/"); return `${mm}${g}${h}`; };
+
+  function disegna() {
+    const m = leggi();
+    const voci = commenti(m).sort((a, b) => ordine(b.quando).localeCompare(ordine(a.quando))).filter((c) => {
+      const tolto = m.nascosti.includes(c.id) || m.spam.includes(c.id);
+      if (filtro === "senza") return !m.risposte[c.id] && !tolto;
+      if (filtro === "messaggi") return c.tipo === "messaggio";
+      if (filtro === "nascosti") return tolto;
+      return true;
+    });
+    lista.innerHTML = voci.map((c) => {
+      const post = POST.post.find((p) => p.id === c.post);
+      const nascosto = m.nascosti.includes(c.id), spam = m.spam.includes(c.id);
+      const risposta = m.risposte[c.id];
+      const passato = m.inoltrati[c.id];
+      const badge = [nascosto && '<span class="sp-badge">Nascosto</span>', spam && '<span class="sp-badge no">Spam</span>', risposta && '<span class="sp-badge ok">Risposto</span>', passato && `<span class="sp-badge medio">Passato a ${esc(passato)}</span>`].filter(Boolean).join(" ");
+      return `<li class="com-voce${nascosto || spam ? " tolto" : ""}" data-commento="${c.id}">
+        <div class="com-testa"><strong>${esc(c.autore)}</strong><span class="sp-nota">${c.tipo === "messaggio" ? "Messaggio privato" : `Commento sotto «${esc(post?.titolo ?? "")}»`} · ${c.quando}</span>${badge}</div>
+        <p class="com-testo">${esc(c.testo)}</p>
+        ${risposta && scrivi !== c.id ? `<div class="com-risposta"><strong>Cinque Foglie</strong> <span class="sp-nota">${c.tipo === "messaggio" ? "in privato" : "risposta pubblica"}</span><p>${esc(risposta)}</p></div>` : ""}
+        ${scrivi === c.id ? `<form class="com-form" data-form-risposta>
+            <label class="sp-nota" for="r-${c.id}">${c.tipo === "messaggio" ? "Risposta in privato" : "Risposta pubblica: la vedono tutti"}</label>
+            <textarea id="r-${c.id}" rows="3" name="testo">${esc(risposta ?? "")}</textarea>
+            <div class="com-azioni"><button type="submit" class="bottone-app">Invia</button><button type="button" class="com-bt" data-annulla>Annulla</button></div>
+          </form>` : `<div class="com-azioni">
+            <button type="button" class="com-bt" data-azione="rispondi">${risposta ? "Modifica la risposta" : "Rispondi"}</button>
+            ${c.tipo === "commento" ? `<button type="button" class="com-bt" data-azione="nascondi">${nascosto ? "Mostra di nuovo" : "Nascondi"}</button>` : ""}
+            <button type="button" class="com-bt" data-azione="spam">${spam ? "Non è spam" : "Segnala come spam"}</button>
+            <label class="com-passa">Passa a <select class="sp-scegli" data-azione-passa><option value="">nessuno</option>${COLLEGHI.map((x) => `<option ${passato === x ? "selected" : ""}>${x}</option>`).join("")}</select></label>
+          </div>`}
+      </li>`;
+    }).join("") || '<li class="sp-nota">Nessuna voce in questo filtro.</li>';
+    const f = lista.querySelector<HTMLFormElement>("[data-form-risposta]");
+    if (f) {
+      f.querySelector("textarea")!.focus();
+      f.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const t = String(new FormData(f).get("testo") ?? "").trim();
+        const m2 = leggi(); if (t) m2.risposte[scrivi!] = t; else delete m2.risposte[scrivi!];
+        scrivi = null; salva(m2); disegna();
+      });
+      f.querySelector("[data-annulla]")!.addEventListener("click", () => { scrivi = null; disegna(); });
+    }
+  }
+
+  lista.addEventListener("click", (e) => {
+    const b = (e.target as HTMLElement).closest<HTMLElement>("[data-azione]");
+    if (!b) return;
+    const id = b.closest<HTMLElement>("[data-commento]")!.dataset.commento!;
+    const m = leggi();
+    const alterna = (xs: string[]) => (xs.includes(id) ? xs.filter((x) => x !== id) : [...xs, id]);
+    if (b.dataset.azione === "rispondi") { scrivi = id; disegna(); return; }
+    if (b.dataset.azione === "nascondi") m.nascosti = alterna(m.nascosti);
+    if (b.dataset.azione === "spam") m.spam = alterna(m.spam);
+    salva(m); disegna();
+  });
+  lista.addEventListener("change", (e) => {
+    const s = (e.target as HTMLElement).closest<HTMLSelectElement>("[data-azione-passa]");
+    if (!s) return;
+    const id = s.closest<HTMLElement>("[data-commento]")!.dataset.commento!;
+    const m = leggi(); if (s.value) m.inoltrati[id] = s.value; else delete m.inoltrati[id];
+    salva(m); disegna();
+  });
+  document.querySelectorAll<HTMLButtonElement>("[data-filtri-com] button").forEach((b) => b.addEventListener("click", () => {
+    filtro = b.dataset.f!;
+    document.querySelectorAll("[data-filtri-com] button").forEach((x) => x.setAttribute("aria-selected", String(x === b)));
+    disegna();
+  }));
+  disegna();
+</script>
+
+<style>
+  .com-lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  :global(.com-voce) { background: #fff; border: 1px solid #e3e1dc; border-radius: 14px; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; }
+  :global(.com-voce.tolto) { background: #f8f8f6; }
+  :global(.com-voce.tolto .com-testo) { color: #625e58; }
+  :global(.com-testa) { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: baseline; }
+  :global(.com-testo) { margin: 0; line-height: 1.5; overflow-wrap: anywhere; }
+  :global(.com-risposta) { border-left: 3px solid var(--arancio); padding: 4px 0 4px 12px; font-size: .9rem; }
+  :global(.com-risposta p) { margin: 4px 0 0; overflow-wrap: anywhere; }
+  :global(.com-azioni) { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  :global(.com-bt) { font: inherit; font-weight: 700; font-size: .82rem; padding: 8px 12px; border-radius: 10px; border: 1px solid #d1cec8; background: #fff; cursor: pointer; color: var(--inchiostro); }
+  :global(.com-bt:hover) { border-color: #9d9890; }
+  :global(.com-passa) { display: flex; align-items: center; gap: 6px; font-size: .82rem; font-weight: 700; }
+  :global(.com-passa select) { font-size: .82rem; padding: 6px 8px; }
+  :global(.com-form) { display: flex; flex-direction: column; gap: 8px; }
+  :global(.com-form textarea) { font: inherit; font-size: .9rem; padding: 9px 11px; border: 1px solid #d1cec8; border-radius: 10px; width: 100%; box-sizing: border-box; }
+</style>

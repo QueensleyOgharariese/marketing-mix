@@ -1,0 +1,492 @@
+---
+import { LINGUE_APP } from "../../../../i18n";
+// APP · 3. ESERCIZIO SEO (versione 3): la pagina prodotto del Sencha in 4 parti, tutto a scelte e blocchi (nessun testo da scrivere)
+//   1. Intento di ricerca  2. Titolo a blocchi (misurato in pixel) e descrizione  3. Dati strutturati Product  4. Risposta breve
+// A sinistra richiesta e scheda prodotto, al centro il lavoro, a destra Pesca, gli aiuti e i controlli per parte.
+// Lo script in fondo aggiorna controlli e anteprime mentre lavori e salva tutto nel browser.
+import Lezione from "../../../../components/esercizio/Lezione.astro";
+import Spiega from "../../../../components/esercizio/Spiega.astro";
+import AppLayout from "../../../../layouts/AppLayout.astro";
+import Pesca from "../../../../components/Pesca.astro";
+import Passi from "../../../../components/PassiEsercizio.astro";
+import Guida from "../../../../components/Guida.astro";
+import es from "../../../../data/app/seo-sencha.json";
+import { PARTI, LIMITI } from "../../../../scripts/controlli-seo";
+
+const s = es.scheda;
+
+// Passi della guida iniziale (si apre da sola la prima volta)
+const guida = [
+  { zona: "tutto", titolo: "Il tuo primo esercizio da SEO", testo: "Marta ti ha chiesto di sistemare la pagina del tè Sencha, così le persone la trovano su Google. Lo farai in <strong>4 parti</strong>, in circa 25 minuti. Ti spiego come funziona la pagina." },
+  { zona: "sinistra", titolo: "A sinistra: la richiesta e la scheda", testo: "Qui trovi la richiesta di Marta e la <strong>scheda prodotto</strong> con prezzo, preparazione e spedizione. Usa solo questi dati: niente informazioni inventate." },
+  { zona: "centro", titolo: "Al centro: il tuo lavoro", testo: "Le 4 parti, una sotto l'altra: capire chi cerca cosa, comporre il titolo, scegliere la descrizione e i dati per Google, scegliere la risposta breve. <strong>Non devi scrivere nulla</strong>: clicchi blocchi e scegli tra le proposte. Attenta o attento alle trappole! Le anteprime ti mostrano come appare su Google." },
+  { zona: "destra", titolo: "A destra: Pesca e i controlli", testo: "I controlli diventano <strong>verdi</strong> quando una cosa è fatta bene, e io ti dico cosa sistemare. Se ti blocchi, apri un aiuto: ognuno toglie 5 punti." },
+  { zona: "tutto", titolo: "Si salva da solo", testo: "Il lavoro resta salvato in questo browser, anche se chiudi la pagina. Quando hai finito clicca <strong>Consegna e confronta</strong>: vedrai i punti e la soluzione di un professionista." },
+] as const;
+const voci = [
+  ["Prodotto", s.nome], ["Marca", s.marca], ["Origine", s.origine], ["Formato", s.formato],
+  ["Prezzo", `${s.prezzo} €`], ["Disponibilità", s.disponibilita], ["Preparazione", s.preparazione],
+  ["Gusto", s.gusto], ["Spedizione", s.spedizione], ["Recensioni", s.recensioni],
+];
+export function getStaticPaths() { return LINGUE_APP(); }
+---
+<AppLayout title={es.titolo} indietro={{ etichetta: "Teoria del ruolo", link: "/app/impara/seo/" }} percorso={[{ etichetta: "SEO", link: "/app/impara/seo/" }, { etichetta: es.titolo }]}>
+  <Passi slot="barra" attivo={2} />
+  <div class="layout">
+    <!-- ====== SINISTRA: richiesta e scheda prodotto ====== -->
+    <aside class="sinistra" data-barra="esercizio-dati" data-etichetta="richiesta e dati">
+      <section class="pannello blocco">
+        <span class="mittente"><span class="avatar">{es.richiesta.da}</span><strong>La richiesta di {es.richiesta.nome}</strong></span>
+        <p>{es.richiesta.testo}</p>
+      </section>
+      <section class="pannello blocco" aria-labelledby="t-scheda">
+        <div class="riga"><h2 id="t-scheda" class="sottotitolo">Scheda prodotto</h2><span class="simulati">dati simulati</span></div>
+        <dl class="scheda-prodotto">
+          {voci.map(([k, v]) => (<div><dt>{k}</dt><dd>{v}</dd></div>))}
+        </dl>
+        <p class="nota">Usa solo queste informazioni: niente dati inventati.</p>
+      </section>
+    </aside>
+
+    <!-- ====== CENTRO: il lavoro in 4 parti ====== -->
+    <form id="lavoro" class="centro" novalidate>
+      <header class="intro">
+        <h1 class="app-titolo">Sistema la pagina del Sencha per Google</h1>
+        <p class="nota">4 parti, circa {es.minuti} minuti. Il lavoro si salva da solo in questo browser. <button type="button" class="link-guida" data-apri-guida>Rivedi la guida</button></p>
+        <div class="serp-attuale"><span class="piccolo">Oggi su Google</span><span class="a-url">{es.attuale.url}</span><span class="a-titolo">{es.attuale.titolo}</span><span class="a-desc">{es.attuale.descrizione}</span></div>
+      </header>
+
+      <Lezione lezione={es.lezione} parti={["intento", "titolo", "dati", "risposta"]} />
+
+      <!-- 1. INTENTO -->
+      <section class="pannello parte" id="parte-intento" aria-labelledby="t-1">
+        <div class="parte-testa"><span class="numero">1</span><h2 id="t-1" class="parte-titolo">Capisci chi cerca cosa</h2></div>
+        <Spiega spiega={es.spiega.intento} />
+        <p>Per ogni ricerca scegli cosa vuole fare la persona. Poi scegli la keyword principale della pagina prodotto.</p>
+        <div class="scorri">
+          <table class="intenti">
+            <caption class="sr">Ricerche su Google al mese (numeri inventati) e intento</caption>
+            <thead><tr><th scope="col">Ricerca</th><th scope="col">Al mese</th>{es.intenti.map((i) => <th scope="col" title={i.spiega}>{i.nome}</th>)}<th scope="col">Keyword principale</th></tr></thead>
+            <tbody>
+              {es.ricerche.map((r, n) => (
+                <tr>
+                  <th scope="row">{r.ricerca} {r.attenzione && <span class="attenzione">attenzione</span>}</th>
+                  <td class="num">{r.mese}</td>
+                  {es.intenti.map((i) => (
+                    <td class="scelta-cella"><label><input type="radio" name={`intento-${n}`} value={i.id} data-ricerca={r.ricerca} /><span class="sr">{r.ricerca}: {i.nome}</span></label></td>
+                  ))}
+                  <td class="scelta-cella"><label><input type="radio" name="keyword" value={r.ricerca} /><span class="sr">Keyword principale: {r.ricerca}</span></label></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="legenda">{es.intenti.map((i) => <span><strong>{i.nome}</strong>: {i.spiega.toLowerCase()}</span>)}</p>
+        <p class="attenzione-nota">{es.notaRicerche}</p>
+        <p class="perche"><strong>Perché conta oggi.</strong> {es.perche.intento}</p>
+      </section>
+
+      <!-- 2. TITOLO E DESCRIZIONE -->
+      <section class="pannello parte" id="parte-titolo" aria-labelledby="t-2">
+        <div class="parte-testa"><span class="numero">2</span><h2 id="t-2" class="parte-titolo">Componi il titolo e scegli la descrizione</h2></div>
+        <Spiega spiega={es.spiega.titolo} />
+        <p>Clicca i blocchi nell'ordine in cui vuoi che compaiano. Clicca un blocco del titolo per toglierlo. Non tutti i blocchi sono buoni!</p>
+        <div class="campo">
+          <div class="riga"><span class="etichetta-campo" id="l-titolo">Il tuo titolo (title)</span><span class="conta"><span data-conta="titolo">0 caratteri</span> · <span data-pixel>0 / {LIMITI.titoloPx} px</span></span></div>
+          <div class="titolo-composto" aria-labelledby="l-titolo" aria-live="polite" data-composto><span class="vuoto-titolo">Clicca i blocchi qui sotto per comporre il titolo</span></div>
+          <span class="barra" aria-hidden="true"><span data-barra="titolo"></span></span>
+          <div class="blocchi" role="group" aria-label="Blocchi di testo">
+            {es.blocchi.map((b) => (
+              <button type="button" class="blocco" data-blocco={b.id} aria-pressed="false">{b.testo}</button>
+            ))}
+          </div>
+          <button type="button" class="svuota" data-svuota>Svuota il titolo</button>
+        </div>
+        <fieldset class="opzioni">
+          <legend class="etichetta-campo">Scegli la descrizione (meta description)</legend>
+          {es.descrizioni.map((d) => (
+            <label class="opzione"><input type="radio" name="descrizione" value={d.id} /><span class="opzione-testo">{d.testo}</span><span class="opzione-conta">{d.testo.length} caratteri</span></label>
+          ))}
+        </fieldset>
+        <div class="serp">
+          <span class="piccolo">Anteprima nei risultati</span>
+          <span class="a-url">{es.attuale.url}</span>
+          <span class="a-titolo" data-anteprima="titolo">{es.attuale.titolo}</span>
+          <span class="a-ricco" data-ricco hidden></span>
+          <span class="a-desc" data-anteprima="descrizione">{es.attuale.descrizione}</span>
+        </div>
+        <p class="perche"><strong>Perché conta oggi.</strong> {es.perche.titolo}</p>
+      </section>
+
+      <!-- 3. DATI STRUTTURATI -->
+      <section class="pannello parte" id="parte-dati" aria-labelledby="t-3">
+        <div class="parte-testa"><span class="numero">3</span><h2 id="t-3" class="parte-titolo">Prepara i dati per Google</h2></div>
+        <Spiega spiega={es.spiega.dati} />
+        <p>Scegli i dati strutturati del prodotto guardando la scheda: sono codice che le persone non vedono, ma Google sì.</p>
+        <div class="griglia-campi">
+          <label class="campo">Nome del prodotto
+            <select id="s-nome"><option value="">Scegli…</option><option>Sencha biologico</option><option>Tè verde</option><option>Matcha biologico</option></select>
+          </label>
+          <label class="campo">Marca
+            <select id="s-marca"><option value="">Scegli…</option><option>Cinque Foglie</option><option>Giappone</option><option>Tè verde Sencha</option></select>
+          </label>
+          <label class="campo">Prezzo
+            <select id="s-prezzo"><option value="">Scegli…</option><option>9,90</option><option>12,90</option><option>14,90</option></select>
+          </label>
+          <label class="campo">Valuta
+            <select id="s-valuta"><option value="EUR">EUR (euro)</option><option value="USD">USD (dollaro)</option></select>
+          </label>
+          <label class="campo">Disponibilità
+            <select id="s-disp"><option value="">Scegli…</option><option value="InStock">Disponibile</option><option value="OutOfStock">Esaurito</option><option value="PreOrder">Preordine</option></select>
+          </label>
+          <label class="spunta"><input id="s-stelle" type="checkbox" /><span>Aggiungi le stelle: 4,8 su 5 (120 recensioni)</span></label>
+        </div>
+        <details class="codice">
+          <summary>Guarda il codice che stai creando (JSON-LD)</summary>
+          <pre data-jsonld></pre>
+        </details>
+        <p class="perche"><strong>Perché conta oggi.</strong> {es.perche.dati}</p>
+      </section>
+
+      <!-- 4. RISPOSTA BREVE -->
+      <section class="pannello parte" id="parte-risposta" aria-labelledby="t-4">
+        <div class="parte-testa"><span class="numero">4</span><h2 id="t-4" class="parte-titolo">Scegli la risposta a una domanda</h2></div>
+        <Spiega spiega={es.spiega.risposta} />
+        <p>Molte persone chiedono a Google: <strong>"{es.domanda}"</strong>. Quale risposta breve metteresti sulla pagina?</p>
+        <fieldset class="opzioni">
+          <legend class="sr">Scegli la risposta breve</legend>
+          {es.risposte.map((r) => (
+            <label class="opzione"><input type="radio" name="risposta" value={r.id} /><span class="opzione-testo">{r.testo}</span><span class="opzione-conta">{r.testo.split(/\s+/).length} parole</span></label>
+          ))}
+        </fieldset>
+        <div class="paa">
+          <span class="piccolo">Anteprima · Le persone chiedono anche</span>
+          <div class="paa-riquadro"><strong>{es.domanda}</strong><span data-anteprima="risposta">La risposta che scegli comparirà qui.</span><span class="a-url">{es.attuale.url}</span></div>
+        </div>
+        <p class="perche"><strong>Perché conta oggi.</strong> {es.perche.risposta}</p>
+      </section>
+
+      <div class="consegna">
+        <span class="salvato" data-salvato aria-live="polite"></span>
+        <button type="submit" class="bottone-app">Consegna e confronta →</button>
+      </div>
+    </form>
+
+    <!-- ====== DESTRA: Pesca, controlli per parte, aiuti ====== -->
+    <aside class="destra" data-barra="esercizio-controlli" data-lato="destra" data-etichetta="Pesca e controlli">
+      <div class="pannello blocco">
+        <div class="mittente"><Pesca dimensione={46} occhiali animata={false} /><span><strong>Pesca</strong><span class="nota">Ti do un suggerimento alla volta</span></span></div>
+        <p class="pesca-dice" data-pesca aria-live="polite">Inizia dalla parte 1: per ogni ricerca scegli cosa vuole fare la persona.</p>
+      </div>
+      <div class="pannello blocco">
+        <strong>Controlli automatici</strong>
+        <p class="nota">Ogni controllo mostra cosa hai fatto bene solo quando lo superi.</p>
+        <ul class="parti">
+          {PARTI.map((p, n) => (
+            <li>
+              <a href={`#parte-${p.id}`} class="parte-link"><span>{n + 1}. {p.nome}</span><span class="conteggio" data-conteggio={n}>0/4</span></a>
+              <ul class="controlli">
+                {p.controlli.map((c, k) => (<li data-controllo={n * 4 + k}><span class="segno" aria-hidden="true"></span><span class="nome-controllo">{c}</span><span class="attesa">Da superare</span><span class="sr" data-esito>non ancora</span></li>))}
+              </ul>
+            </li>
+          ))}
+        </ul>
+      </div>
+      {es.aiuti.map((a, i) => (
+        <details class="pannello aiuto" data-aiuto={i}>
+          <summary>Aiuto {i + 1}: {a.titolo} <span class="costo">−5 punti</span></summary>
+          <p>{a.testo}</p>
+        </details>
+      ))}
+      <details class="pannello aiuto">
+        <summary>Glossario</summary>
+        <p>{es.glossario}</p>
+      </details>
+    </aside>
+  </div>
+  <Guida chiave="seo-1" passi={[...guida]} />
+</AppLayout>
+
+<script>
+  import { conLingua } from "../../../../scripts/lingua";
+  import es from "../../../../data/app/seo-sencha.json";
+  import { controlla, jsonLd, pixel, LIMITI, PARTI, type Lavoro } from "../../../../scripts/controlli-seo";
+  import { leggi, aggiornaRuolo } from "../../../../scripts/progressi";
+
+  const $ = <T extends HTMLElement>(sel: string) => document.querySelector<T>(sel)!;
+  // Blocchi del titolo scelti, nell'ordine in cui sono stati cliccati
+  let pezzi: string[] = [];
+  const testoBlocco = (id: string) => es.blocchi.find((b) => b.id === id)?.testo ?? "";
+  const scelto = (nome: string) => document.querySelector<HTMLInputElement>(`input[name="${nome}"]:checked`)?.value ?? "";
+  const testoDi = (lista: { id: string; testo: string }[], id: string) => lista.find((x) => x.id === id)?.testo ?? "";
+  const campi = { nome: $<HTMLSelectElement>("#s-nome"), marca: $<HTMLSelectElement>("#s-marca"), prezzo: $<HTMLSelectElement>("#s-prezzo"), valuta: $<HTMLSelectElement>("#s-valuta"), disponibilita: $<HTMLSelectElement>("#s-disp") };
+  const stelle = $<HTMLInputElement>("#s-stelle");
+  const pesca = $("[data-pesca]");
+  const salvato = $("[data-salvato]");
+
+  // Legge tutto il lavoro dal modulo
+  function lavoro(): Lavoro {
+    const intenti: Record<string, string> = {};
+    document.querySelectorAll<HTMLInputElement>("input[data-ricerca]:checked").forEach((r) => (intenti[r.dataset.ricerca!] = r.value));
+    return {
+      intenti,
+      keyword: document.querySelector<HTMLInputElement>('input[name="keyword"]:checked')?.value ?? "",
+      blocchi: [...pezzi],
+      titolo: pezzi.map(testoBlocco).join(" "),
+      descrizione: testoDi(es.descrizioni, scelto("descrizione")),
+      risposta: testoDi(es.risposte, scelto("risposta")),
+      schema: { nome: campi.nome.value, marca: campi.marca.value, prezzo: campi.prezzo.value, valuta: campi.valuta.value, disponibilita: campi.disponibilita.value, stelle: stelle.checked },
+    };
+  }
+
+  // Rimette nel modulo un lavoro salvato
+  function ripristina(l: Partial<Lavoro>) {
+    Object.entries(l.intenti ?? {}).forEach(([ricerca, valore]) => {
+      document.querySelectorAll<HTMLInputElement>("input[data-ricerca]").forEach((r) => { if (r.dataset.ricerca === ricerca && r.value === valore) r.checked = true; });
+    });
+    if (l.keyword) document.querySelectorAll<HTMLInputElement>('input[name="keyword"]').forEach((r) => (r.checked = r.value === l.keyword));
+    pezzi = (l.blocchi ?? []).filter((id) => es.blocchi.some((b) => b.id === id));
+    const segna = (nome: string, lista: { id: string; testo: string }[], testo?: string) => {
+      const id = lista.find((x) => x.testo === testo)?.id;
+      document.querySelectorAll<HTMLInputElement>(`input[name="${nome}"]`).forEach((r) => (r.checked = r.value === id));
+    };
+    segna("descrizione", es.descrizioni, l.descrizione);
+    segna("risposta", es.risposte, l.risposta);
+    if (l.schema) {
+      campi.nome.value = l.schema.nome; campi.marca.value = l.schema.marca; campi.prezzo.value = l.schema.prezzo;
+      campi.valuta.value = l.schema.valuta; campi.disponibilita.value = l.schema.disponibilita; stelle.checked = l.schema.stelle;
+    }
+  }
+
+  const seo = leggi().ruoli.seo;
+  const ripresa = seo?.bozza ?? seo?.consegna?.lavoro;
+  if (ripresa) ripristina(ripresa as Lavoro);
+
+  // Aiuti aperti: si ricordano e ognuno toglie 5 punti
+  const aiutiAperti = new Set<number>(seo?.aiuti ?? []);
+  document.querySelectorAll<HTMLDetailsElement>("details[data-aiuto]").forEach((d) => {
+    const n = Number(d.dataset.aiuto);
+    if (aiutiAperti.has(n)) d.open = true;
+    d.addEventListener("toggle", () => { if (d.open && !aiutiAperti.has(n)) { aiutiAperti.add(n); aggiornaRuolo("seo", { aiuti: [...aiutiAperti] }); } });
+  });
+
+
+  // Suggerimento di Pesca: il primo controllo non ancora superato
+  const SUGGERIMENTI = [
+    "Parte 1: le ricerche generiche o con \"come\" e \"benefici\" sono per informarsi.",
+    "Parte 1: chi scrive il nome preciso del prodotto vuole scegliere (o comprare).",
+    "Parte 1: \"comprare sencha online\" è chiarissima: la persona vuole comprare.",
+    "Parte 1: per una pagina prodotto scegli una keyword vicina al prodotto, non la più cercata.",
+    "Parte 2: metti nel titolo il blocco con la keyword che hai scelto, meglio all'inizio.",
+    "Parte 2: il titolo deve avere almeno 30 caratteri e stare sotto i 580 pixel: togli i blocchi troppo lunghi.",
+    "Parte 2: chiudi il titolo con il blocco \"| Cinque Foglie\".",
+    "Parte 2: scegli una descrizione tra 70 e 160 caratteri e senza promesse sulla salute.",
+    "Parte 3: scegli nome del prodotto e marca come nella scheda.",
+    "Parte 3: il prezzo deve essere uguale a quello della scheda prodotto.",
+    "Parte 3: controlla valuta e disponibilità nella scheda prodotto.",
+    "Parte 3: niente stelle! La scheda dice che non ci sono recensioni verificate.",
+    "Parte 4: scegli una risposta breve, tra 30 e 70 parole.",
+    "Parte 4: la risposta giusta ha la temperatura dell'acqua della scheda prodotto.",
+    "Parte 4: controlla anche il tempo di infusione nella scheda prodotto.",
+    "Parte 4: attenzione alle promesse sulla salute, sono vietate per gli alimenti.",
+  ];
+
+  function aggiorna() {
+    const l = lavoro();
+    // Contatori e barre
+    const px = pixel(l.titolo.trim());
+    $("[data-conta=titolo]").textContent = `${l.titolo.trim().length} caratteri`;
+    $("[data-pixel]").textContent = `${px} / ${LIMITI.titoloPx} px`;
+    const bt = $("[data-barra=titolo]");
+    bt.style.width = `${Math.min(100, (px / LIMITI.titoloPx) * 100)}%`;
+    bt.style.background = px > LIMITI.titoloPx ? "#c0392b" : l.titolo.trim().length >= LIMITI.titoloMin ? "#2f7a4f" : "#ff7a1a";
+    // Titolo composto: i blocchi scelti, cliccabili per toglierli
+    const composto = $("[data-composto]");
+    composto.innerHTML = "";
+    if (pezzi.length === 0) composto.innerHTML = '<span class="vuoto-titolo">Clicca i blocchi qui sotto per comporre il titolo</span>';
+    pezzi.forEach((id, i) => {
+      const b = document.createElement("button");
+      b.type = "button"; b.className = "pezzo"; b.textContent = testoBlocco(id);
+      b.setAttribute("aria-label", `Togli "${testoBlocco(id)}" dal titolo`);
+      b.addEventListener("click", () => { pezzi.splice(i, 1); salva(); });
+      composto.appendChild(b);
+    });
+    document.querySelectorAll<HTMLButtonElement>("[data-blocco]").forEach((b) => {
+      const usato = pezzi.includes(b.dataset.blocco!);
+      b.setAttribute("aria-pressed", String(usato)); b.disabled = usato;
+    });
+
+    // Anteprime
+    // Google taglia i titoli troppo larghi con "..."
+    let mostrato = l.titolo.trim() || es.attuale.titolo;
+    if (pixel(mostrato) > LIMITI.titoloPx) { while (mostrato.length > 1 && pixel(mostrato + " ...") > LIMITI.titoloPx) mostrato = mostrato.slice(0, -1); mostrato = mostrato.trimEnd() + " ..."; }
+    $("[data-anteprima=titolo]").textContent = mostrato;
+    $("[data-anteprima=descrizione]").textContent = l.descrizione.length > 160 ? l.descrizione.slice(0, 155).trimEnd() + " ..." : (l.descrizione || es.attuale.descrizione);
+    $("[data-anteprima=risposta]").textContent = l.risposta || "La risposta che scegli comparirà qui.";
+    const ricco = $("[data-ricco]");
+    const parti: string[] = [];
+    if (l.schema.stelle) parti.push("★★★★★ 4,8 (120)");
+    if (l.schema.prezzo.trim()) parti.push(`${l.schema.prezzo.trim()} ${l.schema.valuta === "EUR" ? "€" : "$"}`);
+    if (l.schema.disponibilita) parti.push(({ InStock: "Disponibile", OutOfStock: "Esaurito", PreOrder: "Preordine" } as Record<string, string>)[l.schema.disponibilita] ?? "");
+    ricco.hidden = parti.length === 0;
+    ricco.textContent = parti.join(" · ");
+    $("[data-jsonld]").textContent = jsonLd(l, `https://${es.attuale.url.replace(/ › /g, "/")}`);
+
+    // Controlli
+    const esiti = controlla(l, es.ricerche, es.keywordGiuste);
+    esiti.forEach((ok, i) => {
+      const li = $(`[data-controllo="${i}"]`);
+      li.classList.toggle("ok", ok);
+      li.querySelector("[data-esito]")!.textContent = ok ? "superato" : "non ancora";
+    });
+    PARTI.forEach((_, n) => { $(`[data-conteggio="${n}"]`).textContent = `${esiti.slice(n * 4, n * 4 + 4).filter(Boolean).length}/4`; });
+    const primo = esiti.findIndex((ok) => !ok);
+    pesca.textContent = primo === -1 ? "Tutti i controlli sono verdi! Rileggi le tue scelte come farebbe una cliente, poi consegna." : SUGGERIMENTI[primo];
+    return { l, esiti };
+  }
+
+  // Salvataggio automatico a ogni modifica
+  function salva() {
+    const { l } = aggiorna();
+    aggiornaRuolo("seo", { stato: seo?.stato === "completato" ? "completato" : "in-corso", bozza: l });
+    salvato.textContent = "Salvato in questo browser";
+  }
+
+  // Click su un blocco: lo aggiunge in fondo al titolo
+  document.querySelectorAll<HTMLButtonElement>("[data-blocco]").forEach((b) => b.addEventListener("click", () => {
+    if (!pezzi.includes(b.dataset.blocco!)) { pezzi.push(b.dataset.blocco!); salva(); }
+  }));
+  document.querySelector("[data-svuota]")!.addEventListener("click", () => { pezzi = []; salva(); });
+
+  const form = $<HTMLFormElement>("#lavoro");
+  form.addEventListener("input", salva);
+  form.addEventListener("change", salva);
+  aggiorna();
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const { l, esiti } = aggiorna();
+    if (!l.titolo || !l.descrizione || !l.risposta) {
+      pesca.textContent = "Prima di consegnare componi il titolo e scegli descrizione e risposta breve.";
+      document.getElementById(!l.titolo ? "parte-titolo" : !l.descrizione ? "parte-titolo" : "parte-risposta")!.scrollIntoView({ behavior: "smooth" });
+      return;
+    }
+    aggiornaRuolo("seo", { stato: seo?.stato === "completato" ? "completato" : "in-corso", bozza: l, consegna: { lavoro: l, controlli: esiti, data: new Date().toISOString() } });
+    window.location.href = conLingua("/app/seo/correzione/");
+  });
+</script>
+
+<style>
+  .costo { font-weight: 600; color: #55514c; white-space: nowrap; }
+  .controlli li .nome-controllo { display: none; }
+  .controlli li.ok .nome-controllo { display: inline; }
+  .controlli li.ok .attesa { display: none; }
+  .layout { display: grid; grid-template-columns: minmax(260px, 320px) minmax(0, 1fr) minmax(260px, 320px); gap: 18px; padding: 24px; align-items: start; }
+  .sinistra, .destra { position: sticky; top: 84px; display: flex; flex-direction: column; gap: 12px; max-height: calc(100vh - 100px); overflow-y: auto; }
+  .centro { min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+  .blocco { padding: 18px; display: flex; flex-direction: column; gap: 10px; line-height: 1.55; }
+  .mittente { display: flex; align-items: center; gap: 10px; }
+  .mittente > span:last-child { display: flex; flex-direction: column; }
+  .riga { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .sottotitolo { font-family: var(--font-testo); font-size: 1rem; font-weight: 700; }
+  .simulati { font-size: .7rem; font-weight: 700; background: #efeeeb; color: #5f5a55; padding: 3px 8px; border-radius: 999px; }
+  .scheda-prodotto { margin: 0; display: flex; flex-direction: column; font-size: .85rem; }
+  .scheda-prodotto div { display: grid; grid-template-columns: 96px 1fr; gap: 8px; padding: 7px 0; border-bottom: 1px solid #efeeeb; }
+  .scheda-prodotto dt { color: #6f6a64; font-weight: 600; }
+  .scheda-prodotto dd { margin: 0; }
+  .nota { font-size: .8rem; color: #5f5a55; line-height: 1.5; }
+
+  .intro { display: flex; flex-direction: column; gap: 8px; }
+  h1 { font-size: 1.7rem; }
+  .serp-attuale, .serp { border: 1px solid #e3e1dc; border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 3px; background: #fff; }
+  .piccolo { font-size: .7rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #6f6a64; margin-bottom: 4px; }
+  .a-url { font-size: .8rem; color: #3d6b4a; overflow-wrap: anywhere; }
+  .a-titolo { font-family: Arial, sans-serif; font-size: 20px; color: #1f45b8; line-height: 1.3; overflow-wrap: anywhere; }
+  .a-ricco { font-size: .85rem; color: #4a4a4a; }
+  .a-desc { font-size: .9rem; color: #4a4a4a; line-height: 1.45; overflow-wrap: anywhere; }
+
+  .parte { padding: 22px 24px; display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 84px; }
+  .parte > p { line-height: 1.55; }
+  .parte-testa { display: flex; align-items: center; gap: 12px; }
+  .numero { width: 34px; height: 34px; border-radius: 10px; background: #efeeea; color: #8a3a06; display: grid; place-items: center; font-weight: 800; }
+  .parte-titolo { font-family: var(--font-titoli); font-size: 1.35rem; font-weight: 800; }
+  .perche { font-size: .85rem; line-height: 1.55; background: #f4f4f2; border-radius: 12px; padding: 12px 14px; color: #3a2b24; }
+  .scorri { overflow-x: auto; position: relative; }
+  .scelta-cella label { position: relative; display: inline-block; }
+  .intenti { width: 100%; border-collapse: collapse; font-size: .9rem; font-variant-numeric: tabular-nums; }
+  .intenti thead th { font-size: .75rem; color: #6f6a64; font-weight: 700; padding: 8px 6px; border-bottom: 1px solid #e3e1dc; text-align: center; white-space: nowrap; }
+  .intenti thead th:first-child { text-align: left; }
+  .intenti tbody th { text-align: left; font-weight: 600; padding: 10px 6px 10px 0; border-bottom: 1px solid #efeeeb; }
+  .intenti td { border-bottom: 1px solid #efeeeb; padding: 6px; }
+  .num { text-align: right; color: #55514c; }
+  .scelta-cella { text-align: center; }
+  .scelta-cella input { width: 18px; height: 18px; accent-color: var(--arancio); cursor: pointer; }
+  .scelta-cella:last-child { border-left: 1px dashed #e3e1dc; }
+  .attenzione { font-size: .65rem; font-weight: 700; background: #fde8e4; color: #a12d1d; padding: 2px 6px; border-radius: 999px; margin-left: 4px; }
+  .legenda { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: .8rem; color: #55514c; }
+  .attenzione-nota { font-size: .85rem; color: #a12d1d; line-height: 1.5; }
+  .campo { display: flex; flex-direction: column; gap: 6px; font-weight: 700; font-size: .9rem; }
+  .conta { font-size: .8rem; font-weight: 400; color: #5f5a55; font-variant-numeric: tabular-nums; }
+  input[type=text], textarea, select { font: inherit; font-weight: 400; font-size: 1rem; padding: 11px 13px; border: 2px solid #d1cec8; border-radius: 10px; background: #fff; color: var(--inchiostro); resize: vertical; }
+  input[type=text]:focus, textarea:focus, select:focus { outline: none; border-color: var(--arancio); }
+  .barra { height: 6px; background: #e9e8e4; border-radius: 99px; overflow: hidden; }
+  .barra span { display: block; height: 100%; width: 0; background: var(--arancio); transition: width .2s, background .2s; }
+  .link-guida { font: inherit; font-weight: 700; color: var(--inchiostro); background: none; border: 0; padding: 0; text-decoration: underline; cursor: pointer; }
+  .etichetta-campo { font-weight: 700; font-size: .9rem; }
+  .titolo-composto { min-height: 52px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding: 10px 12px; border: 2px dashed #d1cec8; border-radius: 12px; background: #fff; }
+  /* Questi elementi li crea lo script: servono stili :global perché Astro li possa raggiungere */
+  .titolo-composto :global(.vuoto-titolo) { font-weight: 400; color: #a89a90; font-size: .9rem; }
+  .titolo-composto :global(.pezzo) { font: inherit; font-weight: 600; font-size: .95rem; padding: 7px 12px; border-radius: 10px; border: 2px solid var(--arancio); background: #efeeea; color: var(--inchiostro); cursor: pointer; }
+  .titolo-composto :global(.pezzo:hover) { text-decoration: line-through; }
+  .blocchi { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+  .blocco { font: inherit; font-weight: 600; font-size: .9rem; padding: 8px 12px; border-radius: 10px; border: 1px solid #d1cec8; background: #fff; color: var(--inchiostro); cursor: pointer; transition: transform .12s, border-color .12s; }
+  .blocco:hover:not(:disabled) { border-color: var(--arancio); transform: translateY(-1px); }
+  .blocco:disabled { opacity: .35; cursor: default; }
+  .svuota { align-self: flex-start; font: inherit; font-size: .8rem; font-weight: 700; background: none; border: 0; padding: 4px 0; color: #5f5a55; text-decoration: underline; cursor: pointer; }
+  .opzioni { border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .opzioni legend { margin-bottom: 8px; }
+  .opzione { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: start; padding: 12px 14px; border: 1px solid #e3e1dc; border-radius: 12px; background: #fff; cursor: pointer; font-weight: 400; line-height: 1.5; }
+  .opzione:hover { border-color: #d1cec8; background: #f8f8f6; }
+  .opzione:has(input:checked) { border-color: var(--arancio); background: #efeeea; box-shadow: inset 3px 0 0 var(--arancio); }
+  .opzione input { width: 18px; height: 18px; margin-top: 3px; accent-color: var(--arancio); }
+  .opzione-conta { font-size: .75rem; color: #6f6a64; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .griglia-campi { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px 14px; align-items: end; }
+  .spunta { grid-column: 1 / -1; display: flex; gap: 10px; align-items: center; padding: 12px 14px; border: 1px dashed #d1cec8; border-radius: 12px; cursor: pointer; }
+  .spunta input { width: 18px; height: 18px; accent-color: var(--arancio); }
+  .codice summary { font-weight: 700; font-size: .9rem; cursor: pointer; }
+  .codice pre { margin: 10px 0 0; background: #2a1d18; color: #f3e6dd; border-radius: 12px; padding: 14px; font-size: .78rem; line-height: 1.5; overflow-x: auto; }
+  .paa-riquadro { border: 1px solid #e3e1dc; border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; background: #fff; line-height: 1.5; }
+  .consegna { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 12px; padding-bottom: 24px; }
+  .salvato { margin-right: auto; font-size: .85rem; color: #2f7a4f; font-weight: 600; }
+
+  .pesca-dice { background: #efeeea; border-radius: 12px; padding: 12px; font-size: .9rem; }
+  .parti { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+  .parte-link { display: flex; justify-content: space-between; font-weight: 700; font-size: .9rem; text-decoration: none; }
+  .conteggio { font-variant-numeric: tabular-nums; color: #8a3a06; }
+  .controlli { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-direction: column; gap: 5px; font-size: .8rem; }
+  .controlli li { display: flex; align-items: center; gap: 8px; color: #5f5a55; }
+  .segno { flex: none; width: 16px; height: 16px; border-radius: 50%; border: 2px solid #c9c6c0; display: grid; place-items: center; }
+  .controlli li.ok { color: var(--inchiostro); }
+  .controlli li.ok .segno { background: #2f7a4f; border-color: #2f7a4f; }
+  .controlli li.ok .segno::after { content: ""; width: 6px; height: 3px; border-left: 2px solid #fff; border-bottom: 2px solid #fff; transform: rotate(-45deg) translate(1px, -1px); }
+  .aiuto { padding: 14px 16px; }
+  .aiuto summary { font-weight: 700; font-size: .9rem; }
+  .aiuto p { margin-top: 10px; font-size: .9rem; line-height: 1.55; color: #4a3a32; }
+
+  /* Barre chiuse: strisce sottili da 52 px; al centro più spazio per il lavoro */
+  .layout:has(> .sinistra[data-chiuso]) { grid-template-columns: 52px minmax(0, 860px) minmax(250px, 300px); }
+  .layout:has(> .destra[data-chiuso]) { grid-template-columns: minmax(250px, 300px) minmax(0, 860px) 52px; }
+  .layout:has(> .sinistra[data-chiuso]):has(> .destra[data-chiuso]) { grid-template-columns: 52px minmax(0, 960px) 52px; }
+  .sinistra > :global(.chiudi-pannello) { grid-column: 1 / -1; justify-self: end; }
+  @media (max-width: 1200px) {
+    .layout:has(> .sinistra[data-chiuso]) { grid-template-columns: minmax(0, 1fr) minmax(250px, 300px); }
+    .layout:has(> .destra[data-chiuso]), .layout:has(> .sinistra[data-chiuso]):has(> .destra[data-chiuso]) { grid-template-columns: minmax(0, 1fr) 52px; }
+    .sinistra[data-chiuso] > :global(.apri-pannello) { margin: 0; }
+    .layout { grid-template-columns: minmax(0, 1fr) minmax(260px, 320px); }
+    .sinistra { grid-column: 1 / -1; position: static; max-height: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  }
+  @media (max-width: 860px) {
+    .layout { grid-template-columns: minmax(0, 1fr); padding: 16px; }
+    .destra { position: static; max-height: none; }
+  }
+</style>

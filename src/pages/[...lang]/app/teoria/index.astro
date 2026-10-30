@@ -1,0 +1,163 @@
+---
+import { LINGUE_APP } from "../../../../i18n";
+// APP · TEORIA (ingresso degli Hub) — si arriva qui dalla scelta iniziale /app/
+// Presenta l'azienda finta, spiega i tre passi (teoria nell'Hub, prova veloce, pratica nei percorsi)
+// e mostra i 12 ruoli divisi in Hub 1 e Hub 2. Ogni ruolo porta alla sua pagina di teoria (/app/impara/<ruolo>/).
+// Dati in src/data/app/cinque-foglie.json; le teorie pronte sono i file in src/data/app/teoria/.
+import AppLayout from "../../../../layouts/AppLayout.astro";
+import Progresso from "../../../../components/Progresso.astro";
+import Pesca from "../../../../components/Pesca.astro";
+import Icona from "../../../../components/Icona.astro";
+import azienda from "../../../../data/app/cinque-foglie.json";
+const TEORIE = import.meta.glob("../../../../data/app/teoria/*.json", { eager: true }) as Record<string, { default: any }>;
+const pronti = new Set(Object.values(TEORIE).map((t) => t.default.id));
+const HUB = [
+  { n: 1, nome: "Farsi trovare e parlare con i clienti", ruoli: ["seo", "sea", "brand", "social", "influencer", "crm"] },
+  { n: 2, nome: "Prodotto, vendite e dati", ruoli: ["product", "trade", "pr", "partner", "ricerca", "analytics"] },
+];
+const ruolo = (id: string) => azienda.ruoli.find((r) => r.id === id)!;
+export function getStaticPaths() { return LINGUE_APP(); }
+---
+<AppLayout title="Benvenuto in Cinque Foglie" percorso={[{ etichetta: azienda.nome, link: "/app/" }, { etichetta: "Teoria" }]}>
+  <Progresso slot="barra" />
+  <main class="contenuto">
+    <section class="benvenuto">
+      <Pesca dimensione={84} etichetta="Pesca, la tua tutor" />
+      <div class="benvenuto-testi">
+        <span class="tag">Primo giorno</span>
+        <h1 class="app-titolo">Ti diamo il benvenuto in {azienda.nome}</h1>
+        <p>Sono Pesca, la tua tutor. Qui lavori per un'azienda finta. Per ogni ruolo del marketing prima impari la teoria con lezioni brevi, poi la metti alla prova. Scegli il ruolo da cui partire.</p>
+      </div>
+    </section>
+
+    <div class="colonne">
+      <section class="pannello azienda" aria-labelledby="t-azienda">
+        <div class="azienda-testa">
+          <span class="foglia" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2f7a4f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 C4 10 10 4 20 4 C20 14 14 20 4 20 Z" /><path d="M4 20 L13 11" /></svg></span>
+          <div>
+            <div class="azienda-nome"><strong id="t-azienda">{azienda.nome}</strong><span class="simulata">Azienda simulata</span></div>
+            <p>{azienda.descrizione}</p>
+          </div>
+        </div>
+        <dl class="numeri">
+          {azienda.numeri.map((n) => (
+            <div><dt>{n.etichetta}</dt><dd>{n.valore}</dd></div>
+          ))}
+        </dl>
+        <p class="avviso">Tutti i dati di {azienda.nome} sono inventati per gli esercizi.</p>
+        <div class="dettagli">
+          <div>
+            <h2 class="piccolo">Catalogo</h2>
+            <ul class="chip">{azienda.catalogo.map((c) => <li>{c}</li>)}</ul>
+          </div>
+          <div>
+            <h2 class="piccolo">Chi ti scriverà</h2>
+            <ul class="colleghi">
+              {azienda.colleghi.map((c) => (
+                <li><span class="avatar">{c.sigla}</span><span><strong>{c.nome}</strong> · {c.ruolo}</span></li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <aside class="pannello come" aria-labelledby="t-come">
+        <h2 id="t-come" class="app-titolo come-titolo">Come funziona</h2>
+        <ol class="tappe">
+          <li><span class="tappa-n">1</span><span><strong>Teoria</strong>Scheda del ruolo, tre lezioni da dieci minuti con domande dopo ogni concetto, una verifica.</span></li>
+          <li><span class="tappa-n">2</span><span><strong>Prova veloce</strong>Una richiesta di un collega di Cinque Foglie, per vedere che lavoro è.</span></li>
+          <li><span class="tappa-n">3</span><span><strong>Simulazione</strong>Lavori sul sito vero di Cinque Foglie con gli strumenti del mestiere. <a href="/app/simulazioni/">Vedi le simulazioni</a></span></li>
+        </ol>
+        <p class="nota">Per approfondire la teoria ci sono gli articoli del <a href="/blog/">blog</a>.</p>
+      </aside>
+    </div>
+
+    <section id="ruoli" class="hub-tutti" aria-label="I ruoli">
+      {HUB.map((h) => (
+        <section class="hub" aria-labelledby={`t-hub-${h.n}`}>
+          <div class="hub-testa"><span class="hub-n">Hub {h.n}</span><h2 id={`t-hub-${h.n}`} class="app-titolo hub-titolo">{h.nome}</h2></div>
+          <ul class="griglia">
+            {h.ruoli.map((id) => { const r = ruolo(id); return (
+              <li>
+                <a class="ruolo" href={`/app/impara/${r.id}/`} data-ruolo-card={r.id}>
+                  <span class="ruolo-icona"><Icona nome={r.icona} dimensione={18} /></span>
+                  <span class="ruolo-testi"><strong>{r.nome}</strong><span>{r.breve}</span></span>
+                  <span class="ruolo-piede">
+                    {pronti.has(r.id) ? <span class="etichetta pronta" data-avanz>Teoria pronta</span> : <span class="etichetta">Teoria in arrivo</span>}
+                    {r.id === "seo" && <span class="etichetta pratica">Simulazione</span>}
+                  </span>
+                </a>
+              </li>
+            ); })}
+          </ul>
+        </section>
+      ))}
+    </section>
+  </main>
+</AppLayout>
+
+<script>
+  // Sui ruoli con la teoria pronta, quante parti hai già fatto
+  import { leggiTeoria } from "../../../../scripts/quiz";
+  const t = leggiTeoria();
+  document.querySelectorAll<HTMLElement>("[data-ruolo-card]").forEach((a) => {
+    const s = t[a.dataset.ruoloCard!]; const e = a.querySelector("[data-avanz]");
+    if (!s || !e) return;
+    const fatte = Object.values(s.lezioni ?? {}).filter(Boolean).length + (s.verifica?.superata ? 1 : 0);
+    e.textContent = s.verifica?.superata ? "Teoria completata" : `Teoria: ${fatte} di 4`;
+  });
+</script>
+
+<style>
+  .contenuto { max-width: 1160px; margin: 0 auto; padding: 32px 24px 56px; display: flex; flex-direction: column; gap: 22px; }
+  .benvenuto { background: #efeeea; border-radius: 18px; padding: 24px 28px; display: flex; flex-wrap: wrap; gap: 22px; align-items: center; }
+  .benvenuto .tag { align-self: flex-start; }
+  .benvenuto-testi { flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+  h1 { font-size: clamp(1.8rem, 4vw, 2.3rem); line-height: 1.1; }
+  .benvenuto p { line-height: 1.55; color: #55514c; max-width: 62ch; }
+  .colonne { display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-start; }
+  .azienda { flex: 999 1 520px; min-width: 0; padding: 22px; display: flex; flex-direction: column; gap: 18px; }
+  .azienda-testa { display: flex; gap: 14px; align-items: flex-start; }
+  .foglia { flex: none; width: 52px; height: 52px; border-radius: 14px; background: #e8f4ec; display: grid; place-items: center; }
+  .azienda-nome { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 4px; }
+  .azienda-nome strong { font-family: var(--font-titoli); font-size: 1.4rem; }
+  .simulata { font-size: .7rem; font-weight: 700; background: #efeeeb; color: #5f5a55; padding: 3px 8px; border-radius: 999px; }
+  .azienda-testa p { line-height: 1.55; color: #55514c; }
+  .numeri { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
+  .numeri div { background: #f8f8f6; border-radius: 12px; padding: 12px 14px; }
+  .numeri dt { font-size: .75rem; color: #5f5a55; }
+  .numeri dd { margin: 2px 0 0; font-family: var(--font-titoli); font-weight: 800; font-size: 1.5rem; }
+  .avviso { font-size: .8rem; color: #5f5a55; }
+  .dettagli { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+  .piccolo { font-family: var(--font-testo); font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #6f6a64; margin-bottom: 8px; }
+  .chip { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip li { font-size: .85rem; background: #efeeea; padding: 5px 10px; border-radius: 999px; }
+  .colleghi { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .colleghi li { display: flex; align-items: center; gap: 10px; color: #55514c; }
+  .colleghi strong { color: var(--inchiostro); }
+  .come { flex: 1 1 320px; min-width: 0; padding: 22px; display: flex; flex-direction: column; gap: 14px; }
+  .come-titolo { font-size: 1.3rem; }
+  .tappe { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+  .tappe li { display: flex; gap: 12px; align-items: flex-start; line-height: 1.5; font-size: .9rem; color: #55514c; }
+  .tappe strong { display: block; color: var(--inchiostro); font-size: .95rem; }
+  .tappa-n { flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--arancio); display: grid; place-items: center; font-weight: 800; color: var(--inchiostro); }
+  .nota { font-size: .85rem; color: #5f5a55; margin: 0; }
+  .nota a { color: var(--inchiostro); font-weight: 700; }
+  .hub-tutti { display: flex; flex-direction: column; gap: 28px; margin-top: 8px; }
+  .hub { display: flex; flex-direction: column; gap: 14px; }
+  .hub-testa { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .hub-n { font-size: .78rem; font-weight: 800; background: var(--inchiostro); color: #fff; padding: 4px 10px; border-radius: 999px; }
+  .hub-titolo { font-size: 1.3rem; margin: 0; }
+  .griglia { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  @media (max-width: 900px) { .griglia { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .griglia { grid-template-columns: 1fr; } }
+  .ruolo { height: 100%; box-sizing: border-box; display: grid; grid-template-columns: 40px 1fr; gap: 12px; align-items: start; padding: 16px; background: #fff; border: 1px solid #e3e1dc; border-radius: 16px; text-decoration: none; color: var(--inchiostro); transition: border-color .15s, transform .15s; }
+  .ruolo:hover { border-color: var(--arancio); transform: translateY(-2px); color: var(--inchiostro); }
+  .ruolo-icona { width: 40px; height: 40px; border-radius: 12px; background: var(--arancio); display: grid; place-items: center; }
+  .ruolo-testi { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .ruolo-testi span { font-size: .82rem; color: #5f5a55; }
+  .ruolo-piede { grid-column: 2; display: flex; flex-wrap: wrap; gap: 6px; }
+  .etichetta { font-size: .72rem; font-weight: 700; padding: 3px 8px; border-radius: 999px; background: #efeeea; color: #5f5a55; }
+  .etichetta.pronta { background: #e3f3e8; color: #1f5c38; }
+  .etichetta.pratica { background: var(--inchiostro); color: #fff; }
+</style>

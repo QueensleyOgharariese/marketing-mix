@@ -1,0 +1,107 @@
+---
+import { LINGUE_APP } from "../../../../../i18n";
+// SIMULAZIONE SEA · TERMINI DI RICERCA
+// Le frasi che le persone hanno scritto davvero prima di cliccare un annuncio, con la parola chiave che l'ha attivato.
+// Da qui si aggiungono parole chiave negative alla campagna (bottone Escludi): si sceglie quale parte del termine escludere.
+import Console from "../../../../../components/seopro/Console.astro";
+import T from "../../../../../data/app/sea-sim/termini.json";
+import CONTO from "../../../../../data/app/sea-sim/account.json";
+import { num } from "../../../../../scripts/tabella";
+const nomeC = (id: string) => CONTO.campagne.find((c) => c.id === id)?.nome ?? id;
+const KW = [...new Set(T.termini.map((t) => t.keyword))];
+const euro = (x: number) => num(x, 2) + " €";
+export function getStaticPaths() { return LINGUE_APP(); }
+---
+<Console sim="sea" attivo="termini" titolo="Termini di ricerca" sottotitolo="Dal 1 al 28 ottobre 2026" ispirato="il rapporto dei termini di ricerca degli strumenti per gli annunci (nome generico)">
+  <section class="sp-pannello te-neg" data-negative-attuali></section>
+  <section class="sp-pannello te-tab">
+    <div class="te-filtri">
+      <label>Campagna <select class="sp-scegli" data-f-camp><option value="">Tutte</option>{[...new Set(T.termini.map((t) => t.campagna))].map((c) => <option value={c}>{nomeC(c)}</option>)}</select></label>
+      <label>Parola chiave <select class="sp-scegli" data-f-kw><option value="">Tutte</option>{KW.map((k) => <option value={k}>{k}</option>)}</select></label>
+    </div>
+    <div class="sp-scorri">
+      <table data-tabella id="t-termini">
+        <thead><tr><th data-ordina="testo">Termine di ricerca</th><th data-ordina="testo">Parola chiave</th><th data-ordina="testo">Campagna</th>
+          <th class="n" data-ordina="numero">Clic</th><th class="n" data-ordina="numero">Costo</th><th class="n" data-ordina="numero">Conversioni</th><th class="n" data-ordina="numero">Valore</th><th></th></tr></thead>
+        <tbody>
+          {T.termini.filter((t) => t.clic > 0).map((t) => (
+            <tr data-camp={t.campagna} data-kw={t.keyword}>
+              <td><strong>{t.termine}</strong></td><td>{t.keyword}</td><td>{nomeC(t.campagna)}</td>
+              <td class="n">{t.clic}</td><td class="n" data-valore={t.costo}>{euro(t.costo)}</td><td class="n">{t.conversioni}</td><td class="n" data-valore={t.valore}>{euro(t.valore)}</td>
+              <td><button type="button" class="te-escludi" data-escludi={t.termine} data-campagna={t.campagna}>Escludi</button></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="sp-nota">Escludi aggiunge una parola chiave negativa alla campagna di quella riga: puoi tenere solo la parola che indica l'intento sbagliato (per esempio «gratis»).</p>
+  </section>
+  <dialog class="te-dialogo" data-dialogo>
+    <form method="dialog" data-form-escludi>
+      <h2 class="te-tit">Aggiungi una parola chiave negativa</h2>
+      <p class="sp-nota" data-dove></p>
+      <label>Parola o frase da escludere <input name="neg" class="sp-cerca" required /></label>
+      <p class="sp-nota">Più è corta, più ricerche esclude: attenta a non escludere anche quelle che vendono.</p>
+      <div class="te-bottoni"><button type="submit" class="bottone-app" value="ok">Aggiungi</button><button type="button" class="ca-sec" data-chiudi-dialogo>Annulla</button></div>
+    </form>
+  </dialog>
+</Console>
+
+<script>
+  import { leggi, salva } from "../../../../../scripts/sea/stato";
+  import { attivaTabelle } from "../../../../../scripts/tabella";
+  import CONTO from "../../../../../data/app/sea-sim/account.json";
+  const esc = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  const nomeC = (id: string) => CONTO.campagne.find((c) => c.id === id)?.nome ?? id;
+  const box = document.querySelector<HTMLElement>("[data-negative-attuali]")!;
+  const dialogo = document.querySelector<HTMLDialogElement>("[data-dialogo]")!;
+  const form = document.querySelector<HTMLFormElement>("[data-form-escludi]")!;
+  let campagna = "";
+
+  function disegnaNegative() {
+    const m = leggi();
+    const voci = Object.entries(m.negative).filter(([, l]) => l.length);
+    box.innerHTML = `<h2 class="te-tit">Parole chiave negative</h2>` + (voci.length
+      ? voci.map(([c, l]) => `<p><strong>${esc(nomeC(c))}:</strong> ${l.map((n) => `<span class="te-chip">${esc(n)} <button type="button" class="ca-x" data-togli="${esc(c)}|${esc(n)}" aria-label="Togli ${esc(n)}">×</button></span>`).join(" ")}</p>`).join("")
+      : '<p class="sp-nota">Nessuna parola chiave negativa nelle campagne.</p>');
+  }
+  box.addEventListener("click", (e) => {
+    const b = (e.target as HTMLElement).closest<HTMLElement>("[data-togli]"); if (!b) return;
+    const [c, n] = b.dataset.togli!.split("|"); const m = leggi(); m.negative[c] = (m.negative[c] ?? []).filter((x) => x !== n); salva(m); disegnaNegative();
+  });
+  document.querySelector("#t-termini")!.addEventListener("click", (e) => {
+    const b = (e.target as HTMLElement).closest<HTMLElement>("[data-escludi]"); if (!b) return;
+    campagna = b.dataset.campagna!;
+    form.querySelector<HTMLInputElement>("input")!.value = b.dataset.escludi!;
+    form.querySelector("[data-dove]")!.textContent = `Campagna: ${nomeC(campagna)} · termine: «${b.dataset.escludi}»`;
+    dialogo.showModal(); form.querySelector<HTMLInputElement>("input")!.select();
+  });
+  form.addEventListener("submit", () => {
+    const v = form.querySelector<HTMLInputElement>("input")!.value.trim().toLowerCase();
+    if (!v) return;
+    const m = leggi(); const l = m.negative[campagna] ?? []; if (!l.includes(v)) m.negative[campagna] = [...l, v];
+    salva(m); disegnaNegative();
+  });
+  document.querySelector("[data-chiudi-dialogo]")!.addEventListener("click", () => dialogo.close());
+  const fC = document.querySelector<HTMLSelectElement>("[data-f-camp]")!, fK = document.querySelector<HTMLSelectElement>("[data-f-kw]")!;
+  const filtra = () => document.querySelectorAll<HTMLTableRowElement>("#t-termini tbody tr").forEach((r) => { r.hidden = (!!fC.value && r.dataset.camp !== fC.value) || (!!fK.value && r.dataset.kw !== fK.value); });
+  fC.addEventListener("change", filtra); fK.addEventListener("change", filtra);
+  attivaTabelle(); disegnaNegative();
+</script>
+
+<style>
+  .te-tit { font-family: var(--font-titoli); font-size: 1.1rem; font-weight: 800; margin: 0 0 8px; }
+  .te-neg :global(p) { margin: 6px 0; font-size: .88rem; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  :global(.te-chip) { background: #efeeea; border-radius: 999px; padding: 2px 2px 2px 10px; display: inline-flex; align-items: center; gap: 2px; }
+  :global(.ca-x) { border: 0; background: none; font-size: 1.05rem; cursor: pointer; width: 24px; height: 24px; border-radius: 50%; }
+  .te-tab { display: flex; flex-direction: column; gap: 12px; }
+  .te-filtri { display: flex; flex-wrap: wrap; gap: 12px; font-size: .85rem; font-weight: 700; }
+  .te-filtri label { display: flex; align-items: center; gap: 6px; }
+  .te-escludi { font: inherit; font-size: .78rem; font-weight: 700; padding: 5px 10px; border-radius: 8px; border: 1px solid #d1cec8; background: #fff; cursor: pointer; }
+  .te-dialogo { border: 0; border-radius: 16px; padding: 22px; max-width: min(460px, calc(100vw - 32px)); box-shadow: 0 20px 60px rgba(0,0,0,.25); }
+  .te-dialogo::backdrop { background: rgba(20, 18, 16, .45); }
+  .te-dialogo form { display: flex; flex-direction: column; gap: 10px; }
+  .te-dialogo label { display: flex; flex-direction: column; gap: 6px; font-weight: 700; font-size: .86rem; }
+  .te-bottoni { display: flex; gap: 8px; }
+  :global(.ca-sec) { font: inherit; font-weight: 700; font-size: .84rem; padding: 9px 13px; border-radius: 10px; border: 1px solid #d1cec8; background: #fff; cursor: pointer; color: var(--inchiostro); }
+</style>

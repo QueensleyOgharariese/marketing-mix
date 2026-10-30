@@ -1,0 +1,114 @@
+---
+import { LINGUE_APP } from "../../../../i18n";
+// APP · SIMULAZIONI (la pratica)
+// Elenco delle simulazioni disponibili (SEO, SEA, Brand e Social); gli altri ruoli arriveranno uno alla volta.
+// L'avanzamento di ogni simulazione viene letto dal browser (stessi dati della sua panoramica).
+import AppLayout from "../../../../layouts/AppLayout.astro";
+import Progresso from "../../../../components/Progresso.astro";
+import Icona from "../../../../components/Icona.astro";
+import azienda from "../../../../data/app/cinque-foglie.json";
+import seo from "../../../../data/app/seo-pro/missioni.json";
+import social from "../../../../data/app/social-sim/esercizi.json";
+import sea from "../../../../data/app/sea-sim/esercizi.json";
+import brand from "../../../../data/app/brand-sim/esercizi.json";
+
+// Una scheda per simulazione: id del ruolo, link, testo e file degli esercizi
+const SIM = [
+  { id: "seo", nome: "Simulazione SEO", link: "/app/percorsi/seo/", dati: seo, testo: "Le tisane sono sparite da Google, una categoria non viene cliccata, ottobre va male: trovi i problemi negli strumenti e li correggi sul sito." },
+  { id: "sea", nome: "Simulazione SEA", link: "/app/simulazioni/sea/", dati: sea, testo: "Una campagna nuova per il kit matcha, una campagna che spende tanto e vende poco, un annuncio copiato nel posto sbagliato e il budget del Black Friday da dividere." },
+  { id: "brand", nome: "Simulazione Brand", link: "/app/simulazioni/brand/", dati: brand, testo: "Il posizionamento da scrivere, testi fuori tono, un NPS che crolla, una frase «100% sostenibile» da correggere, la strategia 2027 e l'ufficio stampa." },
+  { id: "social", nome: "Simulazione Social", link: "/app/simulazioni/social/", dati: social, testo: "Un post da preparare, commenti da gestire, foto usate senza permesso e una copertura crollata a fine settembre: lavori sul profilo, sul calendario e sui commenti." },
+].map((s) => {
+  const esercizi = s.dati.missioni.filter((m) => m.id !== "tutorial");
+  return { ...s, esercizi, ore: Math.round(esercizi.reduce((t, m) => t + parseInt(m.tempo), 0) / 30) / 2,
+    livelli: s.dati.livelli.filter((l) => l.n > 0).map((l) => ({ ...l, esercizi: s.dati.missioni.filter((m) => m.livello === l.n) })) };
+});
+const altri = azienda.ruoli.filter((r) => !SIM.some((s) => s.id === r.id));
+export function getStaticPaths() { return LINGUE_APP(); }
+---
+<AppLayout title="Simulazioni" percorso={[{ etichetta: azienda.nome, link: "/app/" }, { etichetta: "Simulazioni" }]}>
+  <Progresso slot="barra" />
+  <main class="pagina">
+    <header>
+      <h1 class="app-titolo">Simulazioni</h1>
+      <p>Lavori dentro {azienda.nome} come in un primo impiego: un sito vero, un pannello di gestione, strumenti come quelli del mestiere. Ogni simulazione parte da un tutorial e sale di difficoltà.</p>
+    </header>
+
+    {SIM.map((x) => (
+      <a class="sim" href={x.link}>
+        <div class="sim-testa">
+          <span class="sim-icona" aria-hidden="true"><Icona nome={x.id} dimensione={28} /></span>
+          <div>
+            <span class="occhiello">Disponibile</span>
+            <h2>{x.nome}</h2>
+            <p>{x.testo}</p>
+          </div>
+        </div>
+        <ol class="livelli">
+          {x.livelli.map((l) => (
+            <li><strong>{l.nome}</strong><span>{l.esercizi.map((e) => e.nome).join(" · ")}</span></li>
+          ))}
+        </ol>
+        <div class="sim-piede">
+          <span class="meta">Tutorial + {x.esercizi.length} esercizi · circa {x.ore.toLocaleString("it-IT")} ore · <span data-avanz={x.id}>da iniziare</span></span>
+          <span class="bottone-finto">Entra nella simulazione →</span>
+        </div>
+      </a>
+    ))}
+
+    <section aria-labelledby="t-arrivo">
+      <h2 class="titoletto" id="t-arrivo">In arrivo</h2>
+      <p class="nota">Le prossime simulazioni arrivano una alla volta. Intanto puoi studiare la teoria di questi ruoli.</p>
+      <ul class="arrivo">
+        {altri.map((r) => (
+          <li><a href={`/app/impara/${r.id}/`}><span class="mini-icona" aria-hidden="true"><Icona nome={r.icona} dimensione={16} /></span>{r.nome}<span class="teoria">Teoria →</span></a></li>
+        ))}
+      </ul>
+    </section>
+  </main>
+</AppLayout>
+
+<script>
+  import { motoreSeo } from "../../../../scripts/missioni";
+  import { motoreSocial } from "../../../../scripts/social/missioni-social";
+  import { motoreSea } from "../../../../scripts/sea/missioni-sea";
+  import { motoreBrand } from "../../../../scripts/brand/missioni-brand";
+  for (const [id, mo] of [["seo", motoreSeo], ["sea", motoreSea], ["brand", motoreBrand], ["social", motoreSocial]] as const) {
+    const s = mo.leggiStato();
+    const n = mo.MISSIONI.filter((m) => mo.fatta(s, m)).length;
+    const el = document.querySelector(`[data-avanz="${id}"]`);
+    if (el && (n > 0 || s.missioni.tutorial)) el.textContent = `${n} di ${mo.MISSIONI.length} esercizi fatti`;
+  }
+</script>
+
+<style>
+  .pagina { max-width: 1080px; margin: 0 auto; padding: 36px 24px 64px; display: flex; flex-direction: column; gap: 26px; }
+  header h1 { margin: 0 0 8px; font-size: clamp(1.9rem, 4vw, 2.5rem); }
+  header p { margin: 0; line-height: 1.6; color: #55514c; max-width: 64ch; }
+  .sim { display: flex; flex-direction: column; gap: 20px; background: var(--inchiostro); color: #f1efeb; border-radius: 22px; padding: 30px; text-decoration: none; border: 2px solid var(--inchiostro); transition: border-color .15s, transform .15s; }
+  .sim:hover { color: #f1efeb; border-color: var(--arancio); transform: translateY(-2px); }
+  .sim-testa { display: flex; gap: 18px; align-items: flex-start; }
+  .sim-icona { flex: none; width: 60px; height: 60px; border-radius: 18px; background: var(--arancio); color: var(--inchiostro); display: grid; place-items: center; }
+  .occhiello { font-size: .8rem; font-weight: 800; color: var(--arancio); text-transform: uppercase; letter-spacing: .06em; }
+  .sim h2 { margin: 4px 0 6px; font-family: var(--font-titoli); font-size: 1.7rem; color: #fff; }
+  .sim p { margin: 0; line-height: 1.6; color: #dedad3; max-width: 64ch; }
+  .livelli { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+  .livelli li { background: rgba(255, 255, 255, .07); border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 4px; font-size: .86rem; line-height: 1.5; color: #dedad3; }
+  .livelli strong { color: #fff; font-size: .95rem; }
+  .sim-piede { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .meta { font-size: .88rem; color: #cfcac2; }
+  .bottone-finto { background: var(--arancio); color: var(--inchiostro); font-weight: 800; padding: 12px 18px; border-radius: 10px; }
+  .titoletto { font-family: var(--font-titoli); font-size: 1.35rem; font-weight: 800; margin: 0 0 4px; }
+  .nota { margin: 0 0 14px; color: #625e58; font-size: .9rem; }
+  .arrivo { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; }
+  .arrivo a { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: #fff; border: 1px solid #e3e1dc; border-radius: 14px; text-decoration: none; color: var(--inchiostro); font-weight: 700; font-size: .9rem; }
+  .arrivo a:hover { border-color: var(--arancio); color: var(--inchiostro); }
+  .mini-icona { flex: none; width: 30px; height: 30px; border-radius: 9px; background: #efeeea; display: grid; place-items: center; }
+  .teoria { margin-left: auto; font-size: .78rem; color: #625e58; font-weight: 700; white-space: nowrap; }
+  @media (max-width: 760px) {
+    .pagina { padding: 24px 16px 48px; }
+    .sim { padding: 22px; }
+    .sim-testa { flex-direction: column; }
+    .livelli { grid-template-columns: 1fr; }
+  }
+</style>

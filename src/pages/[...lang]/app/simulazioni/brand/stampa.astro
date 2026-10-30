@@ -1,0 +1,125 @@
+---
+import { LINGUE_APP } from "../../../../../i18n";
+// SIMULAZIONE BRAND · UFFICIO STAMPA
+// Tre schede: Comunicato (da scrivere), Giornalisti (a chi mandarlo), Richieste (domande dei giornalisti).
+// Accanto, i fatti verificati: il calendario dell'avvento e la nota interna sui kit rotti (stampa.json, inventato).
+import Console from "../../../../../components/seopro/Console.astro";
+import ST from "../../../../../data/app/brand-sim/stampa.json";
+export function getStaticPaths() { return LINGUE_APP(); }
+---
+<Console sim="brand" attivo="stampa" titolo="Ufficio stampa" sottotitolo="Comunicati, giornalisti e richieste (persone e testate inventate)">
+  <div class="sp-schede" role="tablist">
+    <button type="button" role="tab" aria-selected="true" data-scheda-st="comunicato">Comunicato</button>
+    <button type="button" role="tab" aria-selected="false" data-scheda-st="giornalisti">Giornalisti</button>
+    <button type="button" role="tab" aria-selected="false" data-scheda-st="richieste">Richieste <span class="sp-badge no">1</span></button>
+  </div>
+
+  <div class="st-corpo">
+    <div class="st-lavoro">
+      <form class="sp-pannello st-form" data-pannello-st="comunicato" data-comunicato>
+        <h2 class="st-tit">Comunicato stampa: calendario dell'avvento</h2>
+        <label>Titolo <input name="titolo" class="sp-cerca" /></label>
+        <label>Sottotitolo <input name="sottotitolo" class="sp-cerca" /></label>
+        <label>Testo <span class="sp-nota">Una riga vuota separa i paragrafi.</span><textarea name="testo" rows="14"></textarea><span class="sp-nota" data-conta-st></span></label>
+        <label>Contatti per la stampa <textarea name="contatti" rows="2"></textarea></label>
+        <div class="st-bottoni"><button type="submit" class="bottone-app">Salva il comunicato</button><span class="sp-nota" data-esito-com></span></div>
+      </form>
+
+      <form class="sp-pannello st-form" data-pannello-st="giornalisti" data-giornalisti hidden>
+        <h2 class="st-tit">A chi mandare il comunicato</h2>
+        <ul class="st-giornalisti">{ST.giornalisti.map((g) => (
+          <li><label><input type="checkbox" name="g" value={g.id} /> <span><strong>{g.nome}</strong> · {g.testata}<br /><span class="sp-nota">Si occupa di: {g.tema}</span>{g.nota && <span class="st-avviso">{g.nota}</span>}</span></label></li>
+        ))}</ul>
+        <div class="st-bottoni"><button type="submit" class="bottone-app">Salva i destinatari</button><span class="sp-nota" data-esito-gio></span></div>
+      </form>
+
+      <div class="sp-pannello" data-pannello-st="richieste" hidden>
+        {ST.richieste.map((r) => (
+          <article class="st-richiesta" data-richiesta={r.id}>
+            <p class="sp-nota"><strong>{r.da}</strong> · {r.testata} · {r.quando}</p>
+            <h2 class="st-tit">{r.oggetto}</h2>
+            <p>{r.testo}</p>
+            <form class="st-form" data-form-risposta={r.id}>
+              <label>La tua risposta <textarea rows="8" name="risposta"></textarea><span class="sp-nota" data-conta-r></span></label>
+              <div class="st-bottoni"><button type="submit" class="bottone-app">Invia la risposta</button><span class="sp-nota" data-esito-r></span></div>
+            </form>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <aside class="st-fatti">
+      <section class="sp-pannello" data-fatti-calendario>
+        <h2 class="st-tit">Fatti sul calendario</h2>
+        <ul>{ST.fattiCalendario.map((f) => <li>{f}</li>)}</ul>
+      </section>
+      <section class="sp-pannello" data-nota-interna>
+        <h2 class="st-tit">Nota interna: kit matcha</h2>
+        <ul>{ST.notaInterna.map((f) => <li>{f}</li>)}</ul>
+      </section>
+    </aside>
+  </div>
+</Console>
+
+<script>
+  import { leggi, salva, contaParole } from "../../../../../scripts/brand/stato";
+  // Schede
+  const schede = document.querySelectorAll<HTMLButtonElement>("[data-scheda-st]");
+  const mostra = (id: string) => {
+    schede.forEach((b) => b.setAttribute("aria-selected", String(b.dataset.schedaSt === id)));
+    document.querySelectorAll<HTMLElement>("[data-pannello-st]").forEach((p) => { p.hidden = p.dataset.pannelloSt !== id; });
+  };
+  schede.forEach((b) => b.addEventListener("click", () => { mostra(b.dataset.schedaSt!); history.replaceState(null, "", `#${b.dataset.schedaSt}`); }));
+  if (["giornalisti", "richieste"].includes(location.hash.slice(1))) mostra(location.hash.slice(1));
+  addEventListener("hashchange", () => { const h = location.hash.slice(1); if (["comunicato", "giornalisti", "richieste"].includes(h)) mostra(h); });
+
+  const m = leggi();
+  // Comunicato
+  const fc = document.querySelector<HTMLFormElement>("[data-comunicato]")!;
+  for (const k of ["titolo", "sottotitolo", "testo", "contatti"] as const) (fc.querySelector(`[name=${k}]`) as HTMLInputElement).value = m.comunicato[k] ?? "";
+  const testoC = fc.querySelector<HTMLTextAreaElement>("[name=testo]")!;
+  const contaC = () => { document.querySelector("[data-conta-st]")!.textContent = `${contaParole(testoC.value)} parole`; };
+  testoC.addEventListener("input", contaC); contaC();
+  fc.addEventListener("submit", (e) => {
+    e.preventDefault(); const d = new FormData(fc), m2 = leggi();
+    m2.comunicato = Object.fromEntries(["titolo", "sottotitolo", "testo", "contatti"].map((k) => [k, String(d.get(k) ?? "").trim()]));
+    salva(m2); document.querySelector("[data-esito-com]")!.textContent = "Comunicato salvato.";
+  });
+  // Giornalisti
+  const fg = document.querySelector<HTMLFormElement>("[data-giornalisti]")!;
+  fg.querySelectorAll<HTMLInputElement>("input").forEach((c) => { c.checked = m.destinatari.includes(c.value); });
+  fg.addEventListener("submit", (e) => {
+    e.preventDefault(); const m2 = leggi(); m2.destinatari = new FormData(fg).getAll("g").map(String);
+    salva(m2); document.querySelector("[data-esito-gio]")!.textContent = `Destinatari salvati: ${m2.destinatari.length}.`;
+  });
+  // Richieste
+  document.querySelectorAll<HTMLFormElement>("[data-form-risposta]").forEach((f) => {
+    const id = f.dataset.formRisposta!, area = f.querySelector("textarea")!;
+    area.value = m.risposte[id] ?? "";
+    const conta = () => { f.querySelector("[data-conta-r]")!.textContent = `${contaParole(area.value)} parole`; };
+    area.addEventListener("input", conta); conta();
+    f.addEventListener("submit", (e) => {
+      e.preventDefault(); const m2 = leggi(); if (area.value.trim()) m2.risposte[id] = area.value.trim(); else delete m2.risposte[id];
+      salva(m2); f.querySelector("[data-esito-r]")!.textContent = "Risposta inviata.";
+    });
+  });
+</script>
+
+<style>
+  .st-corpo { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+  @media (max-width: 1000px) { .st-corpo { grid-template-columns: 1fr; } }
+  .st-lavoro, .st-fatti { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+  .st-tit { font-family: var(--font-titoli); font-size: 1.1rem; font-weight: 800; margin: 0 0 6px; }
+  .st-form { display: flex; flex-direction: column; gap: 12px; }
+  .st-form label { display: flex; flex-direction: column; gap: 5px; font-weight: 700; font-size: .88rem; }
+  .st-form .sp-cerca { min-width: 0; width: 100%; box-sizing: border-box; font-weight: 400; }
+  .st-form textarea { font: inherit; font-weight: 400; font-size: .92rem; padding: 9px 11px; border: 1px solid #d1cec8; border-radius: 10px; width: 100%; box-sizing: border-box; }
+  .st-bottoni { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .st-giornalisti { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .st-giornalisti label { flex-direction: row !important; align-items: flex-start; gap: 10px !important; font-weight: 400 !important; border: 1px solid #e3e1dc; border-radius: 10px; padding: 10px 12px; }
+  .st-giornalisti input { margin-top: 4px; }
+  .st-avviso { display: block; margin-top: 4px; font-size: .8rem; font-weight: 700; color: #7a5200; }
+  .st-richiesta { display: flex; flex-direction: column; gap: 8px; }
+  .st-richiesta p { margin: 0; line-height: 1.55; }
+  .st-fatti ul { margin: 0; padding-left: 18px; font-size: .88rem; line-height: 1.55; display: flex; flex-direction: column; gap: 4px; }
+</style>

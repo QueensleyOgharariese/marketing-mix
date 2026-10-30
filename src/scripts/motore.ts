@@ -43,6 +43,8 @@ export const STRUMENTI: Record<string, Strumento> = {
   stampa: { nome: "Ufficio stampa", link: "/app/simulazioni/brand/stampa/" },
 };
 
+import { conLingua } from "./lingua";
+
 type Config = { dati: { livelli: any[]; missioni: any[] }; chiave: string; ripristina?: (parti: any) => void; base: string; nome: string };
 
 export function creaMotore(conf: Config) {
@@ -72,7 +74,8 @@ export function creaMotore(conf: Config) {
     salvaStato(s);
   }
   // Dove si fa un passo (i passi "testo" si fanno nella guida: si resta nella panoramica degli strumenti)
-  const linkPasso = (p: Passo) => p.vai?.link ?? p.pagina ?? STRUMENTI[p.strumento]?.link ?? `${conf.base}/`;
+  // conLingua: nelle pagine inglesi gli indirizzi diventano /en/app/...
+  const linkPasso = (p: Passo) => conLingua(p.vai?.link ?? p.pagina ?? STRUMENTI[p.strumento]?.link ?? `${conf.base}/`);
   function avvia(id: string) {
     const s = leggiStato();
     const m = TUTTE.find((x) => x.id === id)!;

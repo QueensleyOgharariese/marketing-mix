@@ -1,0 +1,100 @@
+---
+import { LINGUE_APP } from "../../../../../i18n";
+// SIMULAZIONE BRAND · MANUALE DEL BRAND
+// In alto i campi da compilare (payoff e posizionamento), sotto le parti da leggere:
+// missione, valori, tono di voce, logo e colori (da manuale.json, inventato).
+import Console from "../../../../../components/seopro/Console.astro";
+import M from "../../../../../data/app/brand-sim/manuale.json";
+export function getStaticPaths() { return LINGUE_APP(); }
+---
+<Console sim="brand" attivo="manuale" titolo="Manuale del brand" sottotitolo="Chi è Cinque Foglie e come parla">
+  <form class="sp-pannello ma-form" data-payoff>
+    <label for="payoff"><strong>Payoff</strong> <span class="sp-nota">La frase breve che accompagna il nome del brand.</span></label>
+    <div class="ma-riga"><input id="payoff" name="payoff" class="sp-cerca" placeholder="Ancora da scrivere" /><button type="submit" class="bottone-app">Salva</button><span class="sp-nota" data-esito-payoff></span></div>
+  </form>
+
+  <form class="sp-pannello ma-form" data-posizionamento>
+    <h2 class="ma-tit">Posizionamento</h2>
+    <p class="sp-nota">Per [pubblico], Cinque Foglie è [categoria] che [differenza], perché [prova].</p>
+    <label>Per chi <input name="perChi" class="sp-cerca" placeholder="Il pubblico principale" /></label>
+    <label>Che cosa (categoria) <input name="categoria" class="sp-cerca" placeholder="Che cosa è Cinque Foglie" /></label>
+    <label>Cosa ci rende diversi <input name="differenza" class="sp-cerca" placeholder="La differenza rispetto ai concorrenti" /></label>
+    <label>Perché crederci <input name="prova" class="sp-cerca" placeholder="Un fatto che si può verificare" /></label>
+    <div class="ma-riga"><button type="submit" class="bottone-app">Salva il posizionamento</button><span class="sp-nota" data-esito-pos></span></div>
+    <p class="ma-anteprima" data-anteprima-pos></p>
+  </form>
+
+  <section class="sp-pannello">
+    <h2 class="ma-tit">Missione</h2>
+    <p>{M.missione}</p>
+  </section>
+
+  <section class="sp-pannello" data-valori>
+    <h2 class="ma-tit">Valori</h2>
+    <dl class="ma-valori">{M.valori.map((v) => <div><dt>{v.nome}</dt><dd>{v.cosa}</dd></div>)}</dl>
+  </section>
+
+  <section class="sp-pannello" data-tono>
+    <h2 class="ma-tit">Tono di voce</h2>
+    <div class="ma-due">
+      <div><h3>Siamo</h3><ul>{M.tono.siamo.map((x) => <li>{x}</li>)}</ul></div>
+      <div><h3>Non siamo</h3><ul>{M.tono.nonSiamo.map((x) => <li>{x}</li>)}</ul></div>
+    </div>
+    <h3>Regole</h3>
+    <ul>{M.tono.regole.map((x) => <li>{x}</li>)}</ul>
+    <h3>Prima e dopo</h3>
+    <ul class="ma-esempi">{M.tono.esempi.map((e) => <li><span class="ma-prima">{e.prima}</span><span class="ma-dopo">{e.dopo}</span></li>)}</ul>
+  </section>
+
+  <section class="sp-pannello">
+    <h2 class="ma-tit">Logo e colori</h2>
+    <p>{M.logo}</p>
+    <ul class="ma-colori">{M.colori.map((c) => <li><span class="ma-campione" style={`background:${c.hex}`}></span>{c.nome} <code>{c.hex}</code></li>)}</ul>
+  </section>
+</Console>
+
+<script>
+  import { leggi, salva } from "../../../../../scripts/brand/stato";
+  const fP = document.querySelector<HTMLFormElement>("[data-payoff]")!;
+  const fPos = document.querySelector<HTMLFormElement>("[data-posizionamento]")!;
+  const CAMPI = ["perChi", "categoria", "differenza", "prova"] as const;
+  function riempi() {
+    const m = leggi();
+    fP.querySelector<HTMLInputElement>("input")!.value = m.payoff;
+    for (const k of CAMPI) fPos.querySelector<HTMLInputElement>(`[name=${k}]`)!.value = m.posizionamento[k] ?? "";
+    const p = m.posizionamento;
+    document.querySelector("[data-anteprima-pos]")!.textContent = CAMPI.every((k) => p[k]) ? `Per ${p.perChi}, Cinque Foglie è ${p.categoria} che ${p.differenza}, perché ${p.prova}.` : "";
+  }
+  fP.addEventListener("submit", (e) => { e.preventDefault(); const m = leggi(); m.payoff = fP.querySelector<HTMLInputElement>("input")!.value.trim(); salva(m); riempi(); document.querySelector("[data-esito-payoff]")!.textContent = "Salvato."; });
+  fPos.addEventListener("submit", (e) => {
+    e.preventDefault(); const m = leggi(); const d = new FormData(fPos);
+    m.posizionamento = Object.fromEntries(CAMPI.map((k) => [k, String(d.get(k) ?? "").trim()]));
+    salva(m); riempi(); document.querySelector("[data-esito-pos]")!.textContent = "Salvato.";
+  });
+  riempi();
+</script>
+
+<style>
+  .ma-tit { font-family: var(--font-titoli); font-size: 1.15rem; font-weight: 800; margin: 0 0 8px; }
+  .ma-form { display: flex; flex-direction: column; gap: 10px; }
+  .ma-form label { display: flex; flex-direction: column; gap: 5px; font-weight: 700; font-size: .86rem; }
+  .ma-form .sp-cerca { min-width: 0; width: 100%; box-sizing: border-box; font-weight: 400; }
+  .ma-riga { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .ma-riga .sp-cerca { flex: 1 1 260px; width: auto; }
+  .ma-anteprima { margin: 0; font-style: italic; color: #423e39; line-height: 1.5; }
+  .ma-anteprima:empty { display: none; }
+  section p { margin: 0; line-height: 1.6; }
+  .ma-valori { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+  .ma-valori dt { font-weight: 800; } .ma-valori dd { margin: 4px 0 0; font-size: .9rem; color: #423e39; line-height: 1.5; }
+  .ma-due { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+  section h3 { font-size: .9rem; margin: 10px 0 4px; }
+  section ul { margin: 0; padding-left: 20px; line-height: 1.6; font-size: .92rem; }
+  .ma-esempi { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .ma-esempi li { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  @media (max-width: 600px) { .ma-esempi li { grid-template-columns: 1fr; } }
+  .ma-prima { background: #fde8e4; border-radius: 8px; padding: 8px 10px; }
+  .ma-dopo { background: #e3f3e8; border-radius: 8px; padding: 8px 10px; }
+  .ma-colori { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 14px; }
+  .ma-colori li { display: flex; align-items: center; gap: 8px; }
+  .ma-campione { width: 28px; height: 28px; border-radius: 8px; border: 1px solid #d1cec8; }
+</style>

@@ -1,0 +1,246 @@
+---
+import { LINGUE_APP } from "../../../../../i18n";
+// SIMULAZIONE SOCIAL · CALENDARIO E POST (ispirato agli strumenti di programmazione dei social, nome generico)
+// A sinistra le bozze, al centro il mese con i post pubblicati (grigi) e programmati.
+// Una bozza si programma trascinandola su un giorno o scegliendo data e ora nell'editor.
+// Impostazioni di programmazione: l'ora usata quando si programma "in blocco" (problema nascosto: 03:00).
+// Cambiare l'ora predefinita non sposta i post già programmati: vanno spostati uno per uno.
+import Console from "../../../../../components/seopro/Console.astro";
+export function getStaticPaths() { return LINGUE_APP(); }
+---
+<Console sim="social" attivo="calendario" titolo="Calendario e post" ispirato="gli strumenti di programmazione dei social (nome generico, nessun marchio reale)">
+  <section class="sp-pannello cal-imp" data-impostazioni>
+    <div>
+      <h2 class="cal-tit">Impostazioni di programmazione</h2>
+      <p class="sp-nota">Ora usata quando programmi più post in blocco o trascini una bozza senza scegliere l'ora. Ultima modifica alle impostazioni: 21/09/2026 (programmazione in blocco attivata).</p>
+    </div>
+    <form class="cal-ora" data-form-ora>
+      <label>Ora predefinita <input type="time" name="ora" class="sp-scegli" required /></label>
+      <button type="submit" class="bottone-app">Salva</button>
+      <span class="sp-nota" data-ora-esito></span>
+    </form>
+  </section>
+
+  <div class="cal-corpo">
+    <aside class="sp-pannello cal-bozze" data-bozze>
+      <h2 class="cal-tit">Bozze <span class="sp-nota" data-n-bozze></span></h2>
+      <p class="sp-nota">Trascina una bozza su un giorno, oppure cliccala e scegli data e ora.</p>
+      <ul class="cal-lista" data-lista-bozze></ul>
+    </aside>
+    <section class="sp-pannello cal-mese" data-mese>
+      <div class="sp-riga">
+        <button type="button" class="cal-freccia" data-mese-prima aria-label="Mese precedente">‹</button>
+        <h2 class="cal-tit" data-mese-nome>Ottobre 2026</h2>
+        <button type="button" class="cal-freccia" data-mese-dopo aria-label="Mese successivo">›</button>
+      </div>
+      <div class="cal-legenda sp-nota"><span><i class="lg lg-pub"></i>Pubblicato</span><span><i class="lg lg-prog"></i>Programmato</span><span><i class="lg lg-sosp"></i>Sospeso</span><span>Oggi: giovedì 29/10</span></div>
+      <div class="cal-griglia" data-griglia-mese></div>
+    </section>
+  </div>
+
+  <section class="sp-pannello cal-editor" data-editor-post hidden></section>
+</Console>
+
+<script>
+  import { leggi, salva, pubblicati, programmati, bozze, trovaBozza, oraPredefinita, OGGI } from "../../../../../scripts/social/stato";
+  import CAL from "../../../../../data/app/social-sim/calendario.json";
+  const esc = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  const MESI = ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"];
+  const NOME_F: Record<string, string> = { reel: "Reel", carosello: "Carosello", foto: "Foto" };
+  const ORIGINALI = [...CAL.programmati, ...CAL.bozze, CAL.crisi];
+  let mese = 10; // ottobre 2026 (il mese di "oggi")
+  let aperto: string | null = null;
+  const editor = document.querySelector<HTMLElement>("[data-editor-post]")!;
+
+  // Impostazioni
+  const formOra = document.querySelector<HTMLFormElement>("[data-form-ora]")!;
+  const campoOra = formOra.querySelector<HTMLInputElement>("input")!;
+  campoOra.value = oraPredefinita();
+  formOra.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const m = leggi(); m.oraPredefinita = campoOra.value || null; salva(m);
+    document.querySelector("[data-ora-esito]")!.textContent = `Salvata: ${campoOra.value}. I post già programmati non cambiano.`;
+    disegna();
+  });
+
+  // Bozze
+  function disegnaBozze() {
+    const bs = bozze();
+    document.querySelector("[data-n-bozze]")!.textContent = `(${bs.length})`;
+    document.querySelector("[data-lista-bozze]")!.innerHTML = bs.map((b) => `
+      <li><button type="button" class="cal-bozza" draggable="true" data-apri="${b.id}">
+        <strong>${esc(b.titolo)}</strong><span>${NOME_F[b.formato]} · ${esc(b.pilastro)}</span>${b.nota ? `<em>${esc(b.nota)}</em>` : ""}</button></li>`).join("") || '<li class="sp-nota">Nessuna bozza: sono tutte nel calendario.</li>';
+  }
+
+  // Mese: settimane da lunedì a domenica
+  function disegnaMese() {
+    const m = leggi();
+    document.querySelector("[data-mese-nome]")!.textContent = `${MESI[mese - 1]} 2026`;
+    const primo = new Date(2026, mese - 1, 1), giorni = new Date(2026, mese, 0).getDate();
+    const vuoti = (primo.getDay() + 6) % 7;
+    const mm = String(mese).padStart(2, "0");
+    const pub = pubblicati(m).filter((p) => p.data.startsWith(`2026-${mm}`));
+    const prog = programmati(m).filter((p) => p.data?.startsWith(`2026-${mm}`));
+    let html = ["Lun", "Mar", "Mer", "Gio", "Ven", "Sab", "Dom"].map((g) => `<div class="cal-gs">${g}</div>`).join("");
+    html += '<div class="cal-vuoto"></div>'.repeat(vuoti);
+    for (let g = 1; g <= giorni; g++) {
+      const iso = `2026-${mm}-${String(g).padStart(2, "0")}`;
+      const passato = iso < OGGI;
+      const chip = [
+        ...pub.filter((p) => p.data === iso).map((p) => `<span class="chip chip-pub" title="Pubblicato: ${esc(p.titolo)}"><b>${p.ora}</b> ${esc(p.titolo)}</span>`),
+        ...prog.filter((p) => p.data === iso).map((p) => `<button type="button" class="chip chip-prog${p.sospeso ? " chip-sosp" : ""}" data-apri="${p.id}">${p.sospeso ? "Sospeso · " : ""}<b>${p.ora}</b> ${esc(p.titolo)}</button>`),
+      ].join("");
+      html += `<div class="cal-giorno${passato ? " passato" : ""}${iso === OGGI ? " oggi" : ""}" data-giorno="${iso}"><span class="cal-n">${g}</span>${chip}</div>`;
+    }
+    document.querySelector("[data-griglia-mese]")!.innerHTML = html;
+    document.querySelector<HTMLButtonElement>("[data-mese-prima]")!.disabled = mese <= 9;
+    document.querySelector<HTMLButtonElement>("[data-mese-dopo]")!.disabled = mese >= 12;
+  }
+
+  // Editor del post
+  function disegnaEditor() {
+    if (!aperto) { editor.hidden = true; return; }
+    const m = leggi();
+    const b = trovaBozza(aperto, m)!;
+    const orig = ORIGINALI.find((x) => x.id === aperto)!;
+    const inCal = programmati(m).find((p) => p.id === aperto);
+    const ora = inCal?.ora ?? b.ora ?? "";
+    const daBozza = CAL.bozze.some((x) => x.id === aperto);
+    editor.hidden = false;
+    editor.innerHTML = `
+      <div class="d-testa"><div><span class="sp-nota">${daBozza ? (inCal ? "Bozza programmata" : "Bozza") : "Post programmato"} · ${NOME_F[b.formato]} · ${esc(b.pilastro)}</span><h2 class="cal-tit">${esc(b.titolo)}</h2></div><button type="button" class="d-chiudi" data-chiudi>Chiudi</button></div>
+      ${b.nota ? `<p class="sp-nota"><strong>Nota del team:</strong> ${esc(b.nota)}</p>` : ""}
+      ${b.sospeso ? '<p class="d-avviso">Questo post è sospeso: non verrà pubblicato finché non lo riattivi.</p>' : ""}
+      <form class="d-form ed-form" data-form-post>
+        <label>Didascalia<textarea name="didascalia" rows="6">${esc(b.didascalia ?? "")}</textarea>
+          <span class="sp-nota ed-conta" data-conta></span></label>
+        <label>Testo alternativo <span class="sp-nota">(descrive l'immagine o il video per chi non vede)</span><textarea name="alt" rows="3">${esc(b.alt ?? "")}</textarea></label>
+        <label>Link <span class="sp-nota">(per il link in bio o lo sticker)</span><input name="link" type="text" inputmode="url" value="${esc(b.link ?? "")}" placeholder="https://cinquefoglie.example/…" /></label>
+        <div class="ed-quando">
+          <label>Data<input name="data" type="date" min="${OGGI}" max="2026-12-31" value="${inCal?.data ?? ""}" ${daBozza ? "" : "required"} /></label>
+          <label>Ora<input name="ora" type="time" value="${ora}" /></label>
+        </div>
+        <p class="sp-nota">Se lasci vuota l'ora si usa l'ora predefinita (${oraPredefinita(m)}).</p>
+        <div class="d-bottoni">
+          <button type="submit" class="bottone-app">Salva</button>
+          ${inCal && daBozza ? '<button type="button" class="d-sec" data-togli>Togli dal calendario</button>' : ""}
+          ${inCal ? `<button type="button" class="d-sec" data-sospendi>${b.sospeso ? "Riattiva" : "Sospendi"}</button>` : ""}
+          <span class="sp-nota" data-esito-post></span>
+        </div>
+      </form>`;
+    const form = editor.querySelector<HTMLFormElement>("[data-form-post]")!;
+    const did = form.querySelector<HTMLTextAreaElement>("[name=didascalia]")!;
+    const conta = () => {
+      const prima = did.value.trim().split(/(?<=[.!?])\s|\n/)[0] ?? "";
+      editor.querySelector("[data-conta]")!.textContent = `${did.value.length} caratteri · prima frase: ${prima.length} (nel feed se ne vedono circa 125) · hashtag: ${(did.value.match(/#[\p{L}\p{N}_]+/gu) ?? []).length}`;
+    };
+    did.addEventListener("input", conta); conta();
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const f = new FormData(form);
+      const m2 = leggi(); const c = { ...(m2.post[aperto!] ?? {}) };
+      for (const k of ["didascalia", "alt", "link"] as const) {
+        const v = String(f.get(k) ?? ""); if (v !== ((orig as any)[k] ?? "")) c[k] = v; else delete c[k];
+      }
+      const data = String(f.get("data") ?? ""), oraN = String(f.get("ora") ?? "");
+      if (data && data !== (orig as any).data) c.data = data; else if (!data && daBozza) delete c.data; else if (data === (orig as any).data) delete c.data;
+      // l'ora si salva solo se è diversa da quella che il post avrebbe comunque
+      const oraBase = (orig as any).ora ?? oraPredefinita(m2);
+      if (oraN && oraN !== oraBase) c.ora = oraN; else delete c.ora;
+      m2.post[aperto!] = c; salva(m2);
+      if (c.data) mese = Number(c.data.slice(5, 7));
+      disegna();
+      editor.querySelector("[data-esito-post]")!.textContent = "Salvato.";
+    });
+    editor.querySelector("[data-chiudi]")!.addEventListener("click", () => { aperto = null; disegna(); });
+    editor.querySelector("[data-togli]")?.addEventListener("click", () => { const m2 = leggi(); const c = { ...(m2.post[aperto!] ?? {}) }; delete c.data; delete c.ora; m2.post[aperto!] = c; salva(m2); disegna(); });
+    editor.querySelector("[data-sospendi]")?.addEventListener("click", () => { const m2 = leggi(); const c = { ...(m2.post[aperto!] ?? {}) }; if (c.sospeso) delete c.sospeso; else c.sospeso = true; m2.post[aperto!] = c; salva(m2); disegna(); });
+  }
+
+  function disegna() { disegnaBozze(); disegnaMese(); disegnaEditor(); }
+
+  document.addEventListener("click", (e) => {
+    const b = (e.target as HTMLElement).closest<HTMLElement>("[data-apri]");
+    if (!b) return;
+    aperto = b.dataset.apri!; disegna();
+    editor.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+  document.querySelector("[data-mese-prima]")!.addEventListener("click", () => { mese--; disegnaMese(); });
+  document.querySelector("[data-mese-dopo]")!.addEventListener("click", () => { mese++; disegnaMese(); });
+
+  // Trascinare una bozza (o un post programmato) su un giorno = programmarlo quel giorno
+  document.addEventListener("dragstart", (e) => {
+    const b = (e.target as HTMLElement).closest<HTMLElement>("[data-apri]");
+    if (b) e.dataTransfer!.setData("text/plain", b.dataset.apri!);
+  });
+  const griglia = document.querySelector<HTMLElement>("[data-griglia-mese]")!;
+  griglia.addEventListener("dragover", (e) => {
+    const g = (e.target as HTMLElement).closest<HTMLElement>("[data-giorno]");
+    if (g && !g.classList.contains("passato")) { e.preventDefault(); g.classList.add("sopra"); }
+  });
+  griglia.addEventListener("dragleave", (e) => (e.target as HTMLElement).closest("[data-giorno]")?.classList.remove("sopra"));
+  griglia.addEventListener("drop", (e) => {
+    const g = (e.target as HTMLElement).closest<HTMLElement>("[data-giorno]");
+    const id = e.dataTransfer?.getData("text/plain");
+    if (!g || !id || g.classList.contains("passato")) return;
+    e.preventDefault();
+    const m = leggi(); const c = { ...(m.post[id] ?? {}) };
+    const orig = ORIGINALI.find((x) => x.id === id) as any;
+    if (g.dataset.giorno !== orig?.data) c.data = g.dataset.giorno; else delete c.data;
+    m.post[id] = c; salva(m);
+    aperto = id; disegna();
+  });
+  disegna();
+</script>
+
+<style>
+  .cal-tit { font-family: var(--font-titoli); font-size: 1.1rem; font-weight: 800; margin: 0; }
+  .cal-imp { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; }
+  .cal-imp > div { flex: 1 1 320px; display: flex; flex-direction: column; gap: 4px; }
+  .cal-ora { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .cal-ora label { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: .88rem; }
+  .cal-corpo { display: grid; grid-template-columns: 270px minmax(0, 1fr); gap: 20px; align-items: start; }
+  @media (max-width: 1100px) { .cal-corpo { grid-template-columns: 1fr; } .cal-mese { order: -1; } }
+  .cal-bozze { display: flex; flex-direction: column; gap: 10px; }
+  .cal-lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  @media (max-width: 1100px) { .cal-lista { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); } }
+  :global(.cal-bozza) { width: 100%; text-align: left; font: inherit; background: #fff; border: 1px dashed #b9b5ae; border-radius: 10px; padding: 10px 12px; display: flex; flex-direction: column; gap: 3px; cursor: grab; color: var(--inchiostro); }
+  :global(.cal-bozza:hover) { border-color: var(--arancio); }
+  :global(.cal-bozza strong) { font-size: .86rem; line-height: 1.3; }
+  :global(.cal-bozza span) { font-size: .76rem; color: #55514c; }
+  :global(.cal-bozza em) { font-size: .74rem; color: #55514c; }
+  .cal-mese { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+  .cal-freccia { font: inherit; font-size: 1.3rem; width: 38px; height: 38px; border-radius: 10px; border: 1px solid #d1cec8; background: #fff; cursor: pointer; }
+  .cal-freccia:disabled { opacity: .35; cursor: default; }
+  .cal-legenda { display: flex; flex-wrap: wrap; gap: 14px; }
+  .cal-legenda span { display: flex; align-items: center; gap: 5px; }
+  .lg { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+  .lg-pub { background: #e9e8e4; } .lg-prog { background: #fff; border: 2px solid var(--arancio); } .lg-sosp { background: repeating-linear-gradient(45deg, #e9e8e4 0 3px, #fff 3px 6px); border: 1px solid #b9b5ae; }
+  .cal-griglia { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; }
+  :global(.cal-gs) { font-size: .74rem; font-weight: 700; color: #55514c; padding: 4px; }
+  :global(.cal-giorno) { min-height: 96px; border: 1px solid #e3e1dc; border-radius: 8px; padding: 4px; display: flex; flex-direction: column; gap: 3px; min-width: 0; background: #fff; }
+  :global(.cal-giorno.passato) { background: #f8f8f6; }
+  :global(.cal-giorno.oggi) { border: 2px solid var(--inchiostro); }
+  :global(.cal-giorno.sopra) { background: #f1f0ec; border-color: var(--arancio); }
+  :global(.cal-n) { font-size: .74rem; font-weight: 700; color: #55514c; }
+  :global(.chip) { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font: inherit; font-size: .66rem; line-height: 1.25; text-align: left; border-radius: 5px; padding: 3px 5px; overflow: hidden; overflow-wrap: anywhere; max-width: 100%; box-sizing: border-box; }
+  :global(.chip-pub) { background: #e9e8e4; color: #423e39; }
+  :global(.chip-prog) { background: #fff; border: 2px solid var(--arancio); cursor: pointer; color: var(--inchiostro); font-weight: 700; }
+  :global(.chip-sosp) { background: repeating-linear-gradient(45deg, #e9e8e4 0 4px, #fff 4px 8px); border-color: #b9b5ae; color: #55514c; }
+  @media (max-width: 700px) {
+    :global(.cal-giorno) { min-height: 64px; }
+    :global(.chip) { font-size: 0; height: 8px; padding: 0; }
+    :global(.cal-gs) { font-size: .66rem; padding: 2px; }
+  }
+  .cal-editor { display: flex; flex-direction: column; gap: 12px; }
+  :global(.ed-quando) { display: flex; flex-wrap: wrap; gap: 12px; }
+  :global(.ed-quando label) { flex: 1 1 160px; }
+  :global(.ed-conta) { font-weight: 400; }
+  :global(.d-testa) { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+  :global(.d-chiudi), :global(.d-sec) { font: inherit; font-weight: 700; font-size: .85rem; padding: 9px 14px; border-radius: 10px; border: 1px solid #d1cec8; background: #fff; cursor: pointer; color: var(--inchiostro); }
+  :global(.d-avviso) { margin: 0; font-size: .85rem; font-weight: 700; color: #7a5200; background: #fff3d6; padding: 8px 12px; border-radius: 8px; }
+  :global(.d-bottoni) { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  :global(.d-form) { display: flex; flex-direction: column; gap: 12px; }
+  :global(.d-form label) { display: flex; flex-direction: column; gap: 6px; font-weight: 700; font-size: .86rem; }
+  :global(.d-form textarea), :global(.d-form input:not([type=checkbox])) { font: inherit; font-weight: 400; font-size: .9rem; padding: 9px 11px; border: 1px solid #d1cec8; border-radius: 10px; width: 100%; box-sizing: border-box; }
+</style>

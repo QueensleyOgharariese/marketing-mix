@@ -1,0 +1,32 @@
+---
+import { LINGUE_APP } from "../../../../../i18n";
+// SIMULAZIONE SEA · PIANIFICATORE KEYWORD (ispirato ai pianificatori delle parole chiave, nome generico)
+// Idee di parole chiave per il matcha con ricerche al mese, costo per clic previsto, concorrenza e intento.
+import Console from "../../../../../components/seopro/Console.astro";
+import P from "../../../../../data/app/sea-sim/pianificatore.json";
+import { num } from "../../../../../scripts/tabella";
+const euro = (x: number) => num(x, 2) + " €";
+const CLASSE: Record<string, string> = { acquisto: "ok", informativo: "", misto: "medio" };
+export function getStaticPaths() { return LINGUE_APP(); }
+---
+<Console sim="sea" attivo="pianificatore" titolo="Pianificatore keyword" sottotitolo="Idee per il matcha · ricerche medie al mese in Italia" ispirato="i pianificatori delle parole chiave (nome generico, nessun marchio reale)">
+  <section class="sp-pannello pi-tab">
+    <div class="sp-riga"><input class="sp-cerca" type="search" placeholder="Cerca una parola chiave" data-filtra="t-idee" aria-label="Cerca una parola chiave" /></div>
+    <div class="sp-scorri">
+      <table data-tabella id="t-idee">
+        <thead><tr><th data-ordina="testo">Parola chiave</th><th class="n" data-ordina="numero">Ricerche al mese</th><th class="n" data-ordina="numero">CPC previsto (da)</th><th class="n" data-ordina="numero">CPC previsto (a)</th><th data-ordina="testo">Concorrenza</th><th data-ordina="testo">Intento</th></tr></thead>
+        <tbody>{P.idee.map((i) => (
+          <tr><td><strong>{i.testo}</strong></td><td class="n" data-valore={i.volume}>{num(i.volume)}</td><td class="n" data-valore={i.cpcBasso}>{euro(i.cpcBasso)}</td><td class="n" data-valore={i.cpcAlto}>{euro(i.cpcAlto)}</td><td>{i.concorrenza}</td><td><span class={`sp-badge ${CLASSE[i.intento]}`}>{i.intento}</span></td></tr>
+        ))}</tbody>
+      </table>
+    </div>
+    <p class="sp-nota">Intento: «acquisto» = chi cerca vuole comprare; «informativo» = vuole leggere o imparare; «misto» = un po' tutto. Il CPC previsto è un intervallo: il costo vero dipende dall'asta.</p>
+  </section>
+</Console>
+<script>
+  import { attivaTabelle } from "../../../../../scripts/tabella";
+  attivaTabelle();
+</script>
+<style>
+  .pi-tab { display: flex; flex-direction: column; gap: 12px; }
+</style>
