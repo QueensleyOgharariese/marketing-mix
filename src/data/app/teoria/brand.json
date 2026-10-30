@@ -48,8 +48,8 @@
   ],
   "faPerTe": "Fa per te se ti piace curare i dettagli, hai occhio per la coerenza e ti interessa come le persone percepiscono le cose.",
   "blog": {
-   "slug": "che-cose-il-marketing",
-   "titolo": "Che cos'è il marketing e quali ruoli esistono"
+   "slug": "cosa-fa-un-brand-manager",
+   "titolo": "Cosa fa un brand manager"
   }
  },
  "lezioni": [
@@ -71,8 +71,8 @@
       }
      ],
      "blog": {
-      "slug": "che-cose-il-marketing",
-      "titolo": "Che cos'è il marketing e quali ruoli esistono"
+      "slug": "cosa-fa-un-brand-manager",
+      "titolo": "Cosa fa un brand manager"
      }
     },
     {
@@ -95,7 +95,11 @@
        ],
        "spiegazione": "L'identità la decide l'azienda; l'immagine è nella testa delle persone."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "brand-identity",
+      "titolo": "Brand identity: logo, colori e valori"
+     }
     },
     {
      "titolo": "Il posizionamento",
@@ -121,7 +125,11 @@
        ],
        "spiegazione": "Pubblico, bisogno e differenza dai concorrenti."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "posizionamento-di-marca",
+      "titolo": "Il posizionamento di marca"
+     }
     },
     {
      "titolo": "Promessa e valori",
@@ -147,7 +155,11 @@
        ],
        "spiegazione": "Si può dire una cosa precisa e dimostrabile; le frasi vaghe o assolute sono ingannevoli."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "brand-identity",
+      "titolo": "Brand identity: logo, colori e valori"
+     }
     }
    ],
    "riepilogo": [
@@ -253,7 +265,11 @@
        ],
        "spiegazione": "Le versioni previste e lo spazio intorno sono regole del manuale; deformare e ricolorare no."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "brand-identity",
+      "titolo": "Brand identity: logo, colori e valori"
+     }
     },
     {
      "titolo": "Il tono di voce",
@@ -279,7 +295,11 @@
        ],
        "spiegazione": "La prima è gentile, esperta e semplice; la seconda è aggressiva, la terza troppo tecnica."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "tono-di-voce",
+      "titolo": "Tono di voce: cos'è e come si definisce"
+     }
     },
     {
      "titolo": "Il manuale del brand",
@@ -292,7 +312,11 @@
        "risposta": false,
        "spiegazione": "Serve a chiunque produca qualcosa per il brand: testi, foto, video, campagne."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "manuale-del-brand",
+      "titolo": "Il manuale del brand"
+     }
     },
     {
      "titolo": "Coerenza su tutti i canali",
@@ -310,7 +334,11 @@
        ],
        "spiegazione": "In ogni punto il brand deve sembrare lo stesso."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "tono-di-voce",
+      "titolo": "Tono di voce: cos'è e come si definisce"
+     }
     }
    ],
    "riepilogo": [
@@ -408,7 +436,11 @@
        ],
        "spiegazione": "Spontanea = senza suggerimenti; sollecitata = con il nome davanti."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "come-si-misura-un-brand",
+      "titolo": "Come si misura un brand"
+     }
     },
     {
      "titolo": "Cosa pensano le persone",
@@ -434,7 +466,11 @@
        ],
        "spiegazione": "50% promotori − 20% detrattori = 30."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "come-si-misura-un-brand",
+      "titolo": "Come si misura un brand"
+     }
     },
     {
      "titolo": "Proteggere il marchio",
@@ -447,7 +483,11 @@
        "risposta": true,
        "spiegazione": "Il marchio dell'Unione europea vale in tutti gli Stati membri."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "come-proteggere-il-marchio",
+      "titolo": "Come proteggere il marchio"
+     }
     },
     {
      "titolo": "Quando qualcosa va storto",
@@ -465,7 +505,11 @@
        ],
        "spiegazione": "Prima i fatti, poi la risposta, il rimedio e la prevenzione."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "comunicazione-di-crisi",
+      "titolo": "Comunicazione di crisi"
+     }
     }
    ],
    "riepilogo": [

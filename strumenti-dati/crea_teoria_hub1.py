@@ -297,7 +297,49 @@ social = {"_nota": "Teoria del ruolo Social media manager (Hub 1). Generato da s
   vf("Un post di una creator pagata con prodotti gratuiti va segnalato come pubblicità.", True, "È una collaborazione commerciale.")],
  "prova": {"titolo": "Una settimana di post sul matcha", "cosa": "Una richiesta breve di Sara: scegli formati, giorni e testi per una settimana di post.", "link": "/app/social/esercizio/", "minuti": 20}}
 
+# 30/10/2026: articoli del blog per approfondire (solo articoli che esistono davvero: lo script lo controlla).
+# ruolo -> (articolo del ruolo, {titolo del blocco: articolo}). Sostituisce il link generico al marketing.
+import os
+APPROFONDIMENTI = {
+ "social": (("cosa-fa-un-social-media-manager", "Cosa fa un social media manager"), {
+   "A cosa servono i social per un brand": ("cosa-fa-un-social-media-manager", "Cosa fa un social media manager"),
+   "Ogni piattaforma ha il suo pubblico": ("cosa-fa-un-social-media-manager", "Cosa fa un social media manager"),
+   "Organico e a pagamento": ("cosa-fa-un-social-media-manager", "Cosa fa un social media manager"),
+   "Come funziona l'algoritmo": ("come-funziona-l-algoritmo-dei-social", "Come funziona l'algoritmo dei social"),
+   "I pilastri dei contenuti": ("calendario-editoriale-social", "Come fare un calendario editoriale"),
+   "I formati": ("calendario-editoriale-social", "Come fare un calendario editoriale"),
+   "Il calendario editoriale": ("calendario-editoriale-social", "Come fare un calendario editoriale"),
+   "Contenuti degli altri, diritti e accessibilità": ("contenuti-utenti-e-diritti", "Foto dei clienti, musica e testo alternativo"),
+   "Le metriche": ("metriche-social", "Le metriche dei social"),
+   "La community": ("gestire-commenti-e-community", "Gestire commenti e community"),
+   "Le regole: pubblicità, concorsi e privacy": ("regole-pubblicita-e-concorsi-social", "Pubblicità, concorsi e privacy sui social")}),
+ "brand": (("cosa-fa-un-brand-manager", "Cosa fa un brand manager"), {
+   "Il brand non è il logo": ("cosa-fa-un-brand-manager", "Cosa fa un brand manager"),
+   "Identità e immagine": ("brand-identity", "Brand identity: logo, colori e valori"),
+   "Il posizionamento": ("posizionamento-di-marca", "Il posizionamento di marca"),
+   "Promessa e valori": ("brand-identity", "Brand identity: logo, colori e valori"),
+   "L'identità visiva": ("brand-identity", "Brand identity: logo, colori e valori"),
+   "Il tono di voce": ("tono-di-voce", "Tono di voce: cos'è e come si definisce"),
+   "Il manuale del brand": ("manuale-del-brand", "Il manuale del brand"),
+   "Coerenza su tutti i canali": ("tono-di-voce", "Tono di voce: cos'è e come si definisce"),
+   "La notorietà": ("come-si-misura-un-brand", "Come si misura un brand"),
+   "Cosa pensano le persone": ("come-si-misura-un-brand", "Come si misura un brand"),
+   "Proteggere il marchio": ("come-proteggere-il-marchio", "Come proteggere il marchio"),
+   "Quando qualcosa va storto": ("comunicazione-di-crisi", "Comunicazione di crisi")}),
+}
+def collega(r):
+    if r["id"] not in APPROFONDIMENTI: return
+    ruolo, blocchi = APPROFONDIMENTI[r["id"]]
+    for slug, _ in [ruolo, *blocchi.values()]:
+        assert os.path.exists(f"src/content/blog/{slug}.md"), slug  # mai link a un articolo che non c'è
+    r["scheda"]["blog"] = {"slug": ruolo[0], "titolo": ruolo[1]}  # «Fa per te? Approfondisci sul blog» nella scheda del ruolo
+    for l in r["lezioni"]:
+        for b in l["blocchi"]:
+            if b["titolo"] in blocchi:
+                b["blog"] = {"slug": blocchi[b["titolo"]][0], "titolo": blocchi[b["titolo"]][1]}
+
 for r in (sea, brand, social):
+    collega(r)
     # 30/10/2026: la Simulazione Social esiste, quindi il ruolo social ha il campo "pratica"
     if r["id"] == "sea":
         r["pratica"] = {"titolo": "Simulazione SEA", "cosa": "Lavori sull'account pubblicitario di Cinque Foglie: parole chiave, annunci, termini di ricerca, punteggio di qualità e budget del Black Friday.", "link": "/app/simulazioni/sea/"}

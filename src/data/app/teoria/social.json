@@ -48,8 +48,8 @@
   ],
   "faPerTe": "Fa per te se ti piace raccontare con immagini e video, sei curiosa delle persone e ti piace capire dai numeri cosa funziona.",
   "blog": {
-   "slug": "engagement-rate",
-   "titolo": "Engagement rate: cos'è e come si calcola"
+   "slug": "cosa-fa-un-social-media-manager",
+   "titolo": "Cosa fa un social media manager"
   }
  },
  "lezioni": [
@@ -82,7 +82,11 @@
        ],
        "spiegazione": "Prima l'obiettivo, poi il numero giusto da guardare."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "cosa-fa-un-social-media-manager",
+      "titolo": "Cosa fa un social media manager"
+     }
     },
     {
      "titolo": "Ogni piattaforma ha il suo pubblico",
@@ -108,7 +112,11 @@
        ],
        "spiegazione": "Meglio poco e fatto bene, adattando i formati a ogni piattaforma."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "cosa-fa-un-social-media-manager",
+      "titolo": "Cosa fa un social media manager"
+     }
     },
     {
      "titolo": "Organico e a pagamento",
@@ -121,7 +129,11 @@
        "risposta": false,
        "spiegazione": "Lo vede solo una parte: è l'algoritmo a decidere a chi mostrarlo."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "cosa-fa-un-social-media-manager",
+      "titolo": "Cosa fa un social media manager"
+     }
     },
     {
      "titolo": "Come funziona l'algoritmo",
@@ -147,7 +159,11 @@
        ],
        "spiegazione": "Salvataggi, condivisioni, tempo di visione e commenti contano; riempirlo di hashtag no."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "come-funziona-l-algoritmo-dei-social",
+      "titolo": "Come funziona l'algoritmo dei social"
+     }
     }
    ],
    "riepilogo": [
@@ -249,7 +265,11 @@
        ],
        "spiegazione": "Spiega qualcosa al pubblico: è un contenuto educativo."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "calendario-editoriale-social",
+      "titolo": "Come fare un calendario editoriale"
+     }
     },
     {
      "titolo": "I formati",
@@ -275,7 +295,11 @@
        ],
        "spiegazione": "Ogni formato ha un punto di forza."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "calendario-editoriale-social",
+      "titolo": "Come fare un calendario editoriale"
+     }
     },
     {
      "titolo": "Il calendario editoriale",
@@ -293,7 +317,11 @@
        ],
        "spiegazione": "Prima il perché e il quando, poi il cosa e il come."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "calendario-editoriale-social",
+      "titolo": "Come fare un calendario editoriale"
+     }
     },
     {
      "titolo": "Contenuti degli altri, diritti e accessibilità",
@@ -323,7 +351,11 @@
        ],
        "spiegazione": "Un contenuto pubblico non è libero: serve il permesso dell'autrice."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "contenuti-utenti-e-diritti",
+      "titolo": "Foto dei clienti, musica e testo alternativo"
+     }
     }
    ],
    "riepilogo": [
@@ -425,7 +457,11 @@
        ],
        "spiegazione": "Copertura ≤ impressioni; salvataggi = interesse forte."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "metriche-social",
+      "titolo": "Le metriche dei social"
+     }
     },
     {
      "titolo": "L'engagement rate",
@@ -481,7 +517,11 @@
        ],
        "spiegazione": "Le critiche sincere si gestiscono con una risposta rapida, non si cancellano."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "gestire-commenti-e-community",
+      "titolo": "Gestire commenti e community"
+     }
     },
     {
      "titolo": "Le regole: pubblicità, concorsi e privacy",
@@ -513,7 +553,11 @@
        ],
        "spiegazione": "In Italia i concorsi a premio sono regolati per legge."
       }
-     ]
+     ],
+     "blog": {
+      "slug": "regole-pubblicita-e-concorsi-social",
+      "titolo": "Pubblicità, concorsi e privacy sui social"
+     }
     }
    ],
    "riepilogo": [
