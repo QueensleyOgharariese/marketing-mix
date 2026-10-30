@@ -218,7 +218,16 @@ const { pagina } = Astro.props;
           esito.className = "gm-esito no";
           const note = r.sbagliate.map((o) => `<li><strong>${esc(o.testo)}</strong>: ${esc(o.nota)}</li>`).join("");
           const manca = r.mancanti.length && p.tipo === "checkbox" ? "<p>Manca ancora almeno una risposta giusta.</p>" : "";
-          esito.innerHTML = `<strong>Non ancora.</strong>${note ? `<ul>${note}</ul>` : ""}${manca}<p>Riprova. Se ti serve, apri la Teoria.</p>`;
+          const sbagli = Number(btn.dataset.sbagli ?? 0) + 1; btn.dataset.sbagli = String(sbagli);
+          // Dopo due tentativi si può vedere la risposta e andare avanti (gli errori hanno già tolto punti)
+          esito.innerHTML = `<strong>Non ancora.</strong>${note ? `<ul>${note}</ul>` : ""}${manca}<p>Riprova. Se ti serve, apri la Teoria.</p>${sbagli >= 2 ? '<button type="button" class="gm-secondario gm-mostra" data-mostra-risposta>Mostra la risposta</button>' : ""}`;
+          esito.querySelector("[data-mostra-risposta]")?.addEventListener("click", () => {
+            const giuste = p.opzioni.filter((o) => o.giusta);
+            radice.querySelectorAll<HTMLInputElement>("input[name=gm-r]").forEach((x) => { x.checked = giuste.some((o) => o.id === x.value); x.disabled = true; });
+            esito.className = "gm-esito";
+            esito.innerHTML = `<strong>La risposta giusta</strong><p>${giuste.map((o) => `«${esc(o.testo)}»`).join(" e ")}</p><p>${esc(p.perche)}</p>`;
+            fatto();
+          });
         }
         mostraEsito();
         return;
@@ -315,6 +324,8 @@ const { pagina } = Astro.props;
   .gm :global(.gm-esito) { border-radius: 12px; padding: 12px 14px; line-height: 1.55; display: flex; flex-direction: column; gap: 6px; }
   .gm :global(.gm-esito p), .gm :global(.gm-esito ul) { margin: 0; }
   .gm :global(.gm-esito ul) { padding-left: 18px; display: flex; flex-direction: column; gap: 4px; }
+  .gm :global(.gm-esito:not(.ok):not(.no)) { background: #f4f4f2; }
+  .gm :global(.gm-mostra) { align-self: flex-start; margin-top: 4px; }
   .gm :global(.gm-esito.ok) { background: #e3f3e8; color: #173f27; }
   .gm :global(.gm-esito.no) { background: #fde8e4; color: #6e1c11; }
   .gm :global(.gm-controlli) { list-style: none; margin: 4px 0; padding: 0 !important; display: flex; flex-direction: column; gap: 6px; }

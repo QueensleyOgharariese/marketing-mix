@@ -8,7 +8,9 @@
 .q-opz input { margin-top: 2px; width: 18px; height: 18px; accent-color: var(--arancio); flex: none; }
 .q-vf { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .q-lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
-.q-ord { display: grid; grid-template-columns: 28px 1fr auto; gap: 10px; align-items: center; padding: 9px 10px 9px 12px; border: 1.5px solid #e3e1dc; border-radius: 12px; background: #fff; font-size: .93rem; line-height: 1.4; }
+.q-ord { position: relative; display: grid; grid-template-columns: 18px 28px 1fr auto; cursor: grab; user-select: none; transition: transform .15s ease; gap: 10px; align-items: center; padding: 9px 10px 9px 12px; border: 1.5px solid #e3e1dc; border-radius: 12px; background: #fff; font-size: .93rem; line-height: 1.4; }
+.q-ord.trascina { z-index: 2; transition: none; cursor: grabbing; border-color: var(--arancio); box-shadow: 0 8px 20px rgba(42, 29, 24, .18); }
+.q-maniglia { color: #8a857e; font-size: 1.1rem; line-height: 1; touch-action: none; cursor: grab; text-align: center; }
 .q-num { width: 26px; height: 26px; border-radius: 50%; background: #e9e8e4; display: grid; place-items: center; font-weight: 800; font-size: .8rem; }
 .q-frecce { display: flex; gap: 4px; }
 .q-frecce button { width: 34px; height: 34px; border-radius: 8px; border: 1px solid #d1cec8; background: #fff; font: inherit; font-weight: 800; cursor: pointer; color: var(--inchiostro); }
@@ -21,6 +23,7 @@
 .q-esito p { margin: 0; }
 .q-esito.ok { background: #e3f3e8; color: #173f27; }
 .q-esito.no { background: #fde8e4; color: #6e1c11; }
+.q-esito .q-soluzione { align-self: flex-start; margin-top: 4px; font: inherit; font-weight: 700; font-size: .85rem; padding: 8px 12px; border-radius: 8px; border: 1px solid currentColor; background: #fff; color: inherit; cursor: pointer; }
 .q-esito.vuoto { background: #f4f4f2; color: #423e39; }
 .q-blocco[data-risolta] .q-opz, .q-blocco[data-risolta] .q-ord, .q-blocco[data-risolta] .q-coppia { opacity: .85; }
 @media (max-width: 560px) { .q-coppia { grid-template-columns: 1fr; gap: 6px; } }

@@ -2,6 +2,7 @@
 // HUB · LEZIONE DI TEORIA (e verifica del ruolo)
 // Lezione: un blocco alla volta (concetto + esempio su Cinque Foglie + 1-2 domande), poi riepilogo e 3 domande finali.
 // Si va avanti quando le domande del blocco sono giuste; se sbagli vedi la spiegazione e riprovi (è teoria: niente punti).
+// Dopo due tentativi sbagliati compare "Vedi la soluzione", che mostra la risposta e sblocca Avanti.
 // Verifica: 8 domande una alla volta, senza correzione immediata; alla fine il risultato e le spiegazioni.
 // Con almeno 6 risposte giuste la teoria del ruolo è completata. "Approfondisci sul blog" porta agli articoli del blog.
 import AppLayout from "../../../../layouts/AppLayout.astro";
@@ -68,7 +69,7 @@ const dati = { ruolo: t.id, lezione: verifica ? "verifica" : lezione.id, verific
 </AppLayout>
 
 <script>
-  import { disegnaDomanda, salvaTeoria, type Domanda } from "../../../../scripts/quiz";
+  import { disegnaDomanda, salvaTeoria, soluzione, type Domanda } from "../../../../scripts/quiz";
   const D = JSON.parse(document.getElementById("dati-lezione")!.textContent!);
   const esc = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   const box = document.querySelector<HTMLElement>("[data-passo]")!;
@@ -99,12 +100,23 @@ const dati = { ruolo: t.id, lezione: verifica ? "verifica" : lezione.id, verific
     const esito = div.querySelector<HTMLElement>("[data-esito-q]")!;
     const mostraGiusta = () => { div.dataset.risolta = "si"; esito.hidden = false; esito.className = "q-esito ok"; esito.innerHTML = `<strong>Giusto.</strong><p>${esc(d.spiegazione)}</p>`; };
     if (giaRisolta) mostraGiusta();
+    let sbagli = 0, contata = giaRisolta; // contata: la domanda vale una sola volta per sbloccare Avanti
+    const risolta = () => { if (!contata) { contata = true; quandoGiusta(); } };
     div.querySelector("[data-controlla-q]")!.addEventListener("click", () => {
       const r = valuta();
       esito.hidden = false;
       if (r === null) { esito.className = "q-esito vuoto"; esito.innerHTML = "<p>Rispondi prima di controllare.</p>"; return; }
-      if (r) { mostraGiusta(); quandoGiusta(); }
-      else { esito.className = "q-esito no"; esito.innerHTML = `<strong>Non ancora.</strong><p>${esc(d.spiegazione)}</p><p>Correggi e premi di nuovo Controlla.</p>`; }
+      if (r) { mostraGiusta(); risolta(); return; }
+      sbagli++;
+      esito.className = "q-esito no";
+      // Dopo due tentativi si può vedere la soluzione e andare avanti: non si resta mai bloccati
+      esito.innerHTML = `<strong>Non ancora.</strong><p>${esc(d.spiegazione)}</p><p>Correggi e premi di nuovo Controlla.</p>${sbagli >= 2 ? '<button type="button" class="q-soluzione" data-soluzione>Vedi la soluzione</button>' : ""}`;
+      esito.querySelector("[data-soluzione]")?.addEventListener("click", () => {
+        div.dataset.risolta = "si";
+        esito.className = "q-esito vuoto";
+        esito.innerHTML = `<strong>La risposta giusta</strong><p>${esc(soluzione(d))}</p><p>${esc(d.spiegazione)}</p>`;
+        risolta();
+      });
     });
   }
 
@@ -126,7 +138,7 @@ const dati = { ruolo: t.id, lezione: verifica ? "verifica" : lezione.id, verific
     const cont = box.querySelector<HTMLElement>(".domande")!;
     let giuste = 0;
     const gia = risolti.has(passo);
-    domande.forEach((d) => domandaConControllo(cont, d, gia, () => { giuste++; if (giuste === domande.length) { risolti.add(passo); sblocca(); } }));
+    domande.forEach((d) => domandaConControllo(cont, d, gia, () => { giuste++; if (giuste >= domande.length) { risolti.add(passo); sblocca(); } }));
     sblocca();
   }
   function sblocca() {

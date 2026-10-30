@@ -43,22 +43,59 @@ export function disegnaDomanda(box: HTMLElement, d: Domanda): () => boolean | nu
     };
   }
   if (d.tipo === "ordina") {
-    // Si sposta ogni voce con i bottoni su e giù (funziona anche da tastiera e da telefono)
+    // Si trascina ogni voce nella posizione giusta (mouse o dito sulla maniglia ⠿).
+    // Restano anche le frecce su e giù, per chi usa la tastiera.
     let ordine = mescola(d.voci);
     if (ordine.every((v, i) => v === d.voci[i])) ordine = [...d.voci].reverse();
+    box.innerHTML = `<fieldset class="q">${titolo}<p class="q-nota">Trascina le voci nell'ordine giusto, dalla prima all'ultima (oppure usa le frecce).</p><ol class="q-lista" data-lista></ol></fieldset>`;
+    const lista = box.querySelector<HTMLElement>("[data-lista]")!;
     const disegna = () => {
-      box.querySelector("[data-lista]")!.innerHTML = ordine.map((v, i) => `<li class="q-ord"><span class="q-num">${i + 1}</span><span class="q-voce">${esc(v)}</span>
+      lista.innerHTML = ordine.map((v, i) => `<li class="q-ord"><span class="q-maniglia" aria-hidden="true">⠿</span><span class="q-num">${i + 1}</span><span class="q-voce">${esc(v)}</span>
         <span class="q-frecce"><button type="button" data-su="${i}" aria-label="Sposta su" ${i === 0 ? "disabled" : ""}>↑</button><button type="button" data-giu="${i}" aria-label="Sposta giù" ${i === ordine.length - 1 ? "disabled" : ""}>↓</button></span></li>`).join("");
     };
-    box.innerHTML = `<fieldset class="q">${titolo}<p class="q-nota">Usa le frecce per mettere le voci nell'ordine giusto, dalla prima all'ultima.</p><ol class="q-lista" data-lista></ol></fieldset>`;
     disegna();
-    box.addEventListener("click", (e) => {
+    lista.addEventListener("click", (e) => {
       const b = (e.target as HTMLElement).closest<HTMLButtonElement>("[data-su], [data-giu]");
       if (!b || b.disabled) return;
       const i = Number(b.dataset.su ?? b.dataset.giu); const j = b.dataset.su !== undefined ? i - 1 : i + 1;
       [ordine[i], ordine[j]] = [ordine[j], ordine[i]];
       disegna();
-      box.querySelector<HTMLButtonElement>(`[data-${b.dataset.su !== undefined ? "su" : "giu"}="${j}"]`)?.focus();
+      lista.querySelector<HTMLButtonElement>(`[data-${b.dataset.su !== undefined ? "su" : "giu"}="${j}"]`)?.focus();
+    });
+    // Trascinamento con i Pointer Events (funzionano con mouse, dito e penna)
+    lista.addEventListener("pointerdown", (e) => {
+      const t = e.target as HTMLElement;
+      const li = t.closest<HTMLElement>(".q-ord");
+      if (!li || t.closest("button")) return;
+      if (e.pointerType !== "mouse" && !t.closest(".q-maniglia")) return; // dal telefono si trascina dalla maniglia, così la pagina scorre ancora
+      e.preventDefault();
+      const voci = [...lista.children] as HTMLElement[];
+      const da = voci.indexOf(li);
+      const box0 = voci.map((x) => x.getBoundingClientRect());
+      const passo = box0.length > 1 ? box0[1].top - box0[0].top : box0[0].height;
+      const y0 = e.clientY;
+      let a = da;
+      li.classList.add("trascina");
+      try { li.setPointerCapture(e.pointerId); } catch {}
+      const muovi = (ev: PointerEvent) => {
+        const dy = ev.clientY - y0;
+        li.style.transform = `translateY(${dy}px)`;
+        const centro = box0[da].top + box0[da].height / 2 + dy;
+        a = voci.filter((_, i) => i !== da && box0[i].top + box0[i].height / 2 < centro).length; // posizione nuova
+        voci.forEach((x, i) => {
+          if (i === da) return;
+          const sposta = da < a && i > da && i <= a ? -passo : da > a && i >= a && i < da ? passo : 0;
+          x.style.transform = sposta ? `translateY(${sposta}px)` : "";
+        });
+      };
+      const fine = () => {
+        li.removeEventListener("pointermove", muovi);
+        const [v] = ordine.splice(da, 1); ordine.splice(a, 0, v);
+        disegna();
+      };
+      li.addEventListener("pointermove", muovi);
+      li.addEventListener("pointerup", fine, { once: true });
+      li.addEventListener("pointercancel", fine, { once: true });
     });
     return () => ordine.every((v, i) => v === d.voci[i]);
   }
@@ -71,6 +108,14 @@ export function disegnaDomanda(box: HTMLElement, d: Domanda): () => boolean | nu
     if (sel.some((s) => !s.value)) return null;
     return sel.every((s, i) => s.value === d.coppie[i][1]);
   };
+}
+
+// La risposta giusta scritta in chiaro (si mostra dopo due tentativi sbagliati, così non si resta bloccati)
+export function soluzione(d: Domanda) {
+  if (d.tipo === "singola" || d.tipo === "multipla") return d.opzioni.filter((o) => o.giusta).map((o) => o.t).join(" · ");
+  if (d.tipo === "vf") return d.risposta ? "Vero" : "Falso";
+  if (d.tipo === "ordina") return d.voci.map((v, i) => `${i + 1}. ${v}`).join(" → ");
+  return d.coppie.map(([a, b]) => `${a} → ${b}`).join("; ");
 }
 
 // Stato della teoria: { seo: { lezioni: { "cos-e-la-seo": true }, verifica: { giuste: 7, superata: true } } }
