@@ -1,0 +1,77 @@
+{
+ "_nota": "Foto, video e musica che il team può usare, con permessi e licenze.",
+ "voci": [
+  {
+   "id": "f1",
+   "tipo": "foto",
+   "titolo": "Tea tins in the warehouse",
+   "fonte": "Team photo",
+   "permesso": "proprio",
+   "nota": "Taken by Cinque Foglie."
+  },
+  {
+   "id": "f2",
+   "tipo": "foto",
+   "titolo": "Matcha kit on a light background",
+   "fonte": "Team photo",
+   "permesso": "proprio",
+   "nota": "Taken by Cinque Foglie."
+  },
+  {
+   "id": "u1",
+   "tipo": "foto",
+   "titolo": "Anna's cup (with a book)",
+   "fonte": "@anna.legge",
+   "permesso": "concesso",
+   "nota": "Permission asked and given privately on 13/09. To be credited."
+  },
+  {
+   "id": "u2",
+   "tipo": "foto",
+   "titolo": "Giulia's matcha latte",
+   "fonte": "@giulia.foglie",
+   "permesso": "non chiesto",
+   "nota": "Taken from her profile on 11/10. Used in the post of 12/10."
+  },
+  {
+   "id": "s1",
+   "tipo": "foto",
+   "titolo": "Steaming cup on an autumn background",
+   "fonte": "Licensed photo archive",
+   "permesso": "licenza commerciale",
+   "nota": "Licence purchased: commercial use allowed."
+  },
+  {
+   "id": "s2",
+   "tipo": "foto",
+   "titolo": "Vintage teapots",
+   "fonte": "Found on an inspiration board",
+   "permesso": "sconosciuto",
+   "nota": "Nobody knows who took it."
+  },
+  {
+   "id": "m1",
+   "tipo": "musica",
+   "titolo": "Calm acoustic guitar",
+   "fonte": "The platform's music library",
+   "permesso": "uso commerciale",
+   "nota": "In the section for business profiles."
+  },
+  {
+   "id": "m2",
+   "tipo": "musica",
+   "titolo": "Famous song of the moment",
+   "fonte": "Music charts",
+   "permesso": "non per profili aziendali",
+   "nota": "Not available for commercial use."
+  },
+  {
+   "id": "v-tazzaemiele",
+   "tipo": "video",
+   "titolo": "@tazzaemiele's reel with the matcha kit",
+   "fonte": "@tazzaemiele",
+   "permesso": "concesso",
+   "nota": "Matcha kit given in exchange for the video (agreement by email on 1/10)."
+  }
+ ]
+}

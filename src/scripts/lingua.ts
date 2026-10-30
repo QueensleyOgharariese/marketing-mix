@@ -2,7 +2,7 @@
 // La pagina dice la sua lingua in <html lang="..."> (la mette AppLayout). Gli script leggono da qui
 // per scegliere testi e dati, e aggiungono /en agli indirizzi dell'app quando la pagina è in inglese.
 export type Lingua = "it" | "en";
-export const LINGUA: Lingua = typeof document !== "undefined" && document.documentElement.lang === "en" ? "en" : "it";
+export const LINGUA: Lingua = typeof document !== "undefined" && document.documentElement?.lang === "en" ? "en" : "it";
 export const EN = LINGUA === "en";
 // "/app/teoria/" -> "/en/app/teoria/" se la pagina è inglese (gli altri indirizzi restano uguali)
 export const conLingua = (percorso: string) => (EN && percorso.startsWith("/app") ? `/en${percorso}` : percorso);

@@ -1,0 +1,1508 @@
+{
+ "_nota": "Simulazione Social a livelli. Generato da strumenti-dati/crea_esercizi_social.py. Dati in genera_social.py.",
+ "livelli": [
+  {
+   "n": 0,
+   "nome": "Tutorial",
+   "cosa": "How the workspace works."
+  },
+  {
+   "n": 1,
+   "nome": "Basics",
+   "cosa": "One concept at a time. «How it works» is already open and the hint is always available."
+  },
+  {
+   "n": 2,
+   "nome": "Diagnosis",
+   "cosa": "Mixed problems, including false alarms. You open «How it works» yourself."
+  },
+  {
+   "n": 3,
+   "nome": "Cases",
+   "cosa": "No hints: just data and theory. A month to plan and a crisis to handle."
+  }
+ ],
+ "missioni": [
+  {
+   "id": "tutorial",
+   "livello": 0,
+   "n": 0,
+   "nome": "Tutorial: how it works",
+   "tempo": "8 minutes",
+   "strumenti": "Profile, Calendar",
+   "cosa": "Where things are and how to save and check a change.",
+   "situazione": "Hi, I'm Sara and I look after Cinque Foglie's social media. Before we start I'll show you the tools: ten minutes and you're ready to go.",
+   "obiettivo": "Learn to move between profile, calendar and insights and to save a change.",
+   "passi": [
+    {
+     "strumento": "profilo",
+     "tipo": "info",
+     "domanda": "How the workspace is laid out",
+     "consegna": "",
+     "spiega": "You work on the social media of Cinque Foglie, a fictional online tea shop. The screen has three areas.",
+     "esempio": "",
+     "errore": "",
+     "come": [
+      "<strong>On the left the menu</strong> (on a phone it's at the top): the profile, the post calendar, comments and messages, insights and the photo and music library.",
+      "<strong>In the middle</strong> the open tool.",
+      "<strong>On the right this guide</strong>: the task at the top, the answers below. The <strong>How it works</strong>, <strong>Theory</strong> and <strong>Hint</strong> tabs help you when needed; the button to check is always at the bottom.",
+      "The side bars close with the X and reopen with the icon on the edge."
+     ],
+     "opzioni": [],
+     "perche": "",
+     "aiuto": "",
+     "dove": ".console > .menu"
+    },
+    {
+     "strumento": "profilo",
+     "tipo": "radio",
+     "domanda": "What time was the last post published?",
+     "consegna": "Open the profile's most recent post and read the date and time.",
+     "spiega": "The profile shows posts as followers see them. Opening a post you also see what followers don't see straight away: publishing date and time, alt text, labels.",
+     "esempio": "On a restaurant's profile, opening the post with the menu of the day you see it went out at 11:30, before lunch.",
+     "errore": "",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "At 19:00",
+       "giusta": false,
+       "nota": "Open the first post at the top left, the most recent, and read the time under the date."
+      },
+      {
+       "id": "o2",
+       "testo": "At 03:00 at night",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "At 12:00",
+       "giusta": false,
+       "nota": "Look at the time in the open post again."
+      }
+     ],
+     "perche": "The last post went out at 3 at night: odd for a profile that talks to people who drink tea in the evening. You'll come across it again in the exercises.",
+     "aiuto": "The most recent post is the first in the grid, at the top left.",
+     "dove": "[data-griglia]"
+    },
+    {
+     "strumento": "calendario",
+     "tipo": "azione",
+     "verifica": "so_tutorial",
+     "vai": {
+      "link": "/app/simulazioni/social/calendario/",
+      "testo": "Open the Calendar"
+     },
+     "negozio": "",
+     "domanda": "Save your first change",
+     "consegna": "In the Calendar open the post scheduled for 31 October and add the sentence «Have a good weekend!» to the caption. Then save.",
+     "spiega": "The Calendar contains the posts already scheduled and the drafts. What you save here goes straight into the publishing plan. After every change press Check my work: the guide says what's fine and what isn't.",
+     "esempio": "In a scheduling tool you change the text of tomorrow's post and press Save: tomorrow it goes out with the new text.",
+     "errore": "",
+     "opzioni": [],
+     "perche": "You edited a scheduled post and checked it: in the exercises you always work like this.",
+     "aiuto": "The post of 31/10 is the reel «Our October in 30 seconds». Click it in the calendar to open the editor.",
+     "dove": "[data-mese]"
+    },
+    {
+     "strumento": "profilo",
+     "tipo": "info",
+     "domanda": "Points, levels and how to choose",
+     "consegna": "",
+     "spiega": "Last rules, then we start from the Basics.",
+     "esempio": "",
+     "errore": "",
+     "come": [
+      "Three levels: <strong>Basics</strong>, <strong>Diagnosis</strong> and <strong>Cases</strong>. Each exercise is a small project made of mini exercises.",
+      "<strong>How it works</strong> explains the tool, not the answer. <strong>Theory</strong> is free. <strong>Hint</strong> costs 5 points.",
+      "The guide fades as you go up a level: in Basics «How it works» is already open, in Diagnosis you open it yourself, in Cases there's only theory and data.",
+      "Each exercise starts from 100 points: a wrong answer takes off 10 points. When you write or edit you can try again without losing points."
+     ],
+     "opzioni": [],
+     "perche": "",
+     "aiuto": "",
+     "dove": ""
+    }
+   ],
+   "imparato": [
+    "The guide follows you into every tool.",
+    "Opening a post you see date, time and details.",
+    "In the Calendar you edit posts and then check."
+   ],
+   "elena": "Perfect, now you know how to use the tools. We start from the Basics.",
+   "prepara": {
+    "post": [
+     "g2"
+    ]
+   }
+  },
+  {
+   "id": "base1",
+   "livello": 1,
+   "n": 1,
+   "nome": "The matcha kit post",
+   "tempo": "30 minutes",
+   "strumenti": "Insights, Calendar",
+   "cosa": "From the goal to the scheduled post: format, caption, alt text and time.",
+   "situazione": "The matcha kit is here! I'd like to introduce it to people who don't follow us yet too. We've already shot the video: can you prepare the post?",
+   "obiettivo": "Prepare and schedule the matcha kit post, choosing format, copy and time using the data.",
+   "passi": [
+    {
+     "strumento": "insight",
+     "tipo": "radio",
+     "domanda": "Which format gets the profile discovered by the most new people?",
+     "consegna": "Look at the Averages by format in the Insights.",
+     "spiega": "Each format has a strength. To get discovered, reach counts, especially among people who don't follow the profile. Short vertical videos (reels) are suggested by the algorithm to people who don't follow you too.",
+     "esempio": "A bakery sees that its videos of dough rising reach lots of people in other cities, while its photos of bread reach almost only its customers.",
+     "errore": "Choosing the format you like instead of the one the goal needs.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "The reel",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "The carousel",
+       "giusta": false,
+       "nota": "Carousels get lots of saves, but mostly reach people who already follow us."
+      },
+      {
+       "id": "o3",
+       "testo": "The single photo",
+       "giusta": false,
+       "nota": "Photos have the lowest average reach."
+      }
+     ],
+     "perche": "Reels have the highest average reach and more than half the people reached don't follow us: it's the format for getting discovered.",
+     "aiuto": "Look at the «Non-followers» column in the averages by format.",
+     "dove": "[data-formati]"
+    },
+    {
+     "strumento": "calendario",
+     "tipo": "azione",
+     "verifica": "so_didascaliaKit",
+     "vai": {
+      "link": "/app/simulazioni/social/calendario/",
+      "testo": "Open the Calendar"
+     },
+     "negozio": "",
+     "domanda": "Write the matcha kit caption",
+     "consegna": "In the Calendar open the draft «Matcha kit: everything to get started» and write the caption.",
+     "spiega": "In the feed only the first words of the caption show (about 125 characters), then there's «more». The first sentence must make people stop scrolling. Then you say what's there, invite people to do something (go to the link in bio, save, comment) and finish with a few relevant hashtags. No health claims: matcha is a food.",
+     "esempio": "For a candle: «The scent of the woods after the rain, in a candle. Soy wax, 40 hours of light. Find it at the link in bio. #candles #cosyhome»",
+     "errore": "Writing everything in capitals with lots of exclamation marks, or filling the caption with 30 hashtags.",
+     "opzioni": [],
+     "perche": "Example from a senior colleague: «Your first matcha, done right. The kit has organic matcha, a bamboo whisk and a bowl: all you need is hot water. Everything at the link in bio. #matcha #matchalatte #greentea»",
+     "aiuto": "A short first sentence that sparks curiosity, then what's in the kit, then «link in bio», then 3-5 hashtags.",
+     "dove": "[data-editor-post] textarea[name=didascalia]"
+    },
+    {
+     "strumento": "calendario",
+     "tipo": "azione",
+     "verifica": "so_altKit",
+     "vai": {
+      "link": "/app/simulazioni/social/calendario/",
+      "testo": "Open the Calendar"
+     },
+     "negozio": "",
+     "domanda": "Write the alt text",
+     "consegna": "In the same draft write the alt text (the description for people who can't see the image).",
+     "spiega": "Alt text describes what can be seen, for people using a screen reader. It's written simply and concretely: who, what, where. There's no need to write «image of», and it isn't filled with hashtags.",
+     "esempio": "For a pizzeria's post: «Margherita pizza fresh from the oven on a wooden board, with fresh basil.»",
+     "errore": "Copying the caption into the alt text: people who can't see want to know what's in the image, not the slogan.",
+     "opzioni": [],
+     "perche": "Example: «Hands whisking matcha with a bamboo whisk in a white bowl; next to it, the kit's packaging.»",
+     "aiuto": "Describe the video as you'd describe it to a friend on the phone.",
+     "dove": "[data-editor-post] textarea[name=alt]"
+    },
+    {
+     "strumento": "insight",
+     "tipo": "radio",
+     "domanda": "What's the best time to publish it?",
+     "consegna": "Look at the Active followers by hour chart.",
+     "spiega": "A post gets its first push in the hours after publishing: if followers are online at that moment, they interact and the algorithm shows it to more people. That's why you publish when your audience is active.",
+     "esempio": "A recipe profile publishes at 17:30, when people are thinking about dinner.",
+     "errore": "Using the «best» time read in a generic article instead of your own profile's data.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "At 03:00, so it's the first post of the day",
+       "giusta": false,
+       "nota": "At that time almost no followers are online."
+      },
+      {
+       "id": "o2",
+       "testo": "Between 19:00 and 21:00",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "At 9 in the morning",
+       "giusta": false,
+       "nota": "At 9 there's some activity, but the peak is in the evening."
+      }
+     ],
+     "perche": "Cinque Foglie's followers are most active between 19:00 and 21:00: evening tea time.",
+     "aiuto": "Look for the tallest bars in the chart.",
+     "dove": "[data-grafico-ore]"
+    },
+    {
+     "strumento": "calendario",
+     "tipo": "azione",
+     "verifica": "so_programmaKit",
+     "vai": {
+      "link": "/app/simulazioni/social/calendario/",
+      "testo": "Open the Calendar"
+     },
+     "negozio": "",
+     "domanda": "Schedule the post",
+     "consegna": "Schedule the matcha kit draft in the first week of November, at the best time.",
+     "spiega": "Scheduling means choosing the day and time the post will go out on its own. You choose a day without other posts, so they don't compete with each other.",
+     "esempio": "A museum schedules the post about its new exhibition for Thursday evening, the day before it opens.",
+     "errore": "Scheduling two posts on the same day: they steal reach from each other.",
+     "opzioni": [],
+     "perche": "The post is in the plan: it'll go out in the first week of November, when followers are online.",
+     "aiuto": "Drag the draft onto a day between 2 and 8 November, then in the editor choose a time between 19:00 and 21:00.",
+     "dove": "[data-bozze]"
+    },
+    {
+     "strumento": "insight",
+     "tipo": "radio",
+     "domanda": "After 24 hours, what do you look at to know whether the post introduced the kit to people?",
+     "consegna": "Think about Sara's goal.",
+     "spiega": "Each goal has its own number. For «getting known», what counts is how many different people saw the post (reach) and how many of them didn't follow the profile. Likes alone don't say how many new people you reached.",
+     "esempio": "A bike shop that wants to get known looks at how many new people saw the video, not how many loyal customers liked it.",
+     "errore": "Looking only at likes because they're the most visible number.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Reach and the percentage of non-followers",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Only the likes",
+       "giusta": false,
+       "nota": "Likes say how much the people who saw it liked it, not how many new people saw it."
+      },
+      {
+       "id": "o3",
+       "testo": "The total number of followers",
+       "giusta": false,
+       "nota": "It changes little in a day and depends on all the posts."
+      }
+     ],
+     "perche": "Reach and non-followers say how many new people came across the kit: that's exactly Sara's goal.",
+     "aiuto": "Reread the request: «introduce it to people who don't follow us».",
+     "dove": ""
+    }
+   ],
+   "imparato": [
+    "First you choose the goal, then the format: reels get the profile discovered.",
+    "The caption has a strong first sentence, a call to action and a few hashtags.",
+    "Alt text describes what can be seen.",
+    "You publish when followers are online."
+   ],
+   "elena": "Perfect, the kit post is in the calendar. In a week we'll look at the reach together!",
+   "prepara": {
+    "post": [
+     "k1"
+    ]
+   }
+  },
+  {
+   "id": "base2",
+   "livello": 1,
+   "n": 2,
+   "nome": "Reading the insights",
+   "tempo": "25 minutes",
+   "strumenti": "Insights, Profile",
+   "cosa": "Reach, impressions, engagement rate: what works on the profile and what doesn't.",
+   "situazione": "Every month I have to tell management what works on social media. Can you help me read the numbers for September and October?",
+   "obiettivo": "Understand post metrics and write to Sara about what works and what doesn't.",
+   "passi": [
+    {
+     "strumento": "insight",
+     "tipo": "radio",
+     "domanda": "Reach or impressions: which number is higher, and why?",
+     "consegna": "Compare the two columns in the table.",
+     "spiega": "Reach counts the different people who saw a post. Impressions count every time it was seen, including several times by the same person. That's why impressions are always equal to or higher than reach.",
+     "esempio": "A billboard seen by 100 different people, some twice a day: 100 reach, perhaps 180 impressions.",
+     "errore": "Using impressions to say «we reached X people»: the same person gets counted several times.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Impressions, because one person can see the same post several times",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Reach, because it also counts people who don't follow the profile",
+       "giusta": false,
+       "nota": "Impressions also count non-followers: the difference is that they count repeated views."
+      },
+      {
+       "id": "o3",
+       "testo": "They're always the same",
+       "giusta": false,
+       "nota": "Look at a carousel: impressions are much higher, because people swiping through the slides see it again."
+      }
+     ],
+     "perche": "Impressions are higher; in carousels much higher, because people come back to look at the slides.",
+     "aiuto": "",
+     "dove": "#t-post"
+    },
+    {
+     "strumento": "insight",
+     "tipo": "radio",
+     "domanda": "What's the engagement rate of the post «Matcha latte: quantities and whisk»?",
+     "consegna": "Use the formula: interactions ÷ reach × 100.",
+     "spiega": "Engagement rate says how much people react to a piece of content: interactions (likes, comments, saves, shares) divided by reach, times 100. You compare it with your own previous posts, not with other people's.",
+     "esempio": "A post with 150 interactions and 3,000 reach: 150 / 3,000 × 100 = 5%.",
+     "errore": "Dividing by followers when you know the reach: you also count people who never saw the post.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "About 0.7%",
+       "giusta": false,
+       "nota": "You divided by a number that's too big, perhaps the impressions."
+      },
+      {
+       "id": "o2",
+       "testo": "About 7%",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "About 27%",
+       "giusta": false,
+       "nota": "Check again: interactions are a few hundred, reach a few thousand."
+      }
+     ],
+     "perche": "The matcha latte carousel has an engagement rate of about 7%: one of the highest on the profile, mainly thanks to saves.",
+     "aiuto": "Add up the row's likes, comments, saves and shares and divide by the reach.",
+     "dove": "#t-post"
+    },
+    {
+     "strumento": "insight",
+     "tipo": "radio",
+     "domanda": "Which format has the most saves?",
+     "consegna": "Look at the Averages by format.",
+     "spiega": "A save means «I want to find this again»: it's a strong sign of usefulness. People usually save content that teaches something: recipes, guides, lists.",
+     "esempio": "A travel profile sees that its carousels «10 things to see in Lisbon» get saved far more than its sunset photos.",
+     "errore": "Looking only at likes and missing the strongest signal, the save.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "The carousel",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "The reel",
+       "giusta": false,
+       "nota": "Reels reach more people, but get saved less."
+      },
+      {
+       "id": "o3",
+       "testo": "The photo",
+       "giusta": false,
+       "nota": "Photos have very few saves."
+      }
+     ],
+     "perche": "Educational carousels get saved more than anything: they're the most useful content for followers.",
+     "aiuto": "",
+     "dove": "[data-formati]"
+    },
+    {
+     "strumento": "insight",
+     "tipo": "radio",
+     "domanda": "Which posts did worst?",
+     "consegna": "Sort the table by engagement rate.",
+     "spiega": "To understand what doesn't work you look at the posts at the bottom of the ranking and look for what they have in common: format, pillar, time, topic.",
+     "esempio": "A wine shop sorts its posts and discovers that the five worst are all photos of bottles without people.",
+     "errore": "Stopping at the single worst post instead of looking for what the worst ones have in common.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "The product photos with a sales line",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "The carousels explaining how to brew tea",
+       "giusta": false,
+       "nota": "They're among the best for engagement."
+      },
+      {
+       "id": "o3",
+       "testo": "The recipe reels",
+       "giusta": false,
+       "nota": "They have average engagement and the highest reach."
+      }
+     ],
+     "perche": "The product photos («You'll find it on the website») have engagement around 1.5%: people don't stop on an ad.",
+     "aiuto": "Sort by ER by clicking the column header and look at the pillar of the last rows.",
+     "dove": "#t-post"
+    },
+    {
+     "strumento": "insight",
+     "tipo": "radio",
+     "domanda": "Why do the product photos do badly?",
+     "consegna": "Reread the captions of those posts in the profile.",
+     "spiega": "On social media people aren't looking for advertising: they stop on what's useful, beautiful or fun. A product works better inside a story or a concrete use (a recipe, a tip) than on its own with «buy it».",
+     "esempio": "Instead of «New water bottle available», a sports shop shows a hike where the bottle keeps the water cool all day.",
+     "errore": "Concluding that people don't like that product: it's the way it's presented that doesn't work.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "They're ads with no reason to stop: no tip, no story",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Because the products are ugly",
+       "giusta": false,
+       "nota": "The same products do well in recipes and reels."
+      },
+      {
+       "id": "o3",
+       "testo": "Because the algorithm doesn't like photos",
+       "giusta": false,
+       "nota": "The algorithm looks at how people react: it's the reaction that's low."
+      }
+     ],
+     "perche": "The same things (the kit, the teapot) do well when they appear in a recipe or a tutorial: the way they're presented makes the difference.",
+     "aiuto": "",
+     "dove": "[data-griglia]"
+    },
+    {
+     "strumento": "guida",
+     "tipo": "testo",
+     "verifica": "so_reportStatistiche",
+     "domanda": "Write to Sara about what works",
+     "consegna": "Write 3-5 sentences for Sara: what works best, what works worst and what you propose.",
+     "spiega": "A short report for decision-makers puts the conclusion first, then the numbers that prove it, then a concrete proposal.",
+     "esempio": "«The guides to train travel get saved more than anything (ER 8%); the photos of deals do badly (1%). I propose presenting the deals inside the guides.»",
+     "errore": "Copying every number in the table: the reader wants to know what to do.",
+     "opzioni": [],
+     "perche": "Example from a senior colleague: «Carousels that teach something work best: engagement around 7% and lots of saves. Reels bring in more new people. Product photos do badly (about 1.5%): I propose showing products inside recipes and tutorials instead of on their own.»",
+     "aiuto": "",
+     "dove": "",
+     "parole": [
+      25,
+      140
+     ]
+    }
+   ],
+   "imparato": [
+    "Impressions are always equal to or higher than reach.",
+    "Engagement rate = interactions ÷ reach × 100.",
+    "Saves are the strongest sign of usefulness.",
+    "Products work inside a story, not on their own."
+   ],
+   "elena": "Crystal clear, I'll take it to the meeting as it is. From November more carousels and fewer «buy it» photos."
+  },
+  {
+   "id": "d1",
+   "livello": 2,
+   "n": 1,
+   "nome": "The 3 a.m. posts",
+   "tempo": "30 minutes",
+   "strumenti": "Insights, Profile, Calendar",
+   "cosa": "Reach collapsed at the end of September: find when, why, and fix it.",
+   "situazione": "Since the end of September posts reach less than half the people. We haven't changed anything… or have we?",
+   "obiettivo": "Find the cause of the drop in reach, fix it and sort out the posts already scheduled.",
+   "passi": [
+    {
+     "strumento": "insight",
+     "tipo": "radio",
+     "domanda": "When does reach start dropping?",
+     "consegna": "Look at the post table in date order.",
+     "spiega": "To understand a drop you look for the exact moment it begins, then look for what changed in those days.",
+     "esempio": "An app sees sign-ups falling from 3 March: that day a new sign-up form had been released.",
+     "errore": "Comparing one month with another without looking at the exact day something changes.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "From the start of September",
+       "giusta": false,
+       "nota": "The posts at the start of September have high reach."
+      },
+      {
+       "id": "o2",
+       "testo": "From 21 September",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "From mid-October",
+       "giusta": false,
+       "nota": "By mid-October the drop had been going on for weeks."
+      }
+     ],
+     "perche": "From the post of 21 September reach halves, apart from a few posts.",
+     "aiuto": "Sort by date and look for where the numbers collapse.",
+     "dove": "#t-post"
+    },
+    {
+     "strumento": "insight",
+     "tipo": "radio",
+     "domanda": "What do the posts doing badly since then have in common?",
+     "consegna": "Compare the low posts with the ones still doing well.",
+     "spiega": "When some posts in a period do well and others badly, the difference between the two groups points to the cause.",
+     "esempio": "In a shop, sales fall only on the days the new sales assistant works: the problem is the shift or the person, not the shop.",
+     "errore": "Blaming the algorithm without looking at what sets the successful posts apart.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "They were published at 03:00 at night",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "They're all carousels",
+       "giusta": false,
+       "nota": "There are reels, carousels and photos: the format doesn't explain the drop."
+      },
+      {
+       "id": "o3",
+       "testo": "They have too many hashtags",
+       "giusta": false,
+       "nota": "The hashtags are similar to those of the September posts."
+      }
+     ],
+     "perche": "All the posts doing badly since then went out at 03:00. The ones published by hand at 19:00 still do well.",
+     "aiuto": "Look at the Time column.",
+     "dove": "#t-post"
+    },
+    {
+     "strumento": "calendario",
+     "tipo": "radio",
+     "domanda": "Why do they go out at 3 a.m.?",
+     "consegna": "Look at the Calendar settings.",
+     "spiega": "Scheduling tools have default settings: if you don't choose a time, they use their own. A forgotten setting can change months of results.",
+     "esempio": "A newsletter scheduled «in bulk» always goes out at midnight because nobody changed the default time.",
+     "errore": "Thinking someone publishes at night on purpose, without checking the settings.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Since 21/09 posts are scheduled in bulk and the tool's default time is 03:00",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Because the algorithm rewards night-time posts",
+       "giusta": false,
+       "nota": "The data says the opposite: at night reach collapses."
+      },
+      {
+       "id": "o3",
+       "testo": "Because the profile's time zone is wrong",
+       "giusta": false,
+       "nota": "The settings clearly show a default time, not a different time zone."
+      }
+     ],
+     "perche": "Since 21/09 the team uploads posts in bulk and the tool puts them at 03:00, the default time that was never changed.",
+     "aiuto": "The box is called Scheduling settings.",
+     "dove": "[data-impostazioni]"
+    },
+    {
+     "strumento": "calendario",
+     "tipo": "azione",
+     "verifica": "so_oraPredefinita",
+     "vai": {
+      "link": "/app/simulazioni/social/calendario/",
+      "testo": "Open the Calendar"
+     },
+     "negozio": "",
+     "domanda": "Fix the default time",
+     "consegna": "In the Calendar settings choose a default time that suits Cinque Foglie's followers.",
+     "spiega": "The default time should be chosen using your own audience's data (active followers by hour), not at random.",
+     "esempio": "A breakfast profile sets 7:30, when its followers look for morning ideas.",
+     "errore": "Choosing a time that's «convenient for the team» instead of for the audience.",
+     "opzioni": [],
+     "perche": "From now on, posts scheduled in bulk will go out when followers are online.",
+     "aiuto": "Look at the active followers chart: where are the tallest bars?",
+     "dove": "[data-impostazioni]"
+    },
+    {
+     "strumento": "calendario",
+     "tipo": "azione",
+     "verifica": "so_programmatiOra",
+     "vai": {
+      "link": "/app/simulazioni/social/calendario/",
+      "testo": "Open the Calendar"
+     },
+     "negozio": "",
+     "domanda": "Move the posts already scheduled",
+     "consegna": "Changing the setting doesn't move posts already in the calendar: fix the time of the three posts in the next few days.",
+     "spiega": "A new setting applies to the future: things already scheduled stay as they were. After a fix you always check what's already in the queue.",
+     "esempio": "You change a shop's standard delivery time, but the orders already booked for tomorrow stay at the old time until you move them.",
+     "errore": "Taking for granted that the fix also applies to what was already scheduled.",
+     "opzioni": [],
+     "perche": "The three posts will go out in the evening: no more posts at 3 a.m.",
+     "aiuto": "Open the posts of 30/10, 31/10 and 1/11 and change the time.",
+     "dove": "[data-mese]"
+    },
+    {
+     "strumento": "insight",
+     "tipo": "radio",
+     "domanda": "The post of 2/10 went out at 19:00 but did badly. Same problem?",
+     "consegna": "Look at the post's format and pillar.",
+     "spiega": "Not all low results have the same cause. Before applying the same explanation to everything, you check whether the case really is similar.",
+     "esempio": "In a restaurant covers drop on Tuesdays because of roadworks, but the Saturday drop depends on the weather: two different causes.",
+     "errore": "Putting every drop down to the first cause you found.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Yes, it went out at night too",
+       "giusta": false,
+       "nota": "Look at the time: 19:00."
+      },
+      {
+       "id": "o2",
+       "testo": "No: it's a product photo, which does badly even at 19:00",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o3",
+       "testo": "Yes, because it went out on a Friday",
+       "giusta": false,
+       "nota": "The day has nothing to do with it: look at the type of post."
+      }
+     ],
+     "perche": "It's a false alarm as far as timing goes: it's a product photo, and product photos do badly at any time.",
+     "aiuto": "",
+     "dove": "#t-post"
+    }
+   ],
+   "imparato": [
+    "To understand a drop you look for the exact day and what changed.",
+    "A forgotten default setting can cost months of results.",
+    "Fixes apply to the future: what's already scheduled has to be moved by hand.",
+    "Not all low results have the same cause."
+   ],
+   "elena": "Incredible, it was a setting! Thanks: from tonight posts go out when people are around.",
+   "prepara": {
+    "ora": true,
+    "post": [
+     "g1",
+     "g2",
+     "g3"
+    ]
+   }
+  },
+  {
+   "id": "d2",
+   "livello": 2,
+   "n": 2,
+   "nome": "A week of comments",
+   "tempo": "35 minutes",
+   "strumenti": "Comments and messages",
+   "cosa": "Criticism, personal data, spam, repeated questions: who to answer, how, and what to hide.",
+   "situazione": "I was away for a week and the comments are full of everything. Can you help me sort out the community before someone gets angry?",
+   "obiettivo": "Reply to and moderate the week's comments the right way.",
+   "passi": [
+    {
+     "strumento": "community",
+     "tipo": "radio",
+     "domanda": "Which comment is most urgent?",
+     "consegna": "Read all the comments and messages.",
+     "spiega": "In the community you reply first to people with a problem, especially if they've been waiting a while and the comment is public: every extra hour, more people see it.",
+     "esempio": "A hotel replies first to the review «dirty room, nobody helped me» rather than to the compliments on breakfast.",
+     "errore": "Replying in order of arrival, or to the easy positive comments first.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "The customer who's been waiting 4 days about a late order",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "The compliment on the Sencha",
+       "giusta": false,
+       "nota": "It's nice, but it can wait."
+      },
+      {
+       "id": "o3",
+       "testo": "The question about Switzerland",
+       "giusta": false,
+       "nota": "It's a simple question, not an open problem."
+      }
+     ],
+     "perche": "The criticism about the late order is public, has been waiting 4 days and nobody has replied: it must be handled first.",
+     "aiuto": "",
+     "dove": "[data-lista-commenti]"
+    },
+    {
+     "strumento": "community",
+     "tipo": "azione",
+     "verifica": "so_rispostaCritica",
+     "vai": {
+      "link": "/app/simulazioni/social/community/",
+      "testo": "Open the comments"
+     },
+     "negozio": "",
+     "domanda": "Reply to the criticism",
+     "consegna": "Reply publicly to the customer with the late order.",
+     "spiega": "A good reply to criticism thanks or apologises, doesn't argue, moves the conversation to private messages for the details and says what happens now. It's short and in the brand's tone.",
+     "esempio": "«Hi Paolo, we're really sorry for the wait. We'll message you privately right now to find out where the parcel is and sort everything out.»",
+     "errore": "Replying «we've already answered the emails» or blaming the courier in front of everyone.",
+     "opzioni": [],
+     "perche": "The customer feels listened to and readers see a company that responds. The order details are handled privately.",
+     "aiuto": "An apology, an invitation to continue privately, what you'll do now.",
+     "dove": "[data-commento=\"c01\"]"
+    },
+    {
+     "strumento": "community",
+     "tipo": "azione",
+     "verifica": "so_datiPersonali",
+     "vai": {
+      "link": "/app/simulazioni/social/community/",
+      "testo": "Open the comments"
+     },
+     "negozio": "",
+     "domanda": "A customer has written their details in public",
+     "consegna": "A customer has written their order number and address in a comment. Protect them and help them.",
+     "spiega": "Personal data (address, order number, phone) mustn't stay public. You hide the comment and ask to continue privately, without repeating the data in the reply. It's respect for the person and in line with the GDPR.",
+     "esempio": "A customer writes her phone number under a post: the gym hides the comment and messages her privately.",
+     "errore": "Replying publicly repeating the order number or address to «confirm».",
+     "opzioni": [],
+     "perche": "The comment is hidden and the customer knows where to continue: their data is no longer in front of everyone.",
+     "aiuto": "First hide the comment, then reply inviting them to write privately.",
+     "dove": "[data-commento=\"c02\"]"
+    },
+    {
+     "strumento": "community",
+     "tipo": "azione",
+     "verifica": "so_moderazione",
+     "vai": {
+      "link": "/app/simulazioni/social/community/",
+      "testo": "Open the comments"
+     },
+     "negozio": "",
+     "domanda": "Moderate spam and insults",
+     "consegna": "Hide or report only the comments that must go. Honest criticism stays.",
+     "spiega": "You moderate spam (advertising, scams) and insults without content. Honest criticism, even harsh, isn't hidden: you reply. Hiding it makes the company look less transparent.",
+     "esempio": "A restaurant hides «earn €1,000 from home» but replies to «the risotto was overcooked».",
+     "errore": "Hiding everything negative to have a «clean» profile.",
+     "opzioni": [],
+     "perche": "The spam and the insult are gone; the criticism about the rooibos stays, and deserves a reply.",
+     "aiuto": "There's one spam, one insult and one honest criticism of a product: only the first two must go.",
+     "dove": "[data-lista-commenti]"
+    },
+    {
+     "strumento": "community",
+     "tipo": "radio",
+     "domanda": "Three people ask about matcha quantities. What do you do besides replying?",
+     "consegna": "Reread the questions about matcha.",
+     "spiega": "Repeated questions are a great source of ideas: if three people ask the same thing in a week, many others are wondering without writing.",
+     "esempio": "A plant shop always gets «how often do I water?»: it makes a carousel that becomes the most saved post of the year.",
+     "errore": "Answering from scratch each time without realising it's a topic for content.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "I propose a carousel with matcha quantities",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "I hide the repeated questions",
+       "giusta": false,
+       "nota": "They're honest customer questions: you reply."
+      },
+      {
+       "id": "o3",
+       "testo": "I reply «look at the website»",
+       "giusta": false,
+       "nota": "It's unkind and doesn't help people on social media."
+      }
+     ],
+     "perche": "The repeated question becomes content: November's drafts already include «How much water for matcha?».",
+     "aiuto": "",
+     "dove": "[data-lista-commenti]"
+    },
+    {
+     "strumento": "community",
+     "tipo": "azione",
+     "verifica": "so_dosi",
+     "vai": {
+      "link": "/app/simulazioni/social/community/",
+      "testo": "Open the comments"
+     },
+     "negozio": "",
+     "domanda": "Reply to a question about quantities",
+     "consegna": "Reply to one of the people asking how much matcha to use.",
+     "spiega": "A useful reply is concrete: numbers and steps. For matcha: about 2 grams (a scant teaspoon) in 70 ml of water at 75-80 °C, whisking. You finish on a warm note.",
+     "esempio": "«Hi! For an espresso we use 7 grams of ground coffee: a level spoonful. Enjoy your break!»",
+     "errore": "Replying vaguely («a little, to taste») to someone who asked for a number.",
+     "opzioni": [],
+     "perche": "A reply with numbers solves the problem and shows that Cinque Foglie knows what it's talking about.",
+     "aiuto": "Write how many grams (or teaspoons) and how much water.",
+     "dove": "[data-commento=\"c03\"]"
+    },
+    {
+     "strumento": "community",
+     "tipo": "radio",
+     "domanda": "A creator proposes a partnership privately. What do you do?",
+     "consegna": "Read the creator's message.",
+     "spiega": "Partnerships with creators are the job of influencer marketing: you assess audience, values, costs and rules (advertising must be disclosed). The social media manager usually hands them over to whoever handles them, with a kind reply.",
+     "esempio": "In a cosmetics company, whoever manages comments forwards creators' proposals to the partnerships colleague.",
+     "errore": "Accepting straight away in the chat, without assessing the profile or agreeing the rules.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "I reply kindly and hand it over to whoever handles influencer marketing",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "I accept straight away: 32k followers is a lot",
+       "giusta": false,
+       "nota": "First you assess whether the audience fits and agree the rules."
+      },
+      {
+       "id": "o3",
+       "testo": "I ignore it",
+       "giusta": false,
+       "nota": "It's a serious proposal: it deserves a reply."
+      }
+     ],
+     "perche": "Partnerships are assessed with whoever handles them: a suitable audience, a written agreement, disclosed advertising.",
+     "aiuto": "",
+     "dove": "[data-commento=\"c10\"]"
+    }
+   ],
+   "imparato": [
+    "You reply first to public problems that have been waiting a while.",
+    "Personal data doesn't stay public: you hide it and move to private messages.",
+    "You moderate spam and insults, not honest criticism.",
+    "Repeated questions become content."
+   ],
+   "elena": "Thanks! The customer with the order has already messaged me privately, and we'll prepare the matcha carousel for November.",
+   "prepara": {
+    "commenti": [
+     "c01",
+     "c02",
+     "c03",
+     "c04",
+     "c05",
+     "c06",
+     "c07",
+     "c08",
+     "c09",
+     "c10",
+     "c11",
+     "c12"
+    ],
+    "crisi": false
+   }
+  },
+  {
+   "id": "d3",
+   "livello": 2,
+   "n": 3,
+   "nome": "Photos, rights and partnerships",
+   "tempo": "30 minutes",
+   "strumenti": "Library, Profile",
+   "cosa": "A photo used without permission and an undisclosed partnership: find them and fix them.",
+   "situazione": "A customer wrote to us: «you used my photo without asking me». And the lawyer wants to know whether the partnerships are in order. Can you check?",
+   "obiettivo": "Find the content at risk, ask for permission and disclose the partnership.",
+   "passi": [
+    {
+     "strumento": "libreria",
+     "tipo": "radio",
+     "domanda": "Which photo can't be used?",
+     "consegna": "Look at the permissions column in the Library.",
+     "spiega": "A photo someone publishes on social media isn't free: it belongs to whoever took it. To repost it you need their permission. Team photos and those with a commercial licence can be used.",
+     "esempio": "A café reposts a customer's photo with their cappuccino: first it writes «can we share it and credit you?».",
+     "errore": "Thinking «it's public, so it can be used».",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "@giulia.foglie's matcha latte",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Anna's cup",
+       "giusta": false,
+       "nota": "Anna gave permission on 13/09."
+      },
+      {
+       "id": "o3",
+       "testo": "Steaming cup on an autumn background",
+       "giusta": false,
+       "nota": "It has a purchased commercial licence."
+      }
+     ],
+     "perche": "Giulia's photo was taken from her profile without asking her anything.",
+     "aiuto": "",
+     "dove": "[data-libreria]"
+    },
+    {
+     "strumento": "profilo",
+     "tipo": "radio",
+     "domanda": "In which post was it used?",
+     "consegna": "Look for the post in the profile.",
+     "spiega": "Once you've found content at risk, you check where it was used, so you can fix everything.",
+     "esempio": "A company discovers an unlicensed photo and checks the website, newsletter and social media to remove it everywhere.",
+     "errore": "Fixing only the library and leaving the post published.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "In the post of 12/10 «Giulia's matcha latte»",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "In the post of 14/09 «Anna's cup»",
+       "giusta": false,
+       "nota": "That's Anna's photo, with permission."
+      },
+      {
+       "id": "o3",
+       "testo": "In the reel of 8/10",
+       "giusta": false,
+       "nota": "The reel is @tazzaemiele's, with an agreement."
+      }
+     ],
+     "perche": "The post of 12/10 uses Giulia's photo, and the caption doesn't even credit her.",
+     "aiuto": "",
+     "dove": "[data-griglia]"
+    },
+    {
+     "strumento": "libreria",
+     "tipo": "azione",
+     "verifica": "so_permesso",
+     "vai": {
+      "link": "/app/simulazioni/social/libreria/",
+      "testo": "Open the Library"
+     },
+     "negozio": "",
+     "domanda": "Ask Giulia for permission",
+     "consegna": "In the Library write the message asking Giulia for permission to use the photo.",
+     "spiega": "A good message is kind and clear: it introduces itself, asks permission for a specific use, offers to credit the author and, if needed, apologises. It leaves the person free to say no.",
+     "esempio": "«Hi Marco! We're Aurora café: your cappuccino photo is beautiful. Can we share it on our profile and credit you? If you'd rather not, no problem.»",
+     "errore": "Just writing «we tagged you!» after already using it, as if that were enough.",
+     "opzioni": [],
+     "perche": "The message is ready: with written permission the photo can be used, with a credit.",
+     "aiuto": "Say hello, apologise for using it before asking, ask for permission and offer to credit her.",
+     "dove": "[data-voce-lib=\"u2\"]"
+    },
+    {
+     "strumento": "profilo",
+     "tipo": "azione",
+     "verifica": "so_archiviaUgc",
+     "vai": {
+      "link": "/app/simulazioni/social/profilo/",
+      "testo": "Open the profile"
+     },
+     "negozio": "",
+     "domanda": "Take the post down in the meantime",
+     "consegna": "Until Giulia replies, take the post off the profile without deleting it.",
+     "spiega": "Archiving a post removes it from the profile but keeps it: if permission arrives it can go back up, with the credit. It's the careful choice while you wait.",
+     "esempio": "A shop archives the post with a photographer's photo until the licence arrives.",
+     "errore": "Leaving the post online «because everyone has seen it by now anyway».",
+     "opzioni": [],
+     "perche": "The post is no longer visible: if Giulia says yes, you put it back up with her credit.",
+     "aiuto": "Open the post of 12/10 and use Archive.",
+     "dove": "[data-griglia]"
+    },
+    {
+     "strumento": "profilo",
+     "tipo": "radio",
+     "domanda": "What's wrong with the reel of 8/10 with @tazzaemiele?",
+     "consegna": "Open the reel and check the Library for the agreement.",
+     "spiega": "When a creator gets money or products in exchange for content, the content is advertising and must be clearly disclosed (the platform's partnership label, #ad at the start). In Italy the advertising rules and the AGCOM guidelines on influencers require it.",
+     "esempio": "A creator receives a free cream and shows it: the post must say it's a partnership, even without a cash payment.",
+     "errore": "Thinking that without a cash payment it isn't advertising.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "The kit was given in exchange for the video, but the reel isn't marked as a partnership",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "The video is too long",
+       "giusta": false,
+       "nota": "The length is fine: the problem is legal."
+      },
+      {
+       "id": "o3",
+       "testo": "The #matcha hashtag is missing",
+       "giusta": false,
+       "nota": "It's there, and anyway that's not the problem."
+      }
+     ],
+     "perche": "A kit given in exchange for a video is a commercial partnership: it must be disclosed.",
+     "aiuto": "",
+     "dove": "[data-griglia]"
+    },
+    {
+     "strumento": "profilo",
+     "tipo": "azione",
+     "verifica": "so_collab",
+     "vai": {
+      "link": "/app/simulazioni/social/profilo/",
+      "testo": "Open the profile"
+     },
+     "negozio": "",
+     "domanda": "Disclose the partnership",
+     "consegna": "Fix the reel of 8/10 so it's clear it's a partnership.",
+     "spiega": "You use the platform's label («Paid partnership» or similar) together with a statement at the start of the caption: #ad or «Partnership with…». Viewers must understand it straight away.",
+     "esempio": "«#ad Partnership with @bioskin: I tried their cream for a month…»",
+     "errore": "Putting #ad among 20 hashtags at the end, where nobody reads it.",
+     "opzioni": [],
+     "perche": "Now the reel is disclosed: label on and #ad at the start of the caption.",
+     "aiuto": "Open the reel, turn on the partnership label and add #ad at the start of the caption.",
+     "dove": "[data-griglia]"
+    },
+    {
+     "strumento": "libreria",
+     "tipo": "radio",
+     "domanda": "For the chai reel, which music can you use?",
+     "consegna": "Look at the music items in the Library.",
+     "spiega": "Music has its rights too. Business profiles can only use tracks with a commercial licence, for example those in the platform's library for businesses. Famous songs are often not available for commercial use.",
+     "esempio": "A travel agency uses an instrumental track from the business library instead of the summer hit.",
+     "errore": "Using the song of the moment because «everyone uses it»: for a company the risk is that the video gets taken down or muted.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Calm acoustic guitar (library for commercial use)",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Famous song of the moment",
+       "giusta": false,
+       "nota": "It isn't available for business profiles."
+      },
+      {
+       "id": "o3",
+       "testo": "Any track, as long as you credit the artist",
+       "giusta": false,
+       "nota": "Crediting isn't enough: you need the licence."
+      }
+     ],
+     "perche": "The track from the business library can be used; the famous song can't.",
+     "aiuto": "",
+     "dove": "[data-libreria]"
+    }
+   ],
+   "imparato": [
+    "Other people's photos are used only with permission, crediting the author.",
+    "Archiving removes a post without deleting it.",
+    "Products given in exchange for content = advertising to disclose.",
+    "Music must have the right licence too."
+   ],
+   "elena": "Giulia replied: she's delighted, let's put the post back up with her credit. And the lawyer is happy with the reel.",
+   "prepara": {
+    "post": [
+     "p17",
+     "p19"
+    ],
+    "permessi": [
+     "u2"
+    ]
+   }
+  },
+  {
+   "id": "c1",
+   "livello": 3,
+   "n": 1,
+   "nome": "The November calendar",
+   "tempo": "45 minutes",
+   "strumenti": "Calendar, Insights",
+   "cosa": "A whole month: the advent calendar launch, Black Friday, pillars and times.",
+   "situazione": "November is the most important month: on the 2nd we launch the advent calendar and on the 27th it's Black Friday. The drafts are ready: can you prepare the calendar?",
+   "obiettivo": "Schedule November's drafts with balance, the right dates, copy and measurable links.",
+   "passi": [
+    {
+     "strumento": "insight",
+     "tipo": "radio",
+     "domanda": "How many posts a week?",
+     "consegna": "Look at how many posts a week have been published so far and how they did.",
+     "spiega": "Regularity counts more than quantity. Better three careful, consistent posts a week than one a day done in a rush; and the frequency must be sustainable for the team.",
+     "esempio": "A small bakery posts on Monday, Wednesday and Friday: followers know when to expect fresh bread.",
+     "errore": "Posting loads in November and then disappearing in December.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "About 3 a week, regularly",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "One a day, to make the most of the month",
+       "giusta": false,
+       "nota": "With ten drafts and a small team it isn't sustainable, and it isn't needed."
+      },
+      {
+       "id": "o3",
+       "testo": "All in the first week",
+       "giusta": false,
+       "nota": "Then the profile would stay empty right before Black Friday."
+      }
+     ],
+     "perche": "So far the profile has published 3 posts a week with good results when the time was right: we carry on like that.",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "calendario",
+     "tipo": "azione",
+     "verifica": "so_calendarioNovembre",
+     "vai": {
+      "link": "/app/simulazioni/social/calendario/",
+      "testo": "Open the Calendar"
+     },
+     "negozio": "",
+     "domanda": "Schedule November's drafts",
+     "consegna": "Put at least 8 drafts into the November calendar, with the right dates and times.",
+     "spiega": "A good calendar follows the key dates, alternates pillars (not just product), spreads posts across the weeks without two posts on the same day and uses the time when followers are online.",
+     "esempio": "In December a bookshop alternates reading tips, behind the scenes and a single promotion, on the right day.",
+     "errore": "Putting all the promotions in a row: the profile turns into a flyer.",
+     "opzioni": [],
+     "perche": "The month is ready: launch on 2-4 November, Black Friday on the 27th, alternating pillars and evening posts.",
+     "aiuto": "",
+     "dove": "[data-mese]"
+    },
+    {
+     "strumento": "calendario",
+     "tipo": "radio",
+     "domanda": "For the advent calendar launch, which pair of formats?",
+     "consegna": "Think about what each post has to do.",
+     "spiega": "A launch has two jobs: being seen by as many people as possible and explaining the product well. Different formats are used for the two jobs.",
+     "esempio": "A new app comes out with a short video that sparks curiosity and a slide guide on how it works.",
+     "errore": "Using a single post to do everything.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "A reel to get it discovered and a carousel to show what's inside",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Only stories",
+       "giusta": false,
+       "nota": "They disappear in 24 hours and mostly reach followers."
+      },
+      {
+       "id": "o3",
+       "testo": "A product photo with «available on the website»",
+       "giusta": false,
+       "nota": "It's the type of post that does worst on the profile."
+      }
+     ],
+     "perche": "Reel for reach, carousel for the details: they're already in the drafts (b01 and b02).",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "guida",
+     "tipo": "testo",
+     "verifica": "so_didascaliaLancio",
+     "domanda": "Write the launch caption",
+     "consegna": "Write the caption for the advent calendar launch reel.",
+     "spiega": "A launch caption says what it is, when it's available from, why it's special and what to do now. A short, strong first sentence, a clear call to action, a few hashtags. No fake urgency («last few left!» if it isn't true).",
+     "esempio": "«24 coffees from around the world, one a day until Christmas. Our advent calendar is available from today: find it at the link in bio. #adventcalendar»",
+     "errore": "Writing «LAST FEW LEFT, HURRY» on the first day: it's false and loses trust.",
+     "opzioni": [],
+     "perche": "Example from a senior colleague: «24 teas, one for every day until Christmas. The Cinque Foglie advent calendar is available from 2 November: inside you'll find organic teas and herbal teas to discover day by day. Find it at the link in bio. #adventcalendar #tea»",
+     "aiuto": "",
+     "dove": "",
+     "parole": [
+      20,
+      90
+     ]
+    },
+    {
+     "strumento": "insight",
+     "tipo": "radio",
+     "domanda": "For the Black Friday post, which number do you look at?",
+     "consegna": "Think about that post's goal.",
+     "spiega": "Every post has a goal and a number. A promotion post is for selling: you look at link clicks and the purchases coming from there, measured with a UTM link.",
+     "esempio": "A cinema looks at how many tickets come from the link in the promotion post, not how many likes the post has.",
+     "errore": "Judging a sales post by its likes.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Link clicks and the sales coming from that link",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "The likes",
+       "giusta": false,
+       "nota": "A post can be liked a lot and sell nothing."
+      },
+      {
+       "id": "o3",
+       "testo": "New followers",
+       "giusta": false,
+       "nota": "It isn't the goal of a promotion post."
+      }
+     ],
+     "perche": "To measure sales from the post you need a link with UTM parameters: you'll prepare it in the next step.",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "calendario",
+     "tipo": "azione",
+     "verifica": "so_utm",
+     "vai": {
+      "link": "/app/simulazioni/social/calendario/",
+      "testo": "Open the Calendar"
+     },
+     "negozio": "",
+     "domanda": "Prepare the Black Friday link",
+     "consegna": "In the Black Friday draft put a link to the website with UTM parameters.",
+     "spiega": "UTM parameters are added to the link to find out where visits come from: utm_source (who sends it: instagram), utm_medium (the type of channel: social), utm_campaign (the campaign: for example black-friday). They're then read in the website's analytics.",
+     "esempio": "cinquefoglie.example/?utm_source=newsletter&utm_medium=email&utm_campaign=christmas",
+     "errore": "Writing the values differently each time (Instagram, IG, insta): analytics counts them as different sources.",
+     "opzioni": [],
+     "perche": "With the UTM link we'll know how many Black Friday sales come from this post.",
+     "aiuto": "",
+     "dove": "[data-editor-post] input[name=link]"
+    },
+    {
+     "strumento": "guida",
+     "tipo": "testo",
+     "verifica": "so_pianoNovembre",
+     "domanda": "Explain the plan to Sara",
+     "consegna": "Write 3-5 sentences to Sara: how you organised November and how you'll measure the results.",
+     "spiega": "Presenting a plan means explaining the choices: why those dates, those formats, those times, and how you'll know whether it worked.",
+     "esempio": "«In December we alternate tips and promotions, 3 posts a week at 18:00. On launch day a reel and a carousel. We measure clicks with UTM links.»",
+     "errore": "Listing the posts one by one without explaining why.",
+     "opzioni": [],
+     "perche": "Example from a senior colleague: «November has 3 posts a week, always in the evening between 19:00 and 21:00. We launch the advent calendar on the 2nd with a reel and the next day a carousel with what's inside. We alternate recipes and tips with product posts and put Black Friday only on the 27th. We measure reach for the launch and clicks with UTM links for Black Friday.»",
+     "aiuto": "",
+     "dove": "",
+     "parole": [
+      30,
+      150
+     ]
+    }
+   ],
+   "imparato": [
+    "Regularity before quantity.",
+    "A launch uses several formats with different jobs.",
+    "Every post has its number: reach, saves, clicks.",
+    "UTM links say how many sales come from a post."
+   ],
+   "elena": "The calendar is perfect. I'll share it with the team and we'll put it into production from Monday.",
+   "prepara": {
+    "post": [
+     "b01",
+     "b02",
+     "b03",
+     "b04",
+     "b05",
+     "b06",
+     "b07",
+     "b08",
+     "b09",
+     "b10"
+    ]
+   }
+  },
+  {
+   "id": "c2",
+   "livello": 3,
+   "n": 2,
+   "nome": "A small crisis",
+   "tempo": "40 minutes",
+   "strumenti": "Comments and messages, Calendar",
+   "cosa": "Matcha kits arriving broken, angry comments and a promo scheduled at the wrong moment.",
+   "situazione": "Help: this morning lots of matcha kits arrived with a broken whisk and the comments are exploding. @tazzaemiele is talking about it in her stories too. What do we do?",
+   "obiettivo": "Handle the crisis: understand, reply, stop what makes things worse, inform.",
+   "passi": [
+    {
+     "strumento": "community",
+     "tipo": "radio",
+     "domanda": "What's the first thing to do?",
+     "consegna": "Read today's comments.",
+     "spiega": "In a crisis the first thing is to understand the facts: what happened, to how many people, why. You ask straight away the people who have the information (warehouse, customer service). Replying without knowing risks promising the wrong things.",
+     "esempio": "A toy company gets reports of broken pieces: first it checks with logistics which batch is involved, then it replies.",
+     "errore": "Replying at random «we're not aware of this» before checking.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "Ask the warehouse and customer service what happened and how many orders are involved",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "Delete the negative comments",
+       "giusta": false,
+       "nota": "It makes everything worse: people notice and get angrier."
+      },
+      {
+       "id": "o3",
+       "testo": "Wait for it to blow over",
+       "giusta": false,
+       "nota": "Every hour without a reply, the comments increase."
+      }
+     ],
+     "perche": "The warehouse confirms: a batch of whisks broke in transit, about 40 kits shipped yesterday.",
+     "aiuto": "",
+     "dove": "[data-lista-commenti]"
+    },
+    {
+     "strumento": "calendario",
+     "tipo": "azione",
+     "verifica": "so_sospendi",
+     "vai": {
+      "link": "/app/simulazioni/social/calendario/",
+      "testo": "Open the Calendar"
+     },
+     "negozio": "",
+     "domanda": "Stop the scheduled post",
+     "consegna": "In the calendar there's a post that would make the situation worse today: suspend it.",
+     "spiega": "In a crisis you check the scheduled posts: a cheerful promotion in the middle of the complaints looks insensitive. You suspend it and reschedule it for later.",
+     "esempio": "During an outage, a phone company suspends the «Discover our offers!» posts planned for that day.",
+     "errore": "Letting everything go out as planned because «it was already scheduled».",
+     "opzioni": [],
+     "perche": "The matcha kit flash promo won't go out today: it would have looked like a slap in the face.",
+     "aiuto": "",
+     "dove": "[data-mese]"
+    },
+    {
+     "strumento": "guida",
+     "tipo": "testo",
+     "verifica": "so_postCrisi",
+     "domanda": "Write the public message",
+     "consegna": "Write the text to publish (story or post): what happened, what you're doing for the people involved and how to contact you.",
+     "spiega": "A crisis message is short, sincere and concrete: it acknowledges the problem, apologises, explains what's being done to put it right and how to contact the company. It doesn't blame others and doesn't play it down.",
+     "esempio": "«Some of yesterday's orders arrived with a broken lid. We're very sorry. We'll send you a new product straight away, free: message us privately with your order number.»",
+     "errore": "Writing «the problem is the courier's» or «it's very few cases»: the people involved feel ignored.",
+     "opzioni": [],
+     "perche": "Example from a senior colleague: «Some matcha kits shipped yesterday arrived with a broken whisk. We're really sorry, especially to those who chose them as a gift. We're sending a new whisk to everyone straight away, free: message us privately with your order number. We're checking our packaging so it doesn't happen again.»",
+     "aiuto": "",
+     "dove": "",
+     "parole": [
+      30,
+      120
+     ]
+    },
+    {
+     "strumento": "community",
+     "tipo": "azione",
+     "verifica": "so_risposteCrisi",
+     "vai": {
+      "link": "/app/simulazioni/social/community/",
+      "testo": "Open the comments"
+     },
+     "negozio": "",
+     "domanda": "Reply to the comments",
+     "consegna": "Reply to at least three comments about the broken whisk, without hiding them.",
+     "spiega": "In a crisis you reply to everyone with the same core message (apology, remedy, private messages), but personalised: copying and pasting the same sentence to everyone sounds like a robot. Criticism isn't hidden.",
+     "esempio": "«Hi Anna, we're so sorry: we'll message you privately to send you the new part straight away.»",
+     "errore": "Pasting exactly the same text under twenty comments.",
+     "opzioni": [],
+     "perche": "Every person has had a reply and knows they'll get a new whisk.",
+     "aiuto": "",
+     "dove": "[data-lista-commenti]"
+    },
+    {
+     "strumento": "community",
+     "tipo": "radio",
+     "domanda": "@tazzaemiele is talking about it in her stories. What do you do?",
+     "consegna": "Think about who she is and what she wrote.",
+     "spiega": "When someone with an audience talks about the problem, it's worth contacting them directly, sincerely: explaining what happened and what's being done. You don't ask them to delete anything.",
+     "esempio": "A restaurant criticised by a food blogger calls him, apologises and invites him back: the blogger updates his post.",
+     "errore": "Asking her to delete the stories or offering her money to say nice things.",
+     "opzioni": [
+      {
+       "id": "o1",
+       "testo": "I message her privately, apologise and explain how we're putting it right",
+       "giusta": true,
+       "nota": ""
+      },
+      {
+       "id": "o2",
+       "testo": "I ask her to delete the stories",
+       "giusta": false,
+       "nota": "It looks like censorship and makes things worse."
+      },
+      {
+       "id": "o3",
+       "testo": "I ignore her, stories disappear anyway",
+       "giusta": false,
+       "nota": "Her audience remembers how the company reacted."
+      }
+     ],
+     "perche": "With the right information, it's often the creator herself who updates her audience: «They've already sent me a new whisk!».",
+     "aiuto": "",
+     "dove": ""
+    },
+    {
+     "strumento": "guida",
+     "tipo": "testo",
+     "verifica": "so_reportCrisi",
+     "domanda": "Write the summary for Sara",
+     "consegna": "Write 3-6 sentences: what happened, what you did today and what you propose to change.",
+     "spiega": "After a crisis you write a summary: the facts, the actions taken, what worked and what to change so it doesn't happen again.",
+     "esempio": "«Yesterday 30 orders arrived with a broken lid. We replied to everyone, resent the product and suspended the promo. We propose trying new packaging.»",
+     "errore": "Only describing how tiring it was, without facts and proposals.",
+     "opzioni": [],
+     "perche": "Example from a senior colleague: «About 40 matcha kits shipped yesterday arrived with a broken whisk. Today we suspended the flash promo, published a story with the apology and the remedy, replied to all the comments and wrote to @tazzaemiele. We're resending a new whisk free to everyone involved. We propose protecting the whisks better in the packaging.»",
+     "aiuto": "",
+     "dove": "",
+     "parole": [
+      30,
+      160
+     ]
+    }
+   ],
+   "imparato": [
+    "In a crisis you understand the facts first.",
+    "Scheduled posts that are out of place get stopped.",
+    "A sincere public message: apology, remedy, contact.",
+    "Criticism isn't hidden: you reply to everyone, personally."
+   ],
+   "elena": "Thanks, handled brilliantly. @tazzaemiele has already written «they sent me a new whisk in a day»: almost better than before!",
+   "prepara": {
+    "crisi": true,
+    "post": [
+     "z1"
+    ],
+    "commenti": [
+     "x01",
+     "x02",
+     "x03",
+     "x04",
+     "x05"
+    ]
+   }
+  }
+ ]
+}

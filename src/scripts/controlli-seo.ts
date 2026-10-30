@@ -8,7 +8,9 @@ export function normalizza(testo: string) {
 }
 
 // Parole che fanno pensare a promesse sulla salute (vietate per gli alimenti senza autorizzazione, Reg. CE 1924/2006)
-const SALUTE = [/brucia/, /grass/, /dimagr/, /detox/, /depur/, /benefic/, /\bcur(a|e|ano)\b/, /guari/, /previen/, /salute/, /antiossid/, /metabolism/, /drenant/];
+const SALUTE = [/brucia/, /grass/, /dimagr/, /detox/, /depur/, /benefic/, /\bcur(a|e|ano)\b/, /guari/, /previen/, /salute/, /antiossid/, /metabolism/, /drenant/,
+  // le stesse promesse in inglese (l'app esiste anche in inglese)
+  /\bburn/, /\bfat\b/, /slim/, /weight/, /cleans/, /purif/, /benefit/, /\bcures?\b/, /\bheal/, /prevent/, /health/, /antioxid/, /metabol/, /draining/];
 export function senzaSalute(...testi: string[]) {
   const t = normalizza(testi.join(" "));
   return t.length > 0 && !SALUTE.some((r) => r.test(t));

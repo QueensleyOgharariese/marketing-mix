@@ -1,13 +1,21 @@
 ---
-import { LINGUE_APP } from "../../../../../i18n";
+import { LINGUE_APP, linguaDa } from "../../../../../i18n";
 // SIMULAZIONE SOCIAL · STATISTICHE DEI POST (ispirate alle statistiche dei social, nome generico)
 // Numeri del periodo, follower attivi per ora, medie per formato e tabella dei post ordinabile.
 // I numeri arrivano da post.json e profilo.json (generati da strumenti-dati/genera_social.py).
 // Engagement rate = (like + commenti + salvataggi + condivisioni) / copertura x 100.
 import Console from "../../../../../components/seopro/Console.astro";
-import POST from "../../../../../data/app/social-sim/post.json";
-import PROFILO from "../../../../../data/app/social-sim/profilo.json";
-import { num } from "../../../../../scripts/tabella";
+import POST_IT from "../../../../../data/app/social-sim/post.json";
+import POST_EN from "../../../../../data/app/social-sim/post.en.json";
+import PROFILO_IT from "../../../../../data/app/social-sim/profilo.json";
+import PROFILO_EN from "../../../../../data/app/social-sim/profilo.en.json";
+import { num as numero } from "../../../../../scripts/tabella";
+
+const lang = linguaDa(Astro.url);
+const L = (it: string, en: string) => (lang === "en" ? en : it);
+const POST = lang === "en" ? (POST_EN as typeof POST_IT) : POST_IT;
+const PROFILO = lang === "en" ? (PROFILO_EN as typeof PROFILO_IT) : PROFILO_IT;
+const num = (x: number, d = 0) => numero(x, d, lang === "en");
 
 const er = (p: (typeof POST.post)[number]) => ((p.like + p.commenti + p.salvataggi + p.condivisioni) / p.copertura) * 100;
 const media = (xs: number[]) => xs.reduce((a, b) => a + b, 0) / (xs.length || 1);
@@ -19,7 +27,7 @@ const FORMATI = ["reel", "carosello", "foto"].map((f) => {
   const ps = POST.post.filter((p) => p.formato === f);
   return { f, n: ps.length, cop: media(ps.map((p) => p.copertura)), er: media(ps.map(er)), salv: media(ps.map((p) => p.salvataggi)), nf: media(ps.map((p) => p.nonFollower)) * 100 };
 });
-const NOME_F: Record<string, string> = { reel: "Reel", carosello: "Carosello", foto: "Foto" };
+const NOME_F: Record<string, string> = { reel: "Reel", carosello: L("Carosello", "Carousel"), foto: L("Foto", "Photo") };
 const PILASTRI = [...new Set(POST.post.map((p) => p.pilastro))];
 
 // Grafico delle ore: 24 barre
@@ -31,33 +39,33 @@ const fMin = Math.min(...F.map((x) => x.follower)) - 40, fMax = Math.max(...F.ma
 const punti = F.map((x, i) => `${20 + (i * 560) / (F.length - 1)},${150 - ((x.follower - fMin) / (fMax - fMin)) * 120}`).join(" ");
 export function getStaticPaths() { return LINGUE_APP(); }
 ---
-<Console sim="social" attivo="insight" titolo="Statistiche dei post" sottotitolo="Settembre e ottobre 2026" ispirato="le statistiche dei social network (nome generico, nessun marchio reale)">
+<Console sim="social" attivo="insight" titolo={L("Statistiche dei post", "Post insights")} sottotitolo={L("Settembre e ottobre 2026", "September and October 2026")} ispirato={L("le statistiche dei social network (nome generico, nessun marchio reale)", "social network insights (generic name, no real brand)")}>
   <div class="sp-cifre">
-    <div class="sp-cifra"><span>Follower</span><strong>{num(PROFILO.follower)}</strong><small class="su">+{num(PROFILO.follower - F[0].follower)} da fine agosto</small></div>
-    <div class="sp-cifra"><span>Copertura media per post, settembre</span><strong>{num(copSet)}</strong></div>
-    <div class="sp-cifra"><span>Copertura media per post, ottobre</span><strong>{num(copOtt)}</strong><small class="giu">{num(((copOtt - copSet) / copSet) * 100)}% su settembre</small></div>
-    <div class="sp-cifra"><span>Post pubblicati</span><strong>{POST.post.length}</strong></div>
+    <div class="sp-cifra"><span>Follower</span><strong>{num(PROFILO.follower)}</strong><small class="su">+{num(PROFILO.follower - F[0].follower)} {L("da fine agosto", "since the end of August")}</small></div>
+    <div class="sp-cifra"><span>{L("Copertura media per post, settembre", "Average reach per post, September")}</span><strong>{num(copSet)}</strong></div>
+    <div class="sp-cifra"><span>{L("Copertura media per post, ottobre", "Average reach per post, October")}</span><strong>{num(copOtt)}</strong><small class="giu">{num(((copOtt - copSet) / copSet) * 100)}% {L("su settembre", "vs September")}</small></div>
+    <div class="sp-cifra"><span>{L("Post pubblicati", "Posts published")}</span><strong>{POST.post.length}</strong></div>
   </div>
 
   <div class="st-due">
     <section class="sp-pannello" data-grafico-ore>
-      <h2 class="st-tit">Follower attivi per ora</h2>
-      <p class="sp-nota">Quanti follower sono online in ogni ora del giorno (media degli ultimi 30 giorni, in percentuale sul momento di picco).</p>
-      <svg class="sp-grafico" viewBox="0 0 600 190" role="img" aria-label="Follower attivi per ora: picco tra le 19 e le 21, minimo di notte">
+      <h2 class="st-tit">{L("Follower attivi per ora", "Active followers by hour")}</h2>
+      <p class="sp-nota">{L("Quanti follower sono online in ogni ora del giorno (media degli ultimi 30 giorni, in percentuale sul momento di picco).", "How many followers are online in each hour of the day (average of the last 30 days, as a percentage of the peak).")}</p>
+      <svg class="sp-grafico" viewBox="0 0 600 190" role="img" aria-label={L("Follower attivi per ora: picco tra le 19 e le 21, minimo di notte", "Active followers by hour: peak between 19:00 and 21:00, lowest at night")}>
         {ORE.map((v, h) => {
           const alt = (v / maxOra) * 140;
           return <g>
-            <rect x={14 + h * 24} y={150 - alt} width="18" height={alt} rx="3" fill={v === maxOra ? "#e0650f" : "#9d9890"}><title>{`Ore ${h}: ${v}%`}</title></rect>
+            <rect x={14 + h * 24} y={150 - alt} width="18" height={alt} rx="3" fill={v === maxOra ? "#e0650f" : "#9d9890"}><title>{`${L("Ore", "Hour")} ${h}: ${v}%`}</title></rect>
             {h % 3 === 0 && <text x={23 + h * 24} y="170" text-anchor="middle" font-size="11" fill="#55514c">{h}</text>}
           </g>;
         })}
-        <text x="300" y="188" text-anchor="middle" font-size="11" fill="#55514c">ora del giorno</text>
+        <text x="300" y="188" text-anchor="middle" font-size="11" fill="#55514c">{L("ora del giorno", "hour of the day")}</text>
       </svg>
     </section>
     <section class="sp-pannello" data-follower>
-      <h2 class="st-tit">Follower, settimana per settimana</h2>
-      <p class="sp-nota">Da {num(F[0].follower)} a {num(F[F.length - 1].follower)}.</p>
-      <svg class="sp-grafico" viewBox="0 0 600 180" role="img" aria-label="Follower in crescita lenta da fine agosto a fine ottobre">
+      <h2 class="st-tit">{L("Follower, settimana per settimana", "Followers, week by week")}</h2>
+      <p class="sp-nota">{L("Da", "From")} {num(F[0].follower)} {L("a", "to")} {num(F[F.length - 1].follower)}.</p>
+      <svg class="sp-grafico" viewBox="0 0 600 180" role="img" aria-label={L("Follower in crescita lenta da fine agosto a fine ottobre", "Followers growing slowly from the end of August to the end of October")}>
         <polyline points={punti} fill="none" stroke="#e0650f" stroke-width="3" />
         {F.map((x, i) => i % 2 === 0 && <text x={20 + (i * 560) / (F.length - 1)} y="172" text-anchor="middle" font-size="11" fill="#55514c">{dataBreve(x.settimana)}</text>)}
       </svg>
@@ -65,30 +73,30 @@ export function getStaticPaths() { return LINGUE_APP(); }
   </div>
 
   <section class="sp-pannello" data-formati>
-    <h2 class="st-tit">Medie per formato</h2>
+    <h2 class="st-tit">{L("Medie per formato", "Averages by format")}</h2>
     <div class="sp-scorri">
       <table data-tabella>
-        <thead><tr><th>Formato</th><th class="n">Post</th><th class="n">Copertura media</th><th class="n">Engagement rate</th><th class="n">Salvataggi medi</th><th class="n">Non follower</th></tr></thead>
+        <thead><tr><th>{L("Formato", "Format")}</th><th class="n">Post</th><th class="n">{L("Copertura media", "Average reach")}</th><th class="n">Engagement rate</th><th class="n">{L("Salvataggi medi", "Average saves")}</th><th class="n">{L("Non follower", "Non-followers")}</th></tr></thead>
         <tbody>{FORMATI.map((f) => <tr><td><strong>{NOME_F[f.f]}</strong></td><td class="n">{f.n}</td><td class="n">{num(f.cop)}</td><td class="n">{dec(f.er)}%</td><td class="n">{num(f.salv)}</td><td class="n">{num(f.nf)}%</td></tr>)}</tbody>
       </table>
     </div>
-    <p class="sp-nota">Non follower: la parte di persone raggiunte che non segue il profilo.</p>
+    <p class="sp-nota">{L("Non follower: la parte di persone raggiunte che non segue il profilo.", "Non-followers: the share of people reached who don't follow the profile.")}</p>
   </section>
 
   <section class="sp-pannello st-post">
     <div class="sp-riga">
-      <h2 class="st-tit">Tutti i post</h2>
+      <h2 class="st-tit">{L("Tutti i post", "All posts")}</h2>
       <div class="st-filtri">
-        <label>Formato <select class="sp-scegli" data-filtro="formato"><option value="">Tutti</option>{FORMATI.map((f) => <option value={f.f}>{NOME_F[f.f]}</option>)}</select></label>
-        <label>Pilastro <select class="sp-scegli" data-filtro="pilastro"><option value="">Tutti</option>{PILASTRI.map((p) => <option value={p}>{p}</option>)}</select></label>
+        <label>{L("Formato", "Format")} <select class="sp-scegli" data-filtro="formato"><option value="">{L("Tutti", "All")}</option>{FORMATI.map((f) => <option value={f.f}>{NOME_F[f.f]}</option>)}</select></label>
+        <label>{L("Pilastro", "Pillar")} <select class="sp-scegli" data-filtro="pilastro"><option value="">{L("Tutti", "All")}</option>{PILASTRI.map((p) => <option value={p}>{p}</option>)}</select></label>
       </div>
     </div>
     <div class="sp-scorri">
       <table data-tabella id="t-post">
         <thead><tr>
-          <th data-ordina="testo">Data</th><th data-ordina="testo">Ora</th><th data-ordina="testo">Formato</th><th data-ordina="testo">Pilastro</th><th>Post</th>
-          <th class="n" data-ordina="numero">Copertura</th><th class="n" data-ordina="numero">Impressioni</th><th class="n" data-ordina="numero">Like</th><th class="n" data-ordina="numero">Commenti</th>
-          <th class="n" data-ordina="numero">Salvataggi</th><th class="n" data-ordina="numero">Condivisioni</th><th class="n" data-ordina="numero">ER</th><th class="n" data-ordina="numero">Non follower</th>
+          <th data-ordina="testo">{L("Data", "Date")}</th><th data-ordina="testo">{L("Ora", "Time")}</th><th data-ordina="testo">{L("Formato", "Format")}</th><th data-ordina="testo">{L("Pilastro", "Pillar")}</th><th>Post</th>
+          <th class="n" data-ordina="numero">{L("Copertura", "Reach")}</th><th class="n" data-ordina="numero">{L("Impressioni", "Impressions")}</th><th class="n" data-ordina="numero">Like</th><th class="n" data-ordina="numero">{L("Commenti", "Comments")}</th>
+          <th class="n" data-ordina="numero">{L("Salvataggi", "Saves")}</th><th class="n" data-ordina="numero">{L("Condivisioni", "Shares")}</th><th class="n" data-ordina="numero">ER</th><th class="n" data-ordina="numero">{L("Non follower", "Non-followers")}</th>
         </tr></thead>
         <tbody>
           {POST.post.map((p) => (
@@ -102,7 +110,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
         </tbody>
       </table>
     </div>
-    <p class="sp-nota">ER (engagement rate) = (like + commenti + salvataggi + condivisioni) ÷ copertura × 100. Clicca un'intestazione per ordinare.</p>
+    <p class="sp-nota">{L("ER (engagement rate) = (like + commenti + salvataggi + condivisioni) ÷ copertura × 100. Clicca un'intestazione per ordinare.", "ER (engagement rate) = (likes + comments + saves + shares) ÷ reach × 100. Click a column header to sort.")}</p>
   </section>
 </Console>
 

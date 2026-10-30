@@ -1,0 +1,163 @@
+{
+ "_nota": "Commenti e messaggi della settimana. 'crisi': compaiono solo nell'esercizio della crisi.",
+ "voci": [
+  {
+   "id": "c01",
+   "tipo": "commento",
+   "autore": "@marta.r_84",
+   "post": "p22",
+   "quando": "25/10, 21:12",
+   "testo": "Order arrived after 9 days and nobody answers emails. Really disappointed.",
+   "categoria": "critica"
+  },
+  {
+   "id": "c02",
+   "tipo": "commento",
+   "autore": "@luca_bianchi.pd",
+   "post": "p24",
+   "quando": "28/10, 10:05",
+   "testo": "My order 48213 still hasn't arrived, I live at Via Roma 12 in Padua, can you check?",
+   "categoria": "dati"
+  },
+  {
+   "id": "c03",
+   "tipo": "commento",
+   "autore": "@sofi.green",
+   "post": "p18",
+   "quando": "26/10, 18:40",
+   "testo": "How much matcha should I use for one cup?",
+   "categoria": "dosi"
+  },
+  {
+   "id": "c04",
+   "tipo": "messaggio",
+   "autore": "@paolo.tea",
+   "post": null,
+   "quando": "27/10, 09:15",
+   "testo": "Hi! How many grams of matcha for a matcha latte?",
+   "categoria": "dosi"
+  },
+  {
+   "id": "c05",
+   "tipo": "commento",
+   "autore": "@ele_and_books",
+   "post": "p17",
+   "quando": "28/10, 22:30",
+   "testo": "How much water do you need for matcha? Mine is always bitter",
+   "categoria": "dosi"
+  },
+  {
+   "id": "c06",
+   "tipo": "commento",
+   "autore": "@soldi.facili.ora",
+   "post": "p24",
+   "quando": "28/10, 04:02",
+   "testo": "Earn €500 a day from home!!! DM me 💸💸",
+   "categoria": "spam"
+  },
+  {
+   "id": "c07",
+   "tipo": "commento",
+   "autore": "@anonimo_x99",
+   "post": "p23",
+   "quando": "27/10, 23:50",
+   "testo": "You're thieves and useless.",
+   "categoria": "insulto"
+  },
+  {
+   "id": "c08",
+   "tipo": "commento",
+   "autore": "@giorgia.mm",
+   "post": "p21",
+   "quando": "27/10, 12:20",
+   "testo": "The rooibos in my last order tasted different from usual, more bitter. Have you changed supplier?",
+   "categoria": "critica-sincera"
+  },
+  {
+   "id": "c09",
+   "tipo": "commento",
+   "autore": "@francy_tazze",
+   "post": "p20",
+   "quando": "26/10, 08:10",
+   "testo": "The Sencha is delicious, I drink it every morning now!",
+   "categoria": "complimento"
+  },
+  {
+   "id": "c10",
+   "tipo": "messaggio",
+   "autore": "@viaggiconiltè",
+   "post": null,
+   "quando": "28/10, 15:00",
+   "testo": "Hi, I'm a travel creator (32k followers). Would you be up for a partnership?",
+   "categoria": "collaborazione"
+  },
+  {
+   "id": "c11",
+   "tipo": "commento",
+   "autore": "@nonna.rita",
+   "post": "p02",
+   "quando": "24/10, 17:00",
+   "testo": "Can you make iced tea with herbal teas too?",
+   "categoria": "domanda"
+  },
+  {
+   "id": "c12",
+   "tipo": "commento",
+   "autore": "@kiara.home",
+   "post": "p24",
+   "quando": "29/10, 07:30",
+   "testo": "Do you ship to Switzerland too?",
+   "categoria": "domanda"
+  },
+  {
+   "id": "x01",
+   "tipo": "commento",
+   "autore": "@ale.matcha",
+   "post": "p24",
+   "quando": "29/10, 10:02",
+   "testo": "Matcha kit arrived with a broken whisk 😞",
+   "categoria": "crisi",
+   "crisi": true
+  },
+  {
+   "id": "x02",
+   "tipo": "commento",
+   "autore": "@robi_tea",
+   "post": "p24",
+   "quando": "29/10, 10:20",
+   "testo": "Me too, whisk snapped in two. Such a shame, it was a gift.",
+   "categoria": "crisi",
+   "crisi": true
+  },
+  {
+   "id": "x03",
+   "tipo": "commento",
+   "autore": "@cami.g",
+   "post": "p24",
+   "quando": "29/10, 10:41",
+   "testo": "Don't you check the parcels before shipping them??",
+   "categoria": "crisi",
+   "crisi": true
+  },
+  {
+   "id": "x04",
+   "tipo": "commento",
+   "autore": "@tazzaemiele",
+   "post": "p24",
+   "quando": "29/10, 11:05",
+   "testo": "Guys it happened to me too, I'm talking about it in my stories. Hope you sort it out 🙏",
+   "categoria": "crisi",
+   "crisi": true
+  },
+  {
+   "id": "x05",
+   "tipo": "commento",
+   "autore": "@paola.verdi",
+   "post": "p24",
+   "quando": "29/10, 11:30",
+   "testo": "Never again.",
+   "categoria": "crisi",
+   "crisi": true
+  }
+ ]
+}

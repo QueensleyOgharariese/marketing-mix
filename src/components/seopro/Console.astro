@@ -11,70 +11,72 @@ import SchermoIntero from "../SchermoIntero.astro";
 
 // sim: quale simulazione (seo o social). Cambiano menu, nome e conteggio degli esercizi; tutto il resto è comune.
 interface Props { attivo: string; titolo: string; ispirato?: string; sottotitolo?: string; sim?: "seo" | "social" | "sea" | "brand" }
+import { testiDa } from "../../i18n";
 const { attivo, titolo, ispirato, sottotitolo, sim = "seo" } = Astro.props;
+const L = testiDa(Astro.url);
 const B = "/app/percorsi/seo";
 const S = "/app/simulazioni/social";
 const A = "/app/simulazioni/sea";
 const R = "/app/simulazioni/brand";
-const NOME = { seo: "Simulazione SEO", social: "Simulazione Social", sea: "Simulazione SEA", brand: "Simulazione Brand" }[sim];
+const NOME = L(`Simulazione ${sim === "seo" || sim === "sea" ? sim.toUpperCase() : sim[0].toUpperCase() + sim.slice(1)}`, `${sim === "seo" || sim === "sea" ? sim.toUpperCase() : sim[0].toUpperCase() + sim.slice(1)} Simulation`);
 const BASE = { seo: B, social: S, sea: A, brand: R }[sim];
 const GRUPPI = sim === "brand" ? [
-  { nome: "Il lavoro", voci: [
-    { id: "percorso", nome: "Panoramica", link: `${R}/` },
-    { id: "manuale", nome: "Manuale del brand", link: `${R}/manuale/` },
-    { id: "testi", nome: "Testi del brand", link: `${R}/testi/` },
-    { id: "piano", nome: "Piano di brand", link: `${R}/piano/` },
-    { id: "stampa", nome: "Ufficio stampa", link: `${R}/stampa/` },
+  { nome: L("Il lavoro", "The work"), voci: [
+    { id: "percorso", nome: L("Panoramica", "Overview"), link: `${R}/` },
+    { id: "manuale", nome: L("Manuale del brand", "Brand manual"), link: `${R}/manuale/` },
+    { id: "testi", nome: L("Testi del brand", "Brand copy"), link: `${R}/testi/` },
+    { id: "piano", nome: L("Piano di brand", "Brand plan"), link: `${R}/piano/` },
+    { id: "stampa", nome: L("Ufficio stampa", "Press office"), link: `${R}/stampa/` },
   ] },
-  { nome: "Strumenti", voci: [
-    { id: "ricerche", nome: "Ricerche sul brand", link: `${R}/ricerche/` },
+  { nome: L("Strumenti", "Tools"), voci: [
+    { id: "ricerche", nome: L("Ricerche sul brand", "Brand research"), link: `${R}/ricerche/` },
   ] },
 ] : sim === "sea" ? [
-  { nome: "Il lavoro", voci: [
-    { id: "percorso", nome: "Panoramica", link: `${A}/` },
-    { id: "campagne", nome: "Campagne", link: `${A}/campagne/` },
+  { nome: L("Il lavoro", "The work"), voci: [
+    { id: "percorso", nome: L("Panoramica", "Overview"), link: `${A}/` },
+    { id: "campagne", nome: L("Campagne", "Campaigns"), link: `${A}/campagne/` },
   ] },
-  { nome: "Strumenti", voci: [
-    { id: "termini", nome: "Termini di ricerca", link: `${A}/termini/` },
-    { id: "pianificatore", nome: "Pianificatore keyword", link: `${A}/pianificatore/` },
-    { id: "rendimento", nome: "Rendimento sul sito", link: `${A}/rendimento/` },
+  { nome: L("Strumenti", "Tools"), voci: [
+    { id: "termini", nome: L("Termini di ricerca", "Search terms"), link: `${A}/termini/` },
+    { id: "pianificatore", nome: L("Pianificatore keyword", "Keyword planner"), link: `${A}/pianificatore/` },
+    { id: "rendimento", nome: L("Rendimento sul sito", "Website performance"), link: `${A}/rendimento/` },
   ] },
 ] : sim === "social" ? [
-  { nome: "Il lavoro", voci: [
-    { id: "percorso", nome: "Panoramica", link: `${S}/` },
-    { id: "profilo", nome: "Il profilo", link: `${S}/profilo/` },
-    { id: "calendario", nome: "Calendario e post", link: `${S}/calendario/` },
-    { id: "community", nome: "Commenti e messaggi", link: `${S}/community/` },
+  { nome: L("Il lavoro", "The work"), voci: [
+    { id: "percorso", nome: L("Panoramica", "Overview"), link: `${S}/` },
+    { id: "profilo", nome: L("Il profilo", "The profile"), link: `${S}/profilo/` },
+    { id: "calendario", nome: L("Calendario e post", "Calendar and posts"), link: `${S}/calendario/` },
+    { id: "community", nome: L("Commenti e messaggi", "Comments and messages"), link: `${S}/community/` },
   ] },
-  { nome: "Strumenti", voci: [
-    { id: "insight", nome: "Statistiche dei post", link: `${S}/statistiche/` },
-    { id: "libreria", nome: "Libreria foto e musica", link: `${S}/libreria/` },
+  { nome: L("Strumenti", "Tools"), voci: [
+    { id: "insight", nome: L("Statistiche dei post", "Post insights"), link: `${S}/statistiche/` },
+    { id: "libreria", nome: L("Libreria foto e musica", "Photo and music library"), link: `${S}/libreria/` },
   ] },
 ] : [
-  { nome: "Il lavoro", voci: [
-    { id: "percorso", nome: "Panoramica", link: `${B}/` },
-    { id: "negozio", nome: "Il negozio", link: "/app/negozio/" },
-    { id: "pannello", nome: "Pannello del negozio", link: `${B}/pannello/` },
+  { nome: L("Il lavoro", "The work"), voci: [
+    { id: "percorso", nome: L("Panoramica", "Overview"), link: `${B}/` },
+    { id: "negozio", nome: L("Il negozio", "The shop"), link: "/app/negozio/" },
+    { id: "pannello", nome: L("Pannello del negozio", "Shop admin"), link: `${B}/pannello/` },
   ] },
-  { nome: "Strumenti", voci: [
-    { id: "console", nome: "Console di ricerca", link: `${B}/strumenti/console/` },
-    { id: "indicizzazione", nome: "Pagine e indicizzazione", link: `${B}/strumenti/indicizzazione/` },
-    { id: "keyword", nome: "Ricerca keyword", link: `${B}/strumenti/keyword/` },
+  { nome: L("Strumenti", "Tools"), voci: [
+    { id: "console", nome: L("Console di ricerca", "Search console"), link: `${B}/strumenti/console/` },
+    { id: "indicizzazione", nome: L("Pagine e indicizzazione", "Pages and indexing"), link: `${B}/strumenti/indicizzazione/` },
+    { id: "keyword", nome: L("Ricerca keyword", "Keyword research"), link: `${B}/strumenti/keyword/` },
     { id: "crawler", nome: "Crawler", link: `${B}/strumenti/crawler/` },
-    { id: "statistiche", nome: "Statistiche", link: `${B}/strumenti/statistiche/` },
+    { id: "statistiche", nome: L("Statistiche", "Analytics"), link: `${B}/strumenti/statistiche/` },
   ] },
 ];
 // La guida della missione c'è in tutti gli strumenti (non nella panoramica)
 const conGuida = attivo !== "percorso";
 ---
-<AppLayout title={`${titolo} · ${NOME}`} percorso={attivo === "percorso" ? [{ etichetta: NOME }] : [{ etichetta: NOME, link: `${BASE}/` }, { etichetta: titolo }]} indietro={{ etichetta: "Simulazioni", link: "/app/simulazioni/" }}>
+<AppLayout title={`${titolo} · ${NOME}`} percorso={attivo === "percorso" ? [{ etichetta: NOME }] : [{ etichetta: NOME, link: `${BASE}/` }, { etichetta: titolo }]} indietro={{ etichetta: L("Simulazioni", "Simulations"), link: "/app/simulazioni/" }}>
   <div slot="barra" class="stato">
     <SchermoIntero />
-    <span class="missioni-testo" data-missioni-testo data-sim={sim}>Esercizi 0</span>
+    <span class="missioni-testo" data-missioni-testo data-sim={sim}>{L("Esercizi 0", "Exercises 0")}</span>
     <span class="missioni-barra" aria-hidden="true"><span data-missioni-barra></span></span>
   </div>
   <div class:list={["console", { "con-guida": conGuida }]}>
-    <nav class="menu" aria-label={`Strumenti della ${NOME}`} data-barra="menu-seo" data-etichetta="menu">
+    <nav class="menu" aria-label={L(`Strumenti della ${NOME}`, `${NOME} tools`)} data-barra="menu-seo" data-etichetta="menu">
       {GRUPPI.map((g) => (
         <div class="gruppo">
           <span class="menu-titolo">{g.nome}</span>
@@ -85,17 +87,17 @@ const conGuida = attivo !== "percorso";
           ))}
         </div>
       ))}
-      <p class="menu-nota">Dati inventati ma coerenti: un problema che trovi in uno strumento lo ritrovi anche negli altri.</p>
+      <p class="menu-nota">{L("Dati inventati ma coerenti: un problema che trovi in uno strumento lo ritrovi anche negli altri.", "Invented but consistent data: a problem you find in one tool also shows up in the others.")}</p>
     </nav>
     <main class="contenuto">
       <header class="testa">
         <h1 class="app-titolo">{titolo}</h1>
         {sottotitolo && <p class="sottotitolo">{sottotitolo}</p>}
-        {ispirato && <p class="ispirato">Simulazione ispirata a {ispirato}</p>}
+        {ispirato && <p class="ispirato">{L("Simulazione ispirata a", "Simulation inspired by")} {ispirato}</p>}
       </header>
       <slot />
     </main>
-    {conGuida && <aside class="guida" aria-label="Guida della missione" data-barra="guida-seo" data-lato="destra" data-etichetta="guida"><GuidaMissione pagina={attivo} sim={sim} /></aside>}
+    {conGuida && <aside class="guida" aria-label={L("Guida della missione", "Exercise guide")} data-barra="guida-seo" data-lato="destra" data-etichetta={L("guida", "guide")}><GuidaMissione pagina={attivo} sim={sim} /></aside>}
   </div>
 </AppLayout>
 
@@ -105,12 +107,13 @@ const conGuida = attivo !== "percorso";
   import { motoreSocial } from "../../scripts/social/missioni-social";
   import { motoreSea } from "../../scripts/sea/missioni-sea";
   import { motoreBrand } from "../../scripts/brand/missioni-brand";
+  import { t as tr } from "../../scripts/lingua";
   function aggiornaBarra() {
     const t = document.querySelector<HTMLElement>("[data-missioni-testo]"); const b = document.querySelector<HTMLElement>("[data-missioni-barra]");
     const mo = { social: motoreSocial, sea: motoreSea, brand: motoreBrand }[t?.dataset.sim ?? ""] ?? motoreSeo;
     const s = mo.leggiStato();
     const n = mo.MISSIONI.filter((m) => mo.fatta(s, m)).length;
-    if (t) t.textContent = `Esercizi ${n} di ${mo.MISSIONI.length}`;
+    if (t) t.textContent = `${tr("Esercizi", "Exercises")} ${n} ${tr("di", "of")} ${mo.MISSIONI.length}`;
     if (b) b.style.width = `${(n / mo.MISSIONI.length) * 100}%`;
   }
   aggiornaBarra();

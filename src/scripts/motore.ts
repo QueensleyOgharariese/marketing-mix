@@ -14,44 +14,48 @@ export type StatoMissione = { stato: "in-corso" | "completata"; passo: number; e
 export type Stato = { attiva: string | null; missioni: Record<string, StatoMissione> };
 export type Strumento = { nome: string; link: string };
 
+import { conLingua, t, EN } from "./lingua";
+
 // Tutti gli strumenti di tutte le simulazioni (gli id sono unici): servono alla guida per dire "si fa in…"
+// t(italiano, inglese): il nome nella lingua della pagina (nel browser)
 export const STRUMENTI: Record<string, Strumento> = {
   // SEO
-  console: { nome: "Console di ricerca", link: "/app/percorsi/seo/strumenti/console/" },
-  indicizzazione: { nome: "Pagine e indicizzazione", link: "/app/percorsi/seo/strumenti/indicizzazione/" },
-  keyword: { nome: "Ricerca keyword", link: "/app/percorsi/seo/strumenti/keyword/" },
-  crawler: { nome: "Crawler", link: "/app/percorsi/seo/strumenti/crawler/" },
-  statistiche: { nome: "Statistiche", link: "/app/percorsi/seo/strumenti/statistiche/" },
-  negozio: { nome: "Il negozio", link: "/app/negozio/" },
-  pannello: { nome: "Pannello del negozio", link: "/app/percorsi/seo/pannello/" },
+  console: { nome: t("Console di ricerca", "Search console"), link: "/app/percorsi/seo/strumenti/console/" },
+  indicizzazione: { nome: t("Pagine e indicizzazione", "Pages and indexing"), link: "/app/percorsi/seo/strumenti/indicizzazione/" },
+  keyword: { nome: t("Ricerca keyword", "Keyword research"), link: "/app/percorsi/seo/strumenti/keyword/" },
+  crawler: { nome: t("Crawler", "Crawler"), link: "/app/percorsi/seo/strumenti/crawler/" },
+  statistiche: { nome: t("Statistiche", "Analytics"), link: "/app/percorsi/seo/strumenti/statistiche/" },
+  negozio: { nome: t("Il negozio", "The shop"), link: "/app/negozio/" },
+  pannello: { nome: t("Pannello del negozio", "Shop admin"), link: "/app/percorsi/seo/pannello/" },
   // Social
-  profilo: { nome: "Il profilo", link: "/app/simulazioni/social/profilo/" },
-  insight: { nome: "Statistiche dei post", link: "/app/simulazioni/social/statistiche/" },
-  calendario: { nome: "Calendario e post", link: "/app/simulazioni/social/calendario/" },
-  community: { nome: "Commenti e messaggi", link: "/app/simulazioni/social/community/" },
-  libreria: { nome: "Libreria foto e musica", link: "/app/simulazioni/social/libreria/" },
+  profilo: { nome: t("Il profilo", "The profile"), link: "/app/simulazioni/social/profilo/" },
+  insight: { nome: t("Statistiche dei post", "Post insights"), link: "/app/simulazioni/social/statistiche/" },
+  calendario: { nome: t("Calendario e post", "Calendar and posts"), link: "/app/simulazioni/social/calendario/" },
+  community: { nome: t("Commenti e messaggi", "Comments and messages"), link: "/app/simulazioni/social/community/" },
+  libreria: { nome: t("Libreria foto e musica", "Photo and music library"), link: "/app/simulazioni/social/libreria/" },
   // SEA
-  campagne: { nome: "Campagne", link: "/app/simulazioni/sea/campagne/" },
-  termini: { nome: "Termini di ricerca", link: "/app/simulazioni/sea/termini/" },
-  pianificatore: { nome: "Pianificatore keyword", link: "/app/simulazioni/sea/pianificatore/" },
-  rendimento: { nome: "Rendimento sul sito", link: "/app/simulazioni/sea/rendimento/" },
+  campagne: { nome: t("Campagne", "Campaigns"), link: "/app/simulazioni/sea/campagne/" },
+  termini: { nome: t("Termini di ricerca", "Search terms"), link: "/app/simulazioni/sea/termini/" },
+  pianificatore: { nome: t("Pianificatore keyword", "Keyword planner"), link: "/app/simulazioni/sea/pianificatore/" },
+  rendimento: { nome: t("Rendimento sul sito", "Website performance"), link: "/app/simulazioni/sea/rendimento/" },
   // Brand
-  manuale: { nome: "Manuale del brand", link: "/app/simulazioni/brand/manuale/" },
-  ricerche: { nome: "Ricerche sul brand", link: "/app/simulazioni/brand/ricerche/" },
-  testi: { nome: "Testi del brand", link: "/app/simulazioni/brand/testi/" },
-  piano: { nome: "Piano di brand", link: "/app/simulazioni/brand/piano/" },
-  stampa: { nome: "Ufficio stampa", link: "/app/simulazioni/brand/stampa/" },
+  manuale: { nome: t("Manuale del brand", "Brand manual"), link: "/app/simulazioni/brand/manuale/" },
+  ricerche: { nome: t("Ricerche sul brand", "Brand research"), link: "/app/simulazioni/brand/ricerche/" },
+  testi: { nome: t("Testi del brand", "Brand copy"), link: "/app/simulazioni/brand/testi/" },
+  piano: { nome: t("Piano di brand", "Brand plan"), link: "/app/simulazioni/brand/piano/" },
+  stampa: { nome: t("Ufficio stampa", "Press office"), link: "/app/simulazioni/brand/stampa/" },
 };
 
-import { conLingua } from "./lingua";
-
-type Config = { dati: { livelli: any[]; missioni: any[] }; chiave: string; ripristina?: (parti: any) => void; base: string; nome: string };
+// datiEn: gli stessi esercizi in inglese (stessa forma, cambiano solo i testi). I progressi restano gli stessi
+// nelle due lingue, perché gli id degli esercizi non cambiano.
+type Config = { dati: { livelli: any[]; missioni: any[] }; datiEn?: { livelli: any[]; missioni: any[] }; chiave: string; ripristina?: (parti: any) => void; base: string; nome: string };
 
 export function creaMotore(conf: Config) {
-  const TUTTE = conf.dati.missioni as Missione[];
+  const D = EN && conf.datiEn ? conf.datiEn : conf.dati;
+  const TUTTE = D.missioni as Missione[];
   const TUTORIAL = TUTTE.find((m) => m.id === "tutorial")!;
   const MISSIONI = TUTTE.filter((m) => m.id !== "tutorial");
-  const LIVELLI = conf.dati.livelli as { n: number; nome: string; cosa: string }[];
+  const LIVELLI = D.livelli as { n: number; nome: string; cosa: string }[];
   const etichetta = (m: Missione) => (m.livello === 0 ? m.nome : `${LIVELLI[m.livello].nome} · ${m.nome}`);
 
   function leggiStato(): Stato {
@@ -101,6 +105,7 @@ export function creaMotore(conf: Config) {
   // Punti: 100, meno 10 per ogni risposta sbagliata e 5 per ogni aiuto aperto (minimo 0)
   const punti = (m: StatoMissione) => Math.max(0, 100 - m.errori * 10 - m.aiuti.length * 5);
 
-  return { nome: conf.nome, base: conf.base, TUTTE, TUTORIAL, MISSIONI, LIVELLI, STRUMENTI, etichetta, leggiStato, salvaStato, fatta, tutorialFatto, livelloAperto, sbloccata, consigliata, saltaTutorial, linkPasso, avvia, ricomincia, controlla, punti };
+  // "Simulazione Social" -> "Social Simulation"
+  return { nome: EN ? `${conf.nome.replace("Simulazione ", "")} Simulation` : conf.nome, base: conf.base, TUTTE, TUTORIAL, MISSIONI, LIVELLI, STRUMENTI, etichetta, leggiStato, salvaStato, fatta, tutorialFatto, livelloAperto, sbloccata, consigliata, saltaTutorial, linkPasso, avvia, ricomincia, controlla, punti };
 }
 export type Motore = ReturnType<typeof creaMotore>;

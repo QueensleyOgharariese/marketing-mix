@@ -1,5 +1,5 @@
 ---
-import { LINGUE_APP } from "../../../../../i18n";
+import { LINGUE_APP, testiDa } from "../../../../../i18n";
 // SIMULAZIONE SOCIAL · CALENDARIO E POST (ispirato agli strumenti di programmazione dei social, nome generico)
 // A sinistra le bozze, al centro il mese con i post pubblicati (grigi) e programmati.
 // Una bozza si programma trascinandola su un giorno o scegliendo data e ora nell'editor.
@@ -7,33 +7,34 @@ import { LINGUE_APP } from "../../../../../i18n";
 // Cambiare l'ora predefinita non sposta i post già programmati: vanno spostati uno per uno.
 import Console from "../../../../../components/seopro/Console.astro";
 export function getStaticPaths() { return LINGUE_APP(); }
+const L = testiDa(Astro.url);
 ---
-<Console sim="social" attivo="calendario" titolo="Calendario e post" ispirato="gli strumenti di programmazione dei social (nome generico, nessun marchio reale)">
+<Console sim="social" attivo="calendario" titolo={L("Calendario e post", "Calendar and posts")} ispirato={L("gli strumenti di programmazione dei social (nome generico, nessun marchio reale)", "social media scheduling tools (generic name, no real brand)")}>
   <section class="sp-pannello cal-imp" data-impostazioni>
     <div>
-      <h2 class="cal-tit">Impostazioni di programmazione</h2>
-      <p class="sp-nota">Ora usata quando programmi più post in blocco o trascini una bozza senza scegliere l'ora. Ultima modifica alle impostazioni: 21/09/2026 (programmazione in blocco attivata).</p>
+      <h2 class="cal-tit">{L("Impostazioni di programmazione", "Scheduling settings")}</h2>
+      <p class="sp-nota">{L("Ora usata quando programmi più post in blocco o trascini una bozza senza scegliere l'ora. Ultima modifica alle impostazioni: 21/09/2026 (programmazione in blocco attivata).", "Time used when you schedule several posts in bulk or drag a draft without choosing a time. Settings last changed: 21/09/2026 (bulk scheduling turned on).")}</p>
     </div>
     <form class="cal-ora" data-form-ora>
-      <label>Ora predefinita <input type="time" name="ora" class="sp-scegli" required /></label>
-      <button type="submit" class="bottone-app">Salva</button>
+      <label>{L("Ora predefinita", "Default time")} <input type="time" name="ora" class="sp-scegli" required /></label>
+      <button type="submit" class="bottone-app">{L("Salva", "Save")}</button>
       <span class="sp-nota" data-ora-esito></span>
     </form>
   </section>
 
   <div class="cal-corpo">
     <aside class="sp-pannello cal-bozze" data-bozze>
-      <h2 class="cal-tit">Bozze <span class="sp-nota" data-n-bozze></span></h2>
-      <p class="sp-nota">Trascina una bozza su un giorno, oppure cliccala e scegli data e ora.</p>
+      <h2 class="cal-tit">{L("Bozze", "Drafts")} <span class="sp-nota" data-n-bozze></span></h2>
+      <p class="sp-nota">{L("Trascina una bozza su un giorno, oppure cliccala e scegli data e ora.", "Drag a draft onto a day, or click it and choose date and time.")}</p>
       <ul class="cal-lista" data-lista-bozze></ul>
     </aside>
     <section class="sp-pannello cal-mese" data-mese>
       <div class="sp-riga">
-        <button type="button" class="cal-freccia" data-mese-prima aria-label="Mese precedente">‹</button>
-        <h2 class="cal-tit" data-mese-nome>Ottobre 2026</h2>
-        <button type="button" class="cal-freccia" data-mese-dopo aria-label="Mese successivo">›</button>
+        <button type="button" class="cal-freccia" data-mese-prima aria-label={L("Mese precedente", "Previous month")}>‹</button>
+        <h2 class="cal-tit" data-mese-nome>{L("Ottobre 2026", "October 2026")}</h2>
+        <button type="button" class="cal-freccia" data-mese-dopo aria-label={L("Mese successivo", "Next month")}>›</button>
       </div>
-      <div class="cal-legenda sp-nota"><span><i class="lg lg-pub"></i>Pubblicato</span><span><i class="lg lg-prog"></i>Programmato</span><span><i class="lg lg-sosp"></i>Sospeso</span><span>Oggi: giovedì 29/10</span></div>
+      <div class="cal-legenda sp-nota"><span><i class="lg lg-pub"></i>{L("Pubblicato", "Published")}</span><span><i class="lg lg-prog"></i>{L("Programmato", "Scheduled")}</span><span><i class="lg lg-sosp"></i>{L("Sospeso", "Suspended")}</span><span>{L("Oggi: giovedì 29/10", "Today: Thursday 29/10")}</span></div>
       <div class="cal-griglia" data-griglia-mese></div>
     </section>
   </div>
@@ -42,11 +43,11 @@ export function getStaticPaths() { return LINGUE_APP(); }
 </Console>
 
 <script>
-  import { leggi, salva, pubblicati, programmati, bozze, trovaBozza, oraPredefinita, OGGI } from "../../../../../scripts/social/stato";
-  import CAL from "../../../../../data/app/social-sim/calendario.json";
+  import { leggi, salva, pubblicati, programmati, bozze, trovaBozza, oraPredefinita, OGGI, CAL } from "../../../../../scripts/social/stato";
+  import { t, EN } from "../../../../../scripts/lingua";
   const esc = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-  const MESI = ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"];
-  const NOME_F: Record<string, string> = { reel: "Reel", carosello: "Carosello", foto: "Foto" };
+  const MESI = EN ? ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] : ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"];
+  const NOME_F: Record<string, string> = { reel: "Reel", carosello: t("Carosello", "Carousel"), foto: t("Foto", "Photo") };
   const ORIGINALI = [...CAL.programmati, ...CAL.bozze, CAL.crisi];
   let mese = 10; // ottobre 2026 (il mese di "oggi")
   let aperto: string | null = null;
@@ -59,7 +60,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
   formOra.addEventListener("submit", (e) => {
     e.preventDefault();
     const m = leggi(); m.oraPredefinita = campoOra.value || null; salva(m);
-    document.querySelector("[data-ora-esito]")!.textContent = `Salvata: ${campoOra.value}. I post già programmati non cambiano.`;
+    document.querySelector("[data-ora-esito]")!.textContent = t(`Salvata: ${campoOra.value}. I post già programmati non cambiano.`, `Saved: ${campoOra.value}. Posts already scheduled don't change.`);
     disegna();
   });
 
@@ -69,7 +70,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
     document.querySelector("[data-n-bozze]")!.textContent = `(${bs.length})`;
     document.querySelector("[data-lista-bozze]")!.innerHTML = bs.map((b) => `
       <li><button type="button" class="cal-bozza" draggable="true" data-apri="${b.id}">
-        <strong>${esc(b.titolo)}</strong><span>${NOME_F[b.formato]} · ${esc(b.pilastro)}</span>${b.nota ? `<em>${esc(b.nota)}</em>` : ""}</button></li>`).join("") || '<li class="sp-nota">Nessuna bozza: sono tutte nel calendario.</li>';
+        <strong>${esc(b.titolo)}</strong><span>${NOME_F[b.formato]} · ${esc(b.pilastro)}</span>${b.nota ? `<em>${esc(b.nota)}</em>` : ""}</button></li>`).join("") || `<li class="sp-nota">${t("Nessuna bozza: sono tutte nel calendario.", "No drafts: they're all in the calendar.")}</li>`;
   }
 
   // Mese: settimane da lunedì a domenica
@@ -81,14 +82,14 @@ export function getStaticPaths() { return LINGUE_APP(); }
     const mm = String(mese).padStart(2, "0");
     const pub = pubblicati(m).filter((p) => p.data.startsWith(`2026-${mm}`));
     const prog = programmati(m).filter((p) => p.data?.startsWith(`2026-${mm}`));
-    let html = ["Lun", "Mar", "Mer", "Gio", "Ven", "Sab", "Dom"].map((g) => `<div class="cal-gs">${g}</div>`).join("");
+    let html = (EN ? ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] : ["Lun", "Mar", "Mer", "Gio", "Ven", "Sab", "Dom"]).map((g) => `<div class="cal-gs">${g}</div>`).join("");
     html += '<div class="cal-vuoto"></div>'.repeat(vuoti);
     for (let g = 1; g <= giorni; g++) {
       const iso = `2026-${mm}-${String(g).padStart(2, "0")}`;
       const passato = iso < OGGI;
       const chip = [
-        ...pub.filter((p) => p.data === iso).map((p) => `<span class="chip chip-pub" title="Pubblicato: ${esc(p.titolo)}"><b>${p.ora}</b> ${esc(p.titolo)}</span>`),
-        ...prog.filter((p) => p.data === iso).map((p) => `<button type="button" class="chip chip-prog${p.sospeso ? " chip-sosp" : ""}" data-apri="${p.id}">${p.sospeso ? "Sospeso · " : ""}<b>${p.ora}</b> ${esc(p.titolo)}</button>`),
+        ...pub.filter((p) => p.data === iso).map((p) => `<span class="chip chip-pub" title="${t("Pubblicato", "Published")}: ${esc(p.titolo)}"><b>${p.ora}</b> ${esc(p.titolo)}</span>`),
+        ...prog.filter((p) => p.data === iso).map((p) => `<button type="button" class="chip chip-prog${p.sospeso ? " chip-sosp" : ""}" data-apri="${p.id}">${p.sospeso ? t("Sospeso · ", "Suspended · ") : ""}<b>${p.ora}</b> ${esc(p.titolo)}</button>`),
       ].join("");
       html += `<div class="cal-giorno${passato ? " passato" : ""}${iso === OGGI ? " oggi" : ""}" data-giorno="${iso}"><span class="cal-n">${g}</span>${chip}</div>`;
     }
@@ -108,23 +109,23 @@ export function getStaticPaths() { return LINGUE_APP(); }
     const daBozza = CAL.bozze.some((x) => x.id === aperto);
     editor.hidden = false;
     editor.innerHTML = `
-      <div class="d-testa"><div><span class="sp-nota">${daBozza ? (inCal ? "Bozza programmata" : "Bozza") : "Post programmato"} · ${NOME_F[b.formato]} · ${esc(b.pilastro)}</span><h2 class="cal-tit">${esc(b.titolo)}</h2></div><button type="button" class="d-chiudi" data-chiudi>Chiudi</button></div>
-      ${b.nota ? `<p class="sp-nota"><strong>Nota del team:</strong> ${esc(b.nota)}</p>` : ""}
-      ${b.sospeso ? '<p class="d-avviso">Questo post è sospeso: non verrà pubblicato finché non lo riattivi.</p>' : ""}
+      <div class="d-testa"><div><span class="sp-nota">${daBozza ? (inCal ? t("Bozza programmata", "Scheduled draft") : t("Bozza", "Draft")) : t("Post programmato", "Scheduled post")} · ${NOME_F[b.formato]} · ${esc(b.pilastro)}</span><h2 class="cal-tit">${esc(b.titolo)}</h2></div><button type="button" class="d-chiudi" data-chiudi>${t("Chiudi", "Close")}</button></div>
+      ${b.nota ? `<p class="sp-nota"><strong>${t("Nota del team:", "Team note:")}</strong> ${esc(b.nota)}</p>` : ""}
+      ${b.sospeso ? `<p class="d-avviso">${t("Questo post è sospeso: non verrà pubblicato finché non lo riattivi.", "This post is suspended: it won't be published until you reactivate it.")}</p>` : ""}
       <form class="d-form ed-form" data-form-post>
-        <label>Didascalia<textarea name="didascalia" rows="6">${esc(b.didascalia ?? "")}</textarea>
+        <label>${t("Didascalia", "Caption")}<textarea name="didascalia" rows="6">${esc(b.didascalia ?? "")}</textarea>
           <span class="sp-nota ed-conta" data-conta></span></label>
-        <label>Testo alternativo <span class="sp-nota">(descrive l'immagine o il video per chi non vede)</span><textarea name="alt" rows="3">${esc(b.alt ?? "")}</textarea></label>
-        <label>Link <span class="sp-nota">(per il link in bio o lo sticker)</span><input name="link" type="text" inputmode="url" value="${esc(b.link ?? "")}" placeholder="https://cinquefoglie.example/…" /></label>
+        <label>${t("Testo alternativo", "Alt text")} <span class="sp-nota">${t("(descrive l'immagine o il video per chi non vede)", "(describes the image or video for people who can't see it)")}</span><textarea name="alt" rows="3">${esc(b.alt ?? "")}</textarea></label>
+        <label>Link <span class="sp-nota">${t("(per il link in bio o lo sticker)", "(for the link in bio or the sticker)")}</span><input name="link" type="text" inputmode="url" value="${esc(b.link ?? "")}" placeholder="https://cinquefoglie.example/…" /></label>
         <div class="ed-quando">
-          <label>Data<input name="data" type="date" min="${OGGI}" max="2026-12-31" value="${inCal?.data ?? ""}" ${daBozza ? "" : "required"} /></label>
-          <label>Ora<input name="ora" type="time" value="${ora}" /></label>
+          <label>${t("Data", "Date")}<input name="data" type="date" min="${OGGI}" max="2026-12-31" value="${inCal?.data ?? ""}" ${daBozza ? "" : "required"} /></label>
+          <label>${t("Ora", "Time")}<input name="ora" type="time" value="${ora}" /></label>
         </div>
-        <p class="sp-nota">Se lasci vuota l'ora si usa l'ora predefinita (${oraPredefinita(m)}).</p>
+        <p class="sp-nota">${t("Se lasci vuota l'ora si usa l'ora predefinita", "If you leave the time empty the default time is used")} (${oraPredefinita(m)}).</p>
         <div class="d-bottoni">
-          <button type="submit" class="bottone-app">Salva</button>
-          ${inCal && daBozza ? '<button type="button" class="d-sec" data-togli>Togli dal calendario</button>' : ""}
-          ${inCal ? `<button type="button" class="d-sec" data-sospendi>${b.sospeso ? "Riattiva" : "Sospendi"}</button>` : ""}
+          <button type="submit" class="bottone-app">${t("Salva", "Save")}</button>
+          ${inCal && daBozza ? `<button type="button" class="d-sec" data-togli>${t("Togli dal calendario", "Remove from the calendar")}</button>` : ""}
+          ${inCal ? `<button type="button" class="d-sec" data-sospendi>${b.sospeso ? t("Riattiva", "Reactivate") : t("Sospendi", "Suspend")}</button>` : ""}
           <span class="sp-nota" data-esito-post></span>
         </div>
       </form>`;
@@ -132,7 +133,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
     const did = form.querySelector<HTMLTextAreaElement>("[name=didascalia]")!;
     const conta = () => {
       const prima = did.value.trim().split(/(?<=[.!?])\s|\n/)[0] ?? "";
-      editor.querySelector("[data-conta]")!.textContent = `${did.value.length} caratteri · prima frase: ${prima.length} (nel feed se ne vedono circa 125) · hashtag: ${(did.value.match(/#[\p{L}\p{N}_]+/gu) ?? []).length}`;
+      editor.querySelector("[data-conta]")!.textContent = t(`${did.value.length} caratteri · prima frase: ${prima.length} (nel feed se ne vedono circa 125) · hashtag: ${(did.value.match(/#[\p{L}\p{N}_]+/gu) ?? []).length}`, `${did.value.length} characters · first sentence: ${prima.length} (about 125 show in the feed) · hashtags: ${(did.value.match(/#[\p{L}\p{N}_]+/gu) ?? []).length}`);
     };
     did.addEventListener("input", conta); conta();
     form.addEventListener("submit", (e) => {
@@ -150,7 +151,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
       m2.post[aperto!] = c; salva(m2);
       if (c.data) mese = Number(c.data.slice(5, 7));
       disegna();
-      editor.querySelector("[data-esito-post]")!.textContent = "Salvato.";
+      editor.querySelector("[data-esito-post]")!.textContent = t("Salvato.", "Saved.");
     });
     editor.querySelector("[data-chiudi]")!.addEventListener("click", () => { aperto = null; disegna(); });
     editor.querySelector("[data-togli]")?.addEventListener("click", () => { const m2 = leggi(); const c = { ...(m2.post[aperto!] ?? {}) }; delete c.data; delete c.ora; m2.post[aperto!] = c; salva(m2); disegna(); });

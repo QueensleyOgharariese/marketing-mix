@@ -1,28 +1,29 @@
 ---
-import { LINGUE_APP } from "../../../../../i18n";
+import { LINGUE_APP, testiDa } from "../../../../../i18n";
 // SIMULAZIONE SOCIAL · COMMENTI E MESSAGGI
 // Commenti ai post e messaggi privati, dal più recente. Su ogni voce: rispondere, nascondere,
 // segnalare come spam, passare a un collega. Durante la crisi (esercizio dei Casi) arrivano i commenti x01-x05.
 // Le risposte restano in questo browser (scripts/social/stato.ts).
 import Console from "../../../../../components/seopro/Console.astro";
 export function getStaticPaths() { return LINGUE_APP(); }
+const L = testiDa(Astro.url);
 ---
-<Console sim="social" attivo="community" titolo="Commenti e messaggi" ispirato="la casella dei commenti dei social (nome generico, nessun marchio reale)">
+<Console sim="social" attivo="community" titolo={L("Commenti e messaggi", "Comments and messages")} ispirato={L("la casella dei commenti dei social (nome generico, nessun marchio reale)", "a social media comments inbox (generic name, no real brand)")}>
   <div class="sp-schede" role="tablist" data-filtri-com>
-    <button type="button" role="tab" aria-selected="true" data-f="tutti">Tutti</button>
-    <button type="button" role="tab" aria-selected="false" data-f="senza">Senza risposta</button>
-    <button type="button" role="tab" aria-selected="false" data-f="messaggi">Messaggi privati</button>
-    <button type="button" role="tab" aria-selected="false" data-f="nascosti">Nascosti e spam</button>
+    <button type="button" role="tab" aria-selected="true" data-f="tutti">{L("Tutti", "All")}</button>
+    <button type="button" role="tab" aria-selected="false" data-f="senza">{L("Senza risposta", "Unanswered")}</button>
+    <button type="button" role="tab" aria-selected="false" data-f="messaggi">{L("Messaggi privati", "Private messages")}</button>
+    <button type="button" role="tab" aria-selected="false" data-f="nascosti">{L("Nascosti e spam", "Hidden and spam")}</button>
   </div>
   <ul class="com-lista" data-lista-commenti></ul>
 </Console>
 
 <script>
-  import { leggi, salva, commenti } from "../../../../../scripts/social/stato";
-  import POST from "../../../../../data/app/social-sim/post.json";
+  import { leggi, salva, commenti, POST } from "../../../../../scripts/social/stato";
+  import { t, EN } from "../../../../../scripts/lingua";
   const esc = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   const lista = document.querySelector<HTMLElement>("[data-lista-commenti]")!;
-  const COLLEGHI = ["Assistenza clienti", "Influencer marketing", "Magazzino", "Responsabile qualità"];
+  const COLLEGHI = EN ? ["Customer service", "Influencer marketing", "Warehouse", "Quality manager"] : ["Assistenza clienti", "Influencer marketing", "Magazzino", "Responsabile qualità"];
   let filtro = "tutti";
   let scrivi: string | null = null; // la voce in cui si sta scrivendo una risposta
   // "25/10, 21:12" -> numero ordinabile
@@ -42,30 +43,30 @@ export function getStaticPaths() { return LINGUE_APP(); }
       const nascosto = m.nascosti.includes(c.id), spam = m.spam.includes(c.id);
       const risposta = m.risposte[c.id];
       const passato = m.inoltrati[c.id];
-      const badge = [nascosto && '<span class="sp-badge">Nascosto</span>', spam && '<span class="sp-badge no">Spam</span>', risposta && '<span class="sp-badge ok">Risposto</span>', passato && `<span class="sp-badge medio">Passato a ${esc(passato)}</span>`].filter(Boolean).join(" ");
+      const badge = [nascosto && `<span class="sp-badge">${t("Nascosto", "Hidden")}</span>`, spam && '<span class="sp-badge no">Spam</span>', risposta && `<span class="sp-badge ok">${t("Risposto", "Answered")}</span>`, passato && `<span class="sp-badge medio">${t("Passato a", "Handed to")} ${esc(passato)}</span>`].filter(Boolean).join(" ");
       return `<li class="com-voce${nascosto || spam ? " tolto" : ""}" data-commento="${c.id}">
-        <div class="com-testa"><strong>${esc(c.autore)}</strong><span class="sp-nota">${c.tipo === "messaggio" ? "Messaggio privato" : `Commento sotto «${esc(post?.titolo ?? "")}»`} · ${c.quando}</span>${badge}</div>
+        <div class="com-testa"><strong>${esc(c.autore)}</strong><span class="sp-nota">${c.tipo === "messaggio" ? t("Messaggio privato", "Private message") : `${t("Commento sotto", "Comment under")} «${esc(post?.titolo ?? "")}»`} · ${c.quando}</span>${badge}</div>
         <p class="com-testo">${esc(c.testo)}</p>
-        ${risposta && scrivi !== c.id ? `<div class="com-risposta"><strong>Cinque Foglie</strong> <span class="sp-nota">${c.tipo === "messaggio" ? "in privato" : "risposta pubblica"}</span><p>${esc(risposta)}</p></div>` : ""}
+        ${risposta && scrivi !== c.id ? `<div class="com-risposta"><strong>Cinque Foglie</strong> <span class="sp-nota">${c.tipo === "messaggio" ? t("in privato", "privately") : t("risposta pubblica", "public reply")}</span><p>${esc(risposta)}</p></div>` : ""}
         ${scrivi === c.id ? `<form class="com-form" data-form-risposta>
-            <label class="sp-nota" for="r-${c.id}">${c.tipo === "messaggio" ? "Risposta in privato" : "Risposta pubblica: la vedono tutti"}</label>
+            <label class="sp-nota" for="r-${c.id}">${c.tipo === "messaggio" ? t("Risposta in privato", "Private reply") : t("Risposta pubblica: la vedono tutti", "Public reply: everyone can see it")}</label>
             <textarea id="r-${c.id}" rows="3" name="testo">${esc(risposta ?? "")}</textarea>
-            <div class="com-azioni"><button type="submit" class="bottone-app">Invia</button><button type="button" class="com-bt" data-annulla>Annulla</button></div>
+            <div class="com-azioni"><button type="submit" class="bottone-app">${t("Invia", "Send")}</button><button type="button" class="com-bt" data-annulla>${t("Annulla", "Cancel")}</button></div>
           </form>` : `<div class="com-azioni">
-            <button type="button" class="com-bt" data-azione="rispondi">${risposta ? "Modifica la risposta" : "Rispondi"}</button>
-            ${c.tipo === "commento" ? `<button type="button" class="com-bt" data-azione="nascondi">${nascosto ? "Mostra di nuovo" : "Nascondi"}</button>` : ""}
-            <button type="button" class="com-bt" data-azione="spam">${spam ? "Non è spam" : "Segnala come spam"}</button>
-            <label class="com-passa">Passa a <select class="sp-scegli" data-azione-passa><option value="">nessuno</option>${COLLEGHI.map((x) => `<option ${passato === x ? "selected" : ""}>${x}</option>`).join("")}</select></label>
+            <button type="button" class="com-bt" data-azione="rispondi">${risposta ? t("Modifica la risposta", "Edit the reply") : t("Rispondi", "Reply")}</button>
+            ${c.tipo === "commento" ? `<button type="button" class="com-bt" data-azione="nascondi">${nascosto ? t("Mostra di nuovo", "Show again") : t("Nascondi", "Hide")}</button>` : ""}
+            <button type="button" class="com-bt" data-azione="spam">${spam ? t("Non è spam", "Not spam") : t("Segnala come spam", "Report as spam")}</button>
+            <label class="com-passa">${t("Passa a", "Hand to")} <select class="sp-scegli" data-azione-passa><option value="">${t("nessuno", "nobody")}</option>${COLLEGHI.map((x) => `<option ${passato === x ? "selected" : ""}>${x}</option>`).join("")}</select></label>
           </div>`}
       </li>`;
-    }).join("") || '<li class="sp-nota">Nessuna voce in questo filtro.</li>';
+    }).join("") || `<li class="sp-nota">${t("Nessuna voce in questo filtro.", "No items in this filter.")}</li>`;
     const f = lista.querySelector<HTMLFormElement>("[data-form-risposta]");
     if (f) {
       f.querySelector("textarea")!.focus();
       f.addEventListener("submit", (e) => {
         e.preventDefault();
-        const t = String(new FormData(f).get("testo") ?? "").trim();
-        const m2 = leggi(); if (t) m2.risposte[scrivi!] = t; else delete m2.risposte[scrivi!];
+        const testo = String(new FormData(f).get("testo") ?? "").trim();
+        const m2 = leggi(); if (testo) m2.risposte[scrivi!] = testo; else delete m2.risposte[scrivi!];
         scrivi = null; salva(m2); disegna();
       });
       f.querySelector("[data-annulla]")!.addEventListener("click", () => { scrivi = null; disegna(); });

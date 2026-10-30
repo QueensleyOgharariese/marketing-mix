@@ -1,24 +1,27 @@
 ---
-import { LINGUE_APP } from "../../../../../i18n";
+import { LINGUE_APP, testiDa } from "../../../../../i18n";
 // SIMULAZIONE SOCIAL · LIBRERIA FOTO E MUSICA
 // Foto, video e musica che il team può usare, con la provenienza e il permesso o la licenza.
 // Per le foto di altre persone senza permesso si scrive qui il messaggio per chiederlo (esercizio Diagnosi 3).
 import Console from "../../../../../components/seopro/Console.astro";
 export function getStaticPaths() { return LINGUE_APP(); }
+const L = testiDa(Astro.url);
 ---
-<Console sim="social" attivo="libreria" titolo="Libreria foto e musica" ispirato="le librerie di contenuti dei team social (nome generico, nessun marchio reale)">
-  <p class="sp-nota lib-intro">Prima di pubblicare un contenuto controlla da dove arriva e che permesso ha. Verde: si può usare. Rosso: non si può usare. Giallo: da verificare.</p>
+<Console sim="social" attivo="libreria" titolo={L("Libreria foto e musica", "Photo and music library")} ispirato={L("le librerie di contenuti dei team social (nome generico, nessun marchio reale)", "social teams' content libraries (generic name, no real brand)")}>
+  <p class="sp-nota lib-intro">{L("Prima di pubblicare un contenuto controlla da dove arriva e che permesso ha. Verde: si può usare. Rosso: non si può usare. Giallo: da verificare.", "Before publishing a piece of content, check where it comes from and what permission it has. Green: can be used. Red: can't be used. Yellow: to be checked.")}</p>
   <ul class="lib-griglia" data-libreria></ul>
 </Console>
 
 <script>
-  import { leggi, salva } from "../../../../../scripts/social/stato";
-  import LIB from "../../../../../data/app/social-sim/libreria.json";
+  import { leggi, salva, LIB } from "../../../../../scripts/social/stato";
+  import { t } from "../../../../../scripts/lingua";
   const esc = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   const el = document.querySelector<HTMLElement>("[data-libreria]")!;
   const OK = ["proprio", "concesso", "licenza commerciale", "uso commerciale"];
   const NO = ["non chiesto", "non per profili aziendali"];
-  const TIPO: Record<string, string> = { foto: "Foto", video: "Video", musica: "Musica" };
+  const TIPO: Record<string, string> = { foto: t("Foto", "Photo"), video: "Video", musica: t("Musica", "Music") };
+  // il permesso è un codice (uguale nelle due lingue): qui il testo da mostrare
+  const PERMESSO: Record<string, string> = { "non chiesto": t("non chiesto", "not asked"), "non per profili aziendali": t("non per profili aziendali", "not for business profiles"), concesso: t("concesso", "granted"), "uso commerciale": t("uso commerciale", "commercial use"), sconosciuto: t("sconosciuto", "unknown"), proprio: t("proprio", "our own"), "licenza commerciale": t("licenza commerciale", "commercial licence") };
   let scrivi: string | null = null;
 
   function disegna() {
@@ -30,15 +33,15 @@ export function getStaticPaths() { return LINGUE_APP(); }
       return `<li class="lib-voce" data-voce-lib="${v.id}">
         <div class="lib-anteprima lib-${v.tipo}"><span>${TIPO[v.tipo] ?? v.tipo}</span></div>
         <strong>${esc(v.titolo)}</strong>
-        <span class="sp-nota">Fonte: ${esc(v.fonte)}</span>
-        <span><span class="sp-badge ${cl}">${esc(v.permesso)}</span></span>
+        <span class="sp-nota">${t("Fonte", "Source")}: ${esc(v.fonte)}</span>
+        <span><span class="sp-badge ${cl}">${esc(PERMESSO[v.permesso] ?? v.permesso)}</span></span>
         <span class="sp-nota">${esc(v.nota)}</span>
-        ${msg && scrivi !== v.id ? `<div class="lib-msg"><strong>Messaggio inviato a ${esc(v.fonte)}</strong><p>${esc(msg)}</p><button type="button" class="com-bt" data-scrivi>Modifica il messaggio</button></div>` : ""}
-        ${chiedibile && !msg && scrivi !== v.id ? '<button type="button" class="com-bt" data-scrivi>Chiedi il permesso</button>' : ""}
+        ${msg && scrivi !== v.id ? `<div class="lib-msg"><strong>${t("Messaggio inviato a", "Message sent to")} ${esc(v.fonte)}</strong><p>${esc(msg)}</p><button type="button" class="com-bt" data-scrivi>${t("Modifica il messaggio", "Edit the message")}</button></div>` : ""}
+        ${chiedibile && !msg && scrivi !== v.id ? `<button type="button" class="com-bt" data-scrivi>${t("Chiedi il permesso", "Ask for permission")}</button>` : ""}
         ${scrivi === v.id ? `<form class="lib-form" data-form-permesso>
-            <label class="sp-nota" for="p-${v.id}">Messaggio privato a ${esc(v.fonte)}</label>
+            <label class="sp-nota" for="p-${v.id}">${t("Messaggio privato a", "Private message to")} ${esc(v.fonte)}</label>
             <textarea id="p-${v.id}" name="testo" rows="5">${esc(msg ?? "")}</textarea>
-            <div class="lib-bottoni"><button type="submit" class="bottone-app">Invia</button><button type="button" class="com-bt" data-annulla>Annulla</button></div>
+            <div class="lib-bottoni"><button type="submit" class="bottone-app">${t("Invia", "Send")}</button><button type="button" class="com-bt" data-annulla>${t("Annulla", "Cancel")}</button></div>
           </form>` : ""}
       </li>`;
     }).join("");
@@ -47,8 +50,8 @@ export function getStaticPaths() { return LINGUE_APP(); }
       f.querySelector("textarea")!.focus();
       f.addEventListener("submit", (e) => {
         e.preventDefault();
-        const t = String(new FormData(f).get("testo") ?? "").trim();
-        const m2 = leggi(); if (t) m2.permessi[scrivi!] = t; else delete m2.permessi[scrivi!];
+        const testo = String(new FormData(f).get("testo") ?? "").trim();
+        const m2 = leggi(); if (testo) m2.permessi[scrivi!] = testo; else delete m2.permessi[scrivi!];
         scrivi = null; salva(m2); disegna();
       });
       f.querySelector("[data-annulla]")!.addEventListener("click", () => { scrivi = null; disegna(); });

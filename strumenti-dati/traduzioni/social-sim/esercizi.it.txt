@@ -1,0 +1,534 @@
+1|Tutorial
+2|Come funziona la scrivania.
+3|Basi
+4|Un concetto alla volta. «Come funziona» è già aperto e l'indizio è sempre disponibile.
+5|Diagnosi
+6|Problemi mescolati, anche falsi allarmi. «Come funziona» lo apri tu.
+7|Casi
+8|Nessun indizio: solo dati e teoria. Un mese da pianificare e una crisi da gestire.
+9|Tutorial: come funziona
+10|8 minuti
+11|Profilo, Calendario
+12|Dove sono le cose e come si salva e si controlla una modifica.
+13|Ciao, sono Sara e mi occupo dei social di Cinque Foglie. Prima di iniziare ti faccio vedere gli strumenti: dieci minuti e sei operativa.
+14|Impara a muoverti tra profilo, calendario e statistiche e a salvare una modifica.
+15|Come è fatta la scrivania
+16|Lavori sui social di Cinque Foglie, un negozio online di tè inventato. Lo schermo ha tre zone.
+17|<strong>A sinistra il menu</strong> (sul telefono è in alto): il profilo, il calendario dei post, i commenti e messaggi, le statistiche e la libreria di foto e musica.
+18|<strong>Al centro</strong> lo strumento aperto.
+19|<strong>A destra questa guida</strong>: in alto il compito, sotto le risposte. Le schede <strong>Come funziona</strong>, <strong>Teoria</strong> e <strong>Indizio</strong> ti aiutano quando serve; il bottone per controllare è sempre in fondo.
+20|Le barre laterali si chiudono con la X e si riaprono con l'icona sul bordo.
+21|A che ora è stato pubblicato l'ultimo post?
+22|Apri il post più recente del profilo e leggi data e ora.
+23|Il profilo mostra i post come li vedono i follower. Aprendo un post vedi anche quello che i follower non vedono subito: data e ora di pubblicazione, testo alternativo, etichette.
+24|Su un profilo di un ristorante, aprendo il post del menu del giorno vedi che è uscito alle 11:30, prima di pranzo.
+25|Alle 19:00
+26|Apri il primo post in alto a sinistra, il più recente, e leggi l'ora sotto la data.
+27|Alle 03:00 di notte
+28|Alle 12:00
+29|Guarda di nuovo l'ora nel post aperto.
+30|L'ultimo post è uscito alle 3 di notte: strano per un profilo che parla a persone che bevono tè la sera. Lo ritroverai negli esercizi.
+31|Il post più recente è il primo della griglia, in alto a sinistra.
+32|Apri il Calendario
+33|Salva la tua prima modifica
+34|Nel Calendario apri il post programmato per il 31 ottobre e aggiungi alla didascalia la frase «Buon fine settimana!». Poi salva.
+35|Il Calendario contiene i post già programmati e le bozze. Quello che salvi qui è subito nel piano di pubblicazione. Dopo ogni modifica premi Controlla il lavoro: la guida dice cosa va e cosa no.
+36|In uno strumento di programmazione cambi il testo di un post di domani e premi Salva: domani esce con il testo nuovo.
+37|Hai modificato un post programmato e l'hai controllato: negli esercizi si lavora sempre così.
+38|Il post del 31/10 è il reel «Il nostro ottobre in 30 secondi». Cliccalo nel calendario per aprire l'editor.
+39|Punti, livelli e come scegliere
+40|Ultime regole, poi si parte dalle Basi.
+41|Tre livelli: <strong>Basi</strong>, <strong>Diagnosi</strong> e <strong>Casi</strong>. Ogni esercizio è un piccolo progetto fatto di mini esercizi.
+42|<strong>Come funziona</strong> spiega lo strumento, non la risposta. <strong>Teoria</strong> è gratis. <strong>Indizio</strong> costa 5 punti.
+43|La guida cala salendo di livello: nelle Basi «Come funziona» è già aperto, in Diagnosi lo apri tu, nei Casi ci sono solo teoria e dati.
+44|Ogni esercizio parte da 100 punti: una risposta sbagliata toglie 10 punti. Quando scrivi o modifichi puoi riprovare senza perdere punti.
+45|La guida ti segue in ogni strumento.
+46|Aprendo un post vedi data, ora e dettagli.
+47|Nel Calendario modifichi i post e poi controlli.
+48|Perfetto, ora sai usare gli strumenti. Si parte dalle Basi.
+49|Il post del kit matcha
+50|30 minuti
+51|Statistiche, Calendario
+52|Dall'obiettivo al post programmato: formato, didascalia, testo alternativo e orario.
+53|È arrivato il kit matcha! Vorrei farlo conoscere anche a chi non ci segue ancora. Il video l'abbiamo già girato: mi prepari il post?
+54|Preparare e programmare il post del kit matcha, scegliendo formato, testi e orario con i dati.
+55|Quale formato fa scoprire il profilo a più persone nuove?
+56|Guarda le Medie per formato nelle Statistiche.
+57|Ogni formato ha un punto di forza. Per farsi scoprire conta la copertura, soprattutto quella tra chi non segue il profilo. I video brevi verticali (reel) vengono proposti dall'algoritmo anche a chi non ti segue.
+58|Un panificio vede che i suoi video della pasta che lievita arrivano a molte persone di altre città, mentre le foto del pane arrivano quasi solo ai clienti.
+59|Scegliere il formato che piace a te invece di quello che serve all'obiettivo.
+60|Il reel
+61|Il carosello
+62|I caroselli hanno tanti salvataggi, ma arrivano soprattutto a chi già ci segue.
+63|La foto singola
+64|Le foto hanno la copertura media più bassa.
+65|I reel hanno la copertura media più alta e più della metà delle persone raggiunte non ci segue: è il formato per farsi scoprire.
+66|Guarda la colonna «Non follower» nelle medie per formato.
+67|Scrivi la didascalia del kit matcha
+68|Nel Calendario apri la bozza «Kit matcha: tutto per iniziare» e scrivi la didascalia.
+69|Nel feed si vedono solo le prime parole della didascalia (circa 125 caratteri), poi c'è «altro». La prima frase deve far fermare chi scorre. Poi si dice cosa c'è, si invita a fare qualcosa (vai al link in bio, salva, commenta) e si chiude con pochi hashtag pertinenti. Niente promesse sulla salute: il matcha è un alimento.
+70|Per una candela: «Il profumo del bosco dopo la pioggia, in una candela. Cera di soia, 40 ore di luce. La trovi nel link in bio. #candele #casaaccogliente»
+71|Scrivere tutto in maiuscolo con tanti punti esclamativi, o riempire la didascalia di 30 hashtag.
+72|Esempio di una collega senior: «Il tuo primo matcha, senza sbagliare. Nel kit trovi matcha biologico, frusta di bambù e ciotola: ti serve solo acqua calda. Tutto nel link in bio. #matcha #matchalatte #tèverde»
+73|Prima frase corta che incuriosisce, poi cosa c'è nel kit, poi «link in bio», poi 3-5 hashtag.
+74|Scrivi il testo alternativo
+75|Nella stessa bozza scrivi il testo alternativo (la descrizione per chi non vede l'immagine).
+76|Il testo alternativo descrive cosa si vede, per chi usa un lettore di schermo. Si scrive in modo semplice e concreto: chi, cosa, dove. Non serve scrivere «immagine di», e non si riempie di hashtag.
+77|Per un post di una pizzeria: «Pizza margherita appena sfornata su un tagliere di legno, con basilico fresco.»
+78|Copiare la didascalia nel testo alternativo: chi non vede vuole sapere cosa c'è nell'immagine, non lo slogan.
+79|Esempio: «Mani che sbattono il matcha con una frusta di bambù in una ciotola bianca; accanto la confezione del kit.»
+80|Descrivi il video come lo racconteresti al telefono a un'amica.
+81|A che ora conviene pubblicarlo?
+82|Guarda il grafico Follower attivi per ora.
+83|Un post riceve la prima spinta nelle ore dopo la pubblicazione: se in quel momento i follower sono online, interagiscono e l'algoritmo lo mostra a più persone. Per questo si pubblica quando il proprio pubblico è attivo.
+84|Un profilo di ricette pubblica alle 17:30, quando le persone pensano alla cena.
+85|Usare l'orario «migliore» letto in un articolo generico invece dei dati del proprio profilo.
+86|Alle 03:00, così è il primo post del giorno
+87|A quell'ora quasi nessun follower è online.
+88|Tra le 19 e le 21
+89|Alle 9 del mattino
+90|Alle 9 c'è un po' di attività, ma il picco è la sera.
+91|I follower di Cinque Foglie sono più attivi tra le 19 e le 21: il momento del tè della sera.
+92|Cerca le barre più alte del grafico.
+93|Programma il post
+94|Programma la bozza del kit matcha nella prima settimana di novembre, all'orario migliore.
+95|Programmare vuol dire scegliere giorno e ora in cui il post uscirà da solo. Si sceglie un giorno senza altri post, così non si fanno concorrenza.
+96|Un museo programma il post della mostra nuova per il giovedì sera, il giorno prima dell'apertura.
+97|Programmare due post nello stesso giorno: si rubano copertura a vicenda.
+98|Il post è nel piano: uscirà nella prima settimana di novembre, quando i follower sono online.
+99|Trascina la bozza su un giorno tra il 2 e l'8 novembre, poi nell'editor scegli un'ora tra le 19 e le 21.
+100|Dopo 24 ore, cosa guardi per sapere se il post ha fatto conoscere il kit?
+101|Pensa all'obiettivo di Sara.
+102|Ogni obiettivo ha il suo numero. Per «farsi conoscere» conta quante persone diverse hanno visto il post (copertura) e quante di queste non seguivano il profilo. I like da soli non dicono quante persone nuove hai raggiunto.
+103|Un negozio di bici che vuole farsi conoscere guarda quante persone nuove hanno visto il video, non quanti clienti fedeli hanno messo like.
+104|Guardare solo i like perché sono il numero più visibile.
+105|La copertura e la percentuale di non follower
+106|Solo i like
+107|I like dicono quanto è piaciuto a chi l'ha visto, non quante persone nuove l'hanno visto.
+108|Il numero di follower totali
+109|Cambia poco in un giorno e dipende da tutti i post.
+110|Copertura e non follower dicono quante persone nuove hanno incontrato il kit: è proprio l'obiettivo di Sara.
+111|Rileggi la richiesta: «farlo conoscere a chi non ci segue».
+112|Prima si sceglie l'obiettivo, poi il formato: i reel fanno scoprire il profilo.
+113|La didascalia ha una prima frase forte, un invito e pochi hashtag.
+114|Il testo alternativo descrive cosa si vede.
+115|Si pubblica quando i follower sono online.
+116|Perfetto, il post del kit è nel calendario. Tra una settimana guardiamo la copertura insieme!
+117|Leggere le statistiche
+118|25 minuti
+119|Statistiche, Profilo
+120|Copertura, impressioni, engagement rate: cosa funziona sul profilo e cosa no.
+121|Ogni mese devo dire alla direzione cosa funziona sui social. Mi aiuti a leggere i numeri di settembre e ottobre?
+122|Capire le metriche dei post e scrivere a Sara cosa funziona e cosa no.
+123|Copertura o impressioni: quale numero è più alto, e perché?
+124|Confronta le due colonne nella tabella.
+125|La copertura conta le persone diverse che hanno visto un post. Le impressioni contano tutte le volte che è stato visto, anche più volte dalla stessa persona. Per questo le impressioni sono sempre uguali o più alte della copertura.
+126|Un cartellone visto da 100 persone diverse, alcune due volte al giorno: 100 di copertura, magari 180 impressioni.
+127|Usare le impressioni per dire «abbiamo raggiunto X persone»: si conta più volte la stessa persona.
+128|Le impressioni, perché una persona può vedere lo stesso post più volte
+129|La copertura, perché conta anche chi non segue il profilo
+130|Anche le impressioni contano chi non segue: la differenza è che contano le visualizzazioni ripetute.
+131|Sono sempre uguali
+132|Guarda un carosello: le impressioni sono molto più alte, perché chi scorre le schede lo rivede.
+133|Le impressioni sono più alte; nei caroselli molto di più, perché le persone tornano a guardare le schede.
+134|Qual è l'engagement rate del post «Matcha latte: dosi e frusta»?
+135|Usa la formula: interazioni ÷ copertura × 100.
+136|L'engagement rate dice quanto le persone reagiscono a un contenuto: interazioni (like, commenti, salvataggi, condivisioni) divise per la copertura, per 100. Si confronta con i propri post precedenti, non con quelli degli altri.
+137|Un post con 150 interazioni e 3.000 di copertura: 150 / 3.000 × 100 = 5%.
+138|Dividere per i follower quando si conosce la copertura: si contano anche persone che il post non l'hanno mai visto.
+139|Circa 0,7%
+140|Hai diviso per un numero troppo grande, forse le impressioni.
+141|Circa 7%
+142|Circa 27%
+143|Ricontrolla: le interazioni sono qualche centinaio, la copertura qualche migliaio.
+144|Il carosello del matcha latte ha un engagement rate di circa il 7%: uno dei più alti del profilo, soprattutto grazie ai salvataggi.
+145|Somma like, commenti, salvataggi e condivisioni della riga e dividi per la copertura.
+146|Quale formato ha i salvataggi più alti?
+147|Guarda le Medie per formato.
+148|Un salvataggio vuol dire «lo voglio ritrovare»: è un segnale forte di utilità. Di solito si salvano contenuti che insegnano qualcosa: ricette, guide, liste.
+149|Un profilo di viaggi vede che i caroselli «10 cose da vedere a Lisbona» vengono salvati molto più delle foto del tramonto.
+150|Guardare solo i like e perdere il segnale più forte, il salvataggio.
+151|I reel arrivano a più persone, ma si salvano meno.
+152|La foto
+153|Le foto hanno pochissimi salvataggi.
+154|I caroselli educativi vengono salvati più di tutto: sono i contenuti più utili per i follower.
+155|Quali post sono andati peggio?
+156|Ordina la tabella per engagement rate.
+157|Per capire cosa non funziona si guardano i post in fondo alla classifica e si cerca cosa hanno in comune: formato, pilastro, orario, tema.
+158|Un'enoteca ordina i suoi post e scopre che i cinque peggiori sono tutti foto di bottiglie senza persone.
+159|Fermarsi al singolo post peggiore invece di cercare cosa hanno in comune i peggiori.
+160|Le foto dei prodotti con una frase di vendita
+161|I caroselli che spiegano come preparare il tè
+162|Sono tra i migliori per engagement.
+163|I reel di ricette
+164|Hanno un engagement nella media e la copertura più alta.
+165|Le foto prodotto («Lo trovi sul sito») hanno un engagement intorno all'1,5%: le persone non si fermano su un annuncio.
+166|Ordina per ER cliccando l'intestazione e guarda il pilastro delle ultime righe.
+167|Perché le foto dei prodotti vanno male?
+168|Rileggi le didascalie di quei post nel profilo.
+169|Sui social le persone non cercano pubblicità: si fermano su ciò che è utile, bello o divertente. Un prodotto funziona meglio dentro una storia o un uso concreto (una ricetta, un consiglio) che da solo con «compralo».
+170|Invece di «Nuova borraccia disponibile», un negozio sportivo mostra un'escursione in cui la borraccia tiene l'acqua fresca tutto il giorno.
+171|Concludere che quel prodotto non piace: è il modo in cui è presentato che non funziona.
+172|Sono annunci senza un motivo per fermarsi: niente consiglio, niente storia
+173|Perché i prodotti sono brutti
+174|Gli stessi prodotti vanno bene nelle ricette e nei reel.
+175|Perché le foto non piacciono all'algoritmo
+176|L'algoritmo guarda come reagiscono le persone: è la reazione a essere bassa.
+177|Le stesse cose (il kit, la teiera) vanno bene quando compaiono in una ricetta o in un tutorial: è il modo di presentarle a fare la differenza.
+178|Scrivi a Sara cosa funziona
+179|Scrivi 3-5 frasi per Sara: cosa funziona meglio, cosa peggio e cosa proponi.
+180|Un report breve per chi decide mette prima la conclusione, poi i numeri che la dimostrano, poi una proposta concreta.
+181|«Le guide sui viaggi in treno vengono salvate più di tutto (ER 8%); le foto delle offerte vanno male (1%). Propongo di presentare le offerte dentro le guide.»
+182|Copiare tutti i numeri della tabella: chi legge vuole sapere cosa fare.
+183|Esempio di una collega senior: «I caroselli che insegnano qualcosa funzionano meglio: engagement intorno al 7% e tanti salvataggi. I reel portano più persone nuove. Le foto dei prodotti vanno male (circa 1,5%): propongo di mostrare i prodotti dentro ricette e tutorial invece che da soli.»
+184|Le impressioni sono sempre uguali o più alte della copertura.
+185|Engagement rate = interazioni ÷ copertura × 100.
+186|I salvataggi sono il segnale più forte di utilità.
+187|I prodotti funzionano dentro una storia, non da soli.
+188|Chiarissimo, lo porto così in riunione. Da novembre più caroselli e meno foto «compralo».
+189|I post delle 3 di notte
+190|Statistiche, Profilo, Calendario
+191|La copertura è crollata a fine settembre: trovare quando, perché e sistemare.
+192|Da fine settembre i post arrivano a meno della metà delle persone. Non abbiamo cambiato niente… o forse sì?
+193|Trovare la causa del calo di copertura, correggerla e sistemare i post già programmati.
+194|Da quando cala la copertura?
+195|Guarda la tabella dei post in ordine di data.
+196|Per capire un calo si cerca il momento esatto in cui inizia, poi si cerca cosa è cambiato in quei giorni.
+197|Un'app vede le iscrizioni calare dal 3 marzo: quel giorno era uscito un nuovo modulo di registrazione.
+198|Confrontare un mese con l'altro senza guardare il giorno esatto in cui cambia qualcosa.
+199|Da inizio settembre
+200|I post di inizio settembre hanno coperture alte.
+201|Dal 21 settembre
+202|Da metà ottobre
+203|A metà ottobre il calo c'era già da settimane.
+204|Dal post del 21 settembre la copertura si dimezza, salvo pochi post.
+205|Ordina per data e cerca dove i numeri crollano.
+206|Cosa hanno in comune i post che vanno male da allora?
+207|Confronta i post bassi con quelli che vanno ancora bene.
+208|Quando alcuni post di un periodo vanno bene e altri male, la differenza tra i due gruppi indica la causa.
+209|In un negozio, le vendite calano solo nei giorni in cui apre il nuovo commesso: il problema è l'orario o la persona, non il negozio.
+210|Dare la colpa all'algoritmo senza guardare cosa distingue i post andati bene.
+211|Sono stati pubblicati alle 03:00 di notte
+212|Sono tutti caroselli
+213|Ci sono reel, caroselli e foto: il formato non spiega il calo.
+214|Hanno troppi hashtag
+215|Gli hashtag sono simili a quelli dei post di settembre.
+216|Tutti i post che vanno male da allora sono usciti alle 03:00. Quelli pubblicati a mano alle 19 vanno ancora bene.
+217|Guarda la colonna Ora.
+218|Perché escono alle 3 di notte?
+219|Guarda le impostazioni del Calendario.
+220|Gli strumenti di programmazione hanno impostazioni predefinite: se non si sceglie un'ora, ne usano una loro. Un'impostazione dimenticata può cambiare i risultati di mesi.
+221|Una newsletter programmata «in blocco» parte sempre a mezzanotte perché nessuno ha cambiato l'ora predefinita.
+222|Pensare che qualcuno pubblichi di notte apposta, senza controllare le impostazioni.
+223|Dal 21/09 si programma in blocco e l'ora predefinita dello strumento è le 03:00
+224|Perché l'algoritmo premia i post notturni
+225|I dati dicono il contrario: di notte la copertura crolla.
+226|Perché il fuso orario del profilo è sbagliato
+227|Le impostazioni mostrano chiaramente un'ora predefinita, non un altro fuso.
+228|Dal 21/09 il team carica i post in blocco e lo strumento li mette alle 03:00, l'ora predefinita mai cambiata.
+229|Il riquadro si chiama Impostazioni di programmazione.
+230|Correggi l'ora predefinita
+231|Nelle impostazioni del Calendario scegli un'ora predefinita adatta ai follower di Cinque Foglie.
+232|L'ora predefinita va scelta con i dati del proprio pubblico (follower attivi per ora), non a caso.
+233|Un profilo di colazioni imposta le 7:30, quando i suoi follower cercano idee per la mattina.
+234|Scegliere un orario «comodo per il team» invece che per il pubblico.
+235|Da ora i post programmati in blocco usciranno quando i follower sono online.
+236|Guarda il grafico dei follower attivi: dove sono le barre più alte?
+237|Sposta i post già programmati
+238|Cambiare l'impostazione non sposta i post già in calendario: correggi l'ora dei tre post dei prossimi giorni.
+239|Un'impostazione nuova vale per il futuro: le cose già programmate restano come erano. Dopo una correzione si controlla sempre cosa è già in coda.
+240|Cambi l'orario di consegna standard di un negozio, ma gli ordini già fissati per domani restano all'ora vecchia finché non li sposti.
+241|Dare per scontato che la correzione valga anche per quello che era già programmato.
+242|I tre post usciranno la sera: niente più post alle 3 di notte.
+243|Apri i post del 30/10, 31/10 e 1/11 e cambia l'ora.
+244|Il post del 2/10 è uscito alle 19 ma è andato male. Stesso problema?
+245|Guarda formato e pilastro del post.
+246|Non tutti i risultati bassi hanno la stessa causa. Prima di applicare la stessa spiegazione a tutto si controlla se il caso è davvero simile.
+247|In un ristorante calano i coperti il martedì per un cantiere in strada, ma il calo del sabato dipende dal meteo: due cause diverse.
+248|Attribuire ogni calo alla prima causa trovata.
+249|Sì, anche lui è uscito di notte
+250|Guarda l'ora: 19:00.
+251|No: è una foto prodotto, che va male anche alle 19
+252|Sì, perché è uscito di venerdì
+253|Il giorno non c'entra: guarda il tipo di post.
+254|È un falso allarme rispetto all'orario: è una foto prodotto, e le foto prodotto vanno male a qualsiasi ora.
+255|Per capire un calo si cerca il giorno esatto e cosa è cambiato.
+256|Un'impostazione predefinita dimenticata può costare mesi di risultati.
+257|Le correzioni valgono per il futuro: quello già programmato va spostato a mano.
+258|Non tutti i risultati bassi hanno la stessa causa.
+259|Incredibile, era un'impostazione! Grazie: da stasera i post escono quando le persone ci sono.
+260|Una settimana di commenti
+261|35 minuti
+262|Commenti e messaggi
+263|Critiche, dati personali, spam, domande ripetute: chi risponde, come e cosa si nasconde.
+264|Sono stata via una settimana e nei commenti c'è di tutto. Mi aiuti a sistemare la community prima che qualcuno si arrabbi?
+265|Rispondere e moderare i commenti della settimana nel modo giusto.
+266|Quale commento è più urgente?
+267|Leggi tutti i commenti e messaggi.
+268|Nella community si risponde prima a chi ha un problema, soprattutto se aspetta da tempo e il commento è pubblico: ogni ora in più lo vedono altre persone.
+269|Un hotel risponde prima alla recensione «camera sporca, nessuno mi ha aiutato» che ai complimenti per la colazione.
+270|Rispondere in ordine di arrivo o prima ai commenti facili e positivi.
+271|La cliente che aspetta da 4 giorni per un ordine in ritardo
+272|Il complimento al Sencha
+273|Fa piacere, ma può aspettare.
+274|La domanda sulla Svizzera
+275|È una domanda semplice, non un problema aperto.
+276|La critica sull'ordine in ritardo è pubblica, aspetta da 4 giorni e nessuno ha risposto: va gestita per prima.
+277|Apri i commenti
+278|Rispondi alla critica
+279|Rispondi pubblicamente alla cliente con l'ordine in ritardo.
+280|Una buona risposta a una critica: ringrazia o si scusa, non discute, porta la conversazione in privato per i dettagli e dice cosa succede ora. È breve e nel tono del brand.
+281|«Ciao Paolo, ci dispiace davvero per l'attesa. Ti scriviamo subito in privato per capire dov'è il pacco e sistemare tutto.»
+282|Rispondere «abbiamo già risposto alle mail» o dare la colpa al corriere davanti a tutti.
+283|La cliente si sente ascoltata e chi legge vede un'azienda che risponde. I dettagli dell'ordine si gestiscono in privato.
+284|Scuse, invito a continuare in privato, cosa farete adesso.
+285|Un cliente ha scritto i suoi dati in pubblico
+286|Un cliente ha scritto numero d'ordine e indirizzo in un commento. Proteggilo e aiutalo.
+287|I dati personali (indirizzo, numero d'ordine, telefono) non devono restare in pubblico. Si nasconde il commento e si chiede di continuare in privato, senza ripetere i dati nella risposta. È rispetto per la persona ed è in linea con il GDPR.
+288|Una cliente scrive il suo numero di telefono sotto un post: la palestra nasconde il commento e le scrive in privato.
+289|Rispondere in pubblico ripetendo il numero d'ordine o l'indirizzo per «confermare».
+290|Il commento è nascosto e il cliente sa dove continuare: i suoi dati non sono più davanti a tutti.
+291|Prima nascondi il commento, poi rispondi invitando a scrivere in privato.
+292|Modera spam e insulti
+293|Nascondi o segnala solo i commenti che vanno tolti. Le critiche sincere restano.
+294|Si moderano spam (pubblicità, truffe) e insulti senza contenuto. Le critiche sincere, anche dure, non si nascondono: si risponde. Nasconderle fa sembrare l'azienda poco trasparente.
+295|Un ristorante nasconde «guadagna 1000 € da casa» ma risponde a «il risotto era scotto».
+296|Nascondere tutto quello che è negativo per avere un profilo «pulito».
+297|Spam e insulto sono spariti; la critica sul rooibos resta, e merita una risposta.
+298|Ci sono uno spam, un insulto e una critica sincera su un prodotto: solo i primi due vanno tolti.
+299|Tre persone chiedono le dosi del matcha. Cosa fai oltre a rispondere?
+300|Rileggi le domande sul matcha.
+301|Le domande che si ripetono sono un'ottima fonte di idee: se tre persone in una settimana chiedono la stessa cosa, molte altre se lo chiedono senza scrivere.
+302|Un negozio di piante riceve sempre «ogni quanto annaffio?»: ne fa un carosello che diventa il post più salvato dell'anno.
+303|Rispondere ogni volta da capo senza accorgersi che è un tema da contenuto.
+304|Propongo un carosello con le dosi del matcha
+305|Nascondo le domande ripetute
+306|Sono domande sincere di clienti: si risponde.
+307|Rispondo «guardate il sito»
+308|È poco gentile e non aiuta chi è sui social.
+309|La domanda ripetuta diventa un contenuto: nelle bozze di novembre c'è già «Quanta acqua per il matcha?».
+310|Rispondi a una domanda sulle dosi
+311|Rispondi a una delle persone che chiedono quanto matcha usare.
+312|Una risposta utile è concreta: numeri e passaggi. Per il matcha: circa 2 grammi (un cucchiaino scarso) in 70 ml di acqua a 75-80 °C, sbattendo con la frusta. Si chiude con un tono caldo.
+313|«Ciao! Per un espresso usiamo 7 grammi di caffè macinato: un cucchiaio raso. Buona pausa!»
+314|Rispondere in modo vago («poco, a gusto») a chi ha chiesto un numero.
+315|Una risposta con i numeri risolve il problema e mostra che Cinque Foglie sa di cosa parla.
+316|Scrivi quanti grammi (o cucchiaini) e quanta acqua.
+317|Una creator propone una collaborazione in privato. Cosa fai?
+318|Leggi il messaggio della creator.
+319|Le collaborazioni con creator sono il lavoro dell'influencer marketing: si valutano pubblico, valori, costi e regole (la pubblicità va dichiarata). Il social media manager di solito le passa a chi se ne occupa, con una risposta gentile.
+320|In un'azienda di cosmetici, chi gestisce i commenti inoltra le proposte dei creator alla collega delle partnership.
+321|Accettare subito in chat, senza valutare il profilo né concordare le regole.
+322|Rispondo gentilmente e la passo a chi si occupa di influencer marketing
+323|Accetto subito: 32k follower sono tanti
+324|Prima si valuta se il pubblico è adatto e si concordano le regole.
+325|La ignoro
+326|È una proposta seria: merita una risposta.
+327|Le collaborazioni si valutano con chi se ne occupa: pubblico adatto, accordo scritto, pubblicità dichiarata.
+328|Si risponde prima ai problemi pubblici che aspettano da tempo.
+329|I dati personali non restano in pubblico: si nasconde e si va in privato.
+330|Si moderano spam e insulti, non le critiche sincere.
+331|Le domande ripetute diventano contenuti.
+332|Grazie! La cliente dell'ordine mi ha già scritto in privato, e il carosello sul matcha lo prepariamo per novembre.
+333|Foto, diritti e collaborazioni
+334|Libreria, Profilo
+335|Una foto usata senza permesso e una collaborazione non dichiarata: trovarle e sistemarle.
+336|Una cliente ci ha scritto: «avete usato la mia foto senza chiedermelo». E l'avvocato vuole sapere se le collaborazioni sono a posto. Controlli?
+337|Trovare i contenuti a rischio, chiedere il permesso e dichiarare la collaborazione.
+338|Quale foto non si può usare?
+339|Guarda la colonna dei permessi nella Libreria.
+340|Una foto pubblicata da qualcuno sui social non è libera: appartiene a chi l'ha scattata. Per ripubblicarla serve il suo permesso. Le foto del team e quelle con licenza commerciale si possono usare.
+341|Un bar ripubblica la foto di un cliente con il suo cappuccino: prima gli scrive «possiamo condividerla citandoti?».
+342|Pensare che «è pubblica, quindi si può usare».
+343|Il matcha latte di @giulia.foglie
+344|La tazza di Anna
+345|Anna ha dato il permesso il 13/09.
+346|Tazza fumante su sfondo autunnale
+347|Ha una licenza commerciale acquistata.
+348|La foto di Giulia è stata presa dal suo profilo senza chiederle niente.
+349|In quale post è stata usata?
+350|Cerca il post nel profilo.
+351|Dopo aver trovato un contenuto a rischio si controlla dove è stato usato, per sistemare tutto.
+352|Un'azienda scopre una foto senza licenza e controlla sito, newsletter e social per toglierla ovunque.
+353|Sistemare solo la libreria e lasciare il post pubblicato.
+354|Nel post del 12/10 «Il matcha latte di Giulia»
+355|Nel post del 14/09 «La tazza di Anna»
+356|Quella è la foto di Anna, con il permesso.
+357|Nel reel dell'8/10
+358|Il reel è di @tazzaemiele, con un accordo.
+359|Il post del 12/10 usa la foto di Giulia, e la didascalia non la cita nemmeno.
+360|Apri la Libreria
+361|Chiedi il permesso a Giulia
+362|Nella Libreria scrivi il messaggio per chiedere a Giulia il permesso di usare la foto.
+363|Un buon messaggio è gentile e chiaro: si presenta, chiede il permesso per un uso preciso, propone di citare l'autrice e, se serve, si scusa. Si lascia libera la persona di dire di no.
+364|«Ciao Marco! Siamo il bar Aurora: la tua foto del cappuccino è bellissima. Possiamo condividerla sul nostro profilo citandoti? Se preferisci di no, nessun problema.»
+365|Scrivere solo «ti abbiamo taggata!» dopo averla già usata, come se bastasse.
+366|Il messaggio è pronto: con il permesso scritto la foto si può usare, citandola.
+367|Saluta, scusati per averla usata prima di chiedere, chiedi il permesso e proponi di citarla.
+368|Apri il profilo
+369|Nel frattempo togli il post
+370|Finché Giulia non risponde, togli il post dal profilo senza cancellarlo.
+371|Archiviare un post lo toglie dal profilo ma lo conserva: se arriva il permesso si può rimettere, con la citazione. È la scelta prudente mentre si aspetta.
+372|Un negozio archivia il post con la foto di un fotografo finché non arriva la licenza.
+373|Lasciare il post online «tanto ormai l'hanno visto tutti».
+374|Il post non è più visibile: se Giulia dice sì, lo rimetti citandola.
+375|Apri il post del 12/10 e usa Archivia.
+376|Cosa non va nel reel dell'8/10 con @tazzaemiele?
+377|Apri il reel e controlla la Libreria per l'accordo.
+378|Quando un creator riceve soldi o prodotti in cambio di un contenuto, il contenuto è pubblicità e va dichiarato in modo chiaro (etichetta di collaborazione della piattaforma, #adv all'inizio). In Italia lo chiedono le regole sulla pubblicità e le linee guida AGCOM sugli influencer.
+379|Una creator riceve una crema gratis e la mostra: il post deve dire che è una collaborazione, anche senza pagamento in soldi.
+380|Pensare che senza pagamento in soldi non sia pubblicità.
+381|Il kit è stato regalato in cambio del video, ma il reel non è segnalato come collaborazione
+382|Il video è troppo lungo
+383|La durata va bene: il problema è legale.
+384|Manca l'hashtag #matcha
+385|C'è, e comunque non è quello il problema.
+386|Un kit regalato in cambio di un video è una collaborazione commerciale: va dichiarata.
+387|Dichiara la collaborazione
+388|Correggi il reel dell'8/10 perché sia chiaro che è una collaborazione.
+389|Si usano insieme l'etichetta della piattaforma («Partnership a pagamento» o simile) e una dicitura nella didascalia, all'inizio: #adv o «Collaborazione con…». Chi guarda deve capirlo subito.
+390|«#adv Collaborazione con @bioskin: ho provato la loro crema per un mese…»
+391|Mettere #adv in mezzo a 20 hashtag in fondo, dove nessuno lo legge.
+392|Ora il reel è dichiarato: etichetta attiva e #adv all'inizio della didascalia.
+393|Apri il reel, attiva l'etichetta di collaborazione e aggiungi #adv all'inizio della didascalia.
+394|Per il reel del chai, quale musica puoi usare?
+395|Guarda le voci di tipo musica nella Libreria.
+396|Anche la musica ha i suoi diritti. I profili aziendali possono usare solo brani con licenza commerciale, per esempio quelli della libreria della piattaforma per le aziende. Le canzoni famose spesso non sono disponibili per uso commerciale.
+397|Un'agenzia di viaggi usa una base strumentale della libreria per aziende invece della hit dell'estate.
+398|Usare la canzone del momento perché «la usano tutti»: per un'azienda il rischio è che il video venga tolto o senza audio.
+399|Chitarra acustica tranquilla (libreria per uso commerciale)
+400|Canzone famosa del momento
+401|Non è disponibile per i profili aziendali.
+402|Qualsiasi brano, basta citare l'artista
+403|Citare non basta: serve la licenza.
+404|La base della libreria per aziende si può usare; la canzone famosa no.
+405|Le foto degli altri si usano solo con il permesso, citando l'autore.
+406|Archiviare toglie un post senza cancellarlo.
+407|Prodotti regalati in cambio di contenuti = pubblicità da dichiarare.
+408|Anche la musica deve avere la licenza giusta.
+409|Giulia ha risposto: è felicissima, rimettiamo il post citandola. E l'avvocato è contento del reel.
+410|Il calendario di novembre
+411|45 minuti
+412|Calendario, Statistiche
+413|Un mese intero: lancio del calendario dell'avvento, Black Friday, pilastri e orari.
+414|Novembre è il mese più importante: il 2 lanciamo il calendario dell'avvento e il 27 c'è il Black Friday. Le bozze sono pronte: mi prepari il calendario?
+415|Programmare le bozze di novembre con equilibrio, date giuste, testi e link misurabili.
+416|Quanti post a settimana?
+417|Guarda quanti post a settimana sono stati pubblicati finora e come sono andati.
+418|Conta la regolarità più del numero. Meglio tre post a settimana curati e costanti che uno al giorno fatto di corsa; e la frequenza deve essere sostenibile per il team.
+419|Un piccolo forno pubblica lunedì, mercoledì e venerdì: i follower sanno quando aspettarsi il pane nuovo.
+420|Pubblicare tantissimo a novembre e poi sparire a dicembre.
+421|Circa 3 a settimana, con regolarità
+422|Uno al giorno, per sfruttare il mese
+423|Con dieci bozze e un team piccolo non è sostenibile, e non serve.
+424|Tutti nella prima settimana
+425|Poi il profilo resterebbe vuoto proprio prima del Black Friday.
+426|Finora il profilo ha pubblicato 3 post a settimana con buoni risultati quando l'orario era giusto: si continua così.
+427|Programma le bozze di novembre
+428|Metti nel calendario di novembre almeno 8 bozze, con le date e gli orari giusti.
+429|Un buon calendario segue le date importanti, alterna i pilastri (non solo prodotto), distribuisce i post nelle settimane senza due post lo stesso giorno e usa l'orario in cui i follower sono online.
+430|Un negozio di libri a dicembre alterna consigli di lettura, dietro le quinte e una sola promozione, il giorno giusto.
+431|Mettere tutte le promozioni di fila: il profilo diventa un volantino.
+432|Il mese è pronto: lancio il 2-4 novembre, Black Friday il 27, pilastri alternati e post serali.
+433|Per il lancio del calendario dell'avvento, quale coppia di formati?
+434|Pensa a cosa deve fare ogni post.
+435|Un lancio ha due compiti: farsi vedere da più persone possibile e spiegare bene il prodotto. Si usano formati diversi per i due compiti.
+436|Un'app nuova esce con un video breve che incuriosisce e una guida a schede su come funziona.
+437|Usare un solo post per fare tutto.
+438|Un reel per farlo scoprire e un carosello per mostrare cosa c'è dentro
+439|Solo storie
+440|Spariscono in 24 ore e arrivano soprattutto ai follower.
+441|Una foto prodotto con «disponibile sul sito»
+442|È il tipo di post che va peggio sul profilo.
+443|Reel per la copertura, carosello per i dettagli: sono già nelle bozze (b01 e b02).
+444|Scrivi la didascalia del lancio
+445|Scrivi la didascalia del reel di lancio del calendario dell'avvento.
+446|La didascalia di un lancio dice cos'è, da quando si trova, perché è speciale e cosa fare adesso. Prima frase corta e forte, un invito chiaro, pochi hashtag. Niente urgenza finta («ultimi pezzi!» se non è vero).
+447|«24 caffè da tutto il mondo, uno al giorno fino a Natale. Il nostro calendario dell'avvento è disponibile da oggi: lo trovi nel link in bio. #calendariodellavvento»
+448|Scrivere «ULTIMI PEZZI, AFFRETTATEVI» il primo giorno: è falso e fa perdere fiducia.
+449|Esempio di una collega senior: «24 tè, uno per ogni giorno fino a Natale. Il calendario dell'avvento di Cinque Foglie è disponibile dal 2 novembre: dentro trovi tè e tisane biologici da scoprire giorno per giorno. Lo trovi nel link in bio. #calendariodellavvento #tè»
+450|Per il post del Black Friday, quale numero guardi?
+451|Pensa all'obiettivo di quel post.
+452|Ogni post ha un obiettivo e un numero. Un post di promozione serve a vendere: si guardano i clic sul link e gli acquisti che arrivano da lì, misurati con un link UTM.
+453|Un cinema guarda quanti biglietti arrivano dal link nel post della promozione, non quanti like ha il post.
+454|Giudicare un post di vendita dai like.
+455|I clic sul link e le vendite che arrivano da quel link
+456|I like
+457|Un post può piacere tanto e non vendere niente.
+458|I follower nuovi
+459|Non è l'obiettivo di un post di promozione.
+460|Per misurare le vendite dal post serve un link con i parametri UTM: lo prepari nel prossimo passo.
+461|Prepara il link del Black Friday
+462|Nella bozza del Black Friday metti un link al sito con i parametri UTM.
+463|I parametri UTM si aggiungono al link per sapere da dove arrivano le visite: utm_source (chi manda: instagram), utm_medium (il tipo di canale: social), utm_campaign (la campagna: per esempio black-friday). Si leggono poi nelle statistiche del sito.
+464|cinquefoglie.example/?utm_source=newsletter&utm_medium=email&utm_campaign=natale
+465|Scrivere i valori ogni volta in modo diverso (Instagram, IG, insta): le statistiche li contano come fonti diverse.
+466|Con il link UTM sapremo quante vendite del Black Friday arrivano da questo post.
+467|Spiega il piano a Sara
+468|Scrivi 3-5 frasi a Sara: come hai organizzato novembre e come misurerai i risultati.
+469|Presentare un piano vuol dire spiegare le scelte: perché quelle date, quei formati, quegli orari, e come si saprà se ha funzionato.
+470|«A dicembre alterniamo consigli e promozioni, 3 post a settimana alle 18. Il giorno del lancio un reel e un carosello. Misuriamo i clic con link UTM.»
+471|Elencare i post uno per uno senza spiegare il perché.
+472|Esempio di una collega senior: «Novembre ha 3 post a settimana, sempre la sera tra le 19 e le 21. Lanciamo il calendario dell'avvento il 2 con un reel e il giorno dopo un carosello con cosa c'è dentro. Alterniamo ricette e consigli ai post di prodotto e mettiamo il Black Friday solo il 27. Misuriamo copertura per il lancio e clic con link UTM per il Black Friday.»
+473|Regolarità prima della quantità.
+474|Un lancio usa più formati con compiti diversi.
+475|Ogni post ha il suo numero: copertura, salvataggi, clic.
+476|I link UTM dicono quante vendite arrivano da un post.
+477|Il calendario è perfetto. Lo condivido con il team e lo mettiamo in produzione da lunedì.
+478|Una piccola crisi
+479|40 minuti
+480|Commenti e messaggi, Calendario
+481|Kit matcha arrivati rotti, commenti arrabbiati e una promo programmata nel momento sbagliato.
+482|Aiuto: stamattina tanti kit matcha sono arrivati con la frusta rotta e i commenti stanno esplodendo. Anche @tazzaemiele ne parla nelle storie. Cosa facciamo?
+483|Gestire la crisi: capire, rispondere, fermare ciò che peggiora le cose, informare.
+484|Qual è la prima cosa da fare?
+485|Leggi i commenti di oggi.
+486|In una crisi la prima cosa è capire i fatti: cosa è successo, a quante persone, perché. Si chiede subito a chi ha le informazioni (magazzino, assistenza clienti). Rispondere senza sapere rischia di promettere cose sbagliate.
+487|Un'azienda di giocattoli riceve segnalazioni di pezzi rotti: prima verifica con la logistica quale lotto è coinvolto, poi risponde.
+488|Rispondere a caso «non ci risulta» prima di aver controllato.
+489|Chiedere al magazzino e all'assistenza cosa è successo e quanti ordini sono coinvolti
+490|Cancellare i commenti negativi
+491|Peggiora tutto: le persone se ne accorgono e si arrabbiano di più.
+492|Aspettare che passi
+493|Ogni ora senza risposta i commenti aumentano.
+494|Il magazzino conferma: un lotto di fruste si è rotto nel trasporto, circa 40 kit spediti ieri.
+495|Ferma il post programmato
+496|Nel calendario c'è un post che oggi peggiorerebbe la situazione: sospendilo.
+497|In una crisi si controllano i post programmati: una promozione allegra nel mezzo delle lamentele sembra insensibile. Si sospende e si riprogramma più avanti.
+498|Durante un disservizio, una compagnia telefonica sospende i post «Scopri le nostre offerte!» previsti per quel giorno.
+499|Lasciare uscire tutto come previsto perché «era già programmato».
+500|La promo lampo sul kit matcha non uscirà oggi: sarebbe sembrata una presa in giro.
+501|Scrivi il messaggio pubblico
+502|Scrivi il testo da pubblicare (storia o post): cosa è successo, cosa fate per chi è coinvolto e come contattarvi.
+503|Un messaggio di crisi è breve, sincero e concreto: riconosce il problema, si scusa, spiega cosa si fa per rimediare e come contattare l'azienda. Non dà la colpa ad altri e non minimizza.
+504|«Alcuni ordini di ieri sono arrivati con il coperchio rotto. Ci dispiace molto. Vi mandiamo subito un prodotto nuovo, gratis: scriveteci in privato con il numero d'ordine.»
+505|Scrivere «il problema è del corriere» o «sono pochissimi casi»: chi è coinvolto si sente ignorato.
+506|Esempio di una collega senior: «Alcuni kit matcha spediti ieri sono arrivati con la frusta rotta. Ci dispiace davvero, soprattutto per chi li aveva scelti come regalo. Spediamo subito una frusta nuova a tutti, gratis: scriveteci in privato con il numero d'ordine. Stiamo controllando gli imballaggi perché non succeda più.»
+507|Rispondi ai commenti
+508|Rispondi ad almeno tre commenti sulla frusta rotta, senza nasconderli.
+509|In crisi si risponde a tutti con lo stesso messaggio di fondo (scuse, rimedio, privato), ma personalizzato: copiare e incollare la stessa frase a tutti sembra un robot. Le critiche non si nascondono.
+510|«Ciao Anna, ci dispiace tanto: ti scriviamo in privato per mandarti subito il pezzo nuovo.»
+511|Incollare lo stesso testo identico sotto venti commenti.
+512|Ogni persona ha avuto una risposta e sa che riceverà una frusta nuova.
+513|@tazzaemiele ne parla nelle storie. Cosa fai?
+514|Pensa a chi è e a cosa ha scritto.
+515|Quando una persona con un pubblico parla del problema, conviene contattarla direttamente, con sincerità: spiegare cosa è successo e cosa si sta facendo. Non si chiede di cancellare.
+516|Un ristorante criticato da un food blogger lo chiama, si scusa e lo invita a tornare: il blogger aggiorna il suo post.
+517|Chiederle di cancellare le storie o offrirle soldi per parlarne bene.
+518|Le scrivo in privato, mi scuso e le spiego come stiamo rimediando
+519|Le chiedo di cancellare le storie
+520|Sembra una censura e peggiora la situazione.
+521|La ignoro, tanto le storie spariscono
+522|Il suo pubblico ricorda come ha reagito l'azienda.
+523|Con le informazioni giuste, spesso è proprio la creator ad aggiornare il suo pubblico: «Mi hanno già rimandato la frusta!».
+524|Scrivi il riepilogo per Sara
+525|Scrivi 3-6 frasi: cosa è successo, cosa avete fatto oggi e cosa proponete di cambiare.
+526|Dopo una crisi si scrive un riepilogo: i fatti, le azioni fatte, cosa ha funzionato e cosa cambiare perché non succeda di nuovo.
+527|«Ieri 30 ordini sono arrivati con il coperchio rotto. Abbiamo risposto a tutti, rispedito il prodotto e sospeso la promo. Proponiamo di provare un nuovo imballaggio.»
+528|Raccontare solo quanto è stato faticoso, senza fatti e proposte.
+529|Esempio di una collega senior: «Circa 40 kit matcha spediti ieri sono arrivati con la frusta rotta. Oggi abbiamo sospeso la promo lampo, pubblicato una storia con le scuse e il rimedio, risposto a tutti i commenti e scritto a @tazzaemiele. Rispediamo una frusta nuova gratis a chi è coinvolto. Proponiamo di proteggere meglio le fruste negli imballaggi.»
+530|In una crisi prima si capiscono i fatti.
+531|Si fermano i post programmati fuori luogo.
+532|Messaggio pubblico sincero: scuse, rimedio, contatto.
+533|Le critiche non si nascondono: si risponde a tutti, in modo personale.
+534|Grazie, gestita benissimo. @tazzaemiele ha già scritto «mi hanno rimandato la frusta in un giorno»: quasi meglio di prima!

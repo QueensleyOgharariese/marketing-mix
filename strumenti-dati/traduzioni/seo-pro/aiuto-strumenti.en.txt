@@ -1,0 +1,99 @@
+1|The shop
+2|It's the Cinque Foglie website as a customer sees it: the menu at the top leads to the categories, the cards to the products.
+3|The dark <strong>Inspect</strong> button, next to the address, shows the data Google reads: status, title, description, meta robots, canonical and H1.
+4|If you open an address that has a redirect, a notice at the top explains it.
+5|Changes saved in the Shop admin show up here straight away.
+6|The Crawler
+7|It lists all the website's addresses, the way Google finds them by following links. Under each address, in grey, is its title.
+8|On the left the <strong>filters</strong> group the problems into Errors, To fix and To check. The number next to each says how many pages there are.
+9|The <strong>Filter addresses</strong> box searches within the filter you've chosen.
+10|Click a row to open the <strong>Address details</strong>, below the table: there you'll find all the page's data, the notes and where it's linked from.
+11|The table scrolls horizontally. Rows you've changed in the admin have an orange line.
+12|The Search console
+13|At the top choose the <strong>part of the website</strong>, the <strong>period</strong> and whether to <strong>compare with the year before</strong>: the chart and the numbers change.
+14|The <strong>Queries</strong> tab (what people search for) and the <strong>Pages</strong> tab (the website's pages) show clicks, impressions, CTR and position.
+15|Click a column header to sort. Click a query to see which pages of the website appear for that search.
+16|<strong>URL inspection</strong>: type an address to compare what Google remembers with today's website. From there you can request indexing.
+17|Pages and indexing
+18|Two tabs: <strong>Page indexing</strong> and <strong>Core Web Vitals</strong> (speed).
+19|The chart shows, week by week, the pages on Google (green) and those left out (grey). Below are the marked events.
+20|The table of reasons explains why some pages are left out. Click a reason to see the pages, the <strong>On the website today</strong> column and the <strong>Validate fix</strong> button.
+21|Core Web Vitals splits pages into groups and shows the timings on phone and on computer, with the main cause.
+22|The Keyword research
+23|Type in the box to search the keywords.
+24|Columns: <strong>Intent</strong> (what the searcher wants), <strong>Volume</strong> (searches per month), <strong>Difficulty</strong>, <strong>Trend</strong> (one small bar per month, from July to June) and <strong>Website position</strong>.
+25|<strong>Only where the website doesn't appear</strong> shows the keywords we're not in the results for.
+26|The table scrolls horizontally; click a column header to sort.
+27|The Analytics
+28|They show what happens after the click on Google: visits, orders and revenue.
+29|The table has one row per landing page: <strong>Sessions</strong>, <strong>Conversion</strong> (out of 100 visits, how many become an order), <strong>Orders</strong> and <strong>Revenue</strong>.
+30|The chart shows revenue from Google month by month.
+31|You can filter the pages and sort by clicking the column headers.
+32|The Shop admin
+33|It's the website's back office, like WordPress or Shopify. It has three tabs: <strong>Pages</strong>, <strong>Redirects</strong> and <strong>Theme and settings</strong>.
+34|<strong>Pages</strong>: choose a page from the list (or search for it) and change title, description, H1, text and meta robots. The Google preview updates as you type. Then press <strong>Save changes</strong>.
+35|<strong>Redirects</strong>: write <strong>From</strong> (old address) and <strong>To</strong> (new page) and press <strong>Save the 301</strong>. In the table you can edit or delete.
+36|<strong>Theme and settings</strong>: which categories are visible to search engines and the canonical of filtered pages.
+37|Every change goes live straight away. <strong>Back to the original</strong> undoes the changes to a page.
+38|The guide
+39|Write the requested text here. It saves itself in this browser.
+40|Press <strong>Check my work</strong>: the guide says what's fine and what's missing. You can try again as many times as you like.
+41|The profile
+42|It's the Cinque Foglie profile as followers see it: the bio at the top, the grid of posts below.
+43|Click a post to open it: you'll see the caption, publishing date and time, alt text and any partnership label.
+44|In the open post you can <strong>edit</strong> the caption, alt text and label, or <strong>archive it</strong> (it disappears from the profile but isn't deleted).
+45|The Post insights
+46|At the top, the numbers for the period and the follower trend.
+47|The <strong>Active followers by hour</strong> chart says what time followers are online.
+48|The table has one row per post: reach, impressions, interactions, saves, engagement rate. Click a column header to sort.
+49|The filters above the table show only one format or one pillar.
+50|The <strong>Averages by format</strong> box compares reels, carousels and photos.
+51|Calendar and posts
+52|On the left the <strong>drafts</strong>; in the middle the calendar with scheduled posts. You can change month with the arrows.
+53|Drag a draft onto a day to schedule it (or open it and choose date and time).
+54|Click a post or a draft to open the editor: format, caption, alt text, link, date and time. Then <strong>Save</strong>.
+55|<strong>Scheduling settings</strong> holds the time used when scheduling several posts in bulk.
+56|Comments and messages
+57|Comments on posts and private messages arrive here, most recent first.
+58|On each item you can <strong>reply</strong>, <strong>hide</strong> (it stays visible only to the person who wrote it), <strong>report as spam</strong> or <strong>hand it over</strong> to a colleague.
+59|The filters at the top show only unanswered comments or only messages.
+60|The Photo and music library
+61|It collects photos, videos and music the team can use.
+62|Each item says where it comes from and what <strong>permission</strong> or <strong>licence</strong> it has.
+63|For other people's photos you can write the message to <strong>ask for permission</strong> here.
+64|The Campaigns
+65|The table lists the campaigns with October's numbers: impressions, clicks, CTR, cost, conversions, CPA, ROAS and <strong>impressions lost to budget</strong>. Click a column header to sort.
+66|Click a campaign's name to open it: at the top the <strong>daily budget</strong> and status (with <strong>Save</strong>), then the <strong>negative keywords</strong> and the ad groups.
+67|In each group: the keywords table (change the match type from the row's menu; click the <strong>Quality</strong> score to see its three parts), the <strong>Add keyword</strong> form and the ad with the <strong>Edit the ad</strong> button.
+68|In the ad: up to 15 headlines (30 characters) and 4 descriptions (90 characters), with the counter beside them, the <strong>final URL</strong> and, if needed, the <strong>end date</strong>.
+69|The Search terms
+70|They show what people actually typed before clicking an ad, with the keyword that made it appear.
+71|Filter by campaign or keyword with the menus at the top; click a column header to sort.
+72|The <strong>Exclude</strong> button on a row lets you choose which words to add as the campaign's <strong>negatives</strong>. Negatives already added are listed above the table.
+73|The Keyword planner
+74|Keyword ideas with <strong>searches per month</strong>, the expected cost per click (from… to…), <strong>competition</strong> and <strong>intent</strong> (purchase, informational or mixed).
+75|Type in the box to search; click a column header to sort.
+76|The planner doesn't add anything to campaigns: keywords are added from the Campaigns.
+77|The Website performance
+78|What happens after the click, group by group: <strong>landing page</strong>, sessions, <strong>bounce rate</strong> (people who leave straight away), orders and revenue.
+79|Next to them are the ad cost and the group's ROAS, for comparison.
+80|At the top, the products' <strong>average gross margin</strong>: it tells you when a campaign makes money.
+81|The Brand manual
+82|At the top the <strong>Tagline</strong> and the <strong>Positioning</strong>: fields to fill in, with the <strong>Save</strong> button.
+83|Below, to read: mission, <strong>values</strong>, <strong>tone of voice</strong> (what we are, what we aren't, rules and before-and-after examples), logo and colours.
+84|The Brand research
+85|It collects the data on the brand: <strong>customer segments</strong>, <strong>competitors</strong>, <strong>NPS</strong> month by month with the <strong>detractors' reasons</strong>, shipping times, <strong>searches for the name</strong> over the last two years and the <strong>awareness</strong> survey.
+86|At the bottom, the <strong>quality office's sheet</strong> on packaging: the verified facts.
+87|Each section says where the data comes from.
+88|The Brand copy
+89|Six brand texts on different channels (website, email, social media, customer service, packaging).
+90|On each text: <strong>Edit</strong>, write the new version and press <strong>Save</strong>. <strong>Back to the original</strong> undoes it.
+91|The counter under the text says how many words and characters it has.
+92|The Brand plan
+93|A page with five parts: <strong>goal</strong>, <strong>audience</strong>, <strong>key message</strong>, <strong>channels</strong> and <strong>KPIs</strong>.
+94|Goal, audience and message are written; channels and KPIs are chosen from the boxes.
+95|Press <strong>Save the plan</strong> to save it.
+96|The Press office
+97|Three tabs: <strong>Press release</strong> (headline, subheading, text, contacts, with the word counter), <strong>Journalists</strong> (choose who to send it to, read the notes) and <strong>Requests</strong> (journalists' questions, with the form to reply).
+98|Next to them are the <strong>facts on the calendar</strong> and the <strong>internal note</strong> on the kits: use only verified information.
+99|In a text, an empty line separates paragraphs.

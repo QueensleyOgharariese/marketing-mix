@@ -1,21 +1,25 @@
 ---
-import { LINGUE_APP } from "../../../../../i18n";
+import { LINGUE_APP, linguaDa } from "../../../../../i18n";
 // SIMULAZIONE SOCIAL · PANORAMICA (pagina di partenza)
 // Stessa struttura della Simulazione SEO: benvenuto, messaggio della responsabile (Sara, inventata), tutorial,
 // poi i tre livelli (Basi, Diagnosi, Casi). Un livello si apre quando è finito quello prima.
 // Lo stato degli esercizi arriva dal browser (scripts/social/missioni-social.ts).
 import Console from "../../../../../components/seopro/Console.astro";
-import dati from "../../../../../data/app/social-sim/esercizi.json";
+import datiIt from "../../../../../data/app/social-sim/esercizi.json";
+import datiEn from "../../../../../data/app/social-sim/esercizi.en.json";
 import POST from "../../../../../data/app/social-sim/post.json";
 import { num } from "../../../../../scripts/tabella";
 
+const lang = linguaDa(Astro.url);
+const L = (it: string, en: string) => (lang === "en" ? en : it);
+const dati = lang === "en" ? datiEn : datiIt;
 const S = "/app/simulazioni/social";
 const STRUMENTI = [
-  { nome: "Il profilo", link: `${S}/profilo/`, cosa: "I post come li vedono i follower: didascalie, testo alternativo, etichette." },
-  { nome: "Calendario e post", link: `${S}/calendario/`, cosa: "Bozze, post programmati e impostazioni di pubblicazione." },
-  { nome: "Commenti e messaggi", link: `${S}/community/`, cosa: "Rispondere, moderare e passare le richieste ai colleghi." },
-  { nome: "Statistiche dei post", link: `${S}/statistiche/`, cosa: "Copertura, engagement, orari dei follower e formati." },
-  { nome: "Libreria foto e musica", link: `${S}/libreria/`, cosa: "Contenuti del team con permessi e licenze." },
+  { nome: L("Il profilo", "The profile"), link: `${S}/profilo/`, cosa: L("I post come li vedono i follower: didascalie, testo alternativo, etichette.", "Posts as followers see them: captions, alt text, labels.") },
+  { nome: L("Calendario e post", "Calendar and posts"), link: `${S}/calendario/`, cosa: L("Bozze, post programmati e impostazioni di pubblicazione.", "Drafts, scheduled posts and publishing settings.") },
+  { nome: L("Commenti e messaggi", "Comments and messages"), link: `${S}/community/`, cosa: L("Rispondere, moderare e passare le richieste ai colleghi.", "Replying, moderating and handing requests to colleagues.") },
+  { nome: L("Statistiche dei post", "Post insights"), link: `${S}/statistiche/`, cosa: L("Copertura, engagement, orari dei follower e formati.", "Reach, engagement, follower times and formats.") },
+  { nome: L("Libreria foto e musica", "Photo and music library"), link: `${S}/libreria/`, cosa: L("Contenuti del team con permessi e licenze.", "The team's content with permissions and licences.") },
 ];
 const TUTORIAL = dati.missioni.find((m) => m.id === "tutorial")!;
 const LIVELLI = dati.livelli.filter((l) => l.n > 0).map((l) => ({ ...l, esercizi: dati.missioni.filter((m) => m.livello === l.n) }));
@@ -26,36 +30,36 @@ const ott = media(POST.post.filter((p) => p.data.startsWith("2026-10")).map((p) 
 const calo = Math.round((1 - ott / set) * 100);
 export function getStaticPaths() { return LINGUE_APP(); }
 ---
-<Console sim="social" attivo="percorso" titolo="Simulazione Social">
+<Console sim="social" attivo="percorso" titolo={L("Simulazione Social", "Social Simulation")}>
   <section class="apertura">
     <div class="benvenuto">
-      <p class="occhiello">Simulazione · primo giorno da social media specialist</p>
-      <h2>Benvenuta nel team social di Cinque Foglie</h2>
-      <p>Hai a disposizione il profilo del negozio, il calendario dei post, i commenti, le statistiche e la libreria di foto e musica. Si parte dal tutorial, poi tre livelli: <strong>Basi</strong>, <strong>Diagnosi</strong> e <strong>Casi</strong>. Ogni livello si apre quando finisci quello prima; dentro il livello scegli tu l'ordine.</p>
+      <p class="occhiello">{L("Simulazione · primo giorno da social media specialist", "Simulation · first day as a social media specialist")}</p>
+      <h2>{L("Benvenuta nel team social di Cinque Foglie", "Welcome to the Cinque Foglie social team")}</h2>
+      <p set:html={L("Hai a disposizione il profilo del negozio, il calendario dei post, i commenti, le statistiche e la libreria di foto e musica. Si parte dal tutorial, poi tre livelli: <strong>Basi</strong>, <strong>Diagnosi</strong> e <strong>Casi</strong>. Ogni livello si apre quando finisci quello prima; dentro il livello scegli tu l'ordine.", "You have the shop's profile, the post calendar, the comments, the insights and the photo and music library. You start with the tutorial, then three levels: <strong>Basics</strong>, <strong>Diagnosis</strong> and <strong>Cases</strong>. Each level unlocks when you finish the one before; within a level you choose the order.")} />
       <div class="bottoni">
-        <button type="button" class="bottone-app" data-avvia-prossima>Inizia il tutorial</button>
-        <a class="bottone-scuro" href="/app/simulazioni/social/profilo/">Prima guardo il profilo</a>
+        <button type="button" class="bottone-app" data-avvia-prossima>{L("Inizia il tutorial", "Start the tutorial")}</button>
+        <a class="bottone-scuro" href="/app/simulazioni/social/profilo/">{L("Prima guardo il profilo", "I'll look at the profile first")}</a>
       </div>
-      <button type="button" class="salta" data-salta hidden>Conosco già gli strumenti: salta il tutorial</button>
+      <button type="button" class="salta" data-salta hidden>{L("Conosco già gli strumenti: salta il tutorial", "I already know the tools: skip the tutorial")}</button>
     </div>
     <article class="messaggio">
-      <div class="mittente"><span class="avatar avatar--verde">SL</span><span><strong>Sara L.</strong><span class="nota">Social media manager, oggi alle 9:05</span></span></div>
-      <strong>Benvenuta!</strong>
-      <p>Questa settimana lavori con me sui social. Si parte da un post e dai numeri, poi i problemi veri: commenti da gestire, foto da controllare e un mistero. Da fine settembre i post arrivano a molte meno persone: a ottobre la copertura media è scesa del {calo}% ({num(ott)} contro {num(set)}).</p>
-      <span class="nota">Persona e azienda inventate</span>
+      <div class="mittente"><span class="avatar avatar--verde">SL</span><span><strong>Sara L.</strong><span class="nota">{L("Social media manager, oggi alle 9:05", "Social media manager, today at 9:05")}</span></span></div>
+      <strong>{L("Benvenuta!", "Welcome!")}</strong>
+      <p>{L(`Questa settimana lavori con me sui social. Si parte da un post e dai numeri, poi i problemi veri: commenti da gestire, foto da controllare e un mistero. Da fine settembre i post arrivano a molte meno persone: a ottobre la copertura media è scesa del ${calo}% (${num(ott)} contro ${num(set)}).`, `This week you're working with me on social media. We start with a post and the numbers, then the real problems: comments to handle, photos to check and a mystery. Since the end of September posts have been reaching far fewer people: in October average reach fell by ${calo}% (${Math.round(ott).toLocaleString("en-GB")} against ${Math.round(set).toLocaleString("en-GB")}).`)}</p>
+      <span class="nota">{L("Persona e azienda inventate", "Fictional person and company")}</span>
     </article>
   </section>
 
 <section class="tutorial" data-tutorial>
     <div class="tut-testo">
-      <span class="tut-etichetta">Livello 0 · Da fare per primo · {TUTORIAL.tempo}</span>
+      <span class="tut-etichetta">{L("Livello 0 · Da fare per primo", "Level 0 · Do this first")} · {TUTORIAL.tempo}</span>
       <h2 class="titoletto">{TUTORIAL.nome}</h2>
       <p>{TUTORIAL.cosa}</p>
     </div>
     <ol class="tut-passi">
       {TUTORIAL.passi.map((p) => <li>{p.domanda}</li>)}
     </ol>
-    <div class="tut-azione"><span class="stato" data-tut-stato>Da iniziare</span><button type="button" class="bottone-app" data-tut-azione>Inizia il tutorial</button></div>
+    <div class="tut-azione"><span class="stato" data-tut-stato>{L("Da iniziare", "Not started")}</span><button type="button" class="bottone-app" data-tut-azione>{L("Inizia il tutorial", "Start the tutorial")}</button></div>
   </section>
 
   <div id="livelli" class="livelli">
@@ -64,18 +68,18 @@ export function getStaticPaths() { return LINGUE_APP(); }
         <div class="livello-testa">
           <span class="livello-n" aria-hidden="true">{l.n}</span>
           <div>
-            <h2 class="titoletto">Livello {l.n} · {l.nome}</h2>
+            <h2 class="titoletto">{L("Livello", "Level")} {l.n} · {l.nome}</h2>
             <p class="nota">{l.cosa}</p>
           </div>
-          <span class="livello-stato" data-livello-stato>Si apre quando finisci: {prima(l.n)}</span>
+          <span class="livello-stato" data-livello-stato>{L("Si apre quando finisci:", "Unlocks when you finish:")} {prima(l.n)}</span>
         </div>
         <ol class="esercizi">
           {l.esercizi.map((m) => (
             <li class="esercizio" data-missione={m.id}>
               <strong>{m.nome}</strong>
               <span class="cosa">{m.cosa}</span>
-              <span class="meta">{m.passi.length} mini esercizi · {m.tempo}<br />{m.strumenti}</span>
-              <div class="riga-stato"><span class="stato" data-stato>Chiuso</span><button type="button" class="azione" data-azione hidden></button></div>
+              <span class="meta">{m.passi.length} {L("mini esercizi", "mini exercises")} · {m.tempo}<br />{m.strumenti}</span>
+              <div class="riga-stato"><span class="stato" data-stato>{L("Chiuso", "Locked")}</span><button type="button" class="azione" data-azione hidden></button></div>
             </li>
           ))}
         </ol>
@@ -85,7 +89,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
 
   <section class="sotto">
     <div class="strumenti">
-      <h2 class="titoletto">Gli strumenti</h2>
+      <h2 class="titoletto">{L("Gli strumenti", "The tools")}</h2>
       <div class="griglia">
         {STRUMENTI.map((s) => (
           <a class="strumento" href={s.link}>
@@ -96,18 +100,19 @@ export function getStaticPaths() { return LINGUE_APP(); }
       </div>
     </div>
     <aside class="parole">
-      <h2 class="titoletto">Parole che incontrerai</h2>
+      <h2 class="titoletto">{L("Parole che incontrerai", "Words you'll come across")}</h2>
       <dl>
-        <div><dt>Copertura</dt><dd>Quante persone diverse hanno visto un post.</dd></div>
-        <div><dt>Engagement rate</dt><dd>Su 100 persone raggiunte, quante hanno reagito (like, commenti, salvataggi, condivisioni).</dd></div>
-        <div><dt>Pilastro</dt><dd>Uno dei grandi temi di cui parla il profilo, sempre gli stessi.</dd></div>
-        <div><dt>UGC</dt><dd>Contenuti creati dai clienti: si usano solo con il loro permesso.</dd></div>
+        <div><dt>{L("Copertura", "Reach")}</dt><dd>{L("Quante persone diverse hanno visto un post.", "How many different people saw a post.")}</dd></div>
+        <div><dt>Engagement rate</dt><dd>{L("Su 100 persone raggiunte, quante hanno reagito (like, commenti, salvataggi, condivisioni).", "Out of 100 people reached, how many reacted (likes, comments, saves, shares).")}</dd></div>
+        <div><dt>{L("Pilastro", "Pillar")}</dt><dd>{L("Uno dei grandi temi di cui parla il profilo, sempre gli stessi.", "One of the big themes the profile talks about, always the same ones.")}</dd></div>
+        <div><dt>UGC</dt><dd>{L("Contenuti creati dai clienti: si usano solo con il loro permesso.", "Content created by customers: used only with their permission.")}</dd></div>
       </dl>
     </aside>
   </section>
 </Console>
 
 <script>
+  import { t } from "../../../../../scripts/lingua";
   import { motoreSocial } from "../../../../../scripts/social/missioni-social";
   const { TUTTE, MISSIONI, TUTORIAL, LIVELLI, leggiStato, sbloccata, livelloAperto, fatta, punti, avvia, tutorialFatto, saltaTutorial, consigliata } = motoreSocial;
   const s = leggiStato();
@@ -118,8 +123,8 @@ export function getStaticPaths() { return LINGUE_APP(); }
   const tut = document.querySelector<HTMLElement>("[data-tutorial]")!;
   const tutStato = tut.querySelector<HTMLElement>("[data-tut-stato]")!;
   const tutAzione = tut.querySelector<HTMLButtonElement>("[data-tut-azione]")!;
-  if (tutorialFatto(s)) { tut.classList.add("fatta"); tutStato.textContent = "Fatto"; tutAzione.textContent = "Rifai il tutorial"; tutAzione.className = "azione"; }
-  else if (st?.stato === "in-corso") { tutStato.textContent = `In corso, passo ${st.passo + 1} di ${TUTORIAL.passi.length}`; tutAzione.textContent = "Continua il tutorial"; }
+  if (tutorialFatto(s)) { tut.classList.add("fatta"); tutStato.textContent = t("Fatto", "Done"); tutAzione.textContent = t("Rifai il tutorial", "Redo the tutorial"); tutAzione.className = "azione"; }
+  else if (st?.stato === "in-corso") { tutStato.textContent = t(`In corso, passo ${st.passo + 1} di ${TUTORIAL.passi.length}`, `In progress, step ${st.passo + 1} of ${TUTORIAL.passi.length}`); tutAzione.textContent = t("Continua il tutorial", "Continue the tutorial"); }
   tutAzione.addEventListener("click", () => { location.href = avvia("tutorial"); });
 
   // Livelli: aperto o chiuso, quanti esercizi fatti
@@ -127,7 +132,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
     const sez = document.querySelector<HTMLElement>(`[data-livello="${l.n}"]`)!;
     const es = MISSIONI.filter((m) => m.livello === l.n);
     const n = es.filter((m) => fatta(s, m)).length;
-    if (livelloAperto(s, l.n)) sez.querySelector("[data-livello-stato]")!.textContent = n === es.length ? "Livello completato" : `${n} di ${es.length} fatti`;
+    if (livelloAperto(s, l.n)) sez.querySelector("[data-livello-stato]")!.textContent = n === es.length ? t("Livello completato", "Level completed") : t(`${n} di ${es.length} fatti`, `${n} of ${es.length} done`);
     else sez.classList.add("chiuso");
     if (n === es.length) sez.classList.add("completato");
   }
@@ -140,10 +145,10 @@ export function getStaticPaths() { return LINGUE_APP(); }
     const sm = s.missioni[m.id];
     if (!sbloccata(s, m)) continue;
     azione.hidden = false;
-    if (sm?.stato === "completata") { stato.textContent = `Fatto, ${punti(sm)} punti`; azione.textContent = "Rifai"; li.classList.add("fatta"); }
-    else if (sm?.stato === "in-corso") { stato.textContent = `In corso, passo ${sm.passo + 1} di ${m.passi.length}`; azione.textContent = "Continua"; }
-    else { stato.textContent = "Da fare"; azione.textContent = "Inizia"; }
-    if (m.id === prossima?.id && sm?.stato !== "in-corso") { li.classList.add("prima"); stato.textContent = "Consigliato ora"; }
+    if (sm?.stato === "completata") { stato.textContent = t(`Fatto, ${punti(sm)} punti`, `Done, ${punti(sm)} points`); azione.textContent = t("Rifai", "Redo"); li.classList.add("fatta"); }
+    else if (sm?.stato === "in-corso") { stato.textContent = t(`In corso, passo ${sm.passo + 1} di ${m.passi.length}`, `In progress, step ${sm.passo + 1} of ${m.passi.length}`); azione.textContent = t("Continua", "Continue"); }
+    else { stato.textContent = t("Da fare", "To do"); azione.textContent = t("Inizia", "Start"); }
+    if (m.id === prossima?.id && sm?.stato !== "in-corso") { li.classList.add("prima"); stato.textContent = t("Consigliato ora", "Recommended now"); }
     azione.addEventListener("click", () => { location.href = avvia(m.id); });
   }
 
@@ -153,9 +158,9 @@ export function getStaticPaths() { return LINGUE_APP(); }
   const inCorso = TUTTE.find((m) => s.attiva === m.id && s.missioni[m.id]?.stato === "in-corso") ?? TUTTE.find((m) => s.missioni[m.id]?.stato === "in-corso");
   const m = inCorso ?? prossima;
   if (m) {
-    hero.textContent = m.id === "tutorial" ? (inCorso ? "Continua il tutorial" : "Inizia il tutorial") : `${inCorso ? "Continua" : "Inizia"}: ${m.nome}`;
+    hero.textContent = m.id === "tutorial" ? (inCorso ? t("Continua il tutorial", "Continue the tutorial") : t("Inizia il tutorial", "Start the tutorial")) : `${inCorso ? t("Continua", "Continue") : t("Inizia", "Start")}: ${m.nome}`;
     hero.addEventListener("click", () => { location.href = avvia(m.id); });
-  } else { hero.textContent = "Hai finito tutti gli esercizi"; hero.disabled = true; }
+  } else { hero.textContent = t("Hai finito tutti gli esercizi", "You have finished all the exercises"); hero.disabled = true; }
   if (!tutorialFatto(s)) { salta.hidden = false; salta.addEventListener("click", () => { saltaTutorial(); location.reload(); }); }
 </script>
 

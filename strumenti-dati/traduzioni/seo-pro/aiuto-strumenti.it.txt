@@ -1,0 +1,99 @@
+1|Il negozio
+2|È il sito di Cinque Foglie come lo vede un cliente: il menu in alto porta alle categorie, le schede ai prodotti.
+3|Il bottone scuro <strong>Ispeziona</strong>, accanto all'indirizzo, mostra i dati che legge Google: stato, title, description, meta robots, canonical e H1.
+4|Se apri un indirizzo che ha un reindirizzamento, in alto compare un avviso che lo spiega.
+5|Le modifiche salvate nel Pannello del negozio si vedono qui subito.
+6|Il Crawler
+7|Elenca tutti gli indirizzi del sito, come li trova Google seguendo i link. Sotto ogni indirizzo, in grigio, c'è il suo title.
+8|A sinistra i <strong>filtri</strong> raggruppano i problemi in Errori, Da sistemare e Da controllare. Il numero accanto dice quante pagine ci sono.
+9|La casella <strong>Filtra gli indirizzi</strong> cerca dentro il filtro che hai scelto.
+10|Clicca una riga per aprire i <strong>Dettagli dell'indirizzo</strong>, sotto la tabella: lì ci sono tutti i dati della pagina, le note e da dove è linkata.
+11|La tabella scorre in orizzontale. Le righe che hai cambiato nel Pannello hanno una linea arancione.
+12|La Console di ricerca
+13|In alto scegli la <strong>parte del sito</strong>, il <strong>periodo</strong> e se <strong>confrontare con l'anno prima</strong>: il grafico e i numeri cambiano.
+14|Le schede <strong>Query</strong> (cosa cercano le persone) e <strong>Pagine</strong> (le pagine del sito) mostrano clic, impressioni, CTR e posizione.
+15|Clicca un'intestazione per ordinare. Clicca una query per vedere quali pagine del sito compaiono per quella ricerca.
+16|<strong>Controllo URL</strong>: scrivi un indirizzo per confrontare quello che ricorda Google con il sito di oggi. Da lì puoi chiedere l'indicizzazione.
+17|Pagine e indicizzazione
+18|Due schede: <strong>Indicizzazione delle pagine</strong> e <strong>Core Web Vitals</strong> (la velocità).
+19|Il grafico mostra, settimana per settimana, le pagine su Google (verde) e quelle fuori (grigio). Sotto ci sono gli eventi segnati.
+20|La tabella dei motivi spiega perché alcune pagine sono fuori. Clicca un motivo per vedere le pagine, la colonna <strong>Sul sito oggi</strong> e il bottone <strong>Convalida correzione</strong>.
+21|Core Web Vitals divide le pagine in gruppi e mostra i tempi su telefono e su computer, con la causa principale.
+22|La Ricerca keyword
+23|Scrivi nella casella per cercare tra le keyword.
+24|Colonne: <strong>Intento</strong> (cosa vuole chi cerca), <strong>Volume</strong> (ricerche al mese), <strong>Difficoltà</strong>, <strong>Andamento</strong> (una barretta per mese, da luglio a giugno) e <strong>Posizione del sito</strong>.
+25|<strong>Solo dove il sito non compare</strong> mostra le keyword per cui non siamo nei risultati.
+26|La tabella scorre in orizzontale; clicca un'intestazione per ordinare.
+27|Le Statistiche
+28|Mostrano cosa succede dopo il clic su Google: visite, ordini e ricavi.
+29|La tabella ha una riga per pagina di arrivo: <strong>Sessioni</strong>, <strong>Conversione</strong> (su 100 visite quante diventano un ordine), <strong>Ordini</strong> e <strong>Ricavi</strong>.
+30|Il grafico mostra i ricavi da Google mese per mese.
+31|Puoi filtrare le pagine e ordinare cliccando le intestazioni.
+32|Il Pannello del negozio
+33|È il gestionale del sito, come WordPress o Shopify. Ha tre schede: <strong>Pagine</strong>, <strong>Reindirizzamenti</strong> e <strong>Tema e impostazioni</strong>.
+34|<strong>Pagine</strong>: scegli una pagina dall'elenco (o cercala) e cambia title, description, H1, testo e meta robots. L'anteprima di Google si aggiorna mentre scrivi. Poi premi <strong>Salva le modifiche</strong>.
+35|<strong>Reindirizzamenti</strong>: scrivi <strong>Da</strong> (indirizzo vecchio) e <strong>A</strong> (pagina nuova) e premi <strong>Salva il 301</strong>. Nella tabella puoi modificare o eliminare.
+36|<strong>Tema e impostazioni</strong>: quali categorie sono visibili ai motori di ricerca e il canonical delle pagine filtrate.
+37|Ogni modifica va subito online. <strong>Torna all'originale</strong> annulla le modifiche di una pagina.
+38|La guida
+39|Qui scrivi il testo richiesto. Si salva da solo in questo browser.
+40|Premi <strong>Controlla il lavoro</strong>: la guida dice cosa va e cosa manca. Puoi riprovare quante volte vuoi.
+41|Il profilo
+42|È il profilo di Cinque Foglie come lo vedono i follower: in alto la bio, sotto la griglia dei post.
+43|Clicca un post per aprirlo: vedi didascalia, data e ora di pubblicazione, testo alternativo ed eventuale etichetta di collaborazione.
+44|Nel post aperto puoi <strong>modificare</strong> didascalia, testo alternativo ed etichetta, oppure <strong>archiviarlo</strong> (sparisce dal profilo ma non si cancella).
+45|Le Statistiche dei post
+46|In alto i numeri del periodo e l'andamento dei follower.
+47|Il grafico <strong>Follower attivi per ora</strong> dice a che ora i follower sono online.
+48|La tabella ha una riga per post: copertura, impressioni, interazioni, salvataggi, engagement rate. Clicca un'intestazione per ordinare.
+49|I filtri sopra la tabella mostrano solo un formato o un pilastro.
+50|Il riquadro <strong>Medie per formato</strong> confronta reel, caroselli e foto.
+51|Calendario e post
+52|A sinistra le <strong>bozze</strong>; al centro il calendario con i post programmati. Puoi cambiare mese con le frecce.
+53|Trascina una bozza su un giorno per programmarla (oppure aprila e scegli data e ora).
+54|Clicca un post o una bozza per aprire l'editor: formato, didascalia, testo alternativo, link, data e ora. Poi <strong>Salva</strong>.
+55|In <strong>Impostazioni di programmazione</strong> c'è l'ora usata quando si programmano più post in blocco.
+56|Commenti e messaggi
+57|Qui arrivano i commenti ai post e i messaggi privati, dal più recente.
+58|Su ogni voce puoi <strong>rispondere</strong>, <strong>nascondere</strong> (resta visibile solo a chi l'ha scritto), <strong>segnalare come spam</strong> o <strong>passarla</strong> a un collega.
+59|I filtri in alto mostrano solo i commenti senza risposta o solo i messaggi.
+60|La Libreria foto e musica
+61|Raccoglie foto, video e musica che il team può usare.
+62|Ogni voce dice da dove arriva e che <strong>permesso</strong> o <strong>licenza</strong> ha.
+63|Per le foto di altre persone puoi scrivere qui il messaggio per <strong>chiedere il permesso</strong>.
+64|Le Campagne
+65|La tabella elenca le campagne con i numeri di ottobre: impressioni, clic, CTR, costo, conversioni, CPA, ROAS e <strong>impressioni perse per budget</strong>. Clicca un'intestazione per ordinare.
+66|Clicca il nome di una campagna per aprirla: in alto <strong>budget giornaliero</strong> e stato (con <strong>Salva</strong>), poi le <strong>parole chiave negative</strong> e i gruppi di annunci.
+67|In ogni gruppo: la tabella delle parole chiave (la corrispondenza si cambia dal menu della riga; clicca il punteggio di <strong>Qualità</strong> per vederne le tre parti), il modulo <strong>Aggiungi parola chiave</strong> e l'annuncio con il bottone <strong>Modifica l'annuncio</strong>.
+68|Nell'annuncio: fino a 15 titoli (30 caratteri) e 4 descrizioni (90 caratteri), con il contatore accanto, l'<strong>URL finale</strong> e, se serve, la <strong>data di fine</strong>.
+69|I Termini di ricerca
+70|Mostrano cosa hanno scritto davvero le persone prima di cliccare un annuncio, con la parola chiave che l'ha fatto comparire.
+71|Filtra per campagna o per parola chiave con i menu in alto; clicca un'intestazione per ordinare.
+72|Il bottone <strong>Escludi</strong> su una riga ti fa scegliere quali parole aggiungere come <strong>negative</strong> della campagna. Le negative già aggiunte sono elencate sopra la tabella.
+73|Il Pianificatore keyword
+74|Idee di parole chiave con le <strong>ricerche al mese</strong>, il costo per clic previsto (da… a…), la <strong>concorrenza</strong> e l'<strong>intento</strong> (acquisto, informativo o misto).
+75|Scrivi nella casella per cercare; clicca un'intestazione per ordinare.
+76|Il pianificatore non aggiunge niente alle campagne: le parole chiave si aggiungono dalle Campagne.
+77|Il Rendimento sul sito
+78|Cosa succede dopo il clic, gruppo per gruppo: <strong>pagina di arrivo</strong>, sessioni, <strong>frequenza di rimbalzo</strong> (chi se ne va subito), ordini e ricavi.
+79|Accanto ci sono il costo degli annunci e il ROAS del gruppo, per confrontare.
+80|In alto il <strong>margine lordo medio</strong> dei prodotti: serve per capire quando una campagna fa guadagnare.
+81|Il Manuale del brand
+82|In alto il <strong>Payoff</strong> e il <strong>Posizionamento</strong>: campi da compilare, con il bottone <strong>Salva</strong>.
+83|Sotto, da leggere: missione, <strong>valori</strong>, <strong>tono di voce</strong> (come siamo, come non siamo, regole ed esempi prima e dopo), logo e colori.
+84|Le Ricerche sul brand
+85|Raccolgono i dati sul brand: <strong>segmenti di clienti</strong>, <strong>concorrenti</strong>, <strong>NPS</strong> mese per mese con i <strong>motivi dei detrattori</strong>, tempi di spedizione, <strong>ricerche del nome</strong> negli ultimi due anni e il sondaggio sulla <strong>notorietà</strong>.
+86|In fondo la <strong>scheda dell'ufficio qualità</strong> sul packaging: i fatti verificati.
+87|Ogni sezione dice da dove arrivano i dati.
+88|I Testi del brand
+89|Sei testi del brand su canali diversi (sito, email, social, assistenza, packaging).
+90|Su ogni testo: <strong>Modifica</strong>, scrivi la versione nuova e premi <strong>Salva</strong>. <strong>Torna all'originale</strong> annulla.
+91|Il contatore sotto il testo dice quante parole e caratteri ha.
+92|Il Piano di brand
+93|Una pagina con cinque parti: <strong>obiettivo</strong>, <strong>pubblico</strong>, <strong>messaggio chiave</strong>, <strong>canali</strong> e <strong>KPI</strong>.
+94|Obiettivo, pubblico e messaggio si scrivono; canali e KPI si scelgono dalle caselle.
+95|Premi <strong>Salva il piano</strong> per salvarlo.
+96|L'Ufficio stampa
+97|Tre schede: <strong>Comunicato</strong> (titolo, sottotitolo, testo, contatti, con il contatore delle parole), <strong>Giornalisti</strong> (scegli a chi mandarlo, leggi le note) e <strong>Richieste</strong> (le domande dei giornalisti, con il modulo per rispondere).
+98|Accanto ci sono i <strong>fatti sul calendario</strong> e la <strong>nota interna</strong> sui kit: usa solo informazioni verificate.
+99|In un testo, una riga vuota separa i paragrafi.

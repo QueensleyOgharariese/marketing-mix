@@ -3,10 +3,12 @@
 // Nasconde i pannelli ai lati (menu degli strumenti e guida della missione) e, se il browser lo permette,
 // mette la pagina a tutto schermo. Premendo di nuovo, o con Esc, tutto torna com'era.
 // La scelta resta salvata in questo browser (solo una comodità: se il salvataggio non funziona, pazienza).
+import { testiDa } from "../i18n";
+const L = testiDa(Astro.url);
 ---
 <button type="button" class="schermo" data-schermo-intero aria-pressed="false">
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path data-icona-apri d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" /><path data-icona-chiudi d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5" style="display:none" /></svg>
-  <span data-etichetta>Schermo intero</span>
+  <span data-etichetta>{L("Schermo intero", "Full screen")}</span>
 </button>
 
 <script is:inline>
@@ -15,6 +17,7 @@
 </script>
 
 <script>
+  import { t } from "../scripts/lingua";
   const CHIAVE = "marketing-mix-schermo-intero";
   const html = document.documentElement;
   const bottone = document.querySelector<HTMLButtonElement>("[data-schermo-intero]");
@@ -22,7 +25,7 @@
     if (intero) html.dataset.schermo = "intero"; else delete html.dataset.schermo;
     if (!bottone) return;
     bottone.setAttribute("aria-pressed", String(intero));
-    bottone.querySelector("[data-etichetta]")!.textContent = intero ? "Esci dallo schermo intero" : "Schermo intero";
+    bottone.querySelector("[data-etichetta]")!.textContent = intero ? t("Esci dallo schermo intero", "Exit full screen") : t("Schermo intero", "Full screen");
     (bottone.querySelector("[data-icona-apri]") as SVGElement).style.display = intero ? "none" : "";
     (bottone.querySelector("[data-icona-chiudi]") as SVGElement).style.display = intero ? "" : "none";
     try { localStorage.setItem(CHIAVE, intero ? "si" : "no"); } catch {}

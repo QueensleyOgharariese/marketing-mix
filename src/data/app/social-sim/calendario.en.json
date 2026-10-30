@@ -1,0 +1,148 @@
+{
+ "_nota": "Post programmati e bozze. Oggi nella simulazione è il 29/10/2026.",
+ "programmati": [
+  {
+   "id": "g1",
+   "data": "2026-10-30",
+   "ora": "03:00",
+   "formato": "carosello",
+   "pilastro": "Recipes",
+   "titolo": "Tea and biscuits: 4 pairings",
+   "didascalia": "Shortbread and Earl Grey, cantucci and Darjeeling… 4 pairings to try. #tea",
+   "alt": "Slides with biscuits and cups of tea on a tray."
+  },
+  {
+   "id": "g2",
+   "data": "2026-10-31",
+   "ora": "03:00",
+   "formato": "reel",
+   "pilastro": "Behind the scenes",
+   "titolo": "Our October in 30 seconds",
+   "didascalia": "A month of tea, parcels and tastings in 30 seconds. #behindthescenes",
+   "alt": "Quick video of moments in the warehouse."
+  },
+  {
+   "id": "g3",
+   "data": "2026-11-01",
+   "ora": "03:00",
+   "formato": "carosello",
+   "pilastro": "Learn about tea",
+   "titolo": "Black tea with milk: yes or no?",
+   "didascalia": "Black tea and milk: which teas go best together? Swipe. #blacktea",
+   "alt": "Slides with cups of black tea and a milk jug."
+  }
+ ],
+ "bozze": [
+  {
+   "id": "k1",
+   "formato": "reel",
+   "pilastro": "Product",
+   "titolo": "Matcha kit: everything to get started",
+   "didascalia": "",
+   "alt": "",
+   "nota": "Video already shot: hands preparing matcha with the kit's bamboo whisk."
+  },
+  {
+   "id": "b01",
+   "formato": "reel",
+   "pilastro": "Product",
+   "titolo": "The advent calendar is here",
+   "didascalia": "",
+   "alt": "",
+   "nota": "Launch: on sale from 2 November.",
+   "lancio": true
+  },
+  {
+   "id": "b02",
+   "formato": "carosello",
+   "pilastro": "Product",
+   "titolo": "24 days, 24 teas: what's inside",
+   "didascalia": "",
+   "alt": "",
+   "nota": "To publish after the launch."
+  },
+  {
+   "id": "b03",
+   "formato": "carosello",
+   "pilastro": "Learn about tea",
+   "titolo": "Evening herbal teas: 3 pairings",
+   "didascalia": "",
+   "alt": "",
+   "nota": ""
+  },
+  {
+   "id": "b04",
+   "formato": "reel",
+   "pilastro": "Recipes",
+   "titolo": "How to make chai",
+   "didascalia": "",
+   "alt": "",
+   "nota": ""
+  },
+  {
+   "id": "b05",
+   "formato": "reel",
+   "pilastro": "Behind the scenes",
+   "titolo": "At the grower's: the autumn harvest",
+   "didascalia": "",
+   "alt": "",
+   "nota": ""
+  },
+  {
+   "id": "b06",
+   "formato": "carosello",
+   "pilastro": "The community",
+   "titolo": "Your October cups",
+   "didascalia": "",
+   "alt": "",
+   "nota": "Only photos with people's permission."
+  },
+  {
+   "id": "b07",
+   "formato": "carosello",
+   "pilastro": "Product",
+   "titolo": "Black Friday: 20% off everything",
+   "didascalia": "",
+   "alt": "",
+   "nota": "The discount is valid only on Friday 27 November.",
+   "blackFriday": true
+  },
+  {
+   "id": "b08",
+   "formato": "carosello",
+   "pilastro": "Learn about tea",
+   "titolo": "How much water for matcha?",
+   "didascalia": "",
+   "alt": "",
+   "nota": "Answers the most frequent question in the comments."
+  },
+  {
+   "id": "b09",
+   "formato": "carosello",
+   "pilastro": "Product",
+   "titolo": "Gift ideas under €25",
+   "didascalia": "",
+   "alt": "",
+   "nota": ""
+  },
+  {
+   "id": "b10",
+   "formato": "carosello",
+   "pilastro": "Learn about tea",
+   "titolo": "How to store tea in winter",
+   "didascalia": "",
+   "alt": "",
+   "nota": ""
+  }
+ ],
+ "crisi": {
+  "id": "z1",
+  "data": "2026-10-29",
+  "ora": "18:00",
+  "formato": "foto",
+  "pilastro": "Product",
+  "titolo": "Flash promo: matcha kit 30% off",
+  "didascalia": "Today only: matcha kit 30% off! Hurry to the website 🔥",
+  "alt": ""
+ }
+}

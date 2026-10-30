@@ -2,6 +2,7 @@
 // Ogni barra che si può chiudere ha l'attributo data-barra="nome" e data-etichetta="Nome visibile".
 // Questo script aggiunge due bottoni: "Chiudi" in alto nella barra, e "Apri" che compare quando è chiusa
 // (la barra diventa una striscia sottile al bordo). La scelta resta salvata in questo browser.
+import { t } from "./lingua";
 const CHIAVE = "marketing-mix-pannelli";
 
 function leggi(): Record<string, boolean> {
@@ -19,13 +20,13 @@ export function attivaPannelli() {
     if (p.dataset.barraPronta) return;
     p.dataset.barraPronta = "si";
     const id = p.dataset.barra!;
-    const nome = p.dataset.etichetta ?? "pannello"; // già scritto come va letto dopo "Apri" e "Chiudi"
+    const nome = p.dataset.etichetta ?? t("pannello", "panel"); // già scritto come va letto dopo "Apri" e "Chiudi"
 
     const chiudi = document.createElement("button");
     chiudi.type = "button";
     chiudi.className = "chiudi-pannello";
-    chiudi.setAttribute("aria-label", `Chiudi ${nome}`);
-    chiudi.title = `Chiudi ${nome}`;
+    chiudi.setAttribute("aria-label", `${t("Chiudi", "Close")} ${nome}`);
+    chiudi.title = `${t("Chiudi", "Close")} ${nome}`;
     chiudi.innerHTML = ICONA_CHIUDI;
 
     const apri = document.createElement("button");
@@ -33,8 +34,8 @@ export function attivaPannelli() {
     apri.className = "apri-pannello";
     // Icona del pannello che si riapre (lato sinistro o destro), con il nome per chi usa lo screen reader e nel suggerimento
     const destra = p.dataset.lato === "destra";
-    apri.setAttribute("aria-label", `Apri ${nome}`);
-    apri.title = `Apri ${nome}`;
+    apri.setAttribute("aria-label", `${t("Apri", "Open")} ${nome}`);
+    apri.title = `${t("Apri", "Open")} ${nome}`;
     apri.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="${destra ? "M15 4v16" : "M9 4v16"}"/><path d="${destra ? "M10 10l-2 2 2 2" : "M14 10l2 2-2 2"}"/></svg>`;
 
     p.prepend(chiudi);

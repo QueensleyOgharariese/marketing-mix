@@ -1,0 +1,10 @@
+1|cinquefoglie.te
+2|Cinque Foglie · Teas and herbal teas
+3|Organic teas and herbal teas, explained simply 🍃 Shipping in 24/48 hours
+4|Learn about tea
+5|Recipes
+6|Behind the scenes
+7|The community
+8|Product
+9|From this date the team schedules posts in bulk: the tool uses the default time 03:00.
+10|Time used for posts scheduled in bulk, if no other is chosen.

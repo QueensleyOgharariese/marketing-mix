@@ -19,13 +19,16 @@ CARTELLA = "strumenti-dati/traduzioni"
 SALTA = {"id", "slug", "link", "url", "tipo", "icona", "strumento", "dove", "verifica", "data", "ora", "hex", "mese",
          "settimana", "pagina", "campagna", "gruppo", "corrispondenza", "stato", "formato", "permesso", "categoria",
          "post", "quando", "autore", "fonte_id", "ruoloId", "strumentoId", "colore", "sim", "_nota",
-         "pilastro", "giornalista", "fine", "canale_id", "selettore", "chiave"}
+         "pilastro", "giornalista", "fine", "canale_id", "selettore", "chiave", "prepara"}
 SALTA |= {"giusti", "ids", "campo", "da"}  # esercizi: id delle colonne, delle spunte, dei campi; iniziali dell'avatar
 # Chiavi saltate solo quando contengono un elenco di codici (es. "righe" nelle regole: ["r1","r2"]);
 # se invece contengono oggetti (le righe di una tabella con il loro testo) si traducono normalmente.
 SALTA_SE_CODICI = {"righe"}
 # Chiavi da saltare solo in alcuni file (aggiunte quando serve)
 SALTA_FILE = {}
+# Chiavi che in alcuni file vanno tradotte anche se di solito si saltano
+# (nel Social "post" è l'elenco dei post e "pilastro" è un testo che si vede, non un codice)
+TRADUCI_FILE = {f"social-sim/{n}.json": {"post", "pilastro"} for n in ("post", "calendario", "profilo", "commenti", "libreria")}
 # File in cui anche i numeri senza lettere passano al formato inglese: "1.300" -> "1,300", "1,5%" -> "1.5%"
 NUMERI_EN = ("esercizi/", "seo-sencha.json")
 
@@ -84,7 +87,7 @@ def percorsi(nome):
 
 def estrai(nome):
     src, it, _, _ = percorsi(nome)
-    salta = SALTA | SALTA_FILE.get(nome, set())
+    salta = (SALTA | SALTA_FILE.get(nome, set())) - TRADUCI_FILE.get(nome, set())
     righe = unici(stringhe(json.load(open(src, encoding="utf-8")), salta))
     os.makedirs(os.path.dirname(it), exist_ok=True)
     with open(it, "w", encoding="utf-8") as f:
@@ -103,7 +106,7 @@ def leggi_righe(p):
 
 def applica(nome):
     src, it, en, out = percorsi(nome)
-    salta = SALTA | SALTA_FILE.get(nome, set())
+    salta = (SALTA | SALTA_FILE.get(nome, set())) - TRADUCI_FILE.get(nome, set())
     dati = json.load(open(src, encoding="utf-8"))
     righe = unici(stringhe(dati, salta))
     tr = leggi_righe(en)

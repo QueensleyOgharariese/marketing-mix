@@ -13,10 +13,12 @@
 // Il contenuto arriva da missioni.json e viene disegnato nel browser, perché dipende dallo stato salvato (localStorage).
 // pagina: id dello strumento in cui si trova la guida (console, crawler, negozio...); sim: quale simulazione
 interface Props { pagina: string; sim?: "seo" | "social" | "sea" | "brand" }
+import { testiDa } from "../../i18n";
 const { pagina, sim = "seo" } = Astro.props;
+const L = testiDa(Astro.url);
 ---
 <div class="gm" data-guida-missione={pagina} data-sim={sim} aria-live="polite">
-  <p class="gm-attesa">Caricamento dell'esercizio…</p>
+  <p class="gm-attesa">{L("Caricamento dell'esercizio…", "Loading the exercise…")}</p>
 </div>
 
 <script>
@@ -30,9 +32,12 @@ const { pagina, sim = "seo" } = Astro.props;
   const { TUTTE, LIVELLI, STRUMENTI, leggiStato, salvaStato, linkPasso, controlla, punti, avvia, ricomincia, etichetta, consigliata, livelloAperto } = MO;
   const PANORAMICA = `${MO.base}/`;
   // Chi assegna i compiti in ogni simulazione (persone inventate)
-  const CHI = { social: { nome: "Sara L.", ruolo: "social media manager" }, sea: { nome: "Davide R.", ruolo: "performance marketing manager" }, brand: { nome: "Irene P.", ruolo: "brand manager" } }[SIM] ?? { nome: "Elena M.", ruolo: "responsabile e-commerce" };
+  const CHI = { social: { nome: "Sara L.", ruolo: "social media manager" }, sea: { nome: "Davide R.", ruolo: "performance marketing manager" }, brand: { nome: "Irene P.", ruolo: "brand manager" } }[SIM] ?? { nome: "Elena M.", ruolo: t("responsabile e-commerce", "e-commerce manager") };
   import { verifica } from "../../scripts/verifiche";
-  import AIUTO from "../../data/app/seo-pro/aiuto-strumenti.json";
+  import { t, scegli, conLingua } from "../../scripts/lingua";
+  import AIUTO_IT from "../../data/app/seo-pro/aiuto-strumenti.json";
+  import AIUTO_EN from "../../data/app/seo-pro/aiuto-strumenti.en.json";
+  const AIUTO = scegli<unknown>(AIUTO_IT, AIUTO_EN);
 
   const radice = document.querySelector<HTMLElement>("[data-guida-missione]");
   const esc = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -48,11 +53,11 @@ const { pagina, sim = "seo" } = Astro.props;
     return `<div class="gm-barre" aria-hidden="true">${m.passi.map((_, i) => `<span class="${i < passo ? "fatto" : i === passo ? "ora" : ""}"></span>`).join("")}</div>`;
   }
   function teoria(p: Passo) {
-    return `<p>${esc(p.spiega)}</p>${p.esempio ? `<p class="gm-esempio"><strong>Per esempio</strong>${esc(p.esempio)}</p>` : ""}${p.errore ? `<p class="gm-errore"><strong>Errore comune</strong>${esc(p.errore)}</p>` : ""}`;
+    return `<p>${esc(p.spiega)}</p>${p.esempio ? `<p class="gm-esempio"><strong>${t("Per esempio", "For example")}</strong>${esc(p.esempio)}</p>` : ""}${p.errore ? `<p class="gm-errore"><strong>${t("Errore comune", "Common mistake")}</strong>${esc(p.errore)}</p>` : ""}`;
   }
   function comeFunziona(p: Passo) {
     const a = AIUTI[p.strumento];
-    return a ? `<h3>${esc(a.nome)}</h3><ul>${a.punti.map((x) => `<li>${x}</li>`).join("")}</ul>` : "<p>Questo mini esercizio non usa uno strumento.</p>";
+    return a ? `<h3>${esc(a.nome)}</h3><ul>${a.punti.map((x) => `<li>${x}</li>`).join("")}</ul>` : `<p>${t("Questo mini esercizio non usa uno strumento.", "This mini exercise doesn't use a tool.")}</p>`;
   }
   // Il bottone "Mostrami lo strumento" c'è solo se l'elemento è in questa pagina (e non nei Casi)
   const puoMostrare = (p: Passo, livello: number) => livello < 3 && !!p.dove && !!document.querySelector(p.dove);
@@ -77,7 +82,7 @@ const { pagina, sim = "seo" } = Astro.props;
 
     // Nessun esercizio in corso
     if (!m || !sm) {
-      radice.innerHTML = `<div class="gm-corpo"><h2 class="gm-titolo">Nessun esercizio in corso</h2><p class="gm-testo">Puoi esplorare gli strumenti liberamente. Quando vuoi, scegli un esercizio dalla panoramica.</p><a class="bottone-app" href="${PANORAMICA}#livelli">Scegli un esercizio</a></div>`;
+      radice.innerHTML = `<div class="gm-corpo"><h2 class="gm-titolo">${t("Nessun esercizio in corso", "No exercise in progress")}</h2><p class="gm-testo">${t("Puoi esplorare gli strumenti liberamente. Quando vuoi, scegli un esercizio dalla panoramica.", "You can explore the tools freely. Whenever you like, choose an exercise from the overview.")}</p><a class="bottone-app" href="${PANORAMICA}#livelli">${t("Scegli un esercizio", "Choose an exercise")}</a></div>`;
       return;
     }
     const tutorial = m.id === "tutorial";
@@ -90,13 +95,13 @@ const { pagina, sim = "seo" } = Astro.props;
       const nuovo = m.livello < 3 && livelloAperto(s, m.livello + 1) && prossima?.livello === m.livello + 1 ? LIVELLI[m.livello + 1] : undefined;
       radice.innerHTML = `<div class="gm-testa"><p class="gm-missione">${esc(etichetta(m))}</p>${barre(m, m.passi.length)}</div>
         <div class="gm-corpo">
-          <h2 class="gm-titolo">${tutorial ? "Tutorial completato" : "Esercizio completato"}</h2>
-          ${tutorial ? "" : `<p class="gm-punti"><strong>${punti(sm)}</strong> punti su 100</p><p class="gm-testo">Giusti al primo tentativo: ${primo} su ${domande}. Aiuti usati: ${sm.aiuti.length}.</p>`}
-          ${nuovo && !tutorial ? `<p class="gm-sblocco"><strong>Livello ${nuovo.n} aperto: ${esc(nuovo.nome)}</strong>${esc(nuovo.cosa)}</p>` : ""}
-          <div class="gm-blocco"><h3>Cosa hai imparato</h3><ul>${m.imparato.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
+          <h2 class="gm-titolo">${tutorial ? t("Tutorial completato", "Tutorial completed") : t("Esercizio completato", "Exercise completed")}</h2>
+          ${tutorial ? "" : `<p class="gm-punti"><strong>${punti(sm)}</strong> ${t("punti su 100", "points out of 100")}</p><p class="gm-testo">${t("Giusti al primo tentativo", "Right first time")}: ${primo} ${t("su", "of")} ${domande}. ${t("Aiuti usati", "Hints used")}: ${sm.aiuti.length}.</p>`}
+          ${nuovo && !tutorial ? `<p class="gm-sblocco"><strong>${t("Livello", "Level")} ${nuovo.n} ${t("aperto", "unlocked")}: ${esc(nuovo.nome)}</strong>${esc(nuovo.cosa)}</p>` : ""}
+          <div class="gm-blocco"><h3>${t("Cosa hai imparato", "What you learned")}</h3><ul>${m.imparato.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
           <div class="gm-messaggio"><strong>${CHI.nome}</strong><p>${esc(m.elena)}</p></div>
         </div>
-        <div class="gm-piede">${prossima ? `<button type="button" class="bottone-app" data-prossima="${prossima.id}">Prossimo: ${esc(prossima.nome)}</button>` : ""}<a class="gm-secondario" href="${PANORAMICA}#livelli">${prossima ? "Scegli tu" : "Torna agli esercizi"}</a></div>`;
+        <div class="gm-piede">${prossima ? `<button type="button" class="bottone-app" data-prossima="${prossima.id}">${t("Prossimo", "Next")}: ${esc(prossima.nome)}</button>` : ""}<a class="gm-secondario" href="${PANORAMICA}#livelli">${prossima ? t("Scegli tu", "You choose") : t("Torna agli esercizi", "Back to the exercises")}</a></div>`;
       radice.querySelector<HTMLButtonElement>("[data-prossima]")?.addEventListener("click", (e) => {
         location.href = avvia((e.currentTarget as HTMLElement).dataset.prossima!);
       });
@@ -106,9 +111,9 @@ const { pagina, sim = "seo" } = Astro.props;
     const p = m.passi[sm.passo];
     const ultimo = sm.passo === m.passi.length - 1;
     const livello = m.livello;
-    const testa = `<div class="gm-testa"><p class="gm-missione">${esc(etichetta(m))}</p>${barre(m, sm.passo)}<p class="gm-passo">${tutorial ? "Passo" : "Mini esercizio"} ${sm.passo + 1} di ${m.passi.length}<button type="button" class="gm-ricomincia" data-ricomincia>Ricomincia</button></p></div>`;
+    const testa = `<div class="gm-testa"><p class="gm-missione">${esc(etichetta(m))}</p>${barre(m, sm.passo)}<p class="gm-passo">${tutorial ? t("Passo", "Step") : t("Mini esercizio", "Mini exercise")} ${sm.passo + 1} ${t("di", "of")} ${m.passi.length}<button type="button" class="gm-ricomincia" data-ricomincia>${t("Ricomincia", "Start over")}</button></p></div>`;
     const elena = sm.passo === 0 && m.situazione ? `<div class="gm-situazione"><span class="gm-da">${CHI.nome}, ${CHI.ruolo}</span><p>${esc(m.situazione)}</p></div>` : "";
-    const avanti = ultimo ? (tutorial ? "Concludi il tutorial" : "Concludi l'esercizio") : "Passo successivo";
+    const avanti = ultimo ? (tutorial ? t("Concludi il tutorial", "Finish the tutorial") : t("Concludi l'esercizio", "Finish the exercise")) : t("Passo successivo", "Next step");
 
     // Passo "info" (tutorial): si legge e si va avanti
     if (p.tipo === "info") {
@@ -116,7 +121,7 @@ const { pagina, sim = "seo" } = Astro.props;
         <h2 class="gm-titolo">${esc(p.domanda)}</h2>
         <p class="gm-testo">${esc(p.spiega)}</p>
         ${p.come?.length ? `<ul class="gm-elenco">${p.come.map((c) => `<li>${c}</li>`).join("")}</ul>` : ""}</div>
-        <div class="gm-piede"><button type="button" class="bottone-app" data-avanti>${ultimo ? "Concludi il tutorial" : "Ho capito, avanti"}</button>${p.dove && document.querySelector(p.dove) ? `<button type="button" class="gm-secondario" data-dove>Mostrami dove</button>` : ""}</div>`;
+        <div class="gm-piede"><button type="button" class="bottone-app" data-avanti>${ultimo ? t("Concludi il tutorial", "Finish the tutorial") : t("Ho capito, avanti", "Got it, next")}</button>${p.dove && document.querySelector(p.dove) ? `<button type="button" class="gm-secondario" data-dove>${t("Mostrami dove", "Show me where")}</button>` : ""}</div>`;
       radice.querySelector("[data-avanti]")!.addEventListener("click", () => vaiAvanti(m, ultimo, pagina));
       radice.querySelector("[data-dove]")?.addEventListener("click", () => mostraElemento(p.dove));
       return;
@@ -124,8 +129,8 @@ const { pagina, sim = "seo" } = Astro.props;
 
     // Passo a scelta che si fa in un altro strumento: la guida dice dove e porta lì
     if ((p.tipo === "radio" || p.tipo === "checkbox") && p.strumento !== pagina) {
-      radice.innerHTML = `${testa}<div class="gm-corpo">${elena}<h2 class="gm-titolo">${esc(p.domanda)}</h2><p class="gm-testo">Questo mini esercizio si fa in <strong>${esc(STRUMENTI[p.strumento].nome)}</strong>.</p></div>
-        <div class="gm-piede"><a class="bottone-app" href="${linkPasso(p)}">Vai a ${esc(STRUMENTI[p.strumento].nome)}</a></div>`;
+      radice.innerHTML = `${testa}<div class="gm-corpo">${elena}<h2 class="gm-titolo">${esc(p.domanda)}</h2><p class="gm-testo">${t("Questo mini esercizio si fa in", "This mini exercise is done in")} <strong>${esc(STRUMENTI[p.strumento].nome)}</strong>.</p></div>
+        <div class="gm-piede"><a class="bottone-app" href="${linkPasso(p)}">${t("Vai a", "Go to")} ${esc(STRUMENTI[p.strumento].nome)}</a></div>`;
       return;
     }
 
@@ -133,24 +138,24 @@ const { pagina, sim = "seo" } = Astro.props;
     const chiaveTesto = `${SIM === "seo" ? "" : SIM + "-"}${m.id}-${sm.passo}`; // le simulazioni hanno id uguali (base1, d1…): il prefisso li tiene separati
     let risposta = "";
     if (p.tipo === "radio" || p.tipo === "checkbox") {
-      risposta = `<fieldset class="gm-opzioni"><legend>${p.tipo === "checkbox" ? "Scegli tutte le risposte giuste" : "Scegli una risposta"}</legend>
+      risposta = `<fieldset class="gm-opzioni"><legend>${p.tipo === "checkbox" ? t("Scegli tutte le risposte giuste", "Choose all the right answers") : t("Scegli una risposta", "Choose one answer")}</legend>
         ${p.opzioni.map((o) => `<label class="gm-opzione"><input type="${p.tipo}" name="gm-r" value="${o.id}" /><span>${esc(o.testo)}</span></label>`).join("")}</fieldset>`;
     } else if (p.tipo === "azione") {
       risposta = `<div class="gm-lavoro">
-          ${p.vai ? `<a class="gm-secondario" href="${p.vai.link}">${esc(p.vai.testo)}</a>` : ""}
-          <p class="gm-nota">Fai la modifica, salvala e poi premi <strong>Controlla il lavoro</strong>. Puoi riprovare senza perdere punti.${p.negozio ? ` <a href="${p.negozio}">Guarda il risultato nel negozio</a>` : ""}</p>
+          ${p.vai ? `<a class="gm-secondario" href="${conLingua(p.vai.link)}">${esc(p.vai.testo)}</a>` : ""}
+          <p class="gm-nota">${t("Fai la modifica, salvala e poi premi <strong>Controlla il lavoro</strong>. Puoi riprovare senza perdere punti.", "Make the change, save it, then press <strong>Check my work</strong>. You can try again without losing points.")}${p.negozio ? ` <a href="${conLingua(p.negozio)}">${t("Guarda il risultato nel negozio", "See the result in the shop")}</a>` : ""}</p>
         </div>`;
     } else if (p.tipo === "testo") {
       const [min, max] = p.parole ?? [30, 160];
-      risposta = `<label class="gm-scrivi"><span class="sr">Il tuo testo</span>
-          <textarea rows="8" data-gm-testo placeholder="Scrivi qui…">${esc(leggiTesti()[chiaveTesto] ?? "")}</textarea>
-          <span class="gm-conta" data-conta>0 parole · tra ${min} e ${max}</span></label>`;
+      risposta = `<label class="gm-scrivi"><span class="sr">${t("Il tuo testo", "Your text")}</span>
+          <textarea rows="8" data-gm-testo placeholder="${t("Scrivi qui…", "Write here…")}">${esc(leggiTesti()[chiaveTesto] ?? "")}</textarea>
+          <span class="gm-conta" data-conta>0 ${t("parole · tra", "words · between")} ${min} ${t("e", "and")} ${max}</span></label>`;
     }
 
     // --- Schede di aiuto (dipendono dal livello) ---
     const schede: [string, string, string][] = livello >= 3
-      ? [["teoria", "Teoria", "gratis"]]
-      : [["funziona", "Come funziona", "lo strumento"], ["teoria", "Teoria", "gratis"], ["indizio", "Indizio", "−5 punti"]];
+      ? [["teoria", t("Teoria", "Theory"), t("gratis", "free")]]
+      : [["funziona", t("Come funziona", "How it works"), t("lo strumento", "the tool")], ["teoria", t("Teoria", "Theory"), t("gratis", "free")], ["indizio", t("Indizio", "Hint"), t("−5 punti", "−5 points")]];
     const aperta = livello <= 1 ? "funziona" : "";
     const usatoIndizio = sm.aiuti.includes(sm.passo);
 
@@ -159,18 +164,18 @@ const { pagina, sim = "seo" } = Astro.props;
         ${p.consegna ? `<p class="gm-consegna">${esc(p.consegna)}</p>` : ""}
         ${risposta}
         <div class="gm-esito" data-esito hidden></div>
-        <div class="gm-schede" role="tablist" aria-label="Aiuti">${schede.map(([id, nome, nota]) => `<button type="button" role="tab" aria-selected="${id === aperta}" data-scheda-aiuto="${id}">${nome}<small>${nota}</small></button>`).join("")}</div>
+        <div class="gm-schede" role="tablist" aria-label="${t("Aiuti", "Help")}">${schede.map(([id, nome, nota]) => `<button type="button" role="tab" aria-selected="${id === aperta}" data-scheda-aiuto="${id}">${nome}<small>${nota}</small></button>`).join("")}</div>
         <div class="gm-scheda-corpo" data-scheda-corpo ${aperta ? "" : "hidden"}></div>
       </div>
-      <div class="gm-piede"><button type="button" class="bottone-app" data-controlla>${p.tipo === "radio" || p.tipo === "checkbox" ? "Controlla" : "Controlla il lavoro"}</button>${puoMostrare(p, livello) ? `<button type="button" class="gm-secondario" data-dove>Mostrami lo strumento</button>` : ""}</div>`;
+      <div class="gm-piede"><button type="button" class="bottone-app" data-controlla>${p.tipo === "radio" || p.tipo === "checkbox" ? t("Controlla", "Check") : t("Controlla il lavoro", "Check my work")}</button>${puoMostrare(p, livello) ? `<button type="button" class="gm-secondario" data-dove>${t("Mostrami lo strumento", "Show me the tool")}</button>` : ""}</div>`;
 
     const corpoScheda = radice.querySelector<HTMLElement>("[data-scheda-corpo]")!;
     const contenuto: Record<string, () => string> = {
       funziona: () => comeFunziona(p),
-      teoria: () => `<h3>Teoria</h3>${teoria(p)}`,
+      teoria: () => `<h3>${t("Teoria", "Theory")}</h3>${teoria(p)}`,
       indizio: () => leggiStato().missioni[m.id].aiuti.includes(leggiStato().missioni[m.id].passo)
-        ? `<h3>Indizio</h3><p>${esc(p.aiuto)}</p>`
-        : `<h3>Indizio</h3><p>L'indizio ti avvicina alla risposta e costa 5 punti.</p><button type="button" class="gm-secondario" data-usa-indizio>Mostra l'indizio (−5 punti)</button>`,
+        ? `<h3>${t("Indizio", "Hint")}</h3><p>${esc(p.aiuto)}</p>`
+        : `<h3>${t("Indizio", "Hint")}</h3><p>${t("L'indizio ti avvicina alla risposta e costa 5 punti.", "The hint brings you closer to the answer and costs 5 points.")}</p><button type="button" class="gm-secondario" data-usa-indizio>${t("Mostra l'indizio (−5 punti)", "Show the hint (−5 points)")}</button>`,
     };
     const apriScheda = (id: string) => {
       radice.querySelectorAll<HTMLButtonElement>("[data-scheda-aiuto]").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.schedaAiuto === id)));
@@ -196,7 +201,7 @@ const { pagina, sim = "seo" } = Astro.props;
     if (area) {
       const conta = radice.querySelector<HTMLElement>("[data-conta]")!;
       const [min, max] = p.parole ?? [30, 160];
-      const aggiorna = () => { const n = contaParole(area.value); conta.textContent = `${n} parole · tra ${min} e ${max}`; conta.classList.toggle("fuori", n > 0 && (n < min || n > max)); };
+      const aggiorna = () => { const n = contaParole(area.value); conta.textContent = `${n} ${t("parole · tra", "words · between")} ${min} ${t("e", "and")} ${max}`; conta.classList.toggle("fuori", n > 0 && (n < min || n > max)); };
       area.addEventListener("input", () => { salvaTesto(chiaveTesto, area.value); aggiorna(); });
       aggiorna();
     }
@@ -215,28 +220,28 @@ const { pagina, sim = "seo" } = Astro.props;
 
       if (p.tipo === "radio" || p.tipo === "checkbox") {
         const scelte = [...radice.querySelectorAll<HTMLInputElement>("input[name=gm-r]:checked")].map((x) => x.value);
-        if (!scelte.length) { esito.className = "gm-esito"; esito.innerHTML = "<p>Scegli almeno una risposta.</p>"; mostraEsito(); return; }
+        if (!scelte.length) { esito.className = "gm-esito"; esito.innerHTML = `<p>${t("Scegli almeno una risposta.", "Choose at least one answer.")}</p>`; mostraEsito(); return; }
         const r = controlla(p, scelte);
         if (cur.primoColpo[cur.passo] === undefined) cur.primoColpo[cur.passo] = r.ok;
         if (!r.ok && !tutorial) cur.errori += 1; // nel tutorial gli errori non contano
         salvaStato(st);
         if (r.ok) {
           esito.className = "gm-esito ok";
-          esito.innerHTML = `<strong>Giusto.</strong><p>${esc(p.perche)}</p>`;
+          esito.innerHTML = `<strong>${t("Giusto.", "Right.")}</strong><p>${esc(p.perche)}</p>`;
           radice.querySelectorAll<HTMLInputElement>("input[name=gm-r]").forEach((x) => (x.disabled = true));
           fatto();
         } else {
           esito.className = "gm-esito no";
           const note = r.sbagliate.map((o) => `<li><strong>${esc(o.testo)}</strong>: ${esc(o.nota)}</li>`).join("");
-          const manca = r.mancanti.length && p.tipo === "checkbox" ? "<p>Manca ancora almeno una risposta giusta.</p>" : "";
+          const manca = r.mancanti.length && p.tipo === "checkbox" ? `<p>${t("Manca ancora almeno una risposta giusta.", "At least one right answer is still missing.")}</p>` : "";
           const sbagli = Number(btn.dataset.sbagli ?? 0) + 1; btn.dataset.sbagli = String(sbagli);
           // Dopo due tentativi si può vedere la risposta e andare avanti (gli errori hanno già tolto punti)
-          esito.innerHTML = `<strong>Non ancora.</strong>${note ? `<ul>${note}</ul>` : ""}${manca}<p>Riprova. Se ti serve, apri la Teoria.</p>${sbagli >= 2 ? '<button type="button" class="gm-secondario gm-mostra" data-mostra-risposta>Mostra la risposta</button>' : ""}`;
+          esito.innerHTML = `<strong>${t("Non ancora.", "Not yet.")}</strong>${note ? `<ul>${note}</ul>` : ""}${manca}<p>${t("Riprova. Se ti serve, apri la Teoria.", "Try again. If you need to, open the Theory.")}</p>${sbagli >= 2 ? `<button type="button" class="gm-secondario gm-mostra" data-mostra-risposta>${t("Mostra la risposta", "Show the answer")}</button>` : ""}`;
           esito.querySelector("[data-mostra-risposta]")?.addEventListener("click", () => {
             const giuste = p.opzioni.filter((o) => o.giusta);
             radice.querySelectorAll<HTMLInputElement>("input[name=gm-r]").forEach((x) => { x.checked = giuste.some((o) => o.id === x.value); x.disabled = true; });
             esito.className = "gm-esito";
-            esito.innerHTML = `<strong>La risposta giusta</strong><p>${giuste.map((o) => `«${esc(o.testo)}»`).join(" e ")}</p><p>${esc(p.perche)}</p>`;
+            esito.innerHTML = `<strong>${t("La risposta giusta", "The right answer")}</strong><p>${giuste.map((o) => `«${esc(o.testo)}»`).join(t(" e ", " and "))}</p><p>${esc(p.perche)}</p>`;
             fatto();
           });
         }
@@ -248,15 +253,15 @@ const { pagina, sim = "seo" } = Astro.props;
       const r = verifica(p.verifica!, area?.value ?? "");
       if (cur.primoColpo[cur.passo] === undefined) cur.primoColpo[cur.passo] = r.ok;
       salvaStato(st);
-      const lista = `<ul class="gm-controlli">${r.controlli.map((c) => `<li class="${c.ok ? "ok" : "no"}"><span class="gm-segno" aria-hidden="true"></span><span><strong>${esc(c.nome)}</strong>${c.ok ? "" : `<br>${esc(c.suggerimento)}`}</span><span class="sr">${c.ok ? "superato" : "da sistemare"}</span></li>`).join("")}</ul>`;
+      const lista = `<ul class="gm-controlli">${r.controlli.map((c) => `<li class="${c.ok ? "ok" : "no"}"><span class="gm-segno" aria-hidden="true"></span><span><strong>${esc(c.nome)}</strong>${c.ok ? "" : `<br>${esc(c.suggerimento)}`}</span><span class="sr">${c.ok ? t("superato", "passed") : t("da sistemare", "to fix")}</span></li>`).join("")}</ul>`;
       if (r.ok) {
         esito.className = "gm-esito ok";
-        esito.innerHTML = `<strong>Fatto.</strong>${lista}<p>${esc(p.perche)}</p>`;
+        esito.innerHTML = `<strong>${t("Fatto.", "Done.")}</strong>${lista}<p>${esc(p.perche)}</p>`;
         if (area) area.readOnly = true;
         fatto();
       } else {
         esito.className = "gm-esito no";
-        esito.innerHTML = `<strong>Non ancora.</strong>${lista}<p>${p.tipo === "testo" ? "Completa il testo" : "Sistema i punti rossi, salva"} e premi di nuovo "Controlla il lavoro".</p>`;
+        esito.innerHTML = `<strong>${t("Non ancora.", "Not yet.")}</strong>${lista}<p>${p.tipo === "testo" ? t("Completa il testo e premi di nuovo \"Controlla il lavoro\".", "Complete the text and press \"Check my work\" again.") : t("Sistema i punti rossi, salva e premi di nuovo \"Controlla il lavoro\".", "Fix the red points, save and press \"Check my work\" again.")}</p>`;
       }
       mostraEsito();
     });
@@ -278,7 +283,7 @@ const { pagina, sim = "seo" } = Astro.props;
   radice?.addEventListener("click", (e) => {
     const b = (e.target as HTMLElement).closest("[data-ricomincia]");
     if (!b) return;
-    if (b.getAttribute("data-conferma") !== "si") { b.setAttribute("data-conferma", "si"); b.textContent = "Sicura? Clicca di nuovo"; return; }
+    if (b.getAttribute("data-conferma") !== "si") { b.setAttribute("data-conferma", "si"); b.textContent = t("Sicura? Clicca di nuovo", "Are you sure? Click again"); return; }
     const id = leggiStato().attiva; if (id) location.href = ricomincia(id);
   });
 

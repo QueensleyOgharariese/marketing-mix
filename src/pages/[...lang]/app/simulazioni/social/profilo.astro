@@ -1,20 +1,24 @@
 ---
-import { LINGUE_APP } from "../../../../../i18n";
+import { LINGUE_APP, linguaDa } from "../../../../../i18n";
 // SIMULAZIONE SOCIAL · IL PROFILO
 // Il profilo di Cinque Foglie come lo vedono i follower (ispirato ai social fotografici, nome generico).
 // Clic su un post: si apre il dettaglio con data, ora, testo alternativo ed etichetta di collaborazione.
 // Dal dettaglio si modificano didascalia, testo alternativo ed etichetta, o si archivia il post.
 // Le modifiche restano in questo browser (scripts/social/stato.ts) e le leggono anche gli altri strumenti.
 import Console from "../../../../../components/seopro/Console.astro";
-import PROFILO from "../../../../../data/app/social-sim/profilo.json";
+import PROFILO_IT from "../../../../../data/app/social-sim/profilo.json";
+import PROFILO_EN from "../../../../../data/app/social-sim/profilo.en.json";
 export function getStaticPaths() { return LINGUE_APP(); }
+const lang = linguaDa(Astro.url);
+const L = (it: string, en: string) => (lang === "en" ? en : it);
+const PROFILO = lang === "en" ? PROFILO_EN : PROFILO_IT;
 ---
-<Console sim="social" attivo="profilo" titolo="Il profilo" ispirato="un social network fotografico (nome generico, nessun marchio reale)">
+<Console sim="social" attivo="profilo" titolo={L("Il profilo", "The profile")} ispirato={L("un social network fotografico (nome generico, nessun marchio reale)", "a photo social network (generic name, no real brand)")}>
   <section class="sp-pannello prof-testa">
     <span class="prof-avatar" aria-hidden="true">CF</span>
     <div class="prof-dati">
       <strong class="prof-nome">{PROFILO.nome}</strong>
-      <span class="prof-cifre"><span><b data-n-post>24</b> post</span><span><b>12.670</b> follower</span><span><b>182</b> seguiti</span></span>
+      <span class="prof-cifre"><span><b data-n-post>24</b> post</span><span><b>{L("12.670", "12,670")}</b> follower</span><span><b>182</b> {L("seguiti", "following")}</span></span>
       <span class="prof-visibile">{PROFILO.nomeVisibile}</span>
       <p class="prof-bio">{PROFILO.bio}</p>
     </div>
@@ -22,28 +26,28 @@ export function getStaticPaths() { return LINGUE_APP(); }
 
   <div class="prof-corpo">
     <section class="sp-pannello">
-      <div class="sp-riga"><h2 class="prof-tit">Post</h2><span class="sp-nota">Dal più recente. Clicca un post per aprirlo.</span></div>
+      <div class="sp-riga"><h2 class="prof-tit">Post</h2><span class="sp-nota">{L("Dal più recente. Clicca un post per aprirlo.", "Most recent first. Click a post to open it.")}</span></div>
       <div class="prof-griglia" data-griglia></div>
       <details class="prof-archivio" data-archivio hidden>
-        <summary>Post archiviati (<span data-n-arch>0</span>)</summary>
+        <summary>{L("Post archiviati", "Archived posts")} (<span data-n-arch>0</span>)</summary>
         <div class="prof-griglia" data-griglia-arch></div>
       </details>
     </section>
     <section class="sp-pannello prof-dett" data-dettaglio>
-      <p class="sp-nota">Nessun post aperto. Clicca un post della griglia per vedere i dettagli.</p>
+      <p class="sp-nota">{L("Nessun post aperto. Clicca un post della griglia per vedere i dettagli.", "No post open. Click a post in the grid to see the details.")}</p>
     </section>
   </div>
 </Console>
 
 <script>
-  import { leggi, salva, pubblicati, dataBreve, giorno, er } from "../../../../../scripts/social/stato";
-  import POST from "../../../../../data/app/social-sim/post.json";
+  import { leggi, salva, pubblicati, dataBreve, giorno, er, POST } from "../../../../../scripts/social/stato";
+  import { t, EN } from "../../../../../scripts/lingua";
   const griglia = document.querySelector<HTMLElement>("[data-griglia]")!;
   const grigliaArch = document.querySelector<HTMLElement>("[data-griglia-arch]")!;
   const archivio = document.querySelector<HTMLDetailsElement>("[data-archivio]")!;
   const dett = document.querySelector<HTMLElement>("[data-dettaglio]")!;
   const esc = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-  const ICONA: Record<string, string> = { reel: "Reel", carosello: "Carosello", foto: "Foto" };
+  const ICONA: Record<string, string> = { reel: "Reel", carosello: t("Carosello", "Carousel"), foto: t("Foto", "Photo") };
   const classe = (pil: string) => "pil-" + pil.toLowerCase().replace(/[^a-z]/g, "").slice(0, 8);
   let aperto: string | null = null;
   let modifica = false;
@@ -72,16 +76,16 @@ export function getStaticPaths() { return LINGUE_APP(); }
     const p = pubblicati(m).find((x) => x.id === aperto)!;
     const orig = POST.post.find((x) => x.id === aperto)!;
     const cambiato = !!m.post[p.id] && Object.keys(m.post[p.id]).length > 0;
-    const testa = `<div class="d-testa"><h2 class="prof-tit">${esc(p.titolo)}</h2><button type="button" class="d-chiudi" data-chiudi aria-label="Chiudi il post">Chiudi</button></div>
+    const testa = `<div class="d-testa"><h2 class="prof-tit">${esc(p.titolo)}</h2><button type="button" class="d-chiudi" data-chiudi aria-label="${t("Chiudi il post", "Close the post")}">${t("Chiudi", "Close")}</button></div>
       <div class="d-anteprima ${classe(p.pilastro)}"><span class="t-formato">${ICONA[p.formato]}</span><span>${esc(p.titolo)}</span></div>
-      ${p.archiviato ? `<p class="d-avviso">Questo post è archiviato: i follower non lo vedono.</p>` : ""}`;
+      ${p.archiviato ? `<p class="d-avviso">${t("Questo post è archiviato: i follower non lo vedono.", "This post is archived: followers can't see it.")}</p>` : ""}`;
     if (modifica) {
       dett.innerHTML = `${testa}
         <form class="d-form" data-form>
-          <label>Didascalia<textarea name="didascalia" rows="6">${esc(p.didascalia)}</textarea></label>
-          <label>Testo alternativo <span class="sp-nota">(descrizione per chi non vede l'immagine)</span><textarea name="alt" rows="3">${esc(p.alt ?? "")}</textarea></label>
-          <label class="d-check"><input type="checkbox" name="collab" ${p.collab ? "checked" : ""} /> Etichetta «Partnership a pagamento» (collaborazione commerciale)</label>
-          <div class="d-bottoni"><button type="submit" class="bottone-app">Salva</button><button type="button" class="d-sec" data-annulla>Annulla</button></div>
+          <label>${t("Didascalia", "Caption")}<textarea name="didascalia" rows="6">${esc(p.didascalia)}</textarea></label>
+          <label>${t("Testo alternativo", "Alt text")} <span class="sp-nota">${t("(descrizione per chi non vede l'immagine)", "(description for people who can't see the image)")}</span><textarea name="alt" rows="3">${esc(p.alt ?? "")}</textarea></label>
+          <label class="d-check"><input type="checkbox" name="collab" ${p.collab ? "checked" : ""} /> ${t("Etichetta «Partnership a pagamento» (collaborazione commerciale)", "«Paid partnership» label (commercial partnership)")}</label>
+          <div class="d-bottoni"><button type="submit" class="bottone-app">${t("Salva", "Save")}</button><button type="button" class="d-sec" data-annulla>${t("Annulla", "Cancel")}</button></div>
         </form>`;
       dett.querySelector("[data-annulla]")!.addEventListener("click", () => { modifica = false; disegnaDettaglio(); });
       dett.querySelector<HTMLFormElement>("[data-form]")!.addEventListener("submit", (e) => {
@@ -99,17 +103,17 @@ export function getStaticPaths() { return LINGUE_APP(); }
       dett.innerHTML = `${testa}
         <p class="d-did">${esc(p.didascalia)}</p>
         <dl class="d-info">
-          <div><dt>Pubblicato</dt><dd>${giorno(p.data)} ${dataBreve(p.data)}/2026 alle ${p.ora}</dd></div>
-          <div><dt>Formato</dt><dd>${ICONA[p.formato]}</dd></div>
-          <div><dt>Pilastro</dt><dd>${esc(p.pilastro)}</dd></div>
-          <div><dt>Testo alternativo</dt><dd>${p.alt ? esc(p.alt) : "<em>non scritto</em>"}</dd></div>
-          <div><dt>Etichetta</dt><dd>${p.collab ? '<span class="sp-badge ok">Partnership a pagamento</span>' : "nessuna"}</dd></div>
-          <div><dt>Reazioni</dt><dd>${p.like} like · ${p.commenti} commenti · ${p.salvataggi} salvataggi · ER ${String(er(p)).replace(".", ",")}%</dd></div>
+          <div><dt>${t("Pubblicato", "Published")}</dt><dd>${giorno(p.data)} ${dataBreve(p.data)}/2026 ${t("alle", "at")} ${p.ora}</dd></div>
+          <div><dt>${t("Formato", "Format")}</dt><dd>${ICONA[p.formato]}</dd></div>
+          <div><dt>${t("Pilastro", "Pillar")}</dt><dd>${esc(p.pilastro)}</dd></div>
+          <div><dt>${t("Testo alternativo", "Alt text")}</dt><dd>${p.alt ? esc(p.alt) : `<em>${t("non scritto", "not written")}</em>`}</dd></div>
+          <div><dt>${t("Etichetta", "Label")}</dt><dd>${p.collab ? `<span class="sp-badge ok">${t("Partnership a pagamento", "Paid partnership")}</span>` : t("nessuna", "none")}</dd></div>
+          <div><dt>${t("Reazioni", "Reactions")}</dt><dd>${p.like} like · ${p.commenti} ${t("commenti", "comments")} · ${p.salvataggi} ${t("salvataggi", "saves")} · ER ${EN ? er(p) : String(er(p)).replace(".", ",")}%</dd></div>
         </dl>
         <div class="d-bottoni">
-          <button type="button" class="bottone-app" data-modifica>Modifica</button>
-          <button type="button" class="d-sec" data-archivia>${p.archiviato ? "Rimetti sul profilo" : "Archivia"}</button>
-          ${cambiato ? '<button type="button" class="d-link" data-originale>Torna all\'originale</button>' : ""}
+          <button type="button" class="bottone-app" data-modifica>${t("Modifica", "Edit")}</button>
+          <button type="button" class="d-sec" data-archivia>${p.archiviato ? t("Rimetti sul profilo", "Put back on the profile") : t("Archivia", "Archive")}</button>
+          ${cambiato ? `<button type="button" class="d-link" data-originale>${t("Torna all'originale", "Back to the original")}</button>` : ""}
         </div>`;
       dett.querySelector("[data-modifica]")!.addEventListener("click", () => { modifica = true; disegnaDettaglio(); });
       dett.querySelector("[data-archivia]")!.addEventListener("click", () => {
@@ -119,7 +123,7 @@ export function getStaticPaths() { return LINGUE_APP(); }
       });
       dett.querySelector("[data-originale]")?.addEventListener("click", () => { const m2 = leggi(); delete m2.post[p.id]; salva(m2); disegna(); });
     }
-    dett.querySelector("[data-chiudi]")!.addEventListener("click", () => { aperto = null; modifica = false; dett.innerHTML = '<p class="sp-nota">Nessun post aperto. Clicca un post della griglia per vedere i dettagli.</p>'; disegna(); });
+    dett.querySelector("[data-chiudi]")!.addEventListener("click", () => { aperto = null; modifica = false; dett.innerHTML = `<p class="sp-nota">${t("Nessun post aperto. Clicca un post della griglia per vedere i dettagli.", "No post open. Click a post in the grid to see the details.")}</p>`; disegna(); });
   }
 
   for (const g of [griglia, grigliaArch]) g.addEventListener("click", (e) => {
@@ -155,6 +159,9 @@ export function getStaticPaths() { return LINGUE_APP(); }
   @media (max-width: 560px) { :global(.t-titolo) { font-size: .66rem; -webkit-line-clamp: 2; } :global(.tessera) { padding: 6px; } }
   :global(.pil-imparail) { background: #dcecdf; } :global(.pil-ricette) { background: #dfe8f7; } :global(.pil-dietrole) { background: #e7e2f3; }
   :global(.pil-lacommun) { background: #d9eeec; } :global(.pil-prodotto) { background: #e8e6e1; } :global(.pil-collabor) { background: #f3e1ea; }
+  /* gli stessi colori per i pilastri in inglese */
+  :global(.pil-learnabo) { background: #dcecdf; } :global(.pil-recipes) { background: #dfe8f7; } :global(.pil-behindth) { background: #e7e2f3; }
+  :global(.pil-thecommu) { background: #d9eeec; } :global(.pil-product) { background: #e8e6e1; } :global(.pil-partners) { background: #f3e1ea; }
   :global(.d-testa) { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
   :global(.d-chiudi), :global(.d-sec) { font: inherit; font-weight: 700; font-size: .85rem; padding: 9px 14px; border-radius: 10px; border: 1px solid #d1cec8; background: #fff; cursor: pointer; color: var(--inchiostro); }
   :global(.d-link) { font: inherit; font-size: .85rem; background: none; border: 0; text-decoration: underline; cursor: pointer; color: #55514c; }

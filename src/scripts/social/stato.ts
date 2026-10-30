@@ -1,10 +1,23 @@
 // SIMULAZIONE SOCIAL: le modifiche fatte da chi gioca e il profilo "effettivo" che ne risulta.
 // Come il Pannello del negozio della SEO: tutto resta in questo browser (localStorage) e tutti gli strumenti
 // leggono da qui, così una didascalia corretta nel Calendario si vede anche nel Profilo.
-import POST from "../../data/app/social-sim/post.json";
-import CAL from "../../data/app/social-sim/calendario.json";
-import PROFILO from "../../data/app/social-sim/profilo.json";
-import COMMENTI from "../../data/app/social-sim/commenti.json";
+// Ogni file di dati ha il gemello inglese (.en.json): scegli() prende quello della lingua della pagina
+import POST_IT from "../../data/app/social-sim/post.json";
+import CAL_IT from "../../data/app/social-sim/calendario.json";
+import PROFILO_IT from "../../data/app/social-sim/profilo.json";
+import COMMENTI_IT from "../../data/app/social-sim/commenti.json";
+import LIB_IT from "../../data/app/social-sim/libreria.json";
+import POST_EN from "../../data/app/social-sim/post.en.json";
+import CAL_EN from "../../data/app/social-sim/calendario.en.json";
+import PROFILO_EN from "../../data/app/social-sim/profilo.en.json";
+import COMMENTI_EN from "../../data/app/social-sim/commenti.en.json";
+import LIB_EN from "../../data/app/social-sim/libreria.en.json";
+import { scegli, EN } from "../lingua";
+export const POST = scegli(POST_IT, POST_EN as typeof POST_IT);
+export const CAL = scegli(CAL_IT, CAL_EN as typeof CAL_IT);
+export const PROFILO = scegli(PROFILO_IT, PROFILO_EN as typeof PROFILO_IT);
+export const COMMENTI = scegli(COMMENTI_IT, COMMENTI_EN as typeof COMMENTI_IT);
+export const LIB = scegli(LIB_IT, LIB_EN as typeof LIB_IT);
 
 export const OGGI = "2026-10-29"; // la data "di oggi" nella simulazione
 const CHIAVE = "marketing-mix-social-modifiche";
@@ -69,5 +82,5 @@ export const commenti = (m = leggi()) => COMMENTI.voci.filter((c) => !(c as any)
 // Engagement rate sulla copertura, in percentuale con un decimale
 export const er = (p: Post) => Math.round(((p.like + p.commenti + p.salvataggi + p.condivisioni) / p.copertura) * 1000) / 10;
 export const dataBreve = (iso: string) => { const [, mm, gg] = iso.split("-"); return `${gg}/${mm}`; };
-export const GIORNI = ["domenica", "lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato"];
+export const GIORNI = EN ? ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] : ["domenica", "lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato"];
 export const giorno = (iso: string) => GIORNI[new Date(`${iso}T12:00:00`).getDay()];

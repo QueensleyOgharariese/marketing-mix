@@ -1,0 +1,534 @@
+1|Tutorial
+2|How the workspace works.
+3|Basics
+4|One concept at a time. «How it works» is already open and the hint is always available.
+5|Diagnosis
+6|Mixed problems, including false alarms. You open «How it works» yourself.
+7|Cases
+8|No hints: just data and theory. A month to plan and a crisis to handle.
+9|Tutorial: how it works
+10|8 minutes
+11|Profile, Calendar
+12|Where things are and how to save and check a change.
+13|Hi, I'm Sara and I look after Cinque Foglie's social media. Before we start I'll show you the tools: ten minutes and you're ready to go.
+14|Learn to move between profile, calendar and insights and to save a change.
+15|How the workspace is laid out
+16|You work on the social media of Cinque Foglie, a fictional online tea shop. The screen has three areas.
+17|<strong>On the left the menu</strong> (on a phone it's at the top): the profile, the post calendar, comments and messages, insights and the photo and music library.
+18|<strong>In the middle</strong> the open tool.
+19|<strong>On the right this guide</strong>: the task at the top, the answers below. The <strong>How it works</strong>, <strong>Theory</strong> and <strong>Hint</strong> tabs help you when needed; the button to check is always at the bottom.
+20|The side bars close with the X and reopen with the icon on the edge.
+21|What time was the last post published?
+22|Open the profile's most recent post and read the date and time.
+23|The profile shows posts as followers see them. Opening a post you also see what followers don't see straight away: publishing date and time, alt text, labels.
+24|On a restaurant's profile, opening the post with the menu of the day you see it went out at 11:30, before lunch.
+25|At 19:00
+26|Open the first post at the top left, the most recent, and read the time under the date.
+27|At 03:00 at night
+28|At 12:00
+29|Look at the time in the open post again.
+30|The last post went out at 3 at night: odd for a profile that talks to people who drink tea in the evening. You'll come across it again in the exercises.
+31|The most recent post is the first in the grid, at the top left.
+32|Open the Calendar
+33|Save your first change
+34|In the Calendar open the post scheduled for 31 October and add the sentence «Have a good weekend!» to the caption. Then save.
+35|The Calendar contains the posts already scheduled and the drafts. What you save here goes straight into the publishing plan. After every change press Check my work: the guide says what's fine and what isn't.
+36|In a scheduling tool you change the text of tomorrow's post and press Save: tomorrow it goes out with the new text.
+37|You edited a scheduled post and checked it: in the exercises you always work like this.
+38|The post of 31/10 is the reel «Our October in 30 seconds». Click it in the calendar to open the editor.
+39|Points, levels and how to choose
+40|Last rules, then we start from the Basics.
+41|Three levels: <strong>Basics</strong>, <strong>Diagnosis</strong> and <strong>Cases</strong>. Each exercise is a small project made of mini exercises.
+42|<strong>How it works</strong> explains the tool, not the answer. <strong>Theory</strong> is free. <strong>Hint</strong> costs 5 points.
+43|The guide fades as you go up a level: in Basics «How it works» is already open, in Diagnosis you open it yourself, in Cases there's only theory and data.
+44|Each exercise starts from 100 points: a wrong answer takes off 10 points. When you write or edit you can try again without losing points.
+45|The guide follows you into every tool.
+46|Opening a post you see date, time and details.
+47|In the Calendar you edit posts and then check.
+48|Perfect, now you know how to use the tools. We start from the Basics.
+49|The matcha kit post
+50|30 minutes
+51|Insights, Calendar
+52|From the goal to the scheduled post: format, caption, alt text and time.
+53|The matcha kit is here! I'd like to introduce it to people who don't follow us yet too. We've already shot the video: can you prepare the post?
+54|Prepare and schedule the matcha kit post, choosing format, copy and time using the data.
+55|Which format gets the profile discovered by the most new people?
+56|Look at the Averages by format in the Insights.
+57|Each format has a strength. To get discovered, reach counts, especially among people who don't follow the profile. Short vertical videos (reels) are suggested by the algorithm to people who don't follow you too.
+58|A bakery sees that its videos of dough rising reach lots of people in other cities, while its photos of bread reach almost only its customers.
+59|Choosing the format you like instead of the one the goal needs.
+60|The reel
+61|The carousel
+62|Carousels get lots of saves, but mostly reach people who already follow us.
+63|The single photo
+64|Photos have the lowest average reach.
+65|Reels have the highest average reach and more than half the people reached don't follow us: it's the format for getting discovered.
+66|Look at the «Non-followers» column in the averages by format.
+67|Write the matcha kit caption
+68|In the Calendar open the draft «Matcha kit: everything to get started» and write the caption.
+69|In the feed only the first words of the caption show (about 125 characters), then there's «more». The first sentence must make people stop scrolling. Then you say what's there, invite people to do something (go to the link in bio, save, comment) and finish with a few relevant hashtags. No health claims: matcha is a food.
+70|For a candle: «The scent of the woods after the rain, in a candle. Soy wax, 40 hours of light. Find it at the link in bio. #candles #cosyhome»
+71|Writing everything in capitals with lots of exclamation marks, or filling the caption with 30 hashtags.
+72|Example from a senior colleague: «Your first matcha, done right. The kit has organic matcha, a bamboo whisk and a bowl: all you need is hot water. Everything at the link in bio. #matcha #matchalatte #greentea»
+73|A short first sentence that sparks curiosity, then what's in the kit, then «link in bio», then 3-5 hashtags.
+74|Write the alt text
+75|In the same draft write the alt text (the description for people who can't see the image).
+76|Alt text describes what can be seen, for people using a screen reader. It's written simply and concretely: who, what, where. There's no need to write «image of», and it isn't filled with hashtags.
+77|For a pizzeria's post: «Margherita pizza fresh from the oven on a wooden board, with fresh basil.»
+78|Copying the caption into the alt text: people who can't see want to know what's in the image, not the slogan.
+79|Example: «Hands whisking matcha with a bamboo whisk in a white bowl; next to it, the kit's packaging.»
+80|Describe the video as you'd describe it to a friend on the phone.
+81|What's the best time to publish it?
+82|Look at the Active followers by hour chart.
+83|A post gets its first push in the hours after publishing: if followers are online at that moment, they interact and the algorithm shows it to more people. That's why you publish when your audience is active.
+84|A recipe profile publishes at 17:30, when people are thinking about dinner.
+85|Using the «best» time read in a generic article instead of your own profile's data.
+86|At 03:00, so it's the first post of the day
+87|At that time almost no followers are online.
+88|Between 19:00 and 21:00
+89|At 9 in the morning
+90|At 9 there's some activity, but the peak is in the evening.
+91|Cinque Foglie's followers are most active between 19:00 and 21:00: evening tea time.
+92|Look for the tallest bars in the chart.
+93|Schedule the post
+94|Schedule the matcha kit draft in the first week of November, at the best time.
+95|Scheduling means choosing the day and time the post will go out on its own. You choose a day without other posts, so they don't compete with each other.
+96|A museum schedules the post about its new exhibition for Thursday evening, the day before it opens.
+97|Scheduling two posts on the same day: they steal reach from each other.
+98|The post is in the plan: it'll go out in the first week of November, when followers are online.
+99|Drag the draft onto a day between 2 and 8 November, then in the editor choose a time between 19:00 and 21:00.
+100|After 24 hours, what do you look at to know whether the post introduced the kit to people?
+101|Think about Sara's goal.
+102|Each goal has its own number. For «getting known», what counts is how many different people saw the post (reach) and how many of them didn't follow the profile. Likes alone don't say how many new people you reached.
+103|A bike shop that wants to get known looks at how many new people saw the video, not how many loyal customers liked it.
+104|Looking only at likes because they're the most visible number.
+105|Reach and the percentage of non-followers
+106|Only the likes
+107|Likes say how much the people who saw it liked it, not how many new people saw it.
+108|The total number of followers
+109|It changes little in a day and depends on all the posts.
+110|Reach and non-followers say how many new people came across the kit: that's exactly Sara's goal.
+111|Reread the request: «introduce it to people who don't follow us».
+112|First you choose the goal, then the format: reels get the profile discovered.
+113|The caption has a strong first sentence, a call to action and a few hashtags.
+114|Alt text describes what can be seen.
+115|You publish when followers are online.
+116|Perfect, the kit post is in the calendar. In a week we'll look at the reach together!
+117|Reading the insights
+118|25 minutes
+119|Insights, Profile
+120|Reach, impressions, engagement rate: what works on the profile and what doesn't.
+121|Every month I have to tell management what works on social media. Can you help me read the numbers for September and October?
+122|Understand post metrics and write to Sara about what works and what doesn't.
+123|Reach or impressions: which number is higher, and why?
+124|Compare the two columns in the table.
+125|Reach counts the different people who saw a post. Impressions count every time it was seen, including several times by the same person. That's why impressions are always equal to or higher than reach.
+126|A billboard seen by 100 different people, some twice a day: 100 reach, perhaps 180 impressions.
+127|Using impressions to say «we reached X people»: the same person gets counted several times.
+128|Impressions, because one person can see the same post several times
+129|Reach, because it also counts people who don't follow the profile
+130|Impressions also count non-followers: the difference is that they count repeated views.
+131|They're always the same
+132|Look at a carousel: impressions are much higher, because people swiping through the slides see it again.
+133|Impressions are higher; in carousels much higher, because people come back to look at the slides.
+134|What's the engagement rate of the post «Matcha latte: quantities and whisk»?
+135|Use the formula: interactions ÷ reach × 100.
+136|Engagement rate says how much people react to a piece of content: interactions (likes, comments, saves, shares) divided by reach, times 100. You compare it with your own previous posts, not with other people's.
+137|A post with 150 interactions and 3,000 reach: 150 / 3,000 × 100 = 5%.
+138|Dividing by followers when you know the reach: you also count people who never saw the post.
+139|About 0.7%
+140|You divided by a number that's too big, perhaps the impressions.
+141|About 7%
+142|About 27%
+143|Check again: interactions are a few hundred, reach a few thousand.
+144|The matcha latte carousel has an engagement rate of about 7%: one of the highest on the profile, mainly thanks to saves.
+145|Add up the row's likes, comments, saves and shares and divide by the reach.
+146|Which format has the most saves?
+147|Look at the Averages by format.
+148|A save means «I want to find this again»: it's a strong sign of usefulness. People usually save content that teaches something: recipes, guides, lists.
+149|A travel profile sees that its carousels «10 things to see in Lisbon» get saved far more than its sunset photos.
+150|Looking only at likes and missing the strongest signal, the save.
+151|Reels reach more people, but get saved less.
+152|The photo
+153|Photos have very few saves.
+154|Educational carousels get saved more than anything: they're the most useful content for followers.
+155|Which posts did worst?
+156|Sort the table by engagement rate.
+157|To understand what doesn't work you look at the posts at the bottom of the ranking and look for what they have in common: format, pillar, time, topic.
+158|A wine shop sorts its posts and discovers that the five worst are all photos of bottles without people.
+159|Stopping at the single worst post instead of looking for what the worst ones have in common.
+160|The product photos with a sales line
+161|The carousels explaining how to brew tea
+162|They're among the best for engagement.
+163|The recipe reels
+164|They have average engagement and the highest reach.
+165|The product photos («You'll find it on the website») have engagement around 1.5%: people don't stop on an ad.
+166|Sort by ER by clicking the column header and look at the pillar of the last rows.
+167|Why do the product photos do badly?
+168|Reread the captions of those posts in the profile.
+169|On social media people aren't looking for advertising: they stop on what's useful, beautiful or fun. A product works better inside a story or a concrete use (a recipe, a tip) than on its own with «buy it».
+170|Instead of «New water bottle available», a sports shop shows a hike where the bottle keeps the water cool all day.
+171|Concluding that people don't like that product: it's the way it's presented that doesn't work.
+172|They're ads with no reason to stop: no tip, no story
+173|Because the products are ugly
+174|The same products do well in recipes and reels.
+175|Because the algorithm doesn't like photos
+176|The algorithm looks at how people react: it's the reaction that's low.
+177|The same things (the kit, the teapot) do well when they appear in a recipe or a tutorial: the way they're presented makes the difference.
+178|Write to Sara about what works
+179|Write 3-5 sentences for Sara: what works best, what works worst and what you propose.
+180|A short report for decision-makers puts the conclusion first, then the numbers that prove it, then a concrete proposal.
+181|«The guides to train travel get saved more than anything (ER 8%); the photos of deals do badly (1%). I propose presenting the deals inside the guides.»
+182|Copying every number in the table: the reader wants to know what to do.
+183|Example from a senior colleague: «Carousels that teach something work best: engagement around 7% and lots of saves. Reels bring in more new people. Product photos do badly (about 1.5%): I propose showing products inside recipes and tutorials instead of on their own.»
+184|Impressions are always equal to or higher than reach.
+185|Engagement rate = interactions ÷ reach × 100.
+186|Saves are the strongest sign of usefulness.
+187|Products work inside a story, not on their own.
+188|Crystal clear, I'll take it to the meeting as it is. From November more carousels and fewer «buy it» photos.
+189|The 3 a.m. posts
+190|Insights, Profile, Calendar
+191|Reach collapsed at the end of September: find when, why, and fix it.
+192|Since the end of September posts reach less than half the people. We haven't changed anything… or have we?
+193|Find the cause of the drop in reach, fix it and sort out the posts already scheduled.
+194|When does reach start dropping?
+195|Look at the post table in date order.
+196|To understand a drop you look for the exact moment it begins, then look for what changed in those days.
+197|An app sees sign-ups falling from 3 March: that day a new sign-up form had been released.
+198|Comparing one month with another without looking at the exact day something changes.
+199|From the start of September
+200|The posts at the start of September have high reach.
+201|From 21 September
+202|From mid-October
+203|By mid-October the drop had been going on for weeks.
+204|From the post of 21 September reach halves, apart from a few posts.
+205|Sort by date and look for where the numbers collapse.
+206|What do the posts doing badly since then have in common?
+207|Compare the low posts with the ones still doing well.
+208|When some posts in a period do well and others badly, the difference between the two groups points to the cause.
+209|In a shop, sales fall only on the days the new sales assistant works: the problem is the shift or the person, not the shop.
+210|Blaming the algorithm without looking at what sets the successful posts apart.
+211|They were published at 03:00 at night
+212|They're all carousels
+213|There are reels, carousels and photos: the format doesn't explain the drop.
+214|They have too many hashtags
+215|The hashtags are similar to those of the September posts.
+216|All the posts doing badly since then went out at 03:00. The ones published by hand at 19:00 still do well.
+217|Look at the Time column.
+218|Why do they go out at 3 a.m.?
+219|Look at the Calendar settings.
+220|Scheduling tools have default settings: if you don't choose a time, they use their own. A forgotten setting can change months of results.
+221|A newsletter scheduled «in bulk» always goes out at midnight because nobody changed the default time.
+222|Thinking someone publishes at night on purpose, without checking the settings.
+223|Since 21/09 posts are scheduled in bulk and the tool's default time is 03:00
+224|Because the algorithm rewards night-time posts
+225|The data says the opposite: at night reach collapses.
+226|Because the profile's time zone is wrong
+227|The settings clearly show a default time, not a different time zone.
+228|Since 21/09 the team uploads posts in bulk and the tool puts them at 03:00, the default time that was never changed.
+229|The box is called Scheduling settings.
+230|Fix the default time
+231|In the Calendar settings choose a default time that suits Cinque Foglie's followers.
+232|The default time should be chosen using your own audience's data (active followers by hour), not at random.
+233|A breakfast profile sets 7:30, when its followers look for morning ideas.
+234|Choosing a time that's «convenient for the team» instead of for the audience.
+235|From now on, posts scheduled in bulk will go out when followers are online.
+236|Look at the active followers chart: where are the tallest bars?
+237|Move the posts already scheduled
+238|Changing the setting doesn't move posts already in the calendar: fix the time of the three posts in the next few days.
+239|A new setting applies to the future: things already scheduled stay as they were. After a fix you always check what's already in the queue.
+240|You change a shop's standard delivery time, but the orders already booked for tomorrow stay at the old time until you move them.
+241|Taking for granted that the fix also applies to what was already scheduled.
+242|The three posts will go out in the evening: no more posts at 3 a.m.
+243|Open the posts of 30/10, 31/10 and 1/11 and change the time.
+244|The post of 2/10 went out at 19:00 but did badly. Same problem?
+245|Look at the post's format and pillar.
+246|Not all low results have the same cause. Before applying the same explanation to everything, you check whether the case really is similar.
+247|In a restaurant covers drop on Tuesdays because of roadworks, but the Saturday drop depends on the weather: two different causes.
+248|Putting every drop down to the first cause you found.
+249|Yes, it went out at night too
+250|Look at the time: 19:00.
+251|No: it's a product photo, which does badly even at 19:00
+252|Yes, because it went out on a Friday
+253|The day has nothing to do with it: look at the type of post.
+254|It's a false alarm as far as timing goes: it's a product photo, and product photos do badly at any time.
+255|To understand a drop you look for the exact day and what changed.
+256|A forgotten default setting can cost months of results.
+257|Fixes apply to the future: what's already scheduled has to be moved by hand.
+258|Not all low results have the same cause.
+259|Incredible, it was a setting! Thanks: from tonight posts go out when people are around.
+260|A week of comments
+261|35 minutes
+262|Comments and messages
+263|Criticism, personal data, spam, repeated questions: who to answer, how, and what to hide.
+264|I was away for a week and the comments are full of everything. Can you help me sort out the community before someone gets angry?
+265|Reply to and moderate the week's comments the right way.
+266|Which comment is most urgent?
+267|Read all the comments and messages.
+268|In the community you reply first to people with a problem, especially if they've been waiting a while and the comment is public: every extra hour, more people see it.
+269|A hotel replies first to the review «dirty room, nobody helped me» rather than to the compliments on breakfast.
+270|Replying in order of arrival, or to the easy positive comments first.
+271|The customer who's been waiting 4 days about a late order
+272|The compliment on the Sencha
+273|It's nice, but it can wait.
+274|The question about Switzerland
+275|It's a simple question, not an open problem.
+276|The criticism about the late order is public, has been waiting 4 days and nobody has replied: it must be handled first.
+277|Open the comments
+278|Reply to the criticism
+279|Reply publicly to the customer with the late order.
+280|A good reply to criticism thanks or apologises, doesn't argue, moves the conversation to private messages for the details and says what happens now. It's short and in the brand's tone.
+281|«Hi Paolo, we're really sorry for the wait. We'll message you privately right now to find out where the parcel is and sort everything out.»
+282|Replying «we've already answered the emails» or blaming the courier in front of everyone.
+283|The customer feels listened to and readers see a company that responds. The order details are handled privately.
+284|An apology, an invitation to continue privately, what you'll do now.
+285|A customer has written their details in public
+286|A customer has written their order number and address in a comment. Protect them and help them.
+287|Personal data (address, order number, phone) mustn't stay public. You hide the comment and ask to continue privately, without repeating the data in the reply. It's respect for the person and in line with the GDPR.
+288|A customer writes her phone number under a post: the gym hides the comment and messages her privately.
+289|Replying publicly repeating the order number or address to «confirm».
+290|The comment is hidden and the customer knows where to continue: their data is no longer in front of everyone.
+291|First hide the comment, then reply inviting them to write privately.
+292|Moderate spam and insults
+293|Hide or report only the comments that must go. Honest criticism stays.
+294|You moderate spam (advertising, scams) and insults without content. Honest criticism, even harsh, isn't hidden: you reply. Hiding it makes the company look less transparent.
+295|A restaurant hides «earn €1,000 from home» but replies to «the risotto was overcooked».
+296|Hiding everything negative to have a «clean» profile.
+297|The spam and the insult are gone; the criticism about the rooibos stays, and deserves a reply.
+298|There's one spam, one insult and one honest criticism of a product: only the first two must go.
+299|Three people ask about matcha quantities. What do you do besides replying?
+300|Reread the questions about matcha.
+301|Repeated questions are a great source of ideas: if three people ask the same thing in a week, many others are wondering without writing.
+302|A plant shop always gets «how often do I water?»: it makes a carousel that becomes the most saved post of the year.
+303|Answering from scratch each time without realising it's a topic for content.
+304|I propose a carousel with matcha quantities
+305|I hide the repeated questions
+306|They're honest customer questions: you reply.
+307|I reply «look at the website»
+308|It's unkind and doesn't help people on social media.
+309|The repeated question becomes content: November's drafts already include «How much water for matcha?».
+310|Reply to a question about quantities
+311|Reply to one of the people asking how much matcha to use.
+312|A useful reply is concrete: numbers and steps. For matcha: about 2 grams (a scant teaspoon) in 70 ml of water at 75-80 °C, whisking. You finish on a warm note.
+313|«Hi! For an espresso we use 7 grams of ground coffee: a level spoonful. Enjoy your break!»
+314|Replying vaguely («a little, to taste») to someone who asked for a number.
+315|A reply with numbers solves the problem and shows that Cinque Foglie knows what it's talking about.
+316|Write how many grams (or teaspoons) and how much water.
+317|A creator proposes a partnership privately. What do you do?
+318|Read the creator's message.
+319|Partnerships with creators are the job of influencer marketing: you assess audience, values, costs and rules (advertising must be disclosed). The social media manager usually hands them over to whoever handles them, with a kind reply.
+320|In a cosmetics company, whoever manages comments forwards creators' proposals to the partnerships colleague.
+321|Accepting straight away in the chat, without assessing the profile or agreeing the rules.
+322|I reply kindly and hand it over to whoever handles influencer marketing
+323|I accept straight away: 32k followers is a lot
+324|First you assess whether the audience fits and agree the rules.
+325|I ignore it
+326|It's a serious proposal: it deserves a reply.
+327|Partnerships are assessed with whoever handles them: a suitable audience, a written agreement, disclosed advertising.
+328|You reply first to public problems that have been waiting a while.
+329|Personal data doesn't stay public: you hide it and move to private messages.
+330|You moderate spam and insults, not honest criticism.
+331|Repeated questions become content.
+332|Thanks! The customer with the order has already messaged me privately, and we'll prepare the matcha carousel for November.
+333|Photos, rights and partnerships
+334|Library, Profile
+335|A photo used without permission and an undisclosed partnership: find them and fix them.
+336|A customer wrote to us: «you used my photo without asking me». And the lawyer wants to know whether the partnerships are in order. Can you check?
+337|Find the content at risk, ask for permission and disclose the partnership.
+338|Which photo can't be used?
+339|Look at the permissions column in the Library.
+340|A photo someone publishes on social media isn't free: it belongs to whoever took it. To repost it you need their permission. Team photos and those with a commercial licence can be used.
+341|A café reposts a customer's photo with their cappuccino: first it writes «can we share it and credit you?».
+342|Thinking «it's public, so it can be used».
+343|@giulia.foglie's matcha latte
+344|Anna's cup
+345|Anna gave permission on 13/09.
+346|Steaming cup on an autumn background
+347|It has a purchased commercial licence.
+348|Giulia's photo was taken from her profile without asking her anything.
+349|In which post was it used?
+350|Look for the post in the profile.
+351|Once you've found content at risk, you check where it was used, so you can fix everything.
+352|A company discovers an unlicensed photo and checks the website, newsletter and social media to remove it everywhere.
+353|Fixing only the library and leaving the post published.
+354|In the post of 12/10 «Giulia's matcha latte»
+355|In the post of 14/09 «Anna's cup»
+356|That's Anna's photo, with permission.
+357|In the reel of 8/10
+358|The reel is @tazzaemiele's, with an agreement.
+359|The post of 12/10 uses Giulia's photo, and the caption doesn't even credit her.
+360|Open the Library
+361|Ask Giulia for permission
+362|In the Library write the message asking Giulia for permission to use the photo.
+363|A good message is kind and clear: it introduces itself, asks permission for a specific use, offers to credit the author and, if needed, apologises. It leaves the person free to say no.
+364|«Hi Marco! We're Aurora café: your cappuccino photo is beautiful. Can we share it on our profile and credit you? If you'd rather not, no problem.»
+365|Just writing «we tagged you!» after already using it, as if that were enough.
+366|The message is ready: with written permission the photo can be used, with a credit.
+367|Say hello, apologise for using it before asking, ask for permission and offer to credit her.
+368|Open the profile
+369|Take the post down in the meantime
+370|Until Giulia replies, take the post off the profile without deleting it.
+371|Archiving a post removes it from the profile but keeps it: if permission arrives it can go back up, with the credit. It's the careful choice while you wait.
+372|A shop archives the post with a photographer's photo until the licence arrives.
+373|Leaving the post online «because everyone has seen it by now anyway».
+374|The post is no longer visible: if Giulia says yes, you put it back up with her credit.
+375|Open the post of 12/10 and use Archive.
+376|What's wrong with the reel of 8/10 with @tazzaemiele?
+377|Open the reel and check the Library for the agreement.
+378|When a creator gets money or products in exchange for content, the content is advertising and must be clearly disclosed (the platform's partnership label, #ad at the start). In Italy the advertising rules and the AGCOM guidelines on influencers require it.
+379|A creator receives a free cream and shows it: the post must say it's a partnership, even without a cash payment.
+380|Thinking that without a cash payment it isn't advertising.
+381|The kit was given in exchange for the video, but the reel isn't marked as a partnership
+382|The video is too long
+383|The length is fine: the problem is legal.
+384|The #matcha hashtag is missing
+385|It's there, and anyway that's not the problem.
+386|A kit given in exchange for a video is a commercial partnership: it must be disclosed.
+387|Disclose the partnership
+388|Fix the reel of 8/10 so it's clear it's a partnership.
+389|You use the platform's label («Paid partnership» or similar) together with a statement at the start of the caption: #ad or «Partnership with…». Viewers must understand it straight away.
+390|«#ad Partnership with @bioskin: I tried their cream for a month…»
+391|Putting #ad among 20 hashtags at the end, where nobody reads it.
+392|Now the reel is disclosed: label on and #ad at the start of the caption.
+393|Open the reel, turn on the partnership label and add #ad at the start of the caption.
+394|For the chai reel, which music can you use?
+395|Look at the music items in the Library.
+396|Music has its rights too. Business profiles can only use tracks with a commercial licence, for example those in the platform's library for businesses. Famous songs are often not available for commercial use.
+397|A travel agency uses an instrumental track from the business library instead of the summer hit.
+398|Using the song of the moment because «everyone uses it»: for a company the risk is that the video gets taken down or muted.
+399|Calm acoustic guitar (library for commercial use)
+400|Famous song of the moment
+401|It isn't available for business profiles.
+402|Any track, as long as you credit the artist
+403|Crediting isn't enough: you need the licence.
+404|The track from the business library can be used; the famous song can't.
+405|Other people's photos are used only with permission, crediting the author.
+406|Archiving removes a post without deleting it.
+407|Products given in exchange for content = advertising to disclose.
+408|Music must have the right licence too.
+409|Giulia replied: she's delighted, let's put the post back up with her credit. And the lawyer is happy with the reel.
+410|The November calendar
+411|45 minutes
+412|Calendar, Insights
+413|A whole month: the advent calendar launch, Black Friday, pillars and times.
+414|November is the most important month: on the 2nd we launch the advent calendar and on the 27th it's Black Friday. The drafts are ready: can you prepare the calendar?
+415|Schedule November's drafts with balance, the right dates, copy and measurable links.
+416|How many posts a week?
+417|Look at how many posts a week have been published so far and how they did.
+418|Regularity counts more than quantity. Better three careful, consistent posts a week than one a day done in a rush; and the frequency must be sustainable for the team.
+419|A small bakery posts on Monday, Wednesday and Friday: followers know when to expect fresh bread.
+420|Posting loads in November and then disappearing in December.
+421|About 3 a week, regularly
+422|One a day, to make the most of the month
+423|With ten drafts and a small team it isn't sustainable, and it isn't needed.
+424|All in the first week
+425|Then the profile would stay empty right before Black Friday.
+426|So far the profile has published 3 posts a week with good results when the time was right: we carry on like that.
+427|Schedule November's drafts
+428|Put at least 8 drafts into the November calendar, with the right dates and times.
+429|A good calendar follows the key dates, alternates pillars (not just product), spreads posts across the weeks without two posts on the same day and uses the time when followers are online.
+430|In December a bookshop alternates reading tips, behind the scenes and a single promotion, on the right day.
+431|Putting all the promotions in a row: the profile turns into a flyer.
+432|The month is ready: launch on 2-4 November, Black Friday on the 27th, alternating pillars and evening posts.
+433|For the advent calendar launch, which pair of formats?
+434|Think about what each post has to do.
+435|A launch has two jobs: being seen by as many people as possible and explaining the product well. Different formats are used for the two jobs.
+436|A new app comes out with a short video that sparks curiosity and a slide guide on how it works.
+437|Using a single post to do everything.
+438|A reel to get it discovered and a carousel to show what's inside
+439|Only stories
+440|They disappear in 24 hours and mostly reach followers.
+441|A product photo with «available on the website»
+442|It's the type of post that does worst on the profile.
+443|Reel for reach, carousel for the details: they're already in the drafts (b01 and b02).
+444|Write the launch caption
+445|Write the caption for the advent calendar launch reel.
+446|A launch caption says what it is, when it's available from, why it's special and what to do now. A short, strong first sentence, a clear call to action, a few hashtags. No fake urgency («last few left!» if it isn't true).
+447|«24 coffees from around the world, one a day until Christmas. Our advent calendar is available from today: find it at the link in bio. #adventcalendar»
+448|Writing «LAST FEW LEFT, HURRY» on the first day: it's false and loses trust.
+449|Example from a senior colleague: «24 teas, one for every day until Christmas. The Cinque Foglie advent calendar is available from 2 November: inside you'll find organic teas and herbal teas to discover day by day. Find it at the link in bio. #adventcalendar #tea»
+450|For the Black Friday post, which number do you look at?
+451|Think about that post's goal.
+452|Every post has a goal and a number. A promotion post is for selling: you look at link clicks and the purchases coming from there, measured with a UTM link.
+453|A cinema looks at how many tickets come from the link in the promotion post, not how many likes the post has.
+454|Judging a sales post by its likes.
+455|Link clicks and the sales coming from that link
+456|The likes
+457|A post can be liked a lot and sell nothing.
+458|New followers
+459|It isn't the goal of a promotion post.
+460|To measure sales from the post you need a link with UTM parameters: you'll prepare it in the next step.
+461|Prepare the Black Friday link
+462|In the Black Friday draft put a link to the website with UTM parameters.
+463|UTM parameters are added to the link to find out where visits come from: utm_source (who sends it: instagram), utm_medium (the type of channel: social), utm_campaign (the campaign: for example black-friday). They're then read in the website's analytics.
+464|cinquefoglie.example/?utm_source=newsletter&utm_medium=email&utm_campaign=christmas
+465|Writing the values differently each time (Instagram, IG, insta): analytics counts them as different sources.
+466|With the UTM link we'll know how many Black Friday sales come from this post.
+467|Explain the plan to Sara
+468|Write 3-5 sentences to Sara: how you organised November and how you'll measure the results.
+469|Presenting a plan means explaining the choices: why those dates, those formats, those times, and how you'll know whether it worked.
+470|«In December we alternate tips and promotions, 3 posts a week at 18:00. On launch day a reel and a carousel. We measure clicks with UTM links.»
+471|Listing the posts one by one without explaining why.
+472|Example from a senior colleague: «November has 3 posts a week, always in the evening between 19:00 and 21:00. We launch the advent calendar on the 2nd with a reel and the next day a carousel with what's inside. We alternate recipes and tips with product posts and put Black Friday only on the 27th. We measure reach for the launch and clicks with UTM links for Black Friday.»
+473|Regularity before quantity.
+474|A launch uses several formats with different jobs.
+475|Every post has its number: reach, saves, clicks.
+476|UTM links say how many sales come from a post.
+477|The calendar is perfect. I'll share it with the team and we'll put it into production from Monday.
+478|A small crisis
+479|40 minutes
+480|Comments and messages, Calendar
+481|Matcha kits arriving broken, angry comments and a promo scheduled at the wrong moment.
+482|Help: this morning lots of matcha kits arrived with a broken whisk and the comments are exploding. @tazzaemiele is talking about it in her stories too. What do we do?
+483|Handle the crisis: understand, reply, stop what makes things worse, inform.
+484|What's the first thing to do?
+485|Read today's comments.
+486|In a crisis the first thing is to understand the facts: what happened, to how many people, why. You ask straight away the people who have the information (warehouse, customer service). Replying without knowing risks promising the wrong things.
+487|A toy company gets reports of broken pieces: first it checks with logistics which batch is involved, then it replies.
+488|Replying at random «we're not aware of this» before checking.
+489|Ask the warehouse and customer service what happened and how many orders are involved
+490|Delete the negative comments
+491|It makes everything worse: people notice and get angrier.
+492|Wait for it to blow over
+493|Every hour without a reply, the comments increase.
+494|The warehouse confirms: a batch of whisks broke in transit, about 40 kits shipped yesterday.
+495|Stop the scheduled post
+496|In the calendar there's a post that would make the situation worse today: suspend it.
+497|In a crisis you check the scheduled posts: a cheerful promotion in the middle of the complaints looks insensitive. You suspend it and reschedule it for later.
+498|During an outage, a phone company suspends the «Discover our offers!» posts planned for that day.
+499|Letting everything go out as planned because «it was already scheduled».
+500|The matcha kit flash promo won't go out today: it would have looked like a slap in the face.
+501|Write the public message
+502|Write the text to publish (story or post): what happened, what you're doing for the people involved and how to contact you.
+503|A crisis message is short, sincere and concrete: it acknowledges the problem, apologises, explains what's being done to put it right and how to contact the company. It doesn't blame others and doesn't play it down.
+504|«Some of yesterday's orders arrived with a broken lid. We're very sorry. We'll send you a new product straight away, free: message us privately with your order number.»
+505|Writing «the problem is the courier's» or «it's very few cases»: the people involved feel ignored.
+506|Example from a senior colleague: «Some matcha kits shipped yesterday arrived with a broken whisk. We're really sorry, especially to those who chose them as a gift. We're sending a new whisk to everyone straight away, free: message us privately with your order number. We're checking our packaging so it doesn't happen again.»
+507|Reply to the comments
+508|Reply to at least three comments about the broken whisk, without hiding them.
+509|In a crisis you reply to everyone with the same core message (apology, remedy, private messages), but personalised: copying and pasting the same sentence to everyone sounds like a robot. Criticism isn't hidden.
+510|«Hi Anna, we're so sorry: we'll message you privately to send you the new part straight away.»
+511|Pasting exactly the same text under twenty comments.
+512|Every person has had a reply and knows they'll get a new whisk.
+513|@tazzaemiele is talking about it in her stories. What do you do?
+514|Think about who she is and what she wrote.
+515|When someone with an audience talks about the problem, it's worth contacting them directly, sincerely: explaining what happened and what's being done. You don't ask them to delete anything.
+516|A restaurant criticised by a food blogger calls him, apologises and invites him back: the blogger updates his post.
+517|Asking her to delete the stories or offering her money to say nice things.
+518|I message her privately, apologise and explain how we're putting it right
+519|I ask her to delete the stories
+520|It looks like censorship and makes things worse.
+521|I ignore her, stories disappear anyway
+522|Her audience remembers how the company reacted.
+523|With the right information, it's often the creator herself who updates her audience: «They've already sent me a new whisk!».
+524|Write the summary for Sara
+525|Write 3-6 sentences: what happened, what you did today and what you propose to change.
+526|After a crisis you write a summary: the facts, the actions taken, what worked and what to change so it doesn't happen again.
+527|«Yesterday 30 orders arrived with a broken lid. We replied to everyone, resent the product and suspended the promo. We propose trying new packaging.»
+528|Only describing how tiring it was, without facts and proposals.
+529|Example from a senior colleague: «About 40 matcha kits shipped yesterday arrived with a broken whisk. Today we suspended the flash promo, published a story with the apology and the remedy, replied to all the comments and wrote to @tazzaemiele. We're resending a new whisk free to everyone involved. We propose protecting the whisks better in the packaging.»
+530|In a crisis you understand the facts first.
+531|Scheduled posts that are out of place get stopped.
+532|A sincere public message: apology, remedy, contact.
+533|Criticism isn't hidden: you reply to everyone, personally.
+534|Thanks, handled brilliantly. @tazzaemiele has already written «they sent me a new whisk in a day»: almost better than before!
